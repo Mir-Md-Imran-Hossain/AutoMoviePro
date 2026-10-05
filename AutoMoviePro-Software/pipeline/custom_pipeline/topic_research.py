@@ -164,15 +164,16 @@ def run_topic_research(
     output_root: Optional[Path] = None,
     temperature: float = 0.7,
     save: bool = True,
-    max_dedupe_retries: int = 3,
-    dedupe_threshold: float = 0.60,
+    max_dedupe_retries: int = 5,
+    dedupe_threshold: float = 0.45,
 ) -> Dict[str, Any]:
-    """Generate topic + titles + tags + script via Grok, with ≥60% duplicate guard.
+    """Generate topic + titles + tags + script via Grok, with duplicate guard across all formats.
 
-    If topic/script matches existing history by ≥60%, re-calls the API with a
+    If topic/script matches existing history, re-calls the API with a
     blocked-topic list until a fresh result arrives (or retries exhausted).
     """
     from pipeline.custom_pipeline.duplicate_guard import (
+        DEFAULT_THRESHOLD,
         blocked_topic_list,
         build_dedupe_retry_suffix,
         find_duplicate,
@@ -184,7 +185,8 @@ def run_topic_research(
     )
 
     kind = normalize_video_type(video_type)
-    history = load_history(video_type=kind, output_root=output_root)
+    # Always scan across both Short and Long outputs so topics are never repeated across formats
+    history = load_history(video_type=kind, output_root=output_root, include_all_formats=True)
     blocked = blocked_topic_list(history)
     attempts: List[Dict[str, Any]] = []
     payload: Dict[str, Any] = {}
@@ -196,8 +198,16 @@ def run_topic_research(
 
     for attempt in range(1, max(1, int(max_dedupe_retries)) + 1):
         dedupe_note = ""
+        current_temp = temperature
         if attempt > 1 and (blocked or last_match):
             dedupe_note = build_dedupe_retry_suffix(blocked, match=last_match)
+            if attempt >= 4:
+                # Elevate temperature and inject emergency diversity directive on repeated retries
+                current_temp = min(1.0, temperature + 0.15)
+                dedupe_note += (
+                    "\n\n⚡ জরুরি ডাইভার্সিটি ইনস্ট্রাকশন: পরিচিত সব টপিক ও কোম্পানি বাদ দিয়ে "
+                    "সম্পূর্ণ আনকমন ও চমকপ্রদ অন্য কোনো আবিষ্কার, ঘটনা বা ফ্যাক্ট নিয়ে ভাবো।"
+                )
 
         prompt = build_topic_research_prompt(
             niche=niche,
@@ -212,7 +222,7 @@ def run_topic_research(
             system=SYSTEM_JSON_ONLY,
             api_keys=api_keys,
             json_mode=True,
-            temperature=temperature,
+            temperature=current_temp,
         )
         parsed = parse_grok_json(raw)
         payload = normalize_payload(parsed, video_type=kind)
@@ -264,11 +274,27 @@ def run_topic_research(
         )
         break
     else:
-        logger.warning(
-            "Dedupe/quality retries exhausted — keeping last payload (quality_ok=%s, score=%.2f)",
-            quality.get("ok", False),
-            quality.get("score", 0.0),
-        )
+        # Zero tolerance on duplicate topics
+        if match:
+            logger.error(
+                "CRITICAL: Dedupe retries exhausted (%s attempts) and topic is still a duplicate! "
+                "Refusing to emit duplicate payload for topic: %s (matched with: %s, score=%.2f)",
+                max_dedupe_retries,
+                ((payload.get("seo_metadata") or {}).get("selected_topic")),
+                match.get("existing_topic"),
+                float(match.get("score") or 0.0),
+            )
+            raise RuntimeError(
+                f"Duplicate topic detected after {max_dedupe_retries} attempts: "
+                f"'{((payload.get('seo_metadata') or {}).get('selected_topic'))}' collides with "
+                f"'{match.get('existing_topic')}' (score={match.get('score')}). Aborting to prevent duplicate video."
+            )
+        else:
+            logger.warning(
+                "Quality retries exhausted — keeping last payload (quality_ok=%s, score=%.2f)",
+                quality.get("ok", False),
+                quality.get("score", 0.0),
+            )
 
     quality_report = quality or evaluate_script_quality(payload, video_type=kind)
 
