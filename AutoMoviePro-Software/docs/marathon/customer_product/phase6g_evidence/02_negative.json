@@ -1,0 +1,14 @@
+{
+  "required_dialogue": "person enters hospital room",
+  "observed": {
+    "observed_subjects": [
+      "woman with short grey hair"
+    ],
+    "observed_location": "sci-fi interior or dark room",
+    "observation_status": "FAIL",
+    "provider_verified": true
+  },
+  "alignment_status": "FAIL",
+  "must_not_be_pass": true,
+  "is_not_pass": true
+}

@@ -1,0 +1,83 @@
+{
+  "niche_id": 95,
+  "name": "Privacy & Security Tools",
+  "slug": "privacy-security-tools",
+  "style_family": "history",
+  "status": "VERIFIED",
+  "topic_seeds": [
+    "What new evidence reframes the story of Privacy inside Privacy & Security Tools",
+    "How Privacy still shapes public curiosity about Privacy & Security Tools",
+    "What new evidence reframes the story of Security Tools inside Privacy & Security Tools",
+    "How Security Tools still shapes public curiosity about Privacy & Security Tools",
+    "What new evidence reframes the story of Tor inside Privacy & Security Tools",
+    "How Tor still shapes public curiosity about Privacy & Security Tools"
+  ],
+  "seo_angles": [
+    "What new evidence reframes the story of Privacy inside Privacy & Security Tools",
+    "How Privacy still shapes public curiosity about Privacy & Security Tools",
+    "What new evidence reframes the story of Security Tools inside Privacy & Security Tools",
+    "How Security Tools still shapes public curiosity about Privacy & Security Tools"
+  ],
+  "forbidden_visuals": [
+    "talking-head lip-sync avatar",
+    "burned-in captions",
+    "watermark",
+    "modern meme text",
+    "modern smartphones",
+    "cars",
+    "LED screens",
+    "sneakers",
+    "contemporary skyline"
+  ],
+  "preferred_subjects": [
+    "Privacy & Security Tools documentary subject",
+    "period-accurate environment",
+    "evidence object close-up"
+  ],
+  "lighting_default": "warm desert sun / torchlit interiors, high-contrast documentary grade",
+  "face_policy": "period extras OK if consistent; prefer environment/object hero when possible",
+  "dialogue_tone": "human documentary narration; specific nouns; 7–9s beats",
+  "audio_ambience": "subtle documentary bed; do not overpower voice",
+  "research_hints": [
+    "Prefer primary evidence and concrete entities for Privacy & Security Tools",
+    "Avoid generic niche-label topics; require specific place/person/event/mechanism",
+    "7–9 second spoken beats with story continuity across scenes"
+  ],
+  "topic_prompt_overlay": "NICHE LOCK (Privacy & Security Tools): only propose topics that fit this niche's video type. Video type: VPNs, encrypted email, Tor — how they work, who needs them, and simple setup tutorials. Follow niche topic strategy: Follow cybersecurity news, privacy advocacy, or new tool releases. Generate a topic about a privacy tool that recently gained popularity.",
+  "video_prompt_overlay": "NICHE VISUAL LOCK (Privacy & Security Tools / history): Generate a 7–9 second dialogue clip based on the topic `{topic}`. Each dialogue must be practical and careful. For each dialogue, generate: - **Audio Generation Prompt:** Voice — cautious, with secure beeps and clicks. - **Video Generation Prompt:** Detailed visual — a computer screen with lock icons. No character — screen. Lighting: dark with monitor glow. Maintain same glow. Forbidden: talking-head lip-sync avatar, burned-in captions, watermark, modern meme text, modern smartphones, cars, LED screens, sneakers. Preferred subjects: Privacy & Security Tools documentary subject, period-accurate environment, evidence object close-up. Lighting: warm desert sun / torchlit interiors, high-contrast documentary grade. Face policy: period extras OK if consistent; prefer environment/object hero when possible. Dialogue tone: human documentary narration; specific nouns; 7–9s beats. Ambience: subtle documentary bed; do not overpower voice.",
+  "i18n": {
+    "en": {
+      "name": "Privacy & Security Tools",
+      "blurb": "VPNs, encrypted email, Tor — how they work, who needs them, and simple setup tutorials."
+    },
+    "bn": {
+      "name": "গোপনীয়তা ও নিরাপত্তা টুল",
+      "blurb": "ভিডিও টাইপ: VPNs, encrypted email, Tor — how they work, who needs them, and simple setup tutorials."
+    },
+    "hi": {
+      "name": "गोपनीयता और सुरक्षा टूल",
+      "blurb": "वीडियो प्रकार: VPNs, encrypted email, Tor — how they work, who needs them, and simple setup tutorials."
+    },
+    "ur": {
+      "name": "پرائیویسی اور سیکیورٹی ٹولز",
+      "blurb": "ویڈیو کی قسم: VPNs, encrypted email, Tor — how they work, who needs them, and simple setup tutorials."
+    },
+    "ta": {
+      "name": "தனியுரிமை & பாதுகாப்பு கருவிகள்",
+      "blurb": "வீடியோ வகை: VPNs, encrypted email, Tor — how they work, who needs them, and simple setup tutorials."
+    },
+    "ml": {
+      "name": "സ്വകാര്യതയും സുരക്ഷാ ഉപകരണങ്ങളും",
+      "blurb": "വീഡിയോ തരം: VPNs, encrypted email, Tor — how they work, who needs them, and simple setup tutorials."
+    }
+  },
+  "source": "Nish.Md + deterministic research",
+  "research_notes": [
+    "Marathon researched at 2026-09-10T08:30:21Z",
+    "Video type length=87",
+    "Topic prompt length=137",
+    "Video prompt length=379",
+    "Seeds=6"
+  ],
+  "verified_at": "2026-09-10T08:30:22Z"
+}

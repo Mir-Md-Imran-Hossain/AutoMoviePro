@@ -1,0 +1,26 @@
+{
+  "job_id": "c06b-script-4-topic-968a7a7457dfec1c",
+  "fingerprint": "5438e7c834998de931249b8f1f15dd0c1a3fc9d6348756f5368c3acdab00268e",
+  "entity_id": "script-0000-0f7e71d83d7275de",
+  "topic": "How gravitational-wave detectors hear black-hole mergers across the universe",
+  "topic_identity": "0f7e71d83d7275de16f8811d",
+  "niche": "space science",
+  "niche_id": 0,
+  "fact_pack_id": "",
+  "fact_pack_hash": "",
+  "prompt_version": "v12",
+  "prompt_template_hash": "0eb19ea36a22cf406694f6e7dea91b9f",
+  "provider": "llm_router",
+  "model": "purpose-script",
+  "generation_id": "",
+  "plan_path": "E:\\All Updaye Project\\AutoMovie_Pro_SAAS_Final_Update\\AutoMoviePro-Software\\docs\\marathon\\runs\\mr_core_engine_20260910T143827Z_cc779002\\script\\director_plan.json",
+  "plan_hash": "f19fa8875ceb4670a3df1e0c46cb32ff2845bc4f0aa11d9a3aaf0bc99a8f5ba8",
+  "saved_at": 1789051133.2237544,
+  "metadata": {
+    "video_type": "short",
+    "max_seconds": 60,
+    "language": "en",
+    "revision_id": "",
+    "legacy_key": "script:5438e7c834998de931249b8f1f15dd0c"
+  }
+}

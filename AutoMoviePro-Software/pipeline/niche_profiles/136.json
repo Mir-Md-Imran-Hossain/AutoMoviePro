@@ -1,0 +1,83 @@
+{
+  "niche_id": 136,
+  "name": "Useless Yet Cool Facts",
+  "slug": "useless-yet-cool-facts",
+  "style_family": "history",
+  "status": "VERIFIED",
+  "topic_seeds": [
+    "What new evidence reframes the story of Useless Yet Cool Facts inside Useless Yet Cool Facts",
+    "How Useless Yet Cool Facts still shapes public curiosity about Useless Yet Cool Facts",
+    "What new evidence reframes the story of Did inside Useless Yet Cool Facts",
+    "How Did still shapes public curiosity about Useless Yet Cool Facts",
+    "What new evidence reframes the story of Venus inside Useless Yet Cool Facts",
+    "How Venus still shapes public curiosity about Useless Yet Cool Facts"
+  ],
+  "seo_angles": [
+    "What new evidence reframes the story of Useless Yet Cool Facts inside Useless Yet Cool Facts",
+    "How Useless Yet Cool Facts still shapes public curiosity about Useless Yet Cool Facts",
+    "What new evidence reframes the story of Did inside Useless Yet Cool Facts",
+    "How Did still shapes public curiosity about Useless Yet Cool Facts"
+  ],
+  "forbidden_visuals": [
+    "talking-head lip-sync avatar",
+    "burned-in captions",
+    "watermark",
+    "modern meme text",
+    "modern smartphones",
+    "cars",
+    "LED screens",
+    "sneakers",
+    "contemporary skyline"
+  ],
+  "preferred_subjects": [
+    "Useless Yet Cool Facts documentary subject",
+    "period-accurate environment",
+    "evidence object close-up"
+  ],
+  "lighting_default": "warm desert sun / torchlit interiors, high-contrast documentary grade",
+  "face_policy": "period extras OK if consistent; prefer environment/object hero when possible",
+  "dialogue_tone": "human documentary narration; specific nouns; 7–9s beats",
+  "audio_ambience": "subtle documentary bed; do not overpower voice",
+  "research_hints": [
+    "Prefer primary evidence and concrete entities for Useless Yet Cool Facts",
+    "Avoid generic niche-label topics; require specific place/person/event/mechanism",
+    "7–9 second spoken beats with story continuity across scenes"
+  ],
+  "topic_prompt_overlay": "NICHE LOCK (Useless Yet Cool Facts): only propose topics that fit this niche's video type. Video type: Did you know? A day on Venus is longer than its year. Octopuses have three hearts. Quick, bite-sized facts with visual puns. Follow niche topic strategy: Check fact blogs, viral trivia posts, or new science trivia books. Generate a topic about a fact that sounds false but is true.",
+  "video_prompt_overlay": "NICHE VISUAL LOCK (Useless Yet Cool Facts / history): Generate a 7–9 second dialogue clip based on the topic `{topic}`. Each dialogue must be surprising and light. For each dialogue, generate: - **Audio Generation Prompt:** Voice — cheerful, with a \"ding\" effect. - **Video Generation Prompt:** Detailed visual — a fun infographic or animation. No character — graphic. Lighting: bright, colourful. Maintain same graphic style. Forbidden: talking-head lip-sync avatar, burned-in captions, watermark, modern meme text, modern smartphones, cars, LED screens, sneakers. Preferred subjects: Useless Yet Cool Facts documentary subject, period-accurate environment, evidence object close-up. Lighting: warm desert sun / torchlit interiors, high-contrast documentary grade. Face policy: period extras OK if consistent; prefer environment/object hero when possible. Dialogue tone: human documentary narration; specific nouns; 7–9s beats. Ambience: subtle documentary bed; do not overpower voice.",
+  "i18n": {
+    "en": {
+      "name": "Useless Yet Cool Facts",
+      "blurb": "Did you know? A day on Venus is longer than its year. Octopuses have three hearts. Quick, bite-sized facts with visual puns."
+    },
+    "bn": {
+      "name": "অকেজো কিন্তু মজার তথ্য",
+      "blurb": "ভিডিও টাইপ: Did you know? A day on Venus is longer than its year. Octopuses have three hearts. Quick, bite-sized facts with visual puns."
+    },
+    "hi": {
+      "name": "बेकार पर मज़ेदार तथ्य",
+      "blurb": "वीडियो प्रकार: Did you know? A day on Venus is longer than its year. Octopuses have three hearts. Quick, bite-sized facts with visual puns."
+    },
+    "ur": {
+      "name": "بیکار مگر دلچسپ حقائق",
+      "blurb": "ویڈیو کی قسم: Did you know? A day on Venus is longer than its year. Octopuses have three hearts. Quick, bite-sized facts with visual puns."
+    },
+    "ta": {
+      "name": "பயனற்ற ஆனால் அற்புத உண்மைகள்",
+      "blurb": "வீடியோ வகை: Did you know? A day on Venus is longer than its year. Octopuses have three hearts. Quick, bite-sized facts with visual puns."
+    },
+    "ml": {
+      "name": "ഉപയോഗശൂന്യമെങ്കിലും രസകരമായ വസ്തുതകൾ",
+      "blurb": "വീഡിയോ തരം: Did you know? A day on Venus is longer than its year. Octopuses have three hearts. Quick, bite-sized facts with visual puns."
+    }
+  },
+  "source": "Nish.Md + deterministic research",
+  "research_notes": [
+    "Marathon researched at 2026-09-10T08:30:28Z",
+    "Video type length=124",
+    "Topic prompt length=127",
+    "Video prompt length=372",
+    "Seeds=6"
+  ],
+  "verified_at": "2026-09-10T08:30:29Z"
+}

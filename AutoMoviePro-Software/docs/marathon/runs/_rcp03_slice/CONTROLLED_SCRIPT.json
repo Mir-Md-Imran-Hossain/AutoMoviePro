@@ -1,0 +1,296 @@
+{
+  "schema_version": "1.0.0",
+  "id": "ff4e4f4e-43a8-4eb1-882d-0c85ab636b59",
+  "created_at": "2026-09-08T13:00:19Z",
+  "updated_at": null,
+  "topic_id": "topic-rcp03",
+  "topic": "RCP-03 semantic coverage slice v2: JWST, sunshield relation, L2 orbit, deep field, nebula, spiral",
+  "format": "SHORT",
+  "language": "en",
+  "target_duration_sec": 30.0,
+  "hook": "The James Webb Space Telescope floats in deep space, its golden hexagonal mirrors facing the cosmic dark.",
+  "narrative_structure": [
+    "hook",
+    "context",
+    "development",
+    "reveal",
+    "payoff",
+    "ending"
+  ],
+  "sections": [
+    "hook",
+    "context",
+    "development",
+    "reveal",
+    "payoff",
+    "ending"
+  ],
+  "beats": [
+    {
+      "schema_version": "1.0.0",
+      "id": "d7e15614-53eb-42b1-af72-5167912971fc",
+      "created_at": "2026-09-08T13:00:19Z",
+      "updated_at": null,
+      "beat_id": "beat-1",
+      "order": 0,
+      "section_role": "hook",
+      "narration": "The James Webb Space Telescope floats in deep space, its golden hexagonal mirrors facing the cosmic dark.",
+      "speaker": "Narrator",
+      "emotion": "",
+      "emotion_intensity": 0.5,
+      "action_intent": "floats",
+      "entity_refs": [
+        "The James Webb Space Telescope",
+        "golden hexagonal mirrors"
+      ],
+      "location_ref": "deep space",
+      "temporal_context": "",
+      "continuity_deps": [],
+      "visual_implication": "The James Webb Space Telescope floats in deep space, its golden hexagonal mirrors facing the cosmic dark.",
+      "claim_ids": [],
+      "evidence_refs": [
+        "N01"
+      ],
+      "estimated_duration_sec": 5.0,
+      "metadata": {
+        "dialogue_id": "beat-1",
+        "scene_id": "scene-00",
+        "required_subject": "The James Webb Space Telescope",
+        "required_entities": [
+          "The James Webb Space Telescope",
+          "golden hexagonal mirrors"
+        ],
+        "required_relationships": [],
+        "required_actions": [
+          "floats"
+        ],
+        "required_location": "deep space",
+        "rcp03": true
+      }
+    },
+    {
+      "schema_version": "1.0.0",
+      "id": "efb1720c-644c-4c28-aead-0e88fa0a18b7",
+      "created_at": "2026-09-08T13:00:19Z",
+      "updated_at": null,
+      "beat_id": "beat-2",
+      "order": 1,
+      "section_role": "context",
+      "narration": "The multi-layer sunshield sits beneath the primary mirror, protecting instruments from solar heat.",
+      "speaker": "Narrator",
+      "emotion": "",
+      "emotion_intensity": 0.5,
+      "action_intent": "protecting",
+      "entity_refs": [
+        "multi-layer sunshield",
+        "primary mirror"
+      ],
+      "location_ref": "deep space",
+      "temporal_context": "",
+      "continuity_deps": [],
+      "visual_implication": "The multi-layer sunshield sits beneath the primary mirror, protecting instruments from solar heat.",
+      "claim_ids": [],
+      "evidence_refs": [
+        "N01"
+      ],
+      "estimated_duration_sec": 5.0,
+      "metadata": {
+        "dialogue_id": "beat-2",
+        "scene_id": "scene-01",
+        "required_subject": "multi-layer sunshield",
+        "required_entities": [
+          "multi-layer sunshield",
+          "primary mirror"
+        ],
+        "required_relationships": [
+          {
+            "type": "beneath",
+            "source": "multi-layer sunshield",
+            "target": "primary mirror"
+          }
+        ],
+        "required_actions": [
+          "protecting"
+        ],
+        "required_location": "deep space",
+        "rcp03": true
+      }
+    },
+    {
+      "schema_version": "1.0.0",
+      "id": "331e4701-9f34-400c-8503-da7d32f9b5fd",
+      "created_at": "2026-09-08T13:00:19Z",
+      "updated_at": null,
+      "beat_id": "beat-3",
+      "order": 2,
+      "section_role": "development",
+      "narration": "The observatory slowly orbits the Sun-Earth L2 point, holding a stable deep-space vantage.",
+      "speaker": "Narrator",
+      "emotion": "",
+      "emotion_intensity": 0.5,
+      "action_intent": "orbits",
+      "entity_refs": [
+        "observatory",
+        "Sun-Earth L2 point"
+      ],
+      "location_ref": "deep space",
+      "temporal_context": "",
+      "continuity_deps": [],
+      "visual_implication": "The observatory slowly orbits the Sun-Earth L2 point, holding a stable deep-space vantage.",
+      "claim_ids": [],
+      "evidence_refs": [
+        "N01"
+      ],
+      "estimated_duration_sec": 5.0,
+      "metadata": {
+        "dialogue_id": "beat-3",
+        "scene_id": "scene-02",
+        "required_subject": "observatory",
+        "required_entities": [
+          "observatory",
+          "Sun-Earth L2 point"
+        ],
+        "required_relationships": [],
+        "required_actions": [
+          "orbits"
+        ],
+        "required_location": "deep space",
+        "rcp03": true
+      }
+    },
+    {
+      "schema_version": "1.0.0",
+      "id": "0ab17781-3ef1-46d7-93e6-99e9dbeeb570",
+      "created_at": "2026-09-08T13:00:19Z",
+      "updated_at": null,
+      "beat_id": "beat-4",
+      "order": 3,
+      "section_role": "reveal",
+      "narration": "Infrared deep-field images reveal thousands of distant galaxies formed more than thirteen billion years ago.",
+      "speaker": "Narrator",
+      "emotion": "",
+      "emotion_intensity": 0.5,
+      "action_intent": "reveal",
+      "entity_refs": [
+        "distant galaxies",
+        "infrared deep-field"
+      ],
+      "location_ref": "deep space",
+      "temporal_context": "",
+      "continuity_deps": [],
+      "visual_implication": "Infrared deep-field images reveal thousands of distant galaxies formed more than thirteen billion years ago.",
+      "claim_ids": [],
+      "evidence_refs": [
+        "N01"
+      ],
+      "estimated_duration_sec": 5.0,
+      "metadata": {
+        "dialogue_id": "beat-4",
+        "scene_id": "scene-03",
+        "required_subject": "distant galaxies",
+        "required_entities": [
+          "distant galaxies",
+          "infrared deep-field"
+        ],
+        "required_relationships": [],
+        "required_actions": [
+          "reveal"
+        ],
+        "required_location": "deep space",
+        "rcp03": true
+      }
+    },
+    {
+      "schema_version": "1.0.0",
+      "id": "9c878307-1792-4fde-8d80-4e35f771beaa",
+      "created_at": "2026-09-08T13:00:19Z",
+      "updated_at": null,
+      "beat_id": "beat-5",
+      "order": 4,
+      "section_role": "payoff",
+      "narration": "Infrared light pierces cosmic dust, unveiling hidden star-forming nurseries inside a glowing nebula.",
+      "speaker": "Narrator",
+      "emotion": "",
+      "emotion_intensity": 0.5,
+      "action_intent": "pierces",
+      "entity_refs": [
+        "cosmic dust",
+        "star-forming nurseries",
+        "glowing nebula"
+      ],
+      "location_ref": "deep space",
+      "temporal_context": "",
+      "continuity_deps": [],
+      "visual_implication": "Infrared light pierces cosmic dust, unveiling hidden star-forming nurseries inside a glowing nebula.",
+      "claim_ids": [],
+      "evidence_refs": [
+        "N01"
+      ],
+      "estimated_duration_sec": 5.0,
+      "metadata": {
+        "dialogue_id": "beat-5",
+        "scene_id": "scene-04",
+        "required_subject": "glowing nebula",
+        "required_entities": [
+          "cosmic dust",
+          "star-forming nurseries",
+          "glowing nebula"
+        ],
+        "required_relationships": [],
+        "required_actions": [
+          "pierces",
+          "unveiling"
+        ],
+        "required_location": "deep space",
+        "rcp03": true
+      }
+    },
+    {
+      "schema_version": "1.0.0",
+      "id": "16fc6b3a-d636-476c-ae20-6d623081d28e",
+      "created_at": "2026-09-08T13:00:19Z",
+      "updated_at": null,
+      "beat_id": "beat-6",
+      "order": 5,
+      "section_role": "ending",
+      "narration": "A spiral galaxy rotates slowly in the early cosmos, challenging older models of rapid growth.",
+      "speaker": "Narrator",
+      "emotion": "",
+      "emotion_intensity": 0.5,
+      "action_intent": "rotates",
+      "entity_refs": [
+        "spiral galaxy",
+        "early cosmos"
+      ],
+      "location_ref": "deep space",
+      "temporal_context": "",
+      "continuity_deps": [],
+      "visual_implication": "A spiral galaxy rotates slowly in the early cosmos, challenging older models of rapid growth.",
+      "claim_ids": [],
+      "evidence_refs": [
+        "N01"
+      ],
+      "estimated_duration_sec": 5.0,
+      "metadata": {
+        "dialogue_id": "beat-6",
+        "scene_id": "scene-05",
+        "required_subject": "spiral galaxy",
+        "required_entities": [
+          "spiral galaxy",
+          "early cosmos"
+        ],
+        "required_relationships": [],
+        "required_actions": [
+          "rotates"
+        ],
+        "required_location": "deep space",
+        "rcp03": true
+      }
+    }
+  ],
+  "metadata": {
+    "rcp03": true,
+    "controlled": true,
+    "semantic_coverage": true
+  }
+}

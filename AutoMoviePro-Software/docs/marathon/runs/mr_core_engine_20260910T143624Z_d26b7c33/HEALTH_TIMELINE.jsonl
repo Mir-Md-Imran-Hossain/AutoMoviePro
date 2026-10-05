@@ -1,0 +1,4 @@
+{"ts": "2026-09-10T14:36:24Z", "elapsed_sec": 0.1, "stage": "TOPIC", "job_id": null, "status": "HEALTHY", "note": "CP-00 init complete", "db_languages_unchanged": ["en", "bn"], "cert_overlay_languages": ["en", "bn", "hi", "ur", "ta", "ml"], "google_keys_env": 19, "agnes_keys_env": 6}
+{"ts": "2026-09-10T14:36:24Z", "elapsed_sec": 0.3, "stage": "TOPIC", "job_id": null, "status": "PROGRESSING", "note": "topic=How radio telescopes catch fast radio bursts from distant magnetars", "source": "BUILD-04G_suggest_quality_ranked", "seo": 0.7, "niche_aligned": false}
+{"ts": "2026-09-10T14:37:03Z", "elapsed_sec": 39.2, "stage": "SCRIPT", "job_id": null, "status": "FAILED", "note": "script_failed"}
+{"ts": "2026-09-10T14:37:03Z", "elapsed_sec": 39.2, "stage": "FAIL", "job_id": null, "status": "COMPLETED", "note": "verdict=FAIL"}

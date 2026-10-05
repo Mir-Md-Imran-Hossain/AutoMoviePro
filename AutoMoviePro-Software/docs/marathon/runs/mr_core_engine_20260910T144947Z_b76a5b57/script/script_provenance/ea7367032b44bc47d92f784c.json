@@ -1,0 +1,26 @@
+{
+  "job_id": "c06b-script-4-topic-4304f6935e2c05ff",
+  "fingerprint": "ea7367032b44bc47d92f784c5e2aa0deef30c8c09f8e15d345d86f4bf7d7814f",
+  "entity_id": "script-0000-bc837f6857f908d3",
+  "topic": "What dark energy surveys measure when galaxies stretch apart",
+  "topic_identity": "bc837f6857f908d3eaf4f81d",
+  "niche": "space science",
+  "niche_id": 0,
+  "fact_pack_id": "",
+  "fact_pack_hash": "",
+  "prompt_version": "v12",
+  "prompt_template_hash": "0eb19ea36a22cf406694f6e7dea91b9f",
+  "provider": "llm_router",
+  "model": "purpose-script",
+  "generation_id": "",
+  "plan_path": "E:\\All Updaye Project\\AutoMovie_Pro_SAAS_Final_Update\\AutoMoviePro-Software\\docs\\marathon\\runs\\mr_core_engine_20260910T144947Z_b76a5b57\\script\\director_plan.json",
+  "plan_hash": "796ac4349b4f51915ab3f6dfb30a7795454e36a38451508ac7b3c7f5e915d00f",
+  "saved_at": 1789051794.0097518,
+  "metadata": {
+    "video_type": "short",
+    "max_seconds": 60,
+    "language": "en",
+    "revision_id": "",
+    "legacy_key": "script:ea7367032b44bc47d92f784c5e2aa0de"
+  }
+}

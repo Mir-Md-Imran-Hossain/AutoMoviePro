@@ -1,0 +1,83 @@
+{
+  "niche_id": 39,
+  "name": "Video Game Lore",
+  "slug": "video-game-lore",
+  "style_family": "history",
+  "status": "VERIFIED",
+  "topic_seeds": [
+    "What new evidence reframes the story of Video Game Lore Behind inside Video Game Lore",
+    "How Video Game Lore Behind still shapes public curiosity about Video Game Lore",
+    "What new evidence reframes the story of Mario inside Video Game Lore",
+    "How Mario still shapes public curiosity about Video Game Lore",
+    "What new evidence reframes the story of Minecraft inside Video Game Lore",
+    "How Minecraft still shapes public curiosity about Video Game Lore"
+  ],
+  "seo_angles": [
+    "What new evidence reframes the story of Video Game Lore Behind inside Video Game Lore",
+    "How Video Game Lore Behind still shapes public curiosity about Video Game Lore",
+    "What new evidence reframes the story of Mario inside Video Game Lore",
+    "How Mario still shapes public curiosity about Video Game Lore"
+  ],
+  "forbidden_visuals": [
+    "talking-head lip-sync avatar",
+    "burned-in captions",
+    "watermark",
+    "modern meme text",
+    "modern smartphones",
+    "cars",
+    "LED screens",
+    "sneakers",
+    "contemporary skyline"
+  ],
+  "preferred_subjects": [
+    "Video Game Lore documentary subject",
+    "period-accurate environment",
+    "evidence object close-up"
+  ],
+  "lighting_default": "warm desert sun / torchlit interiors, high-contrast documentary grade",
+  "face_policy": "period extras OK if consistent; prefer environment/object hero when possible",
+  "dialogue_tone": "human documentary narration; specific nouns; 7–9s beats",
+  "audio_ambience": "subtle documentary bed; do not overpower voice",
+  "research_hints": [
+    "Prefer primary evidence and concrete entities for Video Game Lore",
+    "Avoid generic niche-label topics; require specific place/person/event/mechanism",
+    "7–9 second spoken beats with story continuity across scenes"
+  ],
+  "topic_prompt_overlay": "NICHE LOCK (Video Game Lore): only propose topics that fit this niche's video type. Video type: Behind the scenes of iconic games — Mario, Minecraft, GTA — the development struggles, easter eggs, and cultural impact. Follow niche topic strategy: Follow gaming news, release anniversaries, or developer interviews. Generate a topic about a game's hidden backstory.",
+  "video_prompt_overlay": "NICHE VISUAL LOCK (Video Game Lore / history): Generate a 7–9 second dialogue clip based on the topic `{topic}`. Each dialogue must be playful and fascinating. For each dialogue, generate: - **Audio Generation Prompt:** Voice — excited, with 8-bit music or sound effects. - **Video Generation Prompt:** Detailed visual — pixelated game screen or office with game posters. Characters: game developer. Lighting: ambient desk light. Maintain same pixel art style. Forbidden: talking-head lip-sync avatar, burned-in captions, watermark, modern meme text, modern smartphones, cars, LED screens, sneakers. Preferred subjects: Video Game Lore documentary subject, period-accurate environment, evidence object close-up. Lighting: warm desert sun / torchlit interiors, high-contrast documentary grade. Face policy: period extras OK if consistent; prefer environment/object hero when possible. Dialogue tone: human documentary narration; specific nouns; 7–9s beats. Ambience: subtle documentary bed; do not overpower voice.",
+  "i18n": {
+    "en": {
+      "name": "Video Game Lore",
+      "blurb": "Behind the scenes of iconic games — Mario, Minecraft, GTA — the development struggles, easter eggs, and cultural impact."
+    },
+    "bn": {
+      "name": "ভিডিও গেম লোর",
+      "blurb": "ভিডিও টাইপ: Behind the scenes of iconic games — Mario, Minecraft, GTA — the development struggles, easter eggs, and cultural impact."
+    },
+    "hi": {
+      "name": "वीडियो गेम कथाएँ",
+      "blurb": "वीडियो प्रकार: Behind the scenes of iconic games — Mario, Minecraft, GTA — the development struggles, easter eggs, and cultural impact."
+    },
+    "ur": {
+      "name": "ویڈیو گیم لوک کہانیاں",
+      "blurb": "ویڈیو کی قسم: Behind the scenes of iconic games — Mario, Minecraft, GTA — the development struggles, easter eggs, and cultural impact."
+    },
+    "ta": {
+      "name": "வீடியோ கேம் கதைகள்",
+      "blurb": "வீடியோ வகை: Behind the scenes of iconic games — Mario, Minecraft, GTA — the development struggles, easter eggs, and cultural impact."
+    },
+    "ml": {
+      "name": "വീഡിയോ ഗെയിം ലോർ",
+      "blurb": "വീഡിയോ തരം: Behind the scenes of iconic games — Mario, Minecraft, GTA — the development struggles, easter eggs, and cultural impact."
+    }
+  },
+  "source": "Nish.Md + deterministic research",
+  "research_notes": [
+    "Marathon researched at 2026-09-10T08:30:13Z",
+    "Video type length=120",
+    "Topic prompt length=117",
+    "Video prompt length=413",
+    "Seeds=6"
+  ],
+  "verified_at": "2026-09-10T08:30:13Z"
+}

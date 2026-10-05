@@ -1,0 +1,38 @@
+{
+  "checkpoints": [
+    {
+      "schema_version": "1.0.0",
+      "id": "e079e590-cf7a-4032-a601-eddca8bd3a2b",
+      "created_at": "2026-09-09T11:07:24.890341Z",
+      "updated_at": null,
+      "job_id": "phase6e-vb-neg",
+      "stage": "visual",
+      "state": "VERIFYING",
+      "input_hash": "f851d9e979f07e27e8b5df73a30b98c118a70112fd29a0b8deb680f27263ae91",
+      "output_hash": "17168dc081dd4597022c03a656d338d8b2a3ba3e817e22e726651e0b0ccace87",
+      "checkpoint_version": "1.0.0",
+      "timestamp": "2026-09-09T11:07:24.890341Z",
+      "metadata": {
+        "result_reference": "E:\\All Updaye Project\\AutoMovie_Pro_SAAS_Final_Update\\AutoMoviePro-Software\\docs\\marathon\\customer_product\\phase6j_evidence\\repair_work\\repair_vb6j.mp4"
+      }
+    }
+  ],
+  "by_stage": {
+    "visual": {
+      "schema_version": "1.0.0",
+      "id": "e079e590-cf7a-4032-a601-eddca8bd3a2b",
+      "created_at": "2026-09-09T11:07:24.890341Z",
+      "updated_at": null,
+      "job_id": "phase6e-vb-neg",
+      "stage": "visual",
+      "state": "VERIFYING",
+      "input_hash": "f851d9e979f07e27e8b5df73a30b98c118a70112fd29a0b8deb680f27263ae91",
+      "output_hash": "17168dc081dd4597022c03a656d338d8b2a3ba3e817e22e726651e0b0ccace87",
+      "checkpoint_version": "1.0.0",
+      "timestamp": "2026-09-09T11:07:24.890341Z",
+      "metadata": {
+        "result_reference": "E:\\All Updaye Project\\AutoMovie_Pro_SAAS_Final_Update\\AutoMoviePro-Software\\docs\\marathon\\customer_product\\phase6j_evidence\\repair_work\\repair_vb6j.mp4"
+      }
+    }
+  }
+}

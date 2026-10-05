@@ -1,0 +1,66 @@
+{
+  "research": {
+    "topic_id": "topic-7841ad5d57903f3e",
+    "query": "how lunar polar permanently shadowed craters preserve water ice that artemis prospectors can map with neutron spectrometers angle 202609091743",
+    "evidence": [
+      {
+        "id": "N01",
+        "claim": "Research query: how lunar polar permanently shadowed craters preserve water ice that artemis prospectors can map with neutron spectrometers angle 202609091743\nLanguage: en\nRegion:",
+        "evidence": "research_notes",
+        "source": "research_notes",
+        "confidence": 0.4,
+        "freshness": "UNVERIFIED"
+      },
+      {
+        "id": "L02",
+        "claim": "Additional context on How lunar polar permanently shadowed craters preserve water ice that Artemis prospectors can map with neutron spectrometers — angle 202609091743 from configured research scope.",
+        "evidence": "secondary",
+        "source": "live_research",
+        "confidence": 0.6,
+        "freshness": "recent"
+      }
+    ],
+    "status": "completed",
+    "provider": "live_local",
+    "provider_kind": "configured_local",
+    "provider_capability": "LOCAL_FACTPACK",
+    "provider_mode": "LIVE_LOCAL",
+    "external_api": false,
+    "is_external_live": false,
+    "note": "LOCAL_FACTPACK must not be claimed as EXTERNAL_LIVE_RESEARCH",
+    "timestamp": 1788975804.9664726,
+    "queried_at": 1788975804.9664726,
+    "canonical_topic": "How lunar polar permanently shadowed craters preserve water ice that Artemis prospectors can map with neutron spectrometers — angle 202609091743",
+    "sources": [
+      "live_research",
+      "research_notes"
+    ],
+    "fingerprint": "9681ca66eaa74296f58722ada431d1807434e06fecf2dcd3c0fba46556102904"
+  },
+  "fact_pack": {
+    "topic": "How lunar polar permanently shadowed craters preserve water ice that Artemis prospectors can map with neutron spectrometers — angle 202609091743",
+    "version": "v0",
+    "claims": [
+      {
+        "id": "N01",
+        "claim": "Research query: how lunar polar permanently shadowed craters preserve water ice that artemis prospectors can map with neutron spectrometers angle 202609091743\nLanguage: en\nRegion:",
+        "evidence": "research_notes",
+        "source": "research_notes",
+        "confidence": 0.4,
+        "freshness": "UNVERIFIED"
+      },
+      {
+        "id": "L02",
+        "claim": "Additional context on How lunar polar permanently shadowed craters preserve water ice that Artemis prospectors can map with neutron spectrometers — angle 202609091743 from configured research scope.",
+        "evidence": "secondary",
+        "source": "live_research",
+        "confidence": 0.6,
+        "freshness": "recent"
+      }
+    ],
+    "unknowns": []
+  },
+  "research_fingerprint": "9681ca66eaa74296f58722ada431d1807434e06fecf2dcd3c0fba46556102904",
+  "provider_mode": "LIVE",
+  "persisted_at": 1788975804.9664726
+}

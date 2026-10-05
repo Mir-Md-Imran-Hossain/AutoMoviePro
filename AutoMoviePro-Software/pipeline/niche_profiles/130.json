@@ -1,0 +1,83 @@
+{
+  "niche_id": 130,
+  "name": "Demonology & Exorcisms",
+  "slug": "demonology-exorcisms",
+  "style_family": "history",
+  "status": "VERIFIED",
+  "topic_seeds": [
+    "What new evidence reframes the story of Demonology inside Demonology & Exorcisms",
+    "How Demonology still shapes public curiosity about Demonology & Exorcisms",
+    "What new evidence reframes the story of Exorcisms Catholic inside Demonology & Exorcisms",
+    "How Exorcisms Catholic still shapes public curiosity about Demonology & Exorcisms",
+    "What new evidence reframes the story of Check inside Demonology & Exorcisms",
+    "How Check still shapes public curiosity about Demonology & Exorcisms"
+  ],
+  "seo_angles": [
+    "What new evidence reframes the story of Demonology inside Demonology & Exorcisms",
+    "How Demonology still shapes public curiosity about Demonology & Exorcisms",
+    "What new evidence reframes the story of Exorcisms Catholic inside Demonology & Exorcisms",
+    "How Exorcisms Catholic still shapes public curiosity about Demonology & Exorcisms"
+  ],
+  "forbidden_visuals": [
+    "talking-head lip-sync avatar",
+    "burned-in captions",
+    "watermark",
+    "modern meme text",
+    "modern smartphones",
+    "cars",
+    "LED screens",
+    "sneakers",
+    "contemporary skyline"
+  ],
+  "preferred_subjects": [
+    "Demonology & Exorcisms documentary subject",
+    "period-accurate environment",
+    "evidence object close-up"
+  ],
+  "lighting_default": "warm desert sun / torchlit interiors, high-contrast documentary grade",
+  "face_policy": "period extras OK if consistent; prefer environment/object hero when possible",
+  "dialogue_tone": "human documentary narration; specific nouns; 7–9s beats",
+  "audio_ambience": "subtle documentary bed; do not overpower voice",
+  "research_hints": [
+    "Prefer primary evidence and concrete entities for Demonology & Exorcisms",
+    "Avoid generic niche-label topics; require specific place/person/event/mechanism",
+    "7–9 second spoken beats with story continuity across scenes"
+  ],
+  "topic_prompt_overlay": "NICHE LOCK (Demonology & Exorcisms): only propose topics that fit this niche's video type. Video type: Catholic exorcism cases, demonic signs, and the priests who confront the unknown — respectful yet gripping. Follow niche topic strategy: Check religious news, new docu-series, or church archives. Generate a topic about a documented exorcism case.",
+  "video_prompt_overlay": "NICHE VISUAL LOCK (Demonology & Exorcisms / history): Generate a 7–9 second dialogue clip based on the topic `{topic}`. Each dialogue must be solemn and intense. For each dialogue, generate: - **Audio Generation Prompt:** Voice — stern, with chanting and rattling. - **Video Generation Prompt:** Detailed visual — a church or bedroom. Characters: priest and afflicted person. Lighting: candlelit. Maintain same room and priest. Forbidden: talking-head lip-sync avatar, burned-in captions, watermark, modern meme text, modern smartphones, cars, LED screens, sneakers. Preferred subjects: Demonology & Exorcisms documentary subject, period-accurate environment, evidence object close-up. Lighting: warm desert sun / torchlit interiors, high-contrast documentary grade. Face policy: period extras OK if consistent; prefer environment/object hero when possible. Dialogue tone: human documentary narration; specific nouns; 7–9s beats. Ambience: subtle documentary bed; do not overpower voice.",
+  "i18n": {
+    "en": {
+      "name": "Demonology & Exorcisms",
+      "blurb": "Catholic exorcism cases, demonic signs, and the priests who confront the unknown — respectful yet gripping."
+    },
+    "bn": {
+      "name": "দানববিদ্যা ও ভূতছাড়া",
+      "blurb": "ভিডিও টাইপ: Catholic exorcism cases, demonic signs, and the priests who confront the unknown — respectful yet gripping."
+    },
+    "hi": {
+      "name": "दानवविद्या और भूत भगाना",
+      "blurb": "वीडियो प्रकार: Catholic exorcism cases, demonic signs, and the priests who confront the unknown — respectful yet gripping."
+    },
+    "ur": {
+      "name": "شیطان شناسی اور جن نکالنا",
+      "blurb": "ویڈیو کی قسم: Catholic exorcism cases, demonic signs, and the priests who confront the unknown — respectful yet gripping."
+    },
+    "ta": {
+      "name": "பேயியல் & ஒழிப்பு சடங்குகள்",
+      "blurb": "வீடியோ வகை: Catholic exorcism cases, demonic signs, and the priests who confront the unknown — respectful yet gripping."
+    },
+    "ml": {
+      "name": "ദുഷ്ടാത്മവിദ്യയും ഉന്മൂലനവും",
+      "blurb": "വീഡിയോ തരം: Catholic exorcism cases, demonic signs, and the priests who confront the unknown — respectful yet gripping."
+    }
+  },
+  "source": "Nish.Md + deterministic research",
+  "research_notes": [
+    "Marathon researched at 2026-09-10T08:30:27Z",
+    "Video type length=107",
+    "Topic prompt length=109",
+    "Video prompt length=373",
+    "Seeds=6"
+  ],
+  "verified_at": "2026-09-10T08:30:28Z"
+}

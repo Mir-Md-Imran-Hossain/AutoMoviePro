@@ -1,0 +1,59 @@
+{
+  "research": {
+    "topic_id": "topic-030fcc73602a5abb",
+    "query": "how jwst mid-infrared spectra fingerprint exoplanet atmospheres cert 202609101502-7cf9870d",
+    "evidence": [
+      {
+        "id": "R01",
+        "claim": "How JWST mid-infrared spectra fingerprint exoplanet atmospheres — cert 202609101502-7cf9870d has documented recent developments.",
+        "evidence": "secondary",
+        "source": "mock_news",
+        "confidence": 0.75,
+        "freshness": "recent"
+      },
+      {
+        "id": "R02",
+        "claim": "Analysis of How JWST mid-infrared spectra fingerprint exoplanet atmospheres — cert 202609101502-7cf9870d shows measurable audience interest.",
+        "evidence": "supporting",
+        "source": "mock_analytics",
+        "confidence": 0.65,
+        "freshness": "recent"
+      }
+    ],
+    "status": "completed",
+    "provider": "mock",
+    "timestamp": 1789052559.121938,
+    "queried_at": 1789052559.121938,
+    "canonical_topic": "How JWST mid-infrared spectra fingerprint exoplanet atmospheres — cert 202609101502-7cf9870d",
+    "sources": [
+      "mock_analytics",
+      "mock_news"
+    ],
+    "fingerprint": "2514cca779983700784b9ae4d8f76e0932d7208d30351d74d33461f0a7687cf9"
+  },
+  "fact_pack": {
+    "topic": "How JWST mid-infrared spectra fingerprint exoplanet atmospheres — cert 202609101502-7cf9870d",
+    "claims": [
+      {
+        "id": "R01",
+        "claim": "How JWST mid-infrared spectra fingerprint exoplanet atmospheres — cert 202609101502-7cf9870d has documented recent developments.",
+        "evidence": "secondary",
+        "source": "mock_news",
+        "confidence": 0.75,
+        "freshness": "recent"
+      },
+      {
+        "id": "R02",
+        "claim": "Analysis of How JWST mid-infrared spectra fingerprint exoplanet atmospheres — cert 202609101502-7cf9870d shows measurable audience interest.",
+        "evidence": "supporting",
+        "source": "mock_analytics",
+        "confidence": 0.65,
+        "freshness": "recent"
+      }
+    ],
+    "research_fingerprint": "topic-030fcc73602a5abb"
+  },
+  "research_fingerprint": "2514cca779983700784b9ae4d8f76e0932d7208d30351d74d33461f0a7687cf9",
+  "provider_mode": "MOCK",
+  "persisted_at": 1789052559.121938
+}

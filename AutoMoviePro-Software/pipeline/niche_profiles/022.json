@@ -1,0 +1,83 @@
+{
+  "niche_id": 22,
+  "name": "Heists & Master Robberies",
+  "slug": "heists-master-robberies",
+  "style_family": "history",
+  "status": "VERIFIED",
+  "topic_seeds": [
+    "What new evidence reframes the story of Heists inside Heists & Master Robberies",
+    "How Heists still shapes public curiosity about Heists & Master Robberies",
+    "What new evidence reframes the story of Master Robberies Planning inside Heists & Master Robberies",
+    "How Master Robberies Planning still shapes public curiosity about Heists & Master Robberies",
+    "What new evidence reframes the story of Hatton Garden inside Heists & Master Robberies",
+    "How Hatton Garden still shapes public curiosity about Heists & Master Robberies"
+  ],
+  "seo_angles": [
+    "What new evidence reframes the story of Heists inside Heists & Master Robberies",
+    "How Heists still shapes public curiosity about Heists & Master Robberies",
+    "What new evidence reframes the story of Master Robberies Planning inside Heists & Master Robberies",
+    "How Master Robberies Planning still shapes public curiosity about Heists & Master Robberies"
+  ],
+  "forbidden_visuals": [
+    "talking-head lip-sync avatar",
+    "burned-in captions",
+    "watermark",
+    "modern meme text",
+    "modern smartphones",
+    "cars",
+    "LED screens",
+    "sneakers",
+    "contemporary skyline"
+  ],
+  "preferred_subjects": [
+    "Heists & Master Robberies documentary subject",
+    "period-accurate environment",
+    "evidence object close-up"
+  ],
+  "lighting_default": "warm desert sun / torchlit interiors, high-contrast documentary grade",
+  "face_policy": "period extras OK if consistent; prefer environment/object hero when possible",
+  "dialogue_tone": "human documentary narration; specific nouns; 7–9s beats",
+  "audio_ambience": "subtle documentary bed; do not overpower voice",
+  "research_hints": [
+    "Prefer primary evidence and concrete entities for Heists & Master Robberies",
+    "Avoid generic niche-label topics; require specific place/person/event/mechanism",
+    "7–9 second spoken beats with story continuity across scenes"
+  ],
+  "topic_prompt_overlay": "NICHE LOCK (Heists & Master Robberies): only propose topics that fit this niche's video type. Video type: Planning and aftermath of famous heists — the Hatton Garden job, the Isabella Stewart Gardner Museum art theft — with forensic and detective angles. Follow niche topic strategy: Monitor crime news, anniversary of major heists, or new security footage releases. Generate a topic that highlights the cleverness and failure of the criminals.",
+  "video_prompt_overlay": "NICHE VISUAL LOCK (Heists & Master Robberies / history): Generate a 7–9 second dialogue clip based on the topic `{topic}`. Each dialogue must be clever and suspenseful. For each dialogue, generate: - **Audio Generation Prompt:** Voice — calm but calculating, with alarm beeps or drill sounds. - **Video Generation Prompt:** Detailed visual — vault door or museum gallery. Characters: thieves in black clothing. Lighting: dark with flashlight beams. Maintain same clothing, same flashlight color. Forbidden: talking-head lip-sync avatar, burned-in captions, watermark, modern meme text, modern smartphones, cars, LED screens, sneakers. Preferred subjects: Heists & Master Robberies documentary subject, period-accurate environment, evidence object close-up. Lighting: warm desert sun / torchlit interiors, high-contrast documentary grade. Face policy: period extras OK if consistent; prefer environment/object hero when possible. Dialogue tone: human documentary narration; specific nouns; 7–9s beats. Ambience: subtle documentary bed; do not overpower voice.",
+  "i18n": {
+    "en": {
+      "name": "Heists & Master Robberies",
+      "blurb": "Planning and aftermath of famous heists — the Hatton Garden job, the Isabella Stewart Gardner Museum art theft — with forensic and detective angles."
+    },
+    "bn": {
+      "name": "ডাকাতি ও মাস্টার চুরি",
+      "blurb": "ভিডিও টাইপ: Planning and aftermath of famous heists — the Hatton Garden job, the Isabella Stewart Gardner Museum art theft — with forensic and detective angles."
+    },
+    "hi": {
+      "name": "लूट और मास्टर डकैतियाँ",
+      "blurb": "वीडियो प्रकार: Planning and aftermath of famous heists — the Hatton Garden job, the Isabella Stewart Gardner Museum art theft — with forensic and detective angles."
+    },
+    "ur": {
+      "name": "ڈکیتیاں اور ماسٹر چوریاں",
+      "blurb": "ویڈیو کی قسم: Planning and aftermath of famous heists — the Hatton Garden job, the Isabella Stewart Gardner Museum art theft — with forensic and detective angles."
+    },
+    "ta": {
+      "name": "கொள்ளைகள் & மாஸ்டர் திருட்டுகள்",
+      "blurb": "வீடியோ வகை: Planning and aftermath of famous heists — the Hatton Garden job, the Isabella Stewart Gardner Museum art theft — with forensic and detective angles."
+    },
+    "ml": {
+      "name": "കൊള്ളകളും മാസ്റ്റർ മോഷണങ്ങളും",
+      "blurb": "വീഡിയോ തരം: Planning and aftermath of famous heists — the Hatton Garden job, the Isabella Stewart Gardner Museum art theft — with forensic and detective angles."
+    }
+  },
+  "source": "Nish.Md + deterministic research",
+  "research_notes": [
+    "Marathon researched at 2026-09-10T08:30:11Z",
+    "Video type length=148",
+    "Topic prompt length=160",
+    "Video prompt length=438",
+    "Seeds=6"
+  ],
+  "verified_at": "2026-09-10T08:30:11Z"
+}

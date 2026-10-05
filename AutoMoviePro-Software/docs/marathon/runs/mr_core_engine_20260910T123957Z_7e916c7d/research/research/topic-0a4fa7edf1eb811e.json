@@ -1,0 +1,66 @@
+{
+  "research": {
+    "topic_id": "topic-0a4fa7edf1eb811e",
+    "query": "why permanently shadowed craters keep water ice colder than dry ice on the moon",
+    "evidence": [
+      {
+        "id": "N01",
+        "claim": "Research query: why permanently shadowed craters keep water ice colder than dry ice on the moon\nLanguage: en\nRegion:",
+        "evidence": "research_notes",
+        "source": "research_notes",
+        "confidence": 0.4,
+        "freshness": "UNVERIFIED"
+      },
+      {
+        "id": "L02",
+        "claim": "Additional context on Why permanently shadowed craters keep water ice colder than dry ice on the Moon from configured research scope.",
+        "evidence": "secondary",
+        "source": "live_research",
+        "confidence": 0.6,
+        "freshness": "recent"
+      }
+    ],
+    "status": "completed",
+    "provider": "live_local",
+    "provider_kind": "configured_local",
+    "provider_capability": "LOCAL_FACTPACK",
+    "provider_mode": "LIVE_LOCAL",
+    "external_api": false,
+    "is_external_live": false,
+    "note": "LOCAL_FACTPACK must not be claimed as EXTERNAL_LIVE_RESEARCH",
+    "timestamp": 1789043997.905281,
+    "queried_at": 1789043997.905281,
+    "canonical_topic": "Why permanently shadowed craters keep water ice colder than dry ice on the Moon",
+    "sources": [
+      "live_research",
+      "research_notes"
+    ],
+    "fingerprint": "e11ef14f3f9f9dc91601920ae30d20e67c21ad0cd0a3de25779592d016628e82"
+  },
+  "fact_pack": {
+    "topic": "Why permanently shadowed craters keep water ice colder than dry ice on the Moon",
+    "version": "v0",
+    "claims": [
+      {
+        "id": "N01",
+        "claim": "Research query: why permanently shadowed craters keep water ice colder than dry ice on the moon\nLanguage: en\nRegion:",
+        "evidence": "research_notes",
+        "source": "research_notes",
+        "confidence": 0.4,
+        "freshness": "UNVERIFIED"
+      },
+      {
+        "id": "L02",
+        "claim": "Additional context on Why permanently shadowed craters keep water ice colder than dry ice on the Moon from configured research scope.",
+        "evidence": "secondary",
+        "source": "live_research",
+        "confidence": 0.6,
+        "freshness": "recent"
+      }
+    ],
+    "unknowns": []
+  },
+  "research_fingerprint": "e11ef14f3f9f9dc91601920ae30d20e67c21ad0cd0a3de25779592d016628e82",
+  "provider_mode": "LIVE",
+  "persisted_at": 1789043997.905281
+}

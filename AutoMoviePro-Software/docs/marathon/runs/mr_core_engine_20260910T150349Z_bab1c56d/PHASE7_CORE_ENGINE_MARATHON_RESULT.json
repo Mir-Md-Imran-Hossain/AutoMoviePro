@@ -1,0 +1,125 @@
+{
+  "marathon_id": "mr_core_engine_20260910T150349Z_bab1c56d",
+  "started_at": "2026-09-10T15:03:49Z",
+  "customer": "c11_marathon_customer",
+  "channel_id": 4,
+  "cert_languages": [
+    "en",
+    "bn",
+    "hi",
+    "ur",
+    "ta",
+    "ml"
+  ],
+  "customer_entitlement_forged": false,
+  "youtube_publish": false,
+  "mock_production": false,
+  "ended_at": "2026-09-10T15:07:32Z",
+  "total_runtime_sec": 223.0,
+  "topic": "How JWST mid-infrared spectra fingerprint exoplanet atmospheres (d7260457)",
+  "job_id": 2328,
+  "work_dir": "E:\\All Updaye Project\\AutoMovie_Pro_SAAS_Final_Update\\AutoMoviePro-Software\\data\\customer_generation_work\\c11_marathon_customer\\job2328",
+  "verdict": "FAIL",
+  "checkpoints": [
+    {
+      "ts": "2026-09-10T15:03:49Z",
+      "elapsed_sec": 0.1,
+      "stage": "TOPIC",
+      "job_id": null,
+      "status": "HEALTHY",
+      "note": "CP-00 init complete",
+      "db_languages_unchanged": [
+        "en",
+        "bn"
+      ],
+      "cert_overlay_languages": [
+        "en",
+        "bn",
+        "hi",
+        "ur",
+        "ta",
+        "ml"
+      ],
+      "google_keys_env": 19,
+      "agnes_keys_env": 6
+    },
+    {
+      "ts": "2026-09-10T15:03:49Z",
+      "elapsed_sec": 0.4,
+      "stage": "TOPIC",
+      "job_id": null,
+      "status": "PROGRESSING",
+      "note": "topic=How JWST mid-infrared spectra fingerprint exoplanet atmospheres (d7260457)",
+      "source": "MANUAL_CONCRETE_NICHE_GROUNDED",
+      "seo": 0.9,
+      "niche_aligned": true
+    },
+    {
+      "ts": "2026-09-10T15:04:00Z",
+      "elapsed_sec": 11.3,
+      "stage": "PLAN",
+      "job_id": null,
+      "status": "PROGRESSING",
+      "note": "research_script_plan_ok",
+      "script_class": "REAL"
+    },
+    {
+      "ts": "2026-09-10T15:07:32Z",
+      "elapsed_sec": 223.0,
+      "stage": "FAILED",
+      "job_id": 2328,
+      "status": "FAILED",
+      "note": "generate_video:RuntimeError:scene_localize_failed:0:scene_localize_incomplete:0:bn,hi,ur,ta,ml"
+    },
+    {
+      "ts": "2026-09-10T15:07:32Z",
+      "elapsed_sec": 223.0,
+      "stage": "OBSERVE",
+      "job_id": 2328,
+      "status": "PROGRESSING",
+      "note": "watchdog stage=OBSERVE",
+      "work_dir": "E:\\All Updaye Project\\AutoMovie_Pro_SAAS_Final_Update\\AutoMoviePro-Software\\data\\customer_generation_work\\c11_marathon_customer\\job2328"
+    }
+  ],
+  "interventions": [
+    {
+      "intervention_id": "INT-001",
+      "ts": "2026-09-10T15:04:00Z",
+      "reason": "use_customer_approved_plan_lock",
+      "detected_problem": "generate_video re-entry intelligence DUPLICATE on reused niche topics",
+      "action": "write_director_plan + c06e lock before generate_video",
+      "authority": "customer_plan_adapter + generate_video customer_approved_lock",
+      "result": "lock_written"
+    }
+  ],
+  "failures": [
+    {
+      "ok": false,
+      "error": "scene_localize_failed:0:scene_localize_incomplete:0:bn,hi,ur,ta,ml",
+      "traceback": "Traceback (most recent call last):\n  File \"E:\\All Updaye Project\\AutoMovie_Pro_SAAS_Final_Update\\AutoMoviePro-Software\\pipeline\\video_pipeline.py\", line 1194, in generate_video\n    raise RuntimeError(\nRuntimeError: scene_localize_incomplete:0:bn,hi,ur,ta,ml\n\nThe above exception was the direct cause of the following exception:\n\nTraceback (most recent call last):\n  File \"E:\\All Updaye Project\\AutoMovie_Pro_SAAS_Final_Update\\AutoMoviePro-Software\\scripts\\cert_core_engine_real_marathon.py\", line 501, in generate_real\n    result = generate_video(\n             ^^^^^^^^^^^^^^^\n  File \"E:\\All Updaye Project\\AutoMovie_Pro_SAAS_Final_Update\\AutoMoviePro-Software\\pipeline\\video_pipeline.py\", line 1212, in generate_video\n    raise RuntimeError(f\"scene_localize_failed:{idx}:{loc_exc}\") from loc_exc\nRuntimeError: scene_localize_failed:0:scene_localize_incomplete:0:bn,hi,ur,ta,ml\n"
+    }
+  ],
+  "unknowns": [
+    "TOPIC_SUGGEST_FALLBACK_TO_MANUAL_CONCRETE",
+    "UR_RTL_SHAPING_UNKNOWN_NO_DEDICATED_RENDER_SHAPING_PROOF"
+  ],
+  "db_languages_before_after_preserved": true,
+  "generation": {
+    "ok": false,
+    "latency_sec": null,
+    "upload_status": null,
+    "local_path": null,
+    "classification": null,
+    "error": "scene_localize_failed:0:scene_localize_incomplete:0:bn,hi,ur,ta,ml"
+  },
+  "artifacts_summary": {
+    "localized_count": 0,
+    "entitlement_preserved": true,
+    "duration_status": null,
+    "publishable": null
+  },
+  "verdict_reasons": [
+    "generation_failed_or_no_local_path"
+  ],
+  "prep_script_class": "REAL"
+}

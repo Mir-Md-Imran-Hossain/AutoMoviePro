@@ -1,0 +1,1254 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>AutoMovie Pro</title>
+  <link rel="icon" type="image/png" href="/static/img/logo-sm.png">
+  <link rel="stylesheet" href="/static/css/app.css?v=theme5">
+  <style>
+    .brand-logo, .login-logo, .chat-head-logo {
+      display: inline-block !important;
+      object-fit: contain !important;
+      flex-shrink: 0 !important;
+    }
+    .brand-logo {
+      width: 48px !important;
+      height: 48px !important;
+      max-width: 48px !important;
+      max-height: 48px !important;
+    }
+    .login-logo {
+      width: 96px !important;
+      height: 96px !important;
+      max-width: 96px !important;
+      max-height: 96px !important;
+      margin: 0 auto 0.9rem !important;
+    }
+    .chat-head-logo {
+      width: 36px !important;
+      height: 36px !important;
+      max-width: 36px !important;
+      max-height: 36px !important;
+    }
+    .brand-wrap { display: flex !important; align-items: center !important; gap: 0.7rem !important; }
+  </style>
+</head>
+<body>
+  <div id="app">
+    <header class="top">
+      <div class="brand-wrap">
+        <img class="brand-logo" src="/static/img/logo-header.png" width="48" height="48" alt="AutoMovie Pro">
+        <div class="brand">AutoMovie <span>Pro</span></div>
+      </div>
+      <div class="top-right">
+        <button id="openFeedbackTopBtn" class="btn ghost" style="padding:4px 10px; font-size:0.8rem; border-color:#38bdf8; color:#38bdf8; margin-right:4px;" onclick="window.openFeedbackModal()">🛠️ রিপোর্ট ও পরামর্শ</button>
+        <button id="openReviewTopBtn" class="btn ghost" style="padding:4px 10px; font-size:0.8rem; border-color:#f59e0b; color:#f59e0b; margin-right:4px;" onclick="window.openReviewModal()">⭐ রিভিউ দিন</button>
+        <label class="ui-lang-wrap">
+          <span class="muted" data-i18n="ui_language">UI ভাষা</span>
+          <select id="uiLangSelect" aria-label="UI language"></select>
+        </label>
+        <div id="userBox" class="muted" data-i18n="not_logged_in">লগইন হয়নি</div>
+      </div>
+    </header>
+
+    <!-- LIVE SCROLLING NOTIFICATION BAR (Marquee) -->
+    <div id="liveTickerBar" style="background:#090e17; border-bottom:1px solid #1e293b; padding:6px 12px; display:flex; align-items:center; overflow:hidden; font-size:0.88rem; color:#38bdf8;">
+      <span style="background:#0284c7; color:#fff; font-size:0.75rem; font-weight:bold; padding:2px 8px; border-radius:4px; margin-right:10px; flex-shrink:0; text-transform:uppercase;">নোটিশ</span>
+      <marquee id="liveTickerText" behavior="scroll" direction="left" scrollamount="5" onmouseover="this.stop();" onmouseout="this.start();" style="color:#cbd5e1;">
+        স্বাগতম AutoMovie Pro-তে! সকল কোর এআই ও অটো-পাবলিশিং সিস্টেম স্বাভাবিকভাবে চলছে। প্রতিদিনের শিডিউল অনুযায়ী ভিডিও তৈরি শুরু হয়েছে।
+      </marquee>
+    </div>
+
+    <section id="loginView" class="panel login-panel">
+      <img class="login-logo" src="/static/img/logo-login.png" width="96" height="96" alt="AutoMovie Pro">
+      <h1 data-i18n="login">ক্লায়েন্ট লাইসেন্স লগইন</h1>
+      <p class="muted" style="font-size:0.9rem; margin-bottom:1.25rem;">
+        ওয়েবসাইটে অর্ডার অনুমোদনের পর প্রাপ্ত <strong>Login ID</strong> ও <strong>Password</strong> প্রদান করুন।
+      </p>
+      <label><span data-i18n="login_id">Login ID</span> <input id="loginId" placeholder="যেমন: 01712345678 বা c_9821" autocomplete="username"></label>
+      <label><span data-i18n="password">Password</span> <input id="password" type="password" placeholder="আপনার গোপন পাসওয়ার্ড" autocomplete="current-password"></label>
+      
+      <details style="margin: 0.75rem 0 1rem; font-size: 0.82rem; color: #64748b;">
+        <summary style="cursor: pointer;">সার্ভার সেটিংস (Advanced Server URL)</summary>
+        <div style="margin-top: 0.5rem;">
+          <label style="font-size: 0.8rem;"><span data-i18n="api_base">API Base URL</span> <input id="apiBase" placeholder="https://automoviepro.com" value="https://automoviepro.com"></label>
+        </div>
+      </details>
+
+      <button id="loginBtn" class="btn" style="width:100%; padding:0.85rem; font-size:1.05rem; font-weight:bold; background:linear-gradient(135deg, #0284c7, #2563eb);" data-i18n="login">লগইন করুন</button>
+      <p id="loginErr" class="err" style="margin-top:0.75rem;"></p>
+      
+      <div style="display:flex; justify-content:space-between; align-items:center; margin-top:0.85rem; font-size:0.88rem;">
+        <a href="javascript:void(0)" id="openForgotPassBtn" onclick="window.openForgotPassModal()" style="color:#38bdf8; text-decoration:none; font-weight:500;">🔑 পাসওয়ার্ড ভুলে গেছেন? (WhatsApp/Telegram OTP)</a>
+        <a href="https://wa.me/8801684355055?text=Hello%20AutoMovie%20Pro%20Support" target="_blank" style="color:#10b981; text-decoration:none;">হেল্পলাইন</a>
+      </div>
+
+      <div style="margin-top:1.5rem; padding-top:1rem; border-top:1px solid #1e293b; font-size:0.82rem; color:#94a3b8; text-align:center;">
+        🔒 <em>একক পিসি হার্ডওয়্যার লকিং সক্রিয়। প্রথম লগইনকৃত কম্পিউটারে লাইসেন্স আবদ্ধ হবে।</em><br>
+        সহায়তার জন্য WhatsApp: <a href="https://wa.me/8801684355055" target="_blank" style="color:#10b981; font-weight:bold;">01684355055</a>
+      </div>
+    </section>
+
+    <section id="dashView" class="panel hidden">
+      <nav class="tabs">
+        <button data-tab="home" class="active" data-i18n="tab_home">ড্যাশবোর্ড</button>
+        <button data-tab="live" data-i18n="tab_live">লাইভ কার্যক্রম</button>
+        <button data-tab="channel" data-i18n="tab_channel">চ্যানেল সেটআপ</button>
+        <button data-tab="jobs" data-i18n="tab_jobs">জব লগ</button>
+        <button data-tab="settings" data-i18n="tab_settings">সেটিংস</button>
+      </nav>
+
+      <!-- FUTURISTIC JARVIS VOICE & LIVE PIPELINE HUD WIDGET -->
+      <div id="jarvisConsole" class="futuristic-hud">
+        <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:0.75rem; flex-wrap:wrap; gap:0.5rem;">
+          <div style="display:flex; align-items:center; gap:8px;">
+            <span style="height:10px; width:10px; background:#10b981; border-radius:50%; box-shadow:0 0 10px #10b981; animation:pulse 1.5s infinite;"></span>
+            <strong style="color:#38bdf8; font-size:1.05rem; letter-spacing:0.5px;">JARVIS AI PIPELINE HUD</strong>
+            <span id="jarvisLiveBadge" style="background:#0284c7; color:#fff; font-size:0.75rem; padding:2px 8px; border-radius:10px; font-weight:bold;">STANDBY</span>
+          </div>
+          <div style="display:flex; align-items:center; gap:10px; flex-wrap:wrap;">
+            <div style="display:flex; align-items:center; gap:6px; background:#0f172a; padding:3px 8px; border-radius:8px; border:1px solid #1e293b;">
+              <label for="jarvisVolumeSlider" style="font-size:0.8rem; color:#94a3b8; margin:0;">ভলিউম:</label>
+              <input id="jarvisVolumeSlider" type="range" min="0" max="100" value="85" style="width:75px; accent-color:#38bdf8; cursor:pointer;" oninput="updateJarvisVolume(this.value)">
+              <span id="jarvisVolumeVal" style="font-size:0.8rem; color:#38bdf8; min-width:32px;">85%</span>
+            </div>
+            <button id="jarvisSoundToggle" class="btn ghost" style="padding:4px 10px; font-size:0.85rem;" onclick="toggleJarvisSound()">
+              🔊 সাউন্ড চালু
+            </button>
+            <button class="btn" style="padding:4px 10px; font-size:0.85rem; background:#0284c7;" onclick="playJarvisAudioCue('/assets/audio/voice_cues/welcome_bn.wav', 'আসসালামু আলাইকুম! অটোমুভি প্রো এআই পাইপলাইন সম্পূর্ণ প্রস্তুত।')">
+              ▶ ভয়েস টেস্ট
+            </button>
+          </div>
+        </div>
+
+        <!-- 6-STAGE SATISFYING INTERACTIVE TIMELINE CARDS -->
+        <div class="pipeline-stage-grid">
+          <div id="stageCard-topic" class="stage-step-card">
+            <span class="step-num">ধাপ ০১</span>
+            <span class="step-icon">🔍</span>
+            <span class="step-title">টপিক রিসার্চ</span>
+            <span class="step-status">স্ট্যান্ডবাই</span>
+          </div>
+          <div id="stageCard-script" class="stage-step-card">
+            <span class="step-num">ধাপ ০২</span>
+            <span class="step-icon">📝</span>
+            <span class="step-title">স্ক্রিপ্ট ও প্ল্যান</span>
+            <span class="step-status">স্ট্যান্ডবাই</span>
+          </div>
+          <div id="stageCard-localize" class="stage-step-card">
+            <span class="step-num">ধাপ ০৩</span>
+            <span class="step-icon">🌐</span>
+            <span class="step-title">৬-ভাষা লোকালাইজ</span>
+            <span class="step-status">স্ট্যান্ডবাই</span>
+          </div>
+          <div id="stageCard-audio" class="stage-step-card">
+            <span class="step-num">ধাপ ০৪</span>
+            <span class="step-icon">🎙️</span>
+            <span class="step-title">স্টুডিও অডিও (TTS)</span>
+            <span class="step-status">স্ট্যান্ডবাই</span>
+          </div>
+          <div id="stageCard-render" class="stage-step-card">
+            <span class="step-num">ধাপ ০৫</span>
+            <span class="step-icon">🎬</span>
+            <span class="step-title">সিন ও মিডিয়া রেন্ডার</span>
+            <span class="step-status">স্ট্যান্ডবাই</span>
+          </div>
+          <div id="stageCard-compose" class="stage-step-card">
+            <span class="step-num">ধাপ ০৬</span>
+            <span class="step-icon">🚀</span>
+            <span class="step-title">ফাইনাল ভিডিও ও QC</span>
+            <span class="step-status">স্ট্যান্ডবাই</span>
+          </div>
+        </div>
+
+        <!-- TELEMETRY & LIVE HOW-IT-WORKS EXPLAINER -->
+        <div class="hud-telemetry-box">
+          <div class="hud-telemetry-item">
+            <span class="label">বর্তমান পর্যায় ও প্রসেস</span>
+            <span id="hudCurrentStage" class="val">অলস (Ready for production)</span>
+          </div>
+          <div class="hud-telemetry-item">
+            <span class="label">সক্রিয় ইঞ্জিন ও পদ্ধতি</span>
+            <span id="hudActiveEngine" class="val">Grok / Gemini / ElevenLabs / FFmpeg</span>
+          </div>
+          <div class="hud-telemetry-item">
+            <span class="label">সিন ও প্রগ্রেস কাউন্টার</span>
+            <span id="hudSceneCounter" class="val">০ / ০ দৃশ্য · 0%</span>
+          </div>
+          <div class="hud-telemetry-item">
+            <span class="label">সময় ও হার্ডওয়্যার অ্যাক্সিলারেশন</span>
+            <span id="hudHardwareAccel" class="val">0s · Intel QSV / NVENC</span>
+          </div>
+        </div>
+
+        <div id="hudExplainerBanner" class="hud-explainer-banner">
+          <strong style="color:#38bdf8;">📌 প্রসেস মনিটর:</strong> <span id="hudExplainerText">সফটওয়্যার অন রয়েছে। যেকোনো শর্ট বা লং ভিডিও কমান্ড দিলে এখানে রিয়েল-টাইমে কাজের প্রতিটি পদক্ষেপের বিস্তারিত ভিজ্যুয়ালাইজেশন ও ভয়েস কমেন্ট্রি প্রদর্শিত হবে।</span>
+        </div>
+
+        <!-- SPOKEN COMMENTARY TICKER -->
+        <div id="jarvisCommentaryText" style="background:#070d14; border:1px solid #1a2538; border-radius:8px; padding:0.85rem; font-family:monospace; font-size:0.92rem; color:#e2e8f0; min-height:48px; display:flex; align-items:center; margin-top:0.75rem;">
+          <span style="color:#38bdf8; margin-right:8px;">[JARVIS]:</span> আসসালামু আলাইকুম! সিস্টেম প্রস্তুত। সকল ব্যাকগ্রাউন্ড অডিও ও পাইপলাইন লাইভ নিরীক্ষণ চলছে...
+        </div>
+      </div>
+
+      <div id="tab-home" class="tab">
+        <section class="ws-section" id="ws-dashboard">
+          <h2>Customer Dashboard</h2>
+          <div id="dashWelcome" class="card muted">Loading…</div>
+          <div id="dashOnboarding" class="card muted"></div>
+          <div id="dashChecklist" class="list"></div>
+          <div id="dashBlocking" class="card muted hidden"></div>
+          <div id="dashJobSummary" class="stats"></div>
+          <div class="row">
+            <button type="button" class="btn" id="dashStartOnboarding">Start setup</button>
+            <button type="button" class="btn ghost" id="dashResumeOnboarding">Resume setup</button>
+            <button type="button" class="btn ghost" id="dashCompleteOnboarding">Finish onboarding</button>
+            <button type="button" class="btn" id="dashOpenWorkspace">Open Production Workspace</button>
+          </div>
+        </section>
+
+        <h2 id="workspace">Production Workspace</h2>
+        <div id="appActiveBanner" class="app-banner inactive hidden"></div>
+        <div id="authStateBanner" class="app-banner inactive hidden"></div>
+
+        <section class="ws-section" id="ws-header">
+          <h3>Project</h3>
+          <div id="wsProjectHeader" class="card muted">No project selected</div>
+        </section>
+
+        <section class="ws-section" id="ws-workflow">
+          <h3>Workflow Timeline</h3>
+          <div id="wsWorkflowTimeline" class="workflow-timeline muted">Loading…</div>
+          <div id="wsActionBanner" class="action-banner muted"></div>
+        </section>
+
+        <section class="ws-section" id="ws-readiness">
+          <h3>Production Readiness</h3>
+          <div id="readinessPlanes" class="readiness-planes"></div>
+        </section>
+
+        <section class="ws-section" id="ws-create">
+          <h3>Create / Generate</h3>
+          <div id="stats" class="stats"></div>
+          <label class="channel-pick"><span data-i18n="channel">চ্যানেল</span>
+            <select id="channelSelect"></select>
+          </label>
+          <div class="row">
+            <button class="btn" id="genShort" data-i18n="gen_short">এখনই Short জেনারেট</button>
+            <button class="btn ghost" id="genLong" data-i18n="gen_long">এখনই Long জেনারেট</button>
+          </div>
+          <div id="generateBlockedHint" class="muted"></div>
+          <div id="channelSummary" class="card muted" data-i18n="channel_not_setup">চ্যানেল সেটআপ হয়নি</div>
+          <div id="liveMini" class="live-mini muted" data-i18n="live_idle">লাইভ: অলস</div>
+        </section>
+
+        <section class="ws-section" id="ws-trs-topic">
+          <h3>Topic</h3>
+          <div id="wsTopicStatus" class="muted">NOT_STARTED</div>
+          <div class="row">
+            <input id="wsTopicInput" type="text" placeholder="Enter topic manually" style="flex:1;min-width:12rem">
+            <button type="button" class="btn" id="wsTopicSetBtn">Select Topic</button>
+            <button type="button" class="btn ghost" id="wsTopicSuggestBtn">Suggest Topics</button>
+          </div>
+          <div id="wsTopicDup" class="muted"></div>
+          <div id="wsTopicSuggestions" class="list"></div>
+          <div id="wsTopicReserved" class="list"></div>
+        </section>
+
+        <section class="ws-section" id="ws-trs-research">
+          <h3>Research</h3>
+          <div id="wsResearchPanel" class="card muted">—</div>
+          <button type="button" class="btn" id="wsResearchBtn" disabled>Research</button>
+        </section>
+
+        <section class="ws-section" id="ws-trs-script">
+          <h3>Script</h3>
+          <div id="wsScriptPanel" class="card muted">—</div>
+          <div class="row">
+            <button type="button" class="btn" id="wsScriptGenBtn" disabled>Generate Script</button>
+            <button type="button" class="btn" id="wsScriptApproveBtn" disabled>Approve Script</button>
+            <button type="button" class="btn ghost danger" id="wsScriptRejectBtn" disabled>Reject Script</button>
+          </div>
+          <p class="muted">Script approval does not generate media or publish.</p>
+        </section>
+
+        <section class="ws-section" id="ws-production-plan">
+          <h3>Production Plan</h3>
+          <div id="wsProductionPlanPanel" class="card muted">NOT_STARTED</div>
+          <button type="button" class="btn" id="wsBuildPlanBtn">Build Production Plan</button>
+          <p class="muted">READY_FOR_GENERATION does not mean generated, verified, or publishable.</p>
+        </section>
+
+        <section class="ws-section" id="ws-execution">
+          <h3>Production Execution</h3>
+          <div id="wsExecutionPanel" class="card muted">NOT_STARTED</div>
+          <div class="row">
+            <button type="button" class="btn" id="wsGenerateBtn">Generate from Plan</button>
+          </div>
+          <p class="muted">Generated ≠ Verified ≠ Publishable. No publishing controls in this phase.</p>
+        </section>
+
+        <section class="ws-section" id="ws-summary">
+          <h3>Production Summary</h3>
+          <div id="wsProductionSummary" class="card muted">—</div>
+        </section>
+
+        <section class="ws-section" id="ws-quality">
+          <h3>Quality Summary</h3>
+          <div id="wsQualityPanel" class="quality-panel muted">—</div>
+        </section>
+
+        <section class="ws-section" id="ws-preview">
+          <h3>Preview</h3>
+          <div id="wsPreviewPanel" class="card muted">PREVIEW NOT AVAILABLE YET</div>
+        </section>
+
+        <section class="ws-section" id="ws-approval">
+          <h3>Approval</h3>
+          <div id="wsApprovalPanel" class="card muted">—</div>
+          <div class="row">
+            <button type="button" class="btn" id="wsApproveBtn" disabled>Approve (review only)</button>
+            <button type="button" class="btn ghost danger" id="wsRejectBtn" disabled>Reject</button>
+          </div>
+          <p class="muted">Approve does not publish, upload, or schedule. Rejection does not auto-regenerate.</p>
+        </section>
+
+        <section class="ws-section" id="ws-revision-history">
+          <h3>Revision History</h3>
+          <div id="wsRevisionHistoryPanel" class="card muted">—</div>
+        </section>
+
+        <section class="ws-section" id="ws-automation">
+          <h3>Queue / Recovery</h3>
+          <div id="wsAutomationPanel" class="card muted">—</div>
+          <p class="muted">Queue position and retries when available. Progress stays UNKNOWN unless real. Approval does not publish.</p>
+        </section>
+
+        <section class="ws-section" id="ws-monitor">
+          <h3>Production Monitor</h3>
+          <div id="wsProductionMonitor" class="card muted">—</div>
+          <div class="row">
+            <button type="button" class="btn ghost danger" id="wsCancelJobBtn" disabled>Request cancel</button>
+          </div>
+          <p class="muted">RUNNING ≠ VERIFYING. APPROVED ≠ PUBLISHED. Cancel never fakes completion.</p>
+        </section>
+
+        <section class="ws-section" id="ws-notifications">
+          <h3>Notifications <span id="wsNotifyBadge" class="muted">(0)</span></h3>
+          <div id="wsNotificationsPanel" class="card muted">—</div>
+          <div class="row">
+            <button type="button" class="btn ghost" id="wsNotifyRefreshBtn">Refresh notifications</button>
+          </div>
+          <p class="muted">Projection only — reading a notification does not change production state.</p>
+        </section>
+
+        <section class="ws-section" id="ws-help">
+          <h3>Contextual Help</h3>
+          <div id="wsHelpPanel" class="card muted">—</div>
+          <div class="row">
+            <input type="text" id="wsHelpQuery" placeholder="Ask about approval, publish, schedule…" />
+            <button type="button" class="btn ghost" id="wsHelpAskBtn">Ask</button>
+          </div>
+          <p class="muted">Help explains authoritative state. It cannot generate, publish, or schedule.</p>
+        </section>
+
+        <section class="ws-section" id="ws-publishing">
+          <h3>Publishing</h3>
+          <div id="wsPublishingPanel" class="card muted">—</div>
+          <div class="row">
+            <button type="button" class="btn" id="wsPublishBtn" disabled>Publish</button>
+            <button type="button" class="btn ghost" id="wsPublishRefreshBtn" disabled>Refresh status</button>
+          </div>
+          <p class="muted">APPROVED ≠ READY_TO_UPLOAD ≠ UPLOADED ≠ REMOTE_PROCESSING ≠ PUBLISHED. No scheduling in this phase.</p>
+        </section>
+
+        <section class="ws-section" id="ws-publishing-schedule">
+          <h3>Publishing Schedule</h3>
+          <div id="wsSchedulePanel" class="card muted">—</div>
+          <div class="row">
+            <input type="datetime-local" id="wsScheduleLocal" />
+            <input type="text" id="wsScheduleTz" placeholder="Timezone (e.g. UTC, Asia/Dhaka)" value="UTC" />
+          </div>
+          <div class="row">
+            <button type="button" class="btn" id="wsScheduleBtn" disabled>Schedule</button>
+            <button type="button" class="btn ghost" id="wsRescheduleBtn" disabled>Reschedule</button>
+            <button type="button" class="btn ghost danger" id="wsCancelScheduleBtn" disabled>Cancel schedule</button>
+            <button type="button" class="btn ghost" id="wsScheduleRefreshBtn" disabled>Refresh</button>
+          </div>
+          <p class="muted">SCHEDULED ≠ PUBLISHED. Scheduler never uploads — C07-PUB executes when due.</p>
+        </section>
+
+        <section class="ws-section" id="ws-active">
+          <h3>Active Jobs</h3>
+          <div id="activeJobsList" class="list"></div>
+        </section>
+
+        <section class="ws-section" id="ws-recent">
+          <h3>Recent Jobs</h3>
+          <div id="recentJobsList" class="list"></div>
+        </section>
+
+        <section class="ws-section" id="ws-detail">
+          <h3>Job Details</h3>
+          <div id="jobDetailPanel" class="card muted">Select a job</div>
+        </section>
+
+        <section class="ws-section" id="ws-result">
+          <h3>Result / Artifact</h3>
+          <div id="jobResultPanel" class="card muted">—</div>
+        </section>
+
+        <section class="ws-section" id="ws-failure">
+          <h3>Failure / Recovery</h3>
+          <div id="jobFailurePanel" class="card muted">—</div>
+        </section>
+      </div>
+
+      <div id="tab-live" class="tab hidden">
+        <h2 data-i18n="live_title">লাইভ কার্যক্রম</h2>
+        <p class="muted" data-i18n="live_hint">এই মুহূর্তে চলমান জেনারেশন / API / আপলোড স্ট্যাটাস।</p>
+        <div id="livePanel" class="live-panel">
+          <div class="live-row"><span data-i18n="status">স্ট্যাটাস</span><b id="liveStatus">অলস</b></div>
+          <div class="live-row"><span data-i18n="kind">ধরন</span><b id="liveKind">—</b></div>
+          <div class="live-row"><span data-i18n="channel">চ্যানেল</span><b id="liveChannel">—</b></div>
+          <div class="live-row"><span data-i18n="phase">ফেইজ</span><b id="livePhase">idle</b></div>
+          <div class="live-row"><span data-i18n="scene">সিন</span><b id="liveScene">—</b></div>
+          <div class="live-row"><span data-i18n="time">সময়</span><b id="liveElapsed">0s</b></div>
+          <div class="live-row"><span data-i18n="detail">বিস্তারিত</span><b id="liveDetail">—</b></div>
+        </div>
+        <div class="row">
+          <button class="btn ghost danger" id="stopProcessBtn" data-i18n="stop_process">প্রসেস বন্ধ করুন</button>
+          <button class="btn ghost" id="refreshLiveBtn" data-i18n="refresh">রিফ্রেশ</button>
+        </div>
+        <h3 data-i18n="api_calls">API কল</h3>
+        <div id="liveApis" class="list live-log"></div>
+        <h3 data-i18n="event_log">ইভেন্ট লগ</h3>
+        <div id="liveEvents" class="list live-log"></div>
+      </div>
+
+      <div id="tab-channel" class="tab hidden">
+        <h2 data-i18n="channel_setup">চ্যানেল সেটআপ</h2>
+        <p class="muted" data-i18n="channel_hint">সফটওয়্যারে একটিই চ্যানেল। নিশ ও ভাষা সেটআপের সময় বেছে নিন।</p>
+
+        <!-- GOOGLE AI PRO SPECIAL PROMO BANNER -->
+        <div class="google-pro-banner" style="background:linear-gradient(135deg, #1e1b4b, #312e81); border:1px solid #6366f1; border-radius:12px; padding:1.1rem 1.4rem; margin-bottom:1.5rem; display:flex; align-items:center; justify-content:space-between; gap:1.2rem; flex-wrap:wrap; box-shadow:0 6px 20px rgba(99,102,241,0.25);">
+          <div>
+            <div style="display:flex; align-items:center; gap:8px; margin-bottom:6px;">
+              <span style="background:#4f46e5; color:#fff; font-size:0.75rem; font-weight:700; padding:3px 10px; border-radius:4px; text-transform:uppercase;">স্পেশাল অফার</span>
+              <strong style="color:#c7d2fe; font-size:1.05rem;">কোন ঝামেলা ছাড়াই ভিডিও তৈরির জন্য স্পেশাল গুগল AI Pro প্যাকেজ</strong>
+            </div>
+            <div style="color:#e0e7ff; font-size:0.95rem; line-height:1.5;">
+              ভিডিওর রেজুলেশন বৃদ্ধি, রোবট সাউন্ড পরিহার ও আনলিমিটেড কোটার জন্য গুগল প্রো ব্যবহার করুন।
+            </div>
+            <div style="color:#a5b4fc; font-size:0.8rem; margin-top:4px;">
+              ⚡ গুগল Nano Banana ও VEO-3 স্পেশাল API · আল্ট্রা-ন্যাচারাল রোবোটিকলেস TTS · ১৫০ GB ক্লাউড স্টোরেজ ভল্ট
+            </div>
+          </div>
+          <a href="http://localhost:8000/order.php?product=google_pro" target="_blank" class="btn" style="background:linear-gradient(135deg, #4f46e5, #4338ca); color:#fff; border:1px solid #818cf8; text-decoration:none; white-space:nowrap; padding:10px 18px; font-weight:bold; border-radius:8px; display:inline-flex; align-items:center; gap:6px;">
+            <span>[Google AI Pro এপিআই নেওয়ার জন্য এখানে ক্লিক করুন]</span>
+          </a>
+        </div>
+
+        <section class="ws-section" id="configStatusSection">
+          <h3>Configuration status</h3>
+          <div id="configStatusPanel" class="card muted">Loading…</div>
+          <div id="providerMatrix" class="list"></div>
+          <div class="row">
+            <button type="button" class="btn ghost" id="cfgActivateBtn">Activate channel</button>
+            <button type="button" class="btn ghost" id="cfgDeactivateBtn">Deactivate channel</button>
+            <button type="button" class="btn ghost" id="cfgClaimOrphanBtn">Claim unowned channel</button>
+          </div>
+        </section>
+
+        <form id="channelForm" class="grid">
+          <input type="hidden" name="channel_id" id="channelIdField" value="">
+          <label><span data-i18n="yt_name">YouTube চ্যানেল নাম</span> <input name="youtube_name" id="f_youtube_name"></label>
+          <label><span data-i18n="fb_name">Facebook পেজ নাম</span> <input name="facebook_name" id="f_facebook_name"></label>
+          <label><span data-i18n="tt_name">TikTok একাউন্ট নাম</span> <input name="tiktok_name" id="f_tiktok_name" placeholder="@username"></label>
+
+          <div id="nicheSetupBlock">
+            <label><span data-i18n="niche">নিশ</span> *
+              <button type="button" style="background:none; border:none; color:#38bdf8; cursor:pointer; font-size:0.9rem;" onclick="showFieldInfo('নিশ নির্বাচন', 'আপনার চ্যানেলের মূল বিষয়বস্তু নির্বাচন করুন। সিস্টেম এই নিশের উপর ভিত্তি করে প্রতিদিন ভাইরাল স্ক্রিপ্ট ও ভিডিও তৈরি করবে।')">ⓘ</button>
+              <input id="channelNicheFilter" data-i18n-placeholder="niche_search" placeholder="নিশ খুঁজুন…" style="margin-bottom:6px">
+              <select name="niche_id" id="channelNicheSelect" required></select>
+              <input type="hidden" name="niche" id="channelNicheName">
+            </label>
+            <p id="channelNicheBlurb" class="muted" style="margin-top:4px;min-height:2.4em"></p>
+            <div class="lang-setup">
+              <h3 data-i18n="languages_setup">ভাষা (সেটআপে ২টি)</h3>
+              <button type="button" style="background:none; border:none; color:#38bdf8; cursor:pointer; font-size:0.9rem;" onclick="showFieldInfo('ভাষা প্যাকেজ', 'কোর লাইসেন্সে ইংরেজি ও আপনার পছন্দের ১টি ভাষা অন্তর্ভুক্ত থাকে। অতিরিক্ত ভাষা কিনলে তা অ্যাডমিন ভেরিফিকেশনের পর আনলক হবে।')">ⓘ</button>
+              <p class="muted" data-i18n="lang_setup_hint">ইংরেজি ডিফল্ট। আরও একটি ভাষা সিলেক্ট করুন।</p>
+              <label><span data-i18n="english">ইংরেজি</span>
+                <input id="englishDefaultField" value="English (default)" disabled>
+              </label>
+              <label><span data-i18n="second_lang">দ্বিতীয় ভাষা</span> *
+                <select name="secondary_lang" id="secondaryLangSelect" required></select>
+              </label>
+            </div>
+          </div>
+
+          <div id="frozenNicheLang" class="grid hidden">
+            <label><span data-i18n="niche">নিশ</span>
+              <input id="frozenNicheField" disabled>
+            </label>
+            <label><span data-i18n="languages_setup">ভাষা</span>
+              <input id="frozenLangField" disabled>
+            </label>
+          </div>
+
+          <label><span data-i18n="video_special">ভিডিও স্পেশাল</span> <textarea name="video_special"></textarea></label>
+          <label><span data-i18n="long_upload">লং আপলোড টাইম</span> <input name="long_upload_time" type="time" value="18:00"></label>
+          <label><span data-i18n="short_upload">শর্ট আপলোড টাইম</span> <input name="short_upload_time" type="time" value="12:00"></label>
+          <label><span data-i18n="example_script">উদাহরণ স্ক্রিপ্ট</span> <textarea name="example_script"></textarea></label>
+          <label><span data-i18n="gen_special">জেনারেশন স্পেশাল</span> <textarea name="generation_special"></textarea></label>
+          <label><span data-i18n="title_special">টাইটেল/ডেসক্রিপশন</span> <textarea name="title_desc_special"></textarea></label>
+          <label><span data-i18n="logo">লোগো</span> <input name="logo" type="file" accept="image/*"></label>
+          <label><span data-i18n="intro">ইন্ট্রো ভিডিও</span> <input name="intro" type="file" accept="video/*"></label>
+
+          <details class="api-dropdown" id="apiDropdown" open>
+            <summary data-i18n="api_connection" data-help="api_connection">API কানেকশন</summary>
+            <p class="muted api-drop-hint" data-i18n="api_hint" data-help="api_connection">
+              প্রতিটি কাজের জন্য আলাদা API। প্রয়োজনীয় স্লট খালি থাকলে অ্যাপ ইনঅ্যাকটিভ।
+            </p>
+            <div id="apiReadinessBanner" class="api-ready-banner muted"></div>
+            <div id="apiKeyGroups" class="api-key-groups"></div>
+            <div class="row" style="margin-top:0.6rem">
+              <button class="btn ghost" type="button" id="apiKeysSaveBtn" data-i18n="save_api_keys">API কী সেভ</button>
+            </div>
+          </details>
+
+          <button class="btn" type="submit" id="channelSaveBtn" data-i18n="save_channel">সেভ চ্যানেল</button>
+        </form>
+
+        <div id="langPurchaseSection" class="api-section hidden">
+          <h3 data-i18n="buy_lang">অতিরিক্ত ভাষা কিনুন</h3>
+          <p class="muted" data-i18n="buy_lang_hint">প্রতিটি ভাষায় পেমেন্ট — অ্যাডমিন অ্যাপ্রুভালের পর আনলক।</p>
+          <div id="langUnlockedList" class="card"></div>
+          <form id="langBuyForm" class="grid">
+            <label><span data-i18n="new_lang">নতুন ভাষা</span>
+              <select id="buyLangSelect" required></select>
+            </label>
+            <label><span data-i18n="payment_ref">পেমেন্ট রেফারেন্স</span> <input id="buyPaymentRef" required></label>
+            <label><span data-i18n="note">নোট</span> <textarea id="buyPaymentNote"></textarea></label>
+            <p class="muted"><span data-i18n="price">মূল্য</span>: <strong id="langPriceLabel">—</strong> BDT</p>
+            <div class="row">
+              <button class="btn" type="submit" data-i18n="submit_request">আবেদন জমা দিন</button>
+              <button class="btn ghost" type="button" id="langSyncBtn" data-i18n="sync_approval">অ্যাপ্রুভাল Sync</button>
+            </div>
+          </form>
+          <div id="langPendingList" class="list"></div>
+          <div id="langLocalApprove" class="hidden">
+            <div id="langLocalApproveList" class="list"></div>
+          </div>
+        </div>
+
+        <div id="channelList" class="list"></div>
+      </div>
+
+      <div id="tab-jobs" class="tab hidden">
+        <h2 data-i18n="jobs">জব লগ</h2>
+        <div id="jobsList" class="list"></div>
+      </div>
+
+      <div id="tab-settings" class="tab hidden">
+        <h2 data-i18n="settings">সেটিংস</h2>
+        <p class="muted" data-i18n="settings_hint">শর্ট সর্বোচ্চ ২ মিনিট, লং সর্বোচ্চ ৫ মিনিট।</p>
+
+        <!-- 150 GB GOOGLE DRIVE CLOUD STORAGE VAULT CARD -->
+        <div id="driveVaultCard" style="background:#0f172a; border:1px solid #1e293b; border-radius:14px; padding:1.5rem; margin-top:1.5rem; margin-bottom:1.5rem;">
+          <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:1rem; flex-wrap:wrap; gap:0.5rem;">
+            <div>
+              <h3 style="margin:0; color:#38bdf8; display:flex; align-items:center; gap:8px;">
+                <span>☁️ Google Drive 150 GB Vault ক্লাউড স্টোরেজ সিঙ্ক</span>
+              </h3>
+              <p class="muted" style="margin:4px 0 0 0; font-size:0.85rem;">
+                প্রতিদিনের ভিডিও (.mp4), প্রতিটি সিন ক্লিপ, অডিও ট্র্যাক (.wav/.m4a), থাম্বনেইল (.png) ও মেটাডাটা (.json) ২৪ ঘণ্টায় একবার স্বয়ংক্রিয়ভাবে গুগল ড্রাইভে ব্যাকআপ হবে।
+              </p>
+            </div>
+            <div id="vaultConnectionBadge" class="badge" style="background:#1e293b; color:#94a3b8; font-size:0.85rem; padding:4px 10px;">
+              ○ ডিসকানেক্টেড
+            </div>
+          </div>
+
+          <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(180px, 1fr)); gap:1rem; margin-bottom:1.2rem;">
+            <div style="background:#1e293b; padding:0.9rem; border-radius:8px;">
+              <span class="muted" style="font-size:0.75rem;">মোট ক্লাউড কোটা:</span>
+              <div style="font-size:1.15rem; font-weight:bold; color:#f8fafc;">১৫০ জিবি (150.0 GB)</div>
+            </div>
+            <div style="background:#1e293b; padding:0.9rem; border-radius:8px;">
+              <span class="muted" style="font-size:0.75rem;">ব্যবহৃত স্টোরেজ:</span>
+              <div id="vaultUsedStorageVal" style="font-size:1.15rem; font-weight:bold; color:#38bdf8;">0.00 GB</div>
+            </div>
+            <div style="background:#1e293b; padding:0.9rem; border-radius:8px;">
+              <span class="muted" style="font-size:0.75rem;">পিসির হার্ডডিস্ক খালি হয়েছে:</span>
+              <div id="vaultFreedStorageVal" style="font-size:1.15rem; font-weight:bold; color:#a855f7;">0.00 GB</div>
+            </div>
+            <div style="background:#1e293b; padding:0.9rem; border-radius:8px;">
+              <span class="muted" style="font-size:0.75rem;">আজকের ব্যাকআপ:</span>
+              <div id="vaultTodayCountVal" style="font-size:1.15rem; font-weight:bold; color:#10b981;">0 টি ভিডিও</div>
+            </div>
+          </div>
+
+          <div class="grid" style="gap:0.75rem; margin-bottom:1.2rem;">
+            <label>
+              <span style="font-size:0.85rem;">অথেনটিকেশন মেথড:</span>
+              <select id="vaultAuthType">
+                <option value="service_account">Google Service Account (JSON)</option>
+                <option value="oauth_token">OAuth Access / Refresh Token</option>
+                <option value="api_key">Google Drive API Key / Folder ID</option>
+              </select>
+            </label>
+            <label>
+              <span style="font-size:0.85rem;">টার্গেট জিমেইল (যে অ্যাকাউন্টে ১৫০ GB স্টোরেজ সংযুক্ত):</span>
+              <input id="vaultTargetEmail" placeholder="your-drive-email@gmail.com">
+            </label>
+            <label>
+              <span style="font-size:0.85rem;">স্বয়ংক্রিয় সিঙ্ক শিডিউল সময়:</span>
+              <input id="vaultSyncTime" value="02:00" placeholder="02:00 (রাত ২টা)">
+            </label>
+            <label>
+              <span style="font-size:0.85rem;">ড্রাইভ ভল্ট ফোল্ডার নাম / ID:</span>
+              <input id="vaultFolderId" value="AutoMoviePro_Vault" placeholder="AutoMoviePro_Vault">
+            </label>
+            <label>
+              <span style="font-size:0.85rem;">সার্ভিস অ্যাকাউন্ট JSON বা ক্রেডেনশিয়াল টোকেন:</span>
+              <textarea id="vaultCredentials" rows="3" placeholder='{"type": "service_account", ...} বা Bearer Token'></textarea>
+            </label>
+          </div>
+
+          <!-- SYNC NOW PROGRESS BAR -->
+          <div id="vaultSyncProgressContainer" style="display:none; margin-bottom:1rem; background:#1e293b; border-radius:8px; padding:8px;">
+            <div style="display:flex; justify-content:space-between; font-size:0.8rem; margin-bottom:4px;">
+              <span id="vaultSyncProgressLabel" style="color:#38bdf8;">গুগল ড্রাইভে আপলোড ও লোকাল ডিস্ক খালি করা হচ্ছে…</span>
+              <span id="vaultSyncProgressPercent" style="color:#38bdf8; font-weight:bold;">0%</span>
+            </div>
+            <div style="width:100%; height:8px; background:#0f172a; border-radius:4px; overflow:hidden;">
+              <div id="vaultSyncProgressBar" style="width:0%; height:100%; background:linear-gradient(90deg, #38bdf8, #10b981); transition:width 0.3s ease;"></div>
+            </div>
+          </div>
+
+          <div class="row" style="gap:10px; flex-wrap:wrap;">
+            <button type="button" class="btn" id="connectDriveBtn" style="background:#10b981; color:#022c22; font-weight:bold;">🔗 গুগল ড্রাইভ কানেক্ট</button>
+            <button type="button" class="btn ghost" id="saveDriveVaultBtn">💾 সেটিংস সেভ করুন</button>
+            <button type="button" class="btn ghost" id="syncDriveNowBtn" style="border-color:#38bdf8; color:#38bdf8;">⚡ এখনই ক্লাউডে সিঙ্ক করুন (Sync Now)</button>
+          </div>
+          <div id="vaultSyncMsg" style="margin-top:0.75rem; font-size:0.88rem;" class="muted"></div>
+        </div>
+
+        <!-- TASK 1: YOUTUBE & FACEBOOK AUTO-REPLY SYSTEM PANEL -->
+        <div id="autoReplyCard" class="card" style="background:#0f172a; border:1px solid #1e293b; border-radius:12px; padding:1.25rem; margin-bottom:1.5rem;">
+          <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:1rem; flex-wrap:wrap; gap:10px;">
+            <div style="display:flex; align-items:center; gap:10px;">
+              <span style="font-size:1.4rem;">💬</span>
+              <div>
+                <strong style="color:#38bdf8; font-size:1.05rem;">ইউটিউব ও ফেসবুক অটো-রিপ্লাই সিস্টেম</strong>
+                <p class="muted" style="margin:0; font-size:0.8rem;">স্বয়ংক্রিয়ভাবে দর্শকদের কমেন্ট ও মেসেজ পড়ে হিউম্যান-লাইক স্বাভাবিক ভাষায় উত্তর দেয়</p>
+              </div>
+            </div>
+            <div style="display:flex; align-items:center; gap:10px;">
+              <span id="autoReplyBadge" style="padding:4px 10px; border-radius:20px; font-size:0.8rem; font-weight:bold; background:#10b98120; color:#10b981; border:1px solid #10b98140;">সক্রিয় (Active)</span>
+              <button type="button" class="btn" id="autoReplyToggleBtn" style="padding:6px 14px; font-size:0.85rem; background:#ef4444;">বন্ধ করুন (Disable)</button>
+              <button type="button" class="btn ghost" id="autoReplyTriggerBtn" style="padding:6px 14px; font-size:0.85rem; border-color:#38bdf8; color:#38bdf8;">⚡ এখনই স্ক্যান ও রিপ্লাই দিন</button>
+            </div>
+          </div>
+
+          <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(200px, 1fr)); gap:12px; margin-bottom:1rem;">
+            <div style="background:#1e293b; padding:0.75rem 1rem; border-radius:8px;">
+              <span class="muted" style="font-size:0.75rem;">সর্বশেষ স্ক্যান:</span>
+              <div id="autoReplyLastScan" style="font-size:0.95rem; font-weight:bold; color:#cbd5e1;">অদ্যাবধি কোনো স্ক্যান হয়নি</div>
+            </div>
+            <div style="background:#1e293b; padding:0.75rem 1rem; border-radius:8px;">
+              <span class="muted" style="font-size:0.75rem;">মোট প্রেরিত রিপ্লাই:</span>
+              <div id="autoReplyTotalSent" style="font-size:0.95rem; font-weight:bold; color:#10b981;">০ টি</div>
+            </div>
+            <div style="background:#1e293b; padding:0.75rem 1rem; border-radius:8px;">
+              <span class="muted" style="font-size:0.75rem;">স্ক্যান ফ্রিকোয়েন্সি:</span>
+              <div style="font-size:0.95rem; font-weight:bold; color:#38bdf8;">প্রতি ২০-২৫ মিনিট অন্তর</div>
+            </div>
+          </div>
+
+          <div style="margin-top:1rem;">
+            <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:0.5rem;">
+              <strong style="font-size:0.9rem; color:#cbd5e1;">সাম্প্রতিক রিপ্লাই ইতিহাস (Recent Reply History):</strong>
+              <button type="button" class="btn ghost" id="refreshReplyHistoryBtn" style="padding:2px 8px; font-size:0.75rem;">🔄 রিফ্রেশ</button>
+            </div>
+            <div style="max-height:220px; overflow-y:auto; border:1px solid #1e293b; border-radius:8px; background:#090e17;">
+              <table style="width:100%; border-collapse:collapse; font-size:0.82rem; text-align:left;">
+                <thead>
+                  <tr style="border-bottom:1px solid #1e293b; color:#94a3b8; background:#0b111c;">
+                    <th style="padding:6px 10px;">প্ল্যাটফর্ম</th>
+                    <th style="padding:6px 10px;">লেখক / ইউজার</th>
+                    <th style="padding:6px 10px;">দর্শকের কমেন্ট</th>
+                    <th style="padding:6px 10px;">এআই রিপ্লাই</th>
+                    <th style="padding:6px 10px;">সময়</th>
+                  </tr>
+                </thead>
+                <tbody id="autoReplyHistoryBody">
+                  <tr><td colspan="5" style="padding:12px; text-align:center; color:#64748b;">কোনো সাম্প্রতিক রিপ্লাই রেকর্ড পাওয়া যায়নি</td></tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+
+        <!-- TASK 2: VIDEO PERFORMANCE & GROWTH ANALYTICS PANEL -->
+        <div id="analyticsCard" class="card" style="background:#0f172a; border:1px solid #1e293b; border-radius:12px; padding:1.25rem; margin-bottom:1.5rem;">
+          <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:1rem; flex-wrap:wrap; gap:10px;">
+            <div style="display:flex; align-items:center; gap:10px;">
+              <span style="font-size:1.4rem;">📊</span>
+              <div>
+                <strong style="color:#10b981; font-size:1.05rem;">ভিডিও পারফরম্যান্স ট্র্যাকার ও গ্রোথ রিপোর্ট</strong>
+                <p class="muted" style="margin:0; font-size:0.8rem;">লাইভ ভিউ, লাইক ট্র্যাকিং এবং লোকাল হেল্পার এজেন্টের গ্রোথ সুপারিশ</p>
+              </div>
+            </div>
+            <div style="display:flex; align-items:center; gap:8px;">
+              <button type="button" class="btn ghost" id="refreshAnalyticsBtn" style="padding:6px 12px; font-size:0.82rem; border-color:#10b981; color:#10b981;">🔄 রিফ্রেশ ডাটা</button>
+            </div>
+          </div>
+
+          <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(160px, 1fr)); gap:12px; margin-bottom:1.2rem;">
+            <div style="background:#1e293b; padding:0.85rem; border-radius:8px; text-align:center;">
+              <span class="muted" style="font-size:0.75rem;">মোট ভিউ</span>
+              <div id="statTotalViews" style="font-size:1.35rem; font-weight:bold; color:#38bdf8;">0</div>
+            </div>
+            <div style="background:#1e293b; padding:0.85rem; border-radius:8px; text-align:center;">
+              <span class="muted" style="font-size:0.75rem;">মোট লাইক</span>
+              <div id="statTotalLikes" style="font-size:1.35rem; font-weight:bold; color:#f43f5e;">0</div>
+            </div>
+            <div style="background:#1e293b; padding:0.85rem; border-radius:8px; text-align:center;">
+              <span class="muted" style="font-size:0.75rem;">মোট কমেন্ট</span>
+              <div id="statTotalComments" style="font-size:1.35rem; font-weight:bold; color:#a855f7;">0</div>
+            </div>
+            <div style="background:#1e293b; padding:0.85rem; border-radius:8px; text-align:center;">
+              <span class="muted" style="font-size:0.75rem;">ট্র্যাককৃত ভিডিও</span>
+              <div id="statTrackedVideos" style="font-size:1.35rem; font-weight:bold; color:#10b981;">0</div>
+            </div>
+          </div>
+
+          <!-- LOCAL HELPER AGENT GROWTH ADVICE -->
+          <div style="background:#131d2e; border:1px solid #1e293b; border-radius:10px; padding:1rem;">
+            <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:0.75rem;">
+              <strong style="color:#f59e0b; font-size:0.95rem;">💡 লোকাল হেল্পিং এজেন্টের গ্রোথ সুপারিশ</strong>
+              <div class="row" style="gap:6px;">
+                <button type="button" class="btn ghost active" id="adviceDailyBtn" style="padding:3px 10px; font-size:0.75rem;">দৈনিক</button>
+                <button type="button" class="btn ghost" id="adviceWeeklyBtn" style="padding:3px 10px; font-size:0.75rem;">সাপ্তাহিক</button>
+                <button type="button" class="btn ghost" id="adviceMonthlyBtn" style="padding:3px 10px; font-size:0.75rem;">মাসিক</button>
+              </div>
+            </div>
+            <div id="growthAdviceSummary" style="font-size:0.88rem; color:#e2e8f0; margin-bottom:0.5rem; line-height:1.5;">বিশ্লেষণ লোড হচ্ছে...</div>
+            <ul id="growthAdviceSteps" style="margin:0; padding-left:1.25rem; font-size:0.82rem; color:#94a3b8; line-height:1.6;">
+            </ul>
+          </div>
+        </div>
+
+        <button class="btn ghost" id="logoutBtn" data-i18n="logout">লগআউট</button>
+        <button class="btn ghost" id="hiddenBtn" data-i18n="system_opt">সিস্টেম অপটিমাইজেশন চালান</button>
+      </div>
+    </section>
+  </div>
+
+  <button id="chatFab" class="chat-fab" data-i18n="help" data-i18n-title="agent_help" title="এজেন্ট হেল্প">Help</button>
+  <div id="chatPanel" class="chat-panel hidden">
+    <div class="chat-head">
+      <img src="/static/img/logo-header.png" width="36" height="36" alt="" class="chat-head-logo">
+      <div>
+        <strong data-i18n="agent_help">এজেন্ট হেল্প</strong>
+        <div class="muted" style="font-size:0.8rem" data-i18n="ask_anything">যেকোনো সমস্যা জিজ্ঞেস করুন</div>
+      </div>
+      <button id="chatClose" class="btn ghost" type="button">✕</button>
+    </div>
+    <div id="chatMessages" class="chat-messages"></div>
+    <form id="chatForm" class="chat-form">
+      <input id="chatInput" data-i18n-placeholder="type_here" placeholder="লিখুন…" autocomplete="off">
+      <button class="btn" type="submit" data-i18n="send">পাঠান</button>
+    </form>
+  </div>
+
+  <!-- LEGAL TERMS & DISCLAIMER MODAL -->
+  <div id="legalTermsModal" style="display:none; position:fixed; inset:0; background:rgba(0,0,0,0.85); z-index:9999; backdrop-filter:blur(6px); align-items:center; justify-content:center; padding:1rem;">
+    <div style="background:#0f172a; border:1px solid #1e293b; border-radius:16px; max-width:620px; width:100%; padding:2rem; box-shadow:0 20px 40px rgba(0,0,0,0.6); color:#f8fafc;">
+      <h2 style="color:#38bdf8; margin-bottom:1rem; font-size:1.35rem;">📜 AutoMovie Pro ব্যবহারের নিয়মাবলী ও আইনি স্বীকৃতি</h2>
+      <div style="background:#1e293b; border-radius:10px; padding:1.25rem; font-size:0.92rem; line-height:1.6; max-height:280px; overflow-y:auto; color:#cbd5e1; margin-bottom:1.25rem;">
+        <p><strong>১. কন্টেন্ট দায়বদ্ধতা:</strong> এই সফটওয়্যারটি একটি স্বয়ংক্রিয় টুল। তৈরিকৃত ভিডিও ও পাবলিকেশনের আইনি ও নৈতিক দায়ভার ব্যবহারকারীর।</p>
+        <p style="margin-top:0.5rem;"><strong>২. প্ল্যাটফর্ম পলিসি:</strong> ইউটিউব, মেটা ও টিকটকের সকল কমিউনিটি গাইডলাইন মেনে চলতে হবে। কোনো কপিরাইটযুক্ত উপাদান প্রচার করা যাবে না।</p>
+        <p style="margin-top:0.5rem;"><strong>৩. ইসলামিক শিষ্টাচার:</strong> অশ্লীল, হিংসাত্মক বা ইসলামবিরোধী কোনো কন্টেন্ট তৈরি সম্পূর্ণরূপে নিষিদ্ধ।</p>
+        <p style="margin-top:0.5rem;"><strong>৪. নিরাপদ ব্রাউজিং:</strong> অ্যাকাউন্ট সুরক্ষায় ব্যাকগ্রাউন্ড ব্রাউজিং সম্পূর্ণ নিরাপদ জৈব মাত্রায় পরিচালিত হয়।</p>
+      </div>
+      <label style="display:flex; align-items:center; gap:10px; cursor:pointer; margin-bottom:1.5rem;">
+        <input type="checkbox" id="legalConsentCheckbox" style="width:18px; height:18px;">
+        <span style="font-size:0.92rem; color:#e2e8f0;">আমি সকল শর্তাবলী ও ডিসক্লেইমার পড়েছি এবং সম্মতি প্রদান করছি।</span>
+      </label>
+      <button id="acceptLegalBtn" class="btn" style="width:100%; padding:0.85rem; font-size:1.05rem;" disabled onclick="acceptLegalTerms()">
+        সম্মতি নিশ্চিত করুন ও প্রবেশ করুন
+      </button>
+    </div>
+  </div>
+
+  <!-- CONTEXTUAL "i" INFO TOOLTIP MODAL -->
+  <div id="fieldInfoModal" style="display:none; position:fixed; inset:0; background:rgba(0,0,0,0.7); z-index:9998; align-items:center; justify-content:center; padding:1rem;">
+    <div style="background:#111827; border:1px solid #38bdf8; border-radius:14px; max-width:480px; width:100%; padding:1.5rem; color:#f8fafc;">
+      <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:0.75rem;">
+        <strong id="fieldInfoTitle" style="color:#38bdf8; font-size:1.1rem;">তথ্য</strong>
+        <button class="btn ghost" style="padding:2px 8px;" onclick="document.getElementById('fieldInfoModal').style.display='none'">✕</button>
+      </div>
+      <p id="fieldInfoDesc" style="color:#cbd5e1; font-size:0.95rem; line-height:1.6; margin-bottom:1rem;"></p>
+      <button class="btn" style="width:100%;" onclick="document.getElementById('fieldInfoModal').style.display='none'">ঠিক আছে</button>
+    </div>
+  </div>
+
+  <!-- FORGOT PASSWORD & OTP MODAL -->
+  <div id="forgotPassModal" style="display:none; position:fixed; inset:0; background:rgba(0,0,0,0.82); z-index:9998; align-items:center; justify-content:center; padding:1rem; backdrop-filter:blur(5px);">
+    <div style="background:#0f172a; border:1px solid #38bdf8; border-radius:16px; max-width:490px; width:100%; padding:1.75rem; color:#f8fafc; box-shadow:0 20px 45px rgba(0,0,0,0.6);">
+      <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:1rem;">
+        <strong style="color:#38bdf8; font-size:1.15rem; display:flex; align-items:center; gap:8px;">
+          <span>🔐</span> পাসওয়ার্ড রিসেট ও ওটিপি ভেরিফিকেশন
+        </strong>
+        <button class="btn ghost" style="padding:2px 8px;" onclick="window.closeForgotPassModal()">✕</button>
+      </div>
+
+      <div style="background:#1e293b; border-radius:10px; padding:0.85rem; font-size:0.85rem; color:#cbd5e1; margin-bottom:1rem; line-height:1.5;">
+        আপনার লাইসেন্স নিবন্ধিত <strong>WhatsApp / Telegram</strong> নম্বর বা ইমেইল লিখুন। তাৎক্ষণিক ৬ ডিজিটের সিকিউরিটি ওটিপি পাঠানো হবে।
+      </div>
+
+      <div id="otpStep1">
+        <label style="display:block; margin-bottom:0.75rem;">
+          <span style="font-size:0.88rem; color:#94a3b8;">WhatsApp / Telegram / Email বা Login ID:</span>
+          <input id="forgotIdentifier" style="width:100%; margin-top:4px; padding:0.65rem; background:#090e17; border:1px solid #334155; border-radius:8px; color:#fff;" placeholder="যেমন: 01712345678 বা c_9821">
+        </label>
+        <button id="sendOtpBtn" class="btn" style="width:100%; padding:0.75rem; background:linear-gradient(135deg, #0284c7, #2563eb); font-weight:bold;" onclick="window.handleSendOtp()">
+          📲 ওটিপি (OTP) কোড পাঠান
+        </button>
+      </div>
+
+      <div id="otpStep2" style="display:none; margin-top:1rem; border-top:1px solid #1e293b; padding-top:1rem;">
+        <label style="display:block; margin-bottom:0.75rem;">
+          <span style="font-size:0.88rem; color:#38bdf8; font-weight:bold;">৬ ডিজিটের ওটিপি কোড (OTP Code):</span>
+          <input id="resetOtpCode" style="width:100%; margin-top:4px; padding:0.65rem; background:#090e17; border:1px solid #38bdf8; border-radius:8px; color:#fff; font-size:1.15rem; letter-spacing:4px; text-align:center;" placeholder="123456" maxlength="6">
+        </label>
+        <label style="display:block; margin-bottom:0.75rem;">
+          <span style="font-size:0.88rem; color:#94a3b8;">নতুন পাসওয়ার্ড (New Password):</span>
+          <input id="resetNewPass" type="password" style="width:100%; margin-top:4px; padding:0.65rem; background:#090e17; border:1px solid #334155; border-radius:8px; color:#fff;" placeholder="নতুন পাসওয়ার্ড দিন">
+        </label>
+        <label style="display:block; margin-bottom:1rem;">
+          <span style="font-size:0.88rem; color:#94a3b8;">পাসওয়ার্ড নিশ্চিত করুন (Confirm Password):</span>
+          <input id="resetConfirmPass" type="password" style="width:100%; margin-top:4px; padding:0.65rem; background:#090e17; border:1px solid #334155; border-radius:8px; color:#fff;" placeholder="পুনরায় পাসওয়ার্ড লিখুন">
+        </label>
+        <button id="submitResetPassBtn" class="btn" style="width:100%; padding:0.75rem; background:linear-gradient(135deg, #10b981, #059669); font-weight:bold;" onclick="window.handleResetPasswordSubmit()">
+          ✅ নতুন পাসওয়ার্ড সংরক্ষণ করুন
+        </button>
+      </div>
+
+      <div id="forgotModalMsg" style="margin-top:0.85rem; font-size:0.85rem; display:none; padding:8px; border-radius:6px; line-height:1.4;"></div>
+    </div>
+  </div>
+
+  <!-- CUSTOMER REPORT & SUGGESTION MODAL -->
+  <div id="feedbackReportModal" style="display:none; position:fixed; inset:0; background:rgba(0,0,0,0.82); z-index:9998; align-items:center; justify-content:center; padding:1rem; backdrop-filter:blur(5px);">
+    <div style="background:#0f172a; border:1px solid #38bdf8; border-radius:16px; max-width:540px; width:100%; padding:1.75rem; color:#f8fafc; box-shadow:0 20px 45px rgba(0,0,0,0.6);">
+      <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:1rem;">
+        <strong style="color:#38bdf8; font-size:1.15rem; display:flex; align-items:center; gap:8px;">
+          <span>🛠️</span> গ্রাহক রিপোর্ট ও পরামর্শ (Support & Suggestions)
+        </strong>
+        <button class="btn ghost" style="padding:2px 8px;" onclick="window.closeFeedbackModal()">✕</button>
+      </div>
+
+      <div style="background:#1e293b; border-radius:10px; padding:0.85rem; font-size:0.84rem; color:#cbd5e1; margin-bottom:1rem; line-height:1.5;">
+        🛡️ কোনো সমস্যা, ত্রুটি বা নতুন ফিচার/থিম সংক্রান্ত পরামর্শ থাকলে নির্দ্বিধায় জমা দিন। সাবমিটের পর আপনাকে একটি ট্র্যাকিং টিকিট আইডি প্রদান করা হবে এবং সর্বোচ্চ <strong>৭২ ঘণ্টার মধ্যে</strong> আমাদের ডেডিকেটেড ইঞ্জিনিয়ার টিম সমাধান বা আপডেট নিশ্চিত করবে।
+      </div>
+
+      <form id="feedbackForm" onsubmit="window.handleFeedbackSubmit(event)">
+        <label style="display:block; margin-bottom:0.75rem;">
+          <span style="font-size:0.88rem; color:#94a3b8;">ক্যাটাগরি বা বিষয়:</span>
+          <select id="feedbackType" style="width:100%; margin-top:4px; padding:0.65rem; background:#090e17; border:1px solid #334155; border-radius:8px; color:#fff;">
+            <option value="Bug / Error Report">⚠️ কারিগরি সমস্যা বা বাগ রিপোর্ট (Bug / Error)</option>
+            <option value="New Feature Suggestion">💡 নতুন ফিচার বা উন্নত ফাংশনালিটি পরামর্শ</option>
+            <option value="New Theme Suggestion">🎨 নতুন থিম বা ভিজ্যুয়াল স্টাইল পরামর্শ</option>
+            <option value="Payment / Addon Query">💳 লাইসেন্স, পেমেন্ট বা পেইড অ্যাড-অন সংক্রান্ত</option>
+            <option value="General Query">💬 সাধারণ জিজ্ঞাসা বা অন্যান্য</option>
+          </select>
+        </label>
+
+        <label style="display:block; margin-bottom:0.75rem;">
+          <span style="font-size:0.88rem; color:#94a3b8;">আপনার WhatsApp / Telegram নম্বর বা ইমেইল:</span>
+          <input id="feedbackContact" style="width:100%; margin-top:4px; padding:0.65rem; background:#090e17; border:1px solid #334155; border-radius:8px; color:#fff;" placeholder="যেমন: 01712345678 বা zahid@gmail.com" required>
+        </label>
+
+        <label style="display:block; margin-bottom:1rem;">
+          <span style="font-size:0.88rem; color:#94a3b8;">বিস্তারিত বিবরণ (সমস্যা বা আপনার পরামর্শ):</span>
+          <textarea id="feedbackMessage" rows="4" style="width:100%; margin-top:4px; padding:0.65rem; background:#090e17; border:1px solid #334155; border-radius:8px; color:#fff; font-size:0.9rem; resize:vertical;" placeholder="কী সমস্যা হচ্ছে বা কোন ধরনের ফিচার বা থিম দেখতে চাচ্ছেন তা বিস্তারিত লিখুন..." required></textarea>
+        </label>
+
+        <button type="submit" id="feedbackSubmitBtn" class="btn" style="width:100%; padding:0.75rem; background:linear-gradient(135deg, #0284c7, #2563eb); font-weight:bold;">
+          🚀 রিপোর্ট/পরামর্শ জমা দিন
+        </button>
+      </form>
+
+      <div id="feedbackResultBox" style="display:none; margin-top:1rem; padding:1rem; border-radius:10px; background:#064e3b; border:1px solid #10b981; color:#ecfdf5; font-size:0.88rem; line-height:1.6;">
+        <strong id="feedbackTicketTitle" style="color:#34d399; font-size:1rem; display:block; margin-bottom:6px;"></strong>
+        <p id="feedbackTicketDesc" style="margin:0;"></p>
+        <div style="margin-top:10px; padding-top:8px; border-top:1px solid rgba(255,255,255,0.15); font-size:0.82rem; color:#a7f3d0;">
+          🕒 <em>আমাদের ইঞ্জিনিয়ার টিম সর্বোচ্চ ৭২ ঘণ্টার মধ্যে সমাধান প্রদান করবে।</em>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 5-STAR REVIEW & FEEDBACK MODAL -->
+  <div id="reviewRatingModal" style="display:none; position:fixed; inset:0; background:rgba(0,0,0,0.82); z-index:9998; align-items:center; justify-content:center; padding:1rem; backdrop-filter:blur(5px);">
+    <div style="background:#0f172a; border:1px solid #f59e0b; border-radius:16px; max-width:500px; width:100%; padding:1.75rem; color:#f8fafc; box-shadow:0 20px 45px rgba(0,0,0,0.6);">
+      <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:1rem;">
+        <strong style="color:#f59e0b; font-size:1.15rem; display:flex; align-items:center; gap:8px;">
+          <span>⭐</span> আপনার মূল্যবান মতামত ও রিভিউ
+        </strong>
+        <button class="btn ghost" style="padding:2px 8px;" onclick="window.closeReviewModal()">✕</button>
+      </div>
+
+      <div style="background:#1e293b; border-radius:10px; padding:0.85rem; font-size:0.85rem; color:#cbd5e1; margin-bottom:1rem; line-height:1.5;">
+        AutoMovie Pro ব্যবহার করে আপনার অভিজ্ঞতা কেমন? আপনার ৫-স্টার রেটিং ও মতামত আমাদের সফটওয়্যারকে আরও উন্নত করতে অনুপ্রেরণা যোগায়।
+      </div>
+
+      <form id="reviewForm" onsubmit="window.handleReviewSubmit(event)">
+        <div style="text-align:center; margin-bottom:1rem;">
+          <div style="font-size:0.88rem; color:#94a3b8; margin-bottom:6px;">রেটিং নির্বাচন করুন:</div>
+          <div id="starRatingGroup" style="font-size:1.8rem; cursor:pointer; color:#f59e0b; display:inline-flex; gap:6px;">
+            <span data-star="1" onclick="window.setReviewRating(1)">★</span>
+            <span data-star="2" onclick="window.setReviewRating(2)">★</span>
+            <span data-star="3" onclick="window.setReviewRating(3)">★</span>
+            <span data-star="4" onclick="window.setReviewRating(4)">★</span>
+            <span data-star="5" onclick="window.setReviewRating(5)">★</span>
+          </div>
+          <input type="hidden" id="selectedStarRating" value="5">
+        </div>
+
+        <label style="display:block; margin-bottom:0.75rem;">
+          <span style="font-size:0.88rem; color:#94a3b8;">আপনার নাম বা চ্যানেলের নাম:</span>
+          <input id="reviewAuthorName" style="width:100%; margin-top:4px; padding:0.65rem; background:#090e17; border:1px solid #334155; border-radius:8px; color:#fff;" placeholder="যেমন: Tanvir Ahmed / Islamic History" required>
+        </label>
+
+        <label style="display:block; margin-bottom:1rem;">
+          <span style="font-size:0.88rem; color:#94a3b8;">আপনার মন্তব্য বা অভিজ্ঞতা:</span>
+          <textarea id="reviewTextContent" rows="3" style="width:100%; margin-top:4px; padding:0.65rem; background:#090e17; border:1px solid #334155; border-radius:8px; color:#fff; font-size:0.9rem; resize:vertical;" placeholder="সফটওয়্যারটির কোন বিষয়টি আপনার সবচেয়ে ভালো লেগেছে..." required></textarea>
+        </label>
+
+        <button type="submit" id="reviewSubmitBtn" class="btn" style="width:100%; padding:0.75rem; background:linear-gradient(135deg, #f59e0b, #d97706); font-weight:bold; color:#0f172a;">
+          ⭐ রিভিউ প্রকাশ করুন
+        </button>
+      </form>
+
+      <div id="reviewResultBox" style="display:none; margin-top:1rem; padding:0.85rem; border-radius:8px; background:#064e3b; border:1px solid #10b981; color:#ecfdf5; font-size:0.88rem; text-align:center;"></div>
+    </div>
+  </div>
+
+  <!-- GOOGLE SPECIAL ACCOUNT SUBSCRIPTION MODAL -->
+  <div id="googlePaidModal" style="display:none; position:fixed; inset:0; background:rgba(0,0,0,0.85); z-index:9999; align-items:center; justify-content:center; padding:1.25rem; backdrop-filter:blur(8px);">
+    <div style="background:linear-gradient(145deg, #0f172a, #1e1b4b); border:1px solid #f59e0b; border-radius:20px; max-width:580px; width:100%; max-height:90vh; overflow-y:auto; padding:2rem; color:#f8fafc; box-shadow:0 25px 50px -12px rgba(245,158,11,0.25);">
+      <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:1.25rem;">
+        <strong style="color:#fbbf24; font-size:1.25rem; display:flex; align-items:center; gap:10px;">
+          <span>👑</span> Google Special Account সাবস্ক্রিপশন
+        </strong>
+        <button type="button" class="btn ghost" style="padding:4px 10px; font-size:1.1rem; border-color:#475569;" onclick="window.closeGooglePaidModal()">✕</button>
+      </div>
+
+      <div style="background:rgba(245,158,11,0.08); border-left:4px solid #f59e0b; border-radius:8px; padding:0.9rem; font-size:0.88rem; color:#fde68a; margin-bottom:1.25rem; line-height:1.5;">
+        <strong>কেন এটি প্রয়োজন?</strong><br>
+        আমাদের স্পেশাল গুগল অ্যাকাউন্টের মাধ্যমে আপনি আনলিমিটেড কোটায় <strong>১০০% রিয়েল এআই ভিডিও ক্লিপ (Google Veo)</strong> এবং হলিউড গ্রেড সিনেমেটিক ভিজ্যুয়াল জেনারেট করতে পারবেন। সাধারণ ফ্রি এপিআই দিয়ে ভিডিও ক্লিপের কোটা পাওয়া যায় না।
+      </div>
+
+      <div style="display:grid; grid-template-columns:1fr 1fr; gap:0.75rem; margin-bottom:1.25rem;">
+        <div style="background:#090e17; border:1px solid #334155; border-radius:10px; padding:0.75rem;">
+          <div style="color:#38bdf8; font-weight:600; font-size:0.9rem; margin-bottom:4px;">🎥 প্রতিটি সিনে ১০০% ভিডিও</div>
+          <div style="font-size:0.78rem; color:#94a3b8; line-height:1.4;">কোন স্থির ছবি নয়, প্রতিটি সিন স্বয়ংক্রিয়ভাবে Google Veo দিয়ে রিয়েল ভিডিও ক্লিপ হবে।</div>
+        </div>
+        <div style="background:#090e17; border:1px solid #334155; border-radius:10px; padding:0.75rem;">
+          <div style="color:#34d399; font-weight:600; font-size:0.9rem; margin-bottom:4px;">⚡ আনলিমিটেড কোটা ও স্পিড</div>
+          <div style="font-size:0.78rem; color:#94a3b8; line-height:1.4;">কোটা শেষ হওয়া বা 429 ত্রুটি ছাড়াই ঘণ্টার পর ঘণ্টা সকল ভাষায় একটানা ভিডিও প্রোডাকশন।</div>
+        </div>
+        <div style="background:#090e17; border:1px solid #334155; border-radius:10px; padding:0.75rem;">
+          <div style="color:#f472b6; font-weight:600; font-size:0.9rem; margin-bottom:4px;">🎨 Imagen 3/4 & Veo 3.1</div>
+          <div style="font-size:0.78rem; color:#94a3b8; line-height:1.4;">গুগলের লেটেস্ট প্রিমিয়াম জেনারেটিভ মডেলগুলোর এক্সক্লুসিভ অ্যাক্সেস।</div>
+        </div>
+        <div style="background:#090e17; border:1px solid #334155; border-radius:10px; padding:0.75rem;">
+          <div style="color:#fbbf24; font-weight:600; font-size:0.9rem; margin-bottom:4px;">🎙️ আল্ট্রা-রিয়ালিস্টিক TTS</div>
+          <div style="font-size:0.78rem; color:#94a3b8; line-height:1.4;">বাংলা ও অন্যান্য সব আঞ্চলিক ভাষায় ক্রিস্টাল ক্লিয়ার স্টুডিও অডিও রেন্ডার।</div>
+        </div>
+      </div>
+
+      <div style="margin-bottom:1.25rem;">
+        <div style="font-size:0.92rem; font-weight:700; color:#fbbf24; margin-bottom:0.75rem;">
+          💳 সাবস্ক্রিপশন প্ল্যান নির্বাচন করুন:
+        </div>
+        <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(160px, 1fr)); gap:0.75rem;">
+          <!-- Plan 1 -->
+          <label style="background:#090e17; border:2px solid #334155; border-radius:12px; padding:0.9rem; cursor:pointer; display:flex; flex-direction:column; justify-content:space-between; position:relative;" class="plan-card" onclick="window.selectGooglePaidPlan('1_month', 120, 'মাসিক প্ল্যান (৩০ দিন)')">
+            <input type="radio" name="gpro_plan" value="1_month" style="position:absolute; top:10px; right:10px;">
+            <div>
+              <div style="font-weight:700; font-size:0.95rem; color:#e2e8f0;">মাসিক প্ল্যান</div>
+              <div style="font-size:0.75rem; color:#94a3b8; margin-bottom:6px;">৩০ দিন মেয়াদ</div>
+            </div>
+            <div style="font-size:1.35rem; font-weight:800; color:#38bdf8;">১২০ ৳</div>
+          </label>
+
+          <!-- Plan 2 -->
+          <label style="background:#090e17; border:2px solid #38bdf8; border-radius:12px; padding:0.9rem; cursor:pointer; display:flex; flex-direction:column; justify-content:space-between; position:relative; box-shadow:0 0 15px rgba(56,189,248,0.2);" class="plan-card" onclick="window.selectGooglePaidPlan('12_month', 999, 'বাৎসরিক প্ল্যান (১২ মাস)')">
+            <span style="position:absolute; top:-10px; left:50%; transform:translateX(-50%); background:#38bdf8; color:#04111d; font-size:0.68rem; font-weight:800; padding:2px 8px; border-radius:9999px;">জনপ্রিয়</span>
+            <input type="radio" name="gpro_plan" value="12_month" checked style="position:absolute; top:10px; right:10px;">
+            <div>
+              <div style="font-weight:700; font-size:0.95rem; color:#ffffff;">বাৎসরিক প্ল্যান</div>
+              <div style="font-size:0.75rem; color:#94a3b8; margin-bottom:6px;">১২ মাস নিরবচ্ছিন্ন</div>
+            </div>
+            <div style="font-size:1.35rem; font-weight:800; color:#38bdf8;">৯৯৯ ৳</div>
+          </label>
+
+          <!-- Plan 3 -->
+          <label style="background:#090e17; border:2px solid #334155; border-radius:12px; padding:0.9rem; cursor:pointer; display:flex; flex-direction:column; justify-content:space-between; position:relative;" class="plan-card" onclick="window.selectGooglePaidPlan('18_month', 1299, 'স্পেশাল প্ল্যান (১৮ মাস)')">
+            <input type="radio" name="gpro_plan" value="18_month" style="position:absolute; top:10px; right:10px;">
+            <div>
+              <div style="font-weight:700; font-size:0.95rem; color:#e2e8f0;">স্পেশাল প্ল্যান</div>
+              <div style="font-size:0.75rem; color:#94a3b8; margin-bottom:6px;">১৮ মাস ভিআইপি</div>
+            </div>
+            <div style="font-size:1.35rem; font-weight:800; color:#38bdf8;">১২৯৯ ৳</div>
+          </label>
+        </div>
+      </div>
+
+      <div style="background:#090e17; border:1px solid #475569; border-radius:12px; padding:1.1rem; margin-bottom:1.25rem;">
+        <div style="font-size:0.9rem; color:#cbd5e1; font-weight:600; margin-bottom:4px;">
+          📝 অ্যাকাউন্ট নেওয়ার জন্য রিকোয়েস্ট / অর্ডার ফর্ম:
+        </div>
+        <div style="font-size:0.78rem; color:#94a3b8; margin-bottom:12px; line-height:1.4;">
+          * এটি একটি প্রিমিয়াম ম্যানুয়াল প্রসেস। আপনার জিমেইল অ্যাকাউন্টটি আমাদের টিম স্পেশাল গুগল এপিআই ও ১৫০ জিবি ক্লাউড ড্রাইভে কনফিগার করে দেবে। আমরা অর্ডার এক্সেপ্ট করলেই সফটওয়্যারে আপনার এপিআই কি ইনপুট স্লট আনলক হয়ে যাবে।
+        </div>
+        <div style="display:flex; flex-direction:column; gap:8px;">
+          <div>
+            <label style="font-size:0.78rem; color:#94a3b8; display:block; margin-bottom:3px;">আপনার Gmail অ্যাড্রেস (যেটিতে এপিআই ও ড্রাইভ কানেক্ট হবে):</label>
+            <input type="email" id="googlePaidOrderEmail" placeholder="your-email@gmail.com" style="width:100%; padding:0.6rem; background:#020617; border:1px solid #475569; border-radius:8px; color:#fff; font-size:0.88rem;">
+          </div>
+          <div style="display:grid; grid-template-columns:1fr 1fr; gap:8px;">
+            <div>
+              <label style="font-size:0.78rem; color:#94a3b8; display:block; margin-bottom:3px;">WhatsApp নম্বর (যোগাযোগের জন্য):</label>
+              <input type="text" id="googlePaidOrderWa" placeholder="01xxxxxxxxx" style="width:100%; padding:0.6rem; background:#020617; border:1px solid #475569; border-radius:8px; color:#fff; font-size:0.88rem;">
+            </div>
+            <div>
+              <label style="font-size:0.78rem; color:#94a3b8; display:block; margin-bottom:3px;">পেমেন্ট TrxID / নোট (বিকাশ/নগদ):</label>
+              <input type="text" id="googlePaidOrderTrx" placeholder="যেমন: BK99482X" style="width:100%; padding:0.6rem; background:#020617; border:1px solid #475569; border-radius:8px; color:#fff; font-size:0.88rem;">
+            </div>
+          </div>
+          <div style="display:flex; gap:8px; margin-top:6px;">
+            <button type="button" class="btn" onclick="window.submitGooglePaidOrder()" style="flex:1; padding:0.7rem; background:linear-gradient(135deg, #0284c7, #2563eb); font-weight:bold; border-radius:8px; font-size:0.9rem;">
+              অর্ডার সাবমিট করুন
+            </button>
+            <a id="googlePaidWaBtn" href="https://wa.me/8801684355055?text=Hello%20Admin%2C%20I%20want%20to%20order%20Google%20AI%20Pro%20Account" target="_blank" class="btn" style="padding:0.7rem 1rem; background:#059669; color:#fff; font-weight:600; text-decoration:none; border-radius:8px; font-size:0.85rem; display:flex; align-items:center; gap:6px;">
+              💬 হোয়াটসঅ্যাপে অর্ডার
+            </a>
+          </div>
+          <div id="googlePaidOrderMsg" style="display:none; margin-top:6px; font-size:0.84rem; padding:8px; border-radius:6px;"></div>
+        </div>
+      </div>
+
+      <div id="googlePaidOrdersContainer" style="display:none; background:#090e17; border:1px solid #334155; border-radius:12px; padding:0.9rem; margin-bottom:1.25rem;">
+        <div style="font-size:0.85rem; font-weight:600; color:#cbd5e1; margin-bottom:6px;">আপনার অর্ডারের বর্তমান অবস্থা:</div>
+        <div id="googlePaidOrdersList" style="font-size:0.8rem; color:#94a3b8; display:flex; flex-direction:column; gap:6px;"></div>
+      </div>
+
+      <div style="border-top:1px solid #334155; padding-top:1rem;">
+        <div style="font-size:0.85rem; color:#cbd5e1; margin-bottom:6px; font-weight:500;">আপনার সাবস্ক্রিপশন বা অ্যাক্টিভেশন কোড থাকলে দিন:</div>
+        <div style="display:flex; gap:8px;">
+          <input type="text" id="googlePaidActivationCodeInput" placeholder="যেমন: AMP-GOOGLE-PRO-xxxx" style="flex:1; padding:0.65rem; background:#020617; border:1px solid #475569; border-radius:8px; color:#fff; font-size:0.88rem;">
+          <button type="button" class="btn" onclick="window.verifyGooglePaidActivation()" style="padding:0.65rem 1.25rem; background:linear-gradient(135deg, #f59e0b, #d97706); color:#090e17; font-weight:bold; border-radius:8px;">
+            আনলক করুন
+          </button>
+        </div>
+        <div id="googlePaidActivationMsg" style="display:none; margin-top:8px; font-size:0.85rem; padding:8px; border-radius:6px;"></div>
+      </div>
+    </div>
+  </div>
+
+  <script src="/static/js/i18n.js"></script>
+  <script src="/static/js/app.js"></script>
+
+  <!-- JARVIS AUDIO & INTERACTION ENGINE -->
+  <script>
+    let jarvisSoundEnabled = true;
+    let jarvisVolume = 0.85;
+    const jarvisAudio = new Audio();
+    jarvisAudio.volume = jarvisVolume;
+
+    async function loadVoiceSettings() {
+      try {
+        const res = await fetch('/api/voice/settings');
+        const data = await res.json();
+        if (data.ok && data.settings) {
+          jarvisSoundEnabled = !data.settings.is_muted;
+          jarvisVolume = typeof data.settings.volume === 'number' ? data.settings.volume : 0.85;
+          jarvisAudio.volume = jarvisVolume;
+
+          const slider = document.getElementById('jarvisVolumeSlider');
+          if (slider) slider.value = Math.round(jarvisVolume * 100);
+          const valEl = document.getElementById('jarvisVolumeVal');
+          if (valEl) valEl.innerText = Math.round(jarvisVolume * 100) + '%';
+
+          const btn = document.getElementById('jarvisSoundToggle');
+          if (btn) {
+            btn.innerText = jarvisSoundEnabled ? '🔊 সাউন্ড চালু' : '🔇 সাউন্ড বন্ধ';
+            btn.style.color = jarvisSoundEnabled ? '#38bdf8' : '#94a3b8';
+          }
+        }
+      } catch (err) {
+        console.warn('Could not load voice settings from server:', err);
+      }
+    }
+
+    async function updateJarvisVolume(val) {
+      const vol = Math.max(0, Math.min(100, parseInt(val, 10))) / 100;
+      jarvisVolume = vol;
+      jarvisAudio.volume = vol;
+      const valEl = document.getElementById('jarvisVolumeVal');
+      if (valEl) valEl.innerText = Math.round(vol * 100) + '%';
+
+      try {
+        await fetch('/api/voice/settings', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ volume: vol })
+        });
+      } catch (err) {
+        console.warn('Failed to save volume preference:', err);
+      }
+    }
+
+    async function toggleJarvisSound() {
+      jarvisSoundEnabled = !jarvisSoundEnabled;
+      const btn = document.getElementById('jarvisSoundToggle');
+      if (jarvisSoundEnabled) {
+        btn.innerText = '🔊 সাউন্ড চালু';
+        btn.style.color = '#38bdf8';
+        playJarvisAudioCue('/assets/audio/voice_cues/startup_chime.wav');
+      } else {
+        btn.innerText = '🔇 সাউন্ড বন্ধ';
+        btn.style.color = '#94a3b8';
+        jarvisAudio.pause();
+      }
+
+      try {
+        await fetch('/api/voice/settings', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ is_muted: !jarvisSoundEnabled })
+        });
+      } catch (err) {
+        console.warn('Failed to save mute preference:', err);
+      }
+    }
+
+    function speakTextInUiLanguage(text) {
+      if (!jarvisSoundEnabled || !window.speechSynthesis) return;
+      try {
+        window.speechSynthesis.cancel();
+        const currentLang = localStorage.getItem('amp_ui_lang') || 'bn';
+        const langMap = {
+          'bn': 'bn-BD',
+          'en': 'en-US',
+          'hi': 'hi-IN',
+          'ur': 'ur-PK',
+          'ta': 'ta-IN',
+          'ml': 'ml-IN'
+        };
+        const targetLocale = langMap[currentLang] || 'bn-BD';
+        const utterance = new SpeechSynthesisUtterance(text);
+        utterance.lang = targetLocale;
+        utterance.volume = jarvisVolume;
+        utterance.rate = 1.0;
+        utterance.pitch = 1.05;
+        
+        const voices = window.speechSynthesis.getVoices();
+        const matchedVoice = voices.find(v => v.lang.startsWith(currentLang) || v.lang.includes(targetLocale));
+        if (matchedVoice) utterance.voice = matchedVoice;
+        
+        window.speechSynthesis.speak(utterance);
+      } catch (err) {
+        console.debug('Speech synthesis error:', err);
+      }
+    }
+    window.speakTextInUiLanguage = speakTextInUiLanguage;
+
+    function playJarvisAudioCue(audioUrl, commentaryText) {
+      if (commentaryText) {
+        const cBox = document.getElementById('jarvisCommentaryText');
+        if (cBox) {
+          cBox.innerHTML = `<span style="color:#38bdf8; margin-right:8px;">[JARVIS]:</span> ${commentaryText}`;
+          cBox.style.boxShadow = '0 0 15px rgba(56, 189, 248, 0.4)';
+          setTimeout(() => { cBox.style.boxShadow = 'none'; }, 2000);
+        }
+      }
+      if (!jarvisSoundEnabled) return;
+
+      const currentLang = localStorage.getItem('amp_ui_lang') || 'bn';
+      if (currentLang !== 'bn' || !audioUrl) {
+        if (commentaryText) {
+          speakTextInUiLanguage(commentaryText);
+        }
+        return;
+      }
+
+      try {
+        jarvisAudio.src = audioUrl;
+        jarvisAudio.volume = jarvisVolume;
+        jarvisAudio.play().catch(e => {
+          console.debug('Audio autoplay fallback to speech synthesis:', e);
+          if (commentaryText) speakTextInUiLanguage(commentaryText);
+        });
+      } catch (err) {
+        if (commentaryText) speakTextInUiLanguage(commentaryText);
+      }
+    }
+    window.playJarvisAudioCue = playJarvisAudioCue;
+
+    // Auto-check legal consent
+    function checkLegalConsent() {
+      const consented = localStorage.getItem('amp_legal_consented_v2026');
+      if (!consented) {
+        const modal = document.getElementById('legalTermsModal');
+        if (modal) modal.style.display = 'flex';
+      }
+    }
+
+    document.getElementById('legalConsentCheckbox')?.addEventListener('change', function() {
+      const btn = document.getElementById('acceptLegalBtn');
+      if (btn) btn.disabled = !this.checked;
+    });
+
+    async function acceptLegalTerms() {
+      try {
+        await fetch('/api/legal/consent', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ user_id: 'admin' })
+        });
+      } catch (err) {
+        console.warn('Consent sync error:', err);
+      }
+      localStorage.setItem('amp_legal_consented_v2026', 'true');
+      const modal = document.getElementById('legalTermsModal');
+      if (modal) modal.style.display = 'none';
+      playJarvisAudioCue('/assets/audio/voice_cues/welcome_bn.wav', 'সম্মতি গৃহীত হয়েছে। স্বাগতম AutoMovie Pro-তে!');
+      if (typeof window.refreshDashboard === 'function') {
+        window.refreshDashboard();
+      }
+    }
+
+    // Interactive 'i' button handler
+    function showFieldInfo(title, desc) {
+      document.getElementById('fieldInfoTitle').innerText = title;
+      document.getElementById('fieldInfoDesc').innerText = desc;
+      document.getElementById('fieldInfoModal').style.display = 'flex';
+    }
+
+    // Initialize on load
+    window.addEventListener('load', () => {
+      loadVoiceSettings();
+      checkLegalConsent();
+    });
+  </script>
+</body>
+</html>

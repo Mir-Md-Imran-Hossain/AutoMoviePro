@@ -1,0 +1,83 @@
+{
+  "niche_id": 7,
+  "name": "Vanished Without Trace",
+  "slug": "vanished-without-trace",
+  "style_family": "mystery",
+  "status": "VERIFIED",
+  "topic_seeds": [
+    "What new evidence reframes the story of Vanished Without Trace Real inside Vanished Without Trace",
+    "How Vanished Without Trace Real still shapes public curiosity about Vanished Without Trace",
+    "What new evidence reframes the story of Mary Celeste inside Vanished Without Trace",
+    "How Mary Celeste still shapes public curiosity about Vanished Without Trace",
+    "What new evidence reframes the story of Flight inside Vanished Without Trace",
+    "How Flight still shapes public curiosity about Vanished Without Trace"
+  ],
+  "seo_angles": [
+    "What new evidence reframes the story of Vanished Without Trace Real inside Vanished Without Trace",
+    "How Vanished Without Trace Real still shapes public curiosity about Vanished Without Trace",
+    "What new evidence reframes the story of Mary Celeste inside Vanished Without Trace",
+    "How Mary Celeste still shapes public curiosity about Vanished Without Trace"
+  ],
+  "forbidden_visuals": [
+    "talking-head lip-sync avatar",
+    "burned-in captions",
+    "watermark",
+    "modern meme text",
+    "modern smartphones",
+    "cars",
+    "LED screens",
+    "sneakers",
+    "contemporary skyline"
+  ],
+  "preferred_subjects": [
+    "Vanished Without Trace documentary subject",
+    "period-accurate environment",
+    "evidence object close-up"
+  ],
+  "lighting_default": "dappled fog light, cool teal shadows, slow push-ins",
+  "face_policy": "no talking-head lip-sync avatar; cinematic B-roll preferred",
+  "dialogue_tone": "slow, ominous, evidence-first",
+  "audio_ambience": "low drone, subtle reverb, sparse percussion",
+  "research_hints": [
+    "Prefer primary evidence and concrete entities for Vanished Without Trace",
+    "Avoid generic niche-label topics; require specific place/person/event/mechanism",
+    "7–9 second spoken beats with story continuity across scenes"
+  ],
+  "topic_prompt_overlay": "NICHE LOCK (Vanished Without Trace): only propose topics that fit this niche's video type. Video type: Real-life disappearances of ships, planes, and entire communities — Mary Celeste, Flight MH370, and the Sodder children. Forensic and psychological analysis included. Follow niche topic strategy: Follow aviation and maritime news, cold case updates, or new search technologies. Generate a topic about a disappearance that recently resurfaced in media or social media discussions.",
+  "video_prompt_overlay": "NICHE VISUAL LOCK (Vanished Without Trace / mystery): Generate a 7–9 second dialogue clip based on the topic `{topic}`. Each dialogue must feel like an investigation log. For each dialogue, generate: - **Audio Generation Prompt:** Voice — neutral, investigative, with static radio or sonar beeps. - **Video Generation Prompt:** Detailed visual — empty ocean, or a deserted ship interior. No characters — just objects (half-eaten meal, open logbook). Lighting: grey, overcast, flat. Maintain the same maritime environment, same grey tones, same slow camera drift. Forbidden: talking-head lip-sync avatar, burned-in captions, watermark, modern meme text, modern smartphones, cars, LED screens, sneakers. Preferred subjects: Vanished Without Trace documentary subject, period-accurate environment, evidence object close-up. Lighting: dappled fog light, cool teal shadows, slow push-ins. Face policy: no talking-head lip-sync avatar; cinematic B-roll preferred. Dialogue tone: slow, ominous, evidence-first. Ambience: low drone, subtle reverb, sparse percussion.",
+  "i18n": {
+    "en": {
+      "name": "Vanished Without Trace",
+      "blurb": "Real-life disappearances of ships, planes, and entire communities — Mary Celeste, Flight MH370, and the Sodder children. Forensic and psychological analysis…"
+    },
+    "bn": {
+      "name": "নিঃশেষে অদৃশ্য",
+      "blurb": "ভিডিও টাইপ: Real-life disappearances of ships, planes, and entire communities — Mary Celeste, Flight MH370, and the Sodder children. Forensic and psychological…"
+    },
+    "hi": {
+      "name": "बिना निशान गायब",
+      "blurb": "वीडियो प्रकार: Real-life disappearances of ships, planes, and entire communities — Mary Celeste, Flight MH370, and the Sodder children. Forensic and psychological…"
+    },
+    "ur": {
+      "name": "بے نشان غائب",
+      "blurb": "ویڈیو کی قسم: Real-life disappearances of ships, planes, and entire communities — Mary Celeste, Flight MH370, and the Sodder children. Forensic and psychological…"
+    },
+    "ta": {
+      "name": "சுவடு இல்லாமல் மறைந்தவை",
+      "blurb": "வீடியோ வகை: Real-life disappearances of ships, planes, and entire communities — Mary Celeste, Flight MH370, and the Sodder children. Forensic and psychological…"
+    },
+    "ml": {
+      "name": "അടയാളമില്ലാതെ അപ്രത്യക്ഷം",
+      "blurb": "വീഡിയോ തരം: Real-life disappearances of ships, planes, and entire communities — Mary Celeste, Flight MH370, and the Sodder children. Forensic and psychological…"
+    }
+  },
+  "source": "Nish.Md + deterministic research",
+  "research_notes": [
+    "Marathon researched at 2026-09-10T08:30:08Z",
+    "Video type length=166",
+    "Topic prompt length=183",
+    "Video prompt length=508",
+    "Seeds=6"
+  ],
+  "verified_at": "2026-09-10T08:30:08Z"
+}

@@ -1,0 +1,83 @@
+{
+  "niche_id": 100,
+  "name": "Digital Museums",
+  "slug": "digital-museums",
+  "style_family": "history",
+  "status": "VERIFIED",
+  "topic_seeds": [
+    "What new evidence reframes the story of Digital Museums Virtual inside Digital Museums",
+    "How Digital Museums Virtual still shapes public curiosity about Digital Museums",
+    "What new evidence reframes the story of Louvre inside Digital Museums",
+    "How Louvre still shapes public curiosity about Digital Museums",
+    "What new evidence reframes the story of British Museum inside Digital Museums",
+    "How British Museum still shapes public curiosity about Digital Museums"
+  ],
+  "seo_angles": [
+    "What new evidence reframes the story of Digital Museums Virtual inside Digital Museums",
+    "How Digital Museums Virtual still shapes public curiosity about Digital Museums",
+    "What new evidence reframes the story of Louvre inside Digital Museums",
+    "How Louvre still shapes public curiosity about Digital Museums"
+  ],
+  "forbidden_visuals": [
+    "talking-head lip-sync avatar",
+    "burned-in captions",
+    "watermark",
+    "modern meme text",
+    "modern smartphones",
+    "cars",
+    "LED screens",
+    "sneakers",
+    "contemporary skyline"
+  ],
+  "preferred_subjects": [
+    "Digital Museums documentary subject",
+    "period-accurate environment",
+    "evidence object close-up"
+  ],
+  "lighting_default": "warm desert sun / torchlit interiors, high-contrast documentary grade",
+  "face_policy": "period extras OK if consistent; prefer environment/object hero when possible",
+  "dialogue_tone": "human documentary narration; specific nouns; 7–9s beats",
+  "audio_ambience": "subtle documentary bed; do not overpower voice",
+  "research_hints": [
+    "Prefer primary evidence and concrete entities for Digital Museums",
+    "Avoid generic niche-label topics; require specific place/person/event/mechanism",
+    "7–9 second spoken beats with story continuity across scenes"
+  ],
+  "topic_prompt_overlay": "NICHE LOCK (Digital Museums): only propose topics that fit this niche's video type. Video type: Virtual tours of the Louvre, British Museum, etc. — the history of selected artifacts and how to explore online. Follow niche topic strategy: Check museum news, new virtual tours, or viral artifact discoveries. Generate a topic about an artifact now viewable online.",
+  "video_prompt_overlay": "NICHE VISUAL LOCK (Digital Museums / history): Generate a 7–9 second dialogue clip based on the topic `{topic}`. Each dialogue must be admiring and cultural. For each dialogue, generate: - **Audio Generation Prompt:** Voice — reverent, with soft classical music. - **Video Generation Prompt:** Detailed visual — a museum hall or a 3D artifact. No character — focus on artifact. Lighting: museum spotlight. Maintain same artifact and spotlight. Forbidden: talking-head lip-sync avatar, burned-in captions, watermark, modern meme text, modern smartphones, cars, LED screens, sneakers. Preferred subjects: Digital Museums documentary subject, period-accurate environment, evidence object close-up. Lighting: warm desert sun / torchlit interiors, high-contrast documentary grade. Face policy: period extras OK if consistent; prefer environment/object hero when possible. Dialogue tone: human documentary narration; specific nouns; 7–9s beats. Ambience: subtle documentary bed; do not overpower voice.",
+  "i18n": {
+    "en": {
+      "name": "Digital Museums",
+      "blurb": "Virtual tours of the Louvre, British Museum, etc. — the history of selected artifacts and how to explore online."
+    },
+    "bn": {
+      "name": "ডিজিটাল জাদুঘর",
+      "blurb": "ভিডিও টাইপ: Virtual tours of the Louvre, British Museum, etc. — the history of selected artifacts and how to explore online."
+    },
+    "hi": {
+      "name": "डिजिटल संग्रहालय",
+      "blurb": "वीडियो प्रकार: Virtual tours of the Louvre, British Museum, etc. — the history of selected artifacts and how to explore online."
+    },
+    "ur": {
+      "name": "ڈیجیٹل عجائب گھر",
+      "blurb": "ویڈیو کی قسم: Virtual tours of the Louvre, British Museum, etc. — the history of selected artifacts and how to explore online."
+    },
+    "ta": {
+      "name": "டிஜிட்டல் அருங்காட்சியகங்கள்",
+      "blurb": "வீடியோ வகை: Virtual tours of the Louvre, British Museum, etc. — the history of selected artifacts and how to explore online."
+    },
+    "ml": {
+      "name": "ഡിജിറ്റൽ മ്യൂസിയങ്ങൾ",
+      "blurb": "വീഡിയോ തരം: Virtual tours of the Louvre, British Museum, etc. — the history of selected artifacts and how to explore online."
+    }
+  },
+  "source": "Nish.Md + deterministic research",
+  "research_notes": [
+    "Marathon researched at 2026-09-10T08:30:22Z",
+    "Video type length=112",
+    "Topic prompt length=124",
+    "Video prompt length=396",
+    "Seeds=6"
+  ],
+  "verified_at": "2026-09-10T08:30:22Z"
+}

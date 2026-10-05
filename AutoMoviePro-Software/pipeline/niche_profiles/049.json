@@ -1,0 +1,83 @@
+{
+  "niche_id": 49,
+  "name": "Past Life Memories",
+  "slug": "past-life-memories",
+  "style_family": "history",
+  "status": "VERIFIED",
+  "topic_seeds": [
+    "What new evidence reframes the story of Past Life Memories Children inside Past Life Memories",
+    "How Past Life Memories Children still shapes public curiosity about Past Life Memories",
+    "What new evidence reframes the story of Scan inside Past Life Memories",
+    "How Scan still shapes public curiosity about Past Life Memories",
+    "What new evidence reframes the story of Generate inside Past Life Memories",
+    "How Generate still shapes public curiosity about Past Life Memories"
+  ],
+  "seo_angles": [
+    "What new evidence reframes the story of Past Life Memories Children inside Past Life Memories",
+    "How Past Life Memories Children still shapes public curiosity about Past Life Memories",
+    "What new evidence reframes the story of Scan inside Past Life Memories",
+    "How Scan still shapes public curiosity about Past Life Memories"
+  ],
+  "forbidden_visuals": [
+    "talking-head lip-sync avatar",
+    "burned-in captions",
+    "watermark",
+    "modern meme text",
+    "modern smartphones",
+    "cars",
+    "LED screens",
+    "sneakers",
+    "contemporary skyline"
+  ],
+  "preferred_subjects": [
+    "Past Life Memories documentary subject",
+    "period-accurate environment",
+    "evidence object close-up"
+  ],
+  "lighting_default": "warm desert sun / torchlit interiors, high-contrast documentary grade",
+  "face_policy": "period extras OK if consistent; prefer environment/object hero when possible",
+  "dialogue_tone": "human documentary narration; specific nouns; 7–9s beats",
+  "audio_ambience": "subtle documentary bed; do not overpower voice",
+  "research_hints": [
+    "Prefer primary evidence and concrete entities for Past Life Memories",
+    "Avoid generic niche-label topics; require specific place/person/event/mechanism",
+    "7–9 second spoken beats with story continuity across scenes"
+  ],
+  "topic_prompt_overlay": "NICHE LOCK (Past Life Memories): only propose topics that fit this niche's video type. Video type: Children who recall detailed past lives — scientific studies, unexplained knowledge, and eerie accuracy. Follow niche topic strategy: Scan psychology journals, paranormal research papers, or viral videos of children remembering past lives. Generate a topic about a specific case that has been studied and documented credibly.",
+  "video_prompt_overlay": "NICHE VISUAL LOCK (Past Life Memories / history): Generate a 7–9 second dialogue clip based on the topic `{topic}`. Each dialogue must be curious and gentle. For each dialogue, generate: - **Audio Generation Prompt:** Voice — calm, wondering, with soft chime or wind sounds. - **Video Generation Prompt:** Detailed visual — a child's bedroom or playroom. Character: a child (age 5-8) looking pensive. Lighting: warm afternoon sun filtering through curtains. Maintain same room, same child's outfit, same sun angle. Forbidden: talking-head lip-sync avatar, burned-in captions, watermark, modern meme text, modern smartphones, cars, LED screens, sneakers. Preferred subjects: Past Life Memories documentary subject, period-accurate environment, evidence object close-up. Lighting: warm desert sun / torchlit interiors, high-contrast documentary grade. Face policy: period extras OK if consistent; prefer environment/object hero when possible. Dialogue tone: human documentary narration; specific nouns; 7–9s beats. Ambience: subtle documentary bed; do not overpower voice.",
+  "i18n": {
+    "en": {
+      "name": "Past Life Memories",
+      "blurb": "Children who recall detailed past lives — scientific studies, unexplained knowledge, and eerie accuracy."
+    },
+    "bn": {
+      "name": "পূর্বজন্মের স্মৃতি",
+      "blurb": "ভিডিও টাইপ: Children who recall detailed past lives — scientific studies, unexplained knowledge, and eerie accuracy."
+    },
+    "hi": {
+      "name": "पिछले जन्म की यादें",
+      "blurb": "वीडियो प्रकार: Children who recall detailed past lives — scientific studies, unexplained knowledge, and eerie accuracy."
+    },
+    "ur": {
+      "name": "پچھلی زندگی کی یادیں",
+      "blurb": "ویڈیو کی قسم: Children who recall detailed past lives — scientific studies, unexplained knowledge, and eerie accuracy."
+    },
+    "ta": {
+      "name": "முன்ஜன்ம நினைவுகள்",
+      "blurb": "வீடியோ வகை: Children who recall detailed past lives — scientific studies, unexplained knowledge, and eerie accuracy."
+    },
+    "ml": {
+      "name": "മുൻജന്മ സ്മരണകൾ",
+      "blurb": "വീഡിയോ തരം: Children who recall detailed past lives — scientific studies, unexplained knowledge, and eerie accuracy."
+    }
+  },
+  "source": "Nish.Md + deterministic research",
+  "research_notes": [
+    "Marathon researched at 2026-09-10T08:30:14Z",
+    "Video type length=104",
+    "Topic prompt length=191",
+    "Video prompt length=464",
+    "Seeds=6"
+  ],
+  "verified_at": "2026-09-10T08:30:14Z"
+}

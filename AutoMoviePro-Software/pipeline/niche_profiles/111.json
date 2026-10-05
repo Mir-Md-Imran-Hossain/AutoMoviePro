@@ -1,0 +1,83 @@
+{
+  "niche_id": 111,
+  "name": "Free Design Platforms",
+  "slug": "free-design-platforms",
+  "style_family": "history",
+  "status": "VERIFIED",
+  "topic_seeds": [
+    "What new evidence reframes the story of Free Design Platforms Canva inside Free Design Platforms",
+    "How Free Design Platforms Canva still shapes public curiosity about Free Design Platforms",
+    "What new evidence reframes the story of Figma inside Free Design Platforms",
+    "How Figma still shapes public curiosity about Free Design Platforms",
+    "What new evidence reframes the story of Photopea inside Free Design Platforms",
+    "How Photopea still shapes public curiosity about Free Design Platforms"
+  ],
+  "seo_angles": [
+    "What new evidence reframes the story of Free Design Platforms Canva inside Free Design Platforms",
+    "How Free Design Platforms Canva still shapes public curiosity about Free Design Platforms",
+    "What new evidence reframes the story of Figma inside Free Design Platforms",
+    "How Figma still shapes public curiosity about Free Design Platforms"
+  ],
+  "forbidden_visuals": [
+    "talking-head lip-sync avatar",
+    "burned-in captions",
+    "watermark",
+    "modern meme text",
+    "modern smartphones",
+    "cars",
+    "LED screens",
+    "sneakers",
+    "contemporary skyline"
+  ],
+  "preferred_subjects": [
+    "Free Design Platforms documentary subject",
+    "period-accurate environment",
+    "evidence object close-up"
+  ],
+  "lighting_default": "warm desert sun / torchlit interiors, high-contrast documentary grade",
+  "face_policy": "period extras OK if consistent; prefer environment/object hero when possible",
+  "dialogue_tone": "human documentary narration; specific nouns; 7–9s beats",
+  "audio_ambience": "subtle documentary bed; do not overpower voice",
+  "research_hints": [
+    "Prefer primary evidence and concrete entities for Free Design Platforms",
+    "Avoid generic niche-label topics; require specific place/person/event/mechanism",
+    "7–9 second spoken beats with story continuity across scenes"
+  ],
+  "topic_prompt_overlay": "NICHE LOCK (Free Design Platforms): only propose topics that fit this niche's video type. Video type: Canva, Figma, Photopea — creating graphics, UI mockups, and presentations without expensive software. Follow niche topic strategy: Check design news, new free features, or viral design challenges. Generate a topic about a free tool that rivals paid software.",
+  "video_prompt_overlay": "NICHE VISUAL LOCK (Free Design Platforms / history): Generate a 7–9 second dialogue clip based on the topic `{topic}`. Each dialogue must be creative and accessible. For each dialogue, generate: - **Audio Generation Prompt:** Voice — artistic, with mouse clicks and swishes. - **Video Generation Prompt:** Detailed visual — a design canvas screen. No character — screen. Lighting: bright, colourful. Maintain same canvas. Forbidden: talking-head lip-sync avatar, burned-in captions, watermark, modern meme text, modern smartphones, cars, LED screens, sneakers. Preferred subjects: Free Design Platforms documentary subject, period-accurate environment, evidence object close-up. Lighting: warm desert sun / torchlit interiors, high-contrast documentary grade. Face policy: period extras OK if consistent; prefer environment/object hero when possible. Dialogue tone: human documentary narration; specific nouns; 7–9s beats. Ambience: subtle documentary bed; do not overpower voice.",
+  "i18n": {
+    "en": {
+      "name": "Free Design Platforms",
+      "blurb": "Canva, Figma, Photopea — creating graphics, UI mockups, and presentations without expensive software."
+    },
+    "bn": {
+      "name": "বিনামূল্যে ডিজাইন প্ল্যাটফর্ম",
+      "blurb": "ভিডিও টাইপ: Canva, Figma, Photopea — creating graphics, UI mockups, and presentations without expensive software."
+    },
+    "hi": {
+      "name": "मुफ़्त डिज़ाइन प्लेटफ़ॉर्म",
+      "blurb": "वीडियो प्रकार: Canva, Figma, Photopea — creating graphics, UI mockups, and presentations without expensive software."
+    },
+    "ur": {
+      "name": "مفت ڈیزائن پلیٹ فارمز",
+      "blurb": "ویڈیو کی قسم: Canva, Figma, Photopea — creating graphics, UI mockups, and presentations without expensive software."
+    },
+    "ta": {
+      "name": "இலவச வடிவமைப்பு தளங்கள்",
+      "blurb": "வீடியோ வகை: Canva, Figma, Photopea — creating graphics, UI mockups, and presentations without expensive software."
+    },
+    "ml": {
+      "name": "സൗജന്യ ഡിസൈൻ പ്ലാറ്റ്‌ഫോമുകൾ",
+      "blurb": "വീഡിയോ തരം: Canva, Figma, Photopea — creating graphics, UI mockups, and presentations without expensive software."
+    }
+  },
+  "source": "Nish.Md + deterministic research",
+  "research_notes": [
+    "Marathon researched at 2026-09-10T08:30:24Z",
+    "Video type length=101",
+    "Topic prompt length=127",
+    "Video prompt length=368",
+    "Seeds=6"
+  ],
+  "verified_at": "2026-09-10T08:30:24Z"
+}

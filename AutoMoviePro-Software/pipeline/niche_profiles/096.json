@@ -1,0 +1,83 @@
+{
+  "niche_id": 96,
+  "name": "Open Source Alternatives",
+  "slug": "open-source-alternatives",
+  "style_family": "history",
+  "status": "VERIFIED",
+  "topic_seeds": [
+    "What new evidence reframes the story of Open Source Alternatives Replacements inside Open Source Alternatives",
+    "How Open Source Alternatives Replacements still shapes public curiosity about Open Source Alternatives",
+    "What new evidence reframes the story of Photoshop inside Open Source Alternatives",
+    "How Photoshop still shapes public curiosity about Open Source Alternatives",
+    "What new evidence reframes the story of Microsoft inside Open Source Alternatives",
+    "How Microsoft still shapes public curiosity about Open Source Alternatives"
+  ],
+  "seo_angles": [
+    "What new evidence reframes the story of Open Source Alternatives Replacements inside Open Source Alternatives",
+    "How Open Source Alternatives Replacements still shapes public curiosity about Open Source Alternatives",
+    "What new evidence reframes the story of Photoshop inside Open Source Alternatives",
+    "How Photoshop still shapes public curiosity about Open Source Alternatives"
+  ],
+  "forbidden_visuals": [
+    "talking-head lip-sync avatar",
+    "burned-in captions",
+    "watermark",
+    "modern meme text",
+    "modern smartphones",
+    "cars",
+    "LED screens",
+    "sneakers",
+    "contemporary skyline"
+  ],
+  "preferred_subjects": [
+    "Open Source Alternatives documentary subject",
+    "period-accurate environment",
+    "evidence object close-up"
+  ],
+  "lighting_default": "warm desert sun / torchlit interiors, high-contrast documentary grade",
+  "face_policy": "period extras OK if consistent; prefer environment/object hero when possible",
+  "dialogue_tone": "human documentary narration; specific nouns; 7–9s beats",
+  "audio_ambience": "subtle documentary bed; do not overpower voice",
+  "research_hints": [
+    "Prefer primary evidence and concrete entities for Open Source Alternatives",
+    "Avoid generic niche-label topics; require specific place/person/event/mechanism",
+    "7–9 second spoken beats with story continuity across scenes"
+  ],
+  "topic_prompt_overlay": "NICHE LOCK (Open Source Alternatives): only propose topics that fit this niche's video type. Video type: Replacements for paid software — GIMP for Photoshop, LibreOffice for Microsoft — with feature comparisons. Follow niche topic strategy: Scan open source community news, new releases, or viral comparisons. Generate a topic about a free tool that rivals premium software.",
+  "video_prompt_overlay": "NICHE VISUAL LOCK (Open Source Alternatives / history): Generate a 7–9 second dialogue clip based on the topic `{topic}`. Each dialogue must be helpful and straightforward. For each dialogue, generate: - **Audio Generation Prompt:** Voice — instructive, with mouse clicks and keyboard. - **Video Generation Prompt:** Detailed visual — side-by-side software screens. No character — screen comparison. Lighting: clear. Maintain same clarity. Forbidden: talking-head lip-sync avatar, burned-in captions, watermark, modern meme text, modern smartphones, cars, LED screens, sneakers. Preferred subjects: Open Source Alternatives documentary subject, period-accurate environment, evidence object close-up. Lighting: warm desert sun / torchlit interiors, high-contrast documentary grade. Face policy: period extras OK if consistent; prefer environment/object hero when possible. Dialogue tone: human documentary narration; specific nouns; 7–9s beats. Ambience: subtle documentary bed; do not overpower voice.",
+  "i18n": {
+    "en": {
+      "name": "Open Source Alternatives",
+      "blurb": "Replacements for paid software — GIMP for Photoshop, LibreOffice for Microsoft — with feature comparisons."
+    },
+    "bn": {
+      "name": "ওপেন সোর্স বিকল্প",
+      "blurb": "ভিডিও টাইপ: Replacements for paid software — GIMP for Photoshop, LibreOffice for Microsoft — with feature comparisons."
+    },
+    "hi": {
+      "name": "ओपन सोर्स विकल्प",
+      "blurb": "वीडियो प्रकार: Replacements for paid software — GIMP for Photoshop, LibreOffice for Microsoft — with feature comparisons."
+    },
+    "ur": {
+      "name": "اوپن سورس متبادلات",
+      "blurb": "ویڈیو کی قسم: Replacements for paid software — GIMP for Photoshop, LibreOffice for Microsoft — with feature comparisons."
+    },
+    "ta": {
+      "name": "திறந்த மூல மாற்றுகள்",
+      "blurb": "வீடியோ வகை: Replacements for paid software — GIMP for Photoshop, LibreOffice for Microsoft — with feature comparisons."
+    },
+    "ml": {
+      "name": "ഓപ്പൺ സോഴ്സ് ബദലുകൾ",
+      "blurb": "വീഡിയോ തരം: Replacements for paid software — GIMP for Photoshop, LibreOffice for Microsoft — with feature comparisons."
+    }
+  },
+  "source": "Nish.Md + deterministic research",
+  "research_notes": [
+    "Marathon researched at 2026-09-10T08:30:22Z",
+    "Video type length=106",
+    "Topic prompt length=133",
+    "Video prompt length=383",
+    "Seeds=6"
+  ],
+  "verified_at": "2026-09-10T08:30:22Z"
+}

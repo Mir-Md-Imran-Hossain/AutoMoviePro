@@ -1,0 +1,37 @@
+{
+  "beats_present": [
+    "scene_01_beat.mp4",
+    "scene_02_beat.mp4",
+    "scene_03_beat.mp4"
+  ],
+  "beat_count": 3,
+  "scene_local": {
+    "01": {
+      "ok": true,
+      "langs": {
+        "bn": true,
+        "hi": true,
+        "ur": true,
+        "ta": true,
+        "ml": true
+      }
+    },
+    "02": {
+      "ok": true,
+      "langs": {
+        "bn": true,
+        "hi": true,
+        "ur": true,
+        "ta": true,
+        "ml": true
+      }
+    }
+  },
+  "final_exists": false,
+  "localized_exists": false,
+  "db_languages": [
+    "en",
+    "bn"
+  ],
+  "entitlement_forged": false
+}

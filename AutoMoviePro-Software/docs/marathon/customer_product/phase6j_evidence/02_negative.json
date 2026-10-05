@@ -1,0 +1,193 @@
+{
+  "case": "hospital_dialogue_vs_spacecraft_visual",
+  "status": "FAIL",
+  "beat": {
+    "schema": "amp_multimodal_evidence_projection_v1",
+    "beat_id": "vb-neg",
+    "scene_id": "sc-neg",
+    "dialogue_id": "dlg-hosp",
+    "visual_asset_id": "",
+    "audio_asset_id": "",
+    "intent": {
+      "subject": null,
+      "entities": [
+        {
+          "label": "Nurse"
+        }
+      ],
+      "relationships": [
+        {
+          "relation": "beside"
+        }
+      ],
+      "actions": null,
+      "location": "hospital room",
+      "camera": null,
+      "lighting": null,
+      "emotion": null,
+      "dialogue": "She enters the hospital."
+    },
+    "observed_visual": {
+      "status": "FAIL",
+      "confidence": "PROVIDER_VERIFIED",
+      "entities": [
+        "futuristic suit collar"
+      ],
+      "location": "futuristic/sci-fi interior",
+      "actions": [],
+      "relationships": [],
+      "temporal_status": null
+    },
+    "observed_audio": {
+      "status": "PASS",
+      "confidence": "PROVIDER_VERIFIED",
+      "dialogue_coverage": {
+        "dialogue_id": "dlg-1",
+        "coverage": "PARTIAL",
+        "overlap_sec": 2.46,
+        "required_sec": 2.5,
+        "speech_segment_ids": [
+          "asr-1"
+        ],
+        "timing_overlap_is_not_semantic_pass": true,
+        "vocabulary": "C05-S VisualCoverage"
+      },
+      "transcript": {
+        "dialogue_id": "dlg-1",
+        "class": "MATCH",
+        "similarity_is_not_production_pass": true
+      },
+      "delivery": null,
+      "voice_identity_observation": "UNKNOWN"
+    },
+    "timing": {
+      "status": "UNKNOWN",
+      "planned_start": null,
+      "planned_end": null,
+      "actual_audio_start": null,
+      "actual_audio_end": null,
+      "visual_coverage": null,
+      "dialogue_coverage": null,
+      "fixed_n_switching_forbidden": true
+    },
+    "continuity": {
+      "status": "UNKNOWN",
+      "location": null,
+      "character": null,
+      "object": null,
+      "authority": "pipeline.visual_semantic.continuity.ContinuityTracker",
+      "second_continuity_engine": false
+    },
+    "certification_matrix": {
+      "TECHNICAL": {
+        "status": "FAIL",
+        "confidence": "DETERMINISTIC"
+      },
+      "AUDIO": {
+        "status": "PASS",
+        "confidence": "PROVIDER_VERIFIED",
+        "dialogue_coverage": {
+          "dialogue_id": "dlg-1",
+          "coverage": "PARTIAL",
+          "overlap_sec": 2.46,
+          "required_sec": 2.5,
+          "speech_segment_ids": [
+            "asr-1"
+          ],
+          "timing_overlap_is_not_semantic_pass": true,
+          "vocabulary": "C05-S VisualCoverage"
+        },
+        "transcript": {
+          "dialogue_id": "dlg-1",
+          "class": "MATCH",
+          "similarity_is_not_production_pass": true
+        },
+        "delivery": null,
+        "voice_identity_observation": "UNKNOWN"
+      },
+      "VISUAL": {
+        "status": "FAIL",
+        "confidence": "PROVIDER_VERIFIED",
+        "observed_entities": [
+          "futuristic suit collar"
+        ],
+        "observed_location": "futuristic/sci-fi interior",
+        "observed_actions": [],
+        "observed_relationships": [],
+        "temporal_status": null
+      },
+      "DIALOGUE": {
+        "status": "UNKNOWN",
+        "dialogue_id": "dlg-hosp",
+        "text": "She enters the hospital."
+      },
+      "TIMING": {
+        "status": "UNKNOWN",
+        "planned_start": null,
+        "planned_end": null,
+        "actual_audio_start": null,
+        "actual_audio_end": null,
+        "visual_coverage": null,
+        "dialogue_coverage": null,
+        "fixed_n_switching_forbidden": true
+      },
+      "CONTINUITY": {
+        "status": "UNKNOWN",
+        "location": null,
+        "character": null,
+        "object": null,
+        "authority": "pipeline.visual_semantic.continuity.ContinuityTracker",
+        "second_continuity_engine": false
+      },
+      "CROSS_MODAL": {
+        "status": "FAIL",
+        "confidence": "PROVIDER_VERIFIED",
+        "issues": [
+          "location_contradiction:hospital room->futuristic/sci-fi interior"
+        ],
+        "timing_overlap_is_not_semantic_pass": true,
+        "relationship_collapsed_to_located_at": false
+      },
+      "SEMANTIC": {
+        "status": "FAIL",
+        "confidence": "PROVIDER_VERIFIED",
+        "authority": "pipeline.semantic_coverage",
+        "note": "projection_only_not_publishability",
+        "second_semantic_gate": false,
+        "creates_final_gate": false
+      }
+    },
+    "provenance": {
+      "visual_provider": "PROVIDER_FRAME:gemini-3.6-flash",
+      "visual_evidence_source": "PROVIDER_VERIFIED",
+      "audio_provider": "faster-whisper",
+      "audio_evidence_source": "LOCAL_ASR",
+      "visual_hash": null,
+      "audio_hash": "f507c8365c5dc22d50e8c211867397ada718733de9af6d7ff287d659e2b7dced",
+      "observation_timestamp": 1788952044.8332376,
+      "HEURISTIC_is_not_PROVIDER_VERIFIED": true,
+      "generation_success_is_not_semantic_pass": true,
+      "prompt_compliance_is_not_observed_pass": true
+    },
+    "customer_id": "c11_marathon_customer",
+    "channel_id": "4",
+    "job_id": "job2108",
+    "creates_final_gate": false,
+    "creates_publishability_gate": false,
+    "second_multimodal_engine": false,
+    "second_semantic_gate": false,
+    "second_quality_score": false,
+    "second_repair_engine": false,
+    "second_pacing_engine": false,
+    "unknown_as_pass": false,
+    "unknown_as_fail": false,
+    "voice_acoustic_remains_unknown_per_phase6i": true,
+    "adaptive_pacing_reuses_phase6g": true,
+    "fixed_n_switching_forbidden": true,
+    "authority_chain": [
+      "observation\u2192semantic_coverage\u2192quality_gates\u2192publishability"
+    ],
+    "never_directly_publishable": true
+  },
+  "must_not_be_pass": true
+}

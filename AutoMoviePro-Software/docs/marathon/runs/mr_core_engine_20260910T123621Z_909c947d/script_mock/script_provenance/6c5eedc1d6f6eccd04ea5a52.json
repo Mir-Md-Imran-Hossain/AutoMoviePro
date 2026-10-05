@@ -1,0 +1,26 @@
+{
+  "job_id": "c06b-script-4-topic-4850dae345ff3055",
+  "fingerprint": "6c5eedc1d6f6eccd04ea5a52b0d292a346ac950a88b8fbbfaee21fa64813e6ea",
+  "entity_id": "script-0000-87c1edd4fd4a9017",
+  "topic": "What Parker Solar Probe discovered about the Sun's corona in 2026",
+  "topic_identity": "87c1edd4fd4a9017cde478fa",
+  "niche": "space science",
+  "niche_id": 0,
+  "fact_pack_id": "",
+  "fact_pack_hash": "",
+  "prompt_version": "v12",
+  "prompt_template_hash": "0eb19ea36a22cf406694f6e7dea91b9f",
+  "provider": "llm_router",
+  "model": "purpose-script",
+  "generation_id": "mock-script-0001",
+  "plan_path": "E:\\All Updaye Project\\AutoMovie_Pro_SAAS_Final_Update\\AutoMoviePro-Software\\docs\\marathon\\runs\\mr_core_engine_20260910T123621Z_909c947d\\script_mock\\director_plan.json",
+  "plan_hash": "b0f2191471984ba1ea84ddb2170b8cf1468b0fe1b5bbe7447150039619cef03f",
+  "saved_at": 1789043788.5561178,
+  "metadata": {
+    "video_type": "short",
+    "max_seconds": 60,
+    "language": "en",
+    "revision_id": "",
+    "legacy_key": "script:6c5eedc1d6f6eccd04ea5a52b0d292a3"
+  }
+}

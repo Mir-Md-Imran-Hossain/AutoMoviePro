@@ -1,0 +1,46 @@
+{
+  "work_dir": "E:\\All Updaye Project\\AutoMovie_Pro_SAAS_Final_Update\\AutoMoviePro-Software\\data\\customer_generation_work\\c11_marathon_customer\\job2327",
+  "languages": {},
+  "db_languages_after": [
+    "en",
+    "bn"
+  ],
+  "entitlement_preserved": true,
+  "master_candidates": [],
+  "montage_brain_files": [
+    "director_plan.json"
+  ],
+  "montage_checklist": {
+    "ok": true,
+    "issues": [],
+    "hero_count": 2,
+    "slots_with_queries": 5,
+    "video_mode_count": 4,
+    "scene_count": 5,
+    "version": "amp_montage_brain_v1"
+  },
+  "montage_manifest": {
+    "version": "amp_montage_brain_v1",
+    "openmontage_agpl_imported": false,
+    "slots": 5
+  },
+  "DURATION_CONTRACT.json": {
+    "schema": "amp_duration_contract_v1",
+    "video_type": "short",
+    "target_seconds": 60,
+    "max_seconds": 120,
+    "authority": "pipeline.duration_budget.resolve_duration_contract"
+  },
+  "UR_RTL_SHAPING": "UNKNOWN",
+  "ur_rtl_classify": {
+    "rtl": true,
+    "status": "PASS",
+    "support_level": "SHAPING_LIBS_AVAILABLE",
+    "method": "DETERMINISTIC",
+    "shaping_guaranteed": true,
+    "libs": [
+      "arabic_reshaper",
+      "python-bidi"
+    ]
+  }
+}

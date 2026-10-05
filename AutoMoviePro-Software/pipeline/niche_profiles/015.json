@@ -1,0 +1,79 @@
+{
+  "niche_id": 15,
+  "name": "Legacy of One Day",
+  "slug": "legacy-of-one-day",
+  "style_family": "news",
+  "status": "VERIFIED",
+  "topic_seeds": [
+    "What new evidence reframes the story of Legacy inside Legacy of One Day",
+    "How Legacy still shapes public curiosity about Legacy of One Day",
+    "What new evidence reframes the story of One Day How inside Legacy of One Day",
+    "How One Day How still shapes public curiosity about Legacy of One Day",
+    "What new evidence reframes the story of June inside Legacy of One Day",
+    "How June still shapes public curiosity about Legacy of One Day"
+  ],
+  "seo_angles": [
+    "What new evidence reframes the story of Legacy inside Legacy of One Day",
+    "How Legacy still shapes public curiosity about Legacy of One Day",
+    "What new evidence reframes the story of One Day How inside Legacy of One Day",
+    "How One Day How still shapes public curiosity about Legacy of One Day"
+  ],
+  "forbidden_visuals": [
+    "talking-head lip-sync avatar",
+    "burned-in captions",
+    "watermark",
+    "modern meme text",
+    "off-niche stock office B-roll"
+  ],
+  "preferred_subjects": [
+    "Legacy of One Day documentary subject",
+    "period-accurate environment",
+    "evidence object close-up"
+  ],
+  "lighting_default": "natural directional key, documentary clarity",
+  "face_policy": "no talking-head lip-sync avatar; cinematic B-roll preferred",
+  "dialogue_tone": "human documentary narration; specific nouns; 7–9s beats",
+  "audio_ambience": "subtle documentary bed; do not overpower voice",
+  "research_hints": [
+    "Prefer primary evidence and concrete entities for Legacy of One Day",
+    "Avoid generic niche-label topics; require specific place/person/event/mechanism",
+    "7–9 second spoken beats with story continuity across scenes"
+  ],
+  "topic_prompt_overlay": "NICHE LOCK (Legacy of One Day): only propose topics that fit this niche's video type. Video type: How a single calendar date — like June 28, 1914 or September 11, 2001 — altered the course of global politics, culture, and everyday life forever. Follow niche topic strategy: Check upcoming historical anniversaries. Generate a topic that connects a single day to long-term global changes.",
+  "video_prompt_overlay": "NICHE VISUAL LOCK (Legacy of One Day / news): Generate a 7–9 second dialogue clip based on the topic `{topic}`. Each dialogue must be cinematic and reflective. For each dialogue, generate: - **Audio Generation Prompt:** Voice — narrator-like, with ticking clock or newspaper press sounds. - **Video Generation Prompt:** Detailed visual — time-lapse of a city changing from morning to night. No characters — focus on light shifts. Maintain consistent city skyline and time progression. Forbidden: talking-head lip-sync avatar, burned-in captions, watermark, modern meme text, off-niche stock office B-roll. Preferred subjects: Legacy of One Day documentary subject, period-accurate environment, evidence object close-up. Lighting: natural directional key, documentary clarity. Face policy: no talking-head lip-sync avatar; cinematic B-roll preferred. Dialogue tone: human documentary narration; specific nouns; 7–9s beats. Ambience: subtle documentary bed; do not overpower voice.",
+  "i18n": {
+    "en": {
+      "name": "Legacy of One Day",
+      "blurb": "How a single calendar date — like June 28, 1914 or September 11, 2001 — altered the course of global politics, culture, and everyday life forever."
+    },
+    "bn": {
+      "name": "এক দিনের উত্তরাধিকার",
+      "blurb": "ভিডিও টাইপ: How a single calendar date — like June 28, 1914 or September 11, 2001 — altered the course of global politics, culture, and everyday life forever."
+    },
+    "hi": {
+      "name": "एक दिन की विरासत",
+      "blurb": "वीडियो प्रकार: How a single calendar date — like June 28, 1914 or September 11, 2001 — altered the course of global politics, culture, and everyday life forever."
+    },
+    "ur": {
+      "name": "ایک دن کی میراث",
+      "blurb": "ویڈیو کی قسم: How a single calendar date — like June 28, 1914 or September 11, 2001 — altered the course of global politics, culture, and everyday life forever."
+    },
+    "ta": {
+      "name": "ஒரு நாளின் மரபு",
+      "blurb": "வீடியோ வகை: How a single calendar date — like June 28, 1914 or September 11, 2001 — altered the course of global politics, culture, and everyday life forever."
+    },
+    "ml": {
+      "name": "ഒരു ദിവസത്തിന്റെ പൈതൃകം",
+      "blurb": "വീഡിയോ തരം: How a single calendar date — like June 28, 1914 or September 11, 2001 — altered the course of global politics, culture, and everyday life forever."
+    }
+  },
+  "source": "Nish.Md + deterministic research",
+  "research_notes": [
+    "Marathon researched at 2026-09-10T08:30:09Z",
+    "Video type length=146",
+    "Topic prompt length=113",
+    "Video prompt length=438",
+    "Seeds=6"
+  ],
+  "verified_at": "2026-09-10T08:30:09Z"
+}

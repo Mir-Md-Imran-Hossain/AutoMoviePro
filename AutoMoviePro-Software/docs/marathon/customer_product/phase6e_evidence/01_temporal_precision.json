@@ -1,0 +1,16 @@
+{
+  "phase6d_pair_status": "PASS",
+  "phase6d_pair_dims": {
+    "relationship": "PASS",
+    "relationship_class": "same",
+    "location": "PASS",
+    "location_class": "compatible_sublocation",
+    "entity": "NOT_REQUIRED",
+    "lighting": "NOT_REQUIRED",
+    "camera": "NOT_REQUIRED"
+  },
+  "normalization_applied": true,
+  "contradiction_status": "FAIL",
+  "false_fail_reduced": true,
+  "contradiction_still_fails": true
+}

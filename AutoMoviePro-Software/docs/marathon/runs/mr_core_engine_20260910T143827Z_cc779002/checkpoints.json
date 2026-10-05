@@ -1,0 +1,69 @@
+[
+  {
+    "ts": "2026-09-10T14:38:27Z",
+    "elapsed_sec": 0.1,
+    "stage": "TOPIC",
+    "job_id": null,
+    "status": "HEALTHY",
+    "note": "CP-00 init complete",
+    "db_languages_unchanged": [
+      "en",
+      "bn"
+    ],
+    "cert_overlay_languages": [
+      "en",
+      "bn",
+      "hi",
+      "ur",
+      "ta",
+      "ml"
+    ],
+    "google_keys_env": 19,
+    "agnes_keys_env": 6
+  },
+  {
+    "ts": "2026-09-10T14:38:27Z",
+    "elapsed_sec": 0.3,
+    "stage": "TOPIC",
+    "job_id": null,
+    "status": "PROGRESSING",
+    "note": "topic=How gravitational-wave detectors hear black-hole mergers across the universe",
+    "source": "BUILD-04G_suggest_quality_ranked",
+    "seo": 0.7,
+    "niche_aligned": false
+  },
+  {
+    "ts": "2026-09-10T14:38:53Z",
+    "elapsed_sec": 26.3,
+    "stage": "PLAN",
+    "job_id": null,
+    "status": "PROGRESSING",
+    "note": "research_script_plan_ok",
+    "script_class": "REAL"
+  },
+  {
+    "ts": "2026-09-10T14:48:21Z",
+    "elapsed_sec": 594.3,
+    "stage": "FAILED",
+    "job_id": 2326,
+    "status": "FAILED",
+    "note": "generate_video:RuntimeError:Scene 1 split master unshippable: ['visual_anchors_missing', 'wrong_subject']"
+  },
+  {
+    "ts": "2026-09-10T14:48:21Z",
+    "elapsed_sec": 594.3,
+    "stage": "OBSERVE",
+    "job_id": 2326,
+    "status": "PROGRESSING",
+    "note": "watchdog stage=OBSERVE",
+    "work_dir": "E:\\All Updaye Project\\AutoMovie_Pro_SAAS_Final_Update\\AutoMoviePro-Software\\data\\customer_generation_work\\c11_marathon_customer\\job2326"
+  },
+  {
+    "ts": "2026-09-10T14:48:21Z",
+    "elapsed_sec": 594.3,
+    "stage": "FAIL",
+    "job_id": 2326,
+    "status": "COMPLETED",
+    "note": "verdict=FAIL"
+  }
+]

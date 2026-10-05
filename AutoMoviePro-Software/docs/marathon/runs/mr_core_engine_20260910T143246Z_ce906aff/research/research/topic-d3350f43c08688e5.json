@@ -1,0 +1,66 @@
+{
+  "research": {
+    "topic_id": "topic-d3350f43c08688e5",
+    "query": "why venus' thick clouds hide surface heat that melts lead the physics",
+    "evidence": [
+      {
+        "id": "N01",
+        "claim": "Research query: why venus' thick clouds hide surface heat that melts lead the physics\nLanguage: en\nRegion:",
+        "evidence": "research_notes",
+        "source": "research_notes",
+        "confidence": 0.4,
+        "freshness": "UNVERIFIED"
+      },
+      {
+        "id": "L02",
+        "claim": "Additional context on Why Venus' thick clouds hide surface heat that melts lead — the physics from configured research scope.",
+        "evidence": "secondary",
+        "source": "live_research",
+        "confidence": 0.6,
+        "freshness": "recent"
+      }
+    ],
+    "status": "completed",
+    "provider": "live_local",
+    "provider_kind": "configured_local",
+    "provider_capability": "LOCAL_FACTPACK",
+    "provider_mode": "LIVE_LOCAL",
+    "external_api": false,
+    "is_external_live": false,
+    "note": "LOCAL_FACTPACK must not be claimed as EXTERNAL_LIVE_RESEARCH",
+    "timestamp": 1789050766.9690762,
+    "queried_at": 1789050766.9690762,
+    "canonical_topic": "Why Venus' thick clouds hide surface heat that melts lead — the physics",
+    "sources": [
+      "live_research",
+      "research_notes"
+    ],
+    "fingerprint": "d5199d20fb9da10849cd4da763ed26167a595974b9362edff55e53c4f1e3c466"
+  },
+  "fact_pack": {
+    "topic": "Why Venus' thick clouds hide surface heat that melts lead — the physics",
+    "version": "v0",
+    "claims": [
+      {
+        "id": "N01",
+        "claim": "Research query: why venus' thick clouds hide surface heat that melts lead the physics\nLanguage: en\nRegion:",
+        "evidence": "research_notes",
+        "source": "research_notes",
+        "confidence": 0.4,
+        "freshness": "UNVERIFIED"
+      },
+      {
+        "id": "L02",
+        "claim": "Additional context on Why Venus' thick clouds hide surface heat that melts lead — the physics from configured research scope.",
+        "evidence": "secondary",
+        "source": "live_research",
+        "confidence": 0.6,
+        "freshness": "recent"
+      }
+    ],
+    "unknowns": []
+  },
+  "research_fingerprint": "d5199d20fb9da10849cd4da763ed26167a595974b9362edff55e53c4f1e3c466",
+  "provider_mode": "LIVE",
+  "persisted_at": 1789050766.9690762
+}

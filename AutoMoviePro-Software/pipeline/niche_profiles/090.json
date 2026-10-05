@@ -1,0 +1,83 @@
+{
+  "niche_id": 90,
+  "name": "Timekeeping History",
+  "slug": "timekeeping-history",
+  "style_family": "history",
+  "status": "VERIFIED",
+  "topic_seeds": [
+    "What new evidence reframes the story of Timekeeping History Sundials inside Timekeeping History",
+    "How Timekeeping History Sundials still shapes public curiosity about Timekeeping History",
+    "What new evidence reframes the story of Check inside Timekeeping History",
+    "How Check still shapes public curiosity about Timekeeping History",
+    "What new evidence reframes the story of Generate inside Timekeeping History",
+    "How Generate still shapes public curiosity about Timekeeping History"
+  ],
+  "seo_angles": [
+    "What new evidence reframes the story of Timekeeping History Sundials inside Timekeeping History",
+    "How Timekeeping History Sundials still shapes public curiosity about Timekeeping History",
+    "What new evidence reframes the story of Check inside Timekeeping History",
+    "How Check still shapes public curiosity about Timekeeping History"
+  ],
+  "forbidden_visuals": [
+    "talking-head lip-sync avatar",
+    "burned-in captions",
+    "watermark",
+    "modern meme text",
+    "modern smartphones",
+    "cars",
+    "LED screens",
+    "sneakers",
+    "contemporary skyline"
+  ],
+  "preferred_subjects": [
+    "Timekeeping History documentary subject",
+    "period-accurate environment",
+    "evidence object close-up"
+  ],
+  "lighting_default": "warm desert sun / torchlit interiors, high-contrast documentary grade",
+  "face_policy": "period extras OK if consistent; prefer environment/object hero when possible",
+  "dialogue_tone": "human documentary narration; specific nouns; 7–9s beats",
+  "audio_ambience": "subtle documentary bed; do not overpower voice",
+  "research_hints": [
+    "Prefer primary evidence and concrete entities for Timekeeping History",
+    "Avoid generic niche-label topics; require specific place/person/event/mechanism",
+    "7–9 second spoken beats with story continuity across scenes"
+  ],
+  "topic_prompt_overlay": "NICHE LOCK (Timekeeping History): only propose topics that fit this niche's video type. Video type: Sundials, hourglasses, quartz, atomic clocks — the evolution of how we measure and experience time. Follow niche topic strategy: Check horology anniversaries, museum exhibits, or new scientific timekeeping breakthroughs. Generate a topic about a timekeeping milestone.",
+  "video_prompt_overlay": "NICHE VISUAL LOCK (Timekeeping History / history): Generate a 7–9 second dialogue clip based on the topic `{topic}`. Each dialogue must be precise and historical. For each dialogue, generate: - **Audio Generation Prompt:** Voice — steady, with ticking and chiming. - **Video Generation Prompt:** Detailed visual — a clockmaker's workshop. Character: clockmaker (period clothing). Lighting: warm, focused. Maintain same workshop and ticking. Forbidden: talking-head lip-sync avatar, burned-in captions, watermark, modern meme text, modern smartphones, cars, LED screens, sneakers. Preferred subjects: Timekeeping History documentary subject, period-accurate environment, evidence object close-up. Lighting: warm desert sun / torchlit interiors, high-contrast documentary grade. Face policy: period extras OK if consistent; prefer environment/object hero when possible. Dialogue tone: human documentary narration; specific nouns; 7–9s beats. Ambience: subtle documentary bed; do not overpower voice.",
+  "i18n": {
+    "en": {
+      "name": "Timekeeping History",
+      "blurb": "Sundials, hourglasses, quartz, atomic clocks — the evolution of how we measure and experience time."
+    },
+    "bn": {
+      "name": "সময় গণনার ইতিহাস",
+      "blurb": "ভিডিও টাইপ: Sundials, hourglasses, quartz, atomic clocks — the evolution of how we measure and experience time."
+    },
+    "hi": {
+      "name": "समय मापन का इतिहास",
+      "blurb": "वीडियो प्रकार: Sundials, hourglasses, quartz, atomic clocks — the evolution of how we measure and experience time."
+    },
+    "ur": {
+      "name": "وقت رکھنے کی تاریخ",
+      "blurb": "ویڈیو کی قسم: Sundials, hourglasses, quartz, atomic clocks — the evolution of how we measure and experience time."
+    },
+    "ta": {
+      "name": "நேரக் கணிப்பு வரலாறு",
+      "blurb": "வீடியோ வகை: Sundials, hourglasses, quartz, atomic clocks — the evolution of how we measure and experience time."
+    },
+    "ml": {
+      "name": "സമയകണക്ക് ചരിത്രം",
+      "blurb": "വീഡിയോ തരം: Sundials, hourglasses, quartz, atomic clocks — the evolution of how we measure and experience time."
+    }
+  },
+  "source": "Nish.Md + deterministic research",
+  "research_notes": [
+    "Marathon researched at 2026-09-10T08:30:21Z",
+    "Video type length=99",
+    "Topic prompt length=139",
+    "Video prompt length=389",
+    "Seeds=6"
+  ],
+  "verified_at": "2026-09-10T08:30:21Z"
+}

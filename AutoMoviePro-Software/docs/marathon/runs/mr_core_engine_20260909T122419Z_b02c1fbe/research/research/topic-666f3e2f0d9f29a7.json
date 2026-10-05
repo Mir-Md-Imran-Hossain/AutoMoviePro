@@ -1,0 +1,66 @@
+{
+  "research": {
+    "topic_id": "topic-666f3e2f0d9f29a7",
+    "query": "how james webb space telescope mid-infrared images reveal dust-hidden star nurseries that optical telescopes cannot map",
+    "evidence": [
+      {
+        "id": "N01",
+        "claim": "Research query: how james webb space telescope mid-infrared images reveal dust-hidden star nurseries that optical telescopes cannot map\nLanguage: en\nRegion:",
+        "evidence": "research_notes",
+        "source": "research_notes",
+        "confidence": 0.4,
+        "freshness": "UNVERIFIED"
+      },
+      {
+        "id": "L02",
+        "claim": "Additional context on How James Webb Space Telescope mid-infrared images reveal dust-hidden star nurseries that optical telescopes cannot map from configured research scope.",
+        "evidence": "secondary",
+        "source": "live_research",
+        "confidence": 0.6,
+        "freshness": "recent"
+      }
+    ],
+    "status": "completed",
+    "provider": "live_local",
+    "provider_kind": "configured_local",
+    "provider_capability": "LOCAL_FACTPACK",
+    "provider_mode": "LIVE_LOCAL",
+    "external_api": false,
+    "is_external_live": false,
+    "note": "LOCAL_FACTPACK must not be claimed as EXTERNAL_LIVE_RESEARCH",
+    "timestamp": 1788956660.2053132,
+    "queried_at": 1788956660.2053132,
+    "canonical_topic": "How James Webb Space Telescope mid-infrared images reveal dust-hidden star nurseries that optical telescopes cannot map",
+    "sources": [
+      "live_research",
+      "research_notes"
+    ],
+    "fingerprint": "52220f9ef0f9e46884850afec8bc07d97238c76a1325dfcb9264cdc3bb9a79e7"
+  },
+  "fact_pack": {
+    "topic": "How James Webb Space Telescope mid-infrared images reveal dust-hidden star nurseries that optical telescopes cannot map",
+    "version": "v0",
+    "claims": [
+      {
+        "id": "N01",
+        "claim": "Research query: how james webb space telescope mid-infrared images reveal dust-hidden star nurseries that optical telescopes cannot map\nLanguage: en\nRegion:",
+        "evidence": "research_notes",
+        "source": "research_notes",
+        "confidence": 0.4,
+        "freshness": "UNVERIFIED"
+      },
+      {
+        "id": "L02",
+        "claim": "Additional context on How James Webb Space Telescope mid-infrared images reveal dust-hidden star nurseries that optical telescopes cannot map from configured research scope.",
+        "evidence": "secondary",
+        "source": "live_research",
+        "confidence": 0.6,
+        "freshness": "recent"
+      }
+    ],
+    "unknowns": []
+  },
+  "research_fingerprint": "52220f9ef0f9e46884850afec8bc07d97238c76a1325dfcb9264cdc3bb9a79e7",
+  "provider_mode": "LIVE",
+  "persisted_at": 1788956660.2053132
+}

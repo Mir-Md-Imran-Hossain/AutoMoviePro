@@ -1,0 +1,181 @@
+{
+  "analysis": {
+    "niche_summary": "Space science documentary storytelling focusing on astrophysical discoveries, telescope imaging, and cosmic structures.",
+    "why_this_topic": "How JWST MIRI mid-infrared maps of the Pillars of Creation expose cool dust pillars that Hubble optical frames miss offers high curiosity by contrasting iconic optical imagery with invisible thermal discoveries.",
+    "audience": "Science enthusiasts, astronomy hobbyists, curious learners",
+    "tone": "cinematic, objective, awe-inspiring, scientific",
+    "product_category": "science",
+    "style_pack": "science",
+    "nish_id": 0,
+    "avoided_duplicates": [],
+    "master_lang": "en",
+    "master_lang_bcp47": "en-US"
+  },
+  "topic": "How JWST MIRI mid-infrared maps of the Pillars of Creation expose cool dust pillars that Hubble optical frames miss",
+  "product_key_hint": "jwst miri pillars of creation",
+  "title": "What Hubble Missed Inside the Pillars of Creation",
+  "description": "The James Webb Space Telescope's MIRI instrument reveals hidden thermal structures inside the famous cosmic pillars that optical telescopes simply cannot see.\n\n#JWST #PillarsOfCreation #SpaceScience #Astronomy #Astrophotography",
+  "tags": [
+    "JWST MIRI",
+    "Pillars of Creation",
+    "Hubble Space Telescope",
+    "infrared astronomy",
+    "space science documentary"
+  ],
+  "scenes": [
+    {
+      "element": "intro",
+      "start_hint_s": 0.0,
+      "end_hint_s": 8.0,
+      "narration": "For decades, the Pillars of Creation stood as an iconic masterpiece of optical space photography.",
+      "keyword_triggers": [
+        "How JWST MIRI mid-infrared maps of the Pillars of Creation expose cool dust pillars that Hubble optical frames miss",
+        "Pillars of Creation",
+        "optical frame",
+        "hero establish shot"
+      ],
+      "exact_ai_video_prompt": "VERTICAL 9:16 cinematic slow push-in of the Pillars of Creation in optical wavelengths, teal/cyan cinematic lab grade, high contrast, shallow DOF, no burned captions, no watermark, no talking-head REQUIRED on-screen anchors: How JWST MIRI mid-infrared maps of the Pillars of Creation expose cool dust pillars that Hubble optical frames miss, optical frame, hero establish shot, decades, stood, iconic, masterpiece.",
+      "visual_query": "Pillars of Creation optical view",
+      "visual_prompt": "Cinematic establish shot of cosmic gas pillars in optical light",
+      "quality_notes": "Establish iconic visual baseline for comparison",
+      "lang": "en",
+      "lang_bcp47": "en-US"
+    },
+    {
+      "element": "context",
+      "start_hint_s": 8.0,
+      "end_hint_s": 16.0,
+      "narration": "Yet those famous visible light frames only show the dense surface gas blocking background starlight.",
+      "keyword_triggers": [
+        "How JWST MIRI mid-infrared maps of the Pillars of Creation expose cool dust pillars that Hubble optical frames miss",
+        "visible light",
+        "gas blocking",
+        "macro flame"
+      ],
+      "exact_ai_video_prompt": "VERTICAL 9:16 macro pans across dense molecular gas clouds, teal/cyan cinematic lab grade, high contrast, shallow DOF, molecular glass metaphor, no burned captions, no watermark, no talking-head REQUIRED on-screen anchors: How JWST MIRI mid-infrared maps of the Pillars of Creation expose cool dust pillars that Hubble optical frames miss, visible light, gas blocking, macro flame, famous, visible, light, frames, surface.",
+      "visual_query": "dense cosmic gas clouds",
+      "visual_prompt": "Macro pan of opaque interstellar dust clouds",
+      "quality_notes": "Highlight limitation of optical spectrum",
+      "lang": "en",
+      "lang_bcp47": "en-US"
+    },
+    {
+      "element": "discovery",
+      "start_hint_s": 16.0,
+      "end_hint_s": 24.0,
+      "narration": "Enter the James Webb Space Telescope and its Mid-Infrared Instrument, known as MIRI.",
+      "keyword_triggers": [
+        "How JWST MIRI mid-infrared maps of the Pillars of Creation expose cool dust pillars that Hubble optical frames miss",
+        "JWST",
+        "MIRI",
+        "mid-infrared"
+      ],
+      "exact_ai_video_prompt": "VERTICAL 9:16 cinematic slow push-in of the JWST MIRI gold segmented mirror array, lab glassware aesthetic, teal/cyan cinematic lab grade, high contrast, shallow DOF, no burned captions, no watermark, no talking-head REQUIRED on-screen anchors: How JWST MIRI mid-infrared maps of the Pillars of Creation expose cool dust pillars that Hubble optical frames miss, mid-infrared, Enter, James, Webb, Space, Telescope, Infrared.",
+      "visual_query": "JWST MIRI instrument mirror",
+      "visual_prompt": "Cinematic shot of infrared sensor technology in laboratory setting",
+      "quality_notes": "Introduce the specific instrument",
+      "lang": "en",
+      "lang_bcp47": "en-US"
+    },
+    {
+      "element": "technique",
+      "start_hint_s": 24.0,
+      "end_hint_s": 32.0,
+      "narration": "MIRI bypasses visible scatter by tuning directly into thermal mid-infrared wavelengths of light.",
+      "keyword_triggers": [
+        "How JWST MIRI mid-infrared maps of the Pillars of Creation expose cool dust pillars that Hubble optical frames miss",
+        "MIRI",
+        "thermal",
+        "mid-infrared"
+      ],
+      "exact_ai_video_prompt": "VERTICAL 9:16 chemical plume heat signature simulation, macro flame, lab glassware aesthetic, teal/cyan cinematic lab grade, high contrast, shallow DOF, no burned captions, no watermark, no talking-head REQUIRED on-screen anchors: How JWST MIRI mid-infrared maps of the Pillars of Creation expose cool dust pillars that Hubble optical frames miss, MIRI, thermal, mid-infrared, bypasses, visible, scatter, tuning, directly.",
+      "visual_query": "thermal infrared heat signature simulation",
+      "visual_prompt": "Macro thermal infrared visualization of cool gas pillars",
+      "quality_notes": "Explain wavelength shift mechanism",
+      "lang": "en",
+      "lang_bcp47": "en-US"
+    },
+    {
+      "element": "discovery",
+      "start_hint_s": 32.0,
+      "end_hint_s": 40.0,
+      "narration": "Suddenly, the opaque dark towers vanish, replaced by glowing cool dust pillars invisible to Hubble.",
+      "keyword_triggers": [
+        "How JWST MIRI mid-infrared maps of the Pillars of Creation expose cool dust pillars that Hubble optical frames miss",
+        "cool dust pillars",
+        "Hubble optical",
+        "molecular glass"
+      ],
+      "exact_ai_video_prompt": "VERTICAL 9:16 cinematic transition revealing glowing cool dust structures in infrared, molecular glass metaphor, teal/cyan cinematic lab grade, high contrast, shallow DOF, no burned captions, no watermark, no talking-head REQUIRED on-screen anchors: How JWST MIRI mid-infrared maps of the Pillars of Creation expose cool dust pillars that Hubble optical frames miss, cool dust pillars, Hubble optical, Suddenly, opaque, dark, towers, vanish, replaced.",
+      "visual_query": "JWST MIRI infrared Pillars of Creation",
+      "visual_prompt": "Infrared view showing glowing dust structures",
+      "quality_notes": "Showcase core scientific finding",
+      "lang": "en",
+      "lang_bcp47": "en-US"
+    },
+    {
+      "element": "technique",
+      "start_hint_s": 40.0,
+      "end_hint_s": 48.0,
+      "narration": "These new thermal maps expose thousands of infant protostars actively forming inside the chilly gas.",
+      "keyword_triggers": [
+        "How JWST MIRI mid-infrared maps of the Pillars of Creation expose cool dust pillars that Hubble optical frames miss",
+        "protostars",
+        "thermal maps",
+        "egg under heat"
+      ],
+      "exact_ai_video_prompt": "VERTICAL 9:16 macro flame and egg under heat metaphor visualization of forming stars, teal/cyan cinematic lab grade, high contrast, shallow DOF, no burned captions, no watermark, no talking-head REQUIRED on-screen anchors: How JWST MIRI mid-infrared maps of the Pillars of Creation expose cool dust pillars that Hubble optical frames miss, protostars, thermal maps, thermal, maps, expose, thousands, infant.",
+      "visual_query": "protostars forming in dust cloud",
+      "visual_prompt": "Simulation of newborn stars embedded within cold gas",
+      "quality_notes": "Detail what the infrared data reveals",
+      "lang": "en",
+      "lang_bcp47": "en-US"
+    },
+    {
+      "element": "legacy",
+      "start_hint_s": 48.0,
+      "end_hint_s": 56.0,
+      "narration": "By stripping away the optical glare, Miri rewrites our understanding of stellar birth in the Eagle Nebula.",
+      "keyword_triggers": [
+        "How JWST MIRI mid-infrared maps of the Pillars of Creation expose cool dust pillars that Hubble optical frames miss",
+        "Eagle Nebula",
+        "stellar birth",
+        "chemical plume"
+      ],
+      "exact_ai_video_prompt": "VERTICAL 9:16 wide cinematic push-in across the Eagle Nebula in infrared, teal/cyan cinematic lab grade, high contrast, shallow DOF, no burned captions, no watermark, no talking-head REQUIRED on-screen anchors: How JWST MIRI mid-infrared maps of the Pillars of Creation expose cool dust pillars that Hubble optical frames miss, stellar birth, chemical plume, stripping, away, optical, glare, Miri, rewrites.",
+      "visual_query": "Eagle Nebula wide infrared view",
+      "visual_prompt": "Wide cinematic shot of the Eagle Nebula in infrared",
+      "quality_notes": "Connect discovery to broader astronomical impact",
+      "lang": "en",
+      "lang_bcp47": "en-US"
+    },
+    {
+      "element": "outro",
+      "start_hint_s": 56.0,
+      "end_hint_s": 64.0,
+      "narration": "Infrared eyes don't just improve our pictures. They uncover the hidden architecture of the universe.",
+      "keyword_triggers": [
+        "How JWST MIRI mid-infrared maps of the Pillars of Creation expose cool dust pillars that Hubble optical frames miss",
+        "infrared eyes",
+        "hidden architecture",
+        "hero establish shot"
+      ],
+      "exact_ai_video_prompt": "VERTICAL 9:16 cinematic fade out of deep space infrared starfields, lab glassware aesthetic, teal/cyan cinematic lab grade, high contrast, shallow DOF, no burned captions, no watermark, no talking-head REQUIRED on-screen anchors: How JWST MIRI mid-infrared maps of the Pillars of Creation expose cool dust pillars that Hubble optical frames miss, infrared eyes, hidden architecture, hero establish shot, eyes, improve, pictures, uncover, hidden.",
+      "visual_query": "deep space infrared starfield",
+      "visual_prompt": "Cinematic fade out showing deep infrared universe",
+      "quality_notes": "Strong thematic conclusion",
+      "lang": "en",
+      "lang_bcp47": "en-US"
+    }
+  ],
+  "director_provider": "google",
+  "nish_id": 0,
+  "nish_name": "space science",
+  "video_type": "short",
+  "max_seconds": 60,
+  "master_lang": "en",
+  "master_lang_bcp47": "en-US",
+  "sourceLanguage": "en",
+  "master_lang_policy": "english_pivot_then_localize",
+  "narrator_voice": "Charon"
+}

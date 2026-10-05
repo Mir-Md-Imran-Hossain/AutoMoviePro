@@ -1,0 +1,752 @@
+{
+  "ok": true,
+  "topic": "How lunar polar permanently shadowed craters preserve water ice that Artemis prospectors can map with neutron spectrometers — angle 202609091347",
+  "topic_source": "MANUAL_CONCRETE_NICHE_GROUNDED",
+  "set_result": {
+    "ok": true,
+    "topic": {
+      "topic_id": "topic-55e8189ed9a01330",
+      "project_id": "trs-ch4",
+      "owner_login_id": "c11_marathon_customer",
+      "topic_text": "How lunar polar permanently shadowed craters preserve water ice that Artemis prospectors can map with neutron spectrometers — angle 202609091347",
+      "topic_source": "MANUAL",
+      "topic_status": "COMPLETED",
+      "selected_at": "2026-09-09T19:47:30.302212",
+      "created_at": "2026-09-06T22:13:16.391863",
+      "updated_at": "2026-09-09T19:47:30.302212",
+      "duplicate": {
+        "verdict": "UNIQUE",
+        "blocked": false,
+        "matched": "",
+        "detail": {
+          "verdict": "UNIQUE",
+          "confidence": 0.88,
+          "evidence": {
+            "rule_version": "1.0.0"
+          },
+          "comparison_target": "",
+          "layer": "all_passed"
+        },
+        "authority": "BUILD-04G.duplicate + product_registry"
+      },
+      "blocked_reason": null,
+      "error_code": null
+    },
+    "workflow": {
+      "contract": "C06-B",
+      "project_id": "trs-ch4",
+      "owner_login_id": "c11_marathon_customer",
+      "channel_id": 4,
+      "updated_at": "2026-09-09T19:47:30.302212",
+      "revision": 176,
+      "topic": {
+        "topic_id": "topic-55e8189ed9a01330",
+        "project_id": "trs-ch4",
+        "owner_login_id": "c11_marathon_customer",
+        "topic_text": "How lunar polar permanently shadowed craters preserve water ice that Artemis prospectors can map with neutron spectrometers — angle 202609091347",
+        "topic_source": "MANUAL",
+        "topic_status": "COMPLETED",
+        "selected_at": "2026-09-09T19:47:30.302212",
+        "created_at": "2026-09-06T22:13:16.391863",
+        "updated_at": "2026-09-09T19:47:30.302212",
+        "duplicate": {
+          "verdict": "UNIQUE",
+          "blocked": false,
+          "matched": "",
+          "detail": {
+            "verdict": "UNIQUE",
+            "confidence": 0.88,
+            "evidence": {
+              "rule_version": "1.0.0"
+            },
+            "comparison_target": "",
+            "layer": "all_passed"
+          },
+          "authority": "BUILD-04G.duplicate + product_registry"
+        },
+        "blocked_reason": null,
+        "error_code": null
+      },
+      "suggestions": [],
+      "reserved": [],
+      "research": {
+        "research_status": "READY",
+        "fact_count": 2,
+        "evidence_count": 2,
+        "source_count": 0,
+        "confidence": null,
+        "unresolved_items": [],
+        "capability": {
+          "provider_capability": "LOCAL_FACTPACK",
+          "provider_mode": "LIVE_LOCAL",
+          "external_live_research": "UNAVAILABLE",
+          "is_external_live": false,
+          "external_api": false,
+          "note": "LOCAL_FACTPACK must not be claimed as EXTERNAL_LIVE_RESEARCH"
+        },
+        "gate": {
+          "verdict": "PASS",
+          "reason": "sufficient_evidence",
+          "issues": [],
+          "claim_count": 2,
+          "supported_count": 2,
+          "verified_count": 0,
+          "unsupported_count": 0,
+          "classified": [
+            {
+              "claim": "Research query: how lunar polar permanently shadowed craters preserve water ice that artemis prospectors can map with neutron spectrometers 202609091228 cert\nLanguage: en\nRegion:",
+              "class": "SUPPORTED",
+              "source": "research_notes"
+            },
+            {
+              "claim": "Additional context on How lunar polar permanently shadowed craters preserve water ice that Artemis prospectors can map with neutron spectrometers (202609091228 cert) from configured research scope.",
+              "class": "SUPPORTED",
+              "source": "live_research"
+            }
+          ]
+        },
+        "fingerprint": "d75918f7d36d051a63274d0a4d18f181f2d4d96f1fa0084995d768168e37f1bf",
+        "action": "execute",
+        "error_code": null,
+        "error_summary": null,
+        "live_research_complete": false,
+        "status_label": "READY",
+        "has_fact_pack": true
+      },
+      "script": {
+        "script_status": "NOT_STARTED",
+        "preview": {
+          "topic": "How lunar polar permanently shadowed craters preserve water ice that Artemis prospectors can map with neutron spectrometers",
+          "hook": "At the lunar poles, deep craters never see the sun, trapping ancient ice in eternal, freezing darkness.",
+          "beat_count": 8,
+          "dialogue_count": 8,
+          "scene_count": 8,
+          "entities": [],
+          "locations": [],
+          "relationships": [],
+          "dialogue_ids": [
+            "beat-1",
+            "beat-2",
+            "beat-3",
+            "beat-4",
+            "beat-5",
+            "beat-6",
+            "beat-7",
+            "beat-8"
+          ],
+          "beat_ids": [
+            "beat-1",
+            "beat-2",
+            "beat-3",
+            "beat-4",
+            "beat-5",
+            "beat-6",
+            "beat-7",
+            "beat-8"
+          ],
+          "scene_ids": [
+            "scene-00",
+            "scene-01",
+            "scene-02",
+            "scene-03",
+            "scene-04",
+            "scene-05",
+            "scene-06",
+            "scene-07"
+          ],
+          "beats_summary": [
+            {
+              "beat_id": "beat-1",
+              "narration": "At the lunar poles, deep craters never see the sun, trapping ancient ice in eternal, freezing darkness.",
+              "speaker": "Narrator",
+              "emotion": "",
+              "entity_refs": [],
+              "location_ref": "",
+              "estimated_duration_sec": 7.5
+            },
+            {
+              "beat_id": "beat-2",
+              "narration": "Temperatures here plunge to minus two hundred degrees Celsius, turning trapped hydrogen into stable molecular glass.",
+              "speaker": "Narrator",
+              "emotion": "",
+              "entity_refs": [],
+              "location_ref": "",
+              "estimated_duration_sec": 7.5
+            },
+            {
+              "beat_id": "beat-3",
+              "narration": "This water ice isn't just floating dust. It is packed tightly into the jagged regolith over billions of years.",
+              "speaker": "Narrator",
+              "emotion": "",
+              "entity_refs": [],
+              "location_ref": "",
+              "estimated_duration_sec": 7.5
+            },
+            {
+              "beat_id": "beat-4",
+              "narration": "Artemis prospectors cannot just dig blindly. They rely on specialized neutron spectrometers mounted on rovers.",
+              "speaker": "Narrator",
+              "emotion": "",
+              "entity_refs": [],
+              "location_ref": "",
+              "estimated_duration_sec": 7.5
+            },
+            {
+              "beat_id": "beat-5",
+              "narration": "As the rover rolls across the crater rim, the instrument measures fast neutrons bouncing back from the subsurface.",
+              "speaker": "Narrator",
+              "emotion": "",
+              "entity_refs": [],
+              "location_ref": "",
+              "estimated_duration_sec": 7.5
+            },
+            {
+              "beat_id": "beat-6",
+              "narration": "Hydrogen atoms slow those neutrons down. Fewer fast neutrons mean a massive deposit of hidden water ice below.",
+              "speaker": "Narrator",
+              "emotion": "",
+              "entity_refs": [],
+              "location_ref": "",
+              "estimated_duration_sec": 7.5
+            },
+            {
+              "beat_id": "beat-7",
+              "narration": "Mapping these reserves turns the Moon from a barren rock into a self-sustaining fueling station for deep space.",
+              "speaker": "Narrator",
+              "emotion": "",
+              "entity_refs": [],
+              "location_ref": "",
+              "estimated_duration_sec": 7.5
+            },
+            {
+              "beat_id": "beat-8",
+              "narration": "The shadows hold the key. Artemis is finally ready to unlock what the dark has kept safe.",
+              "speaker": "Narrator",
+              "emotion": "",
+              "entity_refs": [],
+              "location_ref": "",
+              "estimated_duration_sec": 7.5
+            }
+          ]
+        },
+        "scene_count": 8,
+        "beat_count": 8,
+        "dialogue_count": 8,
+        "quality": {
+          "status": "PASS",
+          "issues": [],
+          "actions": [],
+          "preflight": {
+            "status": "PASS",
+            "ok": true,
+            "blocked": false,
+            "blocks": [],
+            "warnings": [],
+            "unknowns": [],
+            "confidence": "DETERMINISTIC",
+            "claims_human_written": false,
+            "claims_guaranteed_engagement": false,
+            "method": "DETERMINISTIC_PREFLIGHT",
+            "note": "stylistic judgments are HEURISTIC; naturalness not proven"
+          },
+          "authority": "BUILD-04F.evaluate_script_quality + TRS preflight"
+        },
+        "approval": {
+          "state": "NOT_READY",
+          "publishes": false,
+          "means_generated": false
+        },
+        "error_code": null,
+        "error_summary": null,
+        "script_action": "reuse",
+        "dialogue_segments_count": 8,
+        "has_script_plan": true
+      },
+      "script_plan": {
+        "schema_version": "1.0.0",
+        "id": "e9c87c95-a6d2-4e10-a4eb-3307089bebf6",
+        "created_at": "2026-09-09 12:29:01.693690+00:00",
+        "updated_at": null,
+        "topic_id": "topic-24f4270a10e78321",
+        "topic": "How lunar polar permanently shadowed craters preserve water ice that Artemis prospectors can map with neutron spectrometers",
+        "format": "SHORT",
+        "language": "en",
+        "target_duration_sec": 60.0,
+        "hook": "At the lunar poles, deep craters never see the sun, trapping ancient ice in eternal, freezing darkness.",
+        "narrative_structure": [
+          "hook",
+          "context",
+          "development",
+          "reveal",
+          "payoff",
+          "ending",
+          "cta",
+          "development"
+        ],
+        "sections": [
+          "hook",
+          "context",
+          "development",
+          "reveal",
+          "payoff",
+          "ending",
+          "cta"
+        ],
+        "beats": [
+          {
+            "schema_version": "1.0.0",
+            "id": "bdc4ea08-6753-4a0a-b3df-6392045f3535",
+            "created_at": "2026-09-09 12:29:01.693690+00:00",
+            "updated_at": null,
+            "beat_id": "beat-1",
+            "order": 0,
+            "section_role": "hook",
+            "narration": "At the lunar poles, deep craters never see the sun, trapping ancient ice in eternal, freezing darkness.",
+            "speaker": "Narrator",
+            "emotion": "",
+            "emotion_intensity": 0.5,
+            "action_intent": "",
+            "entity_refs": [],
+            "location_ref": "",
+            "temporal_context": "",
+            "continuity_deps": [],
+            "visual_implication": "At the lunar poles, deep craters never see the sun, trapping ancient ice in eternal, freezing darkness.",
+            "claim_ids": [],
+            "evidence_refs": [
+              "N01"
+            ],
+            "estimated_duration_sec": 7.5,
+            "metadata": {
+              "legacy_visual_prompt_ownership": {
+                "semantic_visual_intent": "",
+                "legacy_provider_prompts": {
+                  "visual_query": "lunar polar craters dark shadows",
+                  "visual_prompt": "Cinematic view of dark lunar polar craters in deep space, high contrast lighting.",
+                  "exact_ai_video_prompt": "VERTICAL 9:16 cinematic slow push-in of dark lunar polar craters under harsh cosmic lighting, teal/cyan cinematic lab grade, high contrast, shallow DOF, no burned captions, no watermark, no talking-head REQUIRED on-screen anchors: How lunar polar permanently shadowed craters preserve water ice that Artemis prospectors can map with neutron spectrometers, ice, poles, never, trapping, ancient."
+                },
+                "legacy_fields_present": true,
+                "canonical_owner": "C05-S DirectedVisualBeat → prompt_compiler",
+                "script_owns_provider_visual_prompts": false,
+                "ownership": "LEGACY_DEPRECATED",
+                "note": "visual_prompt/exact_ai_video_prompt are compatibility fields, not ScriptPlan authority"
+              },
+              "dialogue_id": "beat-1",
+              "scene_id": "scene-00"
+            }
+          },
+          {
+            "schema_version": "1.0.0",
+            "id": "954cfd10-9e4a-4d9b-83a0-52968f9e15de",
+            "created_at": "2026-09-09 12:29:01.693690+00:00",
+            "updated_at": null,
+            "beat_id": "beat-2",
+            "order": 1,
+            "section_role": "context",
+            "narration": "Temperatures here plunge to minus two hundred degrees Celsius, turning trapped hydrogen into stable molecular glass.",
+            "speaker": "Narrator",
+            "emotion": "",
+            "emotion_intensity": 0.5,
+            "action_intent": "",
+            "entity_refs": [],
+            "location_ref": "",
+            "temporal_context": "",
+            "continuity_deps": [],
+            "visual_implication": "Temperatures here plunge to minus two hundred degrees Celsius, turning trapped hydrogen into stable molecular glass.",
+            "claim_ids": [],
+            "evidence_refs": [
+              "N01"
+            ],
+            "estimated_duration_sec": 7.5,
+            "metadata": {
+              "legacy_visual_prompt_ownership": {
+                "semantic_visual_intent": "",
+                "legacy_provider_prompts": {
+                  "visual_query": "molecular glass texture abstract science",
+                  "visual_prompt": "Macro shot of cold molecular structures representing lunar ice.",
+                  "exact_ai_video_prompt": "VERTICAL 9:16 macro pans of molecular glass structure shimmering under teal/cyan cinematic lab grade lighting, high contrast, shallow DOF, no burned captions, no watermark, no talking-head REQUIRED on-screen anchors: How lunar polar permanently shadowed craters preserve water ice that Artemis prospectors can map with neutron spectrometers, temperatures, hydrogen, ice, plunge, minus, hundred, degrees, Celsius."
+                },
+                "legacy_fields_present": true,
+                "canonical_owner": "C05-S DirectedVisualBeat → prompt_compiler",
+                "script_owns_provider_visual_prompts": false,
+                "ownership": "LEGACY_DEPRECATED",
+                "note": "visual_prompt/exact_ai_video_prompt are compatibility fields, not ScriptPlan authority"
+              },
+              "dialogue_id": "beat-2",
+              "scene_id": "scene-01"
+            }
+          },
+          {
+            "schema_version": "1.0.0",
+            "id": "5a96bcb9-ac54-44aa-ba08-80a77b6a8444",
+            "created_at": "2026-09-09 12:29:01.693690+00:00",
+            "updated_at": null,
+            "beat_id": "beat-3",
+            "order": 2,
+            "section_role": "development",
+            "narration": "This water ice isn't just floating dust. It is packed tightly into the jagged regolith over billions of years.",
+            "speaker": "Narrator",
+            "emotion": "",
+            "emotion_intensity": 0.5,
+            "action_intent": "",
+            "entity_refs": [],
+            "location_ref": "",
+            "temporal_context": "",
+            "continuity_deps": [],
+            "visual_implication": "This water ice isn't just floating dust. It is packed tightly into the jagged regolith over billions of years.",
+            "claim_ids": [],
+            "evidence_refs": [
+              "N01"
+            ],
+            "estimated_duration_sec": 7.5,
+            "metadata": {
+              "legacy_visual_prompt_ownership": {
+                "semantic_visual_intent": "",
+                "legacy_provider_prompts": {
+                  "visual_query": "lunar regolith ice close up",
+                  "visual_prompt": "Close-up macro pan of rocky regolith embedded with ice particles.",
+                  "exact_ai_video_prompt": "VERTICAL 9:16 cinematic slow pan across lunar regolith mixed with ice crystals, teal/cyan cinematic lab grade, high contrast, shallow DOF, no burned captions, no watermark, no talking-head REQUIRED on-screen anchors: How lunar polar permanently shadowed craters preserve water ice that Artemis prospectors can map with neutron spectrometers, dust, floating, packed, tightly, jagged."
+                },
+                "legacy_fields_present": true,
+                "canonical_owner": "C05-S DirectedVisualBeat → prompt_compiler",
+                "script_owns_provider_visual_prompts": false,
+                "ownership": "LEGACY_DEPRECATED",
+                "note": "visual_prompt/exact_ai_video_prompt are compatibility fields, not ScriptPlan authority"
+              },
+              "dialogue_id": "beat-3",
+              "scene_id": "scene-02"
+            }
+          },
+          {
+            "schema_version": "1.0.0",
+            "id": "57f6e00a-2269-4c61-9db2-c2fa180fe62e",
+            "created_at": "2026-09-09 12:29:01.693690+00:00",
+            "updated_at": null,
+            "beat_id": "beat-4",
+            "order": 3,
+            "section_role": "reveal",
+            "narration": "Artemis prospectors cannot just dig blindly. They rely on specialized neutron spectrometers mounted on rovers.",
+            "speaker": "Narrator",
+            "emotion": "",
+            "emotion_intensity": 0.5,
+            "action_intent": "",
+            "entity_refs": [],
+            "location_ref": "",
+            "temporal_context": "",
+            "continuity_deps": [],
+            "visual_implication": "Artemis prospectors cannot just dig blindly. They rely on specialized neutron spectrometers mounted on rovers.",
+            "claim_ids": [],
+            "evidence_refs": [
+              "N01"
+            ],
+            "estimated_duration_sec": 7.5,
+            "metadata": {
+              "legacy_visual_prompt_ownership": {
+                "semantic_visual_intent": "",
+                "legacy_provider_prompts": {
+                  "visual_query": "neutron spectrometer rover sensor lab",
+                  "visual_prompt": "Detailed view of high-tech sensors on a lunar rover detecting particles.",
+                  "exact_ai_video_prompt": "VERTICAL 9:16 cinematic macro shot of advanced lab glassware and sensor arrays on a robotic rover, teal/cyan cinematic lab grade, high contrast, shallow DOF, no burned captions, no watermark, no talking-head REQUIRED on-screen anchors: How lunar polar permanently shadowed craters preserve water ice that Artemis prospectors can map with neutron spectrometers, Artemis, prospectors, neutron spectrometers, cannot, blindly, rely, specialized."
+                },
+                "legacy_fields_present": true,
+                "canonical_owner": "C05-S DirectedVisualBeat → prompt_compiler",
+                "script_owns_provider_visual_prompts": false,
+                "ownership": "LEGACY_DEPRECATED",
+                "note": "visual_prompt/exact_ai_video_prompt are compatibility fields, not ScriptPlan authority"
+              },
+              "dialogue_id": "beat-4",
+              "scene_id": "scene-03"
+            }
+          },
+          {
+            "schema_version": "1.0.0",
+            "id": "2a449c17-8e62-4f96-8b58-46aad84cdb9f",
+            "created_at": "2026-09-09 12:29:01.693690+00:00",
+            "updated_at": null,
+            "beat_id": "beat-5",
+            "order": 4,
+            "section_role": "payoff",
+            "narration": "As the rover rolls across the crater rim, the instrument measures fast neutrons bouncing back from the subsurface.",
+            "speaker": "Narrator",
+            "emotion": "",
+            "emotion_intensity": 0.5,
+            "action_intent": "",
+            "entity_refs": [],
+            "location_ref": "",
+            "temporal_context": "",
+            "continuity_deps": [],
+            "visual_implication": "As the rover rolls across the crater rim, the instrument measures fast neutrons bouncing back from the subsurface.",
+            "claim_ids": [],
+            "evidence_refs": [
+              "N01"
+            ],
+            "estimated_duration_sec": 7.5,
+            "metadata": {
+              "legacy_visual_prompt_ownership": {
+                "semantic_visual_intent": "",
+                "legacy_provider_prompts": {
+                  "visual_query": "fast neutrons bouncing subsurface simulation",
+                  "visual_prompt": "Abstract scientific visualization of neutron particles interacting with ground layers.",
+                  "exact_ai_video_prompt": "VERTICAL 9:16 cinematic motion graphic overlay showing fast neutrons bouncing off subsurface layers, teal/cyan cinematic lab grade, high contrast, shallow DOF, no burned captions, no watermark, no talking-head REQUIRED on-screen anchors: How lunar polar permanently shadowed craters preserve water ice that Artemis prospectors can map with neutron spectrometers, rover, crater rim, rolls, crater, instrument, measures."
+                },
+                "legacy_fields_present": true,
+                "canonical_owner": "C05-S DirectedVisualBeat → prompt_compiler",
+                "script_owns_provider_visual_prompts": false,
+                "ownership": "LEGACY_DEPRECATED",
+                "note": "visual_prompt/exact_ai_video_prompt are compatibility fields, not ScriptPlan authority"
+              },
+              "dialogue_id": "beat-5",
+              "scene_id": "scene-04"
+            }
+          },
+          {
+            "schema_version": "1.0.0",
+            "id": "092ad4a8-002a-442c-bb60-bcf1490b3acf",
+            "created_at": "2026-09-09 12:29:01.693690+00:00",
+            "updated_at": null,
+            "beat_id": "beat-6",
+            "order": 5,
+            "section_role": "ending",
+            "narration": "Hydrogen atoms slow those neutrons down. Fewer fast neutrons mean a massive deposit of hidden water ice below.",
+            "speaker": "Narrator",
+            "emotion": "",
+            "emotion_intensity": 0.5,
+            "action_intent": "",
+            "entity_refs": [],
+            "location_ref": "",
+            "temporal_context": "",
+            "continuity_deps": [],
+            "visual_implication": "Hydrogen atoms slow those neutrons down. Fewer fast neutrons mean a massive deposit of hidden water ice below.",
+            "claim_ids": [],
+            "evidence_refs": [
+              "N01"
+            ],
+            "estimated_duration_sec": 7.5,
+            "metadata": {
+              "legacy_visual_prompt_ownership": {
+                "semantic_visual_intent": "",
+                "legacy_provider_prompts": {
+                  "visual_query": "hydrogen atoms collision simulation",
+                  "visual_prompt": "Close-up cinematic simulation of particle deceleration in mineral layers.",
+                  "exact_ai_video_prompt": "VERTICAL 9:16 cinematic macro flame and chemical plume simulation showing hydrogen interaction, teal/cyan cinematic lab grade, high contrast, shallow DOF, no burned captions, no watermark, no talking-head REQUIRED on-screen anchors: How lunar polar permanently shadowed craters preserve water ice that Artemis prospectors can map with neutron spectrometers, neutrons, water ice, deposit, atoms, slow, down, Fewer."
+                },
+                "legacy_fields_present": true,
+                "canonical_owner": "C05-S DirectedVisualBeat → prompt_compiler",
+                "script_owns_provider_visual_prompts": false,
+                "ownership": "LEGACY_DEPRECATED",
+                "note": "visual_prompt/exact_ai_video_prompt are compatibility fields, not ScriptPlan authority"
+              },
+              "dialogue_id": "beat-6",
+              "scene_id": "scene-05"
+            }
+          },
+          {
+            "schema_version": "1.0.0",
+            "id": "f254e82d-33ae-4542-858e-a7dc01d28fe0",
+            "created_at": "2026-09-09 12:29:01.693690+00:00",
+            "updated_at": null,
+            "beat_id": "beat-7",
+            "order": 6,
+            "section_role": "cta",
+            "narration": "Mapping these reserves turns the Moon from a barren rock into a self-sustaining fueling station for deep space.",
+            "speaker": "Narrator",
+            "emotion": "",
+            "emotion_intensity": 0.5,
+            "action_intent": "",
+            "entity_refs": [],
+            "location_ref": "",
+            "temporal_context": "",
+            "continuity_deps": [],
+            "visual_implication": "Mapping these reserves turns the Moon from a barren rock into a self-sustaining fueling station for deep space.",
+            "claim_ids": [],
+            "evidence_refs": [
+              "N01"
+            ],
+            "estimated_duration_sec": 7.5,
+            "metadata": {
+              "legacy_visual_prompt_ownership": {
+                "semantic_visual_intent": "",
+                "legacy_provider_prompts": {
+                  "visual_query": "lunar horizon earthrise cinematic",
+                  "visual_prompt": "Wide cinematic shot of the lunar horizon with Earth rising in the background.",
+                  "exact_ai_video_prompt": "VERTICAL 9:16 cinematic slow pullback showing a glowing lunar horizon with distant Earth, teal/cyan cinematic lab grade, high contrast, shallow DOF, no burned captions, no watermark, no talking-head REQUIRED on-screen anchors: How lunar polar permanently shadowed craters preserve water ice that Artemis prospectors can map with neutron spectrometers, Moon, reserves, fueling station, deep space, Mapping, turns, barren, rock."
+                },
+                "legacy_fields_present": true,
+                "canonical_owner": "C05-S DirectedVisualBeat → prompt_compiler",
+                "script_owns_provider_visual_prompts": false,
+                "ownership": "LEGACY_DEPRECATED",
+                "note": "visual_prompt/exact_ai_video_prompt are compatibility fields, not ScriptPlan authority"
+              },
+              "dialogue_id": "beat-7",
+              "scene_id": "scene-06"
+            }
+          },
+          {
+            "schema_version": "1.0.0",
+            "id": "10eab0e5-d20c-4f10-8e03-8f339e7124be",
+            "created_at": "2026-09-09 12:29:01.693690+00:00",
+            "updated_at": null,
+            "beat_id": "beat-8",
+            "order": 7,
+            "section_role": "development",
+            "narration": "The shadows hold the key. Artemis is finally ready to unlock what the dark has kept safe.",
+            "speaker": "Narrator",
+            "emotion": "",
+            "emotion_intensity": 0.5,
+            "action_intent": "",
+            "entity_refs": [],
+            "location_ref": "",
+            "temporal_context": "",
+            "continuity_deps": [],
+            "visual_implication": "The shadows hold the key. Artemis is finally ready to unlock what the dark has kept safe.",
+            "claim_ids": [],
+            "evidence_refs": [
+              "N01"
+            ],
+            "estimated_duration_sec": 7.5,
+            "metadata": {
+              "legacy_visual_prompt_ownership": {
+                "semantic_visual_intent": "",
+                "legacy_provider_prompts": {
+                  "visual_query": "lunar crater glowing ice cinematic",
+                  "visual_prompt": "Dramatic final push-in towards a dark crater edge catching faint blue starlight.",
+                  "exact_ai_video_prompt": "VERTICAL 9:16 cinematic closing push into a dark lunar crater glowing with subtle blue ice refraction, teal/cyan cinematic lab grade, high contrast, shallow DOF, no burned captions, no watermark, no talking-head REQUIRED on-screen anchors: How lunar polar permanently shadowed craters preserve water ice that Artemis prospectors can map with neutron spectrometers, shadows, Artemis, key, unlock, hold, finally, ready."
+                },
+                "legacy_fields_present": true,
+                "canonical_owner": "C05-S DirectedVisualBeat → prompt_compiler",
+                "script_owns_provider_visual_prompts": false,
+                "ownership": "LEGACY_DEPRECATED",
+                "note": "visual_prompt/exact_ai_video_prompt are compatibility fields, not ScriptPlan authority"
+              },
+              "dialogue_id": "beat-8",
+              "scene_id": "scene-07"
+            }
+          }
+        ],
+        "claims": [
+          {
+            "id": "N01",
+            "claim": "Research query: how lunar polar permanently shadowed craters preserve water ice that artemis prospectors can map with neutron spectrometers 202609091228 cert\nLanguage: en\nRegion:",
+            "evidence": "research_notes",
+            "source": "research_notes",
+            "confidence": 0.4,
+            "freshness": "UNVERIFIED"
+          },
+          {
+            "id": "L02",
+            "claim": "Additional context on How lunar polar permanently shadowed craters preserve water ice that Artemis prospectors can map with neutron spectrometers (202609091228 cert) from configured research scope.",
+            "evidence": "secondary",
+            "source": "live_research",
+            "confidence": 0.6,
+            "freshness": "recent"
+          }
+        ],
+        "evidence_refs": [
+          "N01",
+          "L02"
+        ],
+        "fact_pack_id": "",
+        "ending": "Hydrogen atoms slow those neutrons down. Fewer fast neutrons mean a massive deposit of hidden water ice below.",
+        "payoff": "As the rover rolls across the crater rim, the instrument measures fast neutrons bouncing back from the subsurface.",
+        "cta": "Mapping these reserves turns the Moon from a barren rock into a self-sustaining fueling station for deep space.",
+        "estimated_duration_sec": 60.0,
+        "legacy_visual_prompts": [
+          {
+            "scene_index": 0,
+            "fields": {
+              "visual_query": "lunar polar craters dark shadows",
+              "visual_prompt": "Cinematic view of dark lunar polar craters in deep space, high contrast lighting.",
+              "exact_ai_video_prompt": "VERTICAL 9:16 cinematic slow push-in of dark lunar polar craters under harsh cosmic lighting, teal/cyan cinematic lab grade, high contrast, shallow DOF, no burned captions, no watermark, no talking-head REQUIRED on-screen anchors: How lunar polar permanently shadowed craters preserve water ice that Artemis prospectors can map with neutron spectrometers, ice, poles, never, trapping, ancient."
+            },
+            "ownership": "LEGACY_DEPRECATED"
+          },
+          {
+            "scene_index": 1,
+            "fields": {
+              "visual_query": "molecular glass texture abstract science",
+              "visual_prompt": "Macro shot of cold molecular structures representing lunar ice.",
+              "exact_ai_video_prompt": "VERTICAL 9:16 macro pans of molecular glass structure shimmering under teal/cyan cinematic lab grade lighting, high contrast, shallow DOF, no burned captions, no watermark, no talking-head REQUIRED on-screen anchors: How lunar polar permanently shadowed craters preserve water ice that Artemis prospectors can map with neutron spectrometers, temperatures, hydrogen, ice, plunge, minus, hundred, degrees, Celsius."
+            },
+            "ownership": "LEGACY_DEPRECATED"
+          },
+          {
+            "scene_index": 2,
+            "fields": {
+              "visual_query": "lunar regolith ice close up",
+              "visual_prompt": "Close-up macro pan of rocky regolith embedded with ice particles.",
+              "exact_ai_video_prompt": "VERTICAL 9:16 cinematic slow pan across lunar regolith mixed with ice crystals, teal/cyan cinematic lab grade, high contrast, shallow DOF, no burned captions, no watermark, no talking-head REQUIRED on-screen anchors: How lunar polar permanently shadowed craters preserve water ice that Artemis prospectors can map with neutron spectrometers, dust, floating, packed, tightly, jagged."
+            },
+            "ownership": "LEGACY_DEPRECATED"
+          },
+          {
+            "scene_index": 3,
+            "fields": {
+              "visual_query": "neutron spectrometer rover sensor lab",
+              "visual_prompt": "Detailed view of high-tech sensors on a lunar rover detecting particles.",
+              "exact_ai_video_prompt": "VERTICAL 9:16 cinematic macro shot of advanced lab glassware and sensor arrays on a robotic rover, teal/cyan cinematic lab grade, high contrast, shallow DOF, no burned captions, no watermark, no talking-head REQUIRED on-screen anchors: How lunar polar permanently shadowed craters preserve water ice that Artemis prospectors can map with neutron spectrometers, Artemis, prospectors, neutron spectrometers, cannot, blindly, rely, specialized."
+            },
+            "ownership": "LEGACY_DEPRECATED"
+          },
+          {
+            "scene_index": 4,
+            "fields": {
+              "visual_query": "fast neutrons bouncing subsurface simulation",
+              "visual_prompt": "Abstract scientific visualization of neutron particles interacting with ground layers.",
+              "exact_ai_video_prompt": "VERTICAL 9:16 cinematic motion graphic overlay showing fast neutrons bouncing off subsurface layers, teal/cyan cinematic lab grade, high contrast, shallow DOF, no burned captions, no watermark, no talking-head REQUIRED on-screen anchors: How lunar polar permanently shadowed craters preserve water ice that Artemis prospectors can map with neutron spectrometers, rover, crater rim, rolls, crater, instrument, measures."
+            },
+            "ownership": "LEGACY_DEPRECATED"
+          },
+          {
+            "scene_index": 5,
+            "fields": {
+              "visual_query": "hydrogen atoms collision simulation",
+              "visual_prompt": "Close-up cinematic simulation of particle deceleration in mineral layers.",
+              "exact_ai_video_prompt": "VERTICAL 9:16 cinematic macro flame and chemical plume simulation showing hydrogen interaction, teal/cyan cinematic lab grade, high contrast, shallow DOF, no burned captions, no watermark, no talking-head REQUIRED on-screen anchors: How lunar polar permanently shadowed craters preserve water ice that Artemis prospectors can map with neutron spectrometers, neutrons, water ice, deposit, atoms, slow, down, Fewer."
+            },
+            "ownership": "LEGACY_DEPRECATED"
+          },
+          {
+            "scene_index": 6,
+            "fields": {
+              "visual_query": "lunar horizon earthrise cinematic",
+              "visual_prompt": "Wide cinematic shot of the lunar horizon with Earth rising in the background.",
+              "exact_ai_video_prompt": "VERTICAL 9:16 cinematic slow pullback showing a glowing lunar horizon with distant Earth, teal/cyan cinematic lab grade, high contrast, shallow DOF, no burned captions, no watermark, no talking-head REQUIRED on-screen anchors: How lunar polar permanently shadowed craters preserve water ice that Artemis prospectors can map with neutron spectrometers, Moon, reserves, fueling station, deep space, Mapping, turns, barren, rock."
+            },
+            "ownership": "LEGACY_DEPRECATED"
+          },
+          {
+            "scene_index": 7,
+            "fields": {
+              "visual_query": "lunar crater glowing ice cinematic",
+              "visual_prompt": "Dramatic final push-in towards a dark crater edge catching faint blue starlight.",
+              "exact_ai_video_prompt": "VERTICAL 9:16 cinematic closing push into a dark lunar crater glowing with subtle blue ice refraction, teal/cyan cinematic lab grade, high contrast, shallow DOF, no burned captions, no watermark, no talking-head REQUIRED on-screen anchors: How lunar polar permanently shadowed craters preserve water ice that Artemis prospectors can map with neutron spectrometers, shadows, Artemis, key, unlock, hold, finally, ready."
+            },
+            "ownership": "LEGACY_DEPRECATED"
+          }
+        ],
+        "metadata": {
+          "source": "niche_director_normalized",
+          "visual_prompt_canonical_owner": "C05-S",
+          "script_owns_provider_visual_prompts": false,
+          "created_at": "2026-09-09T18:29:01.693690"
+        }
+      },
+      "c05_handoff": {
+        "ready": false,
+        "status": "APPROVED_SCRIPT",
+        "path": "ScriptPlan → C05-TRS → C05-S → C05-GA → C05-GP → C05-GX → C05-MR",
+        "note": "Handoff ready — media generation is a later step",
+        "topic_id": "topic-24f4270a10e78321",
+        "topic_text": "How lunar polar permanently shadowed craters preserve water ice that Artemis prospectors can map with neutron spectrometers (202609091228 cert)",
+        "script_plan_topic": "How lunar polar permanently shadowed craters preserve water ice that Artemis prospectors can map with neutron spectrometers"
+      },
+      "actions": {
+        "select_topic": true,
+        "research": true,
+        "generate_script": false,
+        "review_script": false,
+        "approve_script": false,
+        "c05_handoff_ready": false
+      }
+    }
+  }
+}

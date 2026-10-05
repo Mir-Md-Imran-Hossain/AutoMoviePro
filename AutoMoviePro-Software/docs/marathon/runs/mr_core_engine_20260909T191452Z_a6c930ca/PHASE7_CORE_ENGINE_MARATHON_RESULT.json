@@ -1,0 +1,125 @@
+{
+  "marathon_id": "mr_core_engine_20260909T191452Z_a6c930ca",
+  "started_at": "2026-09-09T19:14:52Z",
+  "customer": "c11_marathon_customer",
+  "channel_id": 4,
+  "cert_languages": [
+    "en",
+    "bn",
+    "hi",
+    "ur",
+    "ta",
+    "ml"
+  ],
+  "customer_entitlement_forged": false,
+  "youtube_publish": false,
+  "mock_production": false,
+  "ended_at": "2026-09-09T19:59:16Z",
+  "total_runtime_sec": 2663.2,
+  "topic": "How lunar polar permanently shadowed craters preserve water ice that Artemis prospectors can map with neutron spectrometers — angle 202609091914",
+  "job_id": 2307,
+  "work_dir": "E:\\All Updaye Project\\AutoMovie_Pro_SAAS_Final_Update\\AutoMoviePro-Software\\data\\customer_generation_work\\c11_marathon_customer\\job2307",
+  "verdict": "PASS_WITH_LIMITATION",
+  "checkpoints": [
+    {
+      "ts": "2026-09-09T19:14:53Z",
+      "elapsed_sec": 0.3,
+      "stage": "TOPIC",
+      "job_id": null,
+      "status": "HEALTHY",
+      "note": "CP-00 init complete",
+      "db_languages_unchanged": [
+        "en",
+        "bn"
+      ],
+      "cert_overlay_languages": [
+        "en",
+        "bn",
+        "hi",
+        "ur",
+        "ta",
+        "ml"
+      ],
+      "google_keys_env": 19,
+      "agnes_keys_env": 6
+    },
+    {
+      "ts": "2026-09-09T19:14:53Z",
+      "elapsed_sec": 1.0,
+      "stage": "TOPIC",
+      "job_id": null,
+      "status": "PROGRESSING",
+      "note": "topic=How lunar polar permanently shadowed craters preserve water ice that Artemis pro",
+      "source": "MANUAL_CONCRETE_NICHE_GROUNDED"
+    },
+    {
+      "ts": "2026-09-09T19:15:12Z",
+      "elapsed_sec": 19.6,
+      "stage": "PLAN",
+      "job_id": null,
+      "status": "PROGRESSING",
+      "note": "research_script_plan_ok",
+      "script_class": "REAL"
+    },
+    {
+      "ts": "2026-09-09T19:59:15Z",
+      "elapsed_sec": 2662.6,
+      "stage": "GENERATION",
+      "job_id": 2307,
+      "status": "PROGRESSING",
+      "note": "generation latency=2642.8s",
+      "upload_status": "ready_to_upload"
+    },
+    {
+      "ts": "2026-09-09T19:59:15Z",
+      "elapsed_sec": 2662.6,
+      "stage": "OBSERVE",
+      "job_id": 2307,
+      "status": "PROGRESSING",
+      "note": "watchdog stage=OBSERVE",
+      "work_dir": "E:\\All Updaye Project\\AutoMovie_Pro_SAAS_Final_Update\\AutoMoviePro-Software\\data\\customer_generation_work\\c11_marathon_customer\\job2307"
+    }
+  ],
+  "interventions": [
+    {
+      "intervention_id": "INT-001",
+      "ts": "2026-09-09T19:15:12Z",
+      "reason": "use_customer_approved_plan_lock",
+      "detected_problem": "generate_video re-entry intelligence DUPLICATE on reused niche topics",
+      "action": "write_director_plan + c06e lock before generate_video",
+      "authority": "customer_plan_adapter + generate_video customer_approved_lock",
+      "result": "lock_written"
+    }
+  ],
+  "failures": [
+    {
+      "stage": "TOPIC",
+      "error": "suggest_topics() got an unexpected keyword argument 'use_mock'"
+    }
+  ],
+  "unknowns": [
+    "TOPIC_SUGGEST_FALLBACK_TO_MANUAL_CONCRETE",
+    "UR_RTL_SHAPING_UNKNOWN_NO_DEDICATED_RENDER_SHAPING_PROOF"
+  ],
+  "db_languages_before_after_preserved": true,
+  "generation": {
+    "ok": true,
+    "latency_sec": 2642.8,
+    "upload_status": "ready_to_upload",
+    "local_path": null,
+    "classification": "REAL",
+    "error": null
+  },
+  "artifacts_summary": {
+    "localized_count": 6,
+    "entitlement_preserved": true,
+    "duration_status": "PASS",
+    "publishable": true
+  },
+  "verdict_reasons": [
+    "VOICE_ACOUSTIC_UNKNOWN",
+    "UR_RTL_SHAPING_UNKNOWN",
+    "creative_quality_requires_human_review"
+  ],
+  "prep_script_class": "REAL"
+}

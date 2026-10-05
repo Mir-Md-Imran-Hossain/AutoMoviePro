@@ -1,0 +1,26 @@
+{
+  "job_id": "c06b-script-4-topic-e7075670f9a6c491",
+  "fingerprint": "13449bc6edaf117a294a594f0615ab5f8ea32b7c359ea0b567099fcd168b48fc",
+  "entity_id": "script-0000-ede86283a5d4bf29",
+  "topic": "How radio telescopes catch fast radio bursts from distant magnetars",
+  "topic_identity": "ede86283a5d4bf29a2b2708c",
+  "niche": "space science",
+  "niche_id": 0,
+  "fact_pack_id": "",
+  "fact_pack_hash": "",
+  "prompt_version": "v12",
+  "prompt_template_hash": "0eb19ea36a22cf406694f6e7dea91b9f",
+  "provider": "llm_router",
+  "model": "purpose-script",
+  "generation_id": "mock-script-0001",
+  "plan_path": "E:\\All Updaye Project\\AutoMovie_Pro_SAAS_Final_Update\\AutoMoviePro-Software\\docs\\marathon\\runs\\mr_core_engine_20260910T143624Z_d26b7c33\\script_mock\\director_plan.json",
+  "plan_hash": "8c6f5f349b6ed0f1c31878458cbea067d4801c8cfe890696ce7b261afa04172a",
+  "saved_at": 1789051023.5969357,
+  "metadata": {
+    "video_type": "short",
+    "max_seconds": 60,
+    "language": "en",
+    "revision_id": "",
+    "legacy_key": "script:13449bc6edaf117a294a594f0615ab5f"
+  }
+}

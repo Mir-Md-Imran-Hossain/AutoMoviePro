@@ -1,0 +1,83 @@
+{
+  "niche_id": 77,
+  "name": "Global Village Stories",
+  "slug": "global-village-stories",
+  "style_family": "history",
+  "status": "VERIFIED",
+  "topic_seeds": [
+    "What new evidence reframes the story of Global Village Stories inside Global Village Stories",
+    "How Global Village Stories still shapes public curiosity about Global Village Stories",
+    "What new evidence reframes the story of Read inside Global Village Stories",
+    "How Read still shapes public curiosity about Global Village Stories",
+    "What new evidence reframes the story of Generate inside Global Village Stories",
+    "How Generate still shapes public curiosity about Global Village Stories"
+  ],
+  "seo_angles": [
+    "What new evidence reframes the story of Global Village Stories inside Global Village Stories",
+    "How Global Village Stories still shapes public curiosity about Global Village Stories",
+    "What new evidence reframes the story of Read inside Global Village Stories",
+    "How Read still shapes public curiosity about Global Village Stories"
+  ],
+  "forbidden_visuals": [
+    "talking-head lip-sync avatar",
+    "burned-in captions",
+    "watermark",
+    "modern meme text",
+    "modern smartphones",
+    "cars",
+    "LED screens",
+    "sneakers",
+    "contemporary skyline"
+  ],
+  "preferred_subjects": [
+    "Global Village Stories documentary subject",
+    "period-accurate environment",
+    "evidence object close-up"
+  ],
+  "lighting_default": "warm desert sun / torchlit interiors, high-contrast documentary grade",
+  "face_policy": "period extras OK if consistent; prefer environment/object hero when possible",
+  "dialogue_tone": "human documentary narration; specific nouns; 7–9s beats",
+  "audio_ambience": "subtle documentary bed; do not overpower voice",
+  "research_hints": [
+    "Prefer primary evidence and concrete entities for Global Village Stories",
+    "Avoid generic niche-label topics; require specific place/person/event/mechanism",
+    "7–9 second spoken beats with story continuity across scenes"
+  ],
+  "topic_prompt_overlay": "NICHE LOCK (Global Village Stories): only propose topics that fit this niche's video type. Video type: A single village from a different country each episode — their customs, annual festivals, and daily routines. Follow niche topic strategy: Read travel blogs, UN cultural reports, or documentary series updates. Generate a topic about a village with a unique tradition.",
+  "video_prompt_overlay": "NICHE VISUAL LOCK (Global Village Stories / history): Generate a 7–9 second dialogue clip based on the topic `{topic}`. Each dialogue must be charming and cultural. For each dialogue, generate: - **Audio Generation Prompt:** Voice — warm, with folk music and children playing. - **Video Generation Prompt:** Detailed visual — village street or festival. Characters: villagers in colourful clothing. Lighting: golden sun. Maintain same village vibe. Forbidden: talking-head lip-sync avatar, burned-in captions, watermark, modern meme text, modern smartphones, cars, LED screens, sneakers. Preferred subjects: Global Village Stories documentary subject, period-accurate environment, evidence object close-up. Lighting: warm desert sun / torchlit interiors, high-contrast documentary grade. Face policy: period extras OK if consistent; prefer environment/object hero when possible. Dialogue tone: human documentary narration; specific nouns; 7–9s beats. Ambience: subtle documentary bed; do not overpower voice.",
+  "i18n": {
+    "en": {
+      "name": "Global Village Stories",
+      "blurb": "A single village from a different country each episode — their customs, annual festivals, and daily routines."
+    },
+    "bn": {
+      "name": "বিশ্ব গ্রামের গল্প",
+      "blurb": "ভিডিও টাইপ: A single village from a different country each episode — their customs, annual festivals, and daily routines."
+    },
+    "hi": {
+      "name": "वैश्विक गाँव की कहानियाँ",
+      "blurb": "वीडियो प्रकार: A single village from a different country each episode — their customs, annual festivals, and daily routines."
+    },
+    "ur": {
+      "name": "عالمی گاؤں کی کہانیاں",
+      "blurb": "ویڈیو کی قسم: A single village from a different country each episode — their customs, annual festivals, and daily routines."
+    },
+    "ta": {
+      "name": "உலக கிராமக் கதைகள்",
+      "blurb": "வீடியோ வகை: A single village from a different country each episode — their customs, annual festivals, and daily routines."
+    },
+    "ml": {
+      "name": "ആഗോള ഗ്രാമ കഥകൾ",
+      "blurb": "വീഡിയോ തരം: A single village from a different country each episode — their customs, annual festivals, and daily routines."
+    }
+  },
+  "source": "Nish.Md + deterministic research",
+  "research_notes": [
+    "Marathon researched at 2026-09-10T08:30:18Z",
+    "Video type length=109",
+    "Topic prompt length=128",
+    "Video prompt length=394",
+    "Seeds=6"
+  ],
+  "verified_at": "2026-09-10T08:30:19Z"
+}

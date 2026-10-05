@@ -1,0 +1,52 @@
+[
+  {
+    "ts": "2026-09-10T15:02:38Z",
+    "elapsed_sec": 0.1,
+    "stage": "TOPIC",
+    "job_id": null,
+    "status": "HEALTHY",
+    "note": "CP-00 init complete",
+    "db_languages_unchanged": [
+      "en",
+      "bn"
+    ],
+    "cert_overlay_languages": [
+      "en",
+      "bn",
+      "hi",
+      "ur",
+      "ta",
+      "ml"
+    ],
+    "google_keys_env": 19,
+    "agnes_keys_env": 6
+  },
+  {
+    "ts": "2026-09-10T15:02:38Z",
+    "elapsed_sec": 0.5,
+    "stage": "TOPIC",
+    "job_id": null,
+    "status": "PROGRESSING",
+    "note": "topic=How JWST mid-infrared spectra fingerprint exoplanet atmospheres — cert 202609101",
+    "source": "MANUAL_CONCRETE_NICHE_GROUNDED",
+    "seo": 0.9,
+    "niche_aligned": true
+  },
+  {
+    "ts": "2026-09-10T15:02:39Z",
+    "elapsed_sec": 0.7,
+    "stage": "RESEARCH",
+    "job_id": null,
+    "status": "FAILED",
+    "note": "research_failed",
+    "error": null
+  },
+  {
+    "ts": "2026-09-10T15:02:39Z",
+    "elapsed_sec": 0.8,
+    "stage": "FAIL",
+    "job_id": null,
+    "status": "COMPLETED",
+    "note": "verdict=FAIL"
+  }
+]

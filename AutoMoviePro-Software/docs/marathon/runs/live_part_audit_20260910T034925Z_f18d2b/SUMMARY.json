@@ -1,0 +1,62 @@
+{
+  "run_id": "live_part_audit_20260910T034925Z_f18d2b",
+  "overall": "FAIL",
+  "part_a": {
+    "verdict": "PASS",
+    "topic": "How Artemis crews use neutron spectrometers to map lunar polar water ice in 2026",
+    "source": "LIVE_SUGGEST_RANKED"
+  },
+  "part_b": {
+    "verdict": "FAIL",
+    "checks": [
+      {
+        "id": "research_ok",
+        "pass": true,
+        "detail": null
+      },
+      {
+        "id": "script_generate_ok",
+        "pass": true,
+        "detail": null
+      },
+      {
+        "id": "script_preflight_ok",
+        "pass": true,
+        "detail": {
+          "blocks": [],
+          "warnings": [
+            "dialogue_too_short:1:5.4s",
+            "dialogue_too_short:2:5.0s",
+            "dialogue_too_short:3:4.6s",
+            "dialogue_bridge_weak:3",
+            "dialogue_too_short:4:5.0s",
+            "dialogue_bridge_weak:4",
+            "dialogue_too_short:5:5.8s"
+          ]
+        }
+      },
+      {
+        "id": "script_quality_not_fail",
+        "pass": true,
+        "detail": "UNKNOWN"
+      },
+      {
+        "id": "dialogue_7_9s_majority",
+        "pass": false,
+        "detail": "out_of_window=4/6"
+      },
+      {
+        "id": "dialogue_continuity_majority",
+        "pass": false,
+        "detail": "weak_bridges=2"
+      },
+      {
+        "id": "story_beat_count",
+        "pass": true,
+        "detail": "solid_beats=6"
+      }
+    ]
+  },
+  "elapsed_sec": 23.0,
+  "ended_at": "2026-09-10T03:49:48Z"
+}

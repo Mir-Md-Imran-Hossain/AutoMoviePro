@@ -1,0 +1,79 @@
+{
+  "niche_id": 108,
+  "name": "AI Productivity Boosters",
+  "slug": "ai-productivity-boosters",
+  "style_family": "motivation",
+  "status": "VERIFIED",
+  "topic_seeds": [
+    "What new evidence reframes the story of Productivity Boosters Reclaim inside AI Productivity Boosters",
+    "How Productivity Boosters Reclaim still shapes public curiosity about AI Productivity Boosters",
+    "What new evidence reframes the story of Motion inside AI Productivity Boosters",
+    "How Motion still shapes public curiosity about AI Productivity Boosters",
+    "What new evidence reframes the story of Scan inside AI Productivity Boosters",
+    "How Scan still shapes public curiosity about AI Productivity Boosters"
+  ],
+  "seo_angles": [
+    "What new evidence reframes the story of Productivity Boosters Reclaim inside AI Productivity Boosters",
+    "How Productivity Boosters Reclaim still shapes public curiosity about AI Productivity Boosters",
+    "What new evidence reframes the story of Motion inside AI Productivity Boosters",
+    "How Motion still shapes public curiosity about AI Productivity Boosters"
+  ],
+  "forbidden_visuals": [
+    "talking-head lip-sync avatar",
+    "burned-in captions",
+    "watermark",
+    "modern meme text",
+    "off-niche stock office B-roll"
+  ],
+  "preferred_subjects": [
+    "AI Productivity Boosters documentary subject",
+    "period-accurate environment",
+    "evidence object close-up"
+  ],
+  "lighting_default": "natural directional key, documentary clarity",
+  "face_policy": "no talking-head lip-sync avatar; cinematic B-roll preferred",
+  "dialogue_tone": "human documentary narration; specific nouns; 7–9s beats",
+  "audio_ambience": "subtle documentary bed; do not overpower voice",
+  "research_hints": [
+    "Prefer primary evidence and concrete entities for AI Productivity Boosters",
+    "Avoid generic niche-label topics; require specific place/person/event/mechanism",
+    "7–9 second spoken beats with story continuity across scenes"
+  ],
+  "topic_prompt_overlay": "NICHE LOCK (AI Productivity Boosters): only propose topics that fit this niche's video type. Video type: Reclaim, Motion — automating meeting notes, calendar scheduling, and task prioritization with AI. Follow niche topic strategy: Scan productivity blogs, new AI tool launches, or viral time-saving videos. Generate a topic about an AI that saves hours daily.",
+  "video_prompt_overlay": "NICHE VISUAL LOCK (AI Productivity Boosters / motivation): Generate a 7–9 second dialogue clip based on the topic `{topic}`. Each dialogue must be efficient and uplifting. For each dialogue, generate: - **Audio Generation Prompt:** Voice — brisk, with calendar dings and whoosh. - **Video Generation Prompt:** Detailed visual — a calendar or to-do list screen. No character — screen. Lighting: bright, clean. Maintain same clean screen. Forbidden: talking-head lip-sync avatar, burned-in captions, watermark, modern meme text, off-niche stock office B-roll. Preferred subjects: AI Productivity Boosters documentary subject, period-accurate environment, evidence object close-up. Lighting: natural directional key, documentary clarity. Face policy: no talking-head lip-sync avatar; cinematic B-roll preferred. Dialogue tone: human documentary narration; specific nouns; 7–9s beats. Ambience: subtle documentary bed; do not overpower voice.",
+  "i18n": {
+    "en": {
+      "name": "AI Productivity Boosters",
+      "blurb": "Reclaim, Motion — automating meeting notes, calendar scheduling, and task prioritization with AI."
+    },
+    "bn": {
+      "name": "এআই উৎপাদনশীলতা বৃদ্ধিকারী",
+      "blurb": "ভিডিও টাইপ: Reclaim, Motion — automating meeting notes, calendar scheduling, and task prioritization with AI."
+    },
+    "hi": {
+      "name": "एआई उत्पादकता बढ़ाने वाले",
+      "blurb": "वीडियो प्रकार: Reclaim, Motion — automating meeting notes, calendar scheduling, and task prioritization with AI."
+    },
+    "ur": {
+      "name": "اے آئی پیداواری بوسٹرز",
+      "blurb": "ویڈیو کی قسم: Reclaim, Motion — automating meeting notes, calendar scheduling, and task prioritization with AI."
+    },
+    "ta": {
+      "name": "AI உற்பத்தித்திறன் அதிகரிப்பிகள்",
+      "blurb": "வீடியோ வகை: Reclaim, Motion — automating meeting notes, calendar scheduling, and task prioritization with AI."
+    },
+    "ml": {
+      "name": "AI പ്രൊഡക്ടിവിറ്റി ബൂസ്റ്ററുകൾ",
+      "blurb": "വീഡിയോ തരം: Reclaim, Motion — automating meeting notes, calendar scheduling, and task prioritization with AI."
+    }
+  },
+  "source": "Nish.Md + deterministic research",
+  "research_notes": [
+    "Marathon researched at 2026-09-10T08:30:24Z",
+    "Video type length=97",
+    "Topic prompt length=128",
+    "Video prompt length=377",
+    "Seeds=6"
+  ],
+  "verified_at": "2026-09-10T08:30:24Z"
+}

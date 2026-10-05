@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>AutoMovie Pro — Payment Ledger App</title>
+  <meta name="theme-color" content="#10b981">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <link rel="manifest" href="manifest.json">
+
+  <style>
+    :root {
+      --bg: #090d16;
+      --card: #111827;
+      --border: #1f2937;
+      --accent: #10b981;
+      --text: #f9fafb;
+      --muted: #9ca3af;
+      --danger: #ef4444;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; font-family: system-ui, -apple-system, sans-serif; }
+    body { background: var(--bg); color: var(--text); padding: 1rem; padding-bottom: 5rem; }
+    header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 1.25rem; padding-bottom: 0.75rem; border-bottom: 1px solid var(--border); }
+    .badge { background: #064e3b; color: #34d399; font-size: 0.75rem; padding: 4px 10px; border-radius: 12px; font-weight: 600; }
+    .card { background: var(--card); border: 1px solid var(--border); border-radius: 14px; padding: 1.25rem; margin-bottom: 1rem; }
+    .title { font-size: 1.05rem; font-weight: bold; margin-bottom: 0.25rem; }
+    .sub { font-size: 0.85rem; color: var(--muted); margin-bottom: 0.75rem; }
+    .btn { background: var(--accent); color: #fff; border: none; padding: 0.75rem 1.25rem; border-radius: 10px; font-weight: bold; width: 100%; cursor: pointer; }
+    .btn-secondary { background: #334155; color: #e2e8f0; margin-top: 0.5rem; }
+    .sms-item { background: #1e293b; padding: 0.85rem; border-radius: 10px; margin-top: 0.75rem; border-left: 4px solid var(--accent); }
+    .sms-top { display: flex; justify-content: space-between; font-weight: bold; font-size: 0.95rem; margin-bottom: 4px; }
+    .sms-desc { font-size: 0.85rem; color: #cbd5e1; }
+    .status-pill { font-size: 0.7rem; padding: 2px 6px; border-radius: 6px; }
+    .pill-matched { background: #064e3b; color: #34d399; }
+    .pill-pending { background: #451a03; color: #f59e0b; }
+    input, textarea { width: 100%; padding: 0.65rem; border-radius: 8px; background: #1e293b; border: 1px solid #334155; color: #fff; margin-bottom: 0.5rem; font-size: 0.9rem; }
+  </style>
+</head>
+<body>
+  <header>
+    <div>
+      <h2>AutoMovie Pro</h2>
+      <span style="font-size: 0.85rem; color: var(--muted);">অফিশিয়াল এজেন্ট ক্যাশ লেজার ও এসএমএস হাব</span>
+    </div>
+    <span class="badge" id="connStatus">● সার্ভার কানেক্টেড</span>
+  </header>
+
+  <!-- Domain Setting -->
+  <div class="card" style="padding: 0.75rem 1rem; font-size: 0.85rem; display: flex; gap: 0.5rem; align-items: center;">
+    <span style="color: var(--muted); white-space: nowrap;">সার্ভার ডোমেন:</span>
+    <input type="text" id="customDomainInput" style="flex: 1; margin-bottom: 0; padding: 4px 8px;" placeholder="https://automoviepro.com">
+    <button style="background: var(--accent); color: #000; border: none; padding: 5px 12px; border-radius: 6px; font-weight: bold; cursor: pointer; white-space: nowrap;" onclick="saveDomainSetting()">সংরক্ষণ</button>
+  </div>
+
+  <!-- Ledger Metrics -->
+  <div class="card">
+    <div class="title">মোট বর্তমান ক্যাশ ব্যালেন্স</div>
+    <div id="netBalance" style="font-size: 2rem; font-weight: 800; color: var(--accent); margin: 0.4rem 0;">৳ ০.০০</div>
+    <div class="sub" id="agentPartners">জাহিদ ফার্মেসি (বিকাশ) ও সিমি ড্রাগ হাউস (নগদ)</div>
+    
+    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 0.75rem; margin: 0.75rem 0;">
+      <div style="background: #1e293b; padding: 0.75rem; border-radius: 10px; text-align: center;">
+        <div style="font-size: 0.75rem; color: var(--muted);">আজকের মোট ক্যাশ-আউট</div>
+        <div id="todayReceived" style="font-size: 1.1rem; font-weight: bold; color: #38bdf8; margin-top: 4px;">৳ ০</div>
+      </div>
+      <div style="background: #1e293b; padding: 0.75rem; border-radius: 10px; text-align: center;">
+        <div style="font-size: 0.75rem; color: var(--muted);">মোট উত্তোলনকৃত</div>
+        <div id="totalWithdrawn" style="font-size: 1.1rem; font-weight: bold; color: var(--danger); margin-top: 4px;">৳ ০</div>
+      </div>
+    </div>
+
+    <button class="btn" onclick="syncLedger()">🔄 লাইভ ডাটা রিফ্রেশ করুন</button>
+  </div>
+
+  <!-- Cash Withdrawal Form (Requirement Line 538) -->
+  <div class="card">
+    <div class="title">💸 ক্যাশ উত্তোলন / হিসাব রিসেট</div>
+    <div class="sub">এজেন্ট অ্যাকাউন্ট থেকে টাকা তুলে নিলে এখানে এন্ট্রি দিন, স্বয়ংক্রিয় ব্যালেন্স সমন্বয় হবে।</div>
+    <input type="number" id="withdrawAmt" placeholder="উত্তোলনের পরিমাণ (যেমন: ৫০০০)">
+    <input type="text" id="withdrawNotes" placeholder="নোট / কার কাছে দেওয়া হলো (ঐচ্ছিক)">
+    <button class="btn btn-secondary" onclick="submitWithdrawal()">সংরক্ষণ করুন (Log Withdrawal)</button>
+  </div>
+
+  <!-- SMS Forwarding / Ingestion Simulator (Requirement Line 377, 536) -->
+  <div class="card">
+    <div class="title">📩 নতুন পেমেন্ট এসএমএস যুক্ত করুন (Live Ingest)</div>
+    <div class="sub">এজেন্ট ফোনে এসএমএস এলে সরাসরি এখানে পুশ হবে বা স্বয়ংক্রিয়ভাবে ইনজেস্ট হবে।</div>
+    <textarea id="rawSmsInput" rows="2" placeholder="SMS পেস্ট করুন (যেমন: Cash In Received. Amount: Tk 2,999.00. Sender: 01711223344. TxnID: BL89AK102)"></textarea>
+    <button class="btn" style="background: #2563eb;" onclick="ingestSms()">সার্ভারে পুশ ও অর্ডার ম্যাচ করুন</button>
+  </div>
+
+  <!-- Live Transactions List -->
+  <div class="card">
+    <div class="title">সর্বশেষ ক্যাশ-আউট লেনদেন ও অর্ডার স্ট্যাটাস</div>
+    <div id="smsListContainer" style="margin-top: 0.5rem;">
+      <p style="color: var(--muted); font-size: 0.85rem;">ডাটা লোড হচ্ছে...</p>
+    </div>
+  </div>
+
+  <div id="pwaInstallBanner" style="display:none; position:fixed; bottom:15px; left:15px; right:15px; background:#1e293b; border:1px solid #34d399; padding:12px; border-radius:12px; z-index:999; text-align:center;">
+    <div style="font-size:0.9rem; font-weight:bold; margin-bottom:6px;">📲 হোম স্ক্রিনে অ্যাপ ইনস্টল করুন</div>
+    <button class="btn" id="pwaInstallBtn" style="padding:6px 12px; font-size:0.85rem;">ইনস্টল করুন (Add to Home)</button>
+  </div>
+
+  <script>
+    function getApiBase() {
+      const saved = localStorage.getItem('amp_api_domain');
+      if (saved) return saved.replace(/\/+$/, '');
+      if (window.location.protocol.startsWith('http') && !window.location.hostname.includes('127.0.0.1') && !window.location.hostname.includes('localhost')) {
+        return window.location.origin;
+      }
+      return 'https://automoviepro.com';
+    }
+    let API_BASE = getApiBase();
+
+    document.getElementById('customDomainInput').value = API_BASE;
+
+    function saveDomainSetting() {
+      const val = document.getElementById('customDomainInput').value.trim();
+      if (val) {
+        localStorage.setItem('amp_api_domain', val);
+        API_BASE = getApiBase();
+        alert('সার্ভার ডোমেন সংরক্ষিত হয়েছে: ' + API_BASE);
+        syncLedger();
+      }
+    }
+
+    async function syncLedger() {
+      try {
+        const res = await fetch(`${API_BASE}/api/payment_ledger.php`);
+        const data = await res.json();
+        if (data.ok) {
+          document.getElementById('netBalance').innerText = '৳ ' + Number(data.ledger.current_balance).toLocaleString('en-IN');
+          document.getElementById('todayReceived').innerText = '৳ ' + Number(data.ledger.today_received).toLocaleString('en-IN');
+          document.getElementById('totalWithdrawn').innerText = '৳ ' + Number(data.ledger.total_withdrawn).toLocaleString('en-IN');
+          
+          renderTransactions(data.recent_transactions);
+          document.getElementById('connStatus').innerText = '● লাইভ কানেক্টেড (' + API_BASE + ')';
+          document.getElementById('connStatus').style.color = '#34d399';
+        }
+      } catch (err) {
+        document.getElementById('connStatus').innerText = '● অফলাইন মোড (' + API_BASE + ')';
+        document.getElementById('connStatus').style.color = '#f59e0b';
+      }
+    }
+
+    function renderTransactions(list) {
+      const container = document.getElementById('smsListContainer');
+      if (!list || list.length === 0) {
+        container.innerHTML = '<p style="color: var(--muted); font-size:0.85rem;">এখনো কোনো লেনদেন রেকর্ড হয়নি।</p>';
+        return;
+      }
+      container.innerHTML = list.map(item => `
+        <div class="sms-item">
+          <div class="sms-top">
+            <span>${item.provider.toUpperCase()} (${item.txn_id})</span>
+            <span style="color: #34d399;">+ ৳ ${Number(item.amount).toLocaleString('en-IN')}</span>
+          </div>
+          <div class="sms-desc">
+            প্রেরক: ${item.sender_phone || 'N/A'} (শেষ ৪ ডিজিট: ${item.sender_last_digits || 'N/A'})
+            <div style="margin-top:4px;">
+              <span class="status-pill ${item.is_matched == 1 ? 'pill-matched' : 'pill-pending'}">
+                ${item.is_matched == 1 ? `✓ অটো-ম্যাচড (অর্ডার #${item.matched_order_id})` : '⏳ ম্যাচিং কিউতে অপেক্ষমান'}
+              </span>
+              <span style="font-size:0.75rem; color:var(--muted); float:right;">${item.created_at || ''}</span>
+            </div>
+          </div>
+        </div>
+      `).join('');
+    }
+
+    async function submitWithdrawal() {
+      const amt = document.getElementById('withdrawAmt').value;
+      const notes = document.getElementById('withdrawNotes').value;
+      if (!amt || Number(amt) <= 0) {
+        alert('সঠিক টাকার পরিমাণ লিখুন।');
+        return;
+      }
+      try {
+        const res = await fetch(`${API_BASE}/api/payment_ledger.php`, {
+          method: 'POST',
+          headers: {'Content-Type': 'application/json'},
+          body: JSON.stringify({ amount: Number(amt), notes: notes })
+        });
+        const d = await res.json();
+        alert(d.message || 'উত্তোলন সংরক্ষিত হয়েছে।');
+        document.getElementById('withdrawAmt').value = '';
+        document.getElementById('withdrawNotes').value = '';
+        syncLedger();
+      } catch (e) {
+        alert('সার্ভারে যোগাযোগ ব্যর্থ হয়েছে।');
+      }
+    }
+
+    async function ingestSms() {
+      const txt = document.getElementById('rawSmsInput').value.trim();
+      if (!txt) {
+        alert('অনুগ্রহ করে SMS টেক্সট পেস্ট করুন।');
+        return;
+      }
+      // Strict client-side regex matching for authentic bKash, Nagad, or Rocket SMS
+      let provider = 'bkash';
+      if (txt.toLowerCase().includes('nagad') || txt.match(/TxnID:/i)) provider = 'nagad';
+      if (txt.toLowerCase().includes('rocket') || txt.match(/16216/)) provider = 'rocket';
+
+      const txnMatch = txt.match(/TrxID\s+([A-Z0-9]+)/i) || txt.match(/TxnID:\s*([A-Z0-9]+)/i);
+      const amtMatch = txt.match(/Tk\s+([\d,]+\.?\d*)/i) || txt.match(/Amount:\s*Tk\s*([\d,]+\.?\d*)/i);
+      const senderMatch = txt.match(/from\s+(01\d{9})/i) || txt.match(/Sender:\s*(01\d{9})/i) || txt.match(/From\s+(01\d{9})/i);
+
+      // Halt immediately if authentic SMS patterns are not found - NO FAKE DATA!
+      if (!txnMatch || !amtMatch) {
+        alert('ত্রুটি: এসএমএস পার্সিং ব্যর্থ হয়েছে! শুধুমাত্র আসল বিকাশ বা নগদ লেনদেনের এসএমএস (বৈধ TrxID/TxnID ও টাকার অংক সম্বলিত) গ্রহণ করা হয়। কাল্পনিক TXN আইডি ও ফলব্যাক টাকা পাঠানো সম্পূর্ণ বন্ধ।');
+        return;
+      }
+
+      const txnId = txnMatch[1].toUpperCase();
+      const rawAmt = amtMatch[1].replace(/,/g, '');
+      const amount = parseFloat(rawAmt);
+      if (isNaN(amount) || amount <= 0) {
+        alert('ত্রুটি: এসএমএস-এ টাকার সঠিক পরিমাণ পাওয়া যায়নি।');
+        return;
+      }
+
+      const senderPhone = senderMatch ? senderMatch[1] : '';
+
+      try {
+        const res = await fetch(`${API_BASE}/api/sms_gateway.php`, {
+          method: 'POST',
+          headers: {'Content-Type': 'application/json'},
+          body: JSON.stringify({
+            provider: provider,
+            sender_phone: senderPhone,
+            txn_id: txnId,
+            amount: amount,
+            raw_message: txt
+          })
+        });
+        const d = await res.json();
+        alert(d.message || 'এসএমএস সফলভাবে সার্ভারে প্রসেস হয়েছে!');
+        document.getElementById('rawSmsInput').value = '';
+        syncLedger();
+      } catch (e) {
+        alert('সার্ভার এরর: ' + e.message);
+      }
+    }
+
+    // Initial load
+    syncLedger();
+    setInterval(syncLedger, 10000);
+
+    // PWA Service Worker
+    if ('serviceWorker' in navigator) {
+      window.addEventListener('load', () => {
+        navigator.serviceWorker.register('./sw.js').catch(err => console.log('SW fail', err));
+      });
+    }
+    let deferredPrompt;
+    window.addEventListener('beforeinstallprompt', (e) => {
+      e.preventDefault();
+      deferredPrompt = e;
+      const banner = document.getElementById('pwaInstallBanner');
+      if (banner) banner.style.display = 'block';
+    });
+    const installBtn = document.getElementById('pwaInstallBtn');
+    if (installBtn) {
+      installBtn.addEventListener('click', async () => {
+        if (deferredPrompt) {
+          deferredPrompt.prompt();
+          const { outcome } = await deferredPrompt.userChoice;
+          if (outcome === 'accepted') {
+            document.getElementById('pwaInstallBanner').style.display = 'none';
+          }
+          deferredPrompt = null;
+        }
+      });
+    }
+  </script>
+</body>
+</html>

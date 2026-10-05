@@ -1,0 +1,55 @@
+{
+  "schema": "amp_observation_frame_sampling_v1",
+  "status": "PASS",
+  "observation_executed": true,
+  "provider_verified": false,
+  "semantic_pass": false,
+  "unknown_as_pass": false,
+  "creates_final_gate": false,
+  "creates_ffmpeg_engine": false,
+  "reuses_compose_ffmpeg": true,
+  "asset_id": "c11-img-2108",
+  "scene_id": "sc-6d-1",
+  "beat_id": "vb-6d-1",
+  "source_path": "data\\customer_generation_work\\c11_marathon_customer\\job2108\\_fallback_i2v\\fb_beat_00.png",
+  "content_hash": "b790e53eca50ef7aaee0fdbc079a825f9369402ff7c64bc08f30989430d34473",
+  "customer_id": "c11_marathon_customer",
+  "channel_id": "4",
+  "media_type": "image",
+  "duration_sec": 0.0,
+  "sampling_contract": {
+    "media_type": "image",
+    "duration_sec": 0.0,
+    "max_samples": 1,
+    "strategy": "image_single_frame",
+    "beat_windows": [
+      {
+        "start_sec": 0.0,
+        "end_sec": 3.0
+      }
+    ],
+    "scene_cuts": [],
+    "schema": "amp_frame_sampling_contract_v1"
+  },
+  "contract_hash": "3a3873d9dc9738fd470e4ac0",
+  "strategy": "image_single_frame",
+  "frame_count": 1,
+  "frames": [
+    {
+      "asset_id": "c11-img-2108",
+      "scene_id": "sc-6d-1",
+      "beat_id": "vb-6d-1",
+      "timestamp": 0.0,
+      "frame_index": 0,
+      "source_path": "data\\customer_generation_work\\c11_marathon_customer\\job2108\\_fallback_i2v\\fb_beat_00.png",
+      "frame_path": "docs\\marathon\\customer_product\\phase6d_evidence\\work\\lineage\\frame_samples\\frames_b790e53eca50ef7a_3a3873d9dc9738fd470e4ac0\\frame_00_image.png",
+      "content_hash": "b790e53eca50ef7aaee0fdbc079a825f9369402ff7c64bc08f30989430d34473",
+      "parent_content_hash": "b790e53eca50ef7aaee0fdbc079a825f9369402ff7c64bc08f30989430d34473",
+      "customer_id": "c11_marathon_customer",
+      "channel_id": "4",
+      "semantic_pass": false
+    }
+  ],
+  "cache_hit": false,
+  "cache_dir": "docs\\marathon\\customer_product\\phase6d_evidence\\work\\lineage\\frame_samples\\frames_b790e53eca50ef7a_3a3873d9dc9738fd470e4ac0"
+}

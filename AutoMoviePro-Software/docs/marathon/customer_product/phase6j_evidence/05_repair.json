@@ -1,0 +1,95 @@
+{
+  "execution": "EXECUTED",
+  "repair_scope": "VISUAL_ASSET",
+  "whole_video_regeneration": false,
+  "handoff": {
+    "repair_triggered": true,
+    "status": "FAIL",
+    "repair_scope": "VISUAL_ASSET",
+    "repair_scope_forced": "VISUAL_ASSET",
+    "whole_video_regeneration": false,
+    "plan": {
+      "ok": true,
+      "affected_scene_id": "sc-neg",
+      "preserved_scene_ids": [
+        "vb-neg"
+      ],
+      "targeted_only": true,
+      "repair_engine": "pipeline.quality.repair_planner.plan_repair",
+      "duplicate_repair_engine": false,
+      "plan": {
+        "repair_scope": "VISUAL_ASSET",
+        "subject_id": "sc-neg",
+        "issue_ids": [
+          "c05q_visual_sc-neg"
+        ],
+        "attempt": 1,
+        "max_attempts": 3,
+        "old_fingerprint": "",
+        "revision_id": "r002",
+        "evidence": {
+          "c05q_visual_sc-neg": {}
+        },
+        "recommended_action": "targeted_repair",
+        "escalate": false
+      },
+      "affected_beat_id": "vb-neg",
+      "visual_repair_engine": false,
+      "old_fingerprint": "",
+      "repair_scope_forced": "VISUAL_ASSET",
+      "whole_video_regeneration": false,
+      "observation_overall": "FAIL"
+    },
+    "authority": "BUILD-04F plan_repair / plan_semantic_beat_repair",
+    "second_repair_engine": false
+  },
+  "lineage": {
+    "old_asset_path": "E:\\All Updaye Project\\AutoMovie_Pro_SAAS_Final_Update\\AutoMoviePro-Software\\data\\customer_generation_work\\c11_marathon_customer\\job2108\\_fallback_i2v\\fb_beat_00.png",
+    "old_content_hash": "b790e53eca50ef7aaee0fdbc079a825f9369402ff7c64bc08f30989430d34473",
+    "beat_id": "vb-neg",
+    "scene_id": "sc-neg",
+    "customer_id": "c11_marathon_customer",
+    "channel_id": "4",
+    "repair_prompt": "nurse hospital bed hospital room",
+    "new_asset_path": "E:\\All Updaye Project\\AutoMovie_Pro_SAAS_Final_Update\\AutoMoviePro-Software\\docs\\marathon\\customer_product\\phase6j_evidence\\repair_work\\repair_vb6j.mp4",
+    "new_content_hash": "d11ac8300eff4bd03eec6323d777862ff79110d0fb24903ce78423b268f046cb",
+    "fingerprint": "f851d9e979f07e27e8b5df73a30b98c118a70112fd29a0b8deb680f27263ae91",
+    "asset_id": "visual-06-f851d9e979f07e27",
+    "build03_action": "execute",
+    "hash_changed": true
+  },
+  "reobservation": {
+    "schema": "amp_observation_frame_evidence_v1",
+    "schema_version": "amp_frame_evidence_v1",
+    "asset_id": "visual-06-f851d9e979f07e27",
+    "scene_id": "sc-neg",
+    "beat_id": "vb-neg",
+    "timestamp": 0.0,
+    "frame_path": "E:\\All Updaye Project\\AutoMovie_Pro_SAAS_Final_Update\\AutoMoviePro-Software\\docs\\marathon\\customer_product\\phase6j_evidence\\repair_work\\repair_frames\\frames_d11ac8300eff4bd0_786da6d87905c97ff8bf7fc9\\frame_00_0000000ms.jpg",
+    "frame_reference": "E:\\All Updaye Project\\AutoMovie_Pro_SAAS_Final_Update\\AutoMoviePro-Software\\docs\\marathon\\customer_product\\phase6j_evidence\\repair_work\\repair_frames\\frames_d11ac8300eff4bd0_786da6d87905c97ff8bf7fc9\\frame_00_0000000ms.jpg",
+    "observation_status": "UNKNOWN",
+    "provider": "",
+    "observed_subjects": [],
+    "observed_entities": [],
+    "observed_relationships": [],
+    "observed_location": "",
+    "observed_actions": [],
+    "observed_environment": "",
+    "camera_observation": "",
+    "lighting_observation": "",
+    "confidence": "UNKNOWN",
+    "evidence_source": "UNAVAILABLE",
+    "provider_verified": false,
+    "heuristic": false,
+    "clip_similarity_is_not_visual_truth": true,
+    "filename_match_is_not_observation": true,
+    "unknown_as_pass": false,
+    "reason": "no_google_api_keys",
+    "created_at": 1788952045.2591257,
+    "issues": [
+      "semantic_observation_unavailable:no_google_api_keys"
+    ]
+  },
+  "second_repair_engine": false,
+  "note": "provider_fn_copy_hospital_asset; reobserve may be UNKNOWN without paid keys"
+}

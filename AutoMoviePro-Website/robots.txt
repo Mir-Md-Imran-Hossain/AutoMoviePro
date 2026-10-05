@@ -1,0 +1,6 @@
+User-agent: *
+Allow: /
+Disallow: /admin/
+Disallow: /api/
+Disallow: /install/
+Sitemap: https://automoviepro.com/sitemap.php

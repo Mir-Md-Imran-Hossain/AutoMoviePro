@@ -1,0 +1,496 @@
+{
+  "analysis": {
+    "niche_summary": "Space science documentary focusing on lunar exploration techniques.",
+    "why_this_topic": "Retention spine: Hook (invisible water) -> Mechanism (neutron bounce) -> Evidence (dark crater) -> Payoff (fuel for rockets) -> Re-hook (where to look next).",
+    "audience": "Space enthusiasts, science students, astronomy hobbyists.",
+    "tone": "Industrial documentary urgency without hype",
+    "product_category": "science",
+    "style_pack": "science",
+    "nish_id": 0,
+    "avoided_duplicates": [
+      "generic moon facts",
+      "jwst galaxy discovery",
+      "mars rover update"
+    ],
+    "retention_spine": "Open loop: Where is the water? -> Evidence: Neutron albedo mapping -> Payoff: Hydrogen in permanently shadowed regions -> New question: Why does this matter for bases?",
+    "master_lang": "en",
+    "master_lang_bcp47": "en-US"
+  },
+  "topic": "Neutron albedo mapping finds hydrogen under the Moon's dark crater floors",
+  "product_key_hint": "neutron albedo mapping moon hydrogen dark crater floors",
+  "title": "Neutron Albedo Mapping: Finding Hidden Water on the Moon (2026)",
+  "description": "Most people think the Moon is dry. They are wrong. This video explains how neutron albedo mapping detects hydrogen trapped in permanently shadowed craters. We break down the physics of neutron moderation and why this data is critical for future lunar bases. Watch to see how invisible water becomes visible through cosmic ray interactions.\n\n#MoonWater #NeutronAlbedo #SpaceScience #LunarExploration #Astronomy",
+  "tags": [
+    "neutron albedo mapping",
+    "moon water discovery",
+    "lunar hydrogen",
+    "permanently shadowed regions",
+    "space science documentary"
+  ],
+  "scenes": [
+    {
+      "element": "intro",
+      "start_hint_s": 0.0,
+      "end_hint_s": 8.5,
+      "narration": "Most people miss this: the Moon isn't dry. It's hiding water in the dark, and we can see it without digging.",
+      "keyword_triggers": [
+        "Neutron albedo mapping finds hydrogen under the Moon's dark crater floors",
+        "moon surface",
+        "dark crater",
+        "neutron particles"
+      ],
+      "exact_ai_video_prompt": "VERTICAL 9:16 portrait (1080x1920) cinematic slow push-in of a dark lunar crater floor, teal/cyan cinematic lab grade, high contrast, shallow DOF, subtle particle effects suggesting invisible neutrons, no burned captions, no watermark, no talking-head REQUIRED on-screen anchors: Neutron albedo mapping finds hydrogen under the Moon's dark crater floors, moon surface, miss, Moon, hiding, digging. Visual slot: Neutron albedo mapping finds hydrogen under the Moon's dark crater floors moon surface dark crater: Most people miss this: the Moon isn't dry. It's hiding water in — slow cinematic push-in establishing hero.",
+      "visual_query": "dark lunar crater floor close up",
+      "visual_prompt": "cinematic hero of dark lunar crater, continuous motion",
+      "retention_role": "pattern_interrupt",
+      "open_loop": "How can we see water that is buried and invisible?",
+      "payoff_for": "",
+      "quality_notes": "Hero establish shot. Dark environment sets the 'hidden' tone. Particle effects hint at the mechanism.",
+      "estimated_duration_sec": 8.75,
+      "retention": {
+        "role": "pattern_interrupt",
+        "window_start_sec": 0,
+        "window_end_sec": 2,
+        "job": "Pattern Interrupt",
+        "open_loop": "How can we see water that is buried and invisible?",
+        "payoff_for": null
+      },
+      "visual_mode": "VIDEO",
+      "media_mode_decision": {
+        "mode": "VIDEO",
+        "reason": "default_video_primary_agnes",
+        "ok": "true",
+        "image_authorized": false,
+        "agnes_required": true,
+        "engine_version": "media_mode_engine_v1"
+      },
+      "montage_slot": {
+        "slot_description": "Neutron albedo mapping finds hydrogen under the Moon's dark crater floors moon surface dark crater: Most people miss this: the Moon isn't dry. It's hiding water in — slow cinematic push-in establishing hero",
+        "search_queries": [
+          "Neutron albedo mapping finds hydrogen under the Moon's dark crater floors moon surface intro",
+          "Neutron albedo mapping",
+          "Most people miss documentary footage"
+        ],
+        "hero": true,
+        "preferred_sources": "agnes,pexels",
+        "beat_index": 0
+      },
+      "search_queries": [
+        "Neutron albedo mapping finds hydrogen under the Moon's dark crater floors moon surface intro",
+        "Neutron albedo mapping",
+        "Most people miss documentary footage"
+      ],
+      "hero": true,
+      "lang": "en",
+      "lang_bcp47": "en-US"
+    },
+    {
+      "element": "context",
+      "start_hint_s": 8.5,
+      "end_hint_s": 17.0,
+      "narration": "From that digging, cosmic rays hit the regolith constantly. They knock out neutrons. But if hydrogen is there, those neutrons slow down fast.",
+      "keyword_triggers": [
+        "Neutron albedo mapping finds hydrogen under the Moon's dark crater floors",
+        "cosmic rays",
+        "lunar regolith",
+        "neutron impact"
+      ],
+      "exact_ai_video_prompt": "VERTICAL 9:16 portrait (1080x1920) macro shot of lunar regolith surface, high-speed particle simulation of cosmic rays striking dust, teal/cyan grade, molecular glass metaphor, no burned captions, no watermark, no talking-head REQUIRED on-screen anchors: Neutron albedo mapping finds hydrogen under the Moon's dark crater floors, neutron impact, constantly, knock, neutrons. Visual slot: Neutron albedo mapping finds hydrogen under the Moon's dark crater floors cosmic rays lunar regolith: From that digging, cosmic rays hit the regolith constantly. They knock out — environmental wide into subject emphasis.",
+      "visual_query": "cosmic rays hitting moon dust macro",
+      "visual_prompt": "macro pan of regolith with particle impacts",
+      "retention_role": "curiosity_gap",
+      "open_loop": "What exactly is bouncing off the surface?",
+      "payoff_for": "",
+      "quality_notes": "Visualizes the 'collision' event. New info: cosmic rays are the source.",
+      "estimated_duration_sec": 9.0,
+      "retention": {
+        "role": "curiosity_gap",
+        "window_start_sec": 2,
+        "window_end_sec": 5,
+        "job": "Curiosity Gap",
+        "open_loop": "What exactly is bouncing off the surface?",
+        "payoff_for": null
+      },
+      "visual_mode": "VIDEO",
+      "media_mode_decision": {
+        "mode": "VIDEO",
+        "reason": "default_video_primary_agnes",
+        "ok": "true",
+        "image_authorized": false,
+        "agnes_required": true,
+        "engine_version": "media_mode_engine_v1"
+      },
+      "montage_slot": {
+        "slot_description": "Neutron albedo mapping finds hydrogen under the Moon's dark crater floors cosmic rays lunar regolith: From that digging, cosmic rays hit the regolith constantly. They knock out — environmental wide into subject emphasis",
+        "search_queries": [
+          "Neutron albedo mapping finds hydrogen under the Moon's dark crater floors cosmic rays context",
+          "Neutron albedo mapping",
+          "digging cosmic rays documentary footage"
+        ],
+        "hero": false,
+        "preferred_sources": "agnes,pexels",
+        "beat_index": 1
+      },
+      "search_queries": [
+        "Neutron albedo mapping finds hydrogen under the Moon's dark crater floors cosmic rays context",
+        "Neutron albedo mapping",
+        "digging cosmic rays documentary footage"
+      ],
+      "hero": false,
+      "lang": "en",
+      "lang_bcp47": "en-US"
+    },
+    {
+      "element": "technique",
+      "start_hint_s": 17.0,
+      "end_hint_s": 25.5,
+      "narration": "Watch what this changes next — hydrogen acts like a molecular glass. It absorbs energy. Fast neutrons become slow. That change is the.",
+      "keyword_triggers": [
+        "Neutron albedo mapping finds hydrogen under the Moon's dark crater floors",
+        "hydrogen absorption",
+        "slow neutrons",
+        "energy transfer"
+      ],
+      "exact_ai_video_prompt": "VERTICAL 9:16 portrait (1080x1920) abstract visualization of fast particles hitting a transparent molecular structure and slowing down, teal/cyan lab grade, chemical plume aesthetic, no burned captions, no watermark, no talking-head REQUIRED on-screen anchors: Neutron albedo mapping finds hydrogen under the Moon's dark crater floors, hydrogen absorption, slow neutrons, energy transfer, Hydrogen, like, glass, absorbs. Visual slot: Neutron albedo mapping finds hydrogen under the Moon's dark crater floors hydrogen absorption slow neutrons: Watch what this changes next — hydrogen acts like a molecular glass. — macro process detail, continuous motion.",
+      "visual_query": "neutron moderation visualization",
+      "visual_prompt": "abstract molecular interaction, continuous motion",
+      "retention_role": "evidence",
+      "open_loop": "How do we measure the slowing down?",
+      "payoff_for": "What exactly is bouncing off the surface?",
+      "quality_notes": "Metaphor beat. Explains the physics simply. Visual contrast between fast and slow particles.",
+      "estimated_duration_sec": 9.0,
+      "retention": {
+        "role": "evidence",
+        "window_start_sec": 5,
+        "window_end_sec": 10,
+        "job": "First Payoff",
+        "open_loop": "How do we measure the slowing down?",
+        "payoff_for": "What exactly is bouncing off the surface?"
+      },
+      "visual_mode": "VIDEO",
+      "media_mode_decision": {
+        "mode": "VIDEO",
+        "reason": "default_video_primary_agnes",
+        "ok": "true",
+        "image_authorized": false,
+        "agnes_required": true,
+        "engine_version": "media_mode_engine_v1"
+      },
+      "montage_slot": {
+        "slot_description": "Neutron albedo mapping finds hydrogen under the Moon's dark crater floors hydrogen absorption slow neutrons: Watch what this changes next — hydrogen acts like a molecular glass. — macro process detail, continuous motion",
+        "search_queries": [
+          "Neutron albedo mapping finds hydrogen under the Moon's dark crater floors hydrogen absorption technique",
+          "Neutron albedo mapping",
+          "Watch what changes documentary footage"
+        ],
+        "hero": true,
+        "preferred_sources": "agnes,pexels",
+        "beat_index": 2
+      },
+      "search_queries": [
+        "Neutron albedo mapping finds hydrogen under the Moon's dark crater floors hydrogen absorption technique",
+        "Neutron albedo mapping",
+        "Watch what changes documentary footage"
+      ],
+      "hero": true,
+      "lang": "en",
+      "lang_bcp47": "en-US"
+    },
+    {
+      "element": "discovery",
+      "start_hint_s": 25.5,
+      "end_hint_s": 34.0,
+      "narration": "What most viewers overlook next is this: we map this as albedo. Darker spots on the neutron map mean more hydrogen. And they.",
+      "keyword_triggers": [
+        "Neutron albedo mapping finds hydrogen under the Moon's dark crater floors",
+        "neutron albedo map",
+        "dark spots",
+        "cold craters"
+      ],
+      "exact_ai_video_prompt": "VERTICAL 9:16 portrait (1080x1920) satellite view of moon surface with a heat map overlay showing dark blue spots in craters, teal/cyan grade, data visualization style, no burned captions, no watermark, no talking-head REQUIRED on-screen anchors: Neutron albedo mapping finds hydrogen under the Moon's dark crater floors, neutron albedo map, cold craters, albedo, Darker, neutron, mean, hydrogen. Visual slot: Neutron albedo mapping finds hydrogen under the Moon's dark crater floors neutron albedo map dark spots: What most viewers overlook next is this: we map this as albedo. — revealing detail with controlled camera move.",
+      "visual_query": "moon neutron albedo map overlay",
+      "visual_prompt": "satellite view with data overlay, slow pan",
+      "retention_role": "first_payoff",
+      "open_loop": "Where exactly is this signal strongest?",
+      "payoff_for": "How do we measure the slowing down?",
+      "quality_notes": "First concrete payoff. Shows the 'map' mentioned in the title. Connects dark spots to hydrogen.",
+      "estimated_duration_sec": 9.0,
+      "retention": {
+        "role": "first_payoff",
+        "window_start_sec": null,
+        "window_end_sec": null,
+        "job": "first_payoff",
+        "open_loop": "Where exactly is this signal strongest?",
+        "payoff_for": "How do we measure the slowing down?"
+      },
+      "visual_mode": "VIDEO",
+      "media_mode_decision": {
+        "mode": "VIDEO",
+        "reason": "default_video_primary_agnes",
+        "ok": "true",
+        "image_authorized": false,
+        "agnes_required": true,
+        "engine_version": "media_mode_engine_v1"
+      },
+      "montage_slot": {
+        "slot_description": "Neutron albedo mapping finds hydrogen under the Moon's dark crater floors neutron albedo map dark spots: What most viewers overlook next is this: we map this as albedo. — revealing detail with controlled camera move",
+        "search_queries": [
+          "Neutron albedo mapping finds hydrogen under the Moon's dark crater floors neutron albedo map discovery",
+          "Neutron albedo mapping",
+          "What most viewers documentary footage"
+        ],
+        "hero": false,
+        "preferred_sources": "agnes,pexels",
+        "beat_index": 3
+      },
+      "search_queries": [
+        "Neutron albedo mapping finds hydrogen under the Moon's dark crater floors neutron albedo map discovery",
+        "Neutron albedo mapping",
+        "What most viewers documentary footage"
+      ],
+      "hero": false,
+      "lang": "en",
+      "lang_bcp47": "en-US"
+    },
+    {
+      "element": "context",
+      "start_hint_s": 34.0,
+      "end_hint_s": 42.5,
+      "narration": "These are permanently shadowed regions. No sunlight. Temperatures drop to minus 250 Celsius. Water ice survives there for eons. So the takeaway on.",
+      "keyword_triggers": [
+        "Neutron albedo mapping finds hydrogen under the Moon's dark crater floors",
+        "permanently shadowed region",
+        "moon temperature",
+        "water ice"
+      ],
+      "exact_ai_video_prompt": "VERTICAL 9:16 portrait (1080x1920) deep inside a lunar crater, extreme cold visual effect, frost forming on rock, teal/cyan grade, macro flame metaphor for cold, no burned captions, no watermark, no talking-head REQUIRED on-screen anchors: Neutron albedo mapping finds hydrogen under the Moon's dark crater floors, permanently shadowed region, moon temperature, water ice, permanently, shadowed, regions, sunlight, Temperatures, drop. Visual slot: Neutron albedo mapping finds hydrogen under the Moon's dark crater floors permanently shadowed region moon temperature: These are permanently shadowed regions. No sunlight. Temperatures drop to minus 250 — environmental wide into subject emphasis.",
+      "visual_query": "lunar crater shadow ice frost",
+      "visual_prompt": "deep crater interior, frost detail",
+      "retention_role": "question",
+      "open_loop": "Why are these specific craters so dark on the map?",
+      "payoff_for": "Where exactly is this signal strongest?",
+      "quality_notes": "Re-hook with extreme conditions. Explains WHY the ice stays there. Visual shift to interior.",
+      "estimated_duration_sec": 9.0,
+      "retention": {
+        "role": "question",
+        "window_start_sec": null,
+        "window_end_sec": null,
+        "job": "close_main_loop",
+        "open_loop": "Why are these specific craters so dark on the map?",
+        "payoff_for": "Where exactly is this signal strongest?"
+      },
+      "visual_mode": "VIDEO",
+      "media_mode_decision": {
+        "mode": "VIDEO",
+        "reason": "default_video_primary_agnes",
+        "ok": "true",
+        "image_authorized": false,
+        "agnes_required": true,
+        "engine_version": "media_mode_engine_v1"
+      },
+      "montage_slot": {
+        "slot_description": "Neutron albedo mapping finds hydrogen under the Moon's dark crater floors permanently shadowed region moon temperature: These are permanently shadowed regions. No sunlight. Temperatures drop to minus 250 — environmental wide into subject emphasis",
+        "search_queries": [
+          "Neutron albedo mapping finds hydrogen under the Moon's dark crater floors permanently shadowed region context",
+          "Neutron albedo mapping",
+          "These are permanently documentary footage"
+        ],
+        "hero": false,
+        "preferred_sources": "agnes,pexels",
+        "beat_index": 4
+      },
+      "search_queries": [
+        "Neutron albedo mapping finds hydrogen under the Moon's dark crater floors permanently shadowed region context",
+        "Neutron albedo mapping",
+        "These are permanently documentary footage"
+      ],
+      "hero": false,
+      "lang": "en",
+      "lang_bcp47": "en-US"
+    }
+  ],
+  "director_provider": "groq",
+  "nish_id": 0,
+  "nish_name": "space science",
+  "video_type": "short",
+  "max_seconds": 60,
+  "hook": "Most people miss this: the Moon isn't dry. It's hiding water in the dark, and we can see it without digging.",
+  "metadata": {
+    "retention_cadence_enforced": true,
+    "retention_cadence_repairs": [
+      {
+        "index": 2,
+        "action": "mid_rehook",
+        "prior": "Hydrogen acts like a molecular glass. It absorbs energy. Fast neutrons become slow. That change is the signal we hunt."
+      },
+      {
+        "index": 3,
+        "action": "mid_rehook",
+        "prior": "We map this as albedo. Darker spots on the neutron map mean more hydrogen. And they line up with the coldest craters."
+      },
+      {
+        "index": 4,
+        "action": "ending_close",
+        "prior": "These are permanently shadowed regions. No sunlight. Temperatures drop to minus 250 Celsius. Water ice survives there fo"
+      }
+    ],
+    "dialogue_window_repairs": [
+      {
+        "i": 1,
+        "action": "bridge",
+        "bridge": "digging"
+      },
+      {
+        "i": 2,
+        "action": "trim",
+        "est_sec": 9.58
+      },
+      {
+        "i": 3,
+        "action": "trim",
+        "est_sec": 9.58
+      },
+      {
+        "i": 4,
+        "action": "trim",
+        "est_sec": 9.58
+      }
+    ],
+    "dialogue_window_enforced": true,
+    "media_mode_engine": {
+      "version": "media_mode_engine_v1",
+      "video_primary_enforced": true,
+      "modes_rewritten_to_video": 5
+    },
+    "montage_slots_enriched": true,
+    "montage_brain_version": "amp_montage_brain_v1",
+    "montage_brain": {
+      "version": "amp_montage_brain_v1",
+      "checklist_ok": true,
+      "openmontage_agpl_imported": false
+    }
+  },
+  "retention_blueprint": {
+    "format": "short",
+    "windows": [
+      {
+        "id": "pattern_interrupt",
+        "start_sec": 0,
+        "end_sec": 2,
+        "job": "Pattern Interrupt"
+      },
+      {
+        "id": "curiosity_gap",
+        "start_sec": 2,
+        "end_sec": 5,
+        "job": "Curiosity Gap"
+      },
+      {
+        "id": "first_payoff",
+        "start_sec": 5,
+        "end_sec": 10,
+        "job": "First Payoff"
+      }
+    ],
+    "loop": [
+      "question",
+      "evidence",
+      "payoff",
+      "new_question"
+    ],
+    "min_open_loops": 2,
+    "min_loop_close_ratio": 0.7,
+    "forbid_flat_streak": 2,
+    "require_ending_close": true
+  },
+  "montage_manifest": {
+    "name": "amp-documentary-montage",
+    "version": "amp_montage_brain_v1",
+    "video_type": "short",
+    "policy": "retrieval_aware_video_primary",
+    "stages": [
+      {
+        "id": "idea",
+        "job": "One thematic question + tone + duration + retention spine",
+        "success": [
+          "concrete_topic",
+          "curiosity_gap",
+          "seo_title_angle"
+        ]
+      },
+      {
+        "id": "scene_plan",
+        "job": "Concrete visual SLOTS (noun+adjective+action) with 2–3 search queries each",
+        "success": [
+          "slot_queries",
+          "hero_slots>=2",
+          "no_abstract_labels"
+        ]
+      },
+      {
+        "id": "assets",
+        "job": "Fill slots: Agnes VIDEO primary; stock retrieval when query-matched; Ken Burns only if authorized",
+        "success": [
+          "visual_mode_provenance",
+          "asset_or_generation_path"
+        ]
+      },
+      {
+        "id": "edit",
+        "job": "Arrange beats by narrative role; no flat encyclopedia chains; payoff cadence",
+        "success": [
+          "retention_roles",
+          "continuity_bridge"
+        ]
+      },
+      {
+        "id": "compose",
+        "job": "Mux audio+picture; aspect lock; no black tails; ship gates",
+        "success": [
+          "duration_contract",
+          "av_sync",
+          "publishability"
+        ]
+      },
+      {
+        "id": "review",
+        "job": "Prompt-compliance + semantic coverage + observation gates",
+        "success": [
+          "PROMPT_COMPLIANCE_AUDIT",
+          "no_silent_image_downgrade"
+        ]
+      }
+    ],
+    "openmontage_agpl_imported": false,
+    "note": "Methodology inspired by public OpenMontage docs; AMP-owned implementation only"
+  },
+  "montage_checklist": {
+    "ok": true,
+    "issues": [],
+    "hero_count": 2,
+    "slots_with_queries": 5,
+    "video_mode_count": 5,
+    "scene_count": 5,
+    "version": "amp_montage_brain_v1"
+  },
+  "master_lang": "en",
+  "master_lang_bcp47": "en-US",
+  "sourceLanguage": "en",
+  "master_lang_policy": "english_pivot_then_localize",
+  "narrator_voice": "Charon",
+  "master_lang_repairs": [
+    {
+      "field": "tags",
+      "repaired": true,
+      "via": "drop_non_english_tags"
+    }
+  ],
+  "prompt_compliance": {
+    "verdict": "PASS",
+    "overall_score": 0.9806,
+    "industrial_grade": true,
+    "artifact_path": "E:\\All Updaye Project\\AutoMovie_Pro_SAAS_Final_Update\\AutoMoviePro-Software\\docs\\marathon\\runs\\mr_core_engine_20260910T130052Z_8d1c0f2f\\script\\PROMPT_COMPLIANCE_AUDIT.json",
+    "llm_critic_verdict": "SKIPPED",
+    "repairs_applied": []
+  }
+}

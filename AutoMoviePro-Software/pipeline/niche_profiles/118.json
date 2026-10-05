@@ -1,0 +1,79 @@
+{
+  "niche_id": 118,
+  "name": "5G Connectivity",
+  "slug": "5g-connectivity",
+  "style_family": "motivation",
+  "status": "VERIFIED",
+  "topic_seeds": [
+    "What new evidence reframes the story of Connectivity What inside 5G Connectivity",
+    "How Connectivity What still shapes public curiosity about 5G Connectivity",
+    "What new evidence reframes the story of Check inside 5G Connectivity",
+    "How Check still shapes public curiosity about 5G Connectivity",
+    "What new evidence reframes the story of Generate inside 5G Connectivity",
+    "How Generate still shapes public curiosity about 5G Connectivity"
+  ],
+  "seo_angles": [
+    "What new evidence reframes the story of Connectivity What inside 5G Connectivity",
+    "How Connectivity What still shapes public curiosity about 5G Connectivity",
+    "What new evidence reframes the story of Check inside 5G Connectivity",
+    "How Check still shapes public curiosity about 5G Connectivity"
+  ],
+  "forbidden_visuals": [
+    "talking-head lip-sync avatar",
+    "burned-in captions",
+    "watermark",
+    "modern meme text",
+    "off-niche stock office B-roll"
+  ],
+  "preferred_subjects": [
+    "5G Connectivity documentary subject",
+    "period-accurate environment",
+    "evidence object close-up"
+  ],
+  "lighting_default": "natural directional key, documentary clarity",
+  "face_policy": "no talking-head lip-sync avatar; cinematic B-roll preferred",
+  "dialogue_tone": "human documentary narration; specific nouns; 7–9s beats",
+  "audio_ambience": "subtle documentary bed; do not overpower voice",
+  "research_hints": [
+    "Prefer primary evidence and concrete entities for 5G Connectivity",
+    "Avoid generic niche-label topics; require specific place/person/event/mechanism",
+    "7–9 second spoken beats with story continuity across scenes"
+  ],
+  "topic_prompt_overlay": "NICHE LOCK (5G Connectivity): only propose topics that fit this niche's video type. Video type: What 5G enables — from self-driving cars to remote surgeries — and debates about health and privacy. Follow niche topic strategy: Check telecom news, new 5G launches, or viral speed test videos. Generate a topic about a 5G application that changes lives.",
+  "video_prompt_overlay": "NICHE VISUAL LOCK (5G Connectivity / motivation): Generate a 7–9 second dialogue clip based on the topic `{topic}`. Each dialogue must be fast and futuristic. For each dialogue, generate: - **Audio Generation Prompt:** Voice — rapid, with swooshes and beeps. - **Video Generation Prompt:** Detailed visual — a city or speed animation. No character — cityscape. Lighting: bright, neon. Maintain same city. Forbidden: talking-head lip-sync avatar, burned-in captions, watermark, modern meme text, off-niche stock office B-roll. Preferred subjects: 5G Connectivity documentary subject, period-accurate environment, evidence object close-up. Lighting: natural directional key, documentary clarity. Face policy: no talking-head lip-sync avatar; cinematic B-roll preferred. Dialogue tone: human documentary narration; specific nouns; 7–9s beats. Ambience: subtle documentary bed; do not overpower voice.",
+  "i18n": {
+    "en": {
+      "name": "5G Connectivity",
+      "blurb": "What 5G enables — from self-driving cars to remote surgeries — and debates about health and privacy."
+    },
+    "bn": {
+      "name": "৫জি সংযোগ",
+      "blurb": "ভিডিও টাইপ: What 5G enables — from self-driving cars to remote surgeries — and debates about health and privacy."
+    },
+    "hi": {
+      "name": "5G कनेक्टिविटी",
+      "blurb": "वीडियो प्रकार: What 5G enables — from self-driving cars to remote surgeries — and debates about health and privacy."
+    },
+    "ur": {
+      "name": "5G کنیکٹیویٹی",
+      "blurb": "ویڈیو کی قسم: What 5G enables — from self-driving cars to remote surgeries — and debates about health and privacy."
+    },
+    "ta": {
+      "name": "5G இணைப்பு",
+      "blurb": "வீடியோ வகை: What 5G enables — from self-driving cars to remote surgeries — and debates about health and privacy."
+    },
+    "ml": {
+      "name": "5G കണക്ടിവിറ്റി",
+      "blurb": "വീഡിയോ തരം: What 5G enables — from self-driving cars to remote surgeries — and debates about health and privacy."
+    }
+  },
+  "source": "Nish.Md + deterministic research",
+  "research_notes": [
+    "Marathon researched at 2026-09-10T08:30:25Z",
+    "Video type length=100",
+    "Topic prompt length=124",
+    "Video prompt length=354",
+    "Seeds=6"
+  ],
+  "verified_at": "2026-09-10T08:30:25Z"
+}

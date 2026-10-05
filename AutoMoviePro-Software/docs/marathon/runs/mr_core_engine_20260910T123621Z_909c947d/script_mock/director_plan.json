@@ -1,0 +1,40 @@
+{
+  "title": "What Parker Solar Probe discovered about the Sun's corona in 2026 — Documentary",
+  "topic": "What Parker Solar Probe discovered about the Sun's corona in 2026",
+  "description": "A cinematic short about What Parker Solar Probe discovered about the Sun's corona in 2026.",
+  "tags": [
+    "mock",
+    "space science",
+    "documentary"
+  ],
+  "niche": "space science",
+  "language": "en",
+  "scenes": [
+    {
+      "element": "intro",
+      "dialogue_id": "dlg-01",
+      "narration": "Welcome to the story of What Parker Solar Probe discovered about the Sun's corona in 2026.",
+      "visual_query": "What Parker Solar Probe discovered about the Sun's corona in 2026 establishing shot",
+      "visual_prompt": "cinematic intro of What Parker Solar Probe discovered about the Sun's corona in 2026",
+      "exact_ai_video_prompt": "vertical cinematic intro What Parker Solar Probe discovered about the Sun's corona in 2026"
+    },
+    {
+      "element": "discovery",
+      "dialogue_id": "dlg-02",
+      "narration": "Researchers uncovered new evidence about What Parker Solar Probe discovered about the Sun's corona in 2026.",
+      "visual_query": "What Parker Solar Probe discovered about the Sun's corona in 2026 discovery",
+      "visual_prompt": "artifact close-up What Parker Solar Probe discovered about the Sun's corona in 2026",
+      "exact_ai_video_prompt": "macro discovery shot What Parker Solar Probe discovered about the Sun's corona in 2026"
+    },
+    {
+      "element": "outro",
+      "dialogue_id": "dlg-03",
+      "narration": "This is why What Parker Solar Probe discovered about the Sun's corona in 2026 still matters today.",
+      "visual_query": "What Parker Solar Probe discovered about the Sun's corona in 2026 outro",
+      "visual_prompt": "sunset silhouette What Parker Solar Probe discovered about the Sun's corona in 2026",
+      "exact_ai_video_prompt": "cinematic outro What Parker Solar Probe discovered about the Sun's corona in 2026"
+    }
+  ],
+  "director_provider": "mock",
+  "director_model": "script-mock-v1"
+}

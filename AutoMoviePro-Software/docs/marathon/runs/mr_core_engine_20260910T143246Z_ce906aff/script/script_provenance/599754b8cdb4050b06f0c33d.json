@@ -1,0 +1,26 @@
+{
+  "job_id": "c06b-script-4-topic-d3350f43c08688e5",
+  "fingerprint": "599754b8cdb4050b06f0c33d8693933c071cc32e40d2d3b8555dcb22a6f272f3",
+  "entity_id": "script-0000-ff32dcd00b4330c2",
+  "topic": "Why Venus' thick clouds hide surface heat that melts lead — the physics",
+  "topic_identity": "ff32dcd00b4330c2708e780e",
+  "niche": "space science",
+  "niche_id": 0,
+  "fact_pack_id": "",
+  "fact_pack_hash": "",
+  "prompt_version": "v12",
+  "prompt_template_hash": "0eb19ea36a22cf406694f6e7dea91b9f",
+  "provider": "llm_router",
+  "model": "purpose-script",
+  "generation_id": "",
+  "plan_path": "E:\\All Updaye Project\\AutoMovie_Pro_SAAS_Final_Update\\AutoMoviePro-Software\\docs\\marathon\\runs\\mr_core_engine_20260910T143246Z_ce906aff\\script\\director_plan.json",
+  "plan_hash": "783c67cbe872fe8525862d4fe833e490b6612723eb6442cf70e47a2fc67376a9",
+  "saved_at": 1789050772.8882875,
+  "metadata": {
+    "video_type": "short",
+    "max_seconds": 60,
+    "language": "en",
+    "revision_id": "",
+    "legacy_key": "script:599754b8cdb4050b06f0c33d8693933c"
+  }
+}

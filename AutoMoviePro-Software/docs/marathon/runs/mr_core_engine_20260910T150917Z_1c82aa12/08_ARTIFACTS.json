@@ -1,0 +1,107 @@
+{
+  "work_dir": "E:\\All Updaye Project\\AutoMovie_Pro_SAAS_Final_Update\\AutoMoviePro-Software\\data\\customer_generation_work\\c11_marathon_customer\\job2329",
+  "languages": {},
+  "db_languages_after": [
+    "en",
+    "bn"
+  ],
+  "entitlement_preserved": true,
+  "master_candidates": [],
+  "montage_brain_files": [
+    "director_plan.json"
+  ],
+  "montage_checklist": {
+    "ok": true,
+    "issues": [],
+    "hero_count": 3,
+    "slots_with_queries": 6,
+    "video_mode_count": 5,
+    "scene_count": 6,
+    "version": "amp_montage_brain_v1"
+  },
+  "montage_manifest": {
+    "version": "amp_montage_brain_v1",
+    "openmontage_agpl_imported": false,
+    "slots": 6
+  },
+  "DURATION_CONTRACT.json": {
+    "schema": "amp_duration_contract_v1",
+    "video_type": "short",
+    "target_seconds": 60,
+    "max_seconds": 120,
+    "authority": "pipeline.duration_budget.resolve_duration_contract"
+  },
+  "SEMANTIC_COVERAGE_GATE.json": {
+    "verdict": "UNKNOWN",
+    "blocking": true,
+    "reason": "semantic_unknown",
+    "beats": [
+      {
+        "path": "E:\\All Updaye Project\\AutoMovie_Pro_SAAS_Final_Update\\AutoMoviePro-Software\\data\\customer_generation_work\\c11_marathon_customer\\job2329\\scene_00_SEMANTIC_COVERAGE.json",
+        "beat_id": "vb-seg-beat-1",
+        "dialogue_id": "ac3639c4-bce3-472a-b563-d679524904eb",
+        "overall": "UNKNOWN",
+        "method": "UNAVAILABLE",
+        "fingerprint": "2731438a4449e6e4c84c6abe",
+        "mandatory_frame_evidence": null
+      },
+      {
+        "path": "E:\\All Updaye Project\\AutoMovie_Pro_SAAS_Final_Update\\AutoMoviePro-Software\\data\\customer_generation_work\\c11_marathon_customer\\job2329\\scene_01_SEMANTIC_COVERAGE.json",
+        "beat_id": "vb-seg-beat-2",
+        "dialogue_id": "19034f59-284c-423f-8122-9d7b69e50418",
+        "overall": "PASS",
+        "method": "PROVIDER_VIDEO_UPLOAD",
+        "fingerprint": "ef40575c98f7e8f4fe1470e8",
+        "mandatory_frame_evidence": null
+      },
+      {
+        "path": "E:\\All Updaye Project\\AutoMovie_Pro_SAAS_Final_Update\\AutoMoviePro-Software\\data\\customer_generation_work\\c11_marathon_customer\\job2329\\scene_02_SEMANTIC_COVERAGE.json",
+        "beat_id": "vb-seg-beat-3",
+        "dialogue_id": "725d3a3d-38f6-434e-8e1a-bd5ca403194c",
+        "overall": "UNKNOWN",
+        "method": "UNAVAILABLE",
+        "fingerprint": "3b6335c887a4121ddec0ea21",
+        "mandatory_frame_evidence": null
+      },
+      {
+        "path": "E:\\All Updaye Project\\AutoMovie_Pro_SAAS_Final_Update\\AutoMoviePro-Software\\data\\customer_generation_work\\c11_marathon_customer\\job2329\\scene_03_SEMANTIC_COVERAGE.json",
+        "beat_id": "vb-seg-beat-4",
+        "dialogue_id": "253a8a9b-3749-4a30-8243-b7919c7e2dac",
+        "overall": "UNKNOWN",
+        "method": "UNAVAILABLE",
+        "fingerprint": "06ebe0a5850618dc1b804ad3",
+        "mandatory_frame_evidence": null
+      },
+      {
+        "path": "E:\\All Updaye Project\\AutoMovie_Pro_SAAS_Final_Update\\AutoMoviePro-Software\\data\\customer_generation_work\\c11_marathon_customer\\job2329\\scene_04_SEMANTIC_COVERAGE.json",
+        "beat_id": "vb-seg-beat-5",
+        "dialogue_id": "c3fbce8a-7456-4c34-9b61-2641f074a5a0",
+        "overall": "PASS",
+        "method": "PROVIDER_VIDEO_UPLOAD",
+        "fingerprint": "ba6956c4660fbf95f1cee642",
+        "mandatory_frame_evidence": null
+      },
+      {
+        "path": "E:\\All Updaye Project\\AutoMovie_Pro_SAAS_Final_Update\\AutoMoviePro-Software\\data\\customer_generation_work\\c11_marathon_customer\\job2329\\scene_05_SEMANTIC_COVERAGE.json",
+        "beat_id": "vb-seg-beat-6",
+        "dialogue_id": "a6690482-b78b-4a27-b73d-32ea67c3363b",
+        "overall": "UNKNOWN",
+        "method": "UNAVAILABLE",
+        "fingerprint": "f39c9f28638521a31e2e4bd0",
+        "mandatory_frame_evidence": null
+      }
+    ]
+  },
+  "UR_RTL_SHAPING": "UNKNOWN",
+  "ur_rtl_classify": {
+    "rtl": true,
+    "status": "PASS",
+    "support_level": "SHAPING_LIBS_AVAILABLE",
+    "method": "DETERMINISTIC",
+    "shaping_guaranteed": true,
+    "libs": [
+      "arabic_reshaper",
+      "python-bidi"
+    ]
+  }
+}

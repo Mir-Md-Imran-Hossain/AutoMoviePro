@@ -1,0 +1,5 @@
+{
+  "ok": false,
+  "error": "publishability_blocked:scene_boundary_blocked",
+  "traceback": "Traceback (most recent call last):\n  File \"E:\\All Updaye Project\\AutoMovie_Pro_SAAS_Final_Update\\AutoMoviePro-Software\\scripts\\cert_core_engine_real_marathon.py\", line 500, in generate_real\n    result = generate_video(\n             ^^^^^^^^^^^^^^^\n  File \"E:\\All Updaye Project\\AutoMovie_Pro_SAAS_Final_Update\\AutoMoviePro-Software\\pipeline\\video_pipeline.py\", line 1785, in generate_video\n    raise RuntimeError(\nRuntimeError: publishability_blocked:scene_boundary_blocked\n"
+}

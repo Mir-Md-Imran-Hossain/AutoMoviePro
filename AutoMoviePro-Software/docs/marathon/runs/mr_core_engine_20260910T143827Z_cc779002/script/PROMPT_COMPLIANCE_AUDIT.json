@@ -1,0 +1,149 @@
+{
+  "auditor_version": "prompt_compliance_auditor_v1",
+  "contract_version": "industrial_prompt_contract_v1",
+  "job_id": "c06b-script-4-topic-968a7a7457dfec1c",
+  "organized_at": "2026-09-10T14:38:53.260384+00:00",
+  "plan_fingerprint": "fcad9c0dae8d913dd667446e",
+  "verdict": "PASS",
+  "industrial_grade": true,
+  "overall_score": 0.9389,
+  "deterministic": {
+    "verdict": "PASS",
+    "overall_score": 0.9389,
+    "scores": {
+      "C01_opening_pattern_interrupt": 1.0,
+      "C02_mid_retention_rehooks": 1.0,
+      "C03_information_density": 1.0,
+      "C04_seo_ctr_package": 0.7,
+      "C05_topic_specificity": 1.0,
+      "C06_ending_loop_close": 0.8,
+      "C07_no_encyclopedia_flatness": 1.0
+    },
+    "clauses": {
+      "C01_opening_pattern_interrupt": {
+        "pass": true,
+        "score": 1.0,
+        "detail": {
+          "hook": {
+            "status": "PASS",
+            "generic": false,
+            "clickbait": false,
+            "unsupported_claim": false,
+            "topic_aligned": true,
+            "overlap": 0.5556,
+            "issues": [],
+            "method": "DETERMINISTIC"
+          },
+          "opening": {
+            "status": "PASS",
+            "score": 1.0,
+            "overlap": 0.5556,
+            "issues": [],
+            "claims_guaranteed_engagement": false,
+            "method": "DETERMINISTIC"
+          }
+        }
+      },
+      "C02_mid_retention_rehooks": {
+        "pass": true,
+        "score": 1.0,
+        "detail": {
+          "hook_signals": 7,
+          "payoff_signals": 2,
+          "warnings": [
+            "loop_close_ratio_low:0.50"
+          ]
+        }
+      },
+      "C03_information_density": {
+        "pass": true,
+        "score": 1.0,
+        "detail": {
+          "blocked": false,
+          "warnings": [
+            "missing_emotional_intent:0",
+            "missing_emotional_intent:1",
+            "missing_emotional_intent:3",
+            "missing_emotional_intent:4",
+            "missing_emotional_intent:5",
+            "loop_close_ratio_low:0.50",
+            "legacy_visual_prompt_present:0",
+            "legacy_visual_prompt_present:1",
+            "legacy_visual_prompt_present:2",
+            "legacy_visual_prompt_present:3",
+            "legacy_visual_prompt_present:4",
+            "legacy_visual_prompt_present:5",
+            "legacy_visual_prompt_present:6"
+          ]
+        }
+      },
+      "C04_seo_ctr_package": {
+        "pass": true,
+        "score": 0.7,
+        "detail": {
+          "issues": [
+            "tags_below_industrial_minimum"
+          ],
+          "tag_count": 4
+        }
+      },
+      "C05_topic_specificity": {
+        "pass": true,
+        "score": 1.0,
+        "detail": {
+          "topic": "How gravitational-wave detectors hear black-hole mergers across the universe"
+        }
+      },
+      "C06_ending_loop_close": {
+        "pass": true,
+        "score": 0.8,
+        "detail": {}
+      },
+      "C07_no_encyclopedia_flatness": {
+        "pass": true,
+        "score": 1.0,
+        "detail": {
+          "flat_related": []
+        }
+      }
+    },
+    "violations": [
+      {
+        "clause": "C02_mid_retention_rehooks",
+        "severity": "warning",
+        "evidence": "loop_close_ratio_low:0.50",
+        "issues": [
+          "loop_close_ratio_low:0.50"
+        ]
+      },
+      {
+        "clause": "C04_seo_ctr_package",
+        "severity": "warning",
+        "evidence": "How Gravitational-Wave Detectors Hear Black-Hole Mergers — 2026 Insights",
+        "issues": [
+          "tags_below_industrial_minimum"
+        ]
+      }
+    ],
+    "method": "DETERMINISTIC",
+    "contract_version": "industrial_prompt_contract_v1"
+  },
+  "llm_critic": {
+    "verdict": "SKIPPED",
+    "method": "LLM_CRITIC"
+  },
+  "repairs_applied": [],
+  "decision_reason": "Output matches industrial prompt contracts (retention + SEO + hook).",
+  "proof": {
+    "what_we_checked": [
+      "opening pattern interrupt / curiosity gap",
+      "mid-script re-hooks and information density",
+      "SEO/CTR title-description-tags honesty",
+      "topic specificity",
+      "ending loop close",
+      "optional LLM industrial judge"
+    ],
+    "authoritative_layer": "deterministic",
+    "corroboration_layer": "none"
+  }
+}

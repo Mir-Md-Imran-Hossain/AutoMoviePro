@@ -1,0 +1,181 @@
+{
+  "marathon_id": "mr_core_engine_20260909T122850Z_d28d7146",
+  "started_at": "2026-09-09T12:28:50Z",
+  "ended_at": "2026-09-09T13:40:18Z",
+  "job_id": 2300,
+  "work_dir": "data\\customer_generation_work\\c11_marathon_customer\\job2300",
+  "topic": "How lunar polar permanently shadowed craters preserve water ice that Artemis prospectors can map with neutron spectrometers (202609091228 cert)",
+  "script_hook": "At the lunar poles, deep craters never see the sun, trapping ancient ice in eternal, freezing darkness.",
+  "script_beats": 8,
+  "script_classification": "REAL",
+  "cert_languages": [
+    "en",
+    "bn",
+    "hi",
+    "ur",
+    "ta",
+    "ml"
+  ],
+  "db_languages_preserved": [
+    "en",
+    "bn"
+  ],
+  "customer_entitlement_forged": false,
+  "youtube_publish": false,
+  "mock_production_claimed_as_pass": false,
+  "sectors": {
+    "A_Topic": "PASS",
+    "B_Research": "PASS",
+    "C_Script": "PASS",
+    "D_Dialogue": "PASS",
+    "E_VisualDirection": "HEURISTIC",
+    "F_VisualAssets": "FAIL",
+    "G_CharacterContinuity": "HEURISTIC",
+    "H_LocationContinuity": "HEURISTIC",
+    "I_ObjectContinuity": "FAIL",
+    "J_CameraLighting": "UNKNOWN",
+    "K_Audio": "HEURISTIC",
+    "L_Voice": "UNKNOWN",
+    "M_Localization": "FAIL",
+    "N_Subtitle": "FAIL",
+    "O_DialogueVisualAlignment": "FAIL",
+    "P_Render": "FAIL",
+    "Q_FinalVideo": "FAIL",
+    "R_AudienceCreative": "HEURISTIC",
+    "S_ProductionEfficiency": "HEURISTIC",
+    "T_FailureRecovery": "PASS"
+  },
+  "artifacts": {
+    "beats_present": [
+      "scene_01_beat.mp4",
+      "scene_02_beat.mp4",
+      "scene_03_beat.mp4"
+    ],
+    "beat_count": 3,
+    "scene_local": {
+      "01": {
+        "ok": true,
+        "langs": {
+          "bn": true,
+          "hi": true,
+          "ur": true,
+          "ta": true,
+          "ml": true
+        }
+      },
+      "02": {
+        "ok": true,
+        "langs": {
+          "bn": true,
+          "hi": true,
+          "ur": true,
+          "ta": true,
+          "ml": true
+        }
+      }
+    },
+    "final_exists": false,
+    "localized_exists": false,
+    "db_languages": [
+      "en",
+      "bn"
+    ],
+    "entitlement_forged": false
+  },
+  "interventions": [
+    {
+      "intervention_id": "INT-001",
+      "ts": "2026-09-09T12:29:01Z",
+      "reason": "use_customer_approved_plan_lock",
+      "detected_problem": "generate_video re-entry intelligence DUPLICATE on reused niche topics",
+      "action": "write_director_plan + c06e lock before generate_video",
+      "authority": "customer_plan_adapter + generate_video customer_approved_lock",
+      "result": "lock_written"
+    },
+    {
+      "intervention_id": "INT-002",
+      "ts": "2026-09-09T12:37:13Z",
+      "reason": "audio_preflight_missing_ur_ta_ml",
+      "detected_problem": "audio_preflight_blocked:invalid_language for ur,ta,ml after scene0",
+      "root_cause": "pipeline.audio_design.preflight.VALID_LANGUAGES omitted TARGET_LANG_CODES ur/ta/ml",
+      "action": "extend VALID_LANGUAGES with TARGET_LANG_CODES; regression Phase05 OK",
+      "authority": "pipeline.audio_design.preflight + pipeline.lang_config.TARGET_LANG_CODES",
+      "result": "fixed_resume_job2300",
+      "files": [
+        "pipeline/audio_design/preflight.py"
+      ]
+    },
+    {
+      "intervention_id": "INT-003",
+      "ts": "2026-09-09T13:02:58Z",
+      "reason": "scene3_av_sync_wrong_subject",
+      "detected_problem": "Scene3 nebula b-roll vs rover/spectrometer; missing_sku from cert timestamp",
+      "root_cause": "customer_plan_adapter hardware phrase gaps + sku_tokens treating YYYYMMDDHHMM as SKU",
+      "action": "extend lunar hardware phrases; strip cert stamps; filter pronouns/conjunctions; rebuild director; clear scene3+",
+      "authority": "customer_plan_adapter + prompt_engineering.sku_tokens",
+      "result": "resume_job2300",
+      "files": [
+        "app/customer_plan_adapter.py",
+        "pipeline/prompt_engineering.py"
+      ]
+    },
+    {
+      "intervention_id": "INT-004",
+      "ts": "2026-09-09T13:20:51Z",
+      "reason": "docref_still_mapped_lunar_to_jwst_nebula",
+      "detected_problem": "select_documentary_reference_url bound moon/cislunar to JWST nebula CDN plates; scene3 critic wrong_subject",
+      "root_cause": "_DOC_REFERENCE_STILLS free-return entry included moon/cislunar → webb nebula",
+      "action": "add lunar rover/ice still keys; remove bare moon/cislunar→nebula binding; clear all scene beats for honest regen",
+      "authority": "pipeline.fallback_image_video.select_documentary_reference_url",
+      "result": "resume3_full_scene_regen",
+      "files": [
+        "pipeline/fallback_image_video.py"
+      ]
+    }
+  ],
+  "generation_attempts": [
+    {
+      "file": "07_GENERATION_ERROR.json",
+      "ok": false,
+      "error": "scene_localize_failed:0:scene_localize_incomplete:0:ur,ta,ml",
+      "latency": null
+    },
+    {
+      "file": "07_GENERATION_RESUME.json",
+      "ok": false,
+      "error": "Scene 3 (beat) AV sync failed hard (best_score=55). Issues: ['unrelated_broll', 'visual_anchors_missing', 'missing_sku_token'] critical=['wrong_subject', 'unrelated_broll', 'visual_anchors_missing']",
+      "latency": 1363.1
+    },
+    {
+      "file": "07_GENERATION_RESUME2.json",
+      "ok": false,
+      "error": "Scene 3 (beat) AV sync failed hard (best_score=55). Issues: ['unrelated_broll', 'visual_anchors_missing'] critical=['wrong_subject', 'visual_anchors_missing', 'unrelated_broll']",
+      "latency": 872.2
+    },
+    {
+      "file": "07_GENERATION_RESUME3.json",
+      "ok": false,
+      "error": "Scene 3 (beat) AV sync failed hard (best_score=55). Issues: ['visual_anchors_missing', 'static_image'] critical=['visual_anchors_missing']",
+      "latency": 1108.9
+    }
+  ],
+  "unknowns": [
+    "VOICE_ACOUSTIC_IDENTITY_UNKNOWN",
+    "UR_RTL_SHAPING_UNKNOWN",
+    "CAMERA_LIGHTING_CONTINUITY_NOT_FULLY_OBSERVED",
+    "CREATIVE_AUDIENCE_RETENTION_HEURISTIC_ONLY"
+  ],
+  "critical_defects": [
+    "Scene 3 AV sync hard-fail: visual_anchors_missing for neutron spectrometer / rover after multiple provider+docref attempts",
+    "Six-language final videos not produced (pipeline stopped at scene materialization)",
+    "Prior nebula b-roll from docref moon/cislunar→JWST mapping (fixed mid-marathon; regen incomplete)"
+  ],
+  "quality_defects": [
+    "Documentary subject extraction still weak on abstract openers (e.g. Temperatures)",
+    "Continuity identity sometimes bound to abstract nouns (water ice as character)",
+    "Google critic 503/429 free-tier quota pressure during marathon",
+    "Pollinations IMAGE often off-subject for hardware beats"
+  ],
+  "overall_verdict": "FAIL",
+  "verdict_rationale": "Core TOPIC→SCRIPT→PLAN and approved-plan lock work; ur/ta/ml audio preflight fixed and per-scene localize succeeded for completed scenes; but industrial visual materialization failed closed at scene 3 (missing rover/spectrometer anchors). No final six-language rendered packages. Gates were not weakened. UNKNOWN≠PASS."
+}

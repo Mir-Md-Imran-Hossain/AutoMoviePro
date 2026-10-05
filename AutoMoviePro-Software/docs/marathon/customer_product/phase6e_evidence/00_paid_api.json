@@ -1,0 +1,14 @@
+{
+  "attempts": 1,
+  "successes": 1,
+  "key_masks": [
+    "\u2026syGE"
+  ],
+  "notes": [
+    "reobserve:PASS",
+    "generation_execution=EXECUTED"
+  ],
+  "generation_provider_invocations": 1,
+  "latency_sec": 120.034,
+  "circuit_open": false
+}

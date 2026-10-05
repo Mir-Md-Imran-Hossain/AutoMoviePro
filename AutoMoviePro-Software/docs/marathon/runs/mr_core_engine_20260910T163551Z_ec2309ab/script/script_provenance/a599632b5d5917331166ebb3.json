@@ -1,0 +1,26 @@
+{
+  "job_id": "c06b-script-4-topic-4bebb4ac14bca2e0",
+  "fingerprint": "a599632b5d5917331166ebb3a9af463f9c2617d679aa5144278f67f2fe209442",
+  "entity_id": "script-0000-d128457dda1d2160",
+  "topic": "How JWST mid-infrared spectra fingerprint exoplanet atmospheres (32150a6c)",
+  "topic_identity": "d128457dda1d21608caf7bc8",
+  "niche": "space science",
+  "niche_id": 0,
+  "fact_pack_id": "",
+  "fact_pack_hash": "",
+  "prompt_version": "v12",
+  "prompt_template_hash": "0eb19ea36a22cf406694f6e7dea91b9f",
+  "provider": "llm_router",
+  "model": "purpose-script",
+  "generation_id": "",
+  "plan_path": "E:\\All Updaye Project\\AutoMovie_Pro_SAAS_Final_Update\\AutoMoviePro-Software\\docs\\marathon\\runs\\mr_core_engine_20260910T163551Z_ec2309ab\\script\\director_plan.json",
+  "plan_hash": "6feb83f9fadfe2f8d7c393423ba7ff2d34330c4b77b012899010983bf7daa6a6",
+  "saved_at": 1789058183.0316389,
+  "metadata": {
+    "video_type": "short",
+    "max_seconds": 60,
+    "language": "en",
+    "revision_id": "",
+    "legacy_key": "script:a599632b5d5917331166ebb3a9af463f"
+  }
+}

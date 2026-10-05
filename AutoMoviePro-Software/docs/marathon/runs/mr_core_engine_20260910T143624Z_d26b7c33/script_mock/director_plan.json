@@ -1,0 +1,83 @@
+{
+  "topic": "How radio telescopes catch fast radio bursts from distant magnetars",
+  "title": "How radio telescopes catch fast radio bursts from distant magnetars: Crewed Lunar Flight Explained",
+  "description": "How radio telescopes catch fast radio bursts from distant magnetars: Crewed Lunar Flight Explained\n\n#SpaceScience #Artemis #Documentary",
+  "tags": [
+    "How radio telescopes catch fast radio bursts from distant magnetars",
+    "space science",
+    "space science",
+    "artemis",
+    "2026"
+  ],
+  "scenes": [
+    {
+      "element": "intro",
+      "narration": "Most people think How radio telescopes catch fast radio bursts from distant magnetars is just pretty pictures — the instruments prove otherwise. Watch this.",
+      "visual_query": "How radio telescopes catch fast radio bursts from distant magnetars spacecraft documentary hero",
+      "visual_prompt": "cinematic documentary view of spacecraft hardware for How radio telescopes catch fast radio bursts from distant magnetars, deep space backdrop",
+      "quality_notes": "space science documentary beat — real mission hardware",
+      "dialogue_id": "dlg-01"
+    },
+    {
+      "element": "context",
+      "narration": "Artemis II sends a crewed Orion around the Moon on a free-return path, proving the stack before landing attempts.",
+      "visual_query": "Orion capsule SLS stack Artemis II",
+      "visual_prompt": "Orion capsule atop SLS, documentary lighting, no fictional UI",
+      "quality_notes": "space science documentary beat — real mission hardware",
+      "dialogue_id": "dlg-02"
+    },
+    {
+      "element": "heat_shield",
+      "narration": "Orion's heat shield must survive lunar-return plasma; engineers treat every tile and seam as a life-critical surface.",
+      "visual_query": "Orion heat shield ablative tiles close up",
+      "visual_prompt": "close documentary shot of Orion heat shield tiles and seams",
+      "quality_notes": "space science documentary beat — real mission hardware",
+      "dialogue_id": "dlg-03"
+    },
+    {
+      "element": "boosters",
+      "narration": "Twin solid rocket boosters and core engines lift the crew clear of Earth before the translunar injection burn.",
+      "visual_query": "SLS solid rocket booster launch documentary",
+      "visual_prompt": "SLS boosters igniting at liftoff, documentary telephoto clarity",
+      "quality_notes": "space science documentary beat — real mission hardware",
+      "dialogue_id": "dlg-04"
+    },
+    {
+      "element": "trajectory",
+      "narration": "The free-return trajectory loops around the Moon and brings Orion home even if the main engine stays quiet.",
+      "visual_query": "Moon free-return trajectory diagram space documentary",
+      "visual_prompt": "clear lunar free-return path visualization, calm educational motion",
+      "quality_notes": "space science documentary beat — real mission hardware",
+      "dialogue_id": "dlg-05"
+    },
+    {
+      "element": "heat_shield",
+      "narration": "Orion's heat shield is sized for lunar-return energy, not low-Earth shortcuts. Point 1: add only new information.",
+      "visual_query": "How radio telescopes catch fast radio bursts from distant magnetars heat_shield space documentary",
+      "visual_prompt": "documentary visualization for heat_shield in How radio telescopes catch fast radio bursts from distant magnetars, continuous calm motion",
+      "quality_notes": "space science budget filler — unique claim",
+      "dialogue_id": "dlg-06"
+    },
+    {
+      "element": "boosters",
+      "narration": "Solid boosters give the crew the first hard push before the core stage finishes the job. Point 2: add only new information.",
+      "visual_query": "How radio telescopes catch fast radio bursts from distant magnetars boosters space documentary",
+      "visual_prompt": "documentary visualization for boosters in How radio telescopes catch fast radio bursts from distant magnetars, continuous calm motion",
+      "quality_notes": "space science budget filler — unique claim",
+      "dialogue_id": "dlg-07"
+    },
+    {
+      "element": "outro",
+      "narration": "If How radio telescopes catch fast radio bursts from distant magnetars changed how you see crewed lunar flight, stay with Mock Channel for the next deep-space briefing.",
+      "visual_query": "How radio telescopes catch fast radio bursts from distant magnetars final wide space documentary endcard",
+      "visual_prompt": "wide endcard over cislunar space with soft spotlight hold",
+      "quality_notes": "space science documentary beat — real mission hardware",
+      "dialogue_id": "dlg-08"
+    }
+  ],
+  "director_provider": "mock",
+  "style_family": "science",
+  "max_seconds": 60,
+  "video_type": "short",
+  "director_model": "script-mock-v1"
+}

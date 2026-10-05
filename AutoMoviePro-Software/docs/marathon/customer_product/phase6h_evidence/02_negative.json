@@ -1,0 +1,495 @@
+{
+  "planned": "hospital dialogue",
+  "actual_audio": "spacecraft launch dialogue",
+  "status": "FAIL",
+  "transcript_alignments": [
+    {
+      "dialogue_id": "dlg-hosp",
+      "class": "MISMATCH",
+      "similarity_is_not_production_pass": true
+    }
+  ],
+  "must_not_be_pass": true,
+  "is_not_pass": true,
+  "bundle": {
+    "schema": "amp_observation_audio_evidence_v1",
+    "status": "FAIL",
+    "issues": [
+      "transcript_mismatch:dlg-hosp"
+    ],
+    "artifact": {
+      "schema": "amp_observation_audio_evidence_v1",
+      "schema_version": "amp_audio_evidence_v1",
+      "audio_asset_id": "phase6h-neg",
+      "job_id": "job2108",
+      "scene_id": "",
+      "dialogue_id": "",
+      "customer_id": "c11_marathon_customer",
+      "channel_id": "4",
+      "audio_path": "E:\\All Updaye Project\\AutoMovie_Pro_SAAS_Final_Update\\AutoMoviePro-Software\\docs\\marathon\\customer_product\\phase6h_evidence\\_gen\\narration_negative.mp3",
+      "provider": "ffprobe",
+      "evidence_source": "TECHNICAL_PROBE",
+      "technical_is_not_semantic_pass": true,
+      "second_ffmpeg_engine": false,
+      "created_at": 1788950690.6478667,
+      "observation_status": "PASS",
+      "duration": 5.952,
+      "sample_rate": 24000,
+      "channels": 1,
+      "format": "mp3",
+      "codec": "mp3",
+      "validation_ok": true,
+      "validation_reason": "ok",
+      "loudness": {
+        "status": "UNKNOWN",
+        "method": "UNAVAILABLE",
+        "issues": [
+          "non_wav_loudness_unverified"
+        ],
+        "claim": "no_broadcast_lufs"
+      },
+      "content_hash": "125dec010cbc337d73d04fb3b7b0e3459a98ecaf8a1ceffdbe8b88beb26a2d62",
+      "naturalness_pass_forbidden_without_evidence": true,
+      "tts_success_is_not_naturalness_pass": true,
+      "issues": [],
+      "unknown_as_pass": false,
+      "authority": "observation_only",
+      "does_not_replace": [
+        "AudioPlan",
+        "VoiceIdentity",
+        "av_quality_gates"
+      ]
+    },
+    "speech": {
+      "schema": "amp_observation_audio_evidence_v1",
+      "kind": "speech_segments",
+      "observation_status": "PASS",
+      "status": "PASS",
+      "provider": "faster-whisper",
+      "provider_verified": true,
+      "heuristic": false,
+      "evidence_source": "LOCAL_ASR",
+      "transcript": "Launch Sequence Confirmed. The spacecraft leaves orbit toward deep space.",
+      "segments": [
+        {
+          "segment_id": "asr-1",
+          "dialogue_id": "dlg-hosp",
+          "start": 0.0,
+          "end": 2.12,
+          "duration": 2.12,
+          "text": "Launch Sequence Confirmed.",
+          "confidence": null,
+          "provider": "faster-whisper",
+          "observation_status": "PASS"
+        },
+        {
+          "segment_id": "asr-2",
+          "dialogue_id": "dlg-hosp",
+          "start": 2.74,
+          "end": 5.12,
+          "duration": 2.38,
+          "text": "The spacecraft leaves orbit toward deep space.",
+          "confidence": null,
+          "provider": "faster-whisper",
+          "observation_status": "PASS"
+        }
+      ],
+      "words": [
+        {
+          "word": "Launch",
+          "start": 0.0,
+          "end": 0.56,
+          "probability": 0.9424034953117371
+        },
+        {
+          "word": "Sequence",
+          "start": 0.56,
+          "end": 1.08,
+          "probability": 0.8047530651092529
+        },
+        {
+          "word": "Confirmed.",
+          "start": 1.08,
+          "end": 2.12,
+          "probability": 0.7451742887496948
+        },
+        {
+          "word": "The",
+          "start": 2.74,
+          "end": 2.88,
+          "probability": 0.9808022975921631
+        },
+        {
+          "word": "spacecraft",
+          "start": 2.88,
+          "end": 3.32,
+          "probability": 0.8618454337120056
+        },
+        {
+          "word": "leaves",
+          "start": 3.32,
+          "end": 3.72,
+          "probability": 0.971896767616272
+        },
+        {
+          "word": "orbit",
+          "start": 3.72,
+          "end": 4.14,
+          "probability": 0.8321475386619568
+        },
+        {
+          "word": "toward",
+          "start": 4.14,
+          "end": 4.44,
+          "probability": 0.9730087518692017
+        },
+        {
+          "word": "deep",
+          "start": 4.44,
+          "end": 4.66,
+          "probability": 0.8416559100151062
+        },
+        {
+          "word": "space.",
+          "start": 4.66,
+          "end": 5.12,
+          "probability": 0.9965568780899048
+        }
+      ],
+      "speaker_observation": "UNAVAILABLE",
+      "second_asr_engine": false,
+      "asr_authority": "pipeline.observation.speech_timing.observe_speech_timing",
+      "does_not_replace": [
+        "AudioPlan",
+        "VoiceIdentity",
+        "planned_srt"
+      ],
+      "customer_id": "c11_marathon_customer",
+      "channel_id": "4",
+      "job_id": "job2108",
+      "scene_id": "",
+      "unknown_as_pass": false
+    },
+    "dialogue_timeline": {
+      "schema": "amp_observation_dialogue_visual_alignment_v1",
+      "kind": "dialogue_timeline",
+      "segments": [
+        {
+          "dialogue_id": "dlg-hosp",
+          "segment_id": "seg-hosp",
+          "scene_id": "sc-1",
+          "beat_id": "",
+          "start": 0.0,
+          "end": 4.0,
+          "duration": 4.0,
+          "text": "The nurse enters the hospital room.",
+          "entities": [
+            {
+              "label": "Nurse"
+            }
+          ],
+          "relationships": [],
+          "actions": [
+            "enters"
+          ],
+          "location": "hospital room",
+          "emotion": "neutral",
+          "customer_id": "c11_marathon_customer",
+          "channel_id": "4",
+          "job_id": "job2108"
+        }
+      ],
+      "segment_count": 1,
+      "total_dialogue_sec": 4.0,
+      "audio_timeline_sec": 5.952,
+      "audio_authority": "AudioPlan/ffprobe \u2014 this layer does not invent a second audio clock",
+      "second_audio_engine": false,
+      "customer_id": "c11_marathon_customer",
+      "channel_id": "4",
+      "job_id": "job2108",
+      "created_at": 1788950690.7408848
+    },
+    "coverages": [
+      {
+        "dialogue_id": "dlg-hosp",
+        "coverage": "PARTIAL",
+        "overlap_sec": 3.38,
+        "required_sec": 4.0,
+        "speech_segment_ids": [
+          "asr-1",
+          "asr-2"
+        ],
+        "timing_overlap_is_not_semantic_pass": true,
+        "vocabulary": "C05-S VisualCoverage"
+      }
+    ],
+    "transcript_alignments": [
+      {
+        "dialogue_id": "dlg-hosp",
+        "class": "MISMATCH",
+        "similarity_is_not_production_pass": true
+      }
+    ],
+    "no_silent_drop": {
+      "schema": "amp_observation_dialogue_visual_alignment_v1",
+      "invariant": "planned_dialogue_segments_must_equal_materialized",
+      "planned_count": 1,
+      "materialized_count": 1,
+      "planned_dialogue_ids": [
+        "dlg-hosp"
+      ],
+      "materialized_dialogue_ids": [
+        "dlg-hosp"
+      ],
+      "missing": [],
+      "extra": [],
+      "silent_drop": false,
+      "status": "PASS",
+      "blocking_code": "",
+      "hold_cap_must_not_truncate_dialogue": true
+    },
+    "voice_bindings": [
+      {
+        "voice_identity_id": "voice:male",
+        "canonical_voice_name": "male",
+        "dialogue_id": "dlg-hosp",
+        "scene_id": "sc-1",
+        "emotion": "neutral",
+        "VOICE_IDENTITY_OBSERVATION": "UNKNOWN",
+        "tts_request_is_not_acoustic_verification": true,
+        "voice_identity_authority": "pipeline.production_consistency.VoiceIdentity",
+        "second_voice_identity_authority": false,
+        "acoustic_verification_available": false
+      }
+    ],
+    "voice_continuity": {
+      "contract_stable": true,
+      "voice_identity_ids": [
+        "voice:male"
+      ],
+      "emotions": [
+        "neutral"
+      ],
+      "emotion_change_is_not_identity_failure": true,
+      "VOICE_IDENTITY_OBSERVATION": "UNKNOWN",
+      "status": "PASS",
+      "authority": "pipeline.production_consistency.evaluate_voice_identity_continuity",
+      "second_voice_identity_authority": false
+    },
+    "audio_timeline": {
+      "schema": "amp_observation_audio_evidence_v1",
+      "kind": "audio_timeline",
+      "rows": [
+        {
+          "dialogue_id": "dlg-hosp",
+          "planned_start": 0.0,
+          "planned_end": 4.0,
+          "speech_segments": [
+            {
+              "segment_id": "asr-1",
+              "dialogue_id": "dlg-hosp",
+              "start": 0.0,
+              "end": 2.12,
+              "duration": 2.12,
+              "text": "Launch Sequence Confirmed.",
+              "confidence": null,
+              "provider": "faster-whisper",
+              "observation_status": "PASS"
+            },
+            {
+              "segment_id": "asr-2",
+              "dialogue_id": "dlg-hosp",
+              "start": 2.74,
+              "end": 5.12,
+              "duration": 2.38,
+              "text": "The spacecraft leaves orbit toward deep space.",
+              "confidence": null,
+              "provider": "faster-whisper",
+              "observation_status": "PASS"
+            }
+          ],
+          "audio_asset_id": "phase6h-neg",
+          "scene_id": "sc-1",
+          "visual_beat_ids": []
+        }
+      ],
+      "dialogue_timeline": {
+        "schema": "amp_observation_dialogue_visual_alignment_v1",
+        "kind": "dialogue_timeline",
+        "segments": [
+          {
+            "dialogue_id": "dlg-hosp",
+            "segment_id": "seg-hosp",
+            "scene_id": "sc-1",
+            "beat_id": "",
+            "start": 0.0,
+            "end": 4.0,
+            "duration": 4.0,
+            "text": "The nurse enters the hospital room.",
+            "entities": [
+              {
+                "label": "Nurse"
+              }
+            ],
+            "relationships": [],
+            "actions": [
+              "enters"
+            ],
+            "location": "hospital room",
+            "emotion": "neutral",
+            "customer_id": "c11_marathon_customer",
+            "channel_id": "4",
+            "job_id": "job2108"
+          }
+        ],
+        "segment_count": 1,
+        "total_dialogue_sec": 4.0,
+        "audio_timeline_sec": 5.952,
+        "audio_authority": "AudioPlan/ffprobe \u2014 this layer does not invent a second audio clock",
+        "second_audio_engine": false,
+        "customer_id": "c11_marathon_customer",
+        "channel_id": "4",
+        "job_id": "job2108",
+        "created_at": 1788950691.7354982
+      },
+      "artifact": {
+        "audio_asset_id": "phase6h-neg",
+        "duration": 5.952,
+        "content_hash": "125dec010cbc337d73d04fb3b7b0e3459a98ecaf8a1ceffdbe8b88beb26a2d62"
+      },
+      "second_audio_clock": false,
+      "audio_authority": "AudioPlan/ffprobe",
+      "customer_id": "c11_marathon_customer",
+      "channel_id": "4",
+      "job_id": "job2108"
+    },
+    "dialogue_audio_visual": [
+      {
+        "dialogue_id": "dlg-hosp",
+        "transcript_alignment": {
+          "class": "MISMATCH",
+          "similarity_is_not_production_pass": true
+        },
+        "visual_alignment": {
+          "dialogue_id": "dlg-hosp",
+          "status": "FAIL",
+          "reason": "provider_semantic_mismatch",
+          "binding": {
+            "dialogue_id": "dlg-hosp",
+            "beat_id": "vb-dlg-hosp",
+            "scene_id": "sc-1",
+            "entity_requirements": [
+              "Nurse",
+              "hospital room"
+            ],
+            "action_requirements": [
+              "enters"
+            ],
+            "relationship_requirements": [],
+            "location_requirements": [
+              "hospital room"
+            ],
+            "entity_states": [
+              {
+                "schema": "amp_observation_cross_beat_entity_v1",
+                "entity_id": "ent-5f00ce118bd9",
+                "entity_type": "CHARACTER",
+                "canonical_name": "Nurse",
+                "beat_id": "vb-dlg-hosp",
+                "scene_id": "sc-1",
+                "dialogue_id": "dlg-hosp",
+                "presence": "ABSENT",
+                "observed_state": "enters",
+                "location": "spacecraft interior",
+                "location_cluster": "spacecraft_interior",
+                "relationships": [],
+                "observed_relationships": [],
+                "source_evidence": {
+                  "observation_status": "FAIL",
+                  "provider_verified": true,
+                  "heuristic": false,
+                  "evidence_source": null,
+                  "provider": null,
+                  "frame_path": null
+                },
+                "observation_status": "FAIL",
+                "customer_id": "",
+                "channel_id": "",
+                "job_id": "",
+                "clip_similarity_is_not_identity_pass": true,
+                "created_at": 1788950691.7354982
+              },
+              {
+                "schema": "amp_observation_cross_beat_entity_v1",
+                "entity_id": "ent-40c9926265ba",
+                "entity_type": "LOCATION",
+                "canonical_name": "hospital room",
+                "beat_id": "vb-dlg-hosp",
+                "scene_id": "sc-1",
+                "dialogue_id": "dlg-hosp",
+                "presence": "ABSENT",
+                "observed_state": "spacecraft interior",
+                "location": "spacecraft interior",
+                "location_cluster": "spacecraft_interior",
+                "relationships": [],
+                "observed_relationships": [],
+                "source_evidence": {
+                  "observation_status": "FAIL",
+                  "provider_verified": true,
+                  "heuristic": false,
+                  "evidence_source": null,
+                  "provider": null,
+                  "frame_path": null
+                },
+                "observation_status": "FAIL",
+                "customer_id": "",
+                "channel_id": "",
+                "job_id": "",
+                "clip_similarity_is_not_identity_pass": true,
+                "created_at": 1788950691.7354982
+              }
+            ],
+            "status": "FAIL",
+            "issues": [
+              "provider_fail_vs_dialogue_visual_state"
+            ],
+            "keyword_only_pass_forbidden": true,
+            "unknown_as_pass": false
+          },
+          "dims_checked": [
+            "subject",
+            "entity",
+            "relationship",
+            "location",
+            "action",
+            "emotion"
+          ],
+          "keyword_only_pass_forbidden": true,
+          "provider_verified": true,
+          "heuristic": false,
+          "timing_overlap_is_not_semantic_pass": true
+        },
+        "status": "FAIL",
+        "second_semantic_gate": false,
+        "timing_overlap_is_not_semantic_pass": true,
+        "creates_final_gate": false
+      }
+    ],
+    "second_audio_engine": false,
+    "second_asr_engine": false,
+    "second_voice_identity_authority": false,
+    "second_subtitle_engine": false,
+    "second_quality_engine": false,
+    "second_repair_engine": false,
+    "second_ffmpeg_engine": false,
+    "second_duration_engine": false,
+    "second_semantic_gate": false,
+    "unknown_as_pass": false,
+    "unknown_as_fail": false,
+    "creates_final_gate": false,
+    "customer_id": "c11_marathon_customer",
+    "channel_id": "4",
+    "job_id": "job2108",
+    "created_at": 1788950691.736482
+  }
+}

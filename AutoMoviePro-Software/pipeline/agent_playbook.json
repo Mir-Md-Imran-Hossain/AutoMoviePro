@@ -1,0 +1,150 @@
+{
+  "cost_policy": [
+    "gates+ffmpeg first",
+    "max 1 Agnes per scene",
+    "skip Gemini critic when agent PASSED",
+    "no mid-scene quota sleep",
+    "TTS only on clarity/pace/cutoff need"
+  ],
+  "faults": [
+    {
+      "id": "dialogue_cutoff",
+      "user_symptom": "ডায়লগ শেষ হওয়ার আগে ভিডিও শেষ / মাঝপথে কথা কাটা",
+      "why_change": "English Agnes often ends mid-syllable; soft-accept hid it.",
+      "detect": [
+        "dialogue_cutoff",
+        "last_word_incomplete"
+      ],
+      "repair": "mux_fit_av_setpts with complete paced TTS over Agnes picture",
+      "never_do": [
+        "soft-accept on critic 429",
+        "another Agnes regen as first fix"
+      ],
+      "api_cost": "1 TTS max; 0 Gemini; 0 Agnes"
+    },
+    {
+      "id": "early_end_long_freeze",
+      "user_symptom": "কথা শেষ, ভিডিও আটকে থাকে / লোকালাইজে ফ্রিজ",
+      "why_change": "stream_loop / extreme setpts looked like freeze while speech continued.",
+      "detect": [
+        "localize_freeze_risk",
+        "end_frame_freeze",
+        "missing_tail_hold"
+      ],
+      "repair": "mild setpts≤1.18 + atempo speech; apad ~1s silence AFTER speech",
+      "never_do": [
+        "stream_loop",
+        "tpad freeze for length match",
+        "stretch >18%"
+      ],
+      "api_cost": "0"
+    },
+    {
+      "id": "speech_pace_pitch",
+      "user_symptom": "কোনো ডায়লগ তাড়াতাড়ি, কোনো ধীর; 'crime'→cryme",
+      "why_change": "Agnes native pace inconsistent; closing words mumbled.",
+      "detect": [
+        "speech_pace_too_fast",
+        "speech_pace_too_slow",
+        "last_word_incomplete"
+      ],
+      "repair": "Charon TTS + atempo normalize to ~2.3 wps; same voice across clips",
+      "never_do": [
+        "keep rushed Agnes audio when pace gate fails"
+      ],
+      "api_cost": "1 TTS when pace/last-word fails"
+    },
+    {
+      "id": "black_tail_pad",
+      "user_symptom": "অডিও মেলাতে শেষে কালো স্ক্রিন",
+      "why_change": "Agnes fades to black; tpad cloned the black frame.",
+      "detect": [
+        "black_tail_freeze"
+      ],
+      "repair": "trim trailing black then setpts slow/fast on content",
+      "never_do": [
+        "tpad=clone on black last frame"
+      ],
+      "api_cost": "0"
+    },
+    {
+      "id": "freeze_instead_of_setpts",
+      "user_symptom": "লাস্টে ফ্রেম থামিয়ে দেয় — স্লো/ফাস্ট চাই",
+      "why_change": "User policy: match AV by setpts/atempo, not freeze-hold.",
+      "detect": [
+        "end_frame_freeze"
+      ],
+      "repair": "mux_fit_av_setpts (motion continues through post-silence)",
+      "never_do": [
+        "extend_hold_last_content_frame / tpad for duration fit"
+      ],
+      "api_cost": "0"
+    },
+    {
+      "id": "critic_outage_soft_accept",
+      "user_symptom": "এজেন্ট ভাঙা ক্লিপ রেখে দেয় যখন Gemini 429",
+      "why_change": "Critic fallback was treated as pass without local repair.",
+      "detect": [
+        "any HARD_QUALITY_GATES fail"
+      ],
+      "repair": "run_av_self_repair_agent BEFORE accept; never soft-accept hard gates",
+      "never_do": [
+        "return CRITIC_OUTAGE keep without agent repair"
+      ],
+      "api_cost": "0 Gemini when agent already passed"
+    },
+    {
+      "id": "mid_scene_quota_sleep",
+      "user_symptom": "রিপেয়ারের আগে ঘণ্টার cool-down — ভাঙা ফাইল থেকে যায়",
+      "why_change": "Shared Google quota sleep blocked Agnes regen mid-clip.",
+      "detect": [
+        "quota_backoff during scene"
+      ],
+      "repair": "cool down only in train loop between clips; repair with local ffmpeg/TTS",
+      "never_do": [
+        "wait_for_quota_if_needed inside _resolve_footage / mid-mux"
+      ],
+      "api_cost": "saves wasted idle + avoids skip-storm"
+    },
+    {
+      "id": "wrong_deliverable_file",
+      "user_symptom": "agnes_*.mp4 দেখে মনে হয় ফিক্স হয়নি",
+      "why_change": "Raw Agnes is not the master; repaired scene_*.mp4 is.",
+      "detect": [
+        "missing scene_00_master_for_localize.txt"
+      ],
+      "repair": "write master marker; localize from repaired master not raw Agnes",
+      "never_do": [
+        "ship agnes_*.mp4 as final"
+      ],
+      "api_cost": "0"
+    },
+    {
+      "id": "api_churn",
+      "user_symptom": "১২–১৫ ঘণ্টা / বারবার API / ৩× regen",
+      "why_change": "Too many critic+Agnes loops; first-shot must be strong.",
+      "detect": [
+        "attempt>2",
+        "critic_api_failed spam"
+      ],
+      "repair": "harden prompt once; agent repair; max 1 Agnes regen; skip critic if agent ok",
+      "never_do": [
+        "3 soft critic loops",
+        "meta-audit on every quota fallback"
+      ],
+      "api_cost": "target ≤1 Agnes + ≤1 TTS + 0 Gemini when gates green"
+    }
+  ],
+  "training_rules": [
+    "Finish every spoken word before clip end; leave ~1s silence AFTER the last syllable while picture keeps moving (setpts) — never cut mid-word.",
+    "AV length match MUST use mild setpts (slow/fast) and/or pitch-preserving atempo — NEVER tpad/freeze last frame and NEVER clone trailing black.",
+    "Trim Agnes trailing black BEFORE any length fit; ending on a black screen while audio plays is a critical fail.",
+    "Speech pace must stay near documentary ~2.3 words/sec; rushed closing nouns (e.g. crime→cryme) require Charon TTS remux.",
+    "When Gemini critic is on 429/outage: run deterministic AV self-repair agent; NEVER soft-accept hard gates (cutoff/pace/black/freeze/hold).",
+    "Never sleep mid-scene for Google quota; cool down only between clips. Mid-scene sleep leaves broken masters on disk.",
+    "Deliverable master is scene_XX_*.mp4 (agent-repaired), never raw agnes_XX_*.mp4. Write scene_XX_master_for_localize.txt.",
+    "API budget: prefer local gates+ffmpeg; max 1 Agnes create per scene; skip multimodal critic when self-repair already PASSED; avoid meta-audit spam.",
+    "Localization: replace audio+subs only; mild setpts≤1.18 else atempo speech — no stream_loop, no mid-speech freeze.",
+    "Master English: Agnes picture + consistent Charon narration when native Agnes pace/cutoff fails; keep pitch consistent across neighboring clips."
+  ]
+}

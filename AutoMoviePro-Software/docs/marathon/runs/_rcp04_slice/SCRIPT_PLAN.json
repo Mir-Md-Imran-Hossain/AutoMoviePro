@@ -1,0 +1,299 @@
+{
+  "schema_version": "1.0.0",
+  "id": "93358fe8-78be-40aa-b6fe-3e619c4f8971",
+  "created_at": "2026-09-08T15:08:54Z",
+  "updated_at": null,
+  "topic_id": "topic-rcp04",
+  "topic": "How JWST infrared deep fields and nebulae map the deep-sky backdrop Artemis crews will navigate beyond low Earth orbit",
+  "format": "SHORT",
+  "language": "en",
+  "target_duration_sec": 30.0,
+  "hook": "The James Webb Space Telescope floats in deep space, its golden hexagonal mirrors facing the cosmic dark.",
+  "narrative_structure": [
+    "hook",
+    "context",
+    "development",
+    "reveal",
+    "payoff",
+    "ending"
+  ],
+  "sections": [
+    "hook",
+    "context",
+    "development",
+    "reveal",
+    "payoff",
+    "ending"
+  ],
+  "beats": [
+    {
+      "schema_version": "1.0.0",
+      "id": "8ac2ccb7-6e66-44a9-8070-0730313f68c1",
+      "created_at": "2026-09-08T15:08:54Z",
+      "updated_at": null,
+      "beat_id": "beat-1",
+      "order": 0,
+      "section_role": "hook",
+      "narration": "The James Webb Space Telescope floats in deep space, its golden hexagonal mirrors facing the cosmic dark.",
+      "speaker": "Narrator",
+      "emotion": "",
+      "emotion_intensity": 0.5,
+      "action_intent": "floats",
+      "entity_refs": [
+        "The James Webb Space Telescope",
+        "golden hexagonal mirrors"
+      ],
+      "location_ref": "deep space",
+      "temporal_context": "",
+      "continuity_deps": [],
+      "visual_implication": "The James Webb Space Telescope floats in deep space, its golden hexagonal mirrors facing the cosmic dark.",
+      "claim_ids": [
+        "N01"
+      ],
+      "evidence_refs": [
+        "N01"
+      ],
+      "estimated_duration_sec": 5.0,
+      "metadata": {
+        "dialogue_id": "beat-1",
+        "scene_id": "scene-00",
+        "required_subject": "The James Webb Space Telescope",
+        "required_entities": [
+          "The James Webb Space Telescope",
+          "golden hexagonal mirrors"
+        ],
+        "required_actions": [
+          "floats"
+        ],
+        "required_location": "deep space",
+        "rcp04": true
+      }
+    },
+    {
+      "schema_version": "1.0.0",
+      "id": "f5a3636e-c4cc-47a7-8fd1-70f53f2a3a66",
+      "created_at": "2026-09-08T15:08:54Z",
+      "updated_at": null,
+      "beat_id": "beat-2",
+      "order": 1,
+      "section_role": "context",
+      "narration": "The multi-layer sunshield sits beneath the primary mirror, protecting instruments from solar heat.",
+      "speaker": "Narrator",
+      "emotion": "",
+      "emotion_intensity": 0.5,
+      "action_intent": "protecting",
+      "entity_refs": [
+        "multi-layer sunshield",
+        "primary mirror"
+      ],
+      "location_ref": "deep space",
+      "temporal_context": "",
+      "continuity_deps": [],
+      "visual_implication": "The multi-layer sunshield sits beneath the primary mirror, protecting instruments from solar heat.",
+      "claim_ids": [
+        "N01"
+      ],
+      "evidence_refs": [
+        "N01"
+      ],
+      "estimated_duration_sec": 5.0,
+      "metadata": {
+        "dialogue_id": "beat-2",
+        "scene_id": "scene-01",
+        "required_subject": "multi-layer sunshield",
+        "required_entities": [
+          "multi-layer sunshield",
+          "primary mirror"
+        ],
+        "required_actions": [
+          "protecting"
+        ],
+        "required_location": "deep space",
+        "rcp04": true
+      }
+    },
+    {
+      "schema_version": "1.0.0",
+      "id": "736e416e-41de-42eb-b2f9-ffacdd2f5333",
+      "created_at": "2026-09-08T15:08:54Z",
+      "updated_at": null,
+      "beat_id": "beat-3",
+      "order": 2,
+      "section_role": "development",
+      "narration": "Infrared deep-field images reveal thousands of distant galaxies formed more than thirteen billion years ago.",
+      "speaker": "Narrator",
+      "emotion": "",
+      "emotion_intensity": 0.5,
+      "action_intent": "reveal",
+      "entity_refs": [
+        "distant galaxies",
+        "infrared deep-field"
+      ],
+      "location_ref": "deep space",
+      "temporal_context": "",
+      "continuity_deps": [],
+      "visual_implication": "Infrared deep-field images reveal thousands of distant galaxies formed more than thirteen billion years ago.",
+      "claim_ids": [
+        "N01"
+      ],
+      "evidence_refs": [
+        "N01"
+      ],
+      "estimated_duration_sec": 5.0,
+      "metadata": {
+        "dialogue_id": "beat-3",
+        "scene_id": "scene-02",
+        "required_subject": "distant galaxies",
+        "required_entities": [
+          "distant galaxies",
+          "infrared deep-field"
+        ],
+        "required_actions": [
+          "reveal"
+        ],
+        "required_location": "deep space",
+        "rcp04": true
+      }
+    },
+    {
+      "schema_version": "1.0.0",
+      "id": "d09f245c-1f46-4581-8d2c-77e68c338aef",
+      "created_at": "2026-09-08T15:08:54Z",
+      "updated_at": null,
+      "beat_id": "beat-4",
+      "order": 3,
+      "section_role": "reveal",
+      "narration": "Infrared light pierces cosmic dust, unveiling hidden star-forming nurseries inside a glowing nebula.",
+      "speaker": "Narrator",
+      "emotion": "",
+      "emotion_intensity": 0.5,
+      "action_intent": "pierces",
+      "entity_refs": [
+        "cosmic dust",
+        "star-forming nurseries",
+        "glowing nebula"
+      ],
+      "location_ref": "deep space",
+      "temporal_context": "",
+      "continuity_deps": [],
+      "visual_implication": "Infrared light pierces cosmic dust, unveiling hidden star-forming nurseries inside a glowing nebula.",
+      "claim_ids": [
+        "N01"
+      ],
+      "evidence_refs": [
+        "N01"
+      ],
+      "estimated_duration_sec": 5.0,
+      "metadata": {
+        "dialogue_id": "beat-4",
+        "scene_id": "scene-03",
+        "required_subject": "glowing nebula",
+        "required_entities": [
+          "cosmic dust",
+          "star-forming nurseries",
+          "glowing nebula"
+        ],
+        "required_actions": [
+          "pierces",
+          "unveiling"
+        ],
+        "required_location": "deep space",
+        "rcp04": true
+      }
+    },
+    {
+      "schema_version": "1.0.0",
+      "id": "fcf05369-5eca-451b-a581-c29f23dc30d4",
+      "created_at": "2026-09-08T15:08:54Z",
+      "updated_at": null,
+      "beat_id": "beat-5",
+      "order": 4,
+      "section_role": "payoff",
+      "narration": "A spiral galaxy rotates slowly in the early cosmos, challenging older models of rapid growth.",
+      "speaker": "Narrator",
+      "emotion": "",
+      "emotion_intensity": 0.5,
+      "action_intent": "rotates",
+      "entity_refs": [
+        "spiral galaxy",
+        "early cosmos"
+      ],
+      "location_ref": "deep space",
+      "temporal_context": "",
+      "continuity_deps": [],
+      "visual_implication": "A spiral galaxy rotates slowly in the early cosmos, challenging older models of rapid growth.",
+      "claim_ids": [
+        "N01"
+      ],
+      "evidence_refs": [
+        "N01"
+      ],
+      "estimated_duration_sec": 5.0,
+      "metadata": {
+        "dialogue_id": "beat-5",
+        "scene_id": "scene-04",
+        "required_subject": "spiral galaxy",
+        "required_entities": [
+          "spiral galaxy",
+          "early cosmos"
+        ],
+        "required_actions": [
+          "rotates"
+        ],
+        "required_location": "deep space",
+        "rcp04": true
+      }
+    },
+    {
+      "schema_version": "1.0.0",
+      "id": "54babf87-2b2f-4788-8665-2b4b8e8e5e07",
+      "created_at": "2026-09-08T15:08:54Z",
+      "updated_at": null,
+      "beat_id": "beat-6",
+      "order": 5,
+      "section_role": "ending",
+      "narration": "Those same deep-sky maps guide Artemis crews as they cross beyond low Earth orbit.",
+      "speaker": "Narrator",
+      "emotion": "",
+      "emotion_intensity": 0.5,
+      "action_intent": "guide",
+      "entity_refs": [
+        "deep-sky maps",
+        "Artemis crews",
+        "low Earth orbit"
+      ],
+      "location_ref": "deep space",
+      "temporal_context": "",
+      "continuity_deps": [],
+      "visual_implication": "Those same deep-sky maps guide Artemis crews as they cross beyond low Earth orbit.",
+      "claim_ids": [
+        "N01"
+      ],
+      "evidence_refs": [
+        "N01"
+      ],
+      "estimated_duration_sec": 5.0,
+      "metadata": {
+        "dialogue_id": "beat-6",
+        "scene_id": "scene-05",
+        "required_subject": "deep-sky maps",
+        "required_entities": [
+          "deep-sky maps",
+          "Artemis crews",
+          "low Earth orbit"
+        ],
+        "required_actions": [
+          "guide",
+          "cross"
+        ],
+        "required_location": "deep space",
+        "rcp04": true
+      }
+    }
+  ],
+  "metadata": {
+    "rcp04": true,
+    "semantic_coverage": true,
+    "multilingual": true
+  }
+}

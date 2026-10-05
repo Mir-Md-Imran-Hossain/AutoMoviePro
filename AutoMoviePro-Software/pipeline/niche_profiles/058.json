@@ -1,0 +1,79 @@
+{
+  "niche_id": 58,
+  "name": "Late Bloomers",
+  "slug": "late-bloomers",
+  "style_family": "motivation",
+  "status": "VERIFIED",
+  "topic_seeds": [
+    "What new evidence reframes the story of Late Bloomers People inside Late Bloomers",
+    "How Late Bloomers People still shapes public curiosity about Late Bloomers",
+    "What new evidence reframes the story of Scan inside Late Bloomers",
+    "How Scan still shapes public curiosity about Late Bloomers",
+    "What new evidence reframes the story of Generate inside Late Bloomers",
+    "How Generate still shapes public curiosity about Late Bloomers"
+  ],
+  "seo_angles": [
+    "What new evidence reframes the story of Late Bloomers People inside Late Bloomers",
+    "How Late Bloomers People still shapes public curiosity about Late Bloomers",
+    "What new evidence reframes the story of Scan inside Late Bloomers",
+    "How Scan still shapes public curiosity about Late Bloomers"
+  ],
+  "forbidden_visuals": [
+    "talking-head lip-sync avatar",
+    "burned-in captions",
+    "watermark",
+    "modern meme text",
+    "off-niche stock office B-roll"
+  ],
+  "preferred_subjects": [
+    "Late Bloomers documentary subject",
+    "period-accurate environment",
+    "evidence object close-up"
+  ],
+  "lighting_default": "natural directional key, documentary clarity",
+  "face_policy": "no talking-head lip-sync avatar; cinematic B-roll preferred",
+  "dialogue_tone": "human documentary narration; specific nouns; 7–9s beats",
+  "audio_ambience": "subtle documentary bed; do not overpower voice",
+  "research_hints": [
+    "Prefer primary evidence and concrete entities for Late Bloomers",
+    "Avoid generic niche-label topics; require specific place/person/event/mechanism",
+    "7–9 second spoken beats with story continuity across scenes"
+  ],
+  "topic_prompt_overlay": "NICHE LOCK (Late Bloomers): only propose topics that fit this niche's video type. Video type: People who achieved fame or success after age 50 — proving it's never too late to start over. Follow niche topic strategy: Scan inspirational news, newly released biographies, or viral success stories. Generate a topic about a late achiever that motivates middle-aged viewers.",
+  "video_prompt_overlay": "NICHE VISUAL LOCK (Late Bloomers / motivation): Generate a 7–9 second dialogue clip based on the topic `{topic}`. Each dialogue must be hopeful and encouraging. For each dialogue, generate: - **Audio Generation Prompt:** Voice — encouraging, with uplifting orchestral music. - **Video Generation Prompt:** Detailed visual — a person at a desk or studio, older but energetic. Character: late bloomer (50+). Lighting: bright morning light. Maintain same room and light. Forbidden: talking-head lip-sync avatar, burned-in captions, watermark, modern meme text, off-niche stock office B-roll. Preferred subjects: Late Bloomers documentary subject, period-accurate environment, evidence object close-up. Lighting: natural directional key, documentary clarity. Face policy: no talking-head lip-sync avatar; cinematic B-roll preferred. Dialogue tone: human documentary narration; specific nouns; 7–9s beats. Ambience: subtle documentary bed; do not overpower voice.",
+  "i18n": {
+    "en": {
+      "name": "Late Bloomers",
+      "blurb": "People who achieved fame or success after age 50 — proving it's never too late to start over."
+    },
+    "bn": {
+      "name": "দেরিতে ফুটে ওঠা প্রতিভা",
+      "blurb": "ভিডিও টাইপ: People who achieved fame or success after age 50 — proving it's never too late to start over."
+    },
+    "hi": {
+      "name": "देर से चमकने वाले",
+      "blurb": "वीडियो प्रकार: People who achieved fame or success after age 50 — proving it's never too late to start over."
+    },
+    "ur": {
+      "name": "دیر سے ابھرنے والے",
+      "blurb": "ویڈیو کی قسم: People who achieved fame or success after age 50 — proving it's never too late to start over."
+    },
+    "ta": {
+      "name": "தாமதமாக மலர்ந்தோர்",
+      "blurb": "வீடியோ வகை: People who achieved fame or success after age 50 — proving it's never too late to start over."
+    },
+    "ml": {
+      "name": "വൈകി പൂത്തുലച്ചവർ",
+      "blurb": "വീഡിയോ തരം: People who achieved fame or success after age 50 — proving it's never too late to start over."
+    }
+  },
+  "source": "Nish.Md + deterministic research",
+  "research_notes": [
+    "Marathon researched at 2026-09-10T08:30:15Z",
+    "Video type length=93",
+    "Topic prompt length=153",
+    "Video prompt length=419",
+    "Seeds=6"
+  ],
+  "verified_at": "2026-09-10T08:30:15Z"
+}

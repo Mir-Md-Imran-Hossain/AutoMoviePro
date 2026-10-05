@@ -1,0 +1,53 @@
+{
+  "schema_version": "1.0.0",
+  "id": "1cd78e58-c3b6-4525-92aa-2c51235d0bc7",
+  "created_at": "2026-09-09T11:07:24.866249Z",
+  "updated_at": null,
+  "asset_type": "video",
+  "scene_id": "6",
+  "source": "generated",
+  "file_path": "E:\\All Updaye Project\\AutoMovie_Pro_SAAS_Final_Update\\AutoMoviePro-Software\\docs\\marathon\\customer_product\\phase6j_evidence\\repair_work\\repair_vb6j.mp4",
+  "file_hash": "17168dc081dd4597022c03a656d338d8b2a3ba3e817e22e726651e0b0ccace87",
+  "duration_sec": null,
+  "width": null,
+  "height": null,
+  "codec": null,
+  "language": null,
+  "provenance": {
+    "schema_version": "1.0.0",
+    "id": "1b812b18-88c5-4cbe-9f2e-c45c33f0deb3",
+    "created_at": "2026-09-09T11:07:24.866249Z",
+    "updated_at": null,
+    "job_id": "phase6e-vb-neg",
+    "contract_id": null,
+    "provider": "fallback_image_video",
+    "model": "default",
+    "prompt_hash": "21d4e366bd5ec67313a688ff594dcf7795335a288d67b4cfe6194ea2205e6fdb",
+    "input_hash": "f851d9e979f07e27e8b5df73a30b98c118a70112fd29a0b8deb680f27263ae91",
+    "generation_id": "1788952044",
+    "seed": "",
+    "metadata": {
+      "scene_id": 6,
+      "canonical_scene_id": "",
+      "dialogue_id": "dlg-vb-neg",
+      "script_id": "",
+      "segment_id": "vb-neg",
+      "part_index": 0,
+      "revision_id": "",
+      "visual_plan_id": "vb-neg",
+      "entity_id": "scene-06-dlg-vb-neg-vb-neg",
+      "generation_mode": "IMAGE_GENERATION",
+      "requested_seed": null,
+      "actual_seed": null,
+      "reference_asset_id": "",
+      "reference_asset_hash": "",
+      "saved_at": 1788952044.8662493,
+      "asset_id": "visual-06-f851d9e979f07e27",
+      "legacy_key": "7726d645040c80ff3c2616425a7a21e9"
+    }
+  },
+  "external_refs": [],
+  "metadata": {
+    "entity_id": "scene-06-dlg-vb-neg-vb-neg"
+  }
+}

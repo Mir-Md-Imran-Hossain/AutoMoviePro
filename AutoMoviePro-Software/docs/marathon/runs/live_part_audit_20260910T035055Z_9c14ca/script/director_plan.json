@@ -1,0 +1,163 @@
+{
+  "analysis": {
+    "niche_summary": "The video explores how Artemis crews utilize neutron spectrometers to identify and map lunar polar water ice, showcasing cutting-edge space science technology.",
+    "why_this_topic": "This topic is timely and relevant as it aligns with NASA's Artemis program and the ongoing interest in lunar exploration and water resources on the Moon.",
+    "audience": "Space enthusiasts, students, and anyone interested in the latest advancements in space exploration and science.",
+    "tone": "Informative and engaging, aimed at sparking curiosity about space science.",
+    "product_category": "science",
+    "style_pack": "science",
+    "nish_id": 0,
+    "avoided_duplicates": [],
+    "master_lang": "en",
+    "master_lang_bcp47": "en-US"
+  },
+  "topic": "How Artemis crews use neutron spectrometers to map lunar polar water ice in 2026",
+  "product_key_hint": "artemis neutron spectrometers lunar water ice",
+  "title": "Discovering Lunar Water Ice: Artemis Neutron Spectrometers in 2026",
+  "description": "Join us as we delve into how Artemis crews will use neutron spectrometers to uncover lunar polar water ice in 2026. #Artemis #SpaceScience #LunarExploration",
+  "tags": [
+    "Artemis",
+    "neutron spectrometers",
+    "lunar water ice",
+    "space science",
+    "NASA"
+  ],
+  "scenes": [
+    {
+      "element": "intro",
+      "start_hint_s": 0.0,
+      "end_hint_s": 8.0,
+      "narration": "In 2026, Artemis crews will use neutron spectrometers to map lunar polar water ice, a crucial resource for future missions.",
+      "keyword_triggers": [
+        "How Artemis crews use neutron spectrometers to map lunar polar water ice in 2026",
+        "Artemis",
+        "neutron spectrometers",
+        "lunar polar water ice"
+      ],
+      "exact_ai_video_prompt": "vertical 9:16 cinematic slow push-in of Artemis crews using neutron spectrometers, niche color grade, continuous motion, no burned captions, no watermark, no talking-head REQUIRED on-screen anchors: How Artemis crews use neutron spectrometers to map lunar polar water ice in 2026, 2026, lunar polar water ice, lunar, polar.",
+      "visual_query": "Artemis neutron spectrometers lunar ice mapping",
+      "visual_prompt": "cinematic hero of Artemis crews mapping lunar ice, continuous motion",
+      "quality_notes": "SKU on screen, continuity with next beat",
+      "lang": "en",
+      "lang_bcp47": "en-US"
+    },
+    {
+      "element": "design",
+      "start_hint_s": 8.0,
+      "end_hint_s": 16.0,
+      "narration": "These spectrometers are designed with advanced materials and sensors to detect hydrogen signatures in the lunar regolith.",
+      "keyword_triggers": [
+        "How Artemis crews use neutron spectrometers to map lunar polar water ice in 2026",
+        "spectrometers",
+        "advanced materials",
+        "hydrogen signatures"
+      ],
+      "exact_ai_video_prompt": "vertical 9:16 close-up of neutron spectrometers showing design details, niche color grade, continuous motion, no burned captions, no watermark, no talking-head REQUIRED on-screen anchors: How Artemis crews use neutron spectrometers to map lunar polar water ice in 2026, 2026, advanced materials, hydrogen signatures, designed, advanced, materials, sensors, detect.",
+      "visual_query": "neutron spectrometers design details",
+      "visual_prompt": "macro pans of neutron spectrometers showcasing design features, continuous motion",
+      "quality_notes": "continuity with previous scene",
+      "lang": "en",
+      "lang_bcp47": "en-US"
+    },
+    {
+      "element": "display",
+      "start_hint_s": 16.0,
+      "end_hint_s": 24.0,
+      "narration": "When activated, the spectrometers display real-time data, highlighting areas rich in water ice beneath the lunar surface.",
+      "keyword_triggers": [
+        "How Artemis crews use neutron spectrometers to map lunar polar water ice in 2026",
+        "real-time data",
+        "water ice",
+        "lunar surface"
+      ],
+      "exact_ai_video_prompt": "vertical 9:16 screen ON showing data from neutron spectrometers, niche color grade, continuous motion, no burned captions, no watermark, no talking-head REQUIRED on-screen anchors: How Artemis crews use neutron spectrometers to map lunar polar water ice in 2026, 2026, real-time data, water ice, lunar surface, activated, display, real, time.",
+      "visual_query": "neutron spectrometers data display",
+      "visual_prompt": "screen ON showing real-time data from spectrometers, continuous motion",
+      "quality_notes": "continuity with previous scene",
+      "lang": "en",
+      "lang_bcp47": "en-US"
+    },
+    {
+      "element": "camera",
+      "start_hint_s": 24.0,
+      "end_hint_s": 32.0,
+      "narration": "The camera module captures high-resolution images of the lunar terrain, aiding in precise mapping of water ice locations.",
+      "keyword_triggers": [
+        "How Artemis crews use neutron spectrometers to map lunar polar water ice in 2026",
+        "camera module",
+        "high-resolution images",
+        "lunar terrain"
+      ],
+      "exact_ai_video_prompt": "vertical 9:16 macro of camera module capturing lunar terrain, niche color grade, continuous motion, no burned captions, no watermark, no talking-head REQUIRED on-screen anchors: How Artemis crews use neutron spectrometers to map lunar polar water ice in 2026, 2026, high-resolution images, captures, high, resolution, images.",
+      "visual_query": "camera module lunar terrain",
+      "visual_prompt": "macro footage of camera module in action on lunar surface, continuous motion",
+      "quality_notes": "continuity with previous scene",
+      "lang": "en",
+      "lang_bcp47": "en-US"
+    },
+    {
+      "element": "technique",
+      "start_hint_s": 32.0,
+      "end_hint_s": 40.0,
+      "narration": "Using a technique called neutron activation analysis, these instruments can pinpoint ice deposits with remarkable accuracy.",
+      "keyword_triggers": [
+        "How Artemis crews use neutron spectrometers to map lunar polar water ice in 2026",
+        "neutron activation analysis",
+        "ice deposits",
+        "accuracy"
+      ],
+      "exact_ai_video_prompt": "vertical 9:16 cinematic demonstration of neutron activation analysis technique, niche color grade, continuous motion, no burned captions, no watermark, no talking-head REQUIRED on-screen anchors: How Artemis crews use neutron spectrometers to map lunar polar water ice in 2026, 2026, ice deposits, accuracy, instruments, pinpoint.",
+      "visual_query": "neutron activation analysis demonstration",
+      "visual_prompt": "cinematic metaphor showing neutron activation analysis in action, continuous motion",
+      "quality_notes": "continuity with previous scene",
+      "lang": "en",
+      "lang_bcp47": "en-US"
+    },
+    {
+      "element": "legacy",
+      "start_hint_s": 40.0,
+      "end_hint_s": 48.0,
+      "narration": "The findings from these missions will lay the groundwork for sustainable human presence on the Moon, transforming lunar exploration.",
+      "keyword_triggers": [
+        "How Artemis crews use neutron spectrometers to map lunar polar water ice in 2026",
+        "sustainable presence",
+        "lunar exploration",
+        "transforming"
+      ],
+      "exact_ai_video_prompt": "vertical 9:16 cinematic overview of lunar exploration legacy, niche color grade, continuous motion, no burned captions, no watermark, no talking-head REQUIRED on-screen anchors: How Artemis crews use neutron spectrometers to map lunar polar water ice in 2026, 2026, sustainable presence, transforming, findings, missions, groundwork, sustainable, human, presence.",
+      "visual_query": "lunar exploration legacy",
+      "visual_prompt": "cinematic overview of lunar exploration, continuous motion",
+      "quality_notes": "continuity with previous scene",
+      "lang": "en",
+      "lang_bcp47": "en-US"
+    },
+    {
+      "element": "outro",
+      "start_hint_s": 48.0,
+      "end_hint_s": 56.0,
+      "narration": "As we prepare for Artemis, the quest for lunar water ice opens new horizons for humanity's future in space.",
+      "keyword_triggers": [
+        "How Artemis crews use neutron spectrometers to map lunar polar water ice in 2026",
+        "Artemis",
+        "lunar water ice",
+        "future in space"
+      ],
+      "exact_ai_video_prompt": "vertical 9:16 cinematic closing shot of lunar landscape, niche color grade, continuous motion, no burned captions, no watermark, no talking-head REQUIRED on-screen anchors: How Artemis crews use neutron spectrometers to map lunar polar water ice in 2026, 2026, Artemis, lunar water ice, future in space, prepare, quest, opens.",
+      "visual_query": "lunar landscape closing shot",
+      "visual_prompt": "cinematic closing shot of lunar landscape, continuous motion",
+      "quality_notes": "continuity with previous scene",
+      "lang": "en",
+      "lang_bcp47": "en-US"
+    }
+  ],
+  "director_provider": "openrouter",
+  "nish_id": 0,
+  "nish_name": "space science",
+  "video_type": "short",
+  "max_seconds": 60,
+  "master_lang": "en",
+  "master_lang_bcp47": "en-US",
+  "sourceLanguage": "en",
+  "master_lang_policy": "english_pivot_then_localize",
+  "narrator_voice": "Charon"
+}

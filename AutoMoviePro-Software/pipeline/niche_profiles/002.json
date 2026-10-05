@@ -1,0 +1,85 @@
+{
+  "niche_id": 2,
+  "name": "Lost Kingdoms",
+  "slug": "lost-kingdoms",
+  "style_family": "mystery",
+  "status": "VERIFIED",
+  "topic_seeds": [
+    "How Egyptian Nile flood calendars organized temple labor and harvest taxes",
+    "Why Indus Valley drainage grids still outclass early Mesopotamian streets",
+    "What Roman concrete chemistry explains about marine harbor longevity",
+    "How Greek city-state rivalries funded naval innovation before empire",
+    "Why Mesopotamian clay tablets preserved contracts better than papyrus"
+  ],
+  "seo_angles": [
+    "How Egyptian Nile flood calendars organized temple labor and harvest taxes",
+    "Why Indus Valley drainage grids still outclass early Mesopotamian streets",
+    "What Roman concrete chemistry explains about marine harbor longevity",
+    "How Greek city-state rivalries funded naval innovation before empire"
+  ],
+  "forbidden_visuals": [
+    "talking-head lip-sync avatar",
+    "burned-in captions",
+    "watermark",
+    "modern meme text",
+    "modern smartphones",
+    "cars",
+    "LED screens",
+    "sneakers",
+    "contemporary skyline"
+  ],
+  "preferred_subjects": [
+    "Nile riverbank temple pylons",
+    "Indus brick drainage channel",
+    "Roman concrete harbor pier",
+    "Greek trireme hull detail",
+    "Mesopotamian cuneiform tablet",
+    "desert excavation trench at dawn"
+  ],
+  "lighting_default": "warm desert sun / torchlit interiors, high-contrast documentary grade",
+  "face_policy": "period extras OK if consistent; prefer environment/object hero when possible",
+  "dialogue_tone": "curious documentary narrator; wonder + concrete fact; no campy adventure slang",
+  "audio_ambience": "distant wind over sand/stone, soft temple-room reverb, sparse strings",
+  "research_hints": [
+    "Prefer primary evidence and concrete entities for Lost Kingdoms",
+    "Avoid generic niche-label topics; require specific place/person/event/mechanism",
+    "7–9 second spoken beats with story continuity across scenes"
+  ],
+  "topic_prompt_overlay": "NICHE LOCK (Lost Kingdoms): only propose topics that fit this niche's video type. Video type: Deep-dive into empires that vanished without a trace — Atlantis, El Dorado, or the Khmer Empire. The narrative focuses on archaeological evidence, theories, and the haunting silence left behind. Follow niche topic strategy: Scour global news, academic journals, and Reddit communities for the most talked-about lost civilization. Identify if any new LiDAR scans, satellite imagery, or underwater excavations have been published recently. Generate a topic that combines mystery with scientific credibility — something that sparks debate and encourages comments and shares.",
+  "video_prompt_overlay": "NICHE VISUAL LOCK (Lost Kingdoms / mystery): Generate a 7–9 second dialogue clip based on the topic `{topic}`. Each dialogue must be immersive and atmospheric. For each dialogue, generate: - **Audio Generation Prompt:** Voice should be mysterious and slow, with ambient drone sounds and subtle reverb. - **Video Generation Prompt:** Detailed visual description — jungle overgrowth, ruined stone structures, moss-covered carvings. Lighting should be dappled sunlight or torchlight. Camera slowly pushing forward through foliage. No sudden scene changes. Maintain consistent environment: dense tropical forest, humid mist, ancient stones, same explorer character (male, 40s, khaki shirt, worn hat) if present. Forbidden: talking-head lip-sync avatar, burned-in captions, watermark, modern meme text, modern smartphones, cars, LED screens, sneakers. Preferred subjects: Nile riverbank temple pylons, Indus brick drainage channel, Roman concrete harbor pier, Greek trireme hull detail, Mesopotamian cuneiform tablet, desert excavation trench at dawn. Lighting: warm desert sun / torchlit interiors, high-contrast documentary grade. Face policy: period extras OK if consistent; prefer environment/object hero when possible. Dialogue tone: curious documentary narrator; wonder + concrete fact; no campy adventure slang. Ambience: distant wind over sand/stone, soft temple-room reverb, sparse strings.",
+  "i18n": {
+    "en": {
+      "name": "Lost Kingdoms",
+      "blurb": "Deep-dive into empires that vanished without a trace — Atlantis, El Dorado, or the Khmer Empire. The narrative focuses on archaeological evidence, theories,…"
+    },
+    "bn": {
+      "name": "হারিয়ে যাওয়া রাজ্য",
+      "blurb": "ভিডিও টাইপ: Deep-dive into empires that vanished without a trace — Atlantis, El Dorado, or the Khmer Empire. The narrative focuses on archaeological evidence,…"
+    },
+    "hi": {
+      "name": "लुप्त साम्राज्य",
+      "blurb": "वीडियो प्रकार: Deep-dive into empires that vanished without a trace — Atlantis, El Dorado, or the Khmer Empire. The narrative focuses on archaeological evidence,…"
+    },
+    "ur": {
+      "name": "کھوئی ہوئی سلطنتیں",
+      "blurb": "ویڈیو کی قسم: Deep-dive into empires that vanished without a trace — Atlantis, El Dorado, or the Khmer Empire. The narrative focuses on archaeological evidence,…"
+    },
+    "ta": {
+      "name": "தொலைந்த அரசுகள்",
+      "blurb": "வீடியோ வகை: Deep-dive into empires that vanished without a trace — Atlantis, El Dorado, or the Khmer Empire. The narrative focuses on archaeological evidence,…"
+    },
+    "ml": {
+      "name": "നഷ്ടപ്പെട്ട രാജ്യങ്ങൾ",
+      "blurb": "വീഡിയോ തരം: Deep-dive into empires that vanished without a trace — Atlantis, El Dorado, or the Khmer Empire. The narrative focuses on archaeological evidence,…"
+    }
+  },
+  "source": "Nish.Md + deterministic research",
+  "research_notes": [
+    "Marathon researched at 2026-09-10T08:30:08Z",
+    "Video type length=194",
+    "Topic prompt length=347",
+    "Video prompt length=662",
+    "Seeds=5"
+  ],
+  "verified_at": "2026-09-10T08:30:08Z"
+}

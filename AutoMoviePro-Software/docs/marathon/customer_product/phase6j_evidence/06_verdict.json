@@ -1,0 +1,22 @@
+{
+  "positive_status": "PASS",
+  "negative_status": "FAIL",
+  "unknown_status": "UNKNOWN",
+  "unknown_blocks": true,
+  "unknown_no_repair": true,
+  "repair_triggered": true,
+  "whole_video_regeneration": false,
+  "never_directly_publishable": true,
+  "voice_acoustic": "UNKNOWN",
+  "paid": {
+    "attempts": 0,
+    "successes": 0,
+    "paid_google_calls": 0,
+    "notes": [
+      "reuse_phase6d_6e_6h_live_evidence_no_new_paid_unless_repair_reobserve",
+      "local_asr_audio:UNKNOWN"
+    ],
+    "key_masks": [],
+    "latency_sec": 3.582
+  }
+}

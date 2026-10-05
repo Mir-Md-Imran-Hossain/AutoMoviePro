@@ -1,0 +1,66 @@
+{
+  "research": {
+    "topic_id": "topic-968a7a7457dfec1c",
+    "query": "how gravitational-wave detectors hear black-hole mergers across the universe",
+    "evidence": [
+      {
+        "id": "N01",
+        "claim": "Research query: how gravitational-wave detectors hear black-hole mergers across the universe\nLanguage: en\nRegion:",
+        "evidence": "research_notes",
+        "source": "research_notes",
+        "confidence": 0.4,
+        "freshness": "UNVERIFIED"
+      },
+      {
+        "id": "L02",
+        "claim": "Additional context on How gravitational-wave detectors hear black-hole mergers across the universe from configured research scope.",
+        "evidence": "secondary",
+        "source": "live_research",
+        "confidence": 0.6,
+        "freshness": "recent"
+      }
+    ],
+    "status": "completed",
+    "provider": "live_local",
+    "provider_kind": "configured_local",
+    "provider_capability": "LOCAL_FACTPACK",
+    "provider_mode": "LIVE_LOCAL",
+    "external_api": false,
+    "is_external_live": false,
+    "note": "LOCAL_FACTPACK must not be claimed as EXTERNAL_LIVE_RESEARCH",
+    "timestamp": 1789051107.3638897,
+    "queried_at": 1789051107.3638897,
+    "canonical_topic": "How gravitational-wave detectors hear black-hole mergers across the universe",
+    "sources": [
+      "live_research",
+      "research_notes"
+    ],
+    "fingerprint": "b11759a0713bca7b2ba241da89093e7e81ad060c343d9510599047c18ff5cd2b"
+  },
+  "fact_pack": {
+    "topic": "How gravitational-wave detectors hear black-hole mergers across the universe",
+    "version": "v0",
+    "claims": [
+      {
+        "id": "N01",
+        "claim": "Research query: how gravitational-wave detectors hear black-hole mergers across the universe\nLanguage: en\nRegion:",
+        "evidence": "research_notes",
+        "source": "research_notes",
+        "confidence": 0.4,
+        "freshness": "UNVERIFIED"
+      },
+      {
+        "id": "L02",
+        "claim": "Additional context on How gravitational-wave detectors hear black-hole mergers across the universe from configured research scope.",
+        "evidence": "secondary",
+        "source": "live_research",
+        "confidence": 0.6,
+        "freshness": "recent"
+      }
+    ],
+    "unknowns": []
+  },
+  "research_fingerprint": "b11759a0713bca7b2ba241da89093e7e81ad060c343d9510599047c18ff5cd2b",
+  "provider_mode": "LIVE",
+  "persisted_at": 1789051107.3638897
+}

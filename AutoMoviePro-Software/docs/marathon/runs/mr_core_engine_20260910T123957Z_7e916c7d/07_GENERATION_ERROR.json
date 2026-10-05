@@ -1,0 +1,5 @@
+{
+  "ok": false,
+  "error": "Agnes outcome UNKNOWN: b797a70f9ecfd7e764ad98ca",
+  "traceback": "Traceback (most recent call last):\n  File \"E:\\All Updaye Project\\AutoMovie_Pro_SAAS_Final_Update\\AutoMoviePro-Software\\scripts\\cert_core_engine_real_marathon.py\", line 500, in generate_real\n    result = generate_video(\n             ^^^^^^^^^^^^^^^\n  File \"E:\\All Updaye Project\\AutoMovie_Pro_SAAS_Final_Update\\AutoMoviePro-Software\\pipeline\\video_pipeline.py\", line 1108, in generate_video\n    clip = build_dialogue_clip(\n           ^^^^^^^^^^^^^^^^^^^^\n  File \"E:\\All Updaye Project\\AutoMovie_Pro_SAAS_Final_Update\\AutoMoviePro-Software\\pipeline\\scene_builder.py\", line 941, in build_dialogue_clip\n    video_src = _resolve_footage(\n                ^^^^^^^^^^^^^^^^^\n  File \"E:\\All Updaye Project\\AutoMovie_Pro_SAAS_Final_Update\\AutoMoviePro-Software\\pipeline\\scene_builder.py\", line 3240, in _resolve_footage\n    raise AgnesOutcomeError(\npipeline.scene_builder.AgnesOutcomeError: Agnes outcome UNKNOWN: b797a70f9ecfd7e764ad98ca\n"
+}

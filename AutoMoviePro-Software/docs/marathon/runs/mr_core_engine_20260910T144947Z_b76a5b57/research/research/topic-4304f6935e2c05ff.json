@@ -1,0 +1,66 @@
+{
+  "research": {
+    "topic_id": "topic-4304f6935e2c05ff",
+    "query": "what dark energy surveys measure when galaxies stretch apart",
+    "evidence": [
+      {
+        "id": "N01",
+        "claim": "Research query: what dark energy surveys measure when galaxies stretch apart\nLanguage: en\nRegion:",
+        "evidence": "research_notes",
+        "source": "research_notes",
+        "confidence": 0.4,
+        "freshness": "UNVERIFIED"
+      },
+      {
+        "id": "L02",
+        "claim": "Additional context on What dark energy surveys measure when galaxies stretch apart from configured research scope.",
+        "evidence": "secondary",
+        "source": "live_research",
+        "confidence": 0.6,
+        "freshness": "recent"
+      }
+    ],
+    "status": "completed",
+    "provider": "live_local",
+    "provider_kind": "configured_local",
+    "provider_capability": "LOCAL_FACTPACK",
+    "provider_mode": "LIVE_LOCAL",
+    "external_api": false,
+    "is_external_live": false,
+    "note": "LOCAL_FACTPACK must not be claimed as EXTERNAL_LIVE_RESEARCH",
+    "timestamp": 1789051788.1383796,
+    "queried_at": 1789051788.1383796,
+    "canonical_topic": "What dark energy surveys measure when galaxies stretch apart",
+    "sources": [
+      "live_research",
+      "research_notes"
+    ],
+    "fingerprint": "22788b094887946b28e6435d90aeb007c6e444ca122d29bec16ac943c1535531"
+  },
+  "fact_pack": {
+    "topic": "What dark energy surveys measure when galaxies stretch apart",
+    "version": "v0",
+    "claims": [
+      {
+        "id": "N01",
+        "claim": "Research query: what dark energy surveys measure when galaxies stretch apart\nLanguage: en\nRegion:",
+        "evidence": "research_notes",
+        "source": "research_notes",
+        "confidence": 0.4,
+        "freshness": "UNVERIFIED"
+      },
+      {
+        "id": "L02",
+        "claim": "Additional context on What dark energy surveys measure when galaxies stretch apart from configured research scope.",
+        "evidence": "secondary",
+        "source": "live_research",
+        "confidence": 0.6,
+        "freshness": "recent"
+      }
+    ],
+    "unknowns": []
+  },
+  "research_fingerprint": "22788b094887946b28e6435d90aeb007c6e444ca122d29bec16ac943c1535531",
+  "provider_mode": "LIVE",
+  "persisted_at": 1789051788.1383796
+}

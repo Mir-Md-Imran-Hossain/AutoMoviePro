@@ -1,0 +1,148 @@
+{
+  "auditor_version": "prompt_compliance_auditor_v1",
+  "contract_version": "industrial_prompt_contract_v1",
+  "job_id": "c06b-script-4-topic-989eccb0547ceb44",
+  "organized_at": "2026-09-10T15:09:38.655484+00:00",
+  "plan_fingerprint": "e54c4d624c4db7bd98664260",
+  "verdict": "PASS",
+  "industrial_grade": true,
+  "overall_score": 0.9389,
+  "deterministic": {
+    "verdict": "PASS",
+    "overall_score": 0.9389,
+    "scores": {
+      "C01_opening_pattern_interrupt": 1.0,
+      "C02_mid_retention_rehooks": 1.0,
+      "C03_information_density": 1.0,
+      "C04_seo_ctr_package": 0.7,
+      "C05_topic_specificity": 1.0,
+      "C06_ending_loop_close": 0.8,
+      "C07_no_encyclopedia_flatness": 1.0
+    },
+    "clauses": {
+      "C01_opening_pattern_interrupt": {
+        "pass": true,
+        "score": 1.0,
+        "detail": {
+          "hook": {
+            "status": "PASS",
+            "generic": false,
+            "clickbait": false,
+            "unsupported_claim": false,
+            "topic_aligned": true,
+            "overlap": 0.5,
+            "issues": [],
+            "method": "DETERMINISTIC"
+          },
+          "opening": {
+            "status": "PASS",
+            "score": 1.0,
+            "overlap": 0.5,
+            "issues": [],
+            "claims_guaranteed_engagement": false,
+            "method": "DETERMINISTIC"
+          }
+        }
+      },
+      "C02_mid_retention_rehooks": {
+        "pass": true,
+        "score": 1.0,
+        "detail": {
+          "hook_signals": 6,
+          "payoff_signals": 2,
+          "warnings": [
+            "loop_close_ratio_low:0.40"
+          ]
+        }
+      },
+      "C03_information_density": {
+        "pass": true,
+        "score": 1.0,
+        "detail": {
+          "blocked": false,
+          "warnings": [
+            "missing_emotional_intent:0",
+            "missing_emotional_intent:1",
+            "missing_emotional_intent:2",
+            "missing_emotional_intent:3",
+            "missing_emotional_intent:4",
+            "loop_close_ratio_low:0.40",
+            "legacy_visual_prompt_present:0",
+            "legacy_visual_prompt_present:1",
+            "legacy_visual_prompt_present:2",
+            "legacy_visual_prompt_present:3",
+            "legacy_visual_prompt_present:4",
+            "legacy_visual_prompt_present:5"
+          ]
+        }
+      },
+      "C04_seo_ctr_package": {
+        "pass": true,
+        "score": 0.7,
+        "detail": {
+          "issues": [
+            "tags_below_industrial_minimum"
+          ],
+          "tag_count": 4
+        }
+      },
+      "C05_topic_specificity": {
+        "pass": true,
+        "score": 1.0,
+        "detail": {
+          "topic": "How Artemis crews use neutron spectrometers to map lunar polar water ice in 2026"
+        }
+      },
+      "C06_ending_loop_close": {
+        "pass": true,
+        "score": 0.8,
+        "detail": {}
+      },
+      "C07_no_encyclopedia_flatness": {
+        "pass": true,
+        "score": 1.0,
+        "detail": {
+          "flat_related": []
+        }
+      }
+    },
+    "violations": [
+      {
+        "clause": "C02_mid_retention_rehooks",
+        "severity": "warning",
+        "evidence": "loop_close_ratio_low:0.40",
+        "issues": [
+          "loop_close_ratio_low:0.40"
+        ]
+      },
+      {
+        "clause": "C04_seo_ctr_package",
+        "severity": "warning",
+        "evidence": "How Artemis Uses Neutron Spectrometers to Map Lunar Water Ice in 2026",
+        "issues": [
+          "tags_below_industrial_minimum"
+        ]
+      }
+    ],
+    "method": "DETERMINISTIC",
+    "contract_version": "industrial_prompt_contract_v1"
+  },
+  "llm_critic": {
+    "verdict": "SKIPPED",
+    "method": "LLM_CRITIC"
+  },
+  "repairs_applied": [],
+  "decision_reason": "Output matches industrial prompt contracts (retention + SEO + hook).",
+  "proof": {
+    "what_we_checked": [
+      "opening pattern interrupt / curiosity gap",
+      "mid-script re-hooks and information density",
+      "SEO/CTR title-description-tags honesty",
+      "topic specificity",
+      "ending loop close",
+      "optional LLM industrial judge"
+    ],
+    "authoritative_layer": "deterministic",
+    "corroboration_layer": "none"
+  }
+}

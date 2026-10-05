@@ -1,0 +1,23 @@
+{
+  "cross_scene": {
+    "schema": "amp_observation_acoustic_voice_v1",
+    "kind": "cross_scene_voice_consistency",
+    "acoustic_consistency": "UNKNOWN",
+    "hint_consistency": "INCONSISTENT",
+    "contract_continuity": {
+      "contract_stable": true,
+      "emotion_change_is_not_identity_failure": true,
+      "VOICE_IDENTITY_OBSERVATION": "UNKNOWN"
+    },
+    "status": "FAIL",
+    "heuristic_mismatch_detected": true,
+    "provider_verified_acoustic": false,
+    "emotion_change_is_not_identity_failure": true,
+    "VOICE_IDENTITY_OBSERVATION": "UNKNOWN",
+    "unknown_as_pass": false,
+    "second_voice_identity_authority": false
+  },
+  "heuristic_mismatch_detected": true,
+  "acoustic_consistency": "UNKNOWN",
+  "note": "acoustic MATCH/MISMATCH unavailable without embedding provider; generation hint INCONSISTENT recorded as HEURISTIC"
+}

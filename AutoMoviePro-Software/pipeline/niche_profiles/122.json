@@ -1,0 +1,80 @@
+{
+  "niche_id": 122,
+  "name": "Climate Change Explained",
+  "slug": "climate-change-explained",
+  "style_family": "nature",
+  "status": "VERIFIED",
+  "topic_seeds": [
+    "What new evidence reframes the story of Climate Change Explained Glacial inside Climate Change Explained",
+    "How Climate Change Explained Glacial still shapes public curiosity about Climate Change Explained",
+    "What new evidence reframes the story of Check inside Climate Change Explained",
+    "How Check still shapes public curiosity about Climate Change Explained",
+    "What new evidence reframes the story of Generate inside Climate Change Explained",
+    "How Generate still shapes public curiosity about Climate Change Explained"
+  ],
+  "seo_angles": [
+    "What new evidence reframes the story of Climate Change Explained Glacial inside Climate Change Explained",
+    "How Climate Change Explained Glacial still shapes public curiosity about Climate Change Explained",
+    "What new evidence reframes the story of Check inside Climate Change Explained",
+    "How Check still shapes public curiosity about Climate Change Explained"
+  ],
+  "forbidden_visuals": [
+    "talking-head lip-sync avatar",
+    "burned-in captions",
+    "watermark",
+    "modern meme text",
+    "CGI cartoon animals",
+    "studio green-screen obvious seams"
+  ],
+  "preferred_subjects": [
+    "biome wide establishing shot",
+    "species macro detail",
+    "weather system overhead"
+  ],
+  "lighting_default": "natural directional key, documentary clarity",
+  "face_policy": "no talking-head lip-sync avatar; cinematic B-roll preferred",
+  "dialogue_tone": "human documentary narration; specific nouns; 7–9s beats",
+  "audio_ambience": "subtle documentary bed; do not overpower voice",
+  "research_hints": [
+    "Prefer primary evidence and concrete entities for Climate Change Explained",
+    "Avoid generic niche-label topics; require specific place/person/event/mechanism",
+    "7–9 second spoken beats with story continuity across scenes"
+  ],
+  "topic_prompt_overlay": "NICHE LOCK (Climate Change Explained): only propose topics that fit this niche's video type. Video type: Glacial retreat, sea-level rise, coral bleaching — simplified for everyone, with hopeful solutions. Follow niche topic strategy: Check climate science news, new IPCC reports, or viral climate videos. Generate a topic about a climate phenomenon with a clear solution.",
+  "video_prompt_overlay": "NICHE VISUAL LOCK (Climate Change Explained / nature): Generate a 7–9 second dialogue clip based on the topic `{topic}`. Each dialogue must be educational and hopeful. For each dialogue, generate: - **Audio Generation Prompt:** Voice — calm, with waves and birds. - **Video Generation Prompt:** Detailed visual — glacier or coral reef. No character — nature. Lighting: bright, natural. Maintain same nature. Forbidden: talking-head lip-sync avatar, burned-in captions, watermark, modern meme text, CGI cartoon animals, studio green-screen obvious seams. Preferred subjects: biome wide establishing shot, species macro detail, weather system overhead. Lighting: natural directional key, documentary clarity. Face policy: no talking-head lip-sync avatar; cinematic B-roll preferred. Dialogue tone: human documentary narration; specific nouns; 7–9s beats. Ambience: subtle documentary bed; do not overpower voice.",
+  "i18n": {
+    "en": {
+      "name": "Climate Change Explained",
+      "blurb": "Glacial retreat, sea-level rise, coral bleaching — simplified for everyone, with hopeful solutions."
+    },
+    "bn": {
+      "name": "জলবায়ু পরিবর্তন ব্যাখ্যা",
+      "blurb": "ভিডিও টাইপ: Glacial retreat, sea-level rise, coral bleaching — simplified for everyone, with hopeful solutions."
+    },
+    "hi": {
+      "name": "जलवायु परिवर्तन समझाया",
+      "blurb": "वीडियो प्रकार: Glacial retreat, sea-level rise, coral bleaching — simplified for everyone, with hopeful solutions."
+    },
+    "ur": {
+      "name": "موسمیاتی تبدیلی کی وضاحت",
+      "blurb": "ویڈیو کی قسم: Glacial retreat, sea-level rise, coral bleaching — simplified for everyone, with hopeful solutions."
+    },
+    "ta": {
+      "name": "காலநிலை மாற்றம் விளக்கம்",
+      "blurb": "வீடியோ வகை: Glacial retreat, sea-level rise, coral bleaching — simplified for everyone, with hopeful solutions."
+    },
+    "ml": {
+      "name": "കാലാവസ്ഥാ വ്യതിയാനം വിശദീകരണം",
+      "blurb": "വീഡിയോ തരം: Glacial retreat, sea-level rise, coral bleaching — simplified for everyone, with hopeful solutions."
+    }
+  },
+  "source": "Nish.Md + deterministic research",
+  "research_notes": [
+    "Marathon researched at 2026-09-10T08:30:26Z",
+    "Video type length=99",
+    "Topic prompt length=137",
+    "Video prompt length=352",
+    "Seeds=6"
+  ],
+  "verified_at": "2026-09-10T08:30:26Z"
+}

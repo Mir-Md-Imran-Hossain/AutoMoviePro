@@ -1,0 +1,31 @@
+{
+  "status": "COMPLETED",
+  "classification": "REAL",
+  "job_id": 2273,
+  "local_path": "E:\\All Updaye Project\\AutoMovie_Pro_SAAS_Final_Update\\AutoMoviePro-Software\\data\\customer_generation_work\\c11_marathon_customer\\job2273\\final_short.mp4",
+  "video_meta": {
+    "exists": true,
+    "path": "E:\\All Updaye Project\\AutoMovie_Pro_SAAS_Final_Update\\AutoMoviePro-Software\\data\\customer_generation_work\\c11_marathon_customer\\job2273\\final_short.mp4",
+    "file_size": 1295049,
+    "duration": 7.2,
+    "probe_error": "JSONDecodeError",
+    "audio_status": "UNKNOWN"
+  },
+  "approval_status": "APPROVED",
+  "publish_status": "FAIL",
+  "publish": {
+    "ok": false,
+    "status": null,
+    "error": "publish_validation_failed",
+    "error_code": "VALIDATION_FAILURE",
+    "publish_state": null
+  },
+  "monitor_ok": true,
+  "monitor_state": "PREVIEW_READY",
+  "generation_latency_ms": 131640.99999999598,
+  "total_case_latency_ms": 132093.99999999732,
+  "prep": {
+    "research_class": "REAL",
+    "script_class": "REAL"
+  }
+}

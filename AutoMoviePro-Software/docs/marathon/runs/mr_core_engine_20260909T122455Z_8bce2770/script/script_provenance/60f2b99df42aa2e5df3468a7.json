@@ -1,0 +1,26 @@
+{
+  "job_id": "c06b-script-4-topic-7ce92097063c58a2",
+  "fingerprint": "60f2b99df42aa2e5df3468a799b2da217d59a7c20a00704477ea55177ae79d68",
+  "entity_id": "script-0000-1c3be3cf79325570",
+  "topic": "How JWST MIRI mid-infrared maps of the Pillars of Creation expose cool dust pillars that Hubble optical frames miss (202609091224 cert run)",
+  "topic_identity": "1c3be3cf793255706ed7eed2",
+  "niche": "space science",
+  "niche_id": 0,
+  "fact_pack_id": "",
+  "fact_pack_hash": "",
+  "prompt_version": "v12",
+  "prompt_template_hash": "e344dfbfe39453248f95c06bace9e3d1",
+  "provider": "llm_router",
+  "model": "purpose-script",
+  "generation_id": "",
+  "plan_path": "E:\\All Updaye Project\\AutoMovie_Pro_SAAS_Final_Update\\AutoMoviePro-Software\\docs\\marathon\\runs\\mr_core_engine_20260909T122455Z_8bce2770\\script\\director_plan.json",
+  "plan_hash": "02bf2bf802646312962aef24921ca21c4e352c858cf66ee2d0fd43230ec4e99d",
+  "saved_at": 1788956705.8255281,
+  "metadata": {
+    "video_type": "short",
+    "max_seconds": 60,
+    "language": "en",
+    "revision_id": "",
+    "legacy_key": "script:60f2b99df42aa2e5df3468a799b2da21"
+  }
+}

@@ -1,0 +1,83 @@
+{
+  "niche_id": 59,
+  "name": "Midlife Transformations",
+  "slug": "midlife-transformations",
+  "style_family": "history",
+  "status": "VERIFIED",
+  "topic_seeds": [
+    "What new evidence reframes the story of Midlife Transformations Stories inside Midlife Transformations",
+    "How Midlife Transformations Stories still shapes public curiosity about Midlife Transformations",
+    "What new evidence reframes the story of Check inside Midlife Transformations",
+    "How Check still shapes public curiosity about Midlife Transformations",
+    "What new evidence reframes the story of Generate inside Midlife Transformations",
+    "How Generate still shapes public curiosity about Midlife Transformations"
+  ],
+  "seo_angles": [
+    "What new evidence reframes the story of Midlife Transformations Stories inside Midlife Transformations",
+    "How Midlife Transformations Stories still shapes public curiosity about Midlife Transformations",
+    "What new evidence reframes the story of Check inside Midlife Transformations",
+    "How Check still shapes public curiosity about Midlife Transformations"
+  ],
+  "forbidden_visuals": [
+    "talking-head lip-sync avatar",
+    "burned-in captions",
+    "watermark",
+    "modern meme text",
+    "modern smartphones",
+    "cars",
+    "LED screens",
+    "sneakers",
+    "contemporary skyline"
+  ],
+  "preferred_subjects": [
+    "Midlife Transformations documentary subject",
+    "period-accurate environment",
+    "evidence object close-up"
+  ],
+  "lighting_default": "warm desert sun / torchlit interiors, high-contrast documentary grade",
+  "face_policy": "period extras OK if consistent; prefer environment/object hero when possible",
+  "dialogue_tone": "human documentary narration; specific nouns; 7–9s beats",
+  "audio_ambience": "subtle documentary bed; do not overpower voice",
+  "research_hints": [
+    "Prefer primary evidence and concrete entities for Midlife Transformations",
+    "Avoid generic niche-label topics; require specific place/person/event/mechanism",
+    "7–9 second spoken beats with story continuity across scenes"
+  ],
+  "topic_prompt_overlay": "NICHE LOCK (Midlife Transformations): only propose topics that fit this niche's video type. Video type: Stories of men and women who quit corporate jobs, moved to new countries, or started radically different lives in their 40s. Follow niche topic strategy: Check lifestyle blogs, career change news, or viral interviews. Generate a topic about a dramatic life change at midlife.",
+  "video_prompt_overlay": "NICHE VISUAL LOCK (Midlife Transformations / history): Generate a 7–9 second dialogue clip based on the topic `{topic}`. Each dialogue must be bold and freeing. For each dialogue, generate: - **Audio Generation Prompt:** Voice — excited, with suitcase zipping or airplane engine. - **Video Generation Prompt:** Detailed visual — an airport or new city street. Character: midlife traveler (casual modern clothes). Lighting: bright daylight. Maintain same character and city vibe. Forbidden: talking-head lip-sync avatar, burned-in captions, watermark, modern meme text, modern smartphones, cars, LED screens, sneakers. Preferred subjects: Midlife Transformations documentary subject, period-accurate environment, evidence object close-up. Lighting: warm desert sun / torchlit interiors, high-contrast documentary grade. Face policy: period extras OK if consistent; prefer environment/object hero when possible. Dialogue tone: human documentary narration; specific nouns; 7–9s beats. Ambience: subtle documentary bed; do not overpower voice.",
+  "i18n": {
+    "en": {
+      "name": "Midlife Transformations",
+      "blurb": "Stories of men and women who quit corporate jobs, moved to new countries, or started radically different lives in their 40s."
+    },
+    "bn": {
+      "name": "মধ্যবয়সের রূপান্তর",
+      "blurb": "ভিডিও টাইপ: Stories of men and women who quit corporate jobs, moved to new countries, or started radically different lives in their 40s."
+    },
+    "hi": {
+      "name": "मध्य जीवन परिवर्तन",
+      "blurb": "वीडियो प्रकार: Stories of men and women who quit corporate jobs, moved to new countries, or started radically different lives in their 40s."
+    },
+    "ur": {
+      "name": "درمیانی عمر کی تبدیلیاں",
+      "blurb": "ویڈیو کی قسم: Stories of men and women who quit corporate jobs, moved to new countries, or started radically different lives in their 40s."
+    },
+    "ta": {
+      "name": "நடுவயது மாற்றங்கள்",
+      "blurb": "வீடியோ வகை: Stories of men and women who quit corporate jobs, moved to new countries, or started radically different lives in their 40s."
+    },
+    "ml": {
+      "name": "മധ്യവയസ്സ് പരിവർത്തനങ്ങൾ",
+      "blurb": "വീഡിയോ തരം: Stories of men and women who quit corporate jobs, moved to new countries, or started radically different lives in their 40s."
+    }
+  },
+  "source": "Nish.Md + deterministic research",
+  "research_notes": [
+    "Marathon researched at 2026-09-10T08:30:15Z",
+    "Video type length=124",
+    "Topic prompt length=121",
+    "Video prompt length=423",
+    "Seeds=6"
+  ],
+  "verified_at": "2026-09-10T08:30:16Z"
+}

@@ -1,0 +1,83 @@
+{
+  "niche_id": 93,
+  "name": "Free Educational Goldmines",
+  "slug": "free-educational-goldmines",
+  "style_family": "history",
+  "status": "VERIFIED",
+  "topic_seeds": [
+    "What new evidence reframes the story of Free Educational Goldmines inside Free Educational Goldmines",
+    "How Free Educational Goldmines still shapes public curiosity about Free Educational Goldmines",
+    "What new evidence reframes the story of Project Gutenberg inside Free Educational Goldmines",
+    "How Project Gutenberg still shapes public curiosity about Free Educational Goldmines",
+    "What new evidence reframes the story of Search inside Free Educational Goldmines",
+    "How Search still shapes public curiosity about Free Educational Goldmines"
+  ],
+  "seo_angles": [
+    "What new evidence reframes the story of Free Educational Goldmines inside Free Educational Goldmines",
+    "How Free Educational Goldmines still shapes public curiosity about Free Educational Goldmines",
+    "What new evidence reframes the story of Project Gutenberg inside Free Educational Goldmines",
+    "How Project Gutenberg still shapes public curiosity about Free Educational Goldmines"
+  ],
+  "forbidden_visuals": [
+    "talking-head lip-sync avatar",
+    "burned-in captions",
+    "watermark",
+    "modern meme text",
+    "modern smartphones",
+    "cars",
+    "LED screens",
+    "sneakers",
+    "contemporary skyline"
+  ],
+  "preferred_subjects": [
+    "Free Educational Goldmines documentary subject",
+    "period-accurate environment",
+    "evidence object close-up"
+  ],
+  "lighting_default": "warm desert sun / torchlit interiors, high-contrast documentary grade",
+  "face_policy": "period extras OK if consistent; prefer environment/object hero when possible",
+  "dialogue_tone": "human documentary narration; specific nouns; 7–9s beats",
+  "audio_ambience": "subtle documentary bed; do not overpower voice",
+  "research_hints": [
+    "Prefer primary evidence and concrete entities for Free Educational Goldmines",
+    "Avoid generic niche-label topics; require specific place/person/event/mechanism",
+    "7–9 second spoken beats with story continuity across scenes"
+  ],
+  "topic_prompt_overlay": "NICHE LOCK (Free Educational Goldmines): only propose topics that fit this niche's video type. Video type: OpenStax, MIT OpenCourseWare, Project Gutenberg — how anyone can get a world-class education for free. Follow niche topic strategy: Search for new free educational platforms, viral learning threads, or student success stories. Generate a topic about a lesser-known free resource.",
+  "video_prompt_overlay": "NICHE VISUAL LOCK (Free Educational Goldmines / history): Generate a 7–9 second dialogue clip based on the topic `{topic}`. Each dialogue must be empowering and clear. For each dialogue, generate: - **Audio Generation Prompt:** Voice — clear, instructive, with page turning. - **Video Generation Prompt:** Detailed visual — a library or laptop screen. No character — focus on books/course. Lighting: bright, inviting. Maintain same vibe. Forbidden: talking-head lip-sync avatar, burned-in captions, watermark, modern meme text, modern smartphones, cars, LED screens, sneakers. Preferred subjects: Free Educational Goldmines documentary subject, period-accurate environment, evidence object close-up. Lighting: warm desert sun / torchlit interiors, high-contrast documentary grade. Face policy: period extras OK if consistent; prefer environment/object hero when possible. Dialogue tone: human documentary narration; specific nouns; 7–9s beats. Ambience: subtle documentary bed; do not overpower voice.",
+  "i18n": {
+    "en": {
+      "name": "Free Educational Goldmines",
+      "blurb": "OpenStax, MIT OpenCourseWare, Project Gutenberg — how anyone can get a world-class education for free."
+    },
+    "bn": {
+      "name": "বিনামূল্যে শিক্ষার খনি",
+      "blurb": "ভিডিও টাইপ: OpenStax, MIT OpenCourseWare, Project Gutenberg — how anyone can get a world-class education for free."
+    },
+    "hi": {
+      "name": "मुफ़्त शिक्षा के खज़ाने",
+      "blurb": "वीडियो प्रकार: OpenStax, MIT OpenCourseWare, Project Gutenberg — how anyone can get a world-class education for free."
+    },
+    "ur": {
+      "name": "مفت تعلیمی خزانے",
+      "blurb": "ویڈیو کی قسم: OpenStax, MIT OpenCourseWare, Project Gutenberg — how anyone can get a world-class education for free."
+    },
+    "ta": {
+      "name": "இலவச கல்வி பொக்கிஷங்கள்",
+      "blurb": "வீடியோ வகை: OpenStax, MIT OpenCourseWare, Project Gutenberg — how anyone can get a world-class education for free."
+    },
+    "ml": {
+      "name": "സൗജന്യ വിദ്യാഭ്യാസ നിധികൾ",
+      "blurb": "വീഡിയോ തരം: OpenStax, MIT OpenCourseWare, Project Gutenberg — how anyone can get a world-class education for free."
+    }
+  },
+  "source": "Nish.Md + deterministic research",
+  "research_notes": [
+    "Marathon researched at 2026-09-10T08:30:21Z",
+    "Video type length=102",
+    "Topic prompt length=147",
+    "Video prompt length=379",
+    "Seeds=6"
+  ],
+  "verified_at": "2026-09-10T08:30:21Z"
+}

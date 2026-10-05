@@ -1,0 +1,69 @@
+[
+  {
+    "ts": "2026-09-10T13:00:52Z",
+    "elapsed_sec": 0.1,
+    "stage": "TOPIC",
+    "job_id": null,
+    "status": "HEALTHY",
+    "note": "CP-00 init complete",
+    "db_languages_unchanged": [
+      "en",
+      "bn"
+    ],
+    "cert_overlay_languages": [
+      "en",
+      "bn",
+      "hi",
+      "ur",
+      "ta",
+      "ml"
+    ],
+    "google_keys_env": 19,
+    "agnes_keys_env": 6
+  },
+  {
+    "ts": "2026-09-10T13:00:53Z",
+    "elapsed_sec": 0.4,
+    "stage": "TOPIC",
+    "job_id": null,
+    "status": "PROGRESSING",
+    "note": "topic=How neutron albedo mapping finds hydrogen under the Moon's dark crater floors",
+    "source": "BUILD-04G_suggest_quality_ranked",
+    "seo": 0.85,
+    "niche_aligned": true
+  },
+  {
+    "ts": "2026-09-10T13:01:00Z",
+    "elapsed_sec": 7.4,
+    "stage": "PLAN",
+    "job_id": null,
+    "status": "PROGRESSING",
+    "note": "research_script_plan_ok",
+    "script_class": "REAL"
+  },
+  {
+    "ts": "2026-09-10T13:35:20Z",
+    "elapsed_sec": 2067.7,
+    "stage": "FAILED",
+    "job_id": 2324,
+    "status": "FAILED",
+    "note": "generate_video:RuntimeError:publishability_blocked:scene_boundary_blocked"
+  },
+  {
+    "ts": "2026-09-10T13:35:20Z",
+    "elapsed_sec": 2067.7,
+    "stage": "OBSERVE",
+    "job_id": 2324,
+    "status": "PROGRESSING",
+    "note": "watchdog stage=OBSERVE",
+    "work_dir": "E:\\All Updaye Project\\AutoMovie_Pro_SAAS_Final_Update\\AutoMoviePro-Software\\data\\customer_generation_work\\c11_marathon_customer\\job2324"
+  },
+  {
+    "ts": "2026-09-10T13:35:20Z",
+    "elapsed_sec": 2067.8,
+    "stage": "FAIL",
+    "job_id": 2324,
+    "status": "COMPLETED",
+    "note": "verdict=FAIL"
+  }
+]

@@ -1,0 +1,85 @@
+{
+  "niche_id": 6,
+  "name": "History’s Unsolved Mysteries",
+  "slug": "history-s-unsolved-mysteries",
+  "style_family": "mystery",
+  "status": "VERIFIED",
+  "topic_seeds": [
+    "How Egyptian Nile flood calendars organized temple labor and harvest taxes",
+    "Why Indus Valley drainage grids still outclass early Mesopotamian streets",
+    "What Roman concrete chemistry explains about marine harbor longevity",
+    "How Greek city-state rivalries funded naval innovation before empire",
+    "Why Mesopotamian clay tablets preserved contracts better than papyrus"
+  ],
+  "seo_angles": [
+    "How Egyptian Nile flood calendars organized temple labor and harvest taxes",
+    "Why Indus Valley drainage grids still outclass early Mesopotamian streets",
+    "What Roman concrete chemistry explains about marine harbor longevity",
+    "How Greek city-state rivalries funded naval innovation before empire"
+  ],
+  "forbidden_visuals": [
+    "talking-head lip-sync avatar",
+    "burned-in captions",
+    "watermark",
+    "modern meme text",
+    "modern smartphones",
+    "cars",
+    "LED screens",
+    "sneakers",
+    "contemporary skyline"
+  ],
+  "preferred_subjects": [
+    "Nile riverbank temple pylons",
+    "Indus brick drainage channel",
+    "Roman concrete harbor pier",
+    "Greek trireme hull detail",
+    "Mesopotamian cuneiform tablet",
+    "desert excavation trench at dawn"
+  ],
+  "lighting_default": "warm desert sun / torchlit interiors, high-contrast documentary grade",
+  "face_policy": "period extras OK if consistent; prefer environment/object hero when possible",
+  "dialogue_tone": "curious documentary narrator; wonder + concrete fact; no campy adventure slang",
+  "audio_ambience": "distant wind over sand/stone, soft temple-room reverb, sparse strings",
+  "research_hints": [
+    "Prefer primary evidence and concrete entities for History’s Unsolved Mysteries",
+    "Avoid generic niche-label topics; require specific place/person/event/mechanism",
+    "7–9 second spoken beats with story continuity across scenes"
+  ],
+  "topic_prompt_overlay": "NICHE LOCK (History’s Unsolved Mysteries): only propose topics that fit this niche's video type. Video type: Archaeological enigmas — who built Stonehenge? What happened to the Roanoke colony? Each episode presents evidence, theories, and leaves the final answer open. Follow niche topic strategy: Scan forums like Reddit's r/UnresolvedMysteries and recent archaeological papers. Generate a topic that has multiple competing theories and active online debate — something that encourages viewer comments.",
+  "video_prompt_overlay": "NICHE VISUAL LOCK (History’s Unsolved Mysteries / mystery): Generate a 7–9 second dialogue clip based on the topic `{topic}`. Each dialogue must be inquisitive and speculative. For each dialogue, generate: - **Audio Generation Prompt:** Voice — thoughtful, with subtle mystery music and wind sounds. - **Video Generation Prompt:** Detailed visual — ancient ruins, foggy landscape, slow camera orbiting a stone structure. No human character — focus on environment. Lighting: muted, overcast, diffuse. Maintain consistent fog density, stone color, and camera orbit speed across clips. Forbidden: talking-head lip-sync avatar, burned-in captions, watermark, modern meme text, modern smartphones, cars, LED screens, sneakers. Preferred subjects: Nile riverbank temple pylons, Indus brick drainage channel, Roman concrete harbor pier, Greek trireme hull detail, Mesopotamian cuneiform tablet, desert excavation trench at dawn. Lighting: warm desert sun / torchlit interiors, high-contrast documentary grade. Face policy: period extras OK if consistent; prefer environment/object hero when possible. Dialogue tone: curious documentary narrator; wonder + concrete fact; no campy adventure slang. Ambience: distant wind over sand/stone, soft temple-room reverb, sparse strings.",
+  "i18n": {
+    "en": {
+      "name": "History’s Unsolved Mysteries",
+      "blurb": "Archaeological enigmas — who built Stonehenge? What happened to the Roanoke colony? Each episode presents evidence, theories, and leaves the final answer open."
+    },
+    "bn": {
+      "name": "ইতিহাসের অমীমাংসিত রহস্য",
+      "blurb": "ভিডিও টাইপ: Archaeological enigmas — who built Stonehenge? What happened to the Roanoke colony? Each episode presents evidence, theories, and leaves the final…"
+    },
+    "hi": {
+      "name": "इतिहास के अनसुलझे रहस्य",
+      "blurb": "वीडियो प्रकार: Archaeological enigmas — who built Stonehenge? What happened to the Roanoke colony? Each episode presents evidence, theories, and leaves the final…"
+    },
+    "ur": {
+      "name": "تاریخ کے حل نہ ہونے والے اسرار",
+      "blurb": "ویڈیو کی قسم: Archaeological enigmas — who built Stonehenge? What happened to the Roanoke colony? Each episode presents evidence, theories, and leaves the final…"
+    },
+    "ta": {
+      "name": "வரலாற்றின் விடுபடாத மர்மங்கள்",
+      "blurb": "வீடியோ வகை: Archaeological enigmas — who built Stonehenge? What happened to the Roanoke colony? Each episode presents evidence, theories, and leaves the final…"
+    },
+    "ml": {
+      "name": "ചരിത്രത്തിലെ അപരിഹൃത രഹസ്യങ്ങൾ",
+      "blurb": "വീഡിയോ തരം: Archaeological enigmas — who built Stonehenge? What happened to the Roanoke colony? Each episode presents evidence, theories, and leaves the final…"
+    }
+  },
+  "source": "Nish.Md + deterministic research",
+  "research_notes": [
+    "Marathon researched at 2026-09-10T08:30:08Z",
+    "Video type length=159",
+    "Topic prompt length=205",
+    "Video prompt length=522",
+    "Seeds=5"
+  ],
+  "verified_at": "2026-09-10T08:30:08Z"
+}

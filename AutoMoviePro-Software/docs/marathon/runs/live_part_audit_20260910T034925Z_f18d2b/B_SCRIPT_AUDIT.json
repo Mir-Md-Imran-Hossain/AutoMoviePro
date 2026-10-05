@@ -1,0 +1,107 @@
+{
+  "part": "B_SCRIPT",
+  "verdict": "FAIL",
+  "topic": "How Artemis crews use neutron spectrometers to map lunar polar water ice in 2026",
+  "checks": [
+    {
+      "id": "research_ok",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "id": "script_generate_ok",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "id": "script_preflight_ok",
+      "pass": true,
+      "detail": {
+        "blocks": [],
+        "warnings": [
+          "dialogue_too_short:1:5.4s",
+          "dialogue_too_short:2:5.0s",
+          "dialogue_too_short:3:4.6s",
+          "dialogue_bridge_weak:3",
+          "dialogue_too_short:4:5.0s",
+          "dialogue_bridge_weak:4",
+          "dialogue_too_short:5:5.8s"
+        ]
+      }
+    },
+    {
+      "id": "script_quality_not_fail",
+      "pass": true,
+      "detail": "UNKNOWN"
+    },
+    {
+      "id": "dialogue_7_9s_majority",
+      "pass": false,
+      "detail": "out_of_window=4/6"
+    },
+    {
+      "id": "dialogue_continuity_majority",
+      "pass": false,
+      "detail": "weak_bridges=2"
+    },
+    {
+      "id": "story_beat_count",
+      "pass": true,
+      "detail": "solid_beats=6"
+    }
+  ],
+  "dialogue_duration_rows": [
+    {
+      "i": 0,
+      "est_sec": 6.67,
+      "words": 16,
+      "in_window": true,
+      "preview": "In 2026, Artemis crews will use neutron spectrometers to map water ice at the lunar poles."
+    },
+    {
+      "i": 1,
+      "est_sec": 5.42,
+      "words": 13,
+      "in_window": false,
+      "preview": "These advanced instruments help scientists detect hydrogen, indicating water ice beneath the surface"
+    },
+    {
+      "i": 2,
+      "est_sec": 5.0,
+      "words": 12,
+      "in_window": false,
+      "preview": "Mapping these resources is crucial for future lunar missions and potential colonization."
+    },
+    {
+      "i": 3,
+      "est_sec": 4.58,
+      "words": 11,
+      "in_window": false,
+      "preview": "Neutron spectrometers operate by emitting neutrons and analyzing the resulting interactions."
+    },
+    {
+      "i": 4,
+      "est_sec": 5.0,
+      "words": 12,
+      "in_window": false,
+      "preview": "This technology could redefine our understanding of lunar geology and resource availability."
+    },
+    {
+      "i": 5,
+      "est_sec": 5.83,
+      "words": 14,
+      "in_window": true,
+      "preview": "As we prepare for Artemis, the quest for lunar water ice is just beginning."
+    }
+  ],
+  "preflight_warnings": [
+    "dialogue_too_short:1:5.4s",
+    "dialogue_too_short:2:5.0s",
+    "dialogue_too_short:3:4.6s",
+    "dialogue_bridge_weak:3",
+    "dialogue_too_short:4:5.0s",
+    "dialogue_bridge_weak:4",
+    "dialogue_too_short:5:5.8s"
+  ],
+  "ts": "2026-09-10T03:49:48Z"
+}

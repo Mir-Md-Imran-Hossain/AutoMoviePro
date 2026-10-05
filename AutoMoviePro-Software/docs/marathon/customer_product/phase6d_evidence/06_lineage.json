@@ -1,0 +1,41 @@
+{
+  "step": "LINEAGE",
+  "same_customer_status": "OK",
+  "lineage": [
+    "retrieval_candidate",
+    "asset_identity",
+    "sampled_frames",
+    "frame_observation",
+    "temporal_evidence",
+    "beat_coverage"
+  ],
+  "provenance": {
+    "source": "local_licensed",
+    "source_url": "",
+    "license_usage": "customer_local_licensed_or_owned",
+    "retrieved_at": 1788945441.7130146,
+    "content_hash": "b790e53eca50ef7aaee0fdbc079a825f9369402ff7c64bc08f30989430d34473"
+  },
+  "cross_customer_status": "FAIL",
+  "cross_customer_reason": "customer_isolation_blocked",
+  "clip": {
+    "backend": {
+      "status": "RETRIEVAL_UNAVAILABLE",
+      "reason": "clip_model_unavailable",
+      "clip_probe": {
+        "available": false,
+        "model_id": "openai/clip-vit-base-patch32",
+        "version": "v1",
+        "kind": "CLIP",
+        "device": "cpu",
+        "impl": "",
+        "error": "clip_unavailable:No module named 'torch'",
+        "gpu_mandatory": false
+      },
+      "observation_status": "OBSERVATION_UNAVAILABLE"
+    },
+    "is_visual_truth": false,
+    "hash_embedder_reported_as_clip": false,
+    "status": "RETRIEVAL_UNAVAILABLE"
+  }
+}

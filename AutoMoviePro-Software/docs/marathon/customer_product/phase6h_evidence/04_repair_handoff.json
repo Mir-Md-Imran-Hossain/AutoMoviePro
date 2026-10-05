@@ -1,0 +1,16 @@
+{
+  "repair_triggered": true,
+  "status": "FAIL",
+  "repair_scope": "AUDIO_ASSET",
+  "whole_video_regeneration": false,
+  "plan": {
+    "repair_scope": "AUDIO_ASSET",
+    "subject_id": "aud-6h",
+    "attempt": 1,
+    "max_attempts": 3,
+    "old_fingerprint": "125dec010cbc337d73d04fb3",
+    "recommended_action": "regenerate_minimal_audio_scope"
+  },
+  "authority": "BUILD-04F plan_repair / plan_audio_design_repair",
+  "second_repair_engine": false
+}

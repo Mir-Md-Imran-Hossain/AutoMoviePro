@@ -1,0 +1,109 @@
+{
+  "work_dir": "E:\\All Updaye Project\\AutoMovie_Pro_SAAS_Final_Update\\AutoMoviePro-Software\\data\\customer_generation_work\\c11_marathon_customer\\job2305",
+  "languages": {},
+  "db_languages_after": [
+    "en",
+    "bn"
+  ],
+  "entitlement_preserved": true,
+  "master_candidates": [],
+  "DURATION_CONTRACT.json": {
+    "schema": "amp_duration_contract_v1",
+    "video_type": "short",
+    "target_seconds": 60,
+    "max_seconds": 120,
+    "authority": "pipeline.duration_budget.resolve_duration_contract"
+  },
+  "SEMANTIC_COVERAGE_GATE.json": {
+    "verdict": "FAIL",
+    "blocking": true,
+    "reason": "semantic_fail",
+    "beats": [
+      {
+        "path": "E:\\All Updaye Project\\AutoMovie_Pro_SAAS_Final_Update\\AutoMoviePro-Software\\data\\customer_generation_work\\c11_marathon_customer\\job2305\\scene_00_SEMANTIC_COVERAGE.json",
+        "beat_id": "vb-seg-beat-1",
+        "dialogue_id": "2d5225ad-dd3f-4725-8a99-f775cdef851e",
+        "overall": "FAIL",
+        "method": "PROVIDER_VIDEO_UPLOAD",
+        "fingerprint": "1e217ecd6b94cbad892fe5ff",
+        "mandatory_frame_evidence": null
+      },
+      {
+        "path": "E:\\All Updaye Project\\AutoMovie_Pro_SAAS_Final_Update\\AutoMoviePro-Software\\data\\customer_generation_work\\c11_marathon_customer\\job2305\\scene_01_SEMANTIC_COVERAGE.json",
+        "beat_id": "vb-seg-beat-2",
+        "dialogue_id": "ca90c3c7-aaca-4a57-893b-1f202cf975c2",
+        "overall": "PASS",
+        "method": "PROVIDER_VIDEO_UPLOAD",
+        "fingerprint": "6d421ad5f08e690064c35e72",
+        "mandatory_frame_evidence": null
+      },
+      {
+        "path": "E:\\All Updaye Project\\AutoMovie_Pro_SAAS_Final_Update\\AutoMoviePro-Software\\data\\customer_generation_work\\c11_marathon_customer\\job2305\\scene_02_SEMANTIC_COVERAGE.json",
+        "beat_id": "vb-seg-beat-3",
+        "dialogue_id": "20bef2fe-5f25-40ab-a6ef-787ed451731d",
+        "overall": "PASS",
+        "method": "PROVIDER_VIDEO_UPLOAD",
+        "fingerprint": "6d8962c72b0fe5130a5ecd4e",
+        "mandatory_frame_evidence": null
+      },
+      {
+        "path": "E:\\All Updaye Project\\AutoMovie_Pro_SAAS_Final_Update\\AutoMoviePro-Software\\data\\customer_generation_work\\c11_marathon_customer\\job2305\\scene_03_SEMANTIC_COVERAGE.json",
+        "beat_id": "vb-seg-beat-4",
+        "dialogue_id": "35c79c4c-abfb-4c71-a0a1-40aed47ccde4",
+        "overall": "FAIL",
+        "method": "PROVIDER_VIDEO_UPLOAD",
+        "fingerprint": "d5f67c8e496e5c54c92127b8",
+        "mandatory_frame_evidence": null
+      },
+      {
+        "path": "E:\\All Updaye Project\\AutoMovie_Pro_SAAS_Final_Update\\AutoMoviePro-Software\\data\\customer_generation_work\\c11_marathon_customer\\job2305\\scene_04_SEMANTIC_COVERAGE.json",
+        "beat_id": "vb-seg-beat-5",
+        "dialogue_id": "ab7add82-ce0a-40c4-a58b-719d0b27a0bb",
+        "overall": "PASS",
+        "method": "PROVIDER_VIDEO_UPLOAD",
+        "fingerprint": "f901c508be244b2fe5963830",
+        "mandatory_frame_evidence": null
+      },
+      {
+        "path": "E:\\All Updaye Project\\AutoMovie_Pro_SAAS_Final_Update\\AutoMoviePro-Software\\data\\customer_generation_work\\c11_marathon_customer\\job2305\\scene_05_SEMANTIC_COVERAGE.json",
+        "beat_id": "vb-seg-beat-6",
+        "dialogue_id": "936d0aa9-5f13-4904-84c8-8da00a31b719",
+        "overall": "PASS",
+        "method": "PROVIDER_VIDEO_UPLOAD",
+        "fingerprint": "2f271a08c4b0ff4cbb66614d",
+        "mandatory_frame_evidence": null
+      },
+      {
+        "path": "E:\\All Updaye Project\\AutoMovie_Pro_SAAS_Final_Update\\AutoMoviePro-Software\\data\\customer_generation_work\\c11_marathon_customer\\job2305\\scene_06_SEMANTIC_COVERAGE.json",
+        "beat_id": "vb-seg-beat-7",
+        "dialogue_id": "92ea055f-3359-4bb4-bdf9-0a679bdb5070",
+        "overall": "FAIL",
+        "method": "PROVIDER_VIDEO_UPLOAD",
+        "fingerprint": "6558399f62a01fd10d755652",
+        "mandatory_frame_evidence": null
+      },
+      {
+        "path": "E:\\All Updaye Project\\AutoMovie_Pro_SAAS_Final_Update\\AutoMoviePro-Software\\data\\customer_generation_work\\c11_marathon_customer\\job2305\\scene_07_SEMANTIC_COVERAGE.json",
+        "beat_id": "vb-seg-beat-8",
+        "dialogue_id": "e1383f35-e3f0-407f-aa81-956ed5b2d09f",
+        "overall": "PASS",
+        "method": "PROVIDER_VIDEO_UPLOAD",
+        "fingerprint": "e016be0ba8ecbd1114605862",
+        "mandatory_frame_evidence": null
+      }
+    ]
+  },
+  "UR_RTL_SHAPING": "UNKNOWN",
+  "ur_rtl_classify": {
+    "rtl": true,
+    "status": "UNKNOWN",
+    "support_level": "PARTIAL_FONT_ONLY",
+    "method": "DETERMINISTIC",
+    "shaping_guaranteed": false,
+    "issues": [
+      "rtl_shaping_not_guaranteed"
+    ],
+    "policy": "UNKNOWN_blocks_publish_when_mandatory",
+    "note": "No FriBidi/HarfBuzz integration — do not claim full RTL"
+  }
+}

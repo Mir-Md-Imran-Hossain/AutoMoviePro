@@ -1,0 +1,83 @@
+{
+  "niche_id": 106,
+  "name": "AI Translators",
+  "slug": "ai-translators",
+  "style_family": "history",
+  "status": "VERIFIED",
+  "topic_seeds": [
+    "What new evidence reframes the story of Translators inside AI Translators",
+    "How Translators still shapes public curiosity about AI Translators",
+    "What new evidence reframes the story of Google Translate inside AI Translators",
+    "How Google Translate still shapes public curiosity about AI Translators",
+    "What new evidence reframes the story of Check inside AI Translators",
+    "How Check still shapes public curiosity about AI Translators"
+  ],
+  "seo_angles": [
+    "What new evidence reframes the story of Translators inside AI Translators",
+    "How Translators still shapes public curiosity about AI Translators",
+    "What new evidence reframes the story of Google Translate inside AI Translators",
+    "How Google Translate still shapes public curiosity about AI Translators"
+  ],
+  "forbidden_visuals": [
+    "talking-head lip-sync avatar",
+    "burned-in captions",
+    "watermark",
+    "modern meme text",
+    "modern smartphones",
+    "cars",
+    "LED screens",
+    "sneakers",
+    "contemporary skyline"
+  ],
+  "preferred_subjects": [
+    "AI Translators documentary subject",
+    "period-accurate environment",
+    "evidence object close-up"
+  ],
+  "lighting_default": "warm desert sun / torchlit interiors, high-contrast documentary grade",
+  "face_policy": "period extras OK if consistent; prefer environment/object hero when possible",
+  "dialogue_tone": "human documentary narration; specific nouns; 7–9s beats",
+  "audio_ambience": "subtle documentary bed; do not overpower voice",
+  "research_hints": [
+    "Prefer primary evidence and concrete entities for AI Translators",
+    "Avoid generic niche-label topics; require specific place/person/event/mechanism",
+    "7–9 second spoken beats with story continuity across scenes"
+  ],
+  "topic_prompt_overlay": "NICHE LOCK (AI Translators): only propose topics that fit this niche's video type. Video type: DeepL and Google Translate compared — which languages, quality differences, and real-world business use. Follow niche topic strategy: Check language tech news, new translation updates, or viral comparison tests. Generate a topic about a translation tool that outperforms others.",
+  "video_prompt_overlay": "NICHE VISUAL LOCK (AI Translators / history): Generate a 7–9 second dialogue clip based on the topic `{topic}`. Each dialogue must be global and practical. For each dialogue, generate: - **Audio Generation Prompt:** Voice — clear, with languages spoken and keyboard clicks. - **Video Generation Prompt:** Detailed visual — split screen showing two translations. No character — screen. Lighting: neutral. Maintain same split screen. Forbidden: talking-head lip-sync avatar, burned-in captions, watermark, modern meme text, modern smartphones, cars, LED screens, sneakers. Preferred subjects: AI Translators documentary subject, period-accurate environment, evidence object close-up. Lighting: warm desert sun / torchlit interiors, high-contrast documentary grade. Face policy: period extras OK if consistent; prefer environment/object hero when possible. Dialogue tone: human documentary narration; specific nouns; 7–9s beats. Ambience: subtle documentary bed; do not overpower voice.",
+  "i18n": {
+    "en": {
+      "name": "AI Translators",
+      "blurb": "DeepL and Google Translate compared — which languages, quality differences, and real-world business use."
+    },
+    "bn": {
+      "name": "এআই অনুবাদক",
+      "blurb": "ভিডিও টাইপ: DeepL and Google Translate compared — which languages, quality differences, and real-world business use."
+    },
+    "hi": {
+      "name": "एआई अनुवादक",
+      "blurb": "वीडियो प्रकार: DeepL and Google Translate compared — which languages, quality differences, and real-world business use."
+    },
+    "ur": {
+      "name": "اے آئی مترجم",
+      "blurb": "ویڈیو کی قسم: DeepL and Google Translate compared — which languages, quality differences, and real-world business use."
+    },
+    "ta": {
+      "name": "AI மொழிபெயர்ப்பாளர்கள்",
+      "blurb": "வீடியோ வகை: DeepL and Google Translate compared — which languages, quality differences, and real-world business use."
+    },
+    "ml": {
+      "name": "AI വിവർത്തകർ",
+      "blurb": "വീഡിയോ തരം: DeepL and Google Translate compared — which languages, quality differences, and real-world business use."
+    }
+  },
+  "source": "Nish.Md + deterministic research",
+  "research_notes": [
+    "Marathon researched at 2026-09-10T08:30:23Z",
+    "Video type length=104",
+    "Topic prompt length=144",
+    "Video prompt length=385",
+    "Seeds=6"
+  ],
+  "verified_at": "2026-09-10T08:30:23Z"
+}

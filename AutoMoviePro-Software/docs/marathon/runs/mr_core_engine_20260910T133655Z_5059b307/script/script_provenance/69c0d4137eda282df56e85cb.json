@@ -1,0 +1,26 @@
+{
+  "job_id": "c06b-script-4-topic-50c211acfbf4d0ea",
+  "fingerprint": "69c0d4137eda282df56e85cbf37a91fde4ed3b0110aea530ae88843b968a3c75",
+  "entity_id": "script-0000-f3d5c11a62a8d3ea",
+  "topic": "How Europa's ice shell could hide a salty ocean — the evidence so far",
+  "topic_identity": "f3d5c11a62a8d3ea4a27c871",
+  "niche": "space science",
+  "niche_id": 0,
+  "fact_pack_id": "",
+  "fact_pack_hash": "",
+  "prompt_version": "v12",
+  "prompt_template_hash": "0eb19ea36a22cf406694f6e7dea91b9f",
+  "provider": "llm_router",
+  "model": "purpose-script",
+  "generation_id": "",
+  "plan_path": "E:\\All Updaye Project\\AutoMovie_Pro_SAAS_Final_Update\\AutoMoviePro-Software\\docs\\marathon\\runs\\mr_core_engine_20260910T133655Z_5059b307\\script\\director_plan.json",
+  "plan_hash": "1dca4ba5cee8870723efba34088578f56a71dbfff7195ca9c055c1e49e6c6a4e",
+  "saved_at": 1789047454.0547755,
+  "metadata": {
+    "video_type": "short",
+    "max_seconds": 60,
+    "language": "en",
+    "revision_id": "",
+    "legacy_key": "script:69c0d4137eda282df56e85cbf37a91fd"
+  }
+}

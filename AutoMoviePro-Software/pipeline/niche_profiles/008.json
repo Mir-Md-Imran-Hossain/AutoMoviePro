@@ -1,0 +1,83 @@
+{
+  "niche_id": 8,
+  "name": "Shipwreck Diaries",
+  "slug": "shipwreck-diaries",
+  "style_family": "mystery",
+  "status": "VERIFIED",
+  "topic_seeds": [
+    "What new evidence reframes the story of Shipwreck Diaries Dramatic inside Shipwreck Diaries",
+    "How Shipwreck Diaries Dramatic still shapes public curiosity about Shipwreck Diaries",
+    "What new evidence reframes the story of Titanic inside Shipwreck Diaries",
+    "How Titanic still shapes public curiosity about Shipwreck Diaries",
+    "What new evidence reframes the story of Lusitania inside Shipwreck Diaries",
+    "How Lusitania still shapes public curiosity about Shipwreck Diaries"
+  ],
+  "seo_angles": [
+    "What new evidence reframes the story of Shipwreck Diaries Dramatic inside Shipwreck Diaries",
+    "How Shipwreck Diaries Dramatic still shapes public curiosity about Shipwreck Diaries",
+    "What new evidence reframes the story of Titanic inside Shipwreck Diaries",
+    "How Titanic still shapes public curiosity about Shipwreck Diaries"
+  ],
+  "forbidden_visuals": [
+    "talking-head lip-sync avatar",
+    "burned-in captions",
+    "watermark",
+    "modern meme text",
+    "modern smartphones",
+    "cars",
+    "LED screens",
+    "sneakers",
+    "contemporary skyline"
+  ],
+  "preferred_subjects": [
+    "Shipwreck Diaries documentary subject",
+    "period-accurate environment",
+    "evidence object close-up"
+  ],
+  "lighting_default": "dappled fog light, cool teal shadows, slow push-ins",
+  "face_policy": "no talking-head lip-sync avatar; cinematic B-roll preferred",
+  "dialogue_tone": "slow, ominous, evidence-first",
+  "audio_ambience": "low drone, subtle reverb, sparse percussion",
+  "research_hints": [
+    "Prefer primary evidence and concrete entities for Shipwreck Diaries",
+    "Avoid generic niche-label topics; require specific place/person/event/mechanism",
+    "7–9 second spoken beats with story continuity across scenes"
+  ],
+  "topic_prompt_overlay": "NICHE LOCK (Shipwreck Diaries): only propose topics that fit this niche's video type. Video type: Dramatic narration of famous maritime disasters — Titanic, Lusitania, Estonia. Covers the final hours, rescue missions, and the haunting discoveries underwater. Follow niche topic strategy: Check maritime history anniversaries, deep-sea expedition news, or new museum exhibits. Generate a topic that focuses on a specific passenger's story or a newly discovered wreck.",
+  "video_prompt_overlay": "NICHE VISUAL LOCK (Shipwreck Diaries / mystery): Generate a 7–9 second dialogue clip based on the topic `{topic}`. Each dialogue must be urgent and emotional. For each dialogue, generate: - **Audio Generation Prompt:** Voice — intense, with creaking wood, water splashes, and distant screams. - **Video Generation Prompt:** Detailed visual — dark night, icy water, a ship tilting. Characters: passengers in period clothing, panicked faces. Lighting: moonlight and emergency red lights. Maintain same ship angle, same clothing style, same cold blue-red lighting across clips. Forbidden: talking-head lip-sync avatar, burned-in captions, watermark, modern meme text, modern smartphones, cars, LED screens, sneakers. Preferred subjects: Shipwreck Diaries documentary subject, period-accurate environment, evidence object close-up. Lighting: dappled fog light, cool teal shadows, slow push-ins. Face policy: no talking-head lip-sync avatar; cinematic B-roll preferred. Dialogue tone: slow, ominous, evidence-first. Ambience: low drone, subtle reverb, sparse percussion.",
+  "i18n": {
+    "en": {
+      "name": "Shipwreck Diaries",
+      "blurb": "Dramatic narration of famous maritime disasters — Titanic, Lusitania, Estonia. Covers the final hours, rescue missions, and the haunting discoveries underwater."
+    },
+    "bn": {
+      "name": "জাহাজডুবির ডায়েরি",
+      "blurb": "ভিডিও টাইপ: Dramatic narration of famous maritime disasters — Titanic, Lusitania, Estonia. Covers the final hours, rescue missions, and the haunting discoveries…"
+    },
+    "hi": {
+      "name": "जहाज़ दुर्घटना डायरी",
+      "blurb": "वीडियो प्रकार: Dramatic narration of famous maritime disasters — Titanic, Lusitania, Estonia. Covers the final hours, rescue missions, and the haunting discoveries…"
+    },
+    "ur": {
+      "name": "جہاز حادثات کی ڈائری",
+      "blurb": "ویڈیو کی قسم: Dramatic narration of famous maritime disasters — Titanic, Lusitania, Estonia. Covers the final hours, rescue missions, and the haunting discoveries…"
+    },
+    "ta": {
+      "name": "கப்பல் விபத்து நாட்குறிப்பு",
+      "blurb": "வீடியோ வகை: Dramatic narration of famous maritime disasters — Titanic, Lusitania, Estonia. Covers the final hours, rescue missions, and the haunting discoveries…"
+    },
+    "ml": {
+      "name": "കപ്പൽ അപകട ഡയറികൾ",
+      "blurb": "വീഡിയോ തരം: Dramatic narration of famous maritime disasters — Titanic, Lusitania, Estonia. Covers the final hours, rescue missions, and the haunting discoveries…"
+    }
+  },
+  "source": "Nish.Md + deterministic research",
+  "research_notes": [
+    "Marathon researched at 2026-09-10T08:30:08Z",
+    "Video type length=160",
+    "Topic prompt length=178",
+    "Video prompt length=525",
+    "Seeds=6"
+  ],
+  "verified_at": "2026-09-10T08:30:09Z"
+}

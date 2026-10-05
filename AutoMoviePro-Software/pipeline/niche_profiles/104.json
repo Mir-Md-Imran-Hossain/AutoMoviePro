@@ -1,0 +1,83 @@
+{
+  "niche_id": 104,
+  "name": "AI Audio & Music",
+  "slug": "ai-audio-music",
+  "style_family": "history",
+  "status": "VERIFIED",
+  "topic_seeds": [
+    "What new evidence reframes the story of Audio inside AI Audio & Music",
+    "How Audio still shapes public curiosity about AI Audio & Music",
+    "What new evidence reframes the story of Music Soundraw inside AI Audio & Music",
+    "How Music Soundraw still shapes public curiosity about AI Audio & Music",
+    "What new evidence reframes the story of Voicemod inside AI Audio & Music",
+    "How Voicemod still shapes public curiosity about AI Audio & Music"
+  ],
+  "seo_angles": [
+    "What new evidence reframes the story of Audio inside AI Audio & Music",
+    "How Audio still shapes public curiosity about AI Audio & Music",
+    "What new evidence reframes the story of Music Soundraw inside AI Audio & Music",
+    "How Music Soundraw still shapes public curiosity about AI Audio & Music"
+  ],
+  "forbidden_visuals": [
+    "talking-head lip-sync avatar",
+    "burned-in captions",
+    "watermark",
+    "modern meme text",
+    "modern smartphones",
+    "cars",
+    "LED screens",
+    "sneakers",
+    "contemporary skyline"
+  ],
+  "preferred_subjects": [
+    "AI Audio & Music documentary subject",
+    "period-accurate environment",
+    "evidence object close-up"
+  ],
+  "lighting_default": "warm desert sun / torchlit interiors, high-contrast documentary grade",
+  "face_policy": "period extras OK if consistent; prefer environment/object hero when possible",
+  "dialogue_tone": "human documentary narration; specific nouns; 7–9s beats",
+  "audio_ambience": "subtle documentary bed; do not overpower voice",
+  "research_hints": [
+    "Prefer primary evidence and concrete entities for AI Audio & Music",
+    "Avoid generic niche-label topics; require specific place/person/event/mechanism",
+    "7–9 second spoken beats with story continuity across scenes"
+  ],
+  "topic_prompt_overlay": "NICHE LOCK (AI Audio & Music): only propose topics that fit this niche's video type. Video type: Soundraw, Voicemod — creating royalty-free music, voiceovers, or sound effects for content creators. Follow niche topic strategy: Check music tech news, new AI composer releases, or viral AI music tracks. Generate a topic about a tool that generates custom audio.",
+  "video_prompt_overlay": "NICHE VISUAL LOCK (AI Audio & Music / history): Generate a 7–9 second dialogue clip based on the topic `{topic}`. Each dialogue must be harmonious and creative. For each dialogue, generate: - **Audio Generation Prompt:** Voice — melodic, with music notes and beat drops. - **Video Generation Prompt:** Detailed visual — a waveform or piano roll screen. No character — screen. Lighting: colourful. Maintain same colourful screen. Forbidden: talking-head lip-sync avatar, burned-in captions, watermark, modern meme text, modern smartphones, cars, LED screens, sneakers. Preferred subjects: AI Audio & Music documentary subject, period-accurate environment, evidence object close-up. Lighting: warm desert sun / torchlit interiors, high-contrast documentary grade. Face policy: period extras OK if consistent; prefer environment/object hero when possible. Dialogue tone: human documentary narration; specific nouns; 7–9s beats. Ambience: subtle documentary bed; do not overpower voice.",
+  "i18n": {
+    "en": {
+      "name": "AI Audio & Music",
+      "blurb": "Soundraw, Voicemod — creating royalty-free music, voiceovers, or sound effects for content creators."
+    },
+    "bn": {
+      "name": "এআই অডিও ও সঙ্গীত",
+      "blurb": "ভিডিও টাইপ: Soundraw, Voicemod — creating royalty-free music, voiceovers, or sound effects for content creators."
+    },
+    "hi": {
+      "name": "एआई ऑडियो और संगीत",
+      "blurb": "वीडियो प्रकार: Soundraw, Voicemod — creating royalty-free music, voiceovers, or sound effects for content creators."
+    },
+    "ur": {
+      "name": "اے آئی آڈیو اور موسیقی",
+      "blurb": "ویڈیو کی قسم: Soundraw, Voicemod — creating royalty-free music, voiceovers, or sound effects for content creators."
+    },
+    "ta": {
+      "name": "AI ஆடியோ & இசை",
+      "blurb": "வீடியோ வகை: Soundraw, Voicemod — creating royalty-free music, voiceovers, or sound effects for content creators."
+    },
+    "ml": {
+      "name": "AI ഓഡിയോ & സംഗീതം",
+      "blurb": "വീഡിയോ തരം: Soundraw, Voicemod — creating royalty-free music, voiceovers, or sound effects for content creators."
+    }
+  },
+  "source": "Nish.Md + deterministic research",
+  "research_notes": [
+    "Marathon researched at 2026-09-10T08:30:23Z",
+    "Video type length=100",
+    "Topic prompt length=133",
+    "Video prompt length=380",
+    "Seeds=6"
+  ],
+  "verified_at": "2026-09-10T08:30:23Z"
+}

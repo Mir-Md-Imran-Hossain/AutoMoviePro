@@ -1,0 +1,83 @@
+{
+  "niche_id": 126,
+  "name": "Weather Myths",
+  "slug": "weather-myths",
+  "style_family": "history",
+  "status": "VERIFIED",
+  "topic_seeds": [
+    "What new evidence reframes the story of Weather Myths Busting inside Weather Myths",
+    "How Weather Myths Busting still shapes public curiosity about Weather Myths",
+    "What new evidence reframes the story of Check inside Weather Myths",
+    "How Check still shapes public curiosity about Weather Myths",
+    "What new evidence reframes the story of Generate inside Weather Myths",
+    "How Generate still shapes public curiosity about Weather Myths"
+  ],
+  "seo_angles": [
+    "What new evidence reframes the story of Weather Myths Busting inside Weather Myths",
+    "How Weather Myths Busting still shapes public curiosity about Weather Myths",
+    "What new evidence reframes the story of Check inside Weather Myths",
+    "How Check still shapes public curiosity about Weather Myths"
+  ],
+  "forbidden_visuals": [
+    "talking-head lip-sync avatar",
+    "burned-in captions",
+    "watermark",
+    "modern meme text",
+    "modern smartphones",
+    "cars",
+    "LED screens",
+    "sneakers",
+    "contemporary skyline"
+  ],
+  "preferred_subjects": [
+    "Weather Myths documentary subject",
+    "period-accurate environment",
+    "evidence object close-up"
+  ],
+  "lighting_default": "warm desert sun / torchlit interiors, high-contrast documentary grade",
+  "face_policy": "period extras OK if consistent; prefer environment/object hero when possible",
+  "dialogue_tone": "human documentary narration; specific nouns; 7–9s beats",
+  "audio_ambience": "subtle documentary bed; do not overpower voice",
+  "research_hints": [
+    "Prefer primary evidence and concrete entities for Weather Myths",
+    "Avoid generic niche-label topics; require specific place/person/event/mechanism",
+    "7–9 second spoken beats with story continuity across scenes"
+  ],
+  "topic_prompt_overlay": "NICHE LOCK (Weather Myths): only propose topics that fit this niche's video type. Video type: Busting beliefs like \"lightning never strikes twice\" — with scientific evidence and fun animations. Follow niche topic strategy: Check weather education sites, viral myth videos, or new climate studies. Generate a topic about a popular weather myth with a surprising truth.",
+  "video_prompt_overlay": "NICHE VISUAL LOCK (Weather Myths / history): Generate a 7–9 second dialogue clip based on the topic `{topic}`. Each dialogue must be fun and informative. For each dialogue, generate: - **Audio Generation Prompt:** Voice — playful, with thunder and laughter. - **Video Generation Prompt:** Detailed visual — infographics or animation. No character — graphic. Lighting: bright, educational. Maintain same graphic style. Forbidden: talking-head lip-sync avatar, burned-in captions, watermark, modern meme text, modern smartphones, cars, LED screens, sneakers. Preferred subjects: Weather Myths documentary subject, period-accurate environment, evidence object close-up. Lighting: warm desert sun / torchlit interiors, high-contrast documentary grade. Face policy: period extras OK if consistent; prefer environment/object hero when possible. Dialogue tone: human documentary narration; specific nouns; 7–9s beats. Ambience: subtle documentary bed; do not overpower voice.",
+  "i18n": {
+    "en": {
+      "name": "Weather Myths",
+      "blurb": "Busting beliefs like \"lightning never strikes twice\" — with scientific evidence and fun animations."
+    },
+    "bn": {
+      "name": "আবহাওয়ার মিথ",
+      "blurb": "ভিডিও টাইপ: Busting beliefs like \"lightning never strikes twice\" — with scientific evidence and fun animations."
+    },
+    "hi": {
+      "name": "मौसम मिथक",
+      "blurb": "वीडियो प्रकार: Busting beliefs like \"lightning never strikes twice\" — with scientific evidence and fun animations."
+    },
+    "ur": {
+      "name": "موسمی افسانے",
+      "blurb": "ویڈیو کی قسم: Busting beliefs like \"lightning never strikes twice\" — with scientific evidence and fun animations."
+    },
+    "ta": {
+      "name": "வானிலை தொன்மங்கள்",
+      "blurb": "வீடியோ வகை: Busting beliefs like \"lightning never strikes twice\" — with scientific evidence and fun animations."
+    },
+    "ml": {
+      "name": "കാലാവസ്ഥാ മിഥ്യകൾ",
+      "blurb": "വീഡിയോ തരം: Busting beliefs like \"lightning never strikes twice\" — with scientific evidence and fun animations."
+    }
+  },
+  "source": "Nish.Md + deterministic research",
+  "research_notes": [
+    "Marathon researched at 2026-09-10T08:30:27Z",
+    "Video type length=99",
+    "Topic prompt length=144",
+    "Video prompt length=372",
+    "Seeds=6"
+  ],
+  "verified_at": "2026-09-10T08:30:27Z"
+}

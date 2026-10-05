@@ -1,0 +1,82 @@
+{
+  "marathon_id": "mr_core_engine_20260910T143246Z_ce906aff",
+  "started_at": "2026-09-10T14:32:46Z",
+  "customer": "c11_marathon_customer",
+  "channel_id": 4,
+  "cert_languages": [
+    "en",
+    "bn",
+    "hi",
+    "ur",
+    "ta",
+    "ml"
+  ],
+  "customer_entitlement_forged": false,
+  "youtube_publish": false,
+  "mock_production": false,
+  "ended_at": "2026-09-10T14:32:52Z",
+  "total_runtime_sec": 6.3,
+  "topic": "Why Venus' thick clouds hide surface heat that melts lead — the physics",
+  "job_id": null,
+  "work_dir": null,
+  "verdict": "FAIL",
+  "checkpoints": [
+    {
+      "ts": "2026-09-10T14:32:46Z",
+      "elapsed_sec": 0.1,
+      "stage": "TOPIC",
+      "job_id": null,
+      "status": "HEALTHY",
+      "note": "CP-00 init complete",
+      "db_languages_unchanged": [
+        "en",
+        "bn"
+      ],
+      "cert_overlay_languages": [
+        "en",
+        "bn",
+        "hi",
+        "ur",
+        "ta",
+        "ml"
+      ],
+      "google_keys_env": 19,
+      "agnes_keys_env": 6
+    },
+    {
+      "ts": "2026-09-10T14:32:46Z",
+      "elapsed_sec": 0.3,
+      "stage": "TOPIC",
+      "job_id": null,
+      "status": "PROGRESSING",
+      "note": "topic=Why Venus' thick clouds hide surface heat that melts lead — the physics",
+      "source": "BUILD-04G_suggest_quality_ranked",
+      "seo": 0.85,
+      "niche_aligned": true
+    },
+    {
+      "ts": "2026-09-10T14:32:52Z",
+      "elapsed_sec": 6.3,
+      "stage": "PLAN",
+      "job_id": null,
+      "status": "FAILED",
+      "note": "plan_not_ready",
+      "blocks": []
+    }
+  ],
+  "interventions": [],
+  "failures": [],
+  "unknowns": [],
+  "db_languages_before_after_preserved": true,
+  "prep": {
+    "ok": false,
+    "stage": "PLAN",
+    "plan": {
+      "ok": false,
+      "error": "script_not_approved",
+      "error_code": "script_not_approved",
+      "status": "BLOCKED"
+    },
+    "blocks": []
+  }
+}

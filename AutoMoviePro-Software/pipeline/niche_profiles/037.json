@@ -1,0 +1,79 @@
+{
+  "niche_id": 37,
+  "name": "Future Tech Predictions",
+  "slug": "future-tech-predictions",
+  "style_family": "science",
+  "status": "VERIFIED",
+  "topic_seeds": [
+    "What new evidence reframes the story of Future Tech Predictions What inside Future Tech Predictions",
+    "How Future Tech Predictions What still shapes public curiosity about Future Tech Predictions",
+    "What new evidence reframes the story of Scan inside Future Tech Predictions",
+    "How Scan still shapes public curiosity about Future Tech Predictions",
+    "What new evidence reframes the story of Wired inside Future Tech Predictions",
+    "How Wired still shapes public curiosity about Future Tech Predictions"
+  ],
+  "seo_angles": [
+    "What new evidence reframes the story of Future Tech Predictions What inside Future Tech Predictions",
+    "How Future Tech Predictions What still shapes public curiosity about Future Tech Predictions",
+    "What new evidence reframes the story of Scan inside Future Tech Predictions",
+    "How Scan still shapes public curiosity about Future Tech Predictions"
+  ],
+  "forbidden_visuals": [
+    "talking-head lip-sync avatar",
+    "burned-in captions",
+    "watermark",
+    "modern meme text",
+    "off-niche stock office B-roll"
+  ],
+  "preferred_subjects": [
+    "lab instrument close-up",
+    "diagrammatic mechanism metaphor",
+    "field measurement site"
+  ],
+  "lighting_default": "teal/cyan lab grade, high contrast, shallow DOF",
+  "face_policy": "no talking-head lip-sync avatar; cinematic B-roll preferred",
+  "dialogue_tone": "clear explainer; one mechanism per beat",
+  "audio_ambience": "clean room tone, soft electronic texture",
+  "research_hints": [
+    "Prefer primary evidence and concrete entities for Future Tech Predictions",
+    "Avoid generic niche-label topics; require specific place/person/event/mechanism",
+    "7–9 second spoken beats with story continuity across scenes"
+  ],
+  "topic_prompt_overlay": "NICHE LOCK (Future Tech Predictions): only propose topics that fit this niche's video type. Video type: What's coming — AI, quantum computing, nano-medicine, fusion energy — and how they will transform jobs, health, and everyday life. Follow niche topic strategy: Scan tech blogs, Wired, MIT Technology Review for the latest breakthrough. Generate a topic that is futuristic yet grounded.",
+  "video_prompt_overlay": "NICHE VISUAL LOCK (Future Tech Predictions / science): Generate a 7–9 second dialogue clip based on the topic `{topic}`. Each dialogue must be visionary and exciting. For each dialogue, generate: - **Audio Generation Prompt:** Voice — enthusiastic, with electronic blips and swooshes. - **Video Generation Prompt:** Detailed visual — futuristic city or lab. Character: futuristic human or robot. Lighting: clean neon or white. Maintain same aesthetic. Forbidden: talking-head lip-sync avatar, burned-in captions, watermark, modern meme text, off-niche stock office B-roll. Preferred subjects: lab instrument close-up, diagrammatic mechanism metaphor, field measurement site. Lighting: teal/cyan lab grade, high contrast, shallow DOF. Face policy: no talking-head lip-sync avatar; cinematic B-roll preferred. Dialogue tone: clear explainer; one mechanism per beat. Ambience: clean room tone, soft electronic texture.",
+  "i18n": {
+    "en": {
+      "name": "Future Tech Predictions",
+      "blurb": "What's coming — AI, quantum computing, nano-medicine, fusion energy — and how they will transform jobs, health, and everyday life."
+    },
+    "bn": {
+      "name": "ভবিষ্যৎ প্রযুক্তির পূর্বাভাস",
+      "blurb": "ভিডিও টাইপ: What's coming — AI, quantum computing, nano-medicine, fusion energy — and how they will transform jobs, health, and everyday life."
+    },
+    "hi": {
+      "name": "भविष्य की टेक भविष्यवाणियाँ",
+      "blurb": "वीडियो प्रकार: What's coming — AI, quantum computing, nano-medicine, fusion energy — and how they will transform jobs, health, and everyday life."
+    },
+    "ur": {
+      "name": "مستقبل کی ٹیک پیش گوئیاں",
+      "blurb": "ویڈیو کی قسم: What's coming — AI, quantum computing, nano-medicine, fusion energy — and how they will transform jobs, health, and everyday life."
+    },
+    "ta": {
+      "name": "எதிர்கால தொழில்நுட்ப முன்னறிவிப்புகள்",
+      "blurb": "வீடியோ வகை: What's coming — AI, quantum computing, nano-medicine, fusion energy — and how they will transform jobs, health, and everyday life."
+    },
+    "ml": {
+      "name": "ഭാവി ടെക് പ്രവചനങ്ങൾ",
+      "blurb": "വീഡിയോ തരം: What's coming — AI, quantum computing, nano-medicine, fusion energy — and how they will transform jobs, health, and everyday life."
+    }
+  },
+  "source": "Nish.Md + deterministic research",
+  "research_notes": [
+    "Marathon researched at 2026-09-10T08:30:12Z",
+    "Video type length=130",
+    "Topic prompt length=124",
+    "Video prompt length=396",
+    "Seeds=6"
+  ],
+  "verified_at": "2026-09-10T08:30:13Z"
+}

@@ -1,0 +1,188 @@
+{
+  "analysis": {
+    "niche_summary": "Custom niche documentary storytelling focusing on space science discoveries, celestial mechanics, and planetary exploration.",
+    "why_this_topic": "Lunar polar permanently shadowed craters holding water ice mapped by Artemis neutron spectrometers is an active, highly relevant 2026 space exploration milestone with massive public curiosity.",
+    "audience": "Space enthusiasts, STEM learners, and documentary lovers aged 18-45.",
+    "tone": "Cinematic, awe-inspiring, grounded in hard science.",
+    "product_category": "science",
+    "style_pack": "science",
+    "nish_id": 0,
+    "avoided_duplicates": [],
+    "master_lang": "en",
+    "master_lang_bcp47": "en-US"
+  },
+  "topic": "How lunar polar permanently shadowed craters preserve water ice that Artemis prospectors can map with neutron spectrometers",
+  "product_key_hint": "lunar polar craters water ice artemis neutron spectrometers",
+  "title": "Mapping Moon Ice: How Artemis Finds Hidden Water in Dark Craters",
+  "description": "Discover how Artemis mission prospectors use advanced neutron spectrometers to map water ice trapped inside permanently shadowed lunar craters. A cinematic look at the future of lunar exploration.\n\n#SpaceScience #Artemis #LunarIce #Astronomy #MoonExploration",
+  "tags": [
+    "space science",
+    "Artemis",
+    "lunar ice",
+    "neutron spectrometer",
+    "moon craters"
+  ],
+  "scenes": [
+    {
+      "element": "intro",
+      "start_hint_s": 0.0,
+      "end_hint_s": 8.0,
+      "narration": "Deep inside the Moon's polar regions, extreme darkness preserves secrets billions of years old.",
+      "keyword_triggers": [
+        "How lunar polar permanently shadowed craters preserve water ice that Artemis prospectors can map with neutron spectrometers",
+        "lunar polar craters",
+        "darkness",
+        "secrets"
+      ],
+      "exact_ai_video_prompt": "VERTICAL 9:16 cinematic slow push-in of dark lunar polar permanently shadowed craters, teal/cyan cinematic lab grade, high contrast, shallow DOF, continuous motion, no burned captions, no watermark, no talking-head REQUIRED on-screen anchors: How lunar polar permanently shadowed craters preserve water ice that Artemis prospectors can map with neutron spectrometers, darkness, inside, Moon, regions, extreme.",
+      "visual_query": "dark lunar polar craters cinematic view",
+      "visual_prompt": "Cinematic push-in of dark lunar craters under teal lighting.",
+      "quality_notes": "Establish tone and moody lighting.",
+      "lang": "en",
+      "lang_bcp47": "en-US"
+    },
+    {
+      "element": "context",
+      "start_hint_s": 8.0,
+      "end_hint_s": 16.0,
+      "narration": "Sunlight never reaches these crater floors, locking temperatures below minus two hundred degrees Celsius.",
+      "keyword_triggers": [
+        "How lunar polar permanently shadowed craters preserve water ice that Artemis prospectors can map with neutron spectrometers",
+        "crater floors",
+        "temperatures",
+        "darkness"
+      ],
+      "exact_ai_video_prompt": "VERTICAL 9:16 macro pans over simulated molecular glass and frozen regolith in extreme cold, teal/cyan cinematic lab grade, high contrast, shallow DOF, continuous motion, no burned captions, no watermark, no talking-head REQUIRED on-screen anchors: How lunar polar permanently shadowed craters preserve water ice that Artemis prospectors can map with neutron spectrometers, crater floors, temperatures, darkness, Sunlight, never, reaches, crater, floors, locking.",
+      "visual_query": "frozen lunar regolith close up",
+      "visual_prompt": "Macro shot of cold frozen regolith particles.",
+      "quality_notes": "Maintain color grade continuity.",
+      "lang": "en",
+      "lang_bcp47": "en-US"
+    },
+    {
+      "element": "discovery",
+      "start_hint_s": 16.0,
+      "end_hint_s": 24.0,
+      "narration": "Here, primitive water ice survives in pristine layers, acting as a chemical time capsule.",
+      "keyword_triggers": [
+        "How lunar polar permanently shadowed craters preserve water ice that Artemis prospectors can map with neutron spectrometers",
+        "water ice",
+        "pristine layers",
+        "time capsule"
+      ],
+      "exact_ai_video_prompt": "VERTICAL 9:16 macro pan revealing trapped water ice crystals inside dark rock crevices, teal/cyan cinematic lab grade, high contrast, shallow DOF, continuous motion, no burned captions, no watermark, no talking-head REQUIRED on-screen anchors: How lunar polar permanently shadowed craters preserve water ice that Artemis prospectors can map with neutron spectrometers, pristine layers, time capsule, primitive, survives, pristine, layers, acting.",
+      "visual_query": "water ice crystals in rock",
+      "visual_prompt": "Close up of ice crystals glowing under cyan light.",
+      "quality_notes": "Highlight ice texture.",
+      "lang": "en",
+      "lang_bcp47": "en-US"
+    },
+    {
+      "element": "technique",
+      "start_hint_s": 24.0,
+      "end_hint_s": 32.0,
+      "narration": "Artemis prospectors cannot dig blindly, so they rely on high-tech neutron spectrometers instead.",
+      "keyword_triggers": [
+        "How lunar polar permanently shadowed craters preserve water ice that Artemis prospectors can map with neutron spectrometers",
+        "Artemis prospectors",
+        "neutron spectrometers",
+        "high-tech"
+      ],
+      "exact_ai_video_prompt": "VERTICAL 9:16 cinematic shot of a high-tech lab glassware setup scanning sensor data, teal/cyan cinematic lab grade, high contrast, shallow DOF, continuous motion, no burned captions, no watermark, no talking-head REQUIRED on-screen anchors: How lunar polar permanently shadowed craters preserve water ice that Artemis prospectors can map with neutron spectrometers, Artemis prospectors, neutron spectrometers, Artemis, prospectors, cannot, blindly, rely.",
+      "visual_query": "neutron spectrometer sensor equipment",
+      "visual_prompt": "Advanced lab sensor equipment glowing with cyan highlights.",
+      "quality_notes": "Transition from raw ice to detection technology.",
+      "lang": "en",
+      "lang_bcp47": "en-US"
+    },
+    {
+      "element": "technique",
+      "start_hint_s": 32.0,
+      "end_hint_s": 40.0,
+      "narration": "These instruments detect escaping neutrons colliding with subsurface hydrogen atoms hidden below.",
+      "keyword_triggers": [
+        "How lunar polar permanently shadowed craters preserve water ice that Artemis prospectors can map with neutron spectrometers",
+        "neutrons",
+        "hydrogen atoms",
+        "subsurface"
+      ],
+      "exact_ai_video_prompt": "VERTICAL 9:16 macro animation of neutron particles interacting with hydrogen molecules, teal/cyan cinematic lab grade, high contrast, shallow DOF, continuous motion, no burned captions, no watermark, no talking-head REQUIRED on-screen anchors: How lunar polar permanently shadowed craters preserve water ice that Artemis prospectors can map with neutron spectrometers, hydrogen atoms, subsurface, instruments, detect, escaping, colliding.",
+      "visual_query": "neutron collision molecular animation",
+      "visual_prompt": "Macro flame and molecular glass metaphor showing particle collision.",
+      "quality_notes": "Visual clarity on scientific mechanism.",
+      "lang": "en",
+      "lang_bcp47": "en-US"
+    },
+    {
+      "element": "legacy",
+      "start_hint_s": 40.0,
+      "end_hint_s": 48.0,
+      "narration": "Mapping these deposits turns shadowy hazards into crucial resources for future human habitats.",
+      "keyword_triggers": [
+        "How lunar polar permanently shadowed craters preserve water ice that Artemis prospectors can map with neutron spectrometers",
+        "deposits",
+        "resources",
+        "human habitats"
+      ],
+      "exact_ai_video_prompt": "VERTICAL 9:16 cinematic slow pan across a futuristic lunar base model glowing in cyan light, teal/cyan cinematic lab grade, high contrast, shallow DOF, continuous motion, no burned captions, no watermark, no talking-head REQUIRED on-screen anchors: How lunar polar permanently shadowed craters preserve water ice that Artemis prospectors can map with neutron spectrometers, deposits, resources, human habitats, Mapping, turns, shadowy, hazards, crucial.",
+      "visual_query": "futuristic lunar habitat base model",
+      "visual_prompt": "Cinematic shot of a lunar outpost under cyan illumination.",
+      "quality_notes": "Connect mapping to human utility.",
+      "lang": "en",
+      "lang_bcp47": "en-US"
+    },
+    {
+      "element": "legacy",
+      "start_hint_s": 48.0,
+      "end_hint_s": 56.0,
+      "narration": "Every ping confirms where the propellant and drinking water for Mars missions will originate.",
+      "keyword_triggers": [
+        "How lunar polar permanently shadowed craters preserve water ice that Artemis prospectors can map with neutron spectrometers",
+        "ping",
+        "propellant",
+        "Mars missions"
+      ],
+      "exact_ai_video_prompt": "VERTICAL 9:16 close-up of digital telemetry data mapping underground ice reserves, teal/cyan cinematic lab grade, high contrast, shallow DOF, continuous motion, no burned captions, no watermark, no talking-head REQUIRED on-screen anchors: How lunar polar permanently shadowed craters preserve water ice that Artemis prospectors can map with neutron spectrometers, propellant, Mars missions, confirms, where, drinking.",
+      "visual_query": "telemetry data mapping ice reserves",
+      "visual_prompt": "Data telemetry interface displaying subterranean ice maps.",
+      "quality_notes": "Build toward the concluding thought.",
+      "lang": "en",
+      "lang_bcp47": "en-US"
+    },
+    {
+      "element": "outro",
+      "start_hint_s": 56.0,
+      "end_hint_s": 60.0,
+      "narration": "The darkest craters on the Moon are finally yielding their brightest discoveries.",
+      "keyword_triggers": [
+        "How lunar polar permanently shadowed craters preserve water ice that Artemis prospectors can map with neutron spectrometers",
+        "craters",
+        "Moon",
+        "discoveries"
+      ],
+      "exact_ai_video_prompt": "VERTICAL 9:16 cinematic pull-back revealing Earth rising over the dark lunar south pole, teal/cyan cinematic lab grade, high contrast, shallow DOF, continuous motion, no burned captions, no watermark, no talking-head REQUIRED on-screen anchors: How lunar polar permanently shadowed craters preserve water ice that Artemis prospectors can map with neutron spectrometers, craters, Moon, discoveries, darkest, finally, yielding, brightest.",
+      "visual_query": "Earth rising over lunar south pole",
+      "visual_prompt": "Cinematic wide shot of Earth over the lunar horizon.",
+      "quality_notes": "Strong emotional closing visual.",
+      "lang": "en",
+      "lang_bcp47": "en-US"
+    }
+  ],
+  "director_provider": "google",
+  "nish_id": 0,
+  "nish_name": "space science",
+  "video_type": "short",
+  "max_seconds": 60,
+  "master_lang": "en",
+  "master_lang_bcp47": "en-US",
+  "sourceLanguage": "en",
+  "master_lang_policy": "english_pivot_then_localize",
+  "narrator_voice": "Charon",
+  "master_lang_repairs": [
+    {
+      "field": "tags",
+      "repaired": true,
+      "via": "drop_non_english_tags"
+    }
+  ]
+}

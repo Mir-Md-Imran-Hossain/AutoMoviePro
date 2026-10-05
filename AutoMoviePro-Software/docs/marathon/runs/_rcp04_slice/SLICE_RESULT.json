@@ -1,0 +1,1102 @@
+{
+  "started_at": "2026-09-08T15:08:54Z",
+  "ok": true,
+  "rcp": "RCP-04",
+  "topic": "How JWST infrared deep fields and nebulae map the deep-sky backdrop Artemis crews will navigate beyond low Earth orbit",
+  "final_status": "PASS_WITH_LIMITATION",
+  "language_config": {
+    "ok": true,
+    "channel_id": 4,
+    "languages": [
+      "en",
+      "bn"
+    ]
+  },
+  "configured_languages": [
+    "en",
+    "bn"
+  ],
+  "topic_set": {
+    "ok": true,
+    "error": null,
+    "error_code": null
+  },
+  "research": {
+    "ok": true,
+    "error": null,
+    "latency_ms": 15.99999999962165,
+    "keys": [
+      "ok",
+      "research",
+      "workflow"
+    ]
+  },
+  "research_result": {
+    "status": "COMPLETED",
+    "capability": {
+      "provider_capability": "LOCAL_FACTPACK",
+      "provider_mode": "LIVE_LOCAL",
+      "external_live_research": "UNAVAILABLE",
+      "is_external_live": false,
+      "external_api": false,
+      "note": "LOCAL_FACTPACK must not be claimed as EXTERNAL_LIVE_RESEARCH"
+    },
+    "claim_count": 2,
+    "summary_preview": "",
+    "live": false
+  },
+  "script_generate": {
+    "ok": true,
+    "mode": "visual_contract_short",
+    "latency_ms": 0.0,
+    "note": "multi-beat JWST documentary contracts for real stills + BN localize"
+  },
+  "script": {
+    "status": "COMPLETED",
+    "beat_count": 6,
+    "hook": "The James Webb Space Telescope floats in deep space, its golden hexagonal mirrors facing the cosmic dark.",
+    "quality": {
+      "status": "PASS",
+      "verdict": "PASS",
+      "score": 0.85
+    }
+  },
+  "approve": {
+    "ok": true,
+    "error": null
+  },
+  "production_plan": {
+    "ok": true,
+    "status": "READY_FOR_GENERATION",
+    "dialogue_count": 6,
+    "visual_beat_count": 6,
+    "lineage": [
+      {
+        "dialogue_id": "beat-1",
+        "beat_id": "vb-seg-beat-1",
+        "scene_id": "scene-00",
+        "subject": "The James Webb Space Telescope"
+      },
+      {
+        "dialogue_id": "beat-2",
+        "beat_id": "vb-seg-beat-2",
+        "scene_id": "scene-01",
+        "subject": "multi-layer sunshield"
+      },
+      {
+        "dialogue_id": "beat-3",
+        "beat_id": "vb-seg-beat-3",
+        "scene_id": "scene-02",
+        "subject": "distant galaxies"
+      },
+      {
+        "dialogue_id": "beat-4",
+        "beat_id": "vb-seg-beat-4",
+        "scene_id": "scene-03",
+        "subject": "cosmic dust"
+      },
+      {
+        "dialogue_id": "beat-5",
+        "beat_id": "vb-seg-beat-5",
+        "scene_id": "scene-04",
+        "subject": "spiral galaxy"
+      },
+      {
+        "dialogue_id": "beat-6",
+        "beat_id": "vb-seg-beat-6",
+        "scene_id": "scene-05",
+        "subject": "deep-sky maps"
+      }
+    ]
+  },
+  "submit": {
+    "ok": true,
+    "job_id": 2293,
+    "error": null,
+    "error_code": null
+  },
+  "job_id": 2293,
+  "work_dir": "data\\customer_generation_work\\c11_marathon_customer\\job2293",
+  "execute": {
+    "ok": false,
+    "error": "localization_packaging_incomplete:bn",
+    "error_code": null,
+    "latency_ms": 471515.99999999965
+  },
+  "generated_assets": [
+    {
+      "path": "_docref_early_0\\_fallback_ref\\ref_silent.mp4",
+      "size": 2100778,
+      "suffix": ".mp4"
+    },
+    {
+      "path": "_docref_early_0\\_fallback_ref\\reference_still.jpg",
+      "size": 802915,
+      "suffix": ".jpg"
+    },
+    {
+      "path": "_docref_early_1\\_fallback_ref\\ref_silent.mp4",
+      "size": 2100778,
+      "suffix": ".mp4"
+    },
+    {
+      "path": "_docref_early_1\\_fallback_ref\\reference_still.jpg",
+      "size": 802915,
+      "suffix": ".jpg"
+    },
+    {
+      "path": "_docref_early_2\\_fallback_ref\\ref_silent.mp4",
+      "size": 1470591,
+      "suffix": ".mp4"
+    },
+    {
+      "path": "_docref_early_2\\_fallback_ref\\reference_still.jpg",
+      "size": 250980,
+      "suffix": ".jpg"
+    },
+    {
+      "path": "_docref_early_3\\_fallback_ref\\ref_silent.mp4",
+      "size": 1471963,
+      "suffix": ".mp4"
+    },
+    {
+      "path": "_docref_early_3\\_fallback_ref\\reference_still.jpg",
+      "size": 291704,
+      "suffix": ".jpg"
+    },
+    {
+      "path": "_docref_early_4\\_fallback_ref\\ref_silent.mp4",
+      "size": 1188954,
+      "suffix": ".mp4"
+    },
+    {
+      "path": "_docref_early_4\\_fallback_ref\\reference_still.jpg",
+      "size": 211018,
+      "suffix": ".jpg"
+    },
+    {
+      "path": "_docref_early_5\\_fallback_ref\\ref_silent.mp4",
+      "size": 792858,
+      "suffix": ".mp4"
+    },
+    {
+      "path": "_docref_early_5\\_fallback_ref\\reference_still.jpg",
+      "size": 128840,
+      "suffix": ".jpg"
+    },
+    {
+      "path": "body_av.mp4",
+      "size": 6939569,
+      "suffix": ".mp4"
+    },
+    {
+      "path": "branded_av.mp4",
+      "size": 6939569,
+      "suffix": ".mp4"
+    },
+    {
+      "path": "english_master.srt",
+      "size": 886,
+      "suffix": ".srt"
+    },
+    {
+      "path": "final_short.mp4",
+      "size": 11735625,
+      "suffix": ".mp4"
+    },
+    {
+      "path": "LOCALIZED\\Bangla\\_loc_noblack_bn_video.mp4",
+      "size": 5903461,
+      "suffix": ".mp4"
+    },
+    {
+      "path": "LOCALIZED\\Bangla\\narration.m4a",
+      "size": 319547,
+      "suffix": ".m4a"
+    },
+    {
+      "path": "LOCALIZED\\Bangla\\narration.mp3",
+      "size": 137088,
+      "suffix": ".mp3"
+    },
+    {
+      "path": "LOCALIZED\\Bangla\\subtitles.srt",
+      "size": 587,
+      "suffix": ".srt"
+    },
+    {
+      "path": "LOCALIZED\\English\\narration.m4a",
+      "size": 469173,
+      "suffix": ".m4a"
+    },
+    {
+      "path": "LOCALIZED\\English\\narration.mp3",
+      "size": 219312,
+      "suffix": ".mp3"
+    },
+    {
+      "path": "LOCALIZED\\English\\subtitles.srt",
+      "size": 886,
+      "suffix": ".srt"
+    },
+    {
+      "path": "LOCALIZED\\English\\video.mp4",
+      "size": 7144655,
+      "suffix": ".mp4"
+    },
+    {
+      "path": "LOCALIZED\\English\\video_tailsetpts_a.m4a",
+      "size": 810667,
+      "suffix": ".m4a"
+    },
+    {
+      "path": "LOCALIZED\\English\\video_tailsetpts_audio_apad.m4a",
+      "size": 808219,
+      "suffix": ".m4a"
+    },
+    {
+      "path": "LOCALIZED\\English\\video_tailsetpts_picture_setpts.mp4",
+      "size": 6593439,
+      "suffix": ".mp4"
+    },
+    {
+      "path": "narration_00.m4a",
+      "size": 87380,
+      "suffix": ".m4a"
+    },
+    {
+      "path": "narration_00.mp3",
+      "size": 40608,
+      "suffix": ".mp3"
+    },
+    {
+      "path": "narration_01.m4a",
+      "size": 79743,
+      "suffix": ".m4a"
+    },
+    {
+      "path": "narration_01.mp3",
+      "size": 36432,
+      "suffix": ".mp3"
+    },
+    {
+      "path": "narration_02.m4a",
+      "size": 81823,
+      "suffix": ".m4a"
+    },
+    {
+      "path": "narration_02.mp3",
+      "size": 39168,
+      "suffix": ".mp3"
+    },
+    {
+      "path": "narration_03.m4a",
+      "size": 81704,
+      "suffix": ".m4a"
+    },
+    {
+      "path": "narration_03.mp3",
+      "size": 38736,
+      "suffix": ".mp3"
+    },
+    {
+      "path": "narration_04.m4a",
+      "size": 81279,
+      "suffix": ".m4a"
+    },
+    {
+      "path": "narration_04.mp3",
+      "size": 37440,
+      "suffix": ".mp3"
+    },
+    {
+      "path": "narration_05.m4a",
+      "size": 62859,
+      "suffix": ".m4a"
+    },
+    {
+      "path": "narration_05.mp3",
+      "size": 30384,
+      "suffix": ".mp3"
+    },
+    {
+      "path": "scene_00_beat.mp4",
+      "size": 2151871,
+      "suffix": ".mp4"
+    },
+    {
+      "path": "scene_00_beat_docref.mp4",
+      "size": 2151871,
+      "suffix": ".mp4"
+    },
+    {
+      "path": "scene_01_beat.mp4",
+      "size": 2011255,
+      "suffix": ".mp4"
+    },
+    {
+      "path": "scene_01_beat_docref.mp4",
+      "size": 2011255,
+      "suffix": ".mp4"
+    },
+    {
+      "path": "scene_02_beat.mp4",
+      "size": 1480231,
+      "suffix": ".mp4"
+    },
+    {
+      "path": "scene_02_beat_docref.mp4",
+      "size": 1480231,
+      "suffix": ".mp4"
+    },
+    {
+      "path": "scene_03_beat.mp4",
+      "size": 1496909,
+      "suffix": ".mp4"
+    },
+    {
+      "path": "scene_03_beat_docref.mp4",
+      "size": 1496909,
+      "suffix": ".mp4"
+    },
+    {
+      "path": "scene_04_beat.mp4",
+      "size": 1172974,
+      "suffix": ".mp4"
+    },
+    {
+      "path": "scene_04_beat_docref.mp4",
+      "size": 1172974,
+      "suffix": ".mp4"
+    },
+    {
+      "path": "scene_05_beat.mp4",
+      "size": 650221,
+      "suffix": ".mp4"
+    },
+    {
+      "path": "scene_05_beat_docref.mp4",
+      "size": 650221,
+      "suffix": ".mp4"
+    },
+    {
+      "path": "SCENE_LOCAL\\00\\bn\\narration.m4a",
+      "size": 161928,
+      "suffix": ".m4a"
+    },
+    {
+      "path": "SCENE_LOCAL\\00\\bn\\video.mp4",
+      "size": 1625591,
+      "suffix": ".mp4"
+    },
+    {
+      "path": "SCENE_LOCAL\\00\\bn\\video_tailsetpts_a.m4a",
+      "size": 196989,
+      "suffix": ".m4a"
+    },
+    {
+      "path": "SCENE_LOCAL\\00\\bn\\video_tailsetpts_audio_apad.m4a",
+      "size": 196585,
+      "suffix": ".m4a"
+    },
+    {
+      "path": "SCENE_LOCAL\\00\\bn\\video_tailsetpts_picture_setpts.mp4",
+      "size": 1522137,
+      "suffix": ".mp4"
+    },
+    {
+      "path": "SCENE_LOCAL\\01\\bn\\narration.m4a",
+      "size": 116937,
+      "suffix": ".m4a"
+    },
+    {
+      "path": "SCENE_LOCAL\\01\\bn\\video.mp4",
+      "size": 1474826,
+      "suffix": ".mp4"
+    },
+    {
+      "path": "SCENE_LOCAL\\01\\bn\\video_tailsetpts_a.m4a",
+      "size": 177602,
+      "suffix": ".m4a"
+    },
+    {
+      "path": "SCENE_LOCAL\\01\\bn\\video_tailsetpts_audio_apad.m4a",
+      "size": 177382,
+      "suffix": ".m4a"
+    },
+    {
+      "path": "SCENE_LOCAL\\01\\bn\\video_tailsetpts_picture_setpts.mp4",
+      "size": 1483255,
+      "suffix": ".mp4"
+    },
+    {
+      "path": "SCENE_LOCAL\\02\\bn\\narration.m4a",
+      "size": 158833,
+      "suffix": ".m4a"
+    },
+    {
+      "path": "SCENE_LOCAL\\02\\bn\\video.mp4",
+      "size": 1229467,
+      "suffix": ".mp4"
+    },
+    {
+      "path": "SCENE_LOCAL\\02\\bn\\video_tailsetpts_a.m4a",
+      "size": 189322,
+      "suffix": ".m4a"
+    },
+    {
+      "path": "SCENE_LOCAL\\02\\bn\\video_tailsetpts_audio_apad.m4a",
+      "size": 189397,
+      "suffix": ".m4a"
+    },
+    {
+      "path": "SCENE_LOCAL\\02\\bn\\video_tailsetpts_picture_setpts.mp4",
+      "size": 1017077,
+      "suffix": ".mp4"
+    },
+    {
+      "path": "SCENE_LOCAL\\03\\bn\\narration.m4a",
+      "size": 164291,
+      "suffix": ".m4a"
+    },
+    {
+      "path": "SCENE_LOCAL\\03\\bn\\video.mp4",
+      "size": 1276778,
+      "suffix": ".mp4"
+    },
+    {
+      "path": "SCENE_LOCAL\\03\\bn\\video_tailsetpts_a.m4a",
+      "size": 188614,
+      "suffix": ".m4a"
+    },
+    {
+      "path": "SCENE_LOCAL\\03\\bn\\video_tailsetpts_audio_apad.m4a",
+      "size": 188361,
+      "suffix": ".m4a"
+    },
+    {
+      "path": "SCENE_LOCAL\\03\\bn\\video_tailsetpts_picture_setpts.mp4",
+      "size": 1153586,
+      "suffix": ".mp4"
+    },
+    {
+      "path": "SCENE_LOCAL\\04\\bn\\narration.m4a",
+      "size": 141097,
+      "suffix": ".m4a"
+    },
+    {
+      "path": "SCENE_LOCAL\\04\\bn\\video.mp4",
+      "size": 1040536,
+      "suffix": ".mp4"
+    },
+    {
+      "path": "SCENE_LOCAL\\04\\bn\\video_tailsetpts_a.m4a",
+      "size": 182427,
+      "suffix": ".m4a"
+    },
+    {
+      "path": "SCENE_LOCAL\\04\\bn\\video_tailsetpts_audio_apad.m4a",
+      "size": 182212,
+      "suffix": ".m4a"
+    },
+    {
+      "path": "SCENE_LOCAL\\04\\bn\\video_tailsetpts_picture_setpts.mp4",
+      "size": 824661,
+      "suffix": ".mp4"
+    },
+    {
+      "path": "SCENE_LOCAL\\05\\bn\\_loc_noblack_bn_video.mp4",
+      "size": 650221,
+      "suffix": ".mp4"
+    },
+    {
+      "path": "SCENE_LOCAL\\05\\bn\\narration.m4a",
+      "size": 156775,
+      "suffix": ".m4a"
+    },
+    {
+      "path": "SCENE_LOCAL\\05\\bn\\video.mp4",
+      "size": 668751,
+      "suffix": ".mp4"
+    },
+    {
+      "path": "SCENE_LOCAL\\05\\bn\\video_tailsetpts_a.m4a",
+      "size": 150313,
+      "suffix": ".m4a"
+    },
+    {
+      "path": "SCENE_LOCAL\\05\\bn\\video_tailsetpts_audio_apad.m4a",
+      "size": 151206,
+      "suffix": ".m4a"
+    },
+    {
+      "path": "SCENE_LOCAL\\05\\bn\\video_tailsetpts_picture_setpts.mp4",
+      "size": 502747,
+      "suffix": ".mp4"
+    },
+    {
+      "path": "thumbnail.jpg",
+      "size": 46967,
+      "suffix": ".jpg"
+    },
+    {
+      "path": "UPLOAD_PACKAGE\\short_space_science_20260908_211456\\thumbnail.jpg",
+      "size": 69971,
+      "suffix": ".jpg"
+    },
+    {
+      "path": "UPLOAD_PACKAGE\\short_space_science_20260908_211456\\video.mp4",
+      "size": 11735625,
+      "suffix": ".mp4"
+    }
+  ],
+  "asset_count": 85,
+  "semantic_observations": [
+    {
+      "file": "scene_00_SEMANTIC_COVERAGE.json",
+      "beat_id": "vb-seg-beat-1",
+      "dialogue_id": "e6f8a4e5-1296-450a-8526-237ce43ffab2",
+      "required_subject": "The James Webb Space Telescope",
+      "overall": "UNKNOWN",
+      "method": "UNAVAILABLE"
+    },
+    {
+      "file": "scene_01_SEMANTIC_COVERAGE.json",
+      "beat_id": "vb-seg-beat-2",
+      "dialogue_id": "66dca43b-ce53-477f-abec-e2bbe11262d9",
+      "required_subject": "multi-layer sunshield",
+      "overall": "UNKNOWN",
+      "method": "UNAVAILABLE"
+    },
+    {
+      "file": "scene_02_SEMANTIC_COVERAGE.json",
+      "beat_id": "vb-seg-beat-3",
+      "dialogue_id": "ceca0f00-301d-4946-8ffb-de4978da71d1",
+      "required_subject": "distant galaxies",
+      "overall": "UNKNOWN",
+      "method": "UNAVAILABLE"
+    },
+    {
+      "file": "scene_03_SEMANTIC_COVERAGE.json",
+      "beat_id": "vb-seg-beat-4",
+      "dialogue_id": "46923c9e-1018-40de-98f3-6e8bcd4d5b8f",
+      "required_subject": "glowing nebula",
+      "overall": "UNKNOWN",
+      "method": "UNAVAILABLE"
+    },
+    {
+      "file": "scene_04_SEMANTIC_COVERAGE.json",
+      "beat_id": "vb-seg-beat-5",
+      "dialogue_id": "f9dea583-2ca6-45ac-8a47-2eb638356e7c",
+      "required_subject": "spiral galaxy",
+      "overall": "UNKNOWN",
+      "method": "UNAVAILABLE"
+    },
+    {
+      "file": "scene_05_SEMANTIC_COVERAGE.json",
+      "beat_id": "vb-seg-beat-6",
+      "dialogue_id": "07f9aeb4-7085-4c08-ac4c-5192461889be",
+      "required_subject": "deep-sky maps",
+      "overall": "UNKNOWN",
+      "method": "UNAVAILABLE"
+    }
+  ],
+  "gates": {
+    "ARTIFACT_GATE.json": {
+      "status": "PASS",
+      "issues": null,
+      "ok": null
+    },
+    "AUDIO_DESIGN_GATE.json": {
+      "status": "PASS",
+      "issues": [],
+      "ok": null
+    },
+    "CREATIVE_QUALITY_GATE.json": {
+      "status": null,
+      "issues": [],
+      "ok": true
+    },
+    "PUBLISHABILITY_GATE.json": {
+      "status": "PUBLISHABLE",
+      "issues": null,
+      "ok": null
+    },
+    "RENDERING_INTEGRITY_GATE.json": {
+      "status": "PASS",
+      "issues": [],
+      "ok": null
+    },
+    "SEMANTIC_COVERAGE_GATE.json": {
+      "status": "UNKNOWN",
+      "issues": null,
+      "ok": null
+    },
+    "LOCALIZATION_GATE.json": {
+      "status": "PASS",
+      "issues": [],
+      "ok": null
+    },
+    "LOCALIZE_RESULT.json": {
+      "status": null,
+      "issues": null,
+      "ok": null
+    }
+  },
+  "generation_cache": {
+    "entries": {
+      "audio:bc7a99504d6905d7bcadb3466aba6405": {
+        "status": "ready",
+        "artifact": "E:\\All Updaye Project\\AutoMovie_Pro_SAAS_Final_Update\\AutoMoviePro-Software\\data\\customer_generation_work\\c11_marathon_customer\\job2293\\narration_00.m4a",
+        "meta": {}
+      },
+      "audio:0a4a2f2bd95f2237e1e376e6714a2b66": {
+        "status": "ready",
+        "artifact": "E:\\All Updaye Project\\AutoMovie_Pro_SAAS_Final_Update\\AutoMoviePro-Software\\data\\customer_generation_work\\c11_marathon_customer\\job2293\\SCENE_LOCAL\\00\\bn\\narration.m4a",
+        "meta": {}
+      },
+      "subtitle:2ae821882fab97d621862ab128ca9999": {
+        "status": "ready",
+        "artifact": "E:\\All Updaye Project\\AutoMovie_Pro_SAAS_Final_Update\\AutoMoviePro-Software\\data\\customer_generation_work\\c11_marathon_customer\\job2293\\SCENE_LOCAL\\00\\bn\\subtitles.srt",
+        "meta": {}
+      },
+      "subtitle:1a2d3b7a447b4b9e6b706ae76b9b1bf9": {
+        "status": "ready",
+        "artifact": "E:\\All Updaye Project\\AutoMovie_Pro_SAAS_Final_Update\\AutoMoviePro-Software\\data\\customer_generation_work\\c11_marathon_customer\\job2293\\SCENE_LOCAL\\00\\bn\\video.srt",
+        "meta": {}
+      },
+      "audio:4c53e74d1fe76c5c4b6486fb9363c2a7": {
+        "status": "ready",
+        "artifact": "E:\\All Updaye Project\\AutoMovie_Pro_SAAS_Final_Update\\AutoMoviePro-Software\\data\\customer_generation_work\\c11_marathon_customer\\job2293\\narration_01.m4a",
+        "meta": {}
+      },
+      "audio:78943b62e63cd0bf498f98facbbb0c07": {
+        "status": "ready",
+        "artifact": "E:\\All Updaye Project\\AutoMovie_Pro_SAAS_Final_Update\\AutoMoviePro-Software\\data\\customer_generation_work\\c11_marathon_customer\\job2293\\SCENE_LOCAL\\01\\bn\\narration.m4a",
+        "meta": {}
+      },
+      "subtitle:1bfac467fdb636a87f16165f4464481f": {
+        "status": "ready",
+        "artifact": "E:\\All Updaye Project\\AutoMovie_Pro_SAAS_Final_Update\\AutoMoviePro-Software\\data\\customer_generation_work\\c11_marathon_customer\\job2293\\SCENE_LOCAL\\01\\bn\\subtitles.srt",
+        "meta": {}
+      },
+      "subtitle:63a299d63f21bbf3fc69ba5a4571d433": {
+        "status": "ready",
+        "artifact": "E:\\All Updaye Project\\AutoMovie_Pro_SAAS_Final_Update\\AutoMoviePro-Software\\data\\customer_generation_work\\c11_marathon_customer\\job2293\\SCENE_LOCAL\\01\\bn\\video.srt",
+        "meta": {}
+      },
+      "audio:34c7ea2f344889642a3bd7e08a03dc71": {
+        "status": "ready",
+        "artifact": "E:\\All Updaye Project\\AutoMovie_Pro_SAAS_Final_Update\\AutoMoviePro-Software\\data\\customer_generation_work\\c11_marathon_customer\\job2293\\narration_02.m4a",
+        "meta": {}
+      },
+      "audio:6729d13c70e05c147367c3f691d0c0b4": {
+        "status": "ready",
+        "artifact": "E:\\All Updaye Project\\AutoMovie_Pro_SAAS_Final_Update\\AutoMoviePro-Software\\data\\customer_generation_work\\c11_marathon_customer\\job2293\\SCENE_LOCAL\\02\\bn\\narration.m4a",
+        "meta": {}
+      },
+      "subtitle:3c8a334c56e3c548f05927a56f5e7a0e": {
+        "status": "ready",
+        "artifact": "E:\\All Updaye Project\\AutoMovie_Pro_SAAS_Final_Update\\AutoMoviePro-Software\\data\\customer_generation_work\\c11_marathon_customer\\job2293\\SCENE_LOCAL\\02\\bn\\subtitles.srt",
+        "meta": {}
+      },
+      "subtitle:4e48cf043a75ee8cd93c9077f3cdf196": {
+        "status": "ready",
+        "artifact": "E:\\All Updaye Project\\AutoMovie_Pro_SAAS_Final_Update\\AutoMoviePro-Software\\data\\customer_generation_work\\c11_marathon_customer\\job2293\\SCENE_LOCAL\\02\\bn\\video.srt",
+        "meta": {}
+      },
+      "audio:f1772dbcb37d593adc38dcf79ecf25af": {
+        "status": "ready",
+        "artifact": "E:\\All Updaye Project\\AutoMovie_Pro_SAAS_Final_Update\\AutoMoviePro-Software\\data\\customer_generation_work\\c11_marathon_customer\\job2293\\narration_03.m4a",
+        "meta": {}
+      },
+      "audio:1defbf4ff8efe49e9e4adcc149bdac7f": {
+        "status": "ready",
+        "artifact": "E:\\All Updaye Project\\AutoMovie_Pro_SAAS_Final_Update\\AutoMoviePro-Software\\data\\customer_generation_work\\c11_marathon_customer\\job2293\\SCENE_LOCAL\\03\\bn\\narration.m4a",
+        "meta": {}
+      },
+      "subtitle:51ee9a45dae04e2525c5727bc639df61": {
+        "status": "ready",
+        "artifact": "E:\\All Updaye Project\\AutoMovie_Pro_SAAS_Final_Update\\AutoMoviePro-Software\\data\\customer_generation_work\\c11_marathon_customer\\job2293\\SCENE_LOCAL\\03\\bn\\subtitles.srt",
+        "meta": {}
+      },
+      "subtitle:65cc2a1883ade365b020ea59ddf55c9d": {
+        "status": "ready",
+        "artifact": "E:\\All Updaye Project\\AutoMovie_Pro_SAAS_Final_Update\\AutoMoviePro-Software\\data\\customer_generation_work\\c11_marathon_customer\\job2293\\SCENE_LOCAL\\03\\bn\\video.srt",
+        "meta": {}
+      },
+      "audio:d5c72fd6037adde243c5338bc0a32cc3": {
+        "status": "ready",
+        "artifact": "E:\\All Updaye Project\\AutoMovie_Pro_SAAS_Final_Update\\AutoMoviePro-Software\\data\\customer_generation_work\\c11_marathon_customer\\job2293\\narration_04.m4a",
+        "meta": {}
+      },
+      "audio:c4f50a08b39e75a5ffd2484cad7a3d3c": {
+        "status": "ready",
+        "artifact": "E:\\All Updaye Project\\AutoMovie_Pro_SAAS_Final_Update\\AutoMoviePro-Software\\data\\customer_generation_work\\c11_marathon_customer\\job2293\\SCENE_LOCAL\\04\\bn\\narration.m4a",
+        "meta": {}
+      },
+      "subtitle:59e9b5a3229f7408624d8b96f36c7cc4": {
+        "status": "ready",
+        "artifact": "E:\\All Updaye Project\\AutoMovie_Pro_SAAS_Final_Update\\AutoMoviePro-Software\\data\\customer_generation_work\\c11_marathon_customer\\job2293\\SCENE_LOCAL\\04\\bn\\subtitles.srt",
+        "meta": {}
+      },
+      "subtitle:874c8f8aca7586db0c2d693dbdf4eac9": {
+        "status": "ready",
+        "artifact": "E:\\All Updaye Project\\AutoMovie_Pro_SAAS_Final_Update\\AutoMoviePro-Software\\data\\customer_generation_work\\c11_marathon_customer\\job2293\\SCENE_LOCAL\\04\\bn\\video.srt",
+        "meta": {}
+      },
+      "audio:3934b0b78309319c4f0ca89818bdb804": {
+        "status": "ready",
+        "artifact": "E:\\All Updaye Project\\AutoMovie_Pro_SAAS_Final_Update\\AutoMoviePro-Software\\data\\customer_generation_work\\c11_marathon_customer\\job2293\\narration_05.m4a",
+        "meta": {}
+      },
+      "audio:4465662a0c8df41e95457e87d32dadd5": {
+        "status": "ready",
+        "artifact": "E:\\All Updaye Project\\AutoMovie_Pro_SAAS_Final_Update\\AutoMoviePro-Software\\data\\customer_generation_work\\c11_marathon_customer\\job2293\\SCENE_LOCAL\\05\\bn\\narration.m4a",
+        "meta": {}
+      },
+      "subtitle:47f920dba3531b0d70730e5e6f0a1a87": {
+        "status": "ready",
+        "artifact": "E:\\All Updaye Project\\AutoMovie_Pro_SAAS_Final_Update\\AutoMoviePro-Software\\data\\customer_generation_work\\c11_marathon_customer\\job2293\\SCENE_LOCAL\\05\\bn\\subtitles.srt",
+        "meta": {}
+      },
+      "subtitle:d4c39234589a35c85078402616be4ce2": {
+        "status": "ready",
+        "artifact": "E:\\All Updaye Project\\AutoMovie_Pro_SAAS_Final_Update\\AutoMoviePro-Software\\data\\customer_generation_work\\c11_marathon_customer\\job2293\\SCENE_LOCAL\\05\\bn\\video.srt",
+        "meta": {}
+      },
+      "render:abe9dae96662ef94b6fc4851299f616e": {
+        "status": "ready",
+        "artifact": "E:\\All Updaye Project\\AutoMovie_Pro_SAAS_Final_Update\\AutoMoviePro-Software\\data\\customer_generation_work\\c11_marathon_customer\\job2293\\final_short.mp4",
+        "meta": {}
+      },
+      "subtitle:9664e3d322514b16af40888c31c8a27a": {
+        "status": "ready",
+        "artifact": "E:\\All Updaye Project\\AutoMovie_Pro_SAAS_Final_Update\\AutoMoviePro-Software\\data\\customer_generation_work\\c11_marathon_customer\\job2293\\english_master.srt",
+        "meta": {}
+      },
+      "audio:106dfd82b1df543bd8167f628f2f9fa1": {
+        "status": "ready",
+        "artifact": "E:\\All Updaye Project\\AutoMovie_Pro_SAAS_Final_Update\\AutoMoviePro-Software\\data\\customer_generation_work\\c11_marathon_customer\\job2293\\LOCALIZED\\English\\narration.m4a",
+        "meta": {}
+      },
+      "subtitle:9397706999de18c9f6f1ae281af9903b": {
+        "status": "ready",
+        "artifact": "E:\\All Updaye Project\\AutoMovie_Pro_SAAS_Final_Update\\AutoMoviePro-Software\\data\\customer_generation_work\\c11_marathon_customer\\job2293\\LOCALIZED\\English\\subtitles.srt",
+        "meta": {}
+      },
+      "audio:c0d1cb627dd01bd2cb2df0649b754084": {
+        "status": "ready",
+        "artifact": "E:\\All Updaye Project\\AutoMovie_Pro_SAAS_Final_Update\\AutoMoviePro-Software\\data\\customer_generation_work\\c11_marathon_customer\\job2293\\LOCALIZED\\Bangla\\narration.m4a",
+        "meta": {}
+      },
+      "subtitle:6de340e5408e805a5d54d1670204973e": {
+        "status": "ready",
+        "artifact": "E:\\All Updaye Project\\AutoMovie_Pro_SAAS_Final_Update\\AutoMoviePro-Software\\data\\customer_generation_work\\c11_marathon_customer\\job2293\\LOCALIZED\\Bangla\\subtitles.srt",
+        "meta": {}
+      }
+    },
+    "create_count": 30,
+    "reuse_count": 0
+  },
+  "final_en": {
+    "path": "data\\customer_generation_work\\c11_marathon_customer\\job2293\\final_short.mp4",
+    "duration_sec": 37.268005,
+    "width": 1080,
+    "height": 1920,
+    "fps": 25.0,
+    "has_video": true,
+    "has_audio": true,
+    "video_codec": "h264",
+    "audio_codec": "aac"
+  },
+  "language_outputs": {
+    "en": {
+      "video": "data\\customer_generation_work\\c11_marathon_customer\\job2293\\LOCALIZED\\English\\video.mp4",
+      "duration_sec": 37.268005,
+      "narration_preview": "The James Webb Space Telescope floats in deep space, its golden hexagonal mirrors facing the cosmic dark. The multi-layer sunshield sits beneath the primary mir",
+      "srt_exists": true,
+      "audio_duration_sec": 36.552,
+      "english_as_localized": null,
+      "ok": true
+    },
+    "bn": {
+      "video": "data\\customer_generation_work\\c11_marathon_customer\\job2293\\LOCALIZED\\Bangla\\video.mp4",
+      "duration_sec": 48.48,
+      "narration_preview": "\u099c\u09c7\u09ae\u09b8 \u0993\u09df\u09c7\u09ac \u09b8\u09cd\u09aa\u09c7\u09b8 \u099f\u09c7\u09b2\u09bf\u09b8\u09cd\u0995\u09cb\u09aa \u09ae\u09b9\u09be\u0995\u09be\u09b6\u09c7\u09b0 \u0997\u09ad\u09c0\u09b0\u09c7 \u09ad\u09be\u09b8\u099b\u09c7, \u098f\u09b0 \u09b8\u09cb\u09a8\u09be\u09b2\u09c0 \u09b7\u09dc\u09ad\u09c1\u099c\u09be\u0995\u09c3\u09a4\u09bf\u09b0 \u0986\u09df\u09a8\u09be\u0997\u09c1\u09b2\u09cb \u09ae\u09b9\u09be\u099c\u09be\u0997\u09a4\u09bf\u0995 \u0985\u09a8\u09cd\u09a7\u0995\u09be\u09b0\u09c7\u09b0 \u09a6\u09bf\u0995\u09c7 \u09ae\u09c1\u0996 \u0995\u09b0\u09c7 \u0986\u099b\u09c7\u0964 \u09ae\u09be\u09b2\u09cd\u099f\u09bf-\u09b2\u09c7\u09df\u09be\u09b0 \u09b8\u09be\u09a8\u09b6\u09bf\u09b2\u09cd\u09a1\u099f\u09bf \u09aa\u09cd\u09b0\u09be\u0987\u09ae\u09be\u09b0\u09bf \u0986\u09df\u09a8\u09be\u09b0 \u09a0\u09bf\u0995",
+      "srt_exists": true,
+      "audio_duration_sec": 22.848,
+      "english_as_localized": null,
+      "ok": true
+    }
+  },
+  "provider_usage_tail": [],
+  "audio_durations": {
+    "en": 36.552,
+    "bn": 22.848
+  },
+  "final_video_durations": {
+    "en": 37.56,
+    "bn": null
+  },
+  "visual_durations": [
+    {
+      "file": "scene_00_beat.mp4",
+      "exists": true,
+      "path": "E:\\All Updaye Project\\AutoMovie_Pro_SAAS_Final_Update\\AutoMoviePro-Software\\data\\customer_generation_work\\c11_marathon_customer\\job2293\\scene_00_beat.mp4",
+      "size": 2151871,
+      "duration_sec": 6.784,
+      "probe": {
+        "duration_sec": 6.784,
+        "width": 1080,
+        "height": 1920,
+        "fps": 30.0,
+        "video_codec": "h264",
+        "audio_codec": "aac",
+        "has_audio": true
+      }
+    },
+    {
+      "file": "scene_00_beat_docref.mp4",
+      "exists": true,
+      "path": "E:\\All Updaye Project\\AutoMovie_Pro_SAAS_Final_Update\\AutoMoviePro-Software\\data\\customer_generation_work\\c11_marathon_customer\\job2293\\scene_00_beat_docref.mp4",
+      "size": 2151871,
+      "duration_sec": 6.784,
+      "probe": {
+        "duration_sec": 6.784,
+        "width": 1080,
+        "height": 1920,
+        "fps": 30.0,
+        "video_codec": "h264",
+        "audio_codec": "aac",
+        "has_audio": true
+      }
+    },
+    {
+      "file": "scene_01_beat.mp4",
+      "exists": true,
+      "path": "E:\\All Updaye Project\\AutoMovie_Pro_SAAS_Final_Update\\AutoMoviePro-Software\\data\\customer_generation_work\\c11_marathon_customer\\job2293\\scene_01_beat.mp4",
+      "size": 2011255,
+      "duration_sec": 6.101,
+      "probe": {
+        "duration_sec": 6.101,
+        "width": 1080,
+        "height": 1920,
+        "fps": 30.0,
+        "video_codec": "h264",
+        "audio_codec": "aac",
+        "has_audio": true
+      }
+    },
+    {
+      "file": "scene_01_beat_docref.mp4",
+      "exists": true,
+      "path": "E:\\All Updaye Project\\AutoMovie_Pro_SAAS_Final_Update\\AutoMoviePro-Software\\data\\customer_generation_work\\c11_marathon_customer\\job2293\\scene_01_beat_docref.mp4",
+      "size": 2011255,
+      "duration_sec": 6.101,
+      "probe": {
+        "duration_sec": 6.101,
+        "width": 1080,
+        "height": 1920,
+        "fps": 30.0,
+        "video_codec": "h264",
+        "audio_codec": "aac",
+        "has_audio": true
+      }
+    },
+    {
+      "file": "scene_02_beat.mp4",
+      "exists": true,
+      "path": "E:\\All Updaye Project\\AutoMovie_Pro_SAAS_Final_Update\\AutoMoviePro-Software\\data\\customer_generation_work\\c11_marathon_customer\\job2293\\scene_02_beat.mp4",
+      "size": 1480231,
+      "duration_sec": 6.528,
+      "probe": {
+        "duration_sec": 6.528,
+        "width": 1080,
+        "height": 1920,
+        "fps": 30.0,
+        "video_codec": "h264",
+        "audio_codec": "aac",
+        "has_audio": true
+      }
+    },
+    {
+      "file": "scene_02_beat_docref.mp4",
+      "exists": true,
+      "path": "E:\\All Updaye Project\\AutoMovie_Pro_SAAS_Final_Update\\AutoMoviePro-Software\\data\\customer_generation_work\\c11_marathon_customer\\job2293\\scene_02_beat_docref.mp4",
+      "size": 1480231,
+      "duration_sec": 6.528,
+      "probe": {
+        "duration_sec": 6.528,
+        "width": 1080,
+        "height": 1920,
+        "fps": 30.0,
+        "video_codec": "h264",
+        "audio_codec": "aac",
+        "has_audio": true
+      }
+    },
+    {
+      "file": "scene_03_beat.mp4",
+      "exists": true,
+      "path": "E:\\All Updaye Project\\AutoMovie_Pro_SAAS_Final_Update\\AutoMoviePro-Software\\data\\customer_generation_work\\c11_marathon_customer\\job2293\\scene_03_beat.mp4",
+      "size": 1496909,
+      "duration_sec": 6.485,
+      "probe": {
+        "duration_sec": 6.485,
+        "width": 1080,
+        "height": 1920,
+        "fps": 30.0,
+        "video_codec": "h264",
+        "audio_codec": "aac",
+        "has_audio": true
+      }
+    },
+    {
+      "file": "scene_03_beat_docref.mp4",
+      "exists": true,
+      "path": "E:\\All Updaye Project\\AutoMovie_Pro_SAAS_Final_Update\\AutoMoviePro-Software\\data\\customer_generation_work\\c11_marathon_customer\\job2293\\scene_03_beat_docref.mp4",
+      "size": 1496909,
+      "duration_sec": 6.485,
+      "probe": {
+        "duration_sec": 6.485,
+        "width": 1080,
+        "height": 1920,
+        "fps": 30.0,
+        "video_codec": "h264",
+        "audio_codec": "aac",
+        "has_audio": true
+      }
+    },
+    {
+      "file": "scene_04_beat.mp4",
+      "exists": true,
+      "path": "E:\\All Updaye Project\\AutoMovie_Pro_SAAS_Final_Update\\AutoMoviePro-Software\\data\\customer_generation_work\\c11_marathon_customer\\job2293\\scene_04_beat.mp4",
+      "size": 1172974,
+      "duration_sec": 6.272,
+      "probe": {
+        "duration_sec": 6.272,
+        "width": 1080,
+        "height": 1920,
+        "fps": 30.0,
+        "video_codec": "h264",
+        "audio_codec": "aac",
+        "has_audio": true
+      }
+    },
+    {
+      "file": "scene_04_beat_docref.mp4",
+      "exists": true,
+      "path": "E:\\All Updaye Project\\AutoMovie_Pro_SAAS_Final_Update\\AutoMoviePro-Software\\data\\customer_generation_work\\c11_marathon_customer\\job2293\\scene_04_beat_docref.mp4",
+      "size": 1172974,
+      "duration_sec": 6.272,
+      "probe": {
+        "duration_sec": 6.272,
+        "width": 1080,
+        "height": 1920,
+        "fps": 30.0,
+        "video_codec": "h264",
+        "audio_codec": "aac",
+        "has_audio": true
+      }
+    },
+    {
+      "file": "scene_05_beat.mp4",
+      "exists": true,
+      "path": "E:\\All Updaye Project\\AutoMovie_Pro_SAAS_Final_Update\\AutoMoviePro-Software\\data\\customer_generation_work\\c11_marathon_customer\\job2293\\scene_05_beat.mp4",
+      "size": 650221,
+      "duration_sec": 5.077,
+      "probe": {
+        "duration_sec": 5.077,
+        "width": 1080,
+        "height": 1920,
+        "fps": 30.0,
+        "video_codec": "h264",
+        "audio_codec": "aac",
+        "has_audio": true
+      }
+    },
+    {
+      "file": "scene_05_beat_docref.mp4",
+      "exists": true,
+      "path": "E:\\All Updaye Project\\AutoMovie_Pro_SAAS_Final_Update\\AutoMoviePro-Software\\data\\customer_generation_work\\c11_marathon_customer\\job2293\\scene_05_beat_docref.mp4",
+      "size": 650221,
+      "duration_sec": 5.077,
+      "probe": {
+        "duration_sec": 5.077,
+        "width": 1080,
+        "height": 1920,
+        "fps": 30.0,
+        "video_codec": "h264",
+        "audio_codec": "aac",
+        "has_audio": true
+      }
+    }
+  ],
+  "failures": [
+    "localization_packaging_incomplete:bn",
+    "lang_bn_incomplete:english_as_localized:latin_dominant"
+  ],
+  "targeted_repairs": [],
+  "retries": null,
+  "limitations": [
+    "external_live_research_UNAVAILABLE_LOCAL_FACTPACK",
+    "semantic_observation_UNKNOWN_google_quota_circuit",
+    "script_mode_visual_contract_short_after_artemis_live_director_visual_hardfails",
+    "bn_master_packaging_resumed_after_scene_local_concat_size_bugfix"
+  ],
+  "finished_at": "2026-09-08T15:19:34Z",
+  "exact_final_artifact_paths": {
+    "en_master": "data\\customer_generation_work\\c11_marathon_customer\\job2293\\final_short.mp4",
+    "en_localized": "data\\customer_generation_work\\c11_marathon_customer\\job2293\\LOCALIZED\\English\\video.mp4",
+    "bn_localized": "data\\customer_generation_work\\c11_marathon_customer\\job2293\\LOCALIZED\\Bangla\\video.mp4",
+    "bn_narration": "data\\customer_generation_work\\c11_marathon_customer\\job2293\\LOCALIZED\\Bangla\\narration.txt",
+    "work_dir": "data\\customer_generation_work\\c11_marathon_customer\\job2293"
+  },
+  "dialogue_count": 6,
+  "visual_beat_count": 6,
+  "lineage": [
+    {
+      "idx": 0,
+      "dialogue_id": "beat-1",
+      "beat_id": "vb-seg-beat-1",
+      "scene_id": "scene-00",
+      "subject": "The James Webb Space Telescope"
+    },
+    {
+      "idx": 1,
+      "dialogue_id": "beat-2",
+      "beat_id": "vb-seg-beat-2",
+      "scene_id": "scene-01",
+      "subject": "multi-layer sunshield"
+    },
+    {
+      "idx": 2,
+      "dialogue_id": "beat-3",
+      "beat_id": "vb-seg-beat-3",
+      "scene_id": "scene-02",
+      "subject": "distant galaxies"
+    },
+    {
+      "idx": 3,
+      "dialogue_id": "beat-4",
+      "beat_id": "vb-seg-beat-4",
+      "scene_id": "scene-03",
+      "subject": "glowing nebula"
+    },
+    {
+      "idx": 4,
+      "dialogue_id": "beat-5",
+      "beat_id": "vb-seg-beat-5",
+      "scene_id": "scene-04",
+      "subject": "spiral galaxy"
+    },
+    {
+      "idx": 5,
+      "dialogue_id": "beat-6",
+      "beat_id": "vb-seg-beat-6",
+      "scene_id": "scene-05",
+      "subject": "deep-sky maps"
+    }
+  ]
+}

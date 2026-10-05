@@ -1,0 +1,48 @@
+{
+  "title": "How solar wind strips Mars of atmosphere — the MAVEN evidence explained — Documentary",
+  "topic": "How solar wind strips Mars of atmosphere — the MAVEN evidence explained",
+  "description": "A cinematic short about How solar wind strips Mars of atmosphere — the MAVEN evidence explained.",
+  "tags": [
+    "mock",
+    "space science",
+    "documentary"
+  ],
+  "niche": "space science",
+  "language": "en",
+  "scenes": [
+    {
+      "element": "intro",
+      "dialogue_id": "dlg-01",
+      "narration": "Welcome to the story of How solar wind strips Mars of atmosphere — the MAVEN evidence explained.",
+      "visual_query": "How solar wind strips Mars of atmosphere — the MAVEN evidence explained establishing shot",
+      "visual_prompt": "cinematic intro of How solar wind strips Mars of atmosphere — the MAVEN evidence explained",
+      "exact_ai_video_prompt": "vertical cinematic intro How solar wind strips Mars of atmosphere — the MAVEN evidence explained"
+    },
+    {
+      "element": "discovery",
+      "dialogue_id": "dlg-02",
+      "narration": "Researchers uncovered new evidence about How solar wind strips Mars of atmosphere — the MAVEN evidence explained.",
+      "visual_query": "How solar wind strips Mars of atmosphere — the MAVEN evidence explained discovery",
+      "visual_prompt": "artifact close-up How solar wind strips Mars of atmosphere — the MAVEN evidence explained",
+      "exact_ai_video_prompt": "macro discovery shot How solar wind strips Mars of atmosphere — the MAVEN evidence explained"
+    },
+    {
+      "element": "outro",
+      "dialogue_id": "dlg-03",
+      "narration": "This is why How solar wind strips Mars of atmosphere — the MAVEN evidence explained still matters today.",
+      "visual_query": "How solar wind strips Mars of atmosphere — the MAVEN evidence explained outro",
+      "visual_prompt": "sunset silhouette How solar wind strips Mars of atmosphere — the MAVEN evidence explained",
+      "exact_ai_video_prompt": "cinematic outro How solar wind strips Mars of atmosphere — the MAVEN evidence explained"
+    }
+  ],
+  "director_provider": "mock",
+  "director_model": "script-mock-v1",
+  "prompt_compliance": {
+    "verdict": "PASS",
+    "overall_score": 0.8922,
+    "industrial_grade": true,
+    "artifact_path": "E:\\All Updaye Project\\AutoMovie_Pro_SAAS_Final_Update\\AutoMoviePro-Software\\docs\\marathon\\runs\\mr_core_engine_20260910T124433Z_5b6cdc6f\\script_mock\\PROMPT_COMPLIANCE_AUDIT.json",
+    "llm_critic_verdict": "SKIPPED",
+    "repairs_applied": []
+  }
+}

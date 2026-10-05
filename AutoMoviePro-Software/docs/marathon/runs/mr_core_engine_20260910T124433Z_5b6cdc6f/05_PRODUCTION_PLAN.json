@@ -1,0 +1,439 @@
+{
+  "ok": false,
+  "reused": false,
+  "status": "BLOCKED",
+  "plan": {
+    "contract": "C06-C",
+    "plan_id": "pp-5915810429992135",
+    "project_id": "trs-ch4",
+    "owner_login_id": "c11_marathon_customer",
+    "channel_id": 4,
+    "status": "BLOCKED",
+    "ready_for_generation": false,
+    "readiness": {
+      "ready": false,
+      "status": "BLOCKED",
+      "blocks": [
+        "PRODUCTION_INCOMPLETE:planned_duration_below_target:planned=23.16:min=42.00:target=60.00",
+        "PRODUCTION_INCOMPLETE:insufficient_scene_budget:scenes=3:required=8:target=60.00"
+      ],
+      "warnings": [
+        "localization_semantic_verification_UNKNOWN"
+      ],
+      "note": "READY_FOR_GENERATION ≠ GENERATED ≠ VERIFIED ≠ PUBLISHABLE ≠ READY_TO_UPLOAD"
+    },
+    "script_status": "APPROVED_SCRIPT",
+    "script_revision": "07cfd73d0e3e11508f72962353a45d2f",
+    "fingerprint": "591581042999213543453259dc3aee55500a3accd9f6da37c54373082005f196",
+    "language": "en",
+    "format": "SHORT",
+    "scene_count": 3,
+    "dialogue_beat_count": 3,
+    "visual_beat_count": 3,
+    "audio_readiness": "BOUND",
+    "subtitle_localization_readiness": "BOUND",
+    "continuity_readiness": "REFERENCED",
+    "generation_modes": [
+      "VIDEO"
+    ],
+    "blocking_issues": [
+      "PRODUCTION_INCOMPLETE:planned_duration_below_target:planned=23.16:min=42.00:target=60.00",
+      "PRODUCTION_INCOMPLETE:insufficient_scene_budget:scenes=3:required=8:target=60.00"
+    ],
+    "warnings": [
+      "localization_semantic_verification_UNKNOWN"
+    ],
+    "provenance": {
+      "source": "APPROVED_SCRIPT",
+      "authorities": [
+        "domain.script.ScriptPlan",
+        "C05-S story_visual_direction",
+        "AudioPlan",
+        "VoiceIdentity",
+        "LocalizationContract",
+        "BUILD-03 compute_fingerprint",
+        "ContinuityTracker (reference)"
+      ],
+      "created_at": "2026-09-10T18:44:44.304582",
+      "no_media_generation": true,
+      "paid_api_calls": 0
+    },
+    "world_state_summary": {
+      "characters": [
+        "documentary subject"
+      ],
+      "locations": [],
+      "relationship_count": 0
+    },
+    "note": "READY_FOR_GENERATION ≠ PUBLISHABLE. No media generated in C06-C.",
+    "dialogue_segments": [
+      {
+        "dialogue_id": "dlg-01",
+        "beat_id": "dlg-01",
+        "scene_id": "scene-00",
+        "speaker": "Narrator",
+        "text": "Welcome to the story of How solar wind strips Mars of atmosphere — the MAVEN evidence explained.",
+        "emotion": "",
+        "action": "",
+        "location": "",
+        "entities": [],
+        "required_subject": "",
+        "required_entities": [],
+        "required_relationships": [],
+        "required_actions": [],
+        "required_location": "",
+        "start_sec": 0.0,
+        "end_sec": 7.08,
+        "duration_sec": 7.08
+      },
+      {
+        "dialogue_id": "dlg-02",
+        "beat_id": "dlg-02",
+        "scene_id": "scene-01",
+        "speaker": "Narrator",
+        "text": "Researchers uncovered new evidence about How solar wind strips Mars of atmosphere — the MAVEN evidence explained.",
+        "emotion": "",
+        "action": "",
+        "location": "",
+        "entities": [],
+        "required_subject": "",
+        "required_entities": [],
+        "required_relationships": [],
+        "required_actions": [],
+        "required_location": "",
+        "start_sec": 7.08,
+        "end_sec": 14.16,
+        "duration_sec": 7.08
+      },
+      {
+        "dialogue_id": "dlg-03",
+        "beat_id": "dlg-03",
+        "scene_id": "scene-02",
+        "speaker": "Narrator",
+        "text": "This is why How solar wind strips Mars of atmosphere — the MAVEN evidence explained still matters today. So the takeaway on How.",
+        "emotion": "",
+        "action": "",
+        "location": "",
+        "entities": [],
+        "required_subject": "",
+        "required_entities": [],
+        "required_relationships": [],
+        "required_actions": [],
+        "required_location": "",
+        "start_sec": 14.16,
+        "end_sec": 23.16,
+        "duration_sec": 9.0
+      }
+    ],
+    "visual_beats": [
+      {
+        "beat_id": "vb-seg-dlg-01",
+        "dialogue_ids": [
+          "dlg-01"
+        ],
+        "dialogue_id": "dlg-01",
+        "scene_id": "scene-00",
+        "narrative_beat_id": "nb-seg-dlg-01",
+        "purpose": "hook",
+        "visual_purpose": "hook",
+        "subject": "documentary subject",
+        "required_subject": "documentary subject",
+        "required_entities": [],
+        "required_relationships": [],
+        "relationships": [],
+        "location": null,
+        "required_location": null,
+        "environment": "space science",
+        "character_state": {
+          "identity": "Narrator",
+          "wardrobe": "",
+          "action": "",
+          "emotion": "",
+          "accessories": ""
+        },
+        "required_character_state": {
+          "identity": "Narrator",
+          "wardrobe": "",
+          "action": "",
+          "emotion": "",
+          "accessories": ""
+        },
+        "object_state": [],
+        "required_object_state": [],
+        "required_actions": [],
+        "required_context": "hook",
+        "camera": "ESTABLISHING",
+        "lighting": "INHERITED",
+        "emotion": "",
+        "action": "",
+        "coverage": {
+          "subject": "FULL",
+          "action": "NONE",
+          "entity": "NONE",
+          "object": "UNKNOWN",
+          "relationship": "UNKNOWN",
+          "location": "UNKNOWN",
+          "temporal": "UNKNOWN",
+          "overall": "PARTIAL",
+          "confidence": "HEURISTIC",
+          "note": "intent_planning_only_not_artifact_observation"
+        },
+        "coverage_requirement": {
+          "subject": "FULL",
+          "action": "NONE",
+          "entity": "NONE",
+          "object": "UNKNOWN",
+          "relationship": "UNKNOWN",
+          "location": "UNKNOWN",
+          "temporal": "UNKNOWN",
+          "overall": "PARTIAL",
+          "confidence": "HEURISTIC",
+          "note": "intent_planning_only_not_artifact_observation"
+        },
+        "visual_mode": "VIDEO",
+        "timing": {
+          "duration_sec": 7.08,
+          "policy": "LONG"
+        },
+        "duration": 7.08,
+        "reuse_policy": "semantic_beat_compatibility",
+        "continuity_predecessor": "",
+        "continuity_successor": "vb-seg-dlg-02",
+        "risks": [
+          "VISUAL_REPETITION_RISK"
+        ],
+        "risk_class": "HEURISTIC",
+        "semantic_layers": [
+          "INTENT",
+          "PROMPT",
+          "GENERATED_ASSET",
+          "OBSERVED_ASSET",
+          "VERIFIED_COVERAGE"
+        ]
+      },
+      {
+        "beat_id": "vb-seg-dlg-02",
+        "dialogue_ids": [
+          "dlg-02"
+        ],
+        "dialogue_id": "dlg-02",
+        "scene_id": "scene-01",
+        "narrative_beat_id": "nb-seg-dlg-02",
+        "purpose": "development",
+        "visual_purpose": "development",
+        "subject": "documentary subject",
+        "required_subject": "documentary subject",
+        "required_entities": [],
+        "required_relationships": [],
+        "relationships": [],
+        "location": null,
+        "required_location": null,
+        "environment": "space science",
+        "character_state": {
+          "identity": "Narrator",
+          "wardrobe": "",
+          "action": "",
+          "emotion": "",
+          "accessories": ""
+        },
+        "required_character_state": {
+          "identity": "Narrator",
+          "wardrobe": "",
+          "action": "",
+          "emotion": "",
+          "accessories": ""
+        },
+        "object_state": [],
+        "required_object_state": [],
+        "required_actions": [],
+        "required_context": "development",
+        "camera": "MEDIUM",
+        "lighting": "INHERITED",
+        "emotion": "",
+        "action": "",
+        "coverage": {
+          "subject": "FULL",
+          "action": "NONE",
+          "entity": "NONE",
+          "object": "UNKNOWN",
+          "relationship": "UNKNOWN",
+          "location": "UNKNOWN",
+          "temporal": "UNKNOWN",
+          "overall": "PARTIAL",
+          "confidence": "HEURISTIC",
+          "note": "intent_planning_only_not_artifact_observation"
+        },
+        "coverage_requirement": {
+          "subject": "FULL",
+          "action": "NONE",
+          "entity": "NONE",
+          "object": "UNKNOWN",
+          "relationship": "UNKNOWN",
+          "location": "UNKNOWN",
+          "temporal": "UNKNOWN",
+          "overall": "PARTIAL",
+          "confidence": "HEURISTIC",
+          "note": "intent_planning_only_not_artifact_observation"
+        },
+        "visual_mode": "VIDEO",
+        "timing": {
+          "duration_sec": 7.08,
+          "policy": "LONG"
+        },
+        "duration": 7.08,
+        "reuse_policy": "semantic_beat_compatibility",
+        "continuity_predecessor": "vb-seg-dlg-01",
+        "continuity_successor": "vb-seg-dlg-03",
+        "risks": [
+          "VISUAL_REPETITION_RISK"
+        ],
+        "risk_class": "HEURISTIC",
+        "semantic_layers": [
+          "INTENT",
+          "PROMPT",
+          "GENERATED_ASSET",
+          "OBSERVED_ASSET",
+          "VERIFIED_COVERAGE"
+        ]
+      },
+      {
+        "beat_id": "vb-seg-dlg-03",
+        "dialogue_ids": [
+          "dlg-03"
+        ],
+        "dialogue_id": "dlg-03",
+        "scene_id": "scene-02",
+        "narrative_beat_id": "nb-seg-dlg-03",
+        "purpose": "payoff",
+        "visual_purpose": "payoff",
+        "subject": "documentary subject",
+        "required_subject": "documentary subject",
+        "required_entities": [],
+        "required_relationships": [],
+        "relationships": [],
+        "location": null,
+        "required_location": null,
+        "environment": "space science",
+        "character_state": {
+          "identity": "Narrator",
+          "wardrobe": "",
+          "action": "",
+          "emotion": "",
+          "accessories": ""
+        },
+        "required_character_state": {
+          "identity": "Narrator",
+          "wardrobe": "",
+          "action": "",
+          "emotion": "",
+          "accessories": ""
+        },
+        "object_state": [],
+        "required_object_state": [],
+        "required_actions": [],
+        "required_context": "payoff",
+        "camera": "MEDIUM",
+        "lighting": "INHERITED",
+        "emotion": "",
+        "action": "",
+        "coverage": {
+          "subject": "FULL",
+          "action": "NONE",
+          "entity": "NONE",
+          "object": "UNKNOWN",
+          "relationship": "UNKNOWN",
+          "location": "UNKNOWN",
+          "temporal": "UNKNOWN",
+          "overall": "PARTIAL",
+          "confidence": "HEURISTIC",
+          "note": "intent_planning_only_not_artifact_observation"
+        },
+        "coverage_requirement": {
+          "subject": "FULL",
+          "action": "NONE",
+          "entity": "NONE",
+          "object": "UNKNOWN",
+          "relationship": "UNKNOWN",
+          "location": "UNKNOWN",
+          "temporal": "UNKNOWN",
+          "overall": "PARTIAL",
+          "confidence": "HEURISTIC",
+          "note": "intent_planning_only_not_artifact_observation"
+        },
+        "visual_mode": "VIDEO",
+        "timing": {
+          "duration_sec": 9.0,
+          "policy": "LONG"
+        },
+        "duration": 9.0,
+        "reuse_policy": "semantic_beat_compatibility",
+        "continuity_predecessor": "vb-seg-dlg-02",
+        "continuity_successor": "",
+        "risks": [
+          "VISUAL_REPETITION_RISK"
+        ],
+        "risk_class": "HEURISTIC",
+        "semantic_layers": [
+          "INTENT",
+          "PROMPT",
+          "GENERATED_ASSET",
+          "OBSERVED_ASSET",
+          "VERIFIED_COVERAGE"
+        ]
+      }
+    ],
+    "scene_bindings": [
+      {
+        "scene_id": "scene-00",
+        "dialogue_id": "dlg-01",
+        "beat_id": "dlg-01"
+      },
+      {
+        "scene_id": "scene-01",
+        "dialogue_id": "dlg-02",
+        "beat_id": "dlg-02"
+      },
+      {
+        "scene_id": "scene-02",
+        "dialogue_id": "dlg-03",
+        "beat_id": "dlg-03"
+      }
+    ],
+    "camera_lighting": {
+      "shots": [
+        {
+          "beat_id": "vb-seg-dlg-01",
+          "camera": "ESTABLISHING",
+          "lighting": "INHERITED"
+        },
+        {
+          "beat_id": "vb-seg-dlg-02",
+          "camera": "MEDIUM",
+          "lighting": "INHERITED"
+        },
+        {
+          "beat_id": "vb-seg-dlg-03",
+          "camera": "MEDIUM",
+          "lighting": "INHERITED"
+        }
+      ],
+      "note": "Camera transition ≠ location reset",
+      "authority": "SceneIntent / ContinuityTracker"
+    },
+    "audio_plan_summary": {
+      "status": "BOUND",
+      "count": 3,
+      "voice_identity_id": "voice:charon"
+    },
+    "localization_summary": {
+      "status": "BOUND",
+      "semantic_verification": "UNKNOWN"
+    }
+  },
+  "error": "not_ready_for_generation",
+  "error_code": "readiness_blocked",
+  "blocks": [
+    "PRODUCTION_INCOMPLETE:planned_duration_below_target:planned=23.16:min=42.00:target=60.00",
+    "PRODUCTION_INCOMPLETE:insufficient_scene_budget:scenes=3:required=8:target=60.00"
+  ]
+}

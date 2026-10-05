@@ -1,0 +1,79 @@
+{
+  "niche_id": 50,
+  "name": "Mind Control Experiments",
+  "slug": "mind-control-experiments",
+  "style_family": "science",
+  "status": "VERIFIED",
+  "topic_seeds": [
+    "What new evidence reframes the story of Mind Control Experiments The inside Mind Control Experiments",
+    "How Mind Control Experiments The still shapes public curiosity about Mind Control Experiments",
+    "What new evidence reframes the story of Ultra inside Mind Control Experiments",
+    "How Ultra still shapes public curiosity about Mind Control Experiments",
+    "What new evidence reframes the story of Project Monarch inside Mind Control Experiments",
+    "How Project Monarch still shapes public curiosity about Mind Control Experiments"
+  ],
+  "seo_angles": [
+    "What new evidence reframes the story of Mind Control Experiments The inside Mind Control Experiments",
+    "How Mind Control Experiments The still shapes public curiosity about Mind Control Experiments",
+    "What new evidence reframes the story of Ultra inside Mind Control Experiments",
+    "How Ultra still shapes public curiosity about Mind Control Experiments"
+  ],
+  "forbidden_visuals": [
+    "talking-head lip-sync avatar",
+    "burned-in captions",
+    "watermark",
+    "modern meme text",
+    "off-niche stock office B-roll"
+  ],
+  "preferred_subjects": [
+    "lab instrument close-up",
+    "diagrammatic mechanism metaphor",
+    "field measurement site"
+  ],
+  "lighting_default": "teal/cyan lab grade, high contrast, shallow DOF",
+  "face_policy": "no talking-head lip-sync avatar; cinematic B-roll preferred",
+  "dialogue_tone": "clear explainer; one mechanism per beat",
+  "audio_ambience": "clean room tone, soft electronic texture",
+  "research_hints": [
+    "Prefer primary evidence and concrete entities for Mind Control Experiments",
+    "Avoid generic niche-label topics; require specific place/person/event/mechanism",
+    "7–9 second spoken beats with story continuity across scenes"
+  ],
+  "topic_prompt_overlay": "NICHE LOCK (Mind Control Experiments): only propose topics that fit this niche's video type. Video type: The dark history of MK-Ultra, Project Monarch — government-funded mind-control attempts, and the ethical fallout. Follow niche topic strategy: Check declassified documents, new whistleblower testimonies, or documentary releases. Generate a topic about a specific experiment that has newly surfaced information.",
+  "video_prompt_overlay": "NICHE VISUAL LOCK (Mind Control Experiments / science): Generate a 7–9 second dialogue clip based on the topic `{topic}`. Each dialogue must be disturbing and clinical. For each dialogue, generate: - **Audio Generation Prompt:** Voice — monotone, clinical, with hospital beeps and white noise. - **Video Generation Prompt:** Detailed visual — a sterile lab room or psychiatric ward. Character: a scientist in white coat or a patient in hospital gown. Lighting: harsh fluorescent white. Maintain same room, same coat, same sterile feel. Forbidden: talking-head lip-sync avatar, burned-in captions, watermark, modern meme text, off-niche stock office B-roll. Preferred subjects: lab instrument close-up, diagrammatic mechanism metaphor, field measurement site. Lighting: teal/cyan lab grade, high contrast, shallow DOF. Face policy: no talking-head lip-sync avatar; cinematic B-roll preferred. Dialogue tone: clear explainer; one mechanism per beat. Ambience: clean room tone, soft electronic texture.",
+  "i18n": {
+    "en": {
+      "name": "Mind Control Experiments",
+      "blurb": "The dark history of MK-Ultra, Project Monarch — government-funded mind-control attempts, and the ethical fallout."
+    },
+    "bn": {
+      "name": "মন নিয়ন্ত্রণ পরীক্ষা",
+      "blurb": "ভিডিও টাইপ: The dark history of MK-Ultra, Project Monarch — government-funded mind-control attempts, and the ethical fallout."
+    },
+    "hi": {
+      "name": "मन नियंत्रण प्रयोग",
+      "blurb": "वीडियो प्रकार: The dark history of MK-Ultra, Project Monarch — government-funded mind-control attempts, and the ethical fallout."
+    },
+    "ur": {
+      "name": "ذہن کنٹرول تجربات",
+      "blurb": "ویڈیو کی قسم: The dark history of MK-Ultra, Project Monarch — government-funded mind-control attempts, and the ethical fallout."
+    },
+    "ta": {
+      "name": "மனக் கட்டுப்பாட்டு சோதனைகள்",
+      "blurb": "வீடியோ வகை: The dark history of MK-Ultra, Project Monarch — government-funded mind-control attempts, and the ethical fallout."
+    },
+    "ml": {
+      "name": "മനസ് നിയന്ത്രണ പരീക്ഷണങ്ങൾ",
+      "blurb": "വീഡിയോ തരം: The dark history of MK-Ultra, Project Monarch — government-funded mind-control attempts, and the ethical fallout."
+    }
+  },
+  "source": "Nish.Md + deterministic research",
+  "research_notes": [
+    "Marathon researched at 2026-09-10T08:30:14Z",
+    "Video type length=113",
+    "Topic prompt length=167",
+    "Video prompt length=479",
+    "Seeds=6"
+  ],
+  "verified_at": "2026-09-10T08:30:14Z"
+}

@@ -1,0 +1,66 @@
+{
+  "research": {
+    "topic_id": "topic-989eccb0547ceb44",
+    "query": "how artemis crews use neutron spectrometers to map lunar polar water ice in 2026",
+    "evidence": [
+      {
+        "id": "N01",
+        "claim": "Research query: how artemis crews use neutron spectrometers to map lunar polar water ice in 2026\nLanguage: en\nRegion:",
+        "evidence": "research_notes",
+        "source": "research_notes",
+        "confidence": 0.4,
+        "freshness": "UNVERIFIED"
+      },
+      {
+        "id": "L02",
+        "claim": "Additional context on How Artemis crews use neutron spectrometers to map lunar polar water ice in 2026 from configured research scope.",
+        "evidence": "secondary",
+        "source": "live_research",
+        "confidence": 0.6,
+        "freshness": "recent"
+      }
+    ],
+    "status": "completed",
+    "provider": "live_local",
+    "provider_kind": "configured_local",
+    "provider_capability": "LOCAL_FACTPACK",
+    "provider_mode": "LIVE_LOCAL",
+    "external_api": false,
+    "is_external_live": false,
+    "note": "LOCAL_FACTPACK must not be claimed as EXTERNAL_LIVE_RESEARCH",
+    "timestamp": 1789012275.255121,
+    "queried_at": 1789012275.255121,
+    "canonical_topic": "How Artemis crews use neutron spectrometers to map lunar polar water ice in 2026",
+    "sources": [
+      "live_research",
+      "research_notes"
+    ],
+    "fingerprint": "8cf46699e0c3ec34b309822e8cc18f771dde4df2f3d094688df81a7fbe5312c2"
+  },
+  "fact_pack": {
+    "topic": "How Artemis crews use neutron spectrometers to map lunar polar water ice in 2026",
+    "version": "v0",
+    "claims": [
+      {
+        "id": "N01",
+        "claim": "Research query: how artemis crews use neutron spectrometers to map lunar polar water ice in 2026\nLanguage: en\nRegion:",
+        "evidence": "research_notes",
+        "source": "research_notes",
+        "confidence": 0.4,
+        "freshness": "UNVERIFIED"
+      },
+      {
+        "id": "L02",
+        "claim": "Additional context on How Artemis crews use neutron spectrometers to map lunar polar water ice in 2026 from configured research scope.",
+        "evidence": "secondary",
+        "source": "live_research",
+        "confidence": 0.6,
+        "freshness": "recent"
+      }
+    ],
+    "unknowns": []
+  },
+  "research_fingerprint": "8cf46699e0c3ec34b309822e8cc18f771dde4df2f3d094688df81a7fbe5312c2",
+  "provider_mode": "LIVE",
+  "persisted_at": 1789012275.255121
+}

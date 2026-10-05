@@ -1,0 +1,83 @@
+{
+  "niche_id": 85,
+  "name": "Deepfake Dilemmas",
+  "slug": "deepfake-dilemmas",
+  "style_family": "history",
+  "status": "VERIFIED",
+  "topic_seeds": [
+    "What new evidence reframes the story of Deepfake Dilemmas How inside Deepfake Dilemmas",
+    "How Deepfake Dilemmas How still shapes public curiosity about Deepfake Dilemmas",
+    "What new evidence reframes the story of Monitor inside Deepfake Dilemmas",
+    "How Monitor still shapes public curiosity about Deepfake Dilemmas",
+    "What new evidence reframes the story of Generate inside Deepfake Dilemmas",
+    "How Generate still shapes public curiosity about Deepfake Dilemmas"
+  ],
+  "seo_angles": [
+    "What new evidence reframes the story of Deepfake Dilemmas How inside Deepfake Dilemmas",
+    "How Deepfake Dilemmas How still shapes public curiosity about Deepfake Dilemmas",
+    "What new evidence reframes the story of Monitor inside Deepfake Dilemmas",
+    "How Monitor still shapes public curiosity about Deepfake Dilemmas"
+  ],
+  "forbidden_visuals": [
+    "talking-head lip-sync avatar",
+    "burned-in captions",
+    "watermark",
+    "modern meme text",
+    "modern smartphones",
+    "cars",
+    "LED screens",
+    "sneakers",
+    "contemporary skyline"
+  ],
+  "preferred_subjects": [
+    "Deepfake Dilemmas documentary subject",
+    "period-accurate environment",
+    "evidence object close-up"
+  ],
+  "lighting_default": "warm desert sun / torchlit interiors, high-contrast documentary grade",
+  "face_policy": "period extras OK if consistent; prefer environment/object hero when possible",
+  "dialogue_tone": "human documentary narration; specific nouns; 7–9s beats",
+  "audio_ambience": "subtle documentary bed; do not overpower voice",
+  "research_hints": [
+    "Prefer primary evidence and concrete entities for Deepfake Dilemmas",
+    "Avoid generic niche-label topics; require specific place/person/event/mechanism",
+    "7–9 second spoken beats with story continuity across scenes"
+  ],
+  "topic_prompt_overlay": "NICHE LOCK (Deepfake Dilemmas): only propose topics that fit this niche's video type. Video type: How deepfakes are changing media, politics, and law — with real case studies of manipulated videos. Follow niche topic strategy: Monitor tech news, legal cases, or viral deepfake exposures. Generate a topic about a recent deepfake scandal or innovation.",
+  "video_prompt_overlay": "NICHE VISUAL LOCK (Deepfake Dilemmas / history): Generate a 7–9 second dialogue clip based on the topic `{topic}`. Each dialogue must be alerting and current. For each dialogue, generate: - **Audio Generation Prompt:** Voice — serious, with clicking and warped audio. - **Video Generation Prompt:** Detailed visual — a video editing studio with screens. Character: technician (modern casual). Lighting: dim with screen glow. Maintain same studio and screen glow. Forbidden: talking-head lip-sync avatar, burned-in captions, watermark, modern meme text, modern smartphones, cars, LED screens, sneakers. Preferred subjects: Deepfake Dilemmas documentary subject, period-accurate environment, evidence object close-up. Lighting: warm desert sun / torchlit interiors, high-contrast documentary grade. Face policy: period extras OK if consistent; prefer environment/object hero when possible. Dialogue tone: human documentary narration; specific nouns; 7–9s beats. Ambience: subtle documentary bed; do not overpower voice.",
+  "i18n": {
+    "en": {
+      "name": "Deepfake Dilemmas",
+      "blurb": "How deepfakes are changing media, politics, and law — with real case studies of manipulated videos."
+    },
+    "bn": {
+      "name": "ডিপফেকের দ্বিধা",
+      "blurb": "ভিডিও টাইপ: How deepfakes are changing media, politics, and law — with real case studies of manipulated videos."
+    },
+    "hi": {
+      "name": "डीपफेक दुविधाएँ",
+      "blurb": "वीडियो प्रकार: How deepfakes are changing media, politics, and law — with real case studies of manipulated videos."
+    },
+    "ur": {
+      "name": "ڈیپ فیک معمے",
+      "blurb": "ویڈیو کی قسم: How deepfakes are changing media, politics, and law — with real case studies of manipulated videos."
+    },
+    "ta": {
+      "name": "டீப்ஃபேக் சிக்கல்கள்",
+      "blurb": "வீடியோ வகை: How deepfakes are changing media, politics, and law — with real case studies of manipulated videos."
+    },
+    "ml": {
+      "name": "ഡീപ്ഫേക്ക് ദുരന്തങ്ങൾ",
+      "blurb": "വീഡിയോ തരം: How deepfakes are changing media, politics, and law — with real case studies of manipulated videos."
+    }
+  },
+  "source": "Nish.Md + deterministic research",
+  "research_notes": [
+    "Marathon researched at 2026-09-10T08:30:20Z",
+    "Video type length=99",
+    "Topic prompt length=124",
+    "Video prompt length=413",
+    "Seeds=6"
+  ],
+  "verified_at": "2026-09-10T08:30:20Z"
+}

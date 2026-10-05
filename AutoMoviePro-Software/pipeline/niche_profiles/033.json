@@ -1,0 +1,83 @@
+{
+  "niche_id": 33,
+  "name": "Epic Scientific Failures",
+  "slug": "epic-scientific-failures",
+  "style_family": "history",
+  "status": "VERIFIED",
+  "topic_seeds": [
+    "What new evidence reframes the story of Epic Scientific Failures Experiments inside Epic Scientific Failures",
+    "How Epic Scientific Failures Experiments still shapes public curiosity about Epic Scientific Failures",
+    "What new evidence reframes the story of Tacoma Narrows inside Epic Scientific Failures",
+    "How Tacoma Narrows still shapes public curiosity about Epic Scientific Failures",
+    "What new evidence reframes the story of Biosphere inside Epic Scientific Failures",
+    "How Biosphere still shapes public curiosity about Epic Scientific Failures"
+  ],
+  "seo_angles": [
+    "What new evidence reframes the story of Epic Scientific Failures Experiments inside Epic Scientific Failures",
+    "How Epic Scientific Failures Experiments still shapes public curiosity about Epic Scientific Failures",
+    "What new evidence reframes the story of Tacoma Narrows inside Epic Scientific Failures",
+    "How Tacoma Narrows still shapes public curiosity about Epic Scientific Failures"
+  ],
+  "forbidden_visuals": [
+    "talking-head lip-sync avatar",
+    "burned-in captions",
+    "watermark",
+    "modern meme text",
+    "modern smartphones",
+    "cars",
+    "LED screens",
+    "sneakers",
+    "contemporary skyline"
+  ],
+  "preferred_subjects": [
+    "Epic Scientific Failures documentary subject",
+    "period-accurate environment",
+    "evidence object close-up"
+  ],
+  "lighting_default": "warm desert sun / torchlit interiors, high-contrast documentary grade",
+  "face_policy": "period extras OK if consistent; prefer environment/object hero when possible",
+  "dialogue_tone": "human documentary narration; specific nouns; 7–9s beats",
+  "audio_ambience": "subtle documentary bed; do not overpower voice",
+  "research_hints": [
+    "Prefer primary evidence and concrete entities for Epic Scientific Failures",
+    "Avoid generic niche-label topics; require specific place/person/event/mechanism",
+    "7–9 second spoken beats with story continuity across scenes"
+  ],
+  "topic_prompt_overlay": "NICHE LOCK (Epic Scientific Failures): only propose topics that fit this niche's video type. Video type: Experiments that went terribly wrong — and what we learned from them — like the Tacoma Narrows bridge collapse or the Biosphere 2 project. Follow niche topic strategy: Follow engineering journals, anniversary of disasters, or new safety standards. Generate a topic that teaches through failure.",
+  "video_prompt_overlay": "NICHE VISUAL LOCK (Epic Scientific Failures / history): Generate a 7–9 second dialogue clip based on the topic `{topic}`. Each dialogue must be cautionary and dramatic. For each dialogue, generate: - **Audio Generation Prompt:** Voice — alarmed, with crashing or screeching sounds. - **Video Generation Prompt:** Detailed visual — bridge or building collapsing. No characters — focus on architecture. Lighting: daylight or dusk. Maintain same structure style. Forbidden: talking-head lip-sync avatar, burned-in captions, watermark, modern meme text, modern smartphones, cars, LED screens, sneakers. Preferred subjects: Epic Scientific Failures documentary subject, period-accurate environment, evidence object close-up. Lighting: warm desert sun / torchlit interiors, high-contrast documentary grade. Face policy: period extras OK if consistent; prefer environment/object hero when possible. Dialogue tone: human documentary narration; specific nouns; 7–9s beats. Ambience: subtle documentary bed; do not overpower voice.",
+  "i18n": {
+    "en": {
+      "name": "Epic Scientific Failures",
+      "blurb": "Experiments that went terribly wrong — and what we learned from them — like the Tacoma Narrows bridge collapse or the Biosphere 2 project."
+    },
+    "bn": {
+      "name": "বিজ্ঞানের মহাকাব্যিক ব্যর্থতা",
+      "blurb": "ভিডিও টাইপ: Experiments that went terribly wrong — and what we learned from them — like the Tacoma Narrows bridge collapse or the Biosphere 2 project."
+    },
+    "hi": {
+      "name": "वैज्ञानिक महाविफलताएँ",
+      "blurb": "वीडियो प्रकार: Experiments that went terribly wrong — and what we learned from them — like the Tacoma Narrows bridge collapse or the Biosphere 2 project."
+    },
+    "ur": {
+      "name": "سائنسی عظیم ناکامیاں",
+      "blurb": "ویڈیو کی قسم: Experiments that went terribly wrong — and what we learned from them — like the Tacoma Narrows bridge collapse or the Biosphere 2 project."
+    },
+    "ta": {
+      "name": "அறிவியல் பெரும் தோல்விகள்",
+      "blurb": "வீடியோ வகை: Experiments that went terribly wrong — and what we learned from them — like the Tacoma Narrows bridge collapse or the Biosphere 2 project."
+    },
+    "ml": {
+      "name": "ശാസ്ത്രീയ വലിയ പരാജയങ്ങൾ",
+      "blurb": "വീഡിയോ തരം: Experiments that went terribly wrong — and what we learned from them — like the Tacoma Narrows bridge collapse or the Biosphere 2 project."
+    }
+  },
+  "source": "Nish.Md + deterministic research",
+  "research_notes": [
+    "Marathon researched at 2026-09-10T08:30:12Z",
+    "Video type length=138",
+    "Topic prompt length=126",
+    "Video prompt length=403",
+    "Seeds=6"
+  ],
+  "verified_at": "2026-09-10T08:30:12Z"
+}

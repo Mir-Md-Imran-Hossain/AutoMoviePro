@@ -1,0 +1,124 @@
+{
+  "marathon_id": "mr_core_engine_20260910T081140Z_7d01fe9e",
+  "started_at": "2026-09-10T08:11:40Z",
+  "customer": "c11_marathon_customer",
+  "channel_id": 4,
+  "cert_languages": [
+    "en",
+    "bn",
+    "hi",
+    "ur",
+    "ta",
+    "ml"
+  ],
+  "customer_entitlement_forged": false,
+  "youtube_publish": false,
+  "mock_production": false,
+  "ended_at": "2026-09-10T08:25:26Z",
+  "total_runtime_sec": 825.8,
+  "topic": "How Artemis crews use neutron spectrometers to map lunar polar water ice in 2026",
+  "job_id": 2320,
+  "work_dir": "E:\\All Updaye Project\\AutoMovie_Pro_SAAS_Final_Update\\AutoMoviePro-Software\\data\\customer_generation_work\\c11_marathon_customer\\job2320",
+  "verdict": "FAIL",
+  "checkpoints": [
+    {
+      "ts": "2026-09-10T08:11:40Z",
+      "elapsed_sec": 0.1,
+      "stage": "TOPIC",
+      "job_id": null,
+      "status": "HEALTHY",
+      "note": "CP-00 init complete",
+      "db_languages_unchanged": [
+        "en",
+        "bn"
+      ],
+      "cert_overlay_languages": [
+        "en",
+        "bn",
+        "hi",
+        "ur",
+        "ta",
+        "ml"
+      ],
+      "google_keys_env": 19,
+      "agnes_keys_env": 6
+    },
+    {
+      "ts": "2026-09-10T08:11:41Z",
+      "elapsed_sec": 0.3,
+      "stage": "TOPIC",
+      "job_id": null,
+      "status": "PROGRESSING",
+      "note": "topic=How Artemis crews use neutron spectrometers to map lunar polar water ice in 2026",
+      "source": "BUILD-04G_suggest_quality_ranked",
+      "seo": 0.9,
+      "niche_aligned": true
+    },
+    {
+      "ts": "2026-09-10T08:11:50Z",
+      "elapsed_sec": 9.8,
+      "stage": "PLAN",
+      "job_id": null,
+      "status": "PROGRESSING",
+      "note": "research_script_plan_ok",
+      "script_class": "REAL"
+    },
+    {
+      "ts": "2026-09-10T08:25:26Z",
+      "elapsed_sec": 825.8,
+      "stage": "FAILED",
+      "job_id": 2320,
+      "status": "FAILED",
+      "note": "generate_video:RuntimeError:Scene 1 (beat) AV sync failed hard (best_score=38). Issues: ['missing_neutron_spectrometer_instrument', 'missing_buried_ice_visual_trigger'] critical=['visual_anchors_missing']"
+    },
+    {
+      "ts": "2026-09-10T08:25:26Z",
+      "elapsed_sec": 825.8,
+      "stage": "OBSERVE",
+      "job_id": 2320,
+      "status": "PROGRESSING",
+      "note": "watchdog stage=OBSERVE",
+      "work_dir": "E:\\All Updaye Project\\AutoMovie_Pro_SAAS_Final_Update\\AutoMoviePro-Software\\data\\customer_generation_work\\c11_marathon_customer\\job2320"
+    }
+  ],
+  "interventions": [
+    {
+      "intervention_id": "INT-001",
+      "ts": "2026-09-10T08:11:50Z",
+      "reason": "use_customer_approved_plan_lock",
+      "detected_problem": "generate_video re-entry intelligence DUPLICATE on reused niche topics",
+      "action": "write_director_plan + c06e lock before generate_video",
+      "authority": "customer_plan_adapter + generate_video customer_approved_lock",
+      "result": "lock_written"
+    }
+  ],
+  "failures": [
+    {
+      "ok": false,
+      "error": "Scene 1 (beat) AV sync failed hard (best_score=38). Issues: ['missing_neutron_spectrometer_instrument', 'missing_buried_ice_visual_trigger'] critical=['visual_anchors_missing']",
+      "traceback": "Traceback (most recent call last):\n  File \"E:\\All Updaye Project\\AutoMovie_Pro_SAAS_Final_Update\\AutoMoviePro-Software\\scripts\\cert_core_engine_real_marathon.py\", line 495, in generate_real\n    result = generate_video(\n             ^^^^^^^^^^^^^^^\n  File \"E:\\All Updaye Project\\AutoMovie_Pro_SAAS_Final_Update\\AutoMoviePro-Software\\pipeline\\video_pipeline.py\", line 1063, in generate_video\n    clip = build_dialogue_clip(\n           ^^^^^^^^^^^^^^^^^^^^\n  File \"E:\\All Updaye Project\\AutoMovie_Pro_SAAS_Final_Update\\AutoMoviePro-Software\\pipeline\\scene_builder.py\", line 1877, in build_dialogue_clip\n    raise RuntimeError(\nRuntimeError: Scene 1 (beat) AV sync failed hard (best_score=38). Issues: ['missing_neutron_spectrometer_instrument', 'missing_buried_ice_visual_trigger'] critical=['visual_anchors_missing']\n"
+    }
+  ],
+  "unknowns": [
+    "UR_RTL_SHAPING_UNKNOWN_NO_DEDICATED_RENDER_SHAPING_PROOF"
+  ],
+  "db_languages_before_after_preserved": true,
+  "generation": {
+    "ok": false,
+    "latency_sec": null,
+    "upload_status": null,
+    "local_path": null,
+    "classification": null,
+    "error": "Scene 1 (beat) AV sync failed hard (best_score=38). Issues: ['missing_neutron_spectrometer_instrument', 'missing_buried_ice_visual_trigger'] critical=['visual_anchors_missing']"
+  },
+  "artifacts_summary": {
+    "localized_count": 0,
+    "entitlement_preserved": true,
+    "duration_status": null,
+    "publishable": null
+  },
+  "verdict_reasons": [
+    "generation_failed_or_no_local_path"
+  ],
+  "prep_script_class": "REAL"
+}

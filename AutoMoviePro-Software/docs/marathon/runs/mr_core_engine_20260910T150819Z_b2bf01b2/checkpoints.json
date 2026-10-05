@@ -1,0 +1,43 @@
+[
+  {
+    "ts": "2026-09-10T15:08:19Z",
+    "elapsed_sec": 0.2,
+    "stage": "TOPIC",
+    "job_id": null,
+    "status": "HEALTHY",
+    "note": "CP-00 init complete",
+    "db_languages_unchanged": [
+      "en",
+      "bn"
+    ],
+    "cert_overlay_languages": [
+      "en",
+      "bn",
+      "hi",
+      "ur",
+      "ta",
+      "ml"
+    ],
+    "google_keys_env": 19,
+    "agnes_keys_env": 6
+  },
+  {
+    "ts": "2026-09-10T15:08:20Z",
+    "elapsed_sec": 0.8,
+    "stage": "TOPIC",
+    "job_id": null,
+    "status": "FAILED",
+    "note": "topic=Verified space science mechanism brief 20260910150820-6a5aafef: how mission tele",
+    "source": "BUILD-04G_suggest_quality_ranked",
+    "seo": 0.9,
+    "niche_aligned": true
+  },
+  {
+    "ts": "2026-09-10T15:08:20Z",
+    "elapsed_sec": 0.8,
+    "stage": "FAIL",
+    "job_id": null,
+    "status": "COMPLETED",
+    "note": "verdict=FAIL"
+  }
+]

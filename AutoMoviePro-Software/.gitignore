@@ -1,0 +1,15 @@
+venv/
+__pycache__/
+*.pyc
+.data/
+data/
+output/
+.env
+*.spec.bak
+build/
+dist/
+*.mp4
+*.log
+.secret.key
+browser_sessions/
+backups/

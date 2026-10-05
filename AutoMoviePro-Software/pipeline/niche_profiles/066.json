@@ -1,0 +1,79 @@
+{
+  "niche_id": 66,
+  "name": "Arctic & Antarctic Expeditions",
+  "slug": "arctic-antarctic-expeditions",
+  "style_family": "health",
+  "status": "VERIFIED",
+  "topic_seeds": [
+    "What new evidence reframes the story of Arctic inside Arctic & Antarctic Expeditions",
+    "How Arctic still shapes public curiosity about Arctic & Antarctic Expeditions",
+    "What new evidence reframes the story of Antarctic Expeditions Polar inside Arctic & Antarctic Expeditions",
+    "How Antarctic Expeditions Polar still shapes public curiosity about Arctic & Antarctic Expeditions",
+    "What new evidence reframes the story of Shackleton inside Arctic & Antarctic Expeditions",
+    "How Shackleton still shapes public curiosity about Arctic & Antarctic Expeditions"
+  ],
+  "seo_angles": [
+    "What new evidence reframes the story of Arctic inside Arctic & Antarctic Expeditions",
+    "How Arctic still shapes public curiosity about Arctic & Antarctic Expeditions",
+    "What new evidence reframes the story of Antarctic Expeditions Polar inside Arctic & Antarctic Expeditions",
+    "How Antarctic Expeditions Polar still shapes public curiosity about Arctic & Antarctic Expeditions"
+  ],
+  "forbidden_visuals": [
+    "talking-head lip-sync avatar",
+    "burned-in captions",
+    "watermark",
+    "modern meme text",
+    "off-niche stock office B-roll"
+  ],
+  "preferred_subjects": [
+    "Arctic & Antarctic Expeditions documentary subject",
+    "period-accurate environment",
+    "evidence object close-up"
+  ],
+  "lighting_default": "natural directional key, documentary clarity",
+  "face_policy": "no talking-head lip-sync avatar; cinematic B-roll preferred",
+  "dialogue_tone": "human documentary narration; specific nouns; 7–9s beats",
+  "audio_ambience": "subtle documentary bed; do not overpower voice",
+  "research_hints": [
+    "Prefer primary evidence and concrete entities for Arctic & Antarctic Expeditions",
+    "Avoid generic niche-label topics; require specific place/person/event/mechanism",
+    "7–9 second spoken beats with story continuity across scenes"
+  ],
+  "topic_prompt_overlay": "NICHE LOCK (Arctic & Antarctic Expeditions): only propose topics that fit this niche's video type. Video type: Polar exploration disasters — Shackleton, Scott — and the sheer mental toughness required to survive extreme cold. Follow niche topic strategy: Follow polar research news, expedition anniversaries, or climate change studies. Generate a topic about a heroic polar journey.",
+  "video_prompt_overlay": "NICHE VISUAL LOCK (Arctic & Antarctic Expeditions / health): Generate a 7–9 second dialogue clip based on the topic `{topic}`. Each dialogue must be cold and brave. For each dialogue, generate: - **Audio Generation Prompt:** Voice — shivering, determined, with howling wind and cracking ice. - **Video Generation Prompt:** Detailed visual — ice fields and stormy skies. Characters: explorers in heavy parkas. Lighting: overcast, blue-white. Maintain same parka color and icy backdrop. Forbidden: talking-head lip-sync avatar, burned-in captions, watermark, modern meme text, off-niche stock office B-roll. Preferred subjects: Arctic & Antarctic Expeditions documentary subject, period-accurate environment, evidence object close-up. Lighting: natural directional key, documentary clarity. Face policy: no talking-head lip-sync avatar; cinematic B-roll preferred. Dialogue tone: human documentary narration; specific nouns; 7–9s beats. Ambience: subtle documentary bed; do not overpower voice.",
+  "i18n": {
+    "en": {
+      "name": "Arctic & Antarctic Expeditions",
+      "blurb": "Polar exploration disasters — Shackleton, Scott — and the sheer mental toughness required to survive extreme cold."
+    },
+    "bn": {
+      "name": "আর্কটিক ও অ্যান্টার্কটিক অভিযান",
+      "blurb": "ভিডিও টাইপ: Polar exploration disasters — Shackleton, Scott — and the sheer mental toughness required to survive extreme cold."
+    },
+    "hi": {
+      "name": "आर्कटिक और अंटार्कटिक अभियान",
+      "blurb": "वीडियो प्रकार: Polar exploration disasters — Shackleton, Scott — and the sheer mental toughness required to survive extreme cold."
+    },
+    "ur": {
+      "name": "آرکٹک و انٹارکٹک مہمات",
+      "blurb": "ویڈیو کی قسم: Polar exploration disasters — Shackleton, Scott — and the sheer mental toughness required to survive extreme cold."
+    },
+    "ta": {
+      "name": "ஆர்க்டிக் & அண்டார்டிக் பயணங்கள்",
+      "blurb": "வீடியோ வகை: Polar exploration disasters — Shackleton, Scott — and the sheer mental toughness required to survive extreme cold."
+    },
+    "ml": {
+      "name": "ആർട്ടിക് & അന്റാർട്ടിക് പര്യവേഷണങ്ങൾ",
+      "blurb": "വീഡിയോ തരം: Polar exploration disasters — Shackleton, Scott — and the sheer mental toughness required to survive extreme cold."
+    }
+  },
+  "source": "Nish.Md + deterministic research",
+  "research_notes": [
+    "Marathon researched at 2026-09-10T08:30:17Z",
+    "Video type length=114",
+    "Topic prompt length=127",
+    "Video prompt length=423",
+    "Seeds=6"
+  ],
+  "verified_at": "2026-09-10T08:30:17Z"
+}

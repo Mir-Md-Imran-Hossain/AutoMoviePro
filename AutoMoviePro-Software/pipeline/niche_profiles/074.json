@@ -1,0 +1,83 @@
+{
+  "niche_id": 74,
+  "name": "Food Origin Stories",
+  "slug": "food-origin-stories",
+  "style_family": "history",
+  "status": "VERIFIED",
+  "topic_seeds": [
+    "What new evidence reframes the story of Food Origin Stories How inside Food Origin Stories",
+    "How Food Origin Stories How still shapes public curiosity about Food Origin Stories",
+    "What new evidence reframes the story of Track inside Food Origin Stories",
+    "How Track still shapes public curiosity about Food Origin Stories",
+    "What new evidence reframes the story of Generate inside Food Origin Stories",
+    "How Generate still shapes public curiosity about Food Origin Stories"
+  ],
+  "seo_angles": [
+    "What new evidence reframes the story of Food Origin Stories How inside Food Origin Stories",
+    "How Food Origin Stories How still shapes public curiosity about Food Origin Stories",
+    "What new evidence reframes the story of Track inside Food Origin Stories",
+    "How Track still shapes public curiosity about Food Origin Stories"
+  ],
+  "forbidden_visuals": [
+    "talking-head lip-sync avatar",
+    "burned-in captions",
+    "watermark",
+    "modern meme text",
+    "modern smartphones",
+    "cars",
+    "LED screens",
+    "sneakers",
+    "contemporary skyline"
+  ],
+  "preferred_subjects": [
+    "Food Origin Stories documentary subject",
+    "period-accurate environment",
+    "evidence object close-up"
+  ],
+  "lighting_default": "warm desert sun / torchlit interiors, high-contrast documentary grade",
+  "face_policy": "period extras OK if consistent; prefer environment/object hero when possible",
+  "dialogue_tone": "human documentary narration; specific nouns; 7–9s beats",
+  "audio_ambience": "subtle documentary bed; do not overpower voice",
+  "research_hints": [
+    "Prefer primary evidence and concrete entities for Food Origin Stories",
+    "Avoid generic niche-label topics; require specific place/person/event/mechanism",
+    "7–9 second spoken beats with story continuity across scenes"
+  ],
+  "topic_prompt_overlay": "NICHE LOCK (Food Origin Stories): only propose topics that fit this niche's video type. Video type: How chocolate, pizza, sushi, or ice cream were invented — often by accident or cultural blending. Follow niche topic strategy: Track food history anniversaries, new restaurant openings, or viral food trends. Generate a topic about a beloved food's surprising origin.",
+  "video_prompt_overlay": "NICHE VISUAL LOCK (Food Origin Stories / history): Generate a 7–9 second dialogue clip based on the topic `{topic}`. Each dialogue must be tasty and fun. For each dialogue, generate: - **Audio Generation Prompt:** Voice — cheerful, with chopping and sizzling. - **Video Generation Prompt:** Detailed visual — a rustic kitchen or street market. Characters: cook in apron. Lighting: warm, inviting. Maintain same kitchen and food vibe. Forbidden: talking-head lip-sync avatar, burned-in captions, watermark, modern meme text, modern smartphones, cars, LED screens, sneakers. Preferred subjects: Food Origin Stories documentary subject, period-accurate environment, evidence object close-up. Lighting: warm desert sun / torchlit interiors, high-contrast documentary grade. Face policy: period extras OK if consistent; prefer environment/object hero when possible. Dialogue tone: human documentary narration; specific nouns; 7–9s beats. Ambience: subtle documentary bed; do not overpower voice.",
+  "i18n": {
+    "en": {
+      "name": "Food Origin Stories",
+      "blurb": "How chocolate, pizza, sushi, or ice cream were invented — often by accident or cultural blending."
+    },
+    "bn": {
+      "name": "খাবারের উৎস কাহিনি",
+      "blurb": "ভিডিও টাইপ: How chocolate, pizza, sushi, or ice cream were invented — often by accident or cultural blending."
+    },
+    "hi": {
+      "name": "खाद्य उत्पत्ति की कहानियाँ",
+      "blurb": "वीडियो प्रकार: How chocolate, pizza, sushi, or ice cream were invented — often by accident or cultural blending."
+    },
+    "ur": {
+      "name": "کھانے کی ابتدا کی کہانیاں",
+      "blurb": "ویڈیو کی قسم: How chocolate, pizza, sushi, or ice cream were invented — often by accident or cultural blending."
+    },
+    "ta": {
+      "name": "உணவு தோற்றக் கதைகள்",
+      "blurb": "வீடியோ வகை: How chocolate, pizza, sushi, or ice cream were invented — often by accident or cultural blending."
+    },
+    "ml": {
+      "name": "ഭക്ഷണ ഉത്ഭവ കഥകൾ",
+      "blurb": "വീഡിയോ തരം: How chocolate, pizza, sushi, or ice cream were invented — often by accident or cultural blending."
+    }
+  },
+  "source": "Nish.Md + deterministic research",
+  "research_notes": [
+    "Marathon researched at 2026-09-10T08:30:18Z",
+    "Video type length=97",
+    "Topic prompt length=139",
+    "Video prompt length=382",
+    "Seeds=6"
+  ],
+  "verified_at": "2026-09-10T08:30:18Z"
+}

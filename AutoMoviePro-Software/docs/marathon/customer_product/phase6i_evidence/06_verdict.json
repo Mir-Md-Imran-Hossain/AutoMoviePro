@@ -1,0 +1,35 @@
+{
+  "certification": "PASS_WITH_LIMITATION",
+  "limitation": "no_approved_speaker_embedding_provider; acoustic VoiceIdentity remains UNKNOWN",
+  "features_observed": "PASS",
+  "delivery": "NORMAL",
+  "acoustic_identity": "UNKNOWN",
+  "same_voice_hint_consistent": true,
+  "different_voice_heuristic_mismatch": true,
+  "emotion_not_false_mismatch": true,
+  "unknown_blocks": true,
+  "unknown_no_repair": true,
+  "repair_execution": "EXECUTED",
+  "whole_video_regeneration": false,
+  "paid_google_calls": 0,
+  "embedding_integrated": false,
+  "paid": {
+    "attempts": 0,
+    "successes": 0,
+    "paid_google_calls": 0,
+    "edge_tts_generations": 4,
+    "model_downloads": "faster-whisper_may_use_cached_model",
+    "notes": [
+      "option_a_no_pyannote_install",
+      "acoustic_identity_unknown"
+    ],
+    "providers": [
+      {
+        "provider": "faster-whisper",
+        "paid": false,
+        "role": "asr_features"
+      }
+    ],
+    "latency_sec": 10.207
+  }
+}

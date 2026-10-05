@@ -1,0 +1,660 @@
+{
+  "schema": "amp_multimodal_evidence_projection_v1",
+  "kind": "production_evidence_fusion",
+  "status": "PASS",
+  "beats": [
+    {
+      "schema": "amp_multimodal_evidence_projection_v1",
+      "beat_id": "vb-1",
+      "scene_id": "sc-1",
+      "dialogue_id": "dlg-1",
+      "visual_asset_id": "vis-hosp",
+      "audio_asset_id": "6j-aud",
+      "intent": {
+        "subject": "Nurse",
+        "entities": [
+          {
+            "label": "Nurse"
+          },
+          {
+            "label": "hospital bed"
+          }
+        ],
+        "relationships": [
+          {
+            "relation": "beside"
+          }
+        ],
+        "actions": [
+          "standing beside"
+        ],
+        "location": "hospital room",
+        "camera": null,
+        "lighting": null,
+        "emotion": "neutral",
+        "dialogue": "The nurse stands beside the hospital bed."
+      },
+      "observed_visual": {
+        "status": "PASS",
+        "confidence": "PROVIDER_VERIFIED",
+        "entities": [
+          "nurse",
+          "face mask",
+          "nurse cap",
+          "hospital bed",
+          "ceiling light",
+          "medical equipment"
+        ],
+        "location": "hospital room",
+        "actions": [
+          "standing"
+        ],
+        "relationships": [
+          "nurse is standing in front of the hospital bed",
+          "nurse is wearing a face mask and cap"
+        ],
+        "temporal_status": null
+      },
+      "observed_audio": {
+        "status": "PASS",
+        "confidence": "PROVIDER_VERIFIED",
+        "dialogue_coverage": {
+          "dialogue_id": "dlg-1",
+          "coverage": "PARTIAL",
+          "overlap_sec": 2.46,
+          "required_sec": 2.5,
+          "speech_segment_ids": [
+            "asr-1"
+          ],
+          "timing_overlap_is_not_semantic_pass": true,
+          "vocabulary": "C05-S VisualCoverage"
+        },
+        "transcript": {
+          "dialogue_id": "dlg-1",
+          "class": "MATCH",
+          "similarity_is_not_production_pass": true
+        },
+        "delivery": "NORMAL",
+        "voice_identity_observation": "UNKNOWN"
+      },
+      "timing": {
+        "status": "PASS",
+        "planned_start": null,
+        "planned_end": 2.5,
+        "actual_audio_start": null,
+        "actual_audio_end": null,
+        "visual_coverage": "FULL",
+        "dialogue_coverage": "FULL",
+        "fixed_n_switching_forbidden": true
+      },
+      "continuity": {
+        "status": "PASS",
+        "location": "hospital",
+        "character": "Nurse",
+        "object": "hospital bed",
+        "authority": "pipeline.visual_semantic.continuity.ContinuityTracker",
+        "second_continuity_engine": false
+      },
+      "certification_matrix": {
+        "TECHNICAL": {
+          "status": "PASS",
+          "confidence": "DETERMINISTIC"
+        },
+        "AUDIO": {
+          "status": "PASS",
+          "confidence": "PROVIDER_VERIFIED",
+          "dialogue_coverage": {
+            "dialogue_id": "dlg-1",
+            "coverage": "PARTIAL",
+            "overlap_sec": 2.46,
+            "required_sec": 2.5,
+            "speech_segment_ids": [
+              "asr-1"
+            ],
+            "timing_overlap_is_not_semantic_pass": true,
+            "vocabulary": "C05-S VisualCoverage"
+          },
+          "transcript": {
+            "dialogue_id": "dlg-1",
+            "class": "MATCH",
+            "similarity_is_not_production_pass": true
+          },
+          "delivery": "NORMAL",
+          "voice_identity_observation": "UNKNOWN"
+        },
+        "VISUAL": {
+          "status": "PASS",
+          "confidence": "PROVIDER_VERIFIED",
+          "observed_entities": [
+            "nurse",
+            "face mask",
+            "nurse cap",
+            "hospital bed",
+            "ceiling light",
+            "medical equipment"
+          ],
+          "observed_location": "hospital room",
+          "observed_actions": [
+            "standing"
+          ],
+          "observed_relationships": [
+            "nurse is standing in front of the hospital bed",
+            "nurse is wearing a face mask and cap"
+          ],
+          "temporal_status": null
+        },
+        "DIALOGUE": {
+          "status": "UNKNOWN",
+          "dialogue_id": "dlg-1",
+          "text": "The nurse stands beside the hospital bed."
+        },
+        "TIMING": {
+          "status": "PASS",
+          "planned_start": null,
+          "planned_end": 2.5,
+          "actual_audio_start": null,
+          "actual_audio_end": null,
+          "visual_coverage": "FULL",
+          "dialogue_coverage": "FULL",
+          "fixed_n_switching_forbidden": true
+        },
+        "CONTINUITY": {
+          "status": "PASS",
+          "location": "hospital",
+          "character": "Nurse",
+          "object": "hospital bed",
+          "authority": "pipeline.visual_semantic.continuity.ContinuityTracker",
+          "second_continuity_engine": false
+        },
+        "CROSS_MODAL": {
+          "status": "PASS",
+          "confidence": "PROVIDER_VERIFIED",
+          "issues": [],
+          "timing_overlap_is_not_semantic_pass": true,
+          "relationship_collapsed_to_located_at": false,
+          "note": "evidence_coherence_not_publishability"
+        },
+        "SEMANTIC": {
+          "status": "PASS",
+          "confidence": "PROVIDER_VERIFIED",
+          "authority": "pipeline.semantic_coverage",
+          "note": "projection_only_not_publishability",
+          "second_semantic_gate": false,
+          "creates_final_gate": false
+        }
+      },
+      "provenance": {
+        "visual_provider": "PROVIDER_FRAME:gemini-3.6-flash",
+        "visual_evidence_source": "PROVIDER_VERIFIED",
+        "audio_provider": "faster-whisper",
+        "audio_evidence_source": "LOCAL_ASR",
+        "visual_hash": null,
+        "audio_hash": "f507c8365c5dc22d50e8c211867397ada718733de9af6d7ff287d659e2b7dced",
+        "observation_timestamp": 1788952044.8312266,
+        "HEURISTIC_is_not_PROVIDER_VERIFIED": true,
+        "generation_success_is_not_semantic_pass": true,
+        "prompt_compliance_is_not_observed_pass": true
+      },
+      "customer_id": "c11_marathon_customer",
+      "channel_id": "4",
+      "job_id": "job2108",
+      "creates_final_gate": false,
+      "creates_publishability_gate": false,
+      "second_multimodal_engine": false,
+      "second_semantic_gate": false,
+      "second_quality_score": false,
+      "second_repair_engine": false,
+      "second_pacing_engine": false,
+      "unknown_as_pass": false,
+      "unknown_as_fail": false,
+      "voice_acoustic_remains_unknown_per_phase6i": true,
+      "adaptive_pacing_reuses_phase6g": true,
+      "fixed_n_switching_forbidden": true,
+      "authority_chain": [
+        "observation\u2192semantic_coverage\u2192quality_gates\u2192publishability"
+      ],
+      "never_directly_publishable": true
+    },
+    {
+      "schema": "amp_multimodal_evidence_projection_v1",
+      "beat_id": "vb-2",
+      "scene_id": "sc-1",
+      "dialogue_id": "dlg-2",
+      "visual_asset_id": "vis-hosp",
+      "audio_asset_id": "6j-aud",
+      "intent": {
+        "subject": "Nurse",
+        "entities": [
+          {
+            "label": "Nurse"
+          },
+          {
+            "label": "hospital bed"
+          }
+        ],
+        "relationships": [
+          {
+            "relation": "near"
+          }
+        ],
+        "actions": [
+          "approaching"
+        ],
+        "location": "hospital room",
+        "camera": null,
+        "lighting": null,
+        "emotion": "concerned",
+        "dialogue": "She approaches carefully."
+      },
+      "observed_visual": {
+        "status": "PASS",
+        "confidence": "PROVIDER_VERIFIED",
+        "entities": [
+          "nurse",
+          "face mask",
+          "nurse cap",
+          "hospital bed",
+          "ceiling light",
+          "medical equipment"
+        ],
+        "location": "hospital room",
+        "actions": [
+          "standing"
+        ],
+        "relationships": [
+          "nurse is standing in front of the hospital bed",
+          "nurse is wearing a face mask and cap"
+        ],
+        "temporal_status": null
+      },
+      "observed_audio": {
+        "status": "PASS",
+        "confidence": "PROVIDER_VERIFIED",
+        "dialogue_coverage": {
+          "dialogue_id": "dlg-1",
+          "coverage": "PARTIAL",
+          "overlap_sec": 2.46,
+          "required_sec": 2.5,
+          "speech_segment_ids": [
+            "asr-1"
+          ],
+          "timing_overlap_is_not_semantic_pass": true,
+          "vocabulary": "C05-S VisualCoverage"
+        },
+        "transcript": {
+          "dialogue_id": "dlg-1",
+          "class": "MATCH",
+          "similarity_is_not_production_pass": true
+        },
+        "delivery": "NORMAL",
+        "voice_identity_observation": "UNKNOWN"
+      },
+      "timing": {
+        "status": "PASS",
+        "planned_start": 2.5,
+        "planned_end": 5.0,
+        "actual_audio_start": null,
+        "actual_audio_end": null,
+        "visual_coverage": "FULL",
+        "dialogue_coverage": "FULL",
+        "fixed_n_switching_forbidden": true
+      },
+      "continuity": {
+        "status": "PASS",
+        "location": "hospital",
+        "character": "Nurse",
+        "object": "hospital bed",
+        "authority": "pipeline.visual_semantic.continuity.ContinuityTracker",
+        "second_continuity_engine": false
+      },
+      "certification_matrix": {
+        "TECHNICAL": {
+          "status": "PASS",
+          "confidence": "DETERMINISTIC"
+        },
+        "AUDIO": {
+          "status": "PASS",
+          "confidence": "PROVIDER_VERIFIED",
+          "dialogue_coverage": {
+            "dialogue_id": "dlg-1",
+            "coverage": "PARTIAL",
+            "overlap_sec": 2.46,
+            "required_sec": 2.5,
+            "speech_segment_ids": [
+              "asr-1"
+            ],
+            "timing_overlap_is_not_semantic_pass": true,
+            "vocabulary": "C05-S VisualCoverage"
+          },
+          "transcript": {
+            "dialogue_id": "dlg-1",
+            "class": "MATCH",
+            "similarity_is_not_production_pass": true
+          },
+          "delivery": "NORMAL",
+          "voice_identity_observation": "UNKNOWN"
+        },
+        "VISUAL": {
+          "status": "PASS",
+          "confidence": "PROVIDER_VERIFIED",
+          "observed_entities": [
+            "nurse",
+            "face mask",
+            "nurse cap",
+            "hospital bed",
+            "ceiling light",
+            "medical equipment"
+          ],
+          "observed_location": "hospital room",
+          "observed_actions": [
+            "standing"
+          ],
+          "observed_relationships": [
+            "nurse is standing in front of the hospital bed",
+            "nurse is wearing a face mask and cap"
+          ],
+          "temporal_status": null
+        },
+        "DIALOGUE": {
+          "status": "UNKNOWN",
+          "dialogue_id": "dlg-2",
+          "text": "She approaches carefully."
+        },
+        "TIMING": {
+          "status": "PASS",
+          "planned_start": 2.5,
+          "planned_end": 5.0,
+          "actual_audio_start": null,
+          "actual_audio_end": null,
+          "visual_coverage": "FULL",
+          "dialogue_coverage": "FULL",
+          "fixed_n_switching_forbidden": true
+        },
+        "CONTINUITY": {
+          "status": "PASS",
+          "location": "hospital",
+          "character": "Nurse",
+          "object": "hospital bed",
+          "authority": "pipeline.visual_semantic.continuity.ContinuityTracker",
+          "second_continuity_engine": false
+        },
+        "CROSS_MODAL": {
+          "status": "PASS",
+          "confidence": "PROVIDER_VERIFIED",
+          "issues": [],
+          "timing_overlap_is_not_semantic_pass": true,
+          "relationship_collapsed_to_located_at": false,
+          "note": "evidence_coherence_not_publishability"
+        },
+        "SEMANTIC": {
+          "status": "PASS",
+          "confidence": "PROVIDER_VERIFIED",
+          "authority": "pipeline.semantic_coverage",
+          "note": "projection_only_not_publishability",
+          "second_semantic_gate": false,
+          "creates_final_gate": false
+        }
+      },
+      "provenance": {
+        "visual_provider": "PROVIDER_FRAME:gemini-3.6-flash",
+        "visual_evidence_source": "PROVIDER_VERIFIED",
+        "audio_provider": "faster-whisper",
+        "audio_evidence_source": "LOCAL_ASR",
+        "visual_hash": null,
+        "audio_hash": "f507c8365c5dc22d50e8c211867397ada718733de9af6d7ff287d659e2b7dced",
+        "observation_timestamp": 1788952044.8312266,
+        "HEURISTIC_is_not_PROVIDER_VERIFIED": true,
+        "generation_success_is_not_semantic_pass": true,
+        "prompt_compliance_is_not_observed_pass": true
+      },
+      "customer_id": "c11_marathon_customer",
+      "channel_id": "4",
+      "job_id": "job2108",
+      "creates_final_gate": false,
+      "creates_publishability_gate": false,
+      "second_multimodal_engine": false,
+      "second_semantic_gate": false,
+      "second_quality_score": false,
+      "second_repair_engine": false,
+      "second_pacing_engine": false,
+      "unknown_as_pass": false,
+      "unknown_as_fail": false,
+      "voice_acoustic_remains_unknown_per_phase6i": true,
+      "adaptive_pacing_reuses_phase6g": true,
+      "fixed_n_switching_forbidden": true,
+      "authority_chain": [
+        "observation\u2192semantic_coverage\u2192quality_gates\u2192publishability"
+      ],
+      "never_directly_publishable": true
+    },
+    {
+      "schema": "amp_multimodal_evidence_projection_v1",
+      "beat_id": "vb-3",
+      "scene_id": "sc-2",
+      "dialogue_id": "dlg-3",
+      "visual_asset_id": "vis-hosp",
+      "audio_asset_id": "6j-aud",
+      "intent": {
+        "subject": "Nurse",
+        "entities": [
+          {
+            "label": "Nurse"
+          },
+          {
+            "label": "hospital bed"
+          }
+        ],
+        "relationships": [
+          {
+            "relation": "beside"
+          }
+        ],
+        "actions": [
+          "at bedside"
+        ],
+        "location": "hospital room",
+        "camera": null,
+        "lighting": null,
+        "emotion": "relieved",
+        "dialogue": "She remains calm at the bedside."
+      },
+      "observed_visual": {
+        "status": "PASS",
+        "confidence": "PROVIDER_VERIFIED",
+        "entities": [
+          "nurse",
+          "face mask",
+          "nurse cap",
+          "hospital bed",
+          "ceiling light",
+          "medical equipment"
+        ],
+        "location": "hospital room",
+        "actions": [
+          "standing"
+        ],
+        "relationships": [
+          "nurse is standing in front of the hospital bed",
+          "nurse is wearing a face mask and cap"
+        ],
+        "temporal_status": null
+      },
+      "observed_audio": {
+        "status": "PASS",
+        "confidence": "PROVIDER_VERIFIED",
+        "dialogue_coverage": {
+          "dialogue_id": "dlg-1",
+          "coverage": "PARTIAL",
+          "overlap_sec": 2.46,
+          "required_sec": 2.5,
+          "speech_segment_ids": [
+            "asr-1"
+          ],
+          "timing_overlap_is_not_semantic_pass": true,
+          "vocabulary": "C05-S VisualCoverage"
+        },
+        "transcript": {
+          "dialogue_id": "dlg-1",
+          "class": "MATCH",
+          "similarity_is_not_production_pass": true
+        },
+        "delivery": "NORMAL",
+        "voice_identity_observation": "UNKNOWN"
+      },
+      "timing": {
+        "status": "PASS",
+        "planned_start": 5.0,
+        "planned_end": 8.0,
+        "actual_audio_start": null,
+        "actual_audio_end": null,
+        "visual_coverage": "FULL",
+        "dialogue_coverage": "FULL",
+        "fixed_n_switching_forbidden": true
+      },
+      "continuity": {
+        "status": "PASS",
+        "location": "hospital",
+        "character": "Nurse",
+        "object": "hospital bed",
+        "authority": "pipeline.visual_semantic.continuity.ContinuityTracker",
+        "second_continuity_engine": false
+      },
+      "certification_matrix": {
+        "TECHNICAL": {
+          "status": "PASS",
+          "confidence": "DETERMINISTIC"
+        },
+        "AUDIO": {
+          "status": "PASS",
+          "confidence": "PROVIDER_VERIFIED",
+          "dialogue_coverage": {
+            "dialogue_id": "dlg-1",
+            "coverage": "PARTIAL",
+            "overlap_sec": 2.46,
+            "required_sec": 2.5,
+            "speech_segment_ids": [
+              "asr-1"
+            ],
+            "timing_overlap_is_not_semantic_pass": true,
+            "vocabulary": "C05-S VisualCoverage"
+          },
+          "transcript": {
+            "dialogue_id": "dlg-1",
+            "class": "MATCH",
+            "similarity_is_not_production_pass": true
+          },
+          "delivery": "NORMAL",
+          "voice_identity_observation": "UNKNOWN"
+        },
+        "VISUAL": {
+          "status": "PASS",
+          "confidence": "PROVIDER_VERIFIED",
+          "observed_entities": [
+            "nurse",
+            "face mask",
+            "nurse cap",
+            "hospital bed",
+            "ceiling light",
+            "medical equipment"
+          ],
+          "observed_location": "hospital room",
+          "observed_actions": [
+            "standing"
+          ],
+          "observed_relationships": [
+            "nurse is standing in front of the hospital bed",
+            "nurse is wearing a face mask and cap"
+          ],
+          "temporal_status": null
+        },
+        "DIALOGUE": {
+          "status": "UNKNOWN",
+          "dialogue_id": "dlg-3",
+          "text": "She remains calm at the bedside."
+        },
+        "TIMING": {
+          "status": "PASS",
+          "planned_start": 5.0,
+          "planned_end": 8.0,
+          "actual_audio_start": null,
+          "actual_audio_end": null,
+          "visual_coverage": "FULL",
+          "dialogue_coverage": "FULL",
+          "fixed_n_switching_forbidden": true
+        },
+        "CONTINUITY": {
+          "status": "PASS",
+          "location": "hospital",
+          "character": "Nurse",
+          "object": "hospital bed",
+          "authority": "pipeline.visual_semantic.continuity.ContinuityTracker",
+          "second_continuity_engine": false
+        },
+        "CROSS_MODAL": {
+          "status": "PASS",
+          "confidence": "PROVIDER_VERIFIED",
+          "issues": [],
+          "timing_overlap_is_not_semantic_pass": true,
+          "relationship_collapsed_to_located_at": false,
+          "note": "evidence_coherence_not_publishability"
+        },
+        "SEMANTIC": {
+          "status": "PASS",
+          "confidence": "PROVIDER_VERIFIED",
+          "authority": "pipeline.semantic_coverage",
+          "note": "projection_only_not_publishability",
+          "second_semantic_gate": false,
+          "creates_final_gate": false
+        }
+      },
+      "provenance": {
+        "visual_provider": "PROVIDER_FRAME:gemini-3.6-flash",
+        "visual_evidence_source": "PROVIDER_VERIFIED",
+        "audio_provider": "faster-whisper",
+        "audio_evidence_source": "LOCAL_ASR",
+        "visual_hash": null,
+        "audio_hash": "f507c8365c5dc22d50e8c211867397ada718733de9af6d7ff287d659e2b7dced",
+        "observation_timestamp": 1788952044.8312266,
+        "HEURISTIC_is_not_PROVIDER_VERIFIED": true,
+        "generation_success_is_not_semantic_pass": true,
+        "prompt_compliance_is_not_observed_pass": true
+      },
+      "customer_id": "c11_marathon_customer",
+      "channel_id": "4",
+      "job_id": "job2108",
+      "creates_final_gate": false,
+      "creates_publishability_gate": false,
+      "second_multimodal_engine": false,
+      "second_semantic_gate": false,
+      "second_quality_score": false,
+      "second_repair_engine": false,
+      "second_pacing_engine": false,
+      "unknown_as_pass": false,
+      "unknown_as_fail": false,
+      "voice_acoustic_remains_unknown_per_phase6i": true,
+      "adaptive_pacing_reuses_phase6g": true,
+      "fixed_n_switching_forbidden": true,
+      "authority_chain": [
+        "observation\u2192semantic_coverage\u2192quality_gates\u2192publishability"
+      ],
+      "never_directly_publishable": true
+    }
+  ],
+  "beat_count": 3,
+  "creates_final_gate": false,
+  "creates_publishability_gate": false,
+  "never_directly_publishable": true,
+  "authority_chain": [
+    "evidence_projection\u2192semantic_coverage\u2192publishability"
+  ],
+  "second_multimodal_engine": false,
+  "second_semantic_gate": false,
+  "second_publishability_engine": false,
+  "unknown_as_pass": false,
+  "HEURISTIC_is_not_PROVIDER_VERIFIED": true,
+  "voice_acoustic_remains_unknown_per_phase6i": true,
+  "customer_id": "c11_marathon_customer",
+  "channel_id": "4",
+  "job_id": "job2108",
+  "created_at": 1788952044.8312266
+}

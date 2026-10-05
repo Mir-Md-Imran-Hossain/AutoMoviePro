@@ -1,0 +1,13 @@
+{
+  "ok": null,
+  "job_id": 2333,
+  "local_path": null,
+  "final_path": null,
+  "upload_status": "ready_to_upload",
+  "error": null,
+  "error_code": null,
+  "duration": 52.32,
+  "video_type": "short",
+  "package_path": null,
+  "latency_sec": 2108.6
+}

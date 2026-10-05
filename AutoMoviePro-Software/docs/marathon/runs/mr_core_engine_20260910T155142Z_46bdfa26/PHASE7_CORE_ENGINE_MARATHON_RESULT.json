@@ -1,0 +1,187 @@
+{
+  "marathon_id": "mr_core_engine_20260910T155142Z_46bdfa26",
+  "started_at": "2026-09-10T15:51:42Z",
+  "customer": "c11_marathon_customer",
+  "channel_id": 4,
+  "cert_languages": [
+    "en",
+    "bn",
+    "hi",
+    "ur",
+    "ta",
+    "ml"
+  ],
+  "customer_entitlement_forged": false,
+  "youtube_publish": false,
+  "mock_production": false,
+  "ended_at": "2026-09-10T16:33:43Z",
+  "total_runtime_sec": 2521.3,
+  "topic": "How JWST mid-infrared spectra fingerprint exoplanet atmospheres (56813452)",
+  "job_id": 2330,
+  "work_dir": "E:\\All Updaye Project\\AutoMovie_Pro_SAAS_Final_Update\\AutoMoviePro-Software\\data\\customer_generation_work\\c11_marathon_customer\\job2330",
+  "verdict": "FAIL",
+  "checkpoints": [
+    {
+      "ts": "2026-09-10T15:51:42Z",
+      "elapsed_sec": 0.1,
+      "stage": "TOPIC",
+      "job_id": null,
+      "status": "HEALTHY",
+      "note": "CP-00 init complete",
+      "db_languages_unchanged": [
+        "en",
+        "bn"
+      ],
+      "cert_overlay_languages": [
+        "en",
+        "bn",
+        "hi",
+        "ur",
+        "ta",
+        "ml"
+      ],
+      "google_keys_env": 19,
+      "agnes_keys_env": 6
+    },
+    {
+      "ts": "2026-09-10T15:51:42Z",
+      "elapsed_sec": 0.5,
+      "stage": "TOPIC",
+      "job_id": null,
+      "status": "PROGRESSING",
+      "note": "topic=How JWST mid-infrared spectra fingerprint exoplanet atmospheres (56813452)",
+      "source": "BUILD-04G_suggest_quality_ranked+DUP_CERT_BYPASS",
+      "seo": 0.9,
+      "niche_aligned": true
+    },
+    {
+      "ts": "2026-09-10T15:51:49Z",
+      "elapsed_sec": 7.0,
+      "stage": "PLAN",
+      "job_id": null,
+      "status": "PROGRESSING",
+      "note": "research_script_plan_ok",
+      "script_class": "REAL"
+    },
+    {
+      "ts": "2026-09-10T16:33:43Z",
+      "elapsed_sec": 2521.3,
+      "stage": "FAILED",
+      "job_id": 2330,
+      "status": "FAILED",
+      "note": "generate_video:RuntimeError:SEMANTIC_COVERAGE_BLOCKED:semantic_fail"
+    },
+    {
+      "ts": "2026-09-10T16:33:43Z",
+      "elapsed_sec": 2521.3,
+      "stage": "OBSERVE",
+      "job_id": 2330,
+      "status": "PROGRESSING",
+      "note": "watchdog stage=OBSERVE",
+      "work_dir": "E:\\All Updaye Project\\AutoMovie_Pro_SAAS_Final_Update\\AutoMoviePro-Software\\data\\customer_generation_work\\c11_marathon_customer\\job2330"
+    }
+  ],
+  "interventions": [
+    {
+      "intervention_id": "INT-001",
+      "ts": "2026-09-10T15:51:42Z",
+      "reason": "duplicate_topic_preflight",
+      "detected_problem": "matched=space science",
+      "action": "suffix_unique_concrete_angle",
+      "authority": "pipeline.product_registry.is_duplicate",
+      "result": "topic_rewritten"
+    },
+    {
+      "intervention_id": "INT-002",
+      "ts": "2026-09-10T15:51:42Z",
+      "reason": "topic_duplicate_retry",
+      "detected_problem": "Duplicate/conflict: space science",
+      "action": "retry_unique_topic_1",
+      "authority": "set_manual_topic",
+      "result": "still_blocked"
+    },
+    {
+      "intervention_id": "INT-003",
+      "ts": "2026-09-10T15:51:42Z",
+      "reason": "topic_duplicate_retry",
+      "detected_problem": "Duplicate/conflict: space science",
+      "action": "retry_unique_topic_2",
+      "authority": "set_manual_topic",
+      "result": "still_blocked"
+    },
+    {
+      "intervention_id": "INT-004",
+      "ts": "2026-09-10T15:51:42Z",
+      "reason": "topic_duplicate_retry",
+      "detected_problem": "Duplicate/conflict: space science",
+      "action": "retry_unique_topic_3",
+      "authority": "set_manual_topic",
+      "result": "still_blocked"
+    },
+    {
+      "intervention_id": "INT-005",
+      "ts": "2026-09-10T15:51:42Z",
+      "reason": "topic_duplicate_retry",
+      "detected_problem": "Duplicate/conflict: space science",
+      "action": "retry_unique_topic_4",
+      "authority": "set_manual_topic",
+      "result": "still_blocked"
+    },
+    {
+      "intervention_id": "INT-006",
+      "ts": "2026-09-10T15:51:42Z",
+      "reason": "topic_duplicate_retry",
+      "detected_problem": "Duplicate/conflict: space science",
+      "action": "retry_unique_topic_5",
+      "authority": "set_manual_topic",
+      "result": "still_blocked"
+    },
+    {
+      "intervention_id": "INT-007",
+      "ts": "2026-09-10T15:51:42Z",
+      "reason": "topic_duplicate_cert_bypass",
+      "detected_problem": "registry_false_match_or_saturated",
+      "action": "set_manual_topic_allow_duplicate",
+      "authority": "cert_core_engine_real_marathon",
+      "result": "ok"
+    },
+    {
+      "intervention_id": "INT-008",
+      "ts": "2026-09-10T15:51:49Z",
+      "reason": "use_customer_approved_plan_lock",
+      "detected_problem": "generate_video re-entry intelligence DUPLICATE on reused niche topics",
+      "action": "write_director_plan + c06e lock before generate_video",
+      "authority": "customer_plan_adapter + generate_video customer_approved_lock",
+      "result": "lock_written"
+    }
+  ],
+  "failures": [
+    {
+      "ok": false,
+      "error": "SEMANTIC_COVERAGE_BLOCKED:semantic_fail",
+      "traceback": "Traceback (most recent call last):\n  File \"E:\\All Updaye Project\\AutoMovie_Pro_SAAS_Final_Update\\AutoMoviePro-Software\\scripts\\cert_core_engine_real_marathon.py\", line 521, in generate_real\n    result = generate_video(\n             ^^^^^^^^^^^^^^^\n  File \"E:\\All Updaye Project\\AutoMovie_Pro_SAAS_Final_Update\\AutoMoviePro-Software\\pipeline\\video_pipeline.py\", line 1301, in generate_video\n    raise RuntimeError(f\"SEMANTIC_COVERAGE_BLOCKED:{sem_gate.get('reason')}\")\nRuntimeError: SEMANTIC_COVERAGE_BLOCKED:semantic_fail\n"
+    }
+  ],
+  "unknowns": [
+    "UR_RTL_SHAPING_UNKNOWN_NO_DEDICATED_RENDER_SHAPING_PROOF"
+  ],
+  "db_languages_before_after_preserved": true,
+  "generation": {
+    "ok": false,
+    "latency_sec": null,
+    "upload_status": null,
+    "local_path": null,
+    "classification": null,
+    "error": "SEMANTIC_COVERAGE_BLOCKED:semantic_fail"
+  },
+  "artifacts_summary": {
+    "localized_count": 0,
+    "entitlement_preserved": true,
+    "duration_status": null,
+    "publishable": null
+  },
+  "verdict_reasons": [
+    "generation_failed_or_no_local_path"
+  ],
+  "prep_script_class": "REAL"
+}

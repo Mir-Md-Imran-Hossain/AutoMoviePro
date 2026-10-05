@@ -1,0 +1,784 @@
+{
+  "raw": {
+    "ok": true,
+    "suggestions": [
+      {
+        "topic_id": "t-febb33289bd9d462",
+        "topic_text": "The 2026 space science detail most shorts skip (and why it matters)",
+        "canonical_topic": "The 2026 space science detail most shorts skip (and why it matters)",
+        "source": "SUGGESTED",
+        "authority": "BUILD-04G.discovery",
+        "external_api": false
+      },
+      {
+        "topic_id": "t-a1b5a4327f784c01",
+        "topic_text": "Why space science looks obvious — until you see this evidence",
+        "canonical_topic": "Why space science looks obvious — until you see this evidence",
+        "source": "SUGGESTED",
+        "authority": "BUILD-04G.discovery",
+        "external_api": false
+      },
+      {
+        "topic_id": "t-3b65d372264c01ca",
+        "topic_text": "Quick space science insight: the one mechanism viewers miss",
+        "canonical_topic": "Quick space science insight: the one mechanism viewers miss",
+        "source": "SUGGESTED",
+        "authority": "BUILD-04G.discovery",
+        "external_api": false
+      },
+      {
+        "topic_id": "t-cc0a2811b1e2f01a",
+        "topic_text": "One verified fact about space science that changes the next 60 seconds",
+        "canonical_topic": "One verified fact about space science that changes the next 60 seconds",
+        "source": "SUGGESTED",
+        "authority": "BUILD-04G.discovery",
+        "external_api": false
+      },
+      {
+        "topic_id": "t-fa78693c968bc7a0",
+        "topic_text": "60-second space science myth vs measurement — stay for the payoff",
+        "canonical_topic": "60-second space science myth vs measurement — stay for the payoff",
+        "source": "SUGGESTED",
+        "authority": "BUILD-04G.discovery",
+        "external_api": false
+      }
+    ],
+    "reserved": [
+      {
+        "topic_id": "t-71bf9f81dcbd29c3",
+        "topic_text": "One fact about space science you missed today",
+        "source": "RESERVED",
+        "authority": "BUILD-04G.reserve_queue"
+      },
+      {
+        "topic_id": "t-042828b9295d915b",
+        "topic_text": "Quick space science insight for general",
+        "source": "RESERVED",
+        "authority": "BUILD-04G.reserve_queue"
+      },
+      {
+        "topic_id": "t-87e7edb4fdfcde63",
+        "topic_text": "space science: 60-second breakdown",
+        "source": "RESERVED",
+        "authority": "BUILD-04G.reserve_queue"
+      }
+    ],
+    "historical_count": 19,
+    "note": "Suggestions are local BUILD-04G discovery with anti-repeat history — not external live web research",
+    "workflow": {
+      "contract": "C06-B",
+      "project_id": "trs-ch4",
+      "owner_login_id": "c11_marathon_customer",
+      "channel_id": 4,
+      "updated_at": "2026-09-10T22:34:59.147354",
+      "revision": 461,
+      "topic": {
+        "topic_id": "topic-85ee06c5abbb0cdf",
+        "project_id": "trs-ch4",
+        "owner_login_id": "c11_marathon_customer",
+        "topic_text": "How JWST mid-infrared spectra fingerprint exoplanet atmospheres (56813452)",
+        "topic_source": "MANUAL",
+        "topic_status": "COMPLETED",
+        "selected_at": "2026-09-10T21:51:42.754650",
+        "created_at": "2026-09-06T22:13:16.391863",
+        "updated_at": "2026-09-10T21:51:42.754650",
+        "duplicate": {
+          "blocked": false,
+          "verdict": "ALLOWED_DUP",
+          "matched": null,
+          "cert_bypass": true
+        },
+        "blocked_reason": null,
+        "error_code": null
+      },
+      "suggestions": [
+        {
+          "topic_id": "t-febb33289bd9d462",
+          "topic_text": "The 2026 space science detail most shorts skip (and why it matters)",
+          "canonical_topic": "The 2026 space science detail most shorts skip (and why it matters)",
+          "source": "SUGGESTED",
+          "authority": "BUILD-04G.discovery",
+          "external_api": false
+        },
+        {
+          "topic_id": "t-a1b5a4327f784c01",
+          "topic_text": "Why space science looks obvious — until you see this evidence",
+          "canonical_topic": "Why space science looks obvious — until you see this evidence",
+          "source": "SUGGESTED",
+          "authority": "BUILD-04G.discovery",
+          "external_api": false
+        },
+        {
+          "topic_id": "t-3b65d372264c01ca",
+          "topic_text": "Quick space science insight: the one mechanism viewers miss",
+          "canonical_topic": "Quick space science insight: the one mechanism viewers miss",
+          "source": "SUGGESTED",
+          "authority": "BUILD-04G.discovery",
+          "external_api": false
+        },
+        {
+          "topic_id": "t-cc0a2811b1e2f01a",
+          "topic_text": "One verified fact about space science that changes the next 60 seconds",
+          "canonical_topic": "One verified fact about space science that changes the next 60 seconds",
+          "source": "SUGGESTED",
+          "authority": "BUILD-04G.discovery",
+          "external_api": false
+        },
+        {
+          "topic_id": "t-fa78693c968bc7a0",
+          "topic_text": "60-second space science myth vs measurement — stay for the payoff",
+          "canonical_topic": "60-second space science myth vs measurement — stay for the payoff",
+          "source": "SUGGESTED",
+          "authority": "BUILD-04G.discovery",
+          "external_api": false
+        }
+      ],
+      "reserved": [
+        {
+          "topic_id": "t-71bf9f81dcbd29c3",
+          "topic_text": "One fact about space science you missed today",
+          "source": "RESERVED",
+          "authority": "BUILD-04G.reserve_queue"
+        },
+        {
+          "topic_id": "t-042828b9295d915b",
+          "topic_text": "Quick space science insight for general",
+          "source": "RESERVED",
+          "authority": "BUILD-04G.reserve_queue"
+        },
+        {
+          "topic_id": "t-87e7edb4fdfcde63",
+          "topic_text": "space science: 60-second breakdown",
+          "source": "RESERVED",
+          "authority": "BUILD-04G.reserve_queue"
+        }
+      ],
+      "research": {
+        "research_status": "COMPLETED",
+        "fact_count": 2,
+        "evidence_count": 2,
+        "source_count": 0,
+        "confidence": null,
+        "unresolved_items": [],
+        "capability": {
+          "provider_capability": "LOCAL_FACTPACK",
+          "provider_mode": "LIVE_LOCAL",
+          "external_live_research": "UNAVAILABLE",
+          "is_external_live": false,
+          "external_api": false,
+          "note": "LOCAL_FACTPACK must not be claimed as EXTERNAL_LIVE_RESEARCH"
+        },
+        "gate": {
+          "verdict": "PASS",
+          "reason": "sufficient_evidence",
+          "issues": [],
+          "claim_count": 2,
+          "supported_count": 2,
+          "verified_count": 0,
+          "unsupported_count": 0,
+          "classified": [
+            {
+              "claim": "Research query: how jwst mid-infrared spectra fingerprint exoplanet atmospheres 56813452\nLanguage: en\nRegion:",
+              "class": "SUPPORTED",
+              "source": "research_notes"
+            },
+            {
+              "claim": "Additional context on How JWST mid-infrared spectra fingerprint exoplanet atmospheres (56813452) from configured research scope.",
+              "class": "SUPPORTED",
+              "source": "live_research"
+            }
+          ]
+        },
+        "fingerprint": "c6789c757e53625936dcc4587a8c6279aa77a4cc542375d7b7176aef2f67bf6a",
+        "action": "execute",
+        "error_code": null,
+        "error_summary": null,
+        "live_research_complete": false,
+        "status_label": "Research complete (local FactPack)",
+        "has_fact_pack": true
+      },
+      "script": {
+        "script_status": "COMPLETED",
+        "preview": {
+          "topic": "JWST Mid-Infrared Spectra Exoplanet Atmospheres",
+          "hook": "Most people miss the chemistry in JWST images. The mid-infrared band hides a fingerprint that visible light completely erases.",
+          "beat_count": 5,
+          "dialogue_count": 5,
+          "scene_count": 5,
+          "entities": [],
+          "locations": [],
+          "relationships": [
+            "near:JWST cools its sensors to near absolute zero. This kills the background heat, le"
+          ],
+          "dialogue_ids": [
+            "beat-1",
+            "beat-2",
+            "beat-3",
+            "beat-4",
+            "beat-5"
+          ],
+          "beat_ids": [
+            "beat-1",
+            "beat-2",
+            "beat-3",
+            "beat-4",
+            "beat-5"
+          ],
+          "scene_ids": [
+            "scene-00",
+            "scene-01",
+            "scene-02",
+            "scene-03",
+            "scene-04"
+          ],
+          "beats_summary": [
+            {
+              "beat_id": "beat-1",
+              "narration": "Most people miss the chemistry in JWST images. The mid-infrared band hides a fingerprint that visible light completely erases.",
+              "speaker": "Narrator",
+              "emotion": "",
+              "entity_refs": [],
+              "location_ref": "",
+              "estimated_duration_sec": 7.92
+            },
+            {
+              "beat_id": "beat-2",
+              "narration": "Why does that matter right now? visible light bounces off clouds. Mid-infrared penetrates deeper, hitting the molecular glass of the atmosphere itself.",
+              "speaker": "Narrator",
+              "emotion": "",
+              "entity_refs": [],
+              "location_ref": "",
+              "estimated_duration_sec": 9.17
+            },
+            {
+              "beat_id": "beat-3",
+              "narration": "From that penetrates, watch what this changes next — the MIRI instrument locks onto carbon dioxide. A sharp spike at five microns confirms the gas is present.",
+              "speaker": "Narrator",
+              "emotion": "",
+              "entity_refs": [],
+              "location_ref": "",
+              "estimated_duration_sec": 11.0
+            },
+            {
+              "beat_id": "beat-4",
+              "narration": "From that penetrates, but CO2 is just the start. The real question is water vapor, which often gets buried in the thermal noise.",
+              "speaker": "Narrator",
+              "emotion": "",
+              "entity_refs": [],
+              "location_ref": "",
+              "estimated_duration_sec": 9.58
+            },
+            {
+              "beat_id": "beat-5",
+              "narration": "JWST cools its sensors to near absolute zero. This kills the background heat, letting the water vapor signature shine through. So the takeaway.",
+              "speaker": "Narrator",
+              "emotion": "",
+              "entity_refs": [],
+              "location_ref": "",
+              "estimated_duration_sec": 9.58
+            }
+          ]
+        },
+        "scene_count": 5,
+        "beat_count": 5,
+        "dialogue_count": 5,
+        "quality": {
+          "status": "PASS",
+          "issues": [],
+          "actions": [],
+          "preflight": {
+            "status": "WARNING",
+            "ok": true,
+            "blocked": false,
+            "blocks": [],
+            "warnings": [
+              "missing_emotional_intent:1"
+            ],
+            "unknowns": [],
+            "confidence": "HEURISTIC",
+            "claims_human_written": false,
+            "claims_guaranteed_engagement": false,
+            "method": "DETERMINISTIC_PREFLIGHT",
+            "note": "stylistic judgments are HEURISTIC; naturalness not proven"
+          },
+          "authority": "BUILD-04F.evaluate_script_quality + TRS preflight"
+        },
+        "approval": {
+          "state": "APPROVED",
+          "publishes": false,
+          "means_generated": false,
+          "updated_at": "2026-09-10T21:51:49.169304",
+          "note": "customer-approved script — not generated/rendered/published"
+        },
+        "error_code": null,
+        "error_summary": null,
+        "script_action": "reuse",
+        "dialogue_segments_count": 5,
+        "has_script_plan": true
+      },
+      "script_plan": {
+        "schema_version": "1.0.0",
+        "id": "028967d3-6193-4383-8644-9be2f93b2cd2",
+        "created_at": "2026-09-10 15:51:49.153856+00:00",
+        "updated_at": null,
+        "topic_id": "topic-85ee06c5abbb0cdf",
+        "topic": "JWST Mid-Infrared Spectra Exoplanet Atmospheres",
+        "format": "SHORT",
+        "language": "en",
+        "target_duration_sec": 60.0,
+        "hook": "Most people miss the chemistry in JWST images. The mid-infrared band hides a fingerprint that visible light completely erases.",
+        "narrative_structure": [
+          "hook",
+          "context",
+          "development",
+          "payoff",
+          "ending"
+        ],
+        "sections": [
+          "hook",
+          "context",
+          "development",
+          "payoff",
+          "ending"
+        ],
+        "beats": [
+          {
+            "schema_version": "1.0.0",
+            "id": "e7da65fb-2a2d-4914-8cae-4e0fd9d11486",
+            "created_at": "2026-09-10 15:51:49.153856+00:00",
+            "updated_at": null,
+            "beat_id": "beat-1",
+            "order": 0,
+            "section_role": "hook",
+            "narration": "Most people miss the chemistry in JWST images. The mid-infrared band hides a fingerprint that visible light completely erases.",
+            "speaker": "Narrator",
+            "emotion": "",
+            "emotion_intensity": 0.5,
+            "action_intent": "",
+            "entity_refs": [],
+            "location_ref": "",
+            "temporal_context": "",
+            "continuity_deps": [],
+            "visual_implication": "Most people miss the chemistry in JWST images. The mid-infrared band hides a fingerprint that visible light completely e",
+            "claim_ids": [],
+            "evidence_refs": [
+              "N01"
+            ],
+            "estimated_duration_sec": 7.92,
+            "retention_role": "pattern_interrupt",
+            "open_loop": "",
+            "payoff_for": "",
+            "emotional_intent": "",
+            "metadata": {
+              "legacy_visual_prompt_ownership": {
+                "semantic_visual_intent": "",
+                "legacy_provider_prompts": {
+                  "visual_prompt": "Cinematic macro of spectral lines, teal grade",
+                  "exact_ai_video_prompt": "VERTICAL 9:16 portrait (1080x1920) cinematic macro shot of a glowing red-orange spectral line graph overlaying a dark star field, teal/cyan lab grade, high contrast, shallow DOF, slow push-in on the peak, no burned captions, no watermark, no talking-head REQUIRED on-screen anchors: JWST Mid-Infrared Spectra Exoplanet Atmospheres, JWST, mid-infrared, spectrum, chemical fingerprint, miss, chemistry, images, infrared, band. Visual slot: JWST Mid-Infrared Spectra Exoplanet Atmospheres JWST mid-infrared: Most people miss the chemistry in JWST images. The mid-infrared band hides — slow cinematic push-in establishing hero.",
+                  "visual_query": "JWST mid-infrared spectrum graph macro"
+                },
+                "legacy_fields_present": true,
+                "canonical_owner": "C05-S DirectedVisualBeat → prompt_compiler",
+                "script_owns_provider_visual_prompts": false,
+                "ownership": "LEGACY_DEPRECATED",
+                "note": "visual_prompt/exact_ai_video_prompt are compatibility fields, not ScriptPlan authority"
+              },
+              "dialogue_id": "beat-1",
+              "scene_id": "scene-00"
+            },
+            "retention": {
+              "role": "pattern_interrupt",
+              "window_start_sec": 0,
+              "window_end_sec": 2,
+              "job": "Pattern Interrupt",
+              "open_loop": null,
+              "payoff_for": null
+            }
+          },
+          {
+            "schema_version": "1.0.0",
+            "id": "a514cb4c-2df5-4859-b3fc-5934c39e2cd7",
+            "created_at": "2026-09-10 15:51:49.153856+00:00",
+            "updated_at": null,
+            "beat_id": "beat-2",
+            "order": 1,
+            "section_role": "context",
+            "narration": "Why does that matter right now? visible light bounces off clouds. Mid-infrared penetrates deeper, hitting the molecular glass of the atmosphere itself.",
+            "speaker": "Narrator",
+            "emotion": "",
+            "emotion_intensity": 0.5,
+            "action_intent": "",
+            "entity_refs": [],
+            "location_ref": "",
+            "temporal_context": "",
+            "continuity_deps": [],
+            "visual_implication": "Why does that matter right now? visible light bounces off clouds. Mid-infrared penetrates deeper, hitting the molecular",
+            "claim_ids": [],
+            "evidence_refs": [
+              "N01"
+            ],
+            "estimated_duration_sec": 9.17,
+            "retention_role": "curiosity_gap",
+            "open_loop": "",
+            "payoff_for": "",
+            "emotional_intent": "",
+            "metadata": {
+              "legacy_visual_prompt_ownership": {
+                "semantic_visual_intent": "",
+                "legacy_provider_prompts": {
+                  "visual_prompt": "IR waves through glass-like atmosphere, teal grade",
+                  "exact_ai_video_prompt": "VERTICAL 9:16 portrait (1080x1920) cinematic visualization of infrared waves passing through a translucent, glass-like atmospheric layer of a planet, teal/cyan grade, slow dolly forward, no burned captions, no watermark, no talking-head REQUIRED on-screen anchors: JWST Mid-Infrared Spectra Exoplanet Atmospheres, MIRI, atmosphere, penetration, molecular glass, Visible, light, bounces, clouds, penetrates. Visual slot: JWST Mid-Infrared Spectra Exoplanet Atmospheres MIRI atmosphere: Why does that matter right now? visible light bounces off clouds. Mid-infrared — environmental wide into subject emphasis.",
+                  "visual_query": "Infrared waves penetrating atmosphere visualization"
+                },
+                "legacy_fields_present": true,
+                "canonical_owner": "C05-S DirectedVisualBeat → prompt_compiler",
+                "script_owns_provider_visual_prompts": false,
+                "ownership": "LEGACY_DEPRECATED",
+                "note": "visual_prompt/exact_ai_video_prompt are compatibility fields, not ScriptPlan authority"
+              },
+              "dialogue_id": "beat-2",
+              "scene_id": "scene-01"
+            },
+            "retention": {
+              "role": "curiosity_gap",
+              "window_start_sec": 2,
+              "window_end_sec": 5,
+              "job": "Curiosity Gap",
+              "open_loop": null,
+              "payoff_for": null
+            }
+          },
+          {
+            "schema_version": "1.0.0",
+            "id": "39611ad2-187f-4228-b5f9-ff3b53952e4d",
+            "created_at": "2026-09-10 15:51:49.153856+00:00",
+            "updated_at": null,
+            "beat_id": "beat-3",
+            "order": 2,
+            "section_role": "development",
+            "narration": "From that penetrates, watch what this changes next — the MIRI instrument locks onto carbon dioxide. A sharp spike at five microns confirms the gas is present.",
+            "speaker": "Narrator",
+            "emotion": "",
+            "emotion_intensity": 0.5,
+            "action_intent": "",
+            "entity_refs": [],
+            "location_ref": "",
+            "temporal_context": "",
+            "continuity_deps": [],
+            "visual_implication": "From that penetrates, watch what this changes next — the MIRI instrument locks onto carbon dioxide. A sharp spike at fiv",
+            "claim_ids": [],
+            "evidence_refs": [
+              "N01"
+            ],
+            "estimated_duration_sec": 11.0,
+            "retention_role": "first_payoff",
+            "open_loop": "",
+            "payoff_for": "",
+            "emotional_intent": "",
+            "metadata": {
+              "legacy_visual_prompt_ownership": {
+                "semantic_visual_intent": "",
+                "legacy_provider_prompts": {
+                  "visual_prompt": "Sharp cyan spike on dark graph, teal grade",
+                  "exact_ai_video_prompt": "VERTICAL 9:16 portrait (1080x1920) close-up of a scientific graph where a bright cyan line spikes sharply at a labeled point, dark background, high contrast, slow zoom into the spike, no burned captions, no watermark, no talking-head REQUIRED on-screen anchors: JWST Mid-Infrared Spectra Exoplanet Atmospheres, MIRI, carbon dioxide, CO2, instrument, locks, carbon, dioxide. Visual slot: JWST Mid-Infrared Spectra Exoplanet Atmospheres MIRI carbon dioxide: From that penetrates, watch what this changes next — the MIRI instrument — macro process detail, continuous motion.",
+                  "visual_query": "CO2 spectral spike graph close-up"
+                },
+                "legacy_fields_present": true,
+                "canonical_owner": "C05-S DirectedVisualBeat → prompt_compiler",
+                "script_owns_provider_visual_prompts": false,
+                "ownership": "LEGACY_DEPRECATED",
+                "note": "visual_prompt/exact_ai_video_prompt are compatibility fields, not ScriptPlan authority"
+              },
+              "dialogue_id": "beat-3",
+              "scene_id": "scene-02"
+            },
+            "retention": {
+              "role": "first_payoff",
+              "window_start_sec": 5,
+              "window_end_sec": 10,
+              "job": "First Payoff",
+              "open_loop": null,
+              "payoff_for": null
+            }
+          },
+          {
+            "schema_version": "1.0.0",
+            "id": "c331c996-9371-4a1a-9b90-e2acd2e2eeb9",
+            "created_at": "2026-09-10 15:51:49.153856+00:00",
+            "updated_at": null,
+            "beat_id": "beat-4",
+            "order": 3,
+            "section_role": "payoff",
+            "narration": "From that penetrates, but CO2 is just the start. The real question is water vapor, which often gets buried in the thermal noise.",
+            "speaker": "Narrator",
+            "emotion": "",
+            "emotion_intensity": 0.5,
+            "action_intent": "",
+            "entity_refs": [],
+            "location_ref": "",
+            "temporal_context": "",
+            "continuity_deps": [],
+            "visual_implication": "From that penetrates, but CO2 is just the start. The real question is water vapor, which often gets buried in the therma",
+            "claim_ids": [],
+            "evidence_refs": [
+              "N01"
+            ],
+            "estimated_duration_sec": 9.58,
+            "retention_role": "question",
+            "open_loop": "",
+            "payoff_for": "",
+            "emotional_intent": "",
+            "metadata": {
+              "legacy_visual_prompt_ownership": {
+                "semantic_visual_intent": "",
+                "legacy_provider_prompts": {
+                  "visual_prompt": "Faint blue wave in static noise, teal grade",
+                  "exact_ai_video_prompt": "VERTICAL 9:16 portrait (1080x1920) abstract visualization of a noisy, static-filled signal with a faint, pulsing blue wave emerging from the chaos, teal/cyan grade, slow pan across the noise, no burned captions, no watermark, no talking-head REQUIRED on-screen anchors: JWST Mid-Infrared Spectra Exoplanet Atmospheres, water vapor, thermal noise, buried, start, real, vapor, often, gets, CO2. Visual slot: JWST Mid-Infrared Spectra Exoplanet Atmospheres water vapor thermal noise: From that penetrates, but CO2 is just the start. The real question — revealing detail with controlled camera move.",
+                  "visual_query": "Water vapor signal emerging from noise"
+                },
+                "legacy_fields_present": true,
+                "canonical_owner": "C05-S DirectedVisualBeat → prompt_compiler",
+                "script_owns_provider_visual_prompts": false,
+                "ownership": "LEGACY_DEPRECATED",
+                "note": "visual_prompt/exact_ai_video_prompt are compatibility fields, not ScriptPlan authority"
+              },
+              "dialogue_id": "beat-4",
+              "scene_id": "scene-03"
+            },
+            "retention": {
+              "role": "question",
+              "window_start_sec": null,
+              "window_end_sec": null,
+              "job": "question",
+              "open_loop": null,
+              "payoff_for": null
+            }
+          },
+          {
+            "schema_version": "1.0.0",
+            "id": "f2099178-e07b-4eae-998b-991a060d0f7e",
+            "created_at": "2026-09-10 15:51:49.153856+00:00",
+            "updated_at": null,
+            "beat_id": "beat-5",
+            "order": 4,
+            "section_role": "ending",
+            "narration": "JWST cools its sensors to near absolute zero. This kills the background heat, letting the water vapor signature shine through. So the takeaway.",
+            "speaker": "Narrator",
+            "emotion": "",
+            "emotion_intensity": 0.5,
+            "action_intent": "",
+            "entity_refs": [],
+            "location_ref": "",
+            "temporal_context": "",
+            "continuity_deps": [],
+            "visual_implication": "JWST cools its sensors to near absolute zero. This kills the background heat, letting the water vapor signature shine th",
+            "claim_ids": [],
+            "evidence_refs": [
+              "N01"
+            ],
+            "estimated_duration_sec": 9.58,
+            "retention_role": "ending",
+            "open_loop": "",
+            "payoff_for": "main_open_loop",
+            "emotional_intent": "",
+            "metadata": {
+              "legacy_visual_prompt_ownership": {
+                "semantic_visual_intent": "",
+                "legacy_provider_prompts": {
+                  "visual_prompt": "Frost forming on sensor, deep blue, teal grade",
+                  "exact_ai_video_prompt": "VERTICAL 9:16 portrait (1080x1920) macro shot of a cryogenic sensor cooling down, frost forming on the edges, deep blue/cyan lighting, slow push-in, no burned captions, no watermark, no talking-head REQUIRED on-screen anchors: JWST Mid-Infrared Spectra Exoplanet Atmospheres, absolute zero, signature, JWST, near, absolute, zero. Visual slot: JWST Mid-Infrared Spectra Exoplanet Atmospheres cooling absolute zero: JWST cools its sensors to near absolute zero. This kills the background — macro process detail, continuous motion.",
+                  "visual_query": "Cryogenic sensor cooling frost macro"
+                },
+                "legacy_fields_present": true,
+                "canonical_owner": "C05-S DirectedVisualBeat → prompt_compiler",
+                "script_owns_provider_visual_prompts": false,
+                "ownership": "LEGACY_DEPRECATED",
+                "note": "visual_prompt/exact_ai_video_prompt are compatibility fields, not ScriptPlan authority"
+              },
+              "dialogue_id": "beat-5",
+              "scene_id": "scene-04"
+            },
+            "retention": {
+              "role": "ending",
+              "window_start_sec": null,
+              "window_end_sec": null,
+              "job": "close_main_loop",
+              "open_loop": null,
+              "payoff_for": "main_open_loop"
+            }
+          }
+        ],
+        "claims": [
+          {
+            "id": "N01",
+            "claim": "Research query: how jwst mid-infrared spectra fingerprint exoplanet atmospheres 56813452\nLanguage: en\nRegion:",
+            "evidence": "research_notes",
+            "source": "research_notes",
+            "confidence": 0.4,
+            "freshness": "UNVERIFIED"
+          },
+          {
+            "id": "L02",
+            "claim": "Additional context on How JWST mid-infrared spectra fingerprint exoplanet atmospheres (56813452) from configured research scope.",
+            "evidence": "secondary",
+            "source": "live_research",
+            "confidence": 0.6,
+            "freshness": "recent"
+          }
+        ],
+        "evidence_refs": [
+          "N01",
+          "L02"
+        ],
+        "fact_pack_id": "",
+        "ending": "JWST cools its sensors to near absolute zero. This kills the background heat, letting the water vapor signature shine through. So the takeaway.",
+        "payoff": "From that penetrates, but CO2 is just the start. The real question is water vapor, which often gets buried in the thermal noise.",
+        "cta": "",
+        "estimated_duration_sec": 60.0,
+        "legacy_visual_prompts": [
+          {
+            "scene_index": 0,
+            "fields": {
+              "visual_prompt": "Cinematic macro of spectral lines, teal grade",
+              "exact_ai_video_prompt": "VERTICAL 9:16 portrait (1080x1920) cinematic macro shot of a glowing red-orange spectral line graph overlaying a dark star field, teal/cyan lab grade, high contrast, shallow DOF, slow push-in on the peak, no burned captions, no watermark, no talking-head REQUIRED on-screen anchors: JWST Mid-Infrared Spectra Exoplanet Atmospheres, JWST, mid-infrared, spectrum, chemical fingerprint, miss, chemistry, images, infrared, band. Visual slot: JWST Mid-Infrared Spectra Exoplanet Atmospheres JWST mid-infrared: Most people miss the chemistry in JWST images. The mid-infrared band hides — slow cinematic push-in establishing hero.",
+              "visual_query": "JWST mid-infrared spectrum graph macro"
+            },
+            "ownership": "LEGACY_DEPRECATED"
+          },
+          {
+            "scene_index": 1,
+            "fields": {
+              "visual_prompt": "IR waves through glass-like atmosphere, teal grade",
+              "exact_ai_video_prompt": "VERTICAL 9:16 portrait (1080x1920) cinematic visualization of infrared waves passing through a translucent, glass-like atmospheric layer of a planet, teal/cyan grade, slow dolly forward, no burned captions, no watermark, no talking-head REQUIRED on-screen anchors: JWST Mid-Infrared Spectra Exoplanet Atmospheres, MIRI, atmosphere, penetration, molecular glass, Visible, light, bounces, clouds, penetrates. Visual slot: JWST Mid-Infrared Spectra Exoplanet Atmospheres MIRI atmosphere: Why does that matter right now? visible light bounces off clouds. Mid-infrared — environmental wide into subject emphasis.",
+              "visual_query": "Infrared waves penetrating atmosphere visualization"
+            },
+            "ownership": "LEGACY_DEPRECATED"
+          },
+          {
+            "scene_index": 2,
+            "fields": {
+              "visual_prompt": "Sharp cyan spike on dark graph, teal grade",
+              "exact_ai_video_prompt": "VERTICAL 9:16 portrait (1080x1920) close-up of a scientific graph where a bright cyan line spikes sharply at a labeled point, dark background, high contrast, slow zoom into the spike, no burned captions, no watermark, no talking-head REQUIRED on-screen anchors: JWST Mid-Infrared Spectra Exoplanet Atmospheres, MIRI, carbon dioxide, CO2, instrument, locks, carbon, dioxide. Visual slot: JWST Mid-Infrared Spectra Exoplanet Atmospheres MIRI carbon dioxide: From that penetrates, watch what this changes next — the MIRI instrument — macro process detail, continuous motion.",
+              "visual_query": "CO2 spectral spike graph close-up"
+            },
+            "ownership": "LEGACY_DEPRECATED"
+          },
+          {
+            "scene_index": 3,
+            "fields": {
+              "visual_prompt": "Faint blue wave in static noise, teal grade",
+              "exact_ai_video_prompt": "VERTICAL 9:16 portrait (1080x1920) abstract visualization of a noisy, static-filled signal with a faint, pulsing blue wave emerging from the chaos, teal/cyan grade, slow pan across the noise, no burned captions, no watermark, no talking-head REQUIRED on-screen anchors: JWST Mid-Infrared Spectra Exoplanet Atmospheres, water vapor, thermal noise, buried, start, real, vapor, often, gets, CO2. Visual slot: JWST Mid-Infrared Spectra Exoplanet Atmospheres water vapor thermal noise: From that penetrates, but CO2 is just the start. The real question — revealing detail with controlled camera move.",
+              "visual_query": "Water vapor signal emerging from noise"
+            },
+            "ownership": "LEGACY_DEPRECATED"
+          },
+          {
+            "scene_index": 4,
+            "fields": {
+              "visual_prompt": "Frost forming on sensor, deep blue, teal grade",
+              "exact_ai_video_prompt": "VERTICAL 9:16 portrait (1080x1920) macro shot of a cryogenic sensor cooling down, frost forming on the edges, deep blue/cyan lighting, slow push-in, no burned captions, no watermark, no talking-head REQUIRED on-screen anchors: JWST Mid-Infrared Spectra Exoplanet Atmospheres, absolute zero, signature, JWST, near, absolute, zero. Visual slot: JWST Mid-Infrared Spectra Exoplanet Atmospheres cooling absolute zero: JWST cools its sensors to near absolute zero. This kills the background — macro process detail, continuous motion.",
+              "visual_query": "Cryogenic sensor cooling frost macro"
+            },
+            "ownership": "LEGACY_DEPRECATED"
+          }
+        ],
+        "metadata": {
+          "source": "niche_director_normalized",
+          "visual_prompt_canonical_owner": "C05-S",
+          "script_owns_provider_visual_prompts": false,
+          "created_at": "2026-09-10T21:51:49.153856",
+          "dialogue_window_repairs": [],
+          "dialogue_window_enforced": true,
+          "retention_blueprint": {
+            "format": "short",
+            "windows": [
+              {
+                "id": "pattern_interrupt",
+                "start_sec": 0,
+                "end_sec": 2,
+                "job": "Pattern Interrupt"
+              },
+              {
+                "id": "curiosity_gap",
+                "start_sec": 2,
+                "end_sec": 5,
+                "job": "Curiosity Gap"
+              },
+              {
+                "id": "first_payoff",
+                "start_sec": 5,
+                "end_sec": 10,
+                "job": "First Payoff"
+              }
+            ],
+            "loop": [
+              "question",
+              "evidence",
+              "payoff",
+              "new_question"
+            ],
+            "min_open_loops": 2,
+            "min_loop_close_ratio": 0.7,
+            "forbid_flat_streak": 2,
+            "require_ending_close": true
+          }
+        },
+        "scenes": []
+      },
+      "c05_handoff": {
+        "ready": true,
+        "status": "APPROVED_SCRIPT",
+        "path": "ScriptPlan → C05-TRS → C05-S → C05-GA → C05-GP → C05-GX → C05-MR",
+        "note": "Handoff ready — media generation is a later step",
+        "topic_id": "topic-85ee06c5abbb0cdf",
+        "topic_text": "How JWST mid-infrared spectra fingerprint exoplanet atmospheres (56813452)",
+        "script_plan_topic": "JWST Mid-Infrared Spectra Exoplanet Atmospheres"
+      },
+      "actions": {
+        "select_topic": true,
+        "research": true,
+        "generate_script": true,
+        "review_script": true,
+        "approve_script": false,
+        "c05_handoff_ready": true
+      }
+    }
+  },
+  "ranked_preview": [
+    {
+      "topic": "The 2026 space science detail most shorts skip (and why it matters)",
+      "ok": true,
+      "seo": 0.9,
+      "specificity": 1.0,
+      "issues": []
+    },
+    {
+      "topic": "60-second space science myth vs measurement — stay for the payoff",
+      "ok": true,
+      "seo": 0.9,
+      "specificity": 1.0,
+      "issues": []
+    },
+    {
+      "topic": "Why space science looks obvious — until you see this evidence",
+      "ok": true,
+      "seo": 0.85,
+      "specificity": 1.0,
+      "issues": []
+    },
+    {
+      "topic": "One verified fact about space science that changes the next 60 seconds",
+      "ok": true,
+      "seo": 0.75,
+      "specificity": 1.0,
+      "issues": []
+    },
+    {
+      "topic": "Quick space science insight: the one mechanism viewers miss",
+      "ok": true,
+      "seo": 0.7,
+      "specificity": 1.0,
+      "issues": []
+    }
+  ]
+}

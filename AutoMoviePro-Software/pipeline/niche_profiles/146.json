@@ -1,0 +1,83 @@
+{
+  "niche_id": 146,
+  "name": "World Through Numbers",
+  "slug": "world-through-numbers",
+  "style_family": "history",
+  "status": "VERIFIED",
+  "topic_seeds": [
+    "What new evidence reframes the story of World Through Numbers Shocking inside World Through Numbers",
+    "How World Through Numbers Shocking still shapes public curiosity about World Through Numbers",
+    "What new evidence reframes the story of Check inside World Through Numbers",
+    "How Check still shapes public curiosity about World Through Numbers",
+    "What new evidence reframes the story of Generate inside World Through Numbers",
+    "How Generate still shapes public curiosity about World Through Numbers"
+  ],
+  "seo_angles": [
+    "What new evidence reframes the story of World Through Numbers Shocking inside World Through Numbers",
+    "How World Through Numbers Shocking still shapes public curiosity about World Through Numbers",
+    "What new evidence reframes the story of Check inside World Through Numbers",
+    "How Check still shapes public curiosity about World Through Numbers"
+  ],
+  "forbidden_visuals": [
+    "talking-head lip-sync avatar",
+    "burned-in captions",
+    "watermark",
+    "modern meme text",
+    "modern smartphones",
+    "cars",
+    "LED screens",
+    "sneakers",
+    "contemporary skyline"
+  ],
+  "preferred_subjects": [
+    "World Through Numbers documentary subject",
+    "period-accurate environment",
+    "evidence object close-up"
+  ],
+  "lighting_default": "warm desert sun / torchlit interiors, high-contrast documentary grade",
+  "face_policy": "period extras OK if consistent; prefer environment/object hero when possible",
+  "dialogue_tone": "human documentary narration; specific nouns; 7–9s beats",
+  "audio_ambience": "subtle documentary bed; do not overpower voice",
+  "research_hints": [
+    "Prefer primary evidence and concrete entities for World Through Numbers",
+    "Avoid generic niche-label topics; require specific place/person/event/mechanism",
+    "7–9 second spoken beats with story continuity across scenes"
+  ],
+  "topic_prompt_overlay": "NICHE LOCK (World Through Numbers): only propose topics that fit this niche's video type. Video type: Shocking statistics — population growth, plastic waste, deforestation — visualized through audio-narrated data. Follow niche topic strategy: Check UN reports, new data visualisations, or viral statistical videos. Generate a topic about a statistic that changes perspective.",
+  "video_prompt_overlay": "NICHE VISUAL LOCK (World Through Numbers / history): Generate a 7–9 second dialogue clip based on the topic `{topic}`. Each dialogue must be eye-opening. For each dialogue, generate: - **Audio Generation Prompt:** Voice — factual, with counting and graphs. - **Video Generation Prompt:** Detailed visual — an infographic or chart. No character — graphic. Lighting: neutral. Maintain same data style. Forbidden: talking-head lip-sync avatar, burned-in captions, watermark, modern meme text, modern smartphones, cars, LED screens, sneakers. Preferred subjects: World Through Numbers documentary subject, period-accurate environment, evidence object close-up. Lighting: warm desert sun / torchlit interiors, high-contrast documentary grade. Face policy: period extras OK if consistent; prefer environment/object hero when possible. Dialogue tone: human documentary narration; specific nouns; 7–9s beats. Ambience: subtle documentary bed; do not overpower voice.",
+  "i18n": {
+    "en": {
+      "name": "World Through Numbers",
+      "blurb": "Shocking statistics — population growth, plastic waste, deforestation — visualized through audio-narrated data."
+    },
+    "bn": {
+      "name": "সংখ্যার চোখে বিশ্ব",
+      "blurb": "ভিডিও টাইপ: Shocking statistics — population growth, plastic waste, deforestation — visualized through audio-narrated data."
+    },
+    "hi": {
+      "name": "अंकों से देखा संसार",
+      "blurb": "वीडियो प्रकार: Shocking statistics — population growth, plastic waste, deforestation — visualized through audio-narrated data."
+    },
+    "ur": {
+      "name": "اعداد کے آئینے میں دنیا",
+      "blurb": "ویڈیو کی قسم: Shocking statistics — population growth, plastic waste, deforestation — visualized through audio-narrated data."
+    },
+    "ta": {
+      "name": "எண்கள் வழியாக உலகம்",
+      "blurb": "வீடியோ வகை: Shocking statistics — population growth, plastic waste, deforestation — visualized through audio-narrated data."
+    },
+    "ml": {
+      "name": "സംഖ്യകളിലൂടെ ലോകം",
+      "blurb": "വീഡിയോ തരം: Shocking statistics — population growth, plastic waste, deforestation — visualized through audio-narrated data."
+    }
+  },
+  "source": "Nish.Md + deterministic research",
+  "research_notes": [
+    "Marathon researched at 2026-09-10T08:30:31Z",
+    "Video type length=111",
+    "Topic prompt length=132",
+    "Video prompt length=346",
+    "Seeds=6"
+  ],
+  "verified_at": "2026-09-10T08:30:32Z"
+}

@@ -1,0 +1,4 @@
+Options -Indexes
+<Files "*.exe">
+  Header set Content-Type "application/octet-stream"
+</Files>

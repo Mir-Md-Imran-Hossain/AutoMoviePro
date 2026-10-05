@@ -1,0 +1,23 @@
+{
+  "attempts": 0,
+  "successes": 0,
+  "key_masks": [],
+  "notes": [
+    "prefer_local_faster_whisper_over_paid_google",
+    "edge_tts_positive",
+    "edge_tts_negative",
+    "positive_bundle:PASS:asr=PASS",
+    "negative_bundle:FAIL",
+    "targeted_audio_regen_edge_tts"
+  ],
+  "providers": [
+    {
+      "provider": "faster-whisper",
+      "role": "asr_positive",
+      "paid": false
+    }
+  ],
+  "latency_sec": 8.787,
+  "paid_google_calls": 0,
+  "edge_tts_generations": 3
+}

@@ -1,0 +1,12 @@
+{
+  "calls": [],
+  "circuit_open": true,
+  "circuit_reason": "cerebras 402: {\"message\":\"Payment required to access this resource. Visit your billing tab.\",\"type\":\"payment_required_er",
+  "circuit_until": 1791031856.2870133,
+  "strikes": [
+    1791030003.726483,
+    1791030003.7276525,
+    1791030056.2709298,
+    1791030056.2796
+  ]
+}

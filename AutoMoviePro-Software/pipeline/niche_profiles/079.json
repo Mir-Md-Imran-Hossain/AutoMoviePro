@@ -1,0 +1,83 @@
+{
+  "niche_id": 79,
+  "name": "Unusual Wedding Rituals",
+  "slug": "unusual-wedding-rituals",
+  "style_family": "history",
+  "status": "VERIFIED",
+  "topic_seeds": [
+    "What new evidence reframes the story of Unusual Wedding Rituals Bizarre inside Unusual Wedding Rituals",
+    "How Unusual Wedding Rituals Bizarre still shapes public curiosity about Unusual Wedding Rituals",
+    "What new evidence reframes the story of Explore inside Unusual Wedding Rituals",
+    "How Explore still shapes public curiosity about Unusual Wedding Rituals",
+    "What new evidence reframes the story of Generate inside Unusual Wedding Rituals",
+    "How Generate still shapes public curiosity about Unusual Wedding Rituals"
+  ],
+  "seo_angles": [
+    "What new evidence reframes the story of Unusual Wedding Rituals Bizarre inside Unusual Wedding Rituals",
+    "How Unusual Wedding Rituals Bizarre still shapes public curiosity about Unusual Wedding Rituals",
+    "What new evidence reframes the story of Explore inside Unusual Wedding Rituals",
+    "How Explore still shapes public curiosity about Unusual Wedding Rituals"
+  ],
+  "forbidden_visuals": [
+    "talking-head lip-sync avatar",
+    "burned-in captions",
+    "watermark",
+    "modern meme text",
+    "modern smartphones",
+    "cars",
+    "LED screens",
+    "sneakers",
+    "contemporary skyline"
+  ],
+  "preferred_subjects": [
+    "Unusual Wedding Rituals documentary subject",
+    "period-accurate environment",
+    "evidence object close-up"
+  ],
+  "lighting_default": "warm desert sun / torchlit interiors, high-contrast documentary grade",
+  "face_policy": "period extras OK if consistent; prefer environment/object hero when possible",
+  "dialogue_tone": "human documentary narration; specific nouns; 7–9s beats",
+  "audio_ambience": "subtle documentary bed; do not overpower voice",
+  "research_hints": [
+    "Prefer primary evidence and concrete entities for Unusual Wedding Rituals",
+    "Avoid generic niche-label topics; require specific place/person/event/mechanism",
+    "7–9 second spoken beats with story continuity across scenes"
+  ],
+  "topic_prompt_overlay": "NICHE LOCK (Unusual Wedding Rituals): only propose topics that fit this niche's video type. Video type: Bizarre marriage traditions — from jumping over brooms to finger-cutting ceremonies — and the meanings behind them. Follow niche topic strategy: Explore anthropology news, viral wedding videos, or cultural documentaries. Generate a topic about a surprising wedding practice.",
+  "video_prompt_overlay": "NICHE VISUAL LOCK (Unusual Wedding Rituals / history): Generate a 7–9 second dialogue clip based on the topic `{topic}`. Each dialogue must be fascinating and respectful. For each dialogue, generate: - **Audio Generation Prompt:** Voice — curious, with wedding bells and chanting. - **Video Generation Prompt:** Detailed visual — a wedding altar or compound. Characters: bride and groom in traditional attire. Lighting: vibrant, decorative. Maintain same attire and ritual. Forbidden: talking-head lip-sync avatar, burned-in captions, watermark, modern meme text, modern smartphones, cars, LED screens, sneakers. Preferred subjects: Unusual Wedding Rituals documentary subject, period-accurate environment, evidence object close-up. Lighting: warm desert sun / torchlit interiors, high-contrast documentary grade. Face policy: period extras OK if consistent; prefer environment/object hero when possible. Dialogue tone: human documentary narration; specific nouns; 7–9s beats. Ambience: subtle documentary bed; do not overpower voice.",
+  "i18n": {
+    "en": {
+      "name": "Unusual Wedding Rituals",
+      "blurb": "Bizarre marriage traditions — from jumping over brooms to finger-cutting ceremonies — and the meanings behind them."
+    },
+    "bn": {
+      "name": "অস্বাভাবিক বিবাহ রীতি",
+      "blurb": "ভিডিও টাইপ: Bizarre marriage traditions — from jumping over brooms to finger-cutting ceremonies — and the meanings behind them."
+    },
+    "hi": {
+      "name": "असामान्य विवाह रीतियाँ",
+      "blurb": "वीडियो प्रकार: Bizarre marriage traditions — from jumping over brooms to finger-cutting ceremonies — and the meanings behind them."
+    },
+    "ur": {
+      "name": "غیر معمولی شادی رسومات",
+      "blurb": "ویڈیو کی قسم: Bizarre marriage traditions — from jumping over brooms to finger-cutting ceremonies — and the meanings behind them."
+    },
+    "ta": {
+      "name": "விசித்திர திருமண சடங்குகள்",
+      "blurb": "வீடியோ வகை: Bizarre marriage traditions — from jumping over brooms to finger-cutting ceremonies — and the meanings behind them."
+    },
+    "ml": {
+      "name": "അസാധാരണ വിവാഹ ആചാരങ്ങൾ",
+      "blurb": "വീഡിയോ തരം: Bizarre marriage traditions — from jumping over brooms to finger-cutting ceremonies — and the meanings behind them."
+    }
+  },
+  "source": "Nish.Md + deterministic research",
+  "research_notes": [
+    "Marathon researched at 2026-09-10T08:30:19Z",
+    "Video type length=115",
+    "Topic prompt length=129",
+    "Video prompt length=418",
+    "Seeds=6"
+  ],
+  "verified_at": "2026-09-10T08:30:19Z"
+}

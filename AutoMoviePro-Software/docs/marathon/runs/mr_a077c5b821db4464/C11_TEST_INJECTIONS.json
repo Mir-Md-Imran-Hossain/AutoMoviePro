@@ -1,0 +1,18 @@
+[
+  {
+    "type": "TEST_INJECTION",
+    "name": "invalid_ownership_monitor",
+    "result_ok": false,
+    "expect_fail": true
+  },
+  {
+    "type": "TEST_INJECTION",
+    "name": "foreign_session_access",
+    "result": {
+      "ok": false,
+      "error": "access_denied",
+      "error_code": "OWNERSHIP_FAILURE"
+    },
+    "expect_fail_closed": true
+  }
+]

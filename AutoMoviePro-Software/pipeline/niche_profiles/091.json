@@ -1,0 +1,83 @@
+{
+  "niche_id": 91,
+  "name": "Deep Web Mysteries",
+  "slug": "deep-web-mysteries",
+  "style_family": "mystery",
+  "status": "VERIFIED",
+  "topic_seeds": [
+    "What new evidence reframes the story of Deep Web Mysteries What inside Deep Web Mysteries",
+    "How Deep Web Mysteries What still shapes public curiosity about Deep Web Mysteries",
+    "What new evidence reframes the story of Follow inside Deep Web Mysteries",
+    "How Follow still shapes public curiosity about Deep Web Mysteries",
+    "What new evidence reframes the story of Tor inside Deep Web Mysteries",
+    "How Tor still shapes public curiosity about Deep Web Mysteries"
+  ],
+  "seo_angles": [
+    "What new evidence reframes the story of Deep Web Mysteries What inside Deep Web Mysteries",
+    "How Deep Web Mysteries What still shapes public curiosity about Deep Web Mysteries",
+    "What new evidence reframes the story of Follow inside Deep Web Mysteries",
+    "How Follow still shapes public curiosity about Deep Web Mysteries"
+  ],
+  "forbidden_visuals": [
+    "talking-head lip-sync avatar",
+    "burned-in captions",
+    "watermark",
+    "modern meme text",
+    "modern smartphones",
+    "cars",
+    "LED screens",
+    "sneakers",
+    "contemporary skyline"
+  ],
+  "preferred_subjects": [
+    "Deep Web Mysteries documentary subject",
+    "period-accurate environment",
+    "evidence object close-up"
+  ],
+  "lighting_default": "dappled fog light, cool teal shadows, slow push-ins",
+  "face_policy": "no talking-head lip-sync avatar; cinematic B-roll preferred",
+  "dialogue_tone": "slow, ominous, evidence-first",
+  "audio_ambience": "low drone, subtle reverb, sparse percussion",
+  "research_hints": [
+    "Prefer primary evidence and concrete entities for Deep Web Mysteries",
+    "Avoid generic niche-label topics; require specific place/person/event/mechanism",
+    "7–9 second spoken beats with story continuity across scenes"
+  ],
+  "topic_prompt_overlay": "NICHE LOCK (Deep Web Mysteries): only propose topics that fit this niche's video type. Video type: What lies on the dark web — not criminal glorification, but the technology, anonymity, and legitimate uses explained safely. Follow niche topic strategy: Follow cybersecurity news, new Tor updates, or legal cases about dark web. Generate a topic about a legitimate use of the deep web.",
+  "video_prompt_overlay": "NICHE VISUAL LOCK (Deep Web Mysteries / mystery): Generate a 7–9 second dialogue clip based on the topic `{topic}`. Each dialogue must be instructive and cautious. For each dialogue, generate: - **Audio Generation Prompt:** Voice — neutral, with keyboard clicks and static. - **Video Generation Prompt:** Detailed visual — a dark room with a glowing screen. Character: user (hoodie). Lighting: screen glow only. Maintain same screen glow. Forbidden: talking-head lip-sync avatar, burned-in captions, watermark, modern meme text, modern smartphones, cars, LED screens, sneakers. Preferred subjects: Deep Web Mysteries documentary subject, period-accurate environment, evidence object close-up. Lighting: dappled fog light, cool teal shadows, slow push-ins. Face policy: no talking-head lip-sync avatar; cinematic B-roll preferred. Dialogue tone: slow, ominous, evidence-first. Ambience: low drone, subtle reverb, sparse percussion.",
+  "i18n": {
+    "en": {
+      "name": "Deep Web Mysteries",
+      "blurb": "What lies on the dark web — not criminal glorification, but the technology, anonymity, and legitimate uses explained safely."
+    },
+    "bn": {
+      "name": "ডিপ ওয়েব রহস্য",
+      "blurb": "ভিডিও টাইপ: What lies on the dark web — not criminal glorification, but the technology, anonymity, and legitimate uses explained safely."
+    },
+    "hi": {
+      "name": "डीप वेब रहस्य",
+      "blurb": "वीडियो प्रकार: What lies on the dark web — not criminal glorification, but the technology, anonymity, and legitimate uses explained safely."
+    },
+    "ur": {
+      "name": "ڈیپ ویب اسرار",
+      "blurb": "ویڈیو کی قسم: What lies on the dark web — not criminal glorification, but the technology, anonymity, and legitimate uses explained safely."
+    },
+    "ta": {
+      "name": "டீப் வெப் மர்மங்கள்",
+      "blurb": "வீடியோ வகை: What lies on the dark web — not criminal glorification, but the technology, anonymity, and legitimate uses explained safely."
+    },
+    "ml": {
+      "name": "ഡീപ് വെബ് രഹസ്യങ്ങൾ",
+      "blurb": "വീഡിയോ തരം: What lies on the dark web — not criminal glorification, but the technology, anonymity, and legitimate uses explained safely."
+    }
+  },
+  "source": "Nish.Md + deterministic research",
+  "research_notes": [
+    "Marathon researched at 2026-09-10T08:30:21Z",
+    "Video type length=124",
+    "Topic prompt length=131",
+    "Video prompt length=388",
+    "Seeds=6"
+  ],
+  "verified_at": "2026-09-10T08:30:21Z"
+}

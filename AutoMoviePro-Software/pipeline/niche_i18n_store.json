@@ -1,0 +1,3905 @@
+{
+  "version": 1,
+  "niches": {
+    "1": {
+      "en": {
+        "name": "Ancient Civilizations",
+        "blurb": "Documentary-style storytelling about daily life, culture, and mysteries of ancient Egypt, Greece, Rome, Indus Valley, and Mesopotamia. Each episode explores…"
+      },
+      "bn": {
+        "name": "প্রাচীন সভ্যতা",
+        "blurb": "ভিডিও টাইপ: Documentary-style storytelling about daily life, culture, and mysteries of ancient Egypt, Greece, Rome, Indus Valley, and Mesopotamia. Each episode…"
+      },
+      "hi": {
+        "name": "प्राचीन सभ्यताएँ",
+        "blurb": "वीडियो प्रकार: Documentary-style storytelling about daily life, culture, and mysteries of ancient Egypt, Greece, Rome, Indus Valley, and Mesopotamia. Each episode…"
+      },
+      "ur": {
+        "name": "قدیم تہذیبیں",
+        "blurb": "ویڈیو کی قسم: Documentary-style storytelling about daily life, culture, and mysteries of ancient Egypt, Greece, Rome, Indus Valley, and Mesopotamia. Each episode…"
+      },
+      "ta": {
+        "name": "பண்டைய நாகரிகங்கள்",
+        "blurb": "வீடியோ வகை: Documentary-style storytelling about daily life, culture, and mysteries of ancient Egypt, Greece, Rome, Indus Valley, and Mesopotamia. Each episode…"
+      },
+      "ml": {
+        "name": "പുരാതന നാഗരികതകൾ",
+        "blurb": "വീഡിയോ തരം: Documentary-style storytelling about daily life, culture, and mysteries of ancient Egypt, Greece, Rome, Indus Valley, and Mesopotamia. Each episode…"
+      }
+    },
+    "2": {
+      "en": {
+        "name": "Lost Kingdoms",
+        "blurb": "Deep-dive into empires that vanished without a trace — Atlantis, El Dorado, or the Khmer Empire. The narrative focuses on archaeological evidence, theories,…"
+      },
+      "bn": {
+        "name": "হারিয়ে যাওয়া রাজ্য",
+        "blurb": "ভিডিও টাইপ: Deep-dive into empires that vanished without a trace — Atlantis, El Dorado, or the Khmer Empire. The narrative focuses on archaeological evidence,…"
+      },
+      "hi": {
+        "name": "लुप्त साम्राज्य",
+        "blurb": "वीडियो प्रकार: Deep-dive into empires that vanished without a trace — Atlantis, El Dorado, or the Khmer Empire. The narrative focuses on archaeological evidence,…"
+      },
+      "ur": {
+        "name": "کھوئی ہوئی سلطنتیں",
+        "blurb": "ویڈیو کی قسم: Deep-dive into empires that vanished without a trace — Atlantis, El Dorado, or the Khmer Empire. The narrative focuses on archaeological evidence,…"
+      },
+      "ta": {
+        "name": "தொலைந்த அரசுகள்",
+        "blurb": "வீடியோ வகை: Deep-dive into empires that vanished without a trace — Atlantis, El Dorado, or the Khmer Empire. The narrative focuses on archaeological evidence,…"
+      },
+      "ml": {
+        "name": "നഷ്ടപ്പെട്ട രാജ്യങ്ങൾ",
+        "blurb": "വീഡിയോ തരം: Deep-dive into empires that vanished without a trace — Atlantis, El Dorado, or the Khmer Empire. The narrative focuses on archaeological evidence,…"
+      }
+    },
+    "3": {
+      "en": {
+        "name": "Epic Battles",
+        "blurb": "Minute-by-minute reconstruction of history's greatest clashes — from Thermopylae to Stalingrad. Covers military strategy, human courage, and the political…"
+      },
+      "bn": {
+        "name": "মহাকাব্যিক যুদ্ধ",
+        "blurb": "ভিডিও টাইপ: Minute-by-minute reconstruction of history's greatest clashes — from Thermopylae to Stalingrad. Covers military strategy, human courage, and the…"
+      },
+      "hi": {
+        "name": "महायुद्ध",
+        "blurb": "वीडियो प्रकार: Minute-by-minute reconstruction of history's greatest clashes — from Thermopylae to Stalingrad. Covers military strategy, human courage, and the…"
+      },
+      "ur": {
+        "name": "عظیم جنگیں",
+        "blurb": "ویڈیو کی قسم: Minute-by-minute reconstruction of history's greatest clashes — from Thermopylae to Stalingrad. Covers military strategy, human courage, and the…"
+      },
+      "ta": {
+        "name": "காவியப் போர்கள்",
+        "blurb": "வீடியோ வகை: Minute-by-minute reconstruction of history's greatest clashes — from Thermopylae to Stalingrad. Covers military strategy, human courage, and the…"
+      },
+      "ml": {
+        "name": "മഹായുദ്ധങ്ങൾ",
+        "blurb": "വീഡിയോ തരം: Minute-by-minute reconstruction of history's greatest clashes — from Thermopylae to Stalingrad. Covers military strategy, human courage, and the…"
+      }
+    },
+    "4": {
+      "en": {
+        "name": "Famous Assassinations",
+        "blurb": "Gripping retelling of political murders — Lincoln, JFK, Gandhi, Caesar. Explores the killer's motive, the conspiracy (if any), and how one bullet reshaped…"
+      },
+      "bn": {
+        "name": "বিখ্যাত হত্যাকাণ্ড",
+        "blurb": "ভিডিও টাইপ: Gripping retelling of political murders — Lincoln, JFK, Gandhi, Caesar. Explores the killer's motive, the conspiracy (if any), and how one bullet…"
+      },
+      "hi": {
+        "name": "प्रसिद्ध हत्याएँ",
+        "blurb": "वीडियो प्रकार: Gripping retelling of political murders — Lincoln, JFK, Gandhi, Caesar. Explores the killer's motive, the conspiracy (if any), and how one bullet…"
+      },
+      "ur": {
+        "name": "مشہور قتل",
+        "blurb": "ویڈیو کی قسم: Gripping retelling of political murders — Lincoln, JFK, Gandhi, Caesar. Explores the killer's motive, the conspiracy (if any), and how one bullet…"
+      },
+      "ta": {
+        "name": "பிரபல படுகொலைகள்",
+        "blurb": "வீடியோ வகை: Gripping retelling of political murders — Lincoln, JFK, Gandhi, Caesar. Explores the killer's motive, the conspiracy (if any), and how one bullet…"
+      },
+      "ml": {
+        "name": "പ്രശസ്ത കൊലപാതകങ്ങൾ",
+        "blurb": "വീഡിയോ തരം: Gripping retelling of political murders — Lincoln, JFK, Gandhi, Caesar. Explores the killer's motive, the conspiracy (if any), and how one bullet…"
+      }
+    },
+    "5": {
+      "en": {
+        "name": "Royal Scandals",
+        "blurb": "Glamorous yet dark stories of kings, queens, and their secret affairs, illegitimate heirs, poisonous intrigues, and court betrayals that threatened entire…"
+      },
+      "bn": {
+        "name": "রাজকীয় কেলেঙ্কারি",
+        "blurb": "ভিডিও টাইপ: Glamorous yet dark stories of kings, queens, and their secret affairs, illegitimate heirs, poisonous intrigues, and court betrayals that threatened…"
+      },
+      "hi": {
+        "name": "शाही घोटाले",
+        "blurb": "वीडियो प्रकार: Glamorous yet dark stories of kings, queens, and their secret affairs, illegitimate heirs, poisonous intrigues, and court betrayals that threatened…"
+      },
+      "ur": {
+        "name": "شاہی اسکینڈلز",
+        "blurb": "ویڈیو کی قسم: Glamorous yet dark stories of kings, queens, and their secret affairs, illegitimate heirs, poisonous intrigues, and court betrayals that threatened…"
+      },
+      "ta": {
+        "name": "அரச குடும்ப ஊழல்கள்",
+        "blurb": "வீடியோ வகை: Glamorous yet dark stories of kings, queens, and their secret affairs, illegitimate heirs, poisonous intrigues, and court betrayals that threatened…"
+      },
+      "ml": {
+        "name": "രാജകീയ അഴിമതികൾ",
+        "blurb": "വീഡിയോ തരം: Glamorous yet dark stories of kings, queens, and their secret affairs, illegitimate heirs, poisonous intrigues, and court betrayals that threatened…"
+      }
+    },
+    "6": {
+      "en": {
+        "name": "History’s Unsolved Mysteries",
+        "blurb": "Archaeological enigmas — who built Stonehenge? What happened to the Roanoke colony? Each episode presents evidence, theories, and leaves the final answer open."
+      },
+      "bn": {
+        "name": "ইতিহাসের অমীমাংসিত রহস্য",
+        "blurb": "ভিডিও টাইপ: Archaeological enigmas — who built Stonehenge? What happened to the Roanoke colony? Each episode presents evidence, theories, and leaves the final…"
+      },
+      "hi": {
+        "name": "इतिहास के अनसुलझे रहस्य",
+        "blurb": "वीडियो प्रकार: Archaeological enigmas — who built Stonehenge? What happened to the Roanoke colony? Each episode presents evidence, theories, and leaves the final…"
+      },
+      "ur": {
+        "name": "تاریخ کے حل نہ ہونے والے اسرار",
+        "blurb": "ویڈیو کی قسم: Archaeological enigmas — who built Stonehenge? What happened to the Roanoke colony? Each episode presents evidence, theories, and leaves the final…"
+      },
+      "ta": {
+        "name": "வரலாற்றின் விடுபடாத மர்மங்கள்",
+        "blurb": "வீடியோ வகை: Archaeological enigmas — who built Stonehenge? What happened to the Roanoke colony? Each episode presents evidence, theories, and leaves the final…"
+      },
+      "ml": {
+        "name": "ചരിത്രത്തിലെ അപരിഹൃത രഹസ്യങ്ങൾ",
+        "blurb": "വീഡിയോ തരം: Archaeological enigmas — who built Stonehenge? What happened to the Roanoke colony? Each episode presents evidence, theories, and leaves the final…"
+      }
+    },
+    "7": {
+      "en": {
+        "name": "Vanished Without Trace",
+        "blurb": "Real-life disappearances of ships, planes, and entire communities — Mary Celeste, Flight MH370, and the Sodder children. Forensic and psychological analysis…"
+      },
+      "bn": {
+        "name": "নিঃশেষে অদৃশ্য",
+        "blurb": "ভিডিও টাইপ: Real-life disappearances of ships, planes, and entire communities — Mary Celeste, Flight MH370, and the Sodder children. Forensic and psychological…"
+      },
+      "hi": {
+        "name": "बिना निशान गायब",
+        "blurb": "वीडियो प्रकार: Real-life disappearances of ships, planes, and entire communities — Mary Celeste, Flight MH370, and the Sodder children. Forensic and psychological…"
+      },
+      "ur": {
+        "name": "بے نشان غائب",
+        "blurb": "ویڈیو کی قسم: Real-life disappearances of ships, planes, and entire communities — Mary Celeste, Flight MH370, and the Sodder children. Forensic and psychological…"
+      },
+      "ta": {
+        "name": "சுவடு இல்லாமல் மறைந்தவை",
+        "blurb": "வீடியோ வகை: Real-life disappearances of ships, planes, and entire communities — Mary Celeste, Flight MH370, and the Sodder children. Forensic and psychological…"
+      },
+      "ml": {
+        "name": "അടയാളമില്ലാതെ അപ്രത്യക്ഷം",
+        "blurb": "വീഡിയോ തരം: Real-life disappearances of ships, planes, and entire communities — Mary Celeste, Flight MH370, and the Sodder children. Forensic and psychological…"
+      }
+    },
+    "8": {
+      "en": {
+        "name": "Shipwreck Diaries",
+        "blurb": "Dramatic narration of famous maritime disasters — Titanic, Lusitania, Estonia. Covers the final hours, rescue missions, and the haunting discoveries underwater."
+      },
+      "bn": {
+        "name": "জাহাজডুবির ডায়েরি",
+        "blurb": "ভিডিও টাইপ: Dramatic narration of famous maritime disasters — Titanic, Lusitania, Estonia. Covers the final hours, rescue missions, and the haunting discoveries…"
+      },
+      "hi": {
+        "name": "जहाज़ दुर्घटना डायरी",
+        "blurb": "वीडियो प्रकार: Dramatic narration of famous maritime disasters — Titanic, Lusitania, Estonia. Covers the final hours, rescue missions, and the haunting discoveries…"
+      },
+      "ur": {
+        "name": "جہاز حادثات کی ڈائری",
+        "blurb": "ویڈیو کی قسم: Dramatic narration of famous maritime disasters — Titanic, Lusitania, Estonia. Covers the final hours, rescue missions, and the haunting discoveries…"
+      },
+      "ta": {
+        "name": "கப்பல் விபத்து நாட்குறிப்பு",
+        "blurb": "வீடியோ வகை: Dramatic narration of famous maritime disasters — Titanic, Lusitania, Estonia. Covers the final hours, rescue missions, and the haunting discoveries…"
+      },
+      "ml": {
+        "name": "കപ്പൽ അപകട ഡയറികൾ",
+        "blurb": "വീഡിയോ തരം: Dramatic narration of famous maritime disasters — Titanic, Lusitania, Estonia. Covers the final hours, rescue missions, and the haunting discoveries…"
+      }
+    },
+    "9": {
+      "en": {
+        "name": "Air Crash Mysteries",
+        "blurb": "Black-box analysis and investigative storytelling of plane crashes — what went wrong, who survived, and what conspiracy theories emerged afterward."
+      },
+      "bn": {
+        "name": "বিমান দুর্ঘটনার রহস্য",
+        "blurb": "ভিডিও টাইপ: Black-box analysis and investigative storytelling of plane crashes — what went wrong, who survived, and what conspiracy theories emerged afterward."
+      },
+      "hi": {
+        "name": "विमान दुर्घटना रहस्य",
+        "blurb": "वीडियो प्रकार: Black-box analysis and investigative storytelling of plane crashes — what went wrong, who survived, and what conspiracy theories emerged afterward."
+      },
+      "ur": {
+        "name": "ہوائی حادثات کے اسرار",
+        "blurb": "ویڈیو کی قسم: Black-box analysis and investigative storytelling of plane crashes — what went wrong, who survived, and what conspiracy theories emerged afterward."
+      },
+      "ta": {
+        "name": "விமான விபத்து மர்மங்கள்",
+        "blurb": "வீடியோ வகை: Black-box analysis and investigative storytelling of plane crashes — what went wrong, who survived, and what conspiracy theories emerged afterward."
+      },
+      "ml": {
+        "name": "വിമാന അപകട രഹസ്യങ്ങൾ",
+        "blurb": "വീഡിയോ തരം: Black-box analysis and investigative storytelling of plane crashes — what went wrong, who survived, and what conspiracy theories emerged afterward."
+      }
+    },
+    "10": {
+      "en": {
+        "name": "Industrial Catastrophes",
+        "blurb": "Deep exploration of Chernobyl, Bhopal, Fukushima — the technical failures, human errors, and the long-term environmental and health scars left behind."
+      },
+      "bn": {
+        "name": "শিল্প বিপর্যয়",
+        "blurb": "ভিডিও টাইপ: Deep exploration of Chernobyl, Bhopal, Fukushima — the technical failures, human errors, and the long-term environmental and health scars left behind."
+      },
+      "hi": {
+        "name": "औद्योगिक आपदाएँ",
+        "blurb": "वीडियो प्रकार: Deep exploration of Chernobyl, Bhopal, Fukushima — the technical failures, human errors, and the long-term environmental and health scars left behind."
+      },
+      "ur": {
+        "name": "صنعتی تباہیاں",
+        "blurb": "ویڈیو کی قسم: Deep exploration of Chernobyl, Bhopal, Fukushima — the technical failures, human errors, and the long-term environmental and health scars left behind."
+      },
+      "ta": {
+        "name": "தொழில்துறை பேரழிவுகள்",
+        "blurb": "வீடியோ வகை: Deep exploration of Chernobyl, Bhopal, Fukushima — the technical failures, human errors, and the long-term environmental and health scars left behind."
+      },
+      "ml": {
+        "name": "വ്യാവസായിക ദുരന്തങ്ങൾ",
+        "blurb": "വീഡിയോ തരം: Deep exploration of Chernobyl, Bhopal, Fukushima — the technical failures, human errors, and the long-term environmental and health scars left behind."
+      }
+    },
+    "11": {
+      "en": {
+        "name": "Nature’s Wrath",
+        "blurb": "Real-time simulation and survivor stories of tsunamis, earthquakes, tornadoes, and volcanic eruptions — how communities faced sudden annihilation and rebuilt."
+      },
+      "bn": {
+        "name": "প্রকৃতির রোষ",
+        "blurb": "ভিডিও টাইপ: Real-time simulation and survivor stories of tsunamis, earthquakes, tornadoes, and volcanic eruptions — how communities faced sudden annihilation…"
+      },
+      "hi": {
+        "name": "प्रकृति का प्रकोप",
+        "blurb": "वीडियो प्रकार: Real-time simulation and survivor stories of tsunamis, earthquakes, tornadoes, and volcanic eruptions — how communities faced sudden annihilation…"
+      },
+      "ur": {
+        "name": "قدرت کا قہر",
+        "blurb": "ویڈیو کی قسم: Real-time simulation and survivor stories of tsunamis, earthquakes, tornadoes, and volcanic eruptions — how communities faced sudden annihilation…"
+      },
+      "ta": {
+        "name": "இயற்கையின் கோபம்",
+        "blurb": "வீடியோ வகை: Real-time simulation and survivor stories of tsunamis, earthquakes, tornadoes, and volcanic eruptions — how communities faced sudden annihilation…"
+      },
+      "ml": {
+        "name": "പ്രകൃതിയുടെ കോപം",
+        "blurb": "വീഡിയോ തരം: Real-time simulation and survivor stories of tsunamis, earthquakes, tornadoes, and volcanic eruptions — how communities faced sudden annihilation…"
+      }
+    },
+    "12": {
+      "en": {
+        "name": "Pandemics Through Time",
+        "blurb": "Historical pandemics — Black Death, Spanish Flu, COVID-19 — how they spread, how societies collapsed, and how humanity bounced back with new medical insights."
+      },
+      "bn": {
+        "name": "কালের মহামারী",
+        "blurb": "ভিডিও টাইপ: Historical pandemics — Black Death, Spanish Flu, COVID-19 — how they spread, how societies collapsed, and how humanity bounced back with new medical…"
+      },
+      "hi": {
+        "name": "काल की महामारियाँ",
+        "blurb": "वीडियो प्रकार: Historical pandemics — Black Death, Spanish Flu, COVID-19 — how they spread, how societies collapsed, and how humanity bounced back with new medical…"
+      },
+      "ur": {
+        "name": "تاریخ کی وبائیں",
+        "blurb": "ویڈیو کی قسم: Historical pandemics — Black Death, Spanish Flu, COVID-19 — how they spread, how societies collapsed, and how humanity bounced back with new medical…"
+      },
+      "ta": {
+        "name": "காலத்தின் தொற்றுநோய்கள்",
+        "blurb": "வீடியோ வகை: Historical pandemics — Black Death, Spanish Flu, COVID-19 — how they spread, how societies collapsed, and how humanity bounced back with new medical…"
+      },
+      "ml": {
+        "name": "കാലത്തിലൂടെയുള്ള മഹാമാരികൾ",
+        "blurb": "വീഡിയോ തരം: Historical pandemics — Black Death, Spanish Flu, COVID-19 — how they spread, how societies collapsed, and how humanity bounced back with new medical…"
+      }
+    },
+    "13": {
+      "en": {
+        "name": "Impossible Survival",
+        "blurb": "True stories of people who cheated death — lost at sea, trapped in caves, or stranded in deserts — focusing on their mental strength and clever decisions."
+      },
+      "bn": {
+        "name": "অসম্ভব বেঁচে থাকা",
+        "blurb": "ভিডিও টাইপ: True stories of people who cheated death — lost at sea, trapped in caves, or stranded in deserts — focusing on their mental strength and clever…"
+      },
+      "hi": {
+        "name": "असंभव उत्तरजीविता",
+        "blurb": "वीडियो प्रकार: True stories of people who cheated death — lost at sea, trapped in caves, or stranded in deserts — focusing on their mental strength and clever…"
+      },
+      "ur": {
+        "name": "ناممکن بقا",
+        "blurb": "ویڈیو کی قسم: True stories of people who cheated death — lost at sea, trapped in caves, or stranded in deserts — focusing on their mental strength and clever…"
+      },
+      "ta": {
+        "name": "சாத்தியமற்ற உயிர்வாழ்வு",
+        "blurb": "வீடியோ வகை: True stories of people who cheated death — lost at sea, trapped in caves, or stranded in deserts — focusing on their mental strength and clever…"
+      },
+      "ml": {
+        "name": "അസാധ്യമായ അതിജീവനം",
+        "blurb": "വീഡിയോ തരം: True stories of people who cheated death — lost at sea, trapped in caves, or stranded in deserts — focusing on their mental strength and clever…"
+      }
+    },
+    "14": {
+      "en": {
+        "name": "Against All Odds",
+        "blurb": "Inspirational biographies of ordinary people who overcame poverty, disability, or social prejudice to achieve extraordinary success — a motivational audio…"
+      },
+      "bn": {
+        "name": "সব বাধা ডিঙিয়ে",
+        "blurb": "ভিডিও টাইপ: Inspirational biographies of ordinary people who overcame poverty, disability, or social prejudice to achieve extraordinary success — a motivational…"
+      },
+      "hi": {
+        "name": "सभी बाधाओं के खिलाफ",
+        "blurb": "वीडियो प्रकार: Inspirational biographies of ordinary people who overcame poverty, disability, or social prejudice to achieve extraordinary success — a motivational…"
+      },
+      "ur": {
+        "name": "تمام مشکلات کے باوجود",
+        "blurb": "ویڈیو کی قسم: Inspirational biographies of ordinary people who overcame poverty, disability, or social prejudice to achieve extraordinary success — a motivational…"
+      },
+      "ta": {
+        "name": "எல்லாத் தடைகளையும் மீறி",
+        "blurb": "வீடியோ வகை: Inspirational biographies of ordinary people who overcame poverty, disability, or social prejudice to achieve extraordinary success — a motivational…"
+      },
+      "ml": {
+        "name": "എല്ലാ പ്രതിബന്ധങ്ങളെയും മറികടന്ന്",
+        "blurb": "വീഡിയോ തരം: Inspirational biographies of ordinary people who overcame poverty, disability, or social prejudice to achieve extraordinary success — a motivational…"
+      }
+    },
+    "15": {
+      "en": {
+        "name": "Legacy of One Day",
+        "blurb": "How a single calendar date — like June 28, 1914 or September 11, 2001 — altered the course of global politics, culture, and everyday life forever."
+      },
+      "bn": {
+        "name": "এক দিনের উত্তরাধিকার",
+        "blurb": "ভিডিও টাইপ: How a single calendar date — like June 28, 1914 or September 11, 2001 — altered the course of global politics, culture, and everyday life forever."
+      },
+      "hi": {
+        "name": "एक दिन की विरासत",
+        "blurb": "वीडियो प्रकार: How a single calendar date — like June 28, 1914 or September 11, 2001 — altered the course of global politics, culture, and everyday life forever."
+      },
+      "ur": {
+        "name": "ایک دن کی میراث",
+        "blurb": "ویڈیو کی قسم: How a single calendar date — like June 28, 1914 or September 11, 2001 — altered the course of global politics, culture, and everyday life forever."
+      },
+      "ta": {
+        "name": "ஒரு நாளின் மரபு",
+        "blurb": "வீடியோ வகை: How a single calendar date — like June 28, 1914 or September 11, 2001 — altered the course of global politics, culture, and everyday life forever."
+      },
+      "ml": {
+        "name": "ഒരു ദിവസത്തിന്റെ പൈതൃകം",
+        "blurb": "വീഡിയോ തരം: How a single calendar date — like June 28, 1914 or September 11, 2001 — altered the course of global politics, culture, and everyday life forever."
+      }
+    },
+    "16": {
+      "en": {
+        "name": "Ordinary Heroes",
+        "blurb": "Unsung individuals who saved lives during wars, fires, or terror attacks — their split-second decisions, personal sacrifices, and why they never sought fame."
+      },
+      "bn": {
+        "name": "সাধারণ নায়ক",
+        "blurb": "ভিডিও টাইপ: Unsung individuals who saved lives during wars, fires, or terror attacks — their split-second decisions, personal sacrifices, and why they never…"
+      },
+      "hi": {
+        "name": "साधारण नायक",
+        "blurb": "वीडियो प्रकार: Unsung individuals who saved lives during wars, fires, or terror attacks — their split-second decisions, personal sacrifices, and why they never…"
+      },
+      "ur": {
+        "name": "عام ہیرو",
+        "blurb": "ویڈیو کی قسم: Unsung individuals who saved lives during wars, fires, or terror attacks — their split-second decisions, personal sacrifices, and why they never…"
+      },
+      "ta": {
+        "name": "சாதாரண வீரர்கள்",
+        "blurb": "வீடியோ வகை: Unsung individuals who saved lives during wars, fires, or terror attacks — their split-second decisions, personal sacrifices, and why they never…"
+      },
+      "ml": {
+        "name": "സാധാരണ നായകന്മാർ",
+        "blurb": "വീഡിയോ തരം: Unsung individuals who saved lives during wars, fires, or terror attacks — their split-second decisions, personal sacrifices, and why they never…"
+      }
+    },
+    "17": {
+      "en": {
+        "name": "Serial Killers Unveiled",
+        "blurb": "Psychological profiling of notorious serial killers — Bundy, Dahmer, Zodiac — their childhood, modus operandi, and how they were finally caught."
+      },
+      "bn": {
+        "name": "সিরিয়াল কিলার উন্মোচন",
+        "blurb": "ভিডিও টাইপ: Psychological profiling of notorious serial killers — Bundy, Dahmer, Zodiac — their childhood, modus operandi, and how they were finally caught."
+      },
+      "hi": {
+        "name": "सीरियल किलर अनावरण",
+        "blurb": "वीडियो प्रकार: Psychological profiling of notorious serial killers — Bundy, Dahmer, Zodiac — their childhood, modus operandi, and how they were finally caught."
+      },
+      "ur": {
+        "name": "سیریل کلرز کا انکشاف",
+        "blurb": "ویڈیو کی قسم: Psychological profiling of notorious serial killers — Bundy, Dahmer, Zodiac — their childhood, modus operandi, and how they were finally caught."
+      },
+      "ta": {
+        "name": "தொடர்கொலைகாரர் வெளிப்பாடு",
+        "blurb": "வீடியோ வகை: Psychological profiling of notorious serial killers — Bundy, Dahmer, Zodiac — their childhood, modus operandi, and how they were finally caught."
+      },
+      "ml": {
+        "name": "സീരിയൽ കില്ലേഴ്സ് അനാവരണം",
+        "blurb": "വീഡിയോ തരം: Psychological profiling of notorious serial killers — Bundy, Dahmer, Zodiac — their childhood, modus operandi, and how they were finally caught."
+      }
+    },
+    "18": {
+      "en": {
+        "name": "Cults & Fanaticism",
+        "blurb": "Rise and fall of dangerous religious or political sects — Jonestown, Heaven's Gate, Branch Davidians — how leaders manipulated followers to tragic ends."
+      },
+      "bn": {
+        "name": "কাল্ট ও উগ্রতা",
+        "blurb": "ভিডিও টাইপ: Rise and fall of dangerous religious or political sects — Jonestown, Heaven's Gate, Branch Davidians — how leaders manipulated followers to tragic…"
+      },
+      "hi": {
+        "name": "पंथ और कट्टरता",
+        "blurb": "वीडियो प्रकार: Rise and fall of dangerous religious or political sects — Jonestown, Heaven's Gate, Branch Davidians — how leaders manipulated followers to tragic…"
+      },
+      "ur": {
+        "name": "فرقے اور انتہا پسندی",
+        "blurb": "ویڈیو کی قسم: Rise and fall of dangerous religious or political sects — Jonestown, Heaven's Gate, Branch Davidians — how leaders manipulated followers to tragic…"
+      },
+      "ta": {
+        "name": "வழிபாட்டுக் குழுக்கள் & தீவிரவாதம்",
+        "blurb": "வீடியோ வகை: Rise and fall of dangerous religious or political sects — Jonestown, Heaven's Gate, Branch Davidians — how leaders manipulated followers to tragic…"
+      },
+      "ml": {
+        "name": "കൾട്ടുകളും ഫാനറ്റിസവും",
+        "blurb": "വീഡിയോ തരം: Rise and fall of dangerous religious or political sects — Jonestown, Heaven's Gate, Branch Davidians — how leaders manipulated followers to tragic…"
+      }
+    },
+    "19": {
+      "en": {
+        "name": "Mafia Empires",
+        "blurb": "Inside stories of mafia families, drug cartels, and gangster rivalries — loyalty, betrayal, and the law enforcement crackdowns that brought them down."
+      },
+      "bn": {
+        "name": "মাফিয়া সাম্রাজ্য",
+        "blurb": "ভিডিও টাইপ: Inside stories of mafia families, drug cartels, and gangster rivalries — loyalty, betrayal, and the law enforcement crackdowns that brought them down."
+      },
+      "hi": {
+        "name": "माफिया साम्राज्य",
+        "blurb": "वीडियो प्रकार: Inside stories of mafia families, drug cartels, and gangster rivalries — loyalty, betrayal, and the law enforcement crackdowns that brought them down."
+      },
+      "ur": {
+        "name": "مافیا سلطنتیں",
+        "blurb": "ویڈیو کی قسم: Inside stories of mafia families, drug cartels, and gangster rivalries — loyalty, betrayal, and the law enforcement crackdowns that brought them down."
+      },
+      "ta": {
+        "name": "மாஃபியா பேரரசுகள்",
+        "blurb": "வீடியோ வகை: Inside stories of mafia families, drug cartels, and gangster rivalries — loyalty, betrayal, and the law enforcement crackdowns that brought them down."
+      },
+      "ml": {
+        "name": "മാഫിയ സാമ്രാജ്യങ്ങൾ",
+        "blurb": "വീഡിയോ തരം: Inside stories of mafia families, drug cartels, and gangster rivalries — loyalty, betrayal, and the law enforcement crackdowns that brought them down."
+      }
+    },
+    "20": {
+      "en": {
+        "name": "Great Prison Escapes",
+        "blurb": "Detailed retelling of history's most ingenious breakouts — from Alcatraz to Devil's Island — the planning, execution, and the fugitives' fate."
+      },
+      "bn": {
+        "name": "মহান কারাগার পলায়ন",
+        "blurb": "ভিডিও টাইপ: Detailed retelling of history's most ingenious breakouts — from Alcatraz to Devil's Island — the planning, execution, and the fugitives' fate."
+      },
+      "hi": {
+        "name": "बड़ी जेल भगाने की कहानियाँ",
+        "blurb": "वीडियो प्रकार: Detailed retelling of history's most ingenious breakouts — from Alcatraz to Devil's Island — the planning, execution, and the fugitives' fate."
+      },
+      "ur": {
+        "name": "عظیم جیل فراریں",
+        "blurb": "ویڈیو کی قسم: Detailed retelling of history's most ingenious breakouts — from Alcatraz to Devil's Island — the planning, execution, and the fugitives' fate."
+      },
+      "ta": {
+        "name": "பெரிய சிறைத் தப்பிப்புகள்",
+        "blurb": "வீடியோ வகை: Detailed retelling of history's most ingenious breakouts — from Alcatraz to Devil's Island — the planning, execution, and the fugitives' fate."
+      },
+      "ml": {
+        "name": "വലിയ ജയിൽ രക്ഷപ്പെടലുകൾ",
+        "blurb": "വീഡിയോ തരം: Detailed retelling of history's most ingenious breakouts — from Alcatraz to Devil's Island — the planning, execution, and the fugitives' fate."
+      }
+    },
+    "21": {
+      "en": {
+        "name": "Spy Games",
+        "blurb": "Real espionage tales — Cold War double agents, the Enigma code, CIA vs. KGB — with high-stakes deception and life-or-death secrecy."
+      },
+      "bn": {
+        "name": "গুপ্তচর খেলা",
+        "blurb": "ভিডিও টাইপ: Real espionage tales — Cold War double agents, the Enigma code, CIA vs. KGB — with high-stakes deception and life-or-death secrecy."
+      },
+      "hi": {
+        "name": "जासूसी खेल",
+        "blurb": "वीडियो प्रकार: Real espionage tales — Cold War double agents, the Enigma code, CIA vs. KGB — with high-stakes deception and life-or-death secrecy."
+      },
+      "ur": {
+        "name": "جاسوسی کھیل",
+        "blurb": "ویڈیو کی قسم: Real espionage tales — Cold War double agents, the Enigma code, CIA vs. KGB — with high-stakes deception and life-or-death secrecy."
+      },
+      "ta": {
+        "name": "உளவு விளையாட்டுகள்",
+        "blurb": "வீடியோ வகை: Real espionage tales — Cold War double agents, the Enigma code, CIA vs. KGB — with high-stakes deception and life-or-death secrecy."
+      },
+      "ml": {
+        "name": "ചാരക്കളികൾ",
+        "blurb": "വീഡിയോ തരം: Real espionage tales — Cold War double agents, the Enigma code, CIA vs. KGB — with high-stakes deception and life-or-death secrecy."
+      }
+    },
+    "22": {
+      "en": {
+        "name": "Heists & Master Robberies",
+        "blurb": "Planning and aftermath of famous heists — the Hatton Garden job, the Isabella Stewart Gardner Museum art theft — with forensic and detective angles."
+      },
+      "bn": {
+        "name": "ডাকাতি ও মাস্টার চুরি",
+        "blurb": "ভিডিও টাইপ: Planning and aftermath of famous heists — the Hatton Garden job, the Isabella Stewart Gardner Museum art theft — with forensic and detective angles."
+      },
+      "hi": {
+        "name": "लूट और मास्टर डकैतियाँ",
+        "blurb": "वीडियो प्रकार: Planning and aftermath of famous heists — the Hatton Garden job, the Isabella Stewart Gardner Museum art theft — with forensic and detective angles."
+      },
+      "ur": {
+        "name": "ڈکیتیاں اور ماسٹر چوریاں",
+        "blurb": "ویڈیو کی قسم: Planning and aftermath of famous heists — the Hatton Garden job, the Isabella Stewart Gardner Museum art theft — with forensic and detective angles."
+      },
+      "ta": {
+        "name": "கொள்ளைகள் & மாஸ்டர் திருட்டுகள்",
+        "blurb": "வீடியோ வகை: Planning and aftermath of famous heists — the Hatton Garden job, the Isabella Stewart Gardner Museum art theft — with forensic and detective angles."
+      },
+      "ml": {
+        "name": "കൊള്ളകളും മാസ്റ്റർ മോഷണങ്ങളും",
+        "blurb": "വീഡിയോ തരം: Planning and aftermath of famous heists — the Hatton Garden job, the Isabella Stewart Gardner Museum art theft — with forensic and detective angles."
+      }
+    },
+    "23": {
+      "en": {
+        "name": "Forensic Breakthroughs",
+        "blurb": "How DNA, fingerprinting, and toxicology turned cold cases into solved mysteries — celebrating the science behind justice."
+      },
+      "bn": {
+        "name": "ফরেনসিক অগ্রগতি",
+        "blurb": "ভিডিও টাইপ: How DNA, fingerprinting, and toxicology turned cold cases into solved mysteries — celebrating the science behind justice."
+      },
+      "hi": {
+        "name": "फोरेंसिक सफलताएँ",
+        "blurb": "वीडियो प्रकार: How DNA, fingerprinting, and toxicology turned cold cases into solved mysteries — celebrating the science behind justice."
+      },
+      "ur": {
+        "name": "فارینزک کامیابیاں",
+        "blurb": "ویڈیو کی قسم: How DNA, fingerprinting, and toxicology turned cold cases into solved mysteries — celebrating the science behind justice."
+      },
+      "ta": {
+        "name": "தடயவியல் முன்னேற்றங்கள்",
+        "blurb": "வீடியோ வகை: How DNA, fingerprinting, and toxicology turned cold cases into solved mysteries — celebrating the science behind justice."
+      },
+      "ml": {
+        "name": "ഫോറൻസിക് മുന്നേറ്റങ്ങൾ",
+        "blurb": "വീഡിയോ തരം: How DNA, fingerprinting, and toxicology turned cold cases into solved mysteries — celebrating the science behind justice."
+      }
+    },
+    "24": {
+      "en": {
+        "name": "Courtroom Dramas",
+        "blurb": "High-profile trials — Socrates, Galileo, the Nuremberg Trials — the arguments, the witnesses, and the ethical dilemmas that divided nations."
+      },
+      "bn": {
+        "name": "আদালতের নাটক",
+        "blurb": "ভিডিও টাইপ: High-profile trials — Socrates, Galileo, the Nuremberg Trials — the arguments, the witnesses, and the ethical dilemmas that divided nations."
+      },
+      "hi": {
+        "name": "कोर्ट रूम ड्रामा",
+        "blurb": "वीडियो प्रकार: High-profile trials — Socrates, Galileo, the Nuremberg Trials — the arguments, the witnesses, and the ethical dilemmas that divided nations."
+      },
+      "ur": {
+        "name": "عدالتی ڈرامے",
+        "blurb": "ویڈیو کی قسم: High-profile trials — Socrates, Galileo, the Nuremberg Trials — the arguments, the witnesses, and the ethical dilemmas that divided nations."
+      },
+      "ta": {
+        "name": "நீதிமன்ற நாடகங்கள்",
+        "blurb": "வீடியோ வகை: High-profile trials — Socrates, Galileo, the Nuremberg Trials — the arguments, the witnesses, and the ethical dilemmas that divided nations."
+      },
+      "ml": {
+        "name": "കോടതി നാടകങ്ങൾ",
+        "blurb": "വീഡിയോ തരം: High-profile trials — Socrates, Galileo, the Nuremberg Trials — the arguments, the witnesses, and the ethical dilemmas that divided nations."
+      }
+    },
+    "25": {
+      "en": {
+        "name": "Famous Hoaxes & Frauds",
+        "blurb": "Unmasking scams — from the Piltdown Man to Fyre Festival — exploring how they fooled experts and the public, and how they were exposed."
+      },
+      "bn": {
+        "name": "বিখ্যাত প্রতারণা ও জালিয়াতি",
+        "blurb": "ভিডিও টাইপ: Unmasking scams — from the Piltdown Man to Fyre Festival — exploring how they fooled experts and the public, and how they were exposed."
+      },
+      "hi": {
+        "name": "प्रसिद्ध धोखाधड़ी",
+        "blurb": "वीडियो प्रकार: Unmasking scams — from the Piltdown Man to Fyre Festival — exploring how they fooled experts and the public, and how they were exposed."
+      },
+      "ur": {
+        "name": "مشہور دھوکے اور فراڈ",
+        "blurb": "ویڈیو کی قسم: Unmasking scams — from the Piltdown Man to Fyre Festival — exploring how they fooled experts and the public, and how they were exposed."
+      },
+      "ta": {
+        "name": "பிரபல மோசடிகள்",
+        "blurb": "வீடியோ வகை: Unmasking scams — from the Piltdown Man to Fyre Festival — exploring how they fooled experts and the public, and how they were exposed."
+      },
+      "ml": {
+        "name": "പ്രശസ്ത വഞ്ചനകളും തട്ടിപ്പുകളും",
+        "blurb": "വീഡിയോ തരം: Unmasking scams — from the Piltdown Man to Fyre Festival — exploring how they fooled experts and the public, and how they were exposed."
+      }
+    },
+    "26": {
+      "en": {
+        "name": "Unsolved Ciphers",
+        "blurb": "Cryptography mysteries — the Voynich Manuscript, the Zodiac Killer's letters, Kryptos — that have stumped codebreakers for decades."
+      },
+      "bn": {
+        "name": "অমীমাংসিত সাইফার",
+        "blurb": "ভিডিও টাইপ: Cryptography mysteries — the Voynich Manuscript, the Zodiac Killer's letters, Kryptos — that have stumped codebreakers for decades."
+      },
+      "hi": {
+        "name": "अनसुलझे साइफर",
+        "blurb": "वीडियो प्रकार: Cryptography mysteries — the Voynich Manuscript, the Zodiac Killer's letters, Kryptos — that have stumped codebreakers for decades."
+      },
+      "ur": {
+        "name": "حل نہ ہونے والے رموز",
+        "blurb": "ویڈیو کی قسم: Cryptography mysteries — the Voynich Manuscript, the Zodiac Killer's letters, Kryptos — that have stumped codebreakers for decades."
+      },
+      "ta": {
+        "name": "விடுபடாத குறியீடுகள்",
+        "blurb": "வீடியோ வகை: Cryptography mysteries — the Voynich Manuscript, the Zodiac Killer's letters, Kryptos — that have stumped codebreakers for decades."
+      },
+      "ml": {
+        "name": "പരിഹരിക്കപ്പെടാത്ത സൈഫറുകൾ",
+        "blurb": "വീഡിയോ തരം: Cryptography mysteries — the Voynich Manuscript, the Zodiac Killer's letters, Kryptos — that have stumped codebreakers for decades."
+      }
+    },
+    "27": {
+      "en": {
+        "name": "Paranormal Encounters",
+        "blurb": "First-hand accounts of haunted houses, poltergeists, and demonic possessions — presented with a neutral, investigative tone."
+      },
+      "bn": {
+        "name": "অতিপ্রাকৃত সাক্ষাৎ",
+        "blurb": "ভিডিও টাইপ: First-hand accounts of haunted houses, poltergeists, and demonic possessions — presented with a neutral, investigative tone."
+      },
+      "hi": {
+        "name": "अलौकिक मुठभेड़",
+        "blurb": "वीडियो प्रकार: First-hand accounts of haunted houses, poltergeists, and demonic possessions — presented with a neutral, investigative tone."
+      },
+      "ur": {
+        "name": "ماورائی ملاقاتیں",
+        "blurb": "ویڈیو کی قسم: First-hand accounts of haunted houses, poltergeists, and demonic possessions — presented with a neutral, investigative tone."
+      },
+      "ta": {
+        "name": "அமானுஷ்ய சந்திப்புகள்",
+        "blurb": "வீடியோ வகை: First-hand accounts of haunted houses, poltergeists, and demonic possessions — presented with a neutral, investigative tone."
+      },
+      "ml": {
+        "name": "അമാനുഷിക കണ്ടുമുട്ടലുകൾ",
+        "blurb": "വീഡിയോ തരം: First-hand accounts of haunted houses, poltergeists, and demonic possessions — presented with a neutral, investigative tone."
+      }
+    },
+    "28": {
+      "en": {
+        "name": "Near-Death Experiences",
+        "blurb": "People who clinically died and came back — their visions, out-of-body sensations, and how their life changed afterward."
+      },
+      "bn": {
+        "name": "মৃত্যুর কাছাকাছি অভিজ্ঞতা",
+        "blurb": "ভিডিও টাইপ: People who clinically died and came back — their visions, out-of-body sensations, and how their life changed afterward."
+      },
+      "hi": {
+        "name": "मृत्यु-समीप अनुभव",
+        "blurb": "वीडियो प्रकार: People who clinically died and came back — their visions, out-of-body sensations, and how their life changed afterward."
+      },
+      "ur": {
+        "name": "موت کے قریب تجربات",
+        "blurb": "ویڈیو کی قسم: People who clinically died and came back — their visions, out-of-body sensations, and how their life changed afterward."
+      },
+      "ta": {
+        "name": "மரணத்திற்கு அருகில் அனுபவங்கள்",
+        "blurb": "வீடியோ வகை: People who clinically died and came back — their visions, out-of-body sensations, and how their life changed afterward."
+      },
+      "ml": {
+        "name": "മരണസമീപ അനുഭവങ്ങൾ",
+        "blurb": "വീഡിയോ തരം: People who clinically died and came back — their visions, out-of-body sensations, and how their life changed afterward."
+      }
+    },
+    "29": {
+      "en": {
+        "name": "Witchcraft & Trials",
+        "blurb": "The history of witch hunts in Europe and Salem — how fear, religion, and mass hysteria led to wrongful executions."
+      },
+      "bn": {
+        "name": "জাদুবিদ্যা ও বিচার",
+        "blurb": "ভিডিও টাইপ: The history of witch hunts in Europe and Salem — how fear, religion, and mass hysteria led to wrongful executions."
+      },
+      "hi": {
+        "name": "जादूटोना और मुकदमे",
+        "blurb": "वीडियो प्रकार: The history of witch hunts in Europe and Salem — how fear, religion, and mass hysteria led to wrongful executions."
+      },
+      "ur": {
+        "name": "جادوگری اور مقدمات",
+        "blurb": "ویڈیو کی قسم: The history of witch hunts in Europe and Salem — how fear, religion, and mass hysteria led to wrongful executions."
+      },
+      "ta": {
+        "name": "சூனியம் & விசாரணைகள்",
+        "blurb": "வீடியோ வகை: The history of witch hunts in Europe and Salem — how fear, religion, and mass hysteria led to wrongful executions."
+      },
+      "ml": {
+        "name": "മന്ത്രവാദവും വിചാരണകളും",
+        "blurb": "വീഡിയോ തരം: The history of witch hunts in Europe and Salem — how fear, religion, and mass hysteria led to wrongful executions."
+      }
+    },
+    "30": {
+      "en": {
+        "name": "Ghost Ships",
+        "blurb": "Abandoned vessels found adrift — like the Mary Celeste — with no crew, no struggle, only silence. Theories range from mutiny to supernatural."
+      },
+      "bn": {
+        "name": "ভূতের জাহাজ",
+        "blurb": "ভিডিও টাইপ: Abandoned vessels found adrift — like the Mary Celeste — with no crew, no struggle, only silence. Theories range from mutiny to supernatural."
+      },
+      "hi": {
+        "name": "भूतिया जहाज़",
+        "blurb": "वीडियो प्रकार: Abandoned vessels found adrift — like the Mary Celeste — with no crew, no struggle, only silence. Theories range from mutiny to supernatural."
+      },
+      "ur": {
+        "name": "بھوت جہاز",
+        "blurb": "ویڈیو کی قسم: Abandoned vessels found adrift — like the Mary Celeste — with no crew, no struggle, only silence. Theories range from mutiny to supernatural."
+      },
+      "ta": {
+        "name": "பேய் கப்பல்கள்",
+        "blurb": "வீடியோ வகை: Abandoned vessels found adrift — like the Mary Celeste — with no crew, no struggle, only silence. Theories range from mutiny to supernatural."
+      },
+      "ml": {
+        "name": "ഭൂതക്കപ്പലുകൾ",
+        "blurb": "വീഡിയോ തരം: Abandoned vessels found adrift — like the Mary Celeste — with no crew, no struggle, only silence. Theories range from mutiny to supernatural."
+      }
+    },
+    "31": {
+      "en": {
+        "name": "Accidental Inventions",
+        "blurb": "How everyday items — penicillin, microwave ovens, X-rays, Post-it notes — were discovered by pure luck during other experiments."
+      },
+      "bn": {
+        "name": "দৈবক্রমে আবিষ্কার",
+        "blurb": "ভিডিও টাইপ: How everyday items — penicillin, microwave ovens, X-rays, Post-it notes — were discovered by pure luck during other experiments."
+      },
+      "hi": {
+        "name": "आकस्मिक आविष्कार",
+        "blurb": "वीडियो प्रकार: How everyday items — penicillin, microwave ovens, X-rays, Post-it notes — were discovered by pure luck during other experiments."
+      },
+      "ur": {
+        "name": "اتفاقی ایجادات",
+        "blurb": "ویڈیو کی قسم: How everyday items — penicillin, microwave ovens, X-rays, Post-it notes — were discovered by pure luck during other experiments."
+      },
+      "ta": {
+        "name": "தற்செயல் கண்டுபிடிப்புகள்",
+        "blurb": "வீடியோ வகை: How everyday items — penicillin, microwave ovens, X-rays, Post-it notes — were discovered by pure luck during other experiments."
+      },
+      "ml": {
+        "name": "യാദൃച്ഛിക കണ്ടുപിടുത്തങ്ങൾ",
+        "blurb": "വീഡിയോ തരം: How everyday items — penicillin, microwave ovens, X-rays, Post-it notes — were discovered by pure luck during other experiments."
+      }
+    },
+    "32": {
+      "en": {
+        "name": "Eureka Moments",
+        "blurb": "The flash of genius — Archimedes in his bath, Newton under the apple tree — the personal stories behind world-changing insights."
+      },
+      "bn": {
+        "name": "ইউরেকা মুহূর্ত",
+        "blurb": "ভিডিও টাইপ: The flash of genius — Archimedes in his bath, Newton under the apple tree — the personal stories behind world-changing insights."
+      },
+      "hi": {
+        "name": "यूरेका क्षण",
+        "blurb": "वीडियो प्रकार: The flash of genius — Archimedes in his bath, Newton under the apple tree — the personal stories behind world-changing insights."
+      },
+      "ur": {
+        "name": "یوریکا لمحات",
+        "blurb": "ویڈیو کی قسم: The flash of genius — Archimedes in his bath, Newton under the apple tree — the personal stories behind world-changing insights."
+      },
+      "ta": {
+        "name": "யுரேகா தருணங்கள்",
+        "blurb": "வீடியோ வகை: The flash of genius — Archimedes in his bath, Newton under the apple tree — the personal stories behind world-changing insights."
+      },
+      "ml": {
+        "name": "യുറീക്ക നിമിഷങ്ങൾ",
+        "blurb": "വീഡിയോ തരം: The flash of genius — Archimedes in his bath, Newton under the apple tree — the personal stories behind world-changing insights."
+      }
+    },
+    "33": {
+      "en": {
+        "name": "Epic Scientific Failures",
+        "blurb": "Experiments that went terribly wrong — and what we learned from them — like the Tacoma Narrows bridge collapse or the Biosphere 2 project."
+      },
+      "bn": {
+        "name": "বিজ্ঞানের মহাকাব্যিক ব্যর্থতা",
+        "blurb": "ভিডিও টাইপ: Experiments that went terribly wrong — and what we learned from them — like the Tacoma Narrows bridge collapse or the Biosphere 2 project."
+      },
+      "hi": {
+        "name": "वैज्ञानिक महाविफलताएँ",
+        "blurb": "वीडियो प्रकार: Experiments that went terribly wrong — and what we learned from them — like the Tacoma Narrows bridge collapse or the Biosphere 2 project."
+      },
+      "ur": {
+        "name": "سائنسی عظیم ناکامیاں",
+        "blurb": "ویڈیو کی قسم: Experiments that went terribly wrong — and what we learned from them — like the Tacoma Narrows bridge collapse or the Biosphere 2 project."
+      },
+      "ta": {
+        "name": "அறிவியல் பெரும் தோல்விகள்",
+        "blurb": "வீடியோ வகை: Experiments that went terribly wrong — and what we learned from them — like the Tacoma Narrows bridge collapse or the Biosphere 2 project."
+      },
+      "ml": {
+        "name": "ശാസ്ത്രീയ വലിയ പരാജയങ്ങൾ",
+        "blurb": "വീഡിയോ തരം: Experiments that went terribly wrong — and what we learned from them — like the Tacoma Narrows bridge collapse or the Biosphere 2 project."
+      }
+    },
+    "34": {
+      "en": {
+        "name": "Space Disasters",
+        "blurb": "Tragic space missions — Apollo 1, Challenger, Columbia — the technical glitches, human cost, and how NASA rebuilt safety protocols."
+      },
+      "bn": {
+        "name": "মহাকাশ বিপর্যয়",
+        "blurb": "ভিডিও টাইপ: Tragic space missions — Apollo 1, Challenger, Columbia — the technical glitches, human cost, and how NASA rebuilt safety protocols."
+      },
+      "hi": {
+        "name": "अंतरिक्ष आपदाएँ",
+        "blurb": "वीडियो प्रकार: Tragic space missions — Apollo 1, Challenger, Columbia — the technical glitches, human cost, and how NASA rebuilt safety protocols."
+      },
+      "ur": {
+        "name": "خلائی تباہیاں",
+        "blurb": "ویڈیو کی قسم: Tragic space missions — Apollo 1, Challenger, Columbia — the technical glitches, human cost, and how NASA rebuilt safety protocols."
+      },
+      "ta": {
+        "name": "விண்வெளி பேரழிவுகள்",
+        "blurb": "வீடியோ வகை: Tragic space missions — Apollo 1, Challenger, Columbia — the technical glitches, human cost, and how NASA rebuilt safety protocols."
+      },
+      "ml": {
+        "name": "ബഹിരാകാശ ദുരന്തങ്ങൾ",
+        "blurb": "വീഡിയോ തരം: Tragic space missions — Apollo 1, Challenger, Columbia — the technical glitches, human cost, and how NASA rebuilt safety protocols."
+      }
+    },
+    "35": {
+      "en": {
+        "name": "Cosmic Mysteries",
+        "blurb": "Black holes, dark matter, exoplanets — exploring the universe's most mind-bending puzzles with visual analogies and simple science."
+      },
+      "bn": {
+        "name": "মহাজাগতিক রহস্য",
+        "blurb": "ভিডিও টাইপ: Black holes, dark matter, exoplanets — exploring the universe's most mind-bending puzzles with visual analogies and simple science."
+      },
+      "hi": {
+        "name": "ब्रह्मांडीय रहस्य",
+        "blurb": "वीडियो प्रकार: Black holes, dark matter, exoplanets — exploring the universe's most mind-bending puzzles with visual analogies and simple science."
+      },
+      "ur": {
+        "name": "کائناتی اسرار",
+        "blurb": "ویڈیو کی قسم: Black holes, dark matter, exoplanets — exploring the universe's most mind-bending puzzles with visual analogies and simple science."
+      },
+      "ta": {
+        "name": "அண்ட மர்மங்கள்",
+        "blurb": "வீடியோ வகை: Black holes, dark matter, exoplanets — exploring the universe's most mind-bending puzzles with visual analogies and simple science."
+      },
+      "ml": {
+        "name": "പ്രപഞ്ച രഹസ്യങ്ങൾ",
+        "blurb": "വീഡിയോ തരം: Black holes, dark matter, exoplanets — exploring the universe's most mind-bending puzzles with visual analogies and simple science."
+      }
+    },
+    "36": {
+      "en": {
+        "name": "Alien & UFO Phenomena",
+        "blurb": "Documented UFO sightings, whistleblower testimonies, and the government's secret files — skepticism meets curiosity."
+      },
+      "bn": {
+        "name": "এলিয়েন ও ইউএফও ঘটনা",
+        "blurb": "ভিডিও টাইপ: Documented UFO sightings, whistleblower testimonies, and the government's secret files — skepticism meets curiosity."
+      },
+      "hi": {
+        "name": "एलियन और यूएफओ घटनाएँ",
+        "blurb": "वीडियो प्रकार: Documented UFO sightings, whistleblower testimonies, and the government's secret files — skepticism meets curiosity."
+      },
+      "ur": {
+        "name": "ایلین اور یو ایف او مظاہر",
+        "blurb": "ویڈیو کی قسم: Documented UFO sightings, whistleblower testimonies, and the government's secret files — skepticism meets curiosity."
+      },
+      "ta": {
+        "name": "ஏலியன் & UFO நிகழ்வுகள்",
+        "blurb": "வீடியோ வகை: Documented UFO sightings, whistleblower testimonies, and the government's secret files — skepticism meets curiosity."
+      },
+      "ml": {
+        "name": "ഏലിയൻ & യുഎഫ്ഒ പ്രതിഭാസങ്ങൾ",
+        "blurb": "വീഡിയോ തരം: Documented UFO sightings, whistleblower testimonies, and the government's secret files — skepticism meets curiosity."
+      }
+    },
+    "37": {
+      "en": {
+        "name": "Future Tech Predictions",
+        "blurb": "What's coming — AI, quantum computing, nano-medicine, fusion energy — and how they will transform jobs, health, and everyday life."
+      },
+      "bn": {
+        "name": "ভবিষ্যৎ প্রযুক্তির পূর্বাভাস",
+        "blurb": "ভিডিও টাইপ: What's coming — AI, quantum computing, nano-medicine, fusion energy — and how they will transform jobs, health, and everyday life."
+      },
+      "hi": {
+        "name": "भविष्य की टेक भविष्यवाणियाँ",
+        "blurb": "वीडियो प्रकार: What's coming — AI, quantum computing, nano-medicine, fusion energy — and how they will transform jobs, health, and everyday life."
+      },
+      "ur": {
+        "name": "مستقبل کی ٹیک پیش گوئیاں",
+        "blurb": "ویڈیو کی قسم: What's coming — AI, quantum computing, nano-medicine, fusion energy — and how they will transform jobs, health, and everyday life."
+      },
+      "ta": {
+        "name": "எதிர்கால தொழில்நுட்ப முன்னறிவிப்புகள்",
+        "blurb": "வீடியோ வகை: What's coming — AI, quantum computing, nano-medicine, fusion energy — and how they will transform jobs, health, and everyday life."
+      },
+      "ml": {
+        "name": "ഭാവി ടെക് പ്രവചനങ്ങൾ",
+        "blurb": "വീഡിയോ തരം: What's coming — AI, quantum computing, nano-medicine, fusion energy — and how they will transform jobs, health, and everyday life."
+      }
+    },
+    "38": {
+      "en": {
+        "name": "Internet History",
+        "blurb": "The birth of ARPANET, the World Wide Web, social media, and cybercrime — the pioneers, the dot-com crash, and the digital age explosion."
+      },
+      "bn": {
+        "name": "ইন্টারনেটের ইতিহাস",
+        "blurb": "ভিডিও টাইপ: The birth of ARPANET, the World Wide Web, social media, and cybercrime — the pioneers, the dot-com crash, and the digital age explosion."
+      },
+      "hi": {
+        "name": "इंटरनेट का इतिहास",
+        "blurb": "वीडियो प्रकार: The birth of ARPANET, the World Wide Web, social media, and cybercrime — the pioneers, the dot-com crash, and the digital age explosion."
+      },
+      "ur": {
+        "name": "انٹرنیٹ کی تاریخ",
+        "blurb": "ویڈیو کی قسم: The birth of ARPANET, the World Wide Web, social media, and cybercrime — the pioneers, the dot-com crash, and the digital age explosion."
+      },
+      "ta": {
+        "name": "இணைய வரலாறு",
+        "blurb": "வீடியோ வகை: The birth of ARPANET, the World Wide Web, social media, and cybercrime — the pioneers, the dot-com crash, and the digital age explosion."
+      },
+      "ml": {
+        "name": "ഇന്റർനെറ്റ് ചരിത്രം",
+        "blurb": "വീഡിയോ തരം: The birth of ARPANET, the World Wide Web, social media, and cybercrime — the pioneers, the dot-com crash, and the digital age explosion."
+      }
+    },
+    "39": {
+      "en": {
+        "name": "Video Game Lore",
+        "blurb": "Behind the scenes of iconic games — Mario, Minecraft, GTA — the development struggles, easter eggs, and cultural impact."
+      },
+      "bn": {
+        "name": "ভিডিও গেম লোর",
+        "blurb": "ভিডিও টাইপ: Behind the scenes of iconic games — Mario, Minecraft, GTA — the development struggles, easter eggs, and cultural impact."
+      },
+      "hi": {
+        "name": "वीडियो गेम कथाएँ",
+        "blurb": "वीडियो प्रकार: Behind the scenes of iconic games — Mario, Minecraft, GTA — the development struggles, easter eggs, and cultural impact."
+      },
+      "ur": {
+        "name": "ویڈیو گیم لوک کہانیاں",
+        "blurb": "ویڈیو کی قسم: Behind the scenes of iconic games — Mario, Minecraft, GTA — the development struggles, easter eggs, and cultural impact."
+      },
+      "ta": {
+        "name": "வீடியோ கேம் கதைகள்",
+        "blurb": "வீடியோ வகை: Behind the scenes of iconic games — Mario, Minecraft, GTA — the development struggles, easter eggs, and cultural impact."
+      },
+      "ml": {
+        "name": "വീഡിയോ ഗെയിം ലോർ",
+        "blurb": "വീഡിയോ തരം: Behind the scenes of iconic games — Mario, Minecraft, GTA — the development struggles, easter eggs, and cultural impact."
+      }
+    },
+    "40": {
+      "en": {
+        "name": "Movie Making Secrets",
+        "blurb": "Behind-the-camera stories — from Hitchcock to Nolan — how famous scenes were shot, actor mishaps, and production nightmares."
+      },
+      "bn": {
+        "name": "সিনেমা তৈরির রহস্য",
+        "blurb": "ভিডিও টাইপ: Behind-the-camera stories — from Hitchcock to Nolan — how famous scenes were shot, actor mishaps, and production nightmares."
+      },
+      "hi": {
+        "name": "फिल्म निर्माण के रहस्य",
+        "blurb": "वीडियो प्रकार: Behind-the-camera stories — from Hitchcock to Nolan — how famous scenes were shot, actor mishaps, and production nightmares."
+      },
+      "ur": {
+        "name": "فلم سازی کے راز",
+        "blurb": "ویڈیو کی قسم: Behind-the-camera stories — from Hitchcock to Nolan — how famous scenes were shot, actor mishaps, and production nightmares."
+      },
+      "ta": {
+        "name": "திரைப்பட உருவாக்க ரகசியங்கள்",
+        "blurb": "வீடியோ வகை: Behind-the-camera stories — from Hitchcock to Nolan — how famous scenes were shot, actor mishaps, and production nightmares."
+      },
+      "ml": {
+        "name": "സിനിമ നിർമാണ രഹസ്യങ്ങൾ",
+        "blurb": "വീഡിയോ തരം: Behind-the-camera stories — from Hitchcock to Nolan — how famous scenes were shot, actor mishaps, and production nightmares."
+      }
+    },
+    "41": {
+      "en": {
+        "name": "Music Legends",
+        "blurb": "Biographies of rockstars, rappers, and classical maestros — their rise, addiction, relationships, and mysterious deaths."
+      },
+      "bn": {
+        "name": "সঙ্গীত কিংবদন্তি",
+        "blurb": "ভিডিও টাইপ: Biographies of rockstars, rappers, and classical maestros — their rise, addiction, relationships, and mysterious deaths."
+      },
+      "hi": {
+        "name": "संगीत दिग्गज",
+        "blurb": "वीडियो प्रकार: Biographies of rockstars, rappers, and classical maestros — their rise, addiction, relationships, and mysterious deaths."
+      },
+      "ur": {
+        "name": "موسیقی کے دیو مالائیں",
+        "blurb": "ویڈیو کی قسم: Biographies of rockstars, rappers, and classical maestros — their rise, addiction, relationships, and mysterious deaths."
+      },
+      "ta": {
+        "name": "இசை புராணங்கள்",
+        "blurb": "வீடியோ வகை: Biographies of rockstars, rappers, and classical maestros — their rise, addiction, relationships, and mysterious deaths."
+      },
+      "ml": {
+        "name": "സംഗീത ഇതിഹാസങ്ങൾ",
+        "blurb": "വീഡിയോ തരം: Biographies of rockstars, rappers, and classical maestros — their rise, addiction, relationships, and mysterious deaths."
+      }
+    },
+    "42": {
+      "en": {
+        "name": "Art Heists & Recoveries",
+        "blurb": "The theft of masterpieces — the Mona Lisa, The Scream — and the undercover operations that brought them back."
+      },
+      "bn": {
+        "name": "শিল্পকর্ম চুরি ও উদ্ধার",
+        "blurb": "ভিডিও টাইপ: The theft of masterpieces — the Mona Lisa, The Scream — and the undercover operations that brought them back."
+      },
+      "hi": {
+        "name": "कला चोरी और बरामदगी",
+        "blurb": "वीडियो प्रकार: The theft of masterpieces — the Mona Lisa, The Scream — and the undercover operations that brought them back."
+      },
+      "ur": {
+        "name": "آرٹ چوریاں اور بازیابی",
+        "blurb": "ویڈیو کی قسم: The theft of masterpieces — the Mona Lisa, The Scream — and the undercover operations that brought them back."
+      },
+      "ta": {
+        "name": "கலைத் திருட்டு & மீட்பு",
+        "blurb": "வீடியோ வகை: The theft of masterpieces — the Mona Lisa, The Scream — and the undercover operations that brought them back."
+      },
+      "ml": {
+        "name": "കലാ മോഷണങ്ങളും വീണ്ടെടുപ്പും",
+        "blurb": "വീഡിയോ തരം: The theft of masterpieces — the Mona Lisa, The Scream — and the undercover operations that brought them back."
+      }
+    },
+    "43": {
+      "en": {
+        "name": "Forgotten Geniuses",
+        "blurb": "Scientists, inventors, and artists who were ignored in their time — but whose work became revolutionary decades later."
+      },
+      "bn": {
+        "name": "বিস্মৃত প্রতিভা",
+        "blurb": "ভিডিও টাইপ: Scientists, inventors, and artists who were ignored in their time — but whose work became revolutionary decades later."
+      },
+      "hi": {
+        "name": "भूले हुए प्रतिभाशाली",
+        "blurb": "वीडियो प्रकार: Scientists, inventors, and artists who were ignored in their time — but whose work became revolutionary decades later."
+      },
+      "ur": {
+        "name": "بھولے ہوئے ذہین لوگ",
+        "blurb": "ویڈیو کی قسم: Scientists, inventors, and artists who were ignored in their time — but whose work became revolutionary decades later."
+      },
+      "ta": {
+        "name": "மறக்கப்பட்ட மேதைகள்",
+        "blurb": "வீடியோ வகை: Scientists, inventors, and artists who were ignored in their time — but whose work became revolutionary decades later."
+      },
+      "ml": {
+        "name": "മറക്കപ്പെട്ട പ്രതിഭകൾ",
+        "blurb": "വീഡിയോ തരം: Scientists, inventors, and artists who were ignored in their time — but whose work became revolutionary decades later."
+      }
+    },
+    "44": {
+      "en": {
+        "name": "Ancient Engineering Marvels",
+        "blurb": "How the Pyramids, Roman aqueducts, and Machu Picchu were built — without modern tools — using only brilliant human ingenuity."
+      },
+      "bn": {
+        "name": "প্রাচীন প্রকৌশল বিস্ময়",
+        "blurb": "ভিডিও টাইপ: How the Pyramids, Roman aqueducts, and Machu Picchu were built — without modern tools — using only brilliant human ingenuity."
+      },
+      "hi": {
+        "name": "प्राचीन इंजीनियरिंग चमत्कार",
+        "blurb": "वीडियो प्रकार: How the Pyramids, Roman aqueducts, and Machu Picchu were built — without modern tools — using only brilliant human ingenuity."
+      },
+      "ur": {
+        "name": "قدیم انجینئرنگ عجائب",
+        "blurb": "ویڈیو کی قسم: How the Pyramids, Roman aqueducts, and Machu Picchu were built — without modern tools — using only brilliant human ingenuity."
+      },
+      "ta": {
+        "name": "பண்டைய பொறியியல் அதிசயங்கள்",
+        "blurb": "வீடியோ வகை: How the Pyramids, Roman aqueducts, and Machu Picchu were built — without modern tools — using only brilliant human ingenuity."
+      },
+      "ml": {
+        "name": "പുരാതന എഞ്ചിനീയറിംഗ് അത്ഭുതങ്ങൾ",
+        "blurb": "വീഡിയോ തരം: How the Pyramids, Roman aqueducts, and Machu Picchu were built — without modern tools — using only brilliant human ingenuity."
+      }
+    },
+    "45": {
+      "en": {
+        "name": "Zero & Mathematics",
+        "blurb": "The origin of numbers, especially zero — how mathematics evolved from counting stones to calculus and modern cryptography."
+      },
+      "bn": {
+        "name": "শূন্য ও গণিত",
+        "blurb": "ভিডিও টাইপ: The origin of numbers, especially zero — how mathematics evolved from counting stones to calculus and modern cryptography."
+      },
+      "hi": {
+        "name": "शून्य और गणित",
+        "blurb": "वीडियो प्रकार: The origin of numbers, especially zero — how mathematics evolved from counting stones to calculus and modern cryptography."
+      },
+      "ur": {
+        "name": "صفر اور ریاضی",
+        "blurb": "ویڈیو کی قسم: The origin of numbers, especially zero — how mathematics evolved from counting stones to calculus and modern cryptography."
+      },
+      "ta": {
+        "name": "பூஜ்யம் & கணிதம்",
+        "blurb": "வீடியோ வகை: The origin of numbers, especially zero — how mathematics evolved from counting stones to calculus and modern cryptography."
+      },
+      "ml": {
+        "name": "പൂജ്യവും ഗണിതവും",
+        "blurb": "വീഡിയോ തരം: The origin of numbers, especially zero — how mathematics evolved from counting stones to calculus and modern cryptography."
+      }
+    },
+    "46": {
+      "en": {
+        "name": "Poetry & Prose Origins",
+        "blurb": "The emotional backstory behind famous poems and novels — how loss, love, or war inspired literature that speaks to all generations."
+      },
+      "bn": {
+        "name": "কবিতা ও গদ্যের উৎস",
+        "blurb": "ভিডিও টাইপ: The emotional backstory behind famous poems and novels — how loss, love, or war inspired literature that speaks to all generations."
+      },
+      "hi": {
+        "name": "कविता और गद्य की उत्पत्ति",
+        "blurb": "वीडियो प्रकार: The emotional backstory behind famous poems and novels — how loss, love, or war inspired literature that speaks to all generations."
+      },
+      "ur": {
+        "name": "شاعری اور نثر کی ابتدا",
+        "blurb": "ویڈیو کی قسم: The emotional backstory behind famous poems and novels — how loss, love, or war inspired literature that speaks to all generations."
+      },
+      "ta": {
+        "name": "கவிதை & உரைநடை தோற்றம்",
+        "blurb": "வீடியோ வகை: The emotional backstory behind famous poems and novels — how loss, love, or war inspired literature that speaks to all generations."
+      },
+      "ml": {
+        "name": "കവിതയും ഗദ്യവും — ഉത്ഭവം",
+        "blurb": "വീഡിയോ തരം: The emotional backstory behind famous poems and novels — how loss, love, or war inspired literature that speaks to all generations."
+      }
+    },
+    "47": {
+      "en": {
+        "name": "Mythology Reimagined",
+        "blurb": "Greek, Norse, Egyptian, and Hindu myths retold with modern psychological insights — explaining why these ancient stories still resonate."
+      },
+      "bn": {
+        "name": "পুরাণ নতুন করে",
+        "blurb": "ভিডিও টাইপ: Greek, Norse, Egyptian, and Hindu myths retold with modern psychological insights — explaining why these ancient stories still resonate."
+      },
+      "hi": {
+        "name": "पुनर्कल्पित पौराणिक कथाएँ",
+        "blurb": "वीडियो प्रकार: Greek, Norse, Egyptian, and Hindu myths retold with modern psychological insights — explaining why these ancient stories still resonate."
+      },
+      "ur": {
+        "name": "نئی نظر سے اساطیر",
+        "blurb": "ویڈیو کی قسم: Greek, Norse, Egyptian, and Hindu myths retold with modern psychological insights — explaining why these ancient stories still resonate."
+      },
+      "ta": {
+        "name": "மறுகற்பனை தொன்மங்கள்",
+        "blurb": "வீடியோ வகை: Greek, Norse, Egyptian, and Hindu myths retold with modern psychological insights — explaining why these ancient stories still resonate."
+      },
+      "ml": {
+        "name": "പുനർസങ്കല്പിത പുരാണങ്ങൾ",
+        "blurb": "വീഡിയോ തരം: Greek, Norse, Egyptian, and Hindu myths retold with modern psychological insights — explaining why these ancient stories still resonate."
+      }
+    },
+    "48": {
+      "en": {
+        "name": "Urban Legends",
+        "blurb": "Examining the origins of urban myths — Slender Man, Bloody Mary — and separating fact from community gossip."
+      },
+      "bn": {
+        "name": "শহুরে কিংবদন্তি",
+        "blurb": "ভিডিও টাইপ: Examining the origins of urban myths — Slender Man, Bloody Mary — and separating fact from community gossip."
+      },
+      "hi": {
+        "name": "शहरी किंवदंतियाँ",
+        "blurb": "वीडियो प्रकार: Examining the origins of urban myths — Slender Man, Bloody Mary — and separating fact from community gossip."
+      },
+      "ur": {
+        "name": "شہری افسانے",
+        "blurb": "ویڈیو کی قسم: Examining the origins of urban myths — Slender Man, Bloody Mary — and separating fact from community gossip."
+      },
+      "ta": {
+        "name": "நகரப் புராணங்கள்",
+        "blurb": "வீடியோ வகை: Examining the origins of urban myths — Slender Man, Bloody Mary — and separating fact from community gossip."
+      },
+      "ml": {
+        "name": "നഗര ഇതിഹാസങ്ങൾ",
+        "blurb": "വീഡിയോ തരം: Examining the origins of urban myths — Slender Man, Bloody Mary — and separating fact from community gossip."
+      }
+    },
+    "49": {
+      "en": {
+        "name": "Past Life Memories",
+        "blurb": "Children who recall detailed past lives — scientific studies, unexplained knowledge, and eerie accuracy."
+      },
+      "bn": {
+        "name": "পূর্বজন্মের স্মৃতি",
+        "blurb": "ভিডিও টাইপ: Children who recall detailed past lives — scientific studies, unexplained knowledge, and eerie accuracy."
+      },
+      "hi": {
+        "name": "पिछले जन्म की यादें",
+        "blurb": "वीडियो प्रकार: Children who recall detailed past lives — scientific studies, unexplained knowledge, and eerie accuracy."
+      },
+      "ur": {
+        "name": "پچھلی زندگی کی یادیں",
+        "blurb": "ویڈیو کی قسم: Children who recall detailed past lives — scientific studies, unexplained knowledge, and eerie accuracy."
+      },
+      "ta": {
+        "name": "முன்ஜன்ம நினைவுகள்",
+        "blurb": "வீடியோ வகை: Children who recall detailed past lives — scientific studies, unexplained knowledge, and eerie accuracy."
+      },
+      "ml": {
+        "name": "മുൻജന്മ സ്മരണകൾ",
+        "blurb": "വീഡിയോ തരം: Children who recall detailed past lives — scientific studies, unexplained knowledge, and eerie accuracy."
+      }
+    },
+    "50": {
+      "en": {
+        "name": "Mind Control Experiments",
+        "blurb": "The dark history of MK-Ultra, Project Monarch — government-funded mind-control attempts, and the ethical fallout."
+      },
+      "bn": {
+        "name": "মন নিয়ন্ত্রণ পরীক্ষা",
+        "blurb": "ভিডিও টাইপ: The dark history of MK-Ultra, Project Monarch — government-funded mind-control attempts, and the ethical fallout."
+      },
+      "hi": {
+        "name": "मन नियंत्रण प्रयोग",
+        "blurb": "वीडियो प्रकार: The dark history of MK-Ultra, Project Monarch — government-funded mind-control attempts, and the ethical fallout."
+      },
+      "ur": {
+        "name": "ذہن کنٹرول تجربات",
+        "blurb": "ویڈیو کی قسم: The dark history of MK-Ultra, Project Monarch — government-funded mind-control attempts, and the ethical fallout."
+      },
+      "ta": {
+        "name": "மனக் கட்டுப்பாட்டு சோதனைகள்",
+        "blurb": "வீடியோ வகை: The dark history of MK-Ultra, Project Monarch — government-funded mind-control attempts, and the ethical fallout."
+      },
+      "ml": {
+        "name": "മനസ് നിയന്ത്രണ പരീക്ഷണങ്ങൾ",
+        "blurb": "വീഡിയോ തരം: The dark history of MK-Ultra, Project Monarch — government-funded mind-control attempts, and the ethical fallout."
+      }
+    },
+    "51": {
+      "en": {
+        "name": "Psychological Disorders",
+        "blurb": "Real patient stories — schizophrenia, bipolar disorder, OCD — narrated with empathy and clinical accuracy."
+      },
+      "bn": {
+        "name": "মানসিক ব্যাধি",
+        "blurb": "ভিডিও টাইপ: Real patient stories — schizophrenia, bipolar disorder, OCD — narrated with empathy and clinical accuracy."
+      },
+      "hi": {
+        "name": "मनोवैज्ञानिक विकार",
+        "blurb": "वीडियो प्रकार: Real patient stories — schizophrenia, bipolar disorder, OCD — narrated with empathy and clinical accuracy."
+      },
+      "ur": {
+        "name": "نفسیاتی عوارض",
+        "blurb": "ویڈیو کی قسم: Real patient stories — schizophrenia, bipolar disorder, OCD — narrated with empathy and clinical accuracy."
+      },
+      "ta": {
+        "name": "உளவியல் கோளாறுகள்",
+        "blurb": "வீடியோ வகை: Real patient stories — schizophrenia, bipolar disorder, OCD — narrated with empathy and clinical accuracy."
+      },
+      "ml": {
+        "name": "മാനസിക വൈകല്യങ്ങൾ",
+        "blurb": "വീഡിയോ തരം: Real patient stories — schizophrenia, bipolar disorder, OCD — narrated with empathy and clinical accuracy."
+      }
+    },
+    "52": {
+      "en": {
+        "name": "Conquering Phobias",
+        "blurb": "How people overcame extreme fears — heights, spiders, public speaking — through therapy, exposure, and determination."
+      },
+      "bn": {
+        "name": "ফোবিয়া জয়",
+        "blurb": "ভিডিও টাইপ: How people overcame extreme fears — heights, spiders, public speaking — through therapy, exposure, and determination."
+      },
+      "hi": {
+        "name": "फोबिया पर विजय",
+        "blurb": "वीडियो प्रकार: How people overcame extreme fears — heights, spiders, public speaking — through therapy, exposure, and determination."
+      },
+      "ur": {
+        "name": "خوف پر قابو",
+        "blurb": "ویڈیو کی قسم: How people overcame extreme fears — heights, spiders, public speaking — through therapy, exposure, and determination."
+      },
+      "ta": {
+        "name": "பயம் வெல்லல்",
+        "blurb": "வீடியோ வகை: How people overcame extreme fears — heights, spiders, public speaking — through therapy, exposure, and determination."
+      },
+      "ml": {
+        "name": "ഭയങ്ങളെ കീഴടക്കൽ",
+        "blurb": "വീഡിയോ തരം: How people overcame extreme fears — heights, spiders, public speaking — through therapy, exposure, and determination."
+      }
+    },
+    "53": {
+      "en": {
+        "name": "Epic Love Stories",
+        "blurb": "True-life romances like Antony & Cleopatra, or modern couples who crossed war zones — with all the passion and tragedy."
+      },
+      "bn": {
+        "name": "মহাকাব্যিক প্রেমকাহিনি",
+        "blurb": "ভিডিও টাইপ: True-life romances like Antony & Cleopatra, or modern couples who crossed war zones — with all the passion and tragedy."
+      },
+      "hi": {
+        "name": "महाप्रेम कहानियाँ",
+        "blurb": "वीडियो प्रकार: True-life romances like Antony & Cleopatra, or modern couples who crossed war zones — with all the passion and tragedy."
+      },
+      "ur": {
+        "name": "عظیم عشقی کہانیاں",
+        "blurb": "ویڈیو کی قسم: True-life romances like Antony & Cleopatra, or modern couples who crossed war zones — with all the passion and tragedy."
+      },
+      "ta": {
+        "name": "காவிய காதல் கதைகள்",
+        "blurb": "வீடியோ வகை: True-life romances like Antony & Cleopatra, or modern couples who crossed war zones — with all the passion and tragedy."
+      },
+      "ml": {
+        "name": "മഹത്തായ പ്രണയകഥകൾ",
+        "blurb": "വീഡിയോ തരം: True-life romances like Antony & Cleopatra, or modern couples who crossed war zones — with all the passion and tragedy."
+      }
+    },
+    "54": {
+      "en": {
+        "name": "Toxic Relationships",
+        "blurb": "Psycho-educational narratives about emotional abuse, gaslighting, narcissism — and how victims broke free."
+      },
+      "bn": {
+        "name": "বিষাক্ত সম্পর্ক",
+        "blurb": "ভিডিও টাইপ: Psycho-educational narratives about emotional abuse, gaslighting, narcissism — and how victims broke free."
+      },
+      "hi": {
+        "name": "विषैले रिश्ते",
+        "blurb": "वीडियो प्रकार: Psycho-educational narratives about emotional abuse, gaslighting, narcissism — and how victims broke free."
+      },
+      "ur": {
+        "name": "زہریلے تعلقات",
+        "blurb": "ویڈیو کی قسم: Psycho-educational narratives about emotional abuse, gaslighting, narcissism — and how victims broke free."
+      },
+      "ta": {
+        "name": "நச்சு உறவுகள்",
+        "blurb": "வீடியோ வகை: Psycho-educational narratives about emotional abuse, gaslighting, narcissism — and how victims broke free."
+      },
+      "ml": {
+        "name": "വിഷബന്ധങ്ങൾ",
+        "blurb": "വീഡിയോ തരം: Psycho-educational narratives about emotional abuse, gaslighting, narcissism — and how victims broke free."
+      }
+    },
+    "55": {
+      "en": {
+        "name": "Sibling Rivalries",
+        "blurb": "Famous brother-sister conflicts — in royal families, business empires, or sports — where jealousy ended in lifelong feuds."
+      },
+      "bn": {
+        "name": "ভাই-বোনের প্রতিদ্বন্দ্বিতা",
+        "blurb": "ভিডিও টাইপ: Famous brother-sister conflicts — in royal families, business empires, or sports — where jealousy ended in lifelong feuds."
+      },
+      "hi": {
+        "name": "भाई-बहन की होड़",
+        "blurb": "वीडियो प्रकार: Famous brother-sister conflicts — in royal families, business empires, or sports — where jealousy ended in lifelong feuds."
+      },
+      "ur": {
+        "name": "بھائی بہن کی رقابت",
+        "blurb": "ویڈیو کی قسم: Famous brother-sister conflicts — in royal families, business empires, or sports — where jealousy ended in lifelong feuds."
+      },
+      "ta": {
+        "name": "சகோதர போட்டிகள்",
+        "blurb": "வீடியோ வகை: Famous brother-sister conflicts — in royal families, business empires, or sports — where jealousy ended in lifelong feuds."
+      },
+      "ml": {
+        "name": "സഹോദര മത്സരങ്ങൾ",
+        "blurb": "വീഡിയോ തരം: Famous brother-sister conflicts — in royal families, business empires, or sports — where jealousy ended in lifelong feuds."
+      }
+    },
+    "56": {
+      "en": {
+        "name": "Parental Sacrifice",
+        "blurb": "Heartwarming stories of parents who gave up everything — health, wealth, dreams — for their children's future."
+      },
+      "bn": {
+        "name": "পিতামাতার ত্যাগ",
+        "blurb": "ভিডিও টাইপ: Heartwarming stories of parents who gave up everything — health, wealth, dreams — for their children's future."
+      },
+      "hi": {
+        "name": "माता-पिता का बलिदान",
+        "blurb": "वीडियो प्रकार: Heartwarming stories of parents who gave up everything — health, wealth, dreams — for their children's future."
+      },
+      "ur": {
+        "name": "والدین کی قربانی",
+        "blurb": "ویڈیو کی قسم: Heartwarming stories of parents who gave up everything — health, wealth, dreams — for their children's future."
+      },
+      "ta": {
+        "name": "பெற்றோர் தியாகம்",
+        "blurb": "வீடியோ வகை: Heartwarming stories of parents who gave up everything — health, wealth, dreams — for their children's future."
+      },
+      "ml": {
+        "name": "മാതാപിതാക്കളുടെ ത്യാഗം",
+        "blurb": "വീഡിയോ തരം: Heartwarming stories of parents who gave up everything — health, wealth, dreams — for their children's future."
+      }
+    },
+    "57": {
+      "en": {
+        "name": "Child Prodigies",
+        "blurb": "Young geniuses in music, math, or chess — their meteoric rise, pressure, and what became of them later."
+      },
+      "bn": {
+        "name": "শিশু প্রতিভা",
+        "blurb": "ভিডিও টাইপ: Young geniuses in music, math, or chess — their meteoric rise, pressure, and what became of them later."
+      },
+      "hi": {
+        "name": "बाल प्रतिभाएँ",
+        "blurb": "वीडियो प्रकार: Young geniuses in music, math, or chess — their meteoric rise, pressure, and what became of them later."
+      },
+      "ur": {
+        "name": "بچہ عبقری",
+        "blurb": "ویڈیو کی قسم: Young geniuses in music, math, or chess — their meteoric rise, pressure, and what became of them later."
+      },
+      "ta": {
+        "name": "குழந்தை மேதைகள்",
+        "blurb": "வீடியோ வகை: Young geniuses in music, math, or chess — their meteoric rise, pressure, and what became of them later."
+      },
+      "ml": {
+        "name": "ശിശു പ്രതിഭകൾ",
+        "blurb": "വീഡിയോ തരം: Young geniuses in music, math, or chess — their meteoric rise, pressure, and what became of them later."
+      }
+    },
+    "58": {
+      "en": {
+        "name": "Late Bloomers",
+        "blurb": "People who achieved fame or success after age 50 — proving it's never too late to start over."
+      },
+      "bn": {
+        "name": "দেরিতে ফুটে ওঠা প্রতিভা",
+        "blurb": "ভিডিও টাইপ: People who achieved fame or success after age 50 — proving it's never too late to start over."
+      },
+      "hi": {
+        "name": "देर से चमकने वाले",
+        "blurb": "वीडियो प्रकार: People who achieved fame or success after age 50 — proving it's never too late to start over."
+      },
+      "ur": {
+        "name": "دیر سے ابھرنے والے",
+        "blurb": "ویڈیو کی قسم: People who achieved fame or success after age 50 — proving it's never too late to start over."
+      },
+      "ta": {
+        "name": "தாமதமாக மலர்ந்தோர்",
+        "blurb": "வீடியோ வகை: People who achieved fame or success after age 50 — proving it's never too late to start over."
+      },
+      "ml": {
+        "name": "വൈകി പൂത്തുലച്ചവർ",
+        "blurb": "വീഡിയോ തരം: People who achieved fame or success after age 50 — proving it's never too late to start over."
+      }
+    },
+    "59": {
+      "en": {
+        "name": "Midlife Transformations",
+        "blurb": "Stories of men and women who quit corporate jobs, moved to new countries, or started radically different lives in their 40s."
+      },
+      "bn": {
+        "name": "মধ্যবয়সের রূপান্তর",
+        "blurb": "ভিডিও টাইপ: Stories of men and women who quit corporate jobs, moved to new countries, or started radically different lives in their 40s."
+      },
+      "hi": {
+        "name": "मध्य जीवन परिवर्तन",
+        "blurb": "वीडियो प्रकार: Stories of men and women who quit corporate jobs, moved to new countries, or started radically different lives in their 40s."
+      },
+      "ur": {
+        "name": "درمیانی عمر کی تبدیلیاں",
+        "blurb": "ویڈیو کی قسم: Stories of men and women who quit corporate jobs, moved to new countries, or started radically different lives in their 40s."
+      },
+      "ta": {
+        "name": "நடுவயது மாற்றங்கள்",
+        "blurb": "வீடியோ வகை: Stories of men and women who quit corporate jobs, moved to new countries, or started radically different lives in their 40s."
+      },
+      "ml": {
+        "name": "മധ്യവയസ്സ് പരിവർത്തനങ്ങൾ",
+        "blurb": "വീഡിയോ തരം: Stories of men and women who quit corporate jobs, moved to new countries, or started radically different lives in their 40s."
+      }
+    },
+    "60": {
+      "en": {
+        "name": "The Power of Kindness",
+        "blurb": "Small, random acts of kindness that snowballed into global movements — restoring faith in humanity."
+      },
+      "bn": {
+        "name": "দয়ার শক্তি",
+        "blurb": "ভিডিও টাইপ: Small, random acts of kindness that snowballed into global movements — restoring faith in humanity."
+      },
+      "hi": {
+        "name": "दया की शक्ति",
+        "blurb": "वीडियो प्रकार: Small, random acts of kindness that snowballed into global movements — restoring faith in humanity."
+      },
+      "ur": {
+        "name": "مہربانی کی طاقت",
+        "blurb": "ویڈیو کی قسم: Small, random acts of kindness that snowballed into global movements — restoring faith in humanity."
+      },
+      "ta": {
+        "name": "கருணையின் சக்தி",
+        "blurb": "வீடியோ வகை: Small, random acts of kindness that snowballed into global movements — restoring faith in humanity."
+      },
+      "ml": {
+        "name": "ദയയുടെ ശക്തി",
+        "blurb": "വീഡിയോ തരം: Small, random acts of kindness that snowballed into global movements — restoring faith in humanity."
+      }
+    },
+    "61": {
+      "en": {
+        "name": "Wanderlust Journals",
+        "blurb": "A traveler's diary — visiting remote villages, bustling metros, and ancient temples — with cultural immersion and personal reflections."
+      },
+      "bn": {
+        "name": "ভ্রমণপিপাসার জার্নাল",
+        "blurb": "ভিডিও টাইপ: A traveler's diary — visiting remote villages, bustling metros, and ancient temples — with cultural immersion and personal reflections."
+      },
+      "hi": {
+        "name": "यात्रा-लालसा डायरी",
+        "blurb": "वीडियो प्रकार: A traveler's diary — visiting remote villages, bustling metros, and ancient temples — with cultural immersion and personal reflections."
+      },
+      "ur": {
+        "name": "سفر کی خواہش کی ڈائری",
+        "blurb": "ویڈیو کی قسم: A traveler's diary — visiting remote villages, bustling metros, and ancient temples — with cultural immersion and personal reflections."
+      },
+      "ta": {
+        "name": "பயண ஆர்வ நாட்குறிப்பு",
+        "blurb": "வீடியோ வகை: A traveler's diary — visiting remote villages, bustling metros, and ancient temples — with cultural immersion and personal reflections."
+      },
+      "ml": {
+        "name": "യാത്രാമോഹ ജേണലുകൾ",
+        "blurb": "വീഡിയോ തരം: A traveler's diary — visiting remote villages, bustling metros, and ancient temples — with cultural immersion and personal reflections."
+      }
+    },
+    "62": {
+      "en": {
+        "name": "Nomadic Tribes",
+        "blurb": "The Mongols, Bedouins, Samburu — their traditions, survival skills, and how modernization threatens their way of life."
+      },
+      "bn": {
+        "name": "যাযাবর উপজাতি",
+        "blurb": "ভিডিও টাইপ: The Mongols, Bedouins, Samburu — their traditions, survival skills, and how modernization threatens their way of life."
+      },
+      "hi": {
+        "name": "खानाबदोश जनजातियाँ",
+        "blurb": "वीडियो प्रकार: The Mongols, Bedouins, Samburu — their traditions, survival skills, and how modernization threatens their way of life."
+      },
+      "ur": {
+        "name": "خانہ بدوش قبائل",
+        "blurb": "ویڈیو کی قسم: The Mongols, Bedouins, Samburu — their traditions, survival skills, and how modernization threatens their way of life."
+      },
+      "ta": {
+        "name": "நாடோடி பழங்குடிகள்",
+        "blurb": "வீடியோ வகை: The Mongols, Bedouins, Samburu — their traditions, survival skills, and how modernization threatens their way of life."
+      },
+      "ml": {
+        "name": "നാടോടി ഗോത്രങ്ങൾ",
+        "blurb": "വീഡിയോ തരം: The Mongols, Bedouins, Samburu — their traditions, survival skills, and how modernization threatens their way of life."
+      }
+    },
+    "63": {
+      "en": {
+        "name": "Island Civilizations",
+        "blurb": "Isolated island communities — Easter Island, Pitcairn — their unique languages, customs, and environmental challenges."
+      },
+      "bn": {
+        "name": "দ্বীপ সভ্যতা",
+        "blurb": "ভিডিও টাইপ: Isolated island communities — Easter Island, Pitcairn — their unique languages, customs, and environmental challenges."
+      },
+      "hi": {
+        "name": "द्वीप सभ्यताएँ",
+        "blurb": "वीडियो प्रकार: Isolated island communities — Easter Island, Pitcairn — their unique languages, customs, and environmental challenges."
+      },
+      "ur": {
+        "name": "جزیرے کی تہذیبیں",
+        "blurb": "ویڈیو کی قسم: Isolated island communities — Easter Island, Pitcairn — their unique languages, customs, and environmental challenges."
+      },
+      "ta": {
+        "name": "தீவு நாகரிகங்கள்",
+        "blurb": "வீடியோ வகை: Isolated island communities — Easter Island, Pitcairn — their unique languages, customs, and environmental challenges."
+      },
+      "ml": {
+        "name": "ദ്വീപ് നാഗരികതകൾ",
+        "blurb": "വീഡിയോ തരം: Isolated island communities — Easter Island, Pitcairn — their unique languages, customs, and environmental challenges."
+      }
+    },
+    "64": {
+      "en": {
+        "name": "Sunken Cities",
+        "blurb": "Lost underwater worlds — Dwarka, Port Royal — how they sank and what archaeologists have recovered."
+      },
+      "bn": {
+        "name": "ডুবে যাওয়া শহর",
+        "blurb": "ভিডিও টাইপ: Lost underwater worlds — Dwarka, Port Royal — how they sank and what archaeologists have recovered."
+      },
+      "hi": {
+        "name": "डूबे हुए शहर",
+        "blurb": "वीडियो प्रकार: Lost underwater worlds — Dwarka, Port Royal — how they sank and what archaeologists have recovered."
+      },
+      "ur": {
+        "name": "ڈوبے ہوئے شہر",
+        "blurb": "ویڈیو کی قسم: Lost underwater worlds — Dwarka, Port Royal — how they sank and what archaeologists have recovered."
+      },
+      "ta": {
+        "name": "மூழ்கிய நகரங்கள்",
+        "blurb": "வீடியோ வகை: Lost underwater worlds — Dwarka, Port Royal — how they sank and what archaeologists have recovered."
+      },
+      "ml": {
+        "name": "മുങ്ങിയ നഗരങ്ങൾ",
+        "blurb": "വീഡിയോ തരം: Lost underwater worlds — Dwarka, Port Royal — how they sank and what archaeologists have recovered."
+      }
+    },
+    "65": {
+      "en": {
+        "name": "Desert Survival",
+        "blurb": "Travelers lost in Sahara, Gobi, or Arabian deserts — their dehydration battles, mirages, and miraculous rescues."
+      },
+      "bn": {
+        "name": "মরুভূমিতে বেঁচে থাকা",
+        "blurb": "ভিডিও টাইপ: Travelers lost in Sahara, Gobi, or Arabian deserts — their dehydration battles, mirages, and miraculous rescues."
+      },
+      "hi": {
+        "name": "रेगिस्तान में जीवित रहना",
+        "blurb": "वीडियो प्रकार: Travelers lost in Sahara, Gobi, or Arabian deserts — their dehydration battles, mirages, and miraculous rescues."
+      },
+      "ur": {
+        "name": "صحرا میں بقا",
+        "blurb": "ویڈیو کی قسم: Travelers lost in Sahara, Gobi, or Arabian deserts — their dehydration battles, mirages, and miraculous rescues."
+      },
+      "ta": {
+        "name": "பாலைவன உயிர்வாழ்வு",
+        "blurb": "வீடியோ வகை: Travelers lost in Sahara, Gobi, or Arabian deserts — their dehydration battles, mirages, and miraculous rescues."
+      },
+      "ml": {
+        "name": "മരുഭൂമി അതിജീവനം",
+        "blurb": "വീഡിയോ തരം: Travelers lost in Sahara, Gobi, or Arabian deserts — their dehydration battles, mirages, and miraculous rescues."
+      }
+    },
+    "66": {
+      "en": {
+        "name": "Arctic & Antarctic Expeditions",
+        "blurb": "Polar exploration disasters — Shackleton, Scott — and the sheer mental toughness required to survive extreme cold."
+      },
+      "bn": {
+        "name": "আর্কটিক ও অ্যান্টার্কটিক অভিযান",
+        "blurb": "ভিডিও টাইপ: Polar exploration disasters — Shackleton, Scott — and the sheer mental toughness required to survive extreme cold."
+      },
+      "hi": {
+        "name": "आर्कटिक और अंटार्कटिक अभियान",
+        "blurb": "वीडियो प्रकार: Polar exploration disasters — Shackleton, Scott — and the sheer mental toughness required to survive extreme cold."
+      },
+      "ur": {
+        "name": "آرکٹک و انٹارکٹک مہمات",
+        "blurb": "ویڈیو کی قسم: Polar exploration disasters — Shackleton, Scott — and the sheer mental toughness required to survive extreme cold."
+      },
+      "ta": {
+        "name": "ஆர்க்டிக் & அண்டார்டிக் பயணங்கள்",
+        "blurb": "வீடியோ வகை: Polar exploration disasters — Shackleton, Scott — and the sheer mental toughness required to survive extreme cold."
+      },
+      "ml": {
+        "name": "ആർട്ടിക് & അന്റാർട്ടിക് പര്യവേഷണങ്ങൾ",
+        "blurb": "വീഡിയോ തരം: Polar exploration disasters — Shackleton, Scott — and the sheer mental toughness required to survive extreme cold."
+      }
+    },
+    "67": {
+      "en": {
+        "name": "Mountaineering Tragedies",
+        "blurb": "Everest, K2 climbing accidents — human error, weather, and rescue helicopters — with commentary from sherpas."
+      },
+      "bn": {
+        "name": "পর্বতারোহণের ট্র্যাজেডি",
+        "blurb": "ভিডিও টাইপ: Everest, K2 climbing accidents — human error, weather, and rescue helicopters — with commentary from sherpas."
+      },
+      "hi": {
+        "name": "पर्वतारोहण त्रासदियाँ",
+        "blurb": "वीडियो प्रकार: Everest, K2 climbing accidents — human error, weather, and rescue helicopters — with commentary from sherpas."
+      },
+      "ur": {
+        "name": "پہاڑ چڑھائی المیے",
+        "blurb": "ویڈیو کی قسم: Everest, K2 climbing accidents — human error, weather, and rescue helicopters — with commentary from sherpas."
+      },
+      "ta": {
+        "name": "மலையேற்ற சோகங்கள்",
+        "blurb": "வீடியோ வகை: Everest, K2 climbing accidents — human error, weather, and rescue helicopters — with commentary from sherpas."
+      },
+      "ml": {
+        "name": "പർവതാരോഹണ ദുരന്തങ്ങൾ",
+        "blurb": "വീഡിയോ തരം: Everest, K2 climbing accidents — human error, weather, and rescue helicopters — with commentary from sherpas."
+      }
+    },
+    "68": {
+      "en": {
+        "name": "Wild Animal Encounters",
+        "blurb": "True stories of shark, bear, lion, or crocodile attacks — and the survival tactics that saved lives."
+      },
+      "bn": {
+        "name": "বন্য প্রাণীর মুখোমুখি",
+        "blurb": "ভিডিও টাইপ: True stories of shark, bear, lion, or crocodile attacks — and the survival tactics that saved lives."
+      },
+      "hi": {
+        "name": "जंगली जानवरों से मुठभेड़",
+        "blurb": "वीडियो प्रकार: True stories of shark, bear, lion, or crocodile attacks — and the survival tactics that saved lives."
+      },
+      "ur": {
+        "name": "جنگلی جانوروں سے ملاقات",
+        "blurb": "ویڈیو کی قسم: True stories of shark, bear, lion, or crocodile attacks — and the survival tactics that saved lives."
+      },
+      "ta": {
+        "name": "காட்டு விலங்கு சந்திப்புகள்",
+        "blurb": "வீடியோ வகை: True stories of shark, bear, lion, or crocodile attacks — and the survival tactics that saved lives."
+      },
+      "ml": {
+        "name": "കാട്ടുമൃഗ കണ്ടുമുട്ടലുകൾ",
+        "blurb": "വീഡിയോ തരം: True stories of shark, bear, lion, or crocodile attacks — and the survival tactics that saved lives."
+      }
+    },
+    "69": {
+      "en": {
+        "name": "Unlikely Animal Friendships",
+        "blurb": "Heartwarming bonds between species — a cat and dolphin, a dog and elephant — proven by videos and behavioral studies."
+      },
+      "bn": {
+        "name": "অভাবনীয় প্রাণী বন্ধুত্ব",
+        "blurb": "ভিডিও টাইপ: Heartwarming bonds between species — a cat and dolphin, a dog and elephant — proven by videos and behavioral studies."
+      },
+      "hi": {
+        "name": "अनहोखी जानवर मित्रताएँ",
+        "blurb": "वीडियो प्रकार: Heartwarming bonds between species — a cat and dolphin, a dog and elephant — proven by videos and behavioral studies."
+      },
+      "ur": {
+        "name": "غیر متوقع جانور دوستی",
+        "blurb": "ویڈیو کی قسم: Heartwarming bonds between species — a cat and dolphin, a dog and elephant — proven by videos and behavioral studies."
+      },
+      "ta": {
+        "name": "எதிர்பாராத விலங்கு நட்புகள்",
+        "blurb": "வீடியோ வகை: Heartwarming bonds between species — a cat and dolphin, a dog and elephant — proven by videos and behavioral studies."
+      },
+      "ml": {
+        "name": "അപ്രതീക്ഷിത മൃഗ സൗഹൃദങ്ങൾ",
+        "blurb": "വീഡിയോ തരം: Heartwarming bonds between species — a cat and dolphin, a dog and elephant — proven by videos and behavioral studies."
+      }
+    },
+    "70": {
+      "en": {
+        "name": "Animal Intelligence",
+        "blurb": "Dolphins using tools, crows solving puzzles, octopuses escaping tanks — celebrating non-human genius."
+      },
+      "bn": {
+        "name": "প্রাণীর বুদ্ধিমত্তা",
+        "blurb": "ভিডিও টাইপ: Dolphins using tools, crows solving puzzles, octopuses escaping tanks — celebrating non-human genius."
+      },
+      "hi": {
+        "name": "पशु बुद्धिमत्ता",
+        "blurb": "वीडियो प्रकार: Dolphins using tools, crows solving puzzles, octopuses escaping tanks — celebrating non-human genius."
+      },
+      "ur": {
+        "name": "جانوروں کی ذہانت",
+        "blurb": "ویڈیو کی قسم: Dolphins using tools, crows solving puzzles, octopuses escaping tanks — celebrating non-human genius."
+      },
+      "ta": {
+        "name": "விலங்கு நுண்ணறிவு",
+        "blurb": "வீடியோ வகை: Dolphins using tools, crows solving puzzles, octopuses escaping tanks — celebrating non-human genius."
+      },
+      "ml": {
+        "name": "മൃഗ ബുദ്ധി",
+        "blurb": "വീഡിയോ തരം: Dolphins using tools, crows solving puzzles, octopuses escaping tanks — celebrating non-human genius."
+      }
+    },
+    "71": {
+      "en": {
+        "name": "Climate Refugees",
+        "blurb": "Communities forced to abandon homes due to rising sea levels, drought, or wildfire — their struggle and resilience."
+      },
+      "bn": {
+        "name": "জলবায়ু শরণার্থী",
+        "blurb": "ভিডিও টাইপ: Communities forced to abandon homes due to rising sea levels, drought, or wildfire — their struggle and resilience."
+      },
+      "hi": {
+        "name": "जलवायु शरणार्थी",
+        "blurb": "वीडियो प्रकार: Communities forced to abandon homes due to rising sea levels, drought, or wildfire — their struggle and resilience."
+      },
+      "ur": {
+        "name": "موسمیاتی مہاجرین",
+        "blurb": "ویڈیو کی قسم: Communities forced to abandon homes due to rising sea levels, drought, or wildfire — their struggle and resilience."
+      },
+      "ta": {
+        "name": "காலநிலை அகதிகள்",
+        "blurb": "வீடியோ வகை: Communities forced to abandon homes due to rising sea levels, drought, or wildfire — their struggle and resilience."
+      },
+      "ml": {
+        "name": "കാലാവസ്ഥാ അഭയാർത്ഥികൾ",
+        "blurb": "വീഡിയോ തരം: Communities forced to abandon homes due to rising sea levels, drought, or wildfire — their struggle and resilience."
+      }
+    },
+    "72": {
+      "en": {
+        "name": "Grassroot Environmentalism",
+        "blurb": "Ordinary people who started tree-planting, river-cleaning, or solar-energy campaigns that became global movements."
+      },
+      "bn": {
+        "name": "তৃণমূল পরিবেশবাদ",
+        "blurb": "ভিডিও টাইপ: Ordinary people who started tree-planting, river-cleaning, or solar-energy campaigns that became global movements."
+      },
+      "hi": {
+        "name": "जमीनी पर्यावरणवाद",
+        "blurb": "वीडियो प्रकार: Ordinary people who started tree-planting, river-cleaning, or solar-energy campaigns that became global movements."
+      },
+      "ur": {
+        "name": "زمینی سطح کا ماحولیات پسندی",
+        "blurb": "ویڈیو کی قسم: Ordinary people who started tree-planting, river-cleaning, or solar-energy campaigns that became global movements."
+      },
+      "ta": {
+        "name": "அடிமட்ட சுற்றுச்சூழலியல்",
+        "blurb": "வீடியோ வகை: Ordinary people who started tree-planting, river-cleaning, or solar-energy campaigns that became global movements."
+      },
+      "ml": {
+        "name": "തദ്ദേശ പരിസ്ഥിതി പ്രസ്ഥാനം",
+        "blurb": "വീഡിയോ തരം: Ordinary people who started tree-planting, river-cleaning, or solar-energy campaigns that became global movements."
+      }
+    },
+    "73": {
+      "en": {
+        "name": "City-to-Green Transitions",
+        "blurb": "How some cities (like Copenhagen or Singapore) switched to 100% renewable energy — the policies and public response."
+      },
+      "bn": {
+        "name": "শহর থেকে সবুজে রূপান্তর",
+        "blurb": "ভিডিও টাইপ: How some cities (like Copenhagen or Singapore) switched to 100% renewable energy — the policies and public response."
+      },
+      "hi": {
+        "name": "शहर से हरित संक्रमण",
+        "blurb": "वीडियो प्रकार: How some cities (like Copenhagen or Singapore) switched to 100% renewable energy — the policies and public response."
+      },
+      "ur": {
+        "name": "شہر سے سبز منتقلی",
+        "blurb": "ویڈیو کی قسم: How some cities (like Copenhagen or Singapore) switched to 100% renewable energy — the policies and public response."
+      },
+      "ta": {
+        "name": "நகரம்-பசுமை மாற்றங்கள்",
+        "blurb": "வீடியோ வகை: How some cities (like Copenhagen or Singapore) switched to 100% renewable energy — the policies and public response."
+      },
+      "ml": {
+        "name": "നഗരം-പച്ച പരിവർത്തനങ്ങൾ",
+        "blurb": "വീഡിയോ തരം: How some cities (like Copenhagen or Singapore) switched to 100% renewable energy — the policies and public response."
+      }
+    },
+    "74": {
+      "en": {
+        "name": "Food Origin Stories",
+        "blurb": "How chocolate, pizza, sushi, or ice cream were invented — often by accident or cultural blending."
+      },
+      "bn": {
+        "name": "খাবারের উৎস কাহিনি",
+        "blurb": "ভিডিও টাইপ: How chocolate, pizza, sushi, or ice cream were invented — often by accident or cultural blending."
+      },
+      "hi": {
+        "name": "खाद्य उत्पत्ति की कहानियाँ",
+        "blurb": "वीडियो प्रकार: How chocolate, pizza, sushi, or ice cream were invented — often by accident or cultural blending."
+      },
+      "ur": {
+        "name": "کھانے کی ابتدا کی کہانیاں",
+        "blurb": "ویڈیو کی قسم: How chocolate, pizza, sushi, or ice cream were invented — often by accident or cultural blending."
+      },
+      "ta": {
+        "name": "உணவு தோற்றக் கதைகள்",
+        "blurb": "வீடியோ வகை: How chocolate, pizza, sushi, or ice cream were invented — often by accident or cultural blending."
+      },
+      "ml": {
+        "name": "ഭക്ഷണ ഉത്ഭവ കഥകൾ",
+        "blurb": "വീഡിയോ തരം: How chocolate, pizza, sushi, or ice cream were invented — often by accident or cultural blending."
+      }
+    },
+    "75": {
+      "en": {
+        "name": "Tea & Coffee Lore",
+        "blurb": "The discovery and spread of tea and coffee — from ancient rituals to modern global addiction."
+      },
+      "bn": {
+        "name": "চা ও কফির লোর",
+        "blurb": "ভিডিও টাইপ: The discovery and spread of tea and coffee — from ancient rituals to modern global addiction."
+      },
+      "hi": {
+        "name": "चाय और कॉफी कथाएँ",
+        "blurb": "वीडियो प्रकार: The discovery and spread of tea and coffee — from ancient rituals to modern global addiction."
+      },
+      "ur": {
+        "name": "چائے اور کافی کی کہانیاں",
+        "blurb": "ویڈیو کی قسم: The discovery and spread of tea and coffee — from ancient rituals to modern global addiction."
+      },
+      "ta": {
+        "name": "தேநீர் & காபி கதைகள்",
+        "blurb": "வீடியோ வகை: The discovery and spread of tea and coffee — from ancient rituals to modern global addiction."
+      },
+      "ml": {
+        "name": "ചായയും കാപ്പിയും — ലോർ",
+        "blurb": "വീഡിയോ തരം: The discovery and spread of tea and coffee — from ancient rituals to modern global addiction."
+      }
+    },
+    "76": {
+      "en": {
+        "name": "Culinary Accidents",
+        "blurb": "Mistakes that became beloved foods — potato chips, fortune cookies, and sourdough — told in a light, humorous tone."
+      },
+      "bn": {
+        "name": "রান্নার দুর্ঘটনা",
+        "blurb": "ভিডিও টাইপ: Mistakes that became beloved foods — potato chips, fortune cookies, and sourdough — told in a light, humorous tone."
+      },
+      "hi": {
+        "name": "पाक दुर्घटनाएँ",
+        "blurb": "वीडियो प्रकार: Mistakes that became beloved foods — potato chips, fortune cookies, and sourdough — told in a light, humorous tone."
+      },
+      "ur": {
+        "name": "کھانا پکانے کے حادثات",
+        "blurb": "ویڈیو کی قسم: Mistakes that became beloved foods — potato chips, fortune cookies, and sourdough — told in a light, humorous tone."
+      },
+      "ta": {
+        "name": "சமையல் விபத்துகள்",
+        "blurb": "வீடியோ வகை: Mistakes that became beloved foods — potato chips, fortune cookies, and sourdough — told in a light, humorous tone."
+      },
+      "ml": {
+        "name": "പാചക അപകടങ്ങൾ",
+        "blurb": "വീഡിയോ തരം: Mistakes that became beloved foods — potato chips, fortune cookies, and sourdough — told in a light, humorous tone."
+      }
+    },
+    "77": {
+      "en": {
+        "name": "Global Village Stories",
+        "blurb": "A single village from a different country each episode — their customs, annual festivals, and daily routines."
+      },
+      "bn": {
+        "name": "বিশ্ব গ্রামের গল্প",
+        "blurb": "ভিডিও টাইপ: A single village from a different country each episode — their customs, annual festivals, and daily routines."
+      },
+      "hi": {
+        "name": "वैश्विक गाँव की कहानियाँ",
+        "blurb": "वीडियो प्रकार: A single village from a different country each episode — their customs, annual festivals, and daily routines."
+      },
+      "ur": {
+        "name": "عالمی گاؤں کی کہانیاں",
+        "blurb": "ویڈیو کی قسم: A single village from a different country each episode — their customs, annual festivals, and daily routines."
+      },
+      "ta": {
+        "name": "உலக கிராமக் கதைகள்",
+        "blurb": "வீடியோ வகை: A single village from a different country each episode — their customs, annual festivals, and daily routines."
+      },
+      "ml": {
+        "name": "ആഗോള ഗ്രാമ കഥകൾ",
+        "blurb": "വീഡിയോ തരം: A single village from a different country each episode — their customs, annual festivals, and daily routines."
+      }
+    },
+    "78": {
+      "en": {
+        "name": "Festival Origins",
+        "blurb": "The history of Halloween, Day of the Dead, Diwali, Chinese New Year — from pagan roots to modern celebrations."
+      },
+      "bn": {
+        "name": "উৎসবের উৎস",
+        "blurb": "ভিডিও টাইপ: The history of Halloween, Day of the Dead, Diwali, Chinese New Year — from pagan roots to modern celebrations."
+      },
+      "hi": {
+        "name": "त्योहारों की उत्पत्ति",
+        "blurb": "वीडियो प्रकार: The history of Halloween, Day of the Dead, Diwali, Chinese New Year — from pagan roots to modern celebrations."
+      },
+      "ur": {
+        "name": "تہواروں کی ابتدا",
+        "blurb": "ویڈیو کی قسم: The history of Halloween, Day of the Dead, Diwali, Chinese New Year — from pagan roots to modern celebrations."
+      },
+      "ta": {
+        "name": "திருவிழா தோற்றம்",
+        "blurb": "வீடியோ வகை: The history of Halloween, Day of the Dead, Diwali, Chinese New Year — from pagan roots to modern celebrations."
+      },
+      "ml": {
+        "name": "ഉത്സവ ഉത്ഭവം",
+        "blurb": "വീഡിയോ തരം: The history of Halloween, Day of the Dead, Diwali, Chinese New Year — from pagan roots to modern celebrations."
+      }
+    },
+    "79": {
+      "en": {
+        "name": "Unusual Wedding Rituals",
+        "blurb": "Bizarre marriage traditions — from jumping over brooms to finger-cutting ceremonies — and the meanings behind them."
+      },
+      "bn": {
+        "name": "অস্বাভাবিক বিবাহ রীতি",
+        "blurb": "ভিডিও টাইপ: Bizarre marriage traditions — from jumping over brooms to finger-cutting ceremonies — and the meanings behind them."
+      },
+      "hi": {
+        "name": "असामान्य विवाह रीतियाँ",
+        "blurb": "वीडियो प्रकार: Bizarre marriage traditions — from jumping over brooms to finger-cutting ceremonies — and the meanings behind them."
+      },
+      "ur": {
+        "name": "غیر معمولی شادی رسومات",
+        "blurb": "ویڈیو کی قسم: Bizarre marriage traditions — from jumping over brooms to finger-cutting ceremonies — and the meanings behind them."
+      },
+      "ta": {
+        "name": "விசித்திர திருமண சடங்குகள்",
+        "blurb": "வீடியோ வகை: Bizarre marriage traditions — from jumping over brooms to finger-cutting ceremonies — and the meanings behind them."
+      },
+      "ml": {
+        "name": "അസാധാരണ വിവാഹ ആചാരങ്ങൾ",
+        "blurb": "വീഡിയോ തരം: Bizarre marriage traditions — from jumping over brooms to finger-cutting ceremonies — and the meanings behind them."
+      }
+    },
+    "80": {
+      "en": {
+        "name": "Funeral Customs",
+        "blurb": "Death rituals across cultures — sky burials, jazz funerals, or boat burials — with respect and anthropological insight."
+      },
+      "bn": {
+        "name": "অন্ত্যেষ্টিক্রিয়ার রীতি",
+        "blurb": "ভিডিও টাইপ: Death rituals across cultures — sky burials, jazz funerals, or boat burials — with respect and anthropological insight."
+      },
+      "hi": {
+        "name": "अंतिम संस्कार रीतियाँ",
+        "blurb": "वीडियो प्रकार: Death rituals across cultures — sky burials, jazz funerals, or boat burials — with respect and anthropological insight."
+      },
+      "ur": {
+        "name": "جنازے کے رواج",
+        "blurb": "ویڈیو کی قسم: Death rituals across cultures — sky burials, jazz funerals, or boat burials — with respect and anthropological insight."
+      },
+      "ta": {
+        "name": "இறுதிச் சடங்குகள்",
+        "blurb": "வீடியோ வகை: Death rituals across cultures — sky burials, jazz funerals, or boat burials — with respect and anthropological insight."
+      },
+      "ml": {
+        "name": "ശവസംസ്കാര ആചാരങ്ങൾ",
+        "blurb": "വീഡിയോ തരം: Death rituals across cultures — sky burials, jazz funerals, or boat burials — with respect and anthropological insight."
+      }
+    },
+    "81": {
+      "en": {
+        "name": "Popular Superstitions",
+        "blurb": "Why black cats, broken mirrors, and Friday the 13th are feared — and their historical origins."
+      },
+      "bn": {
+        "name": "জনপ্রিয় কুসংস্কার",
+        "blurb": "ভিডিও টাইপ: Why black cats, broken mirrors, and Friday the 13th are feared — and their historical origins."
+      },
+      "hi": {
+        "name": "लोकप्रिय अंधविश्वास",
+        "blurb": "वीडियो प्रकार: Why black cats, broken mirrors, and Friday the 13th are feared — and their historical origins."
+      },
+      "ur": {
+        "name": "مقبول توہمات",
+        "blurb": "ویڈیو کی قسم: Why black cats, broken mirrors, and Friday the 13th are feared — and their historical origins."
+      },
+      "ta": {
+        "name": "பிரபல மூடநம்பிக்கைகள்",
+        "blurb": "வீடியோ வகை: Why black cats, broken mirrors, and Friday the 13th are feared — and their historical origins."
+      },
+      "ml": {
+        "name": "ജനപ്രിയ അന്ധവിശ്വാസങ്ങൾ",
+        "blurb": "വീഡിയോ തരം: Why black cats, broken mirrors, and Friday the 13th are feared — and their historical origins."
+      }
+    },
+    "82": {
+      "en": {
+        "name": "Occult Sciences",
+        "blurb": "Astrology, alchemy, herbal magic — how they were once mainstream sciences and why they faded or persisted."
+      },
+      "bn": {
+        "name": "গুপ্ত বিজ্ঞান",
+        "blurb": "ভিডিও টাইপ: Astrology, alchemy, herbal magic — how they were once mainstream sciences and why they faded or persisted."
+      },
+      "hi": {
+        "name": "गुप्त विज्ञान",
+        "blurb": "वीडियो प्रकार: Astrology, alchemy, herbal magic — how they were once mainstream sciences and why they faded or persisted."
+      },
+      "ur": {
+        "name": "غیب علوم",
+        "blurb": "ویڈیو کی قسم: Astrology, alchemy, herbal magic — how they were once mainstream sciences and why they faded or persisted."
+      },
+      "ta": {
+        "name": "மறை அறிவியல்",
+        "blurb": "வீடியோ வகை: Astrology, alchemy, herbal magic — how they were once mainstream sciences and why they faded or persisted."
+      },
+      "ml": {
+        "name": "ഗൂഢ ശാസ്ത്രങ്ങൾ",
+        "blurb": "വീഡിയോ തരം: Astrology, alchemy, herbal magic — how they were once mainstream sciences and why they faded or persisted."
+      }
+    },
+    "83": {
+      "en": {
+        "name": "Cursed Objects",
+        "blurb": "The Hope Diamond, Tutankhamun's tomb, the Dybbuk box — stories of misfortune attached to seemingly innocent items."
+      },
+      "bn": {
+        "name": "অভিশপ্ত বস্তু",
+        "blurb": "ভিডিও টাইপ: The Hope Diamond, Tutankhamun's tomb, the Dybbuk box — stories of misfortune attached to seemingly innocent items."
+      },
+      "hi": {
+        "name": "शापित वस्तुएँ",
+        "blurb": "वीडियो प्रकार: The Hope Diamond, Tutankhamun's tomb, the Dybbuk box — stories of misfortune attached to seemingly innocent items."
+      },
+      "ur": {
+        "name": "لعنتی اشیاء",
+        "blurb": "ویڈیو کی قسم: The Hope Diamond, Tutankhamun's tomb, the Dybbuk box — stories of misfortune attached to seemingly innocent items."
+      },
+      "ta": {
+        "name": "சாபமிட்ட பொருட்கள்",
+        "blurb": "வீடியோ வகை: The Hope Diamond, Tutankhamun's tomb, the Dybbuk box — stories of misfortune attached to seemingly innocent items."
+      },
+      "ml": {
+        "name": "ശപിക്കപ്പെട്ട വസ്തുക്കൾ",
+        "blurb": "വീഡിയോ തരം: The Hope Diamond, Tutankhamun's tomb, the Dybbuk box — stories of misfortune attached to seemingly innocent items."
+      }
+    },
+    "84": {
+      "en": {
+        "name": "Digital Ghosts",
+        "blurb": "What happens to our social media and AI avatars after death — can they live forever? Ethical questions included."
+      },
+      "bn": {
+        "name": "ডিজিটাল ভূত",
+        "blurb": "ভিডিও টাইপ: What happens to our social media and AI avatars after death — can they live forever? Ethical questions included."
+      },
+      "hi": {
+        "name": "डिजिटल भूत",
+        "blurb": "वीडियो प्रकार: What happens to our social media and AI avatars after death — can they live forever? Ethical questions included."
+      },
+      "ur": {
+        "name": "ڈیجیٹل بھوت",
+        "blurb": "ویڈیو کی قسم: What happens to our social media and AI avatars after death — can they live forever? Ethical questions included."
+      },
+      "ta": {
+        "name": "டிஜிட்டல் பேய்கள்",
+        "blurb": "வீடியோ வகை: What happens to our social media and AI avatars after death — can they live forever? Ethical questions included."
+      },
+      "ml": {
+        "name": "ഡിജിറ്റൽ ഭൂതങ്ങൾ",
+        "blurb": "വീഡിയോ തരം: What happens to our social media and AI avatars after death — can they live forever? Ethical questions included."
+      }
+    },
+    "85": {
+      "en": {
+        "name": "Deepfake Dilemmas",
+        "blurb": "How deepfakes are changing media, politics, and law — with real case studies of manipulated videos."
+      },
+      "bn": {
+        "name": "ডিপফেকের দ্বিধা",
+        "blurb": "ভিডিও টাইপ: How deepfakes are changing media, politics, and law — with real case studies of manipulated videos."
+      },
+      "hi": {
+        "name": "डीपफेक दुविधाएँ",
+        "blurb": "वीडियो प्रकार: How deepfakes are changing media, politics, and law — with real case studies of manipulated videos."
+      },
+      "ur": {
+        "name": "ڈیپ فیک معمے",
+        "blurb": "ویڈیو کی قسم: How deepfakes are changing media, politics, and law — with real case studies of manipulated videos."
+      },
+      "ta": {
+        "name": "டீப்ஃபேக் சிக்கல்கள்",
+        "blurb": "வீடியோ வகை: How deepfakes are changing media, politics, and law — with real case studies of manipulated videos."
+      },
+      "ml": {
+        "name": "ഡീപ്ഫേക്ക് ദുരന്തങ്ങൾ",
+        "blurb": "വീഡിയോ തരം: How deepfakes are changing media, politics, and law — with real case studies of manipulated videos."
+      }
+    },
+    "86": {
+      "en": {
+        "name": "Uncontacted Tribes",
+        "blurb": "Indigenous groups in the Amazon, Sentinel Islands — their fear of outsiders and why governments protect their isolation."
+      },
+      "bn": {
+        "name": "অসংস্পর্শিত উপজাতি",
+        "blurb": "ভিডিও টাইপ: Indigenous groups in the Amazon, Sentinel Islands — their fear of outsiders and why governments protect their isolation."
+      },
+      "hi": {
+        "name": "असंपर्कित जनजातियाँ",
+        "blurb": "वीडियो प्रकार: Indigenous groups in the Amazon, Sentinel Islands — their fear of outsiders and why governments protect their isolation."
+      },
+      "ur": {
+        "name": "غیر رابطہ شدہ قبائل",
+        "blurb": "ویڈیو کی قسم: Indigenous groups in the Amazon, Sentinel Islands — their fear of outsiders and why governments protect their isolation."
+      },
+      "ta": {
+        "name": "தொடர்பில்லாத பழங்குடிகள்",
+        "blurb": "வீடியோ வகை: Indigenous groups in the Amazon, Sentinel Islands — their fear of outsiders and why governments protect their isolation."
+      },
+      "ml": {
+        "name": "സമ്പർക്കമില്ലാത്ത ഗോത്രങ്ങൾ",
+        "blurb": "വീഡിയോ തരം: Indigenous groups in the Amazon, Sentinel Islands — their fear of outsiders and why governments protect their isolation."
+      }
+    },
+    "87": {
+      "en": {
+        "name": "Modern Slavery",
+        "blurb": "Reports on human trafficking, forced labor, and child exploitation — and the NGOs fighting to free victims."
+      },
+      "bn": {
+        "name": "আধুনিক দাসত্ব",
+        "blurb": "ভিডিও টাইপ: Reports on human trafficking, forced labor, and child exploitation — and the NGOs fighting to free victims."
+      },
+      "hi": {
+        "name": "आधुनिक गुलामी",
+        "blurb": "वीडियो प्रकार: Reports on human trafficking, forced labor, and child exploitation — and the NGOs fighting to free victims."
+      },
+      "ur": {
+        "name": "جدید غلامی",
+        "blurb": "ویڈیو کی قسم: Reports on human trafficking, forced labor, and child exploitation — and the NGOs fighting to free victims."
+      },
+      "ta": {
+        "name": "நவீன அடிமைத்தனம்",
+        "blurb": "வீடியோ வகை: Reports on human trafficking, forced labor, and child exploitation — and the NGOs fighting to free victims."
+      },
+      "ml": {
+        "name": "ആധുനിക അടിമത്തം",
+        "blurb": "വീഡിയോ തരം: Reports on human trafficking, forced labor, and child exploitation — and the NGOs fighting to free victims."
+      }
+    },
+    "88": {
+      "en": {
+        "name": "Refugee Chronicles",
+        "blurb": "First-person narratives of families fleeing war, famine, or persecution — their dangerous journeys and resettlement."
+      },
+      "bn": {
+        "name": "শরণার্থী ক্রনিকল",
+        "blurb": "ভিডিও টাইপ: First-person narratives of families fleeing war, famine, or persecution — their dangerous journeys and resettlement."
+      },
+      "hi": {
+        "name": "शरणार्थी वृत्तांत",
+        "blurb": "वीडियो प्रकार: First-person narratives of families fleeing war, famine, or persecution — their dangerous journeys and resettlement."
+      },
+      "ur": {
+        "name": "مہاجرین کی داستان",
+        "blurb": "ویڈیو کی قسم: First-person narratives of families fleeing war, famine, or persecution — their dangerous journeys and resettlement."
+      },
+      "ta": {
+        "name": "அகதி நாள்குறிப்பு",
+        "blurb": "வீடியோ வகை: First-person narratives of families fleeing war, famine, or persecution — their dangerous journeys and resettlement."
+      },
+      "ml": {
+        "name": "അഭയാർത്ഥി ക്രോണിക്കിൾസ്",
+        "blurb": "വീഡിയോ തരം: First-person narratives of families fleeing war, famine, or persecution — their dangerous journeys and resettlement."
+      }
+    },
+    "89": {
+      "en": {
+        "name": "Underground Cities",
+        "blurb": "Derinkuyu and other subterranean metropolises — how they were carved, used during wars, and rediscovered."
+      },
+      "bn": {
+        "name": "ভূগর্ভস্থ শহর",
+        "blurb": "ভিডিও টাইপ: Derinkuyu and other subterranean metropolises — how they were carved, used during wars, and rediscovered."
+      },
+      "hi": {
+        "name": "भूमिगत शहर",
+        "blurb": "वीडियो प्रकार: Derinkuyu and other subterranean metropolises — how they were carved, used during wars, and rediscovered."
+      },
+      "ur": {
+        "name": "زیر زمین شہر",
+        "blurb": "ویڈیو کی قسم: Derinkuyu and other subterranean metropolises — how they were carved, used during wars, and rediscovered."
+      },
+      "ta": {
+        "name": "நிலத்தடி நகரங்கள்",
+        "blurb": "வீடியோ வகை: Derinkuyu and other subterranean metropolises — how they were carved, used during wars, and rediscovered."
+      },
+      "ml": {
+        "name": "ഭൂഗർഭ നഗരങ്ങൾ",
+        "blurb": "വീഡിയോ തരം: Derinkuyu and other subterranean metropolises — how they were carved, used during wars, and rediscovered."
+      }
+    },
+    "90": {
+      "en": {
+        "name": "Timekeeping History",
+        "blurb": "Sundials, hourglasses, quartz, atomic clocks — the evolution of how we measure and experience time."
+      },
+      "bn": {
+        "name": "সময় গণনার ইতিহাস",
+        "blurb": "ভিডিও টাইপ: Sundials, hourglasses, quartz, atomic clocks — the evolution of how we measure and experience time."
+      },
+      "hi": {
+        "name": "समय मापन का इतिहास",
+        "blurb": "वीडियो प्रकार: Sundials, hourglasses, quartz, atomic clocks — the evolution of how we measure and experience time."
+      },
+      "ur": {
+        "name": "وقت رکھنے کی تاریخ",
+        "blurb": "ویڈیو کی قسم: Sundials, hourglasses, quartz, atomic clocks — the evolution of how we measure and experience time."
+      },
+      "ta": {
+        "name": "நேரக் கணிப்பு வரலாறு",
+        "blurb": "வீடியோ வகை: Sundials, hourglasses, quartz, atomic clocks — the evolution of how we measure and experience time."
+      },
+      "ml": {
+        "name": "സമയകണക്ക് ചരിത്രം",
+        "blurb": "വീഡിയോ തരം: Sundials, hourglasses, quartz, atomic clocks — the evolution of how we measure and experience time."
+      }
+    },
+    "91": {
+      "en": {
+        "name": "Deep Web Mysteries",
+        "blurb": "What lies on the dark web — not criminal glorification, but the technology, anonymity, and legitimate uses explained safely."
+      },
+      "bn": {
+        "name": "ডিপ ওয়েব রহস্য",
+        "blurb": "ভিডিও টাইপ: What lies on the dark web — not criminal glorification, but the technology, anonymity, and legitimate uses explained safely."
+      },
+      "hi": {
+        "name": "डीप वेब रहस्य",
+        "blurb": "वीडियो प्रकार: What lies on the dark web — not criminal glorification, but the technology, anonymity, and legitimate uses explained safely."
+      },
+      "ur": {
+        "name": "ڈیپ ویب اسرار",
+        "blurb": "ویڈیو کی قسم: What lies on the dark web — not criminal glorification, but the technology, anonymity, and legitimate uses explained safely."
+      },
+      "ta": {
+        "name": "டீப் வெப் மர்மங்கள்",
+        "blurb": "வீடியோ வகை: What lies on the dark web — not criminal glorification, but the technology, anonymity, and legitimate uses explained safely."
+      },
+      "ml": {
+        "name": "ഡീപ് വെബ് രഹസ്യങ്ങൾ",
+        "blurb": "വീഡിയോ തരം: What lies on the dark web — not criminal glorification, but the technology, anonymity, and legitimate uses explained safely."
+      }
+    },
+    "92": {
+      "en": {
+        "name": "Life-Saving Websites",
+        "blurb": "Platforms that prevent suicide, offer mental health first aid, or help during domestic abuse — with step-by-step usage guides."
+      },
+      "bn": {
+        "name": "জীবনরক্ষাকারী ওয়েবসাইট",
+        "blurb": "ভিডিও টাইপ: Platforms that prevent suicide, offer mental health first aid, or help during domestic abuse — with step-by-step usage guides."
+      },
+      "hi": {
+        "name": "जीवनरक्षक वेबसाइटें",
+        "blurb": "वीडियो प्रकार: Platforms that prevent suicide, offer mental health first aid, or help during domestic abuse — with step-by-step usage guides."
+      },
+      "ur": {
+        "name": "جان بچانے والی ویب سائٹس",
+        "blurb": "ویڈیو کی قسم: Platforms that prevent suicide, offer mental health first aid, or help during domestic abuse — with step-by-step usage guides."
+      },
+      "ta": {
+        "name": "உயிர்காக்கும் இணையதளங்கள்",
+        "blurb": "வீடியோ வகை: Platforms that prevent suicide, offer mental health first aid, or help during domestic abuse — with step-by-step usage guides."
+      },
+      "ml": {
+        "name": "ജീവൻ രക്ഷിക്കുന്ന വെബ്സൈറ്റുകൾ",
+        "blurb": "വീഡിയോ തരം: Platforms that prevent suicide, offer mental health first aid, or help during domestic abuse — with step-by-step usage guides."
+      }
+    },
+    "93": {
+      "en": {
+        "name": "Free Educational Goldmines",
+        "blurb": "OpenStax, MIT OpenCourseWare, Project Gutenberg — how anyone can get a world-class education for free."
+      },
+      "bn": {
+        "name": "বিনামূল্যে শিক্ষার খনি",
+        "blurb": "ভিডিও টাইপ: OpenStax, MIT OpenCourseWare, Project Gutenberg — how anyone can get a world-class education for free."
+      },
+      "hi": {
+        "name": "मुफ़्त शिक्षा के खज़ाने",
+        "blurb": "वीडियो प्रकार: OpenStax, MIT OpenCourseWare, Project Gutenberg — how anyone can get a world-class education for free."
+      },
+      "ur": {
+        "name": "مفت تعلیمی خزانے",
+        "blurb": "ویڈیو کی قسم: OpenStax, MIT OpenCourseWare, Project Gutenberg — how anyone can get a world-class education for free."
+      },
+      "ta": {
+        "name": "இலவச கல்வி பொக்கிஷங்கள்",
+        "blurb": "வீடியோ வகை: OpenStax, MIT OpenCourseWare, Project Gutenberg — how anyone can get a world-class education for free."
+      },
+      "ml": {
+        "name": "സൗജന്യ വിദ്യാഭ്യാസ നിധികൾ",
+        "blurb": "വീഡിയോ തരം: OpenStax, MIT OpenCourseWare, Project Gutenberg — how anyone can get a world-class education for free."
+      }
+    },
+    "94": {
+      "en": {
+        "name": "Archival Treasures",
+        "blurb": "Library of Congress, Europeana — exploring their digitized rare books, maps, and photographs with historical commentary."
+      },
+      "bn": {
+        "name": "আর্কাইভের ধন",
+        "blurb": "ভিডিও টাইপ: Library of Congress, Europeana — exploring their digitized rare books, maps, and photographs with historical commentary."
+      },
+      "hi": {
+        "name": "अभिलेखीय खज़ाने",
+        "blurb": "वीडियो प्रकार: Library of Congress, Europeana — exploring their digitized rare books, maps, and photographs with historical commentary."
+      },
+      "ur": {
+        "name": "آرکائیو خزانے",
+        "blurb": "ویڈیو کی قسم: Library of Congress, Europeana — exploring their digitized rare books, maps, and photographs with historical commentary."
+      },
+      "ta": {
+        "name": "காப்பகப் பொக்கிஷங்கள்",
+        "blurb": "வீடியோ வகை: Library of Congress, Europeana — exploring their digitized rare books, maps, and photographs with historical commentary."
+      },
+      "ml": {
+        "name": "ആർക്കൈവൽ നിധികൾ",
+        "blurb": "വീഡിയോ തരം: Library of Congress, Europeana — exploring their digitized rare books, maps, and photographs with historical commentary."
+      }
+    },
+    "95": {
+      "en": {
+        "name": "Privacy & Security Tools",
+        "blurb": "VPNs, encrypted email, Tor — how they work, who needs them, and simple setup tutorials."
+      },
+      "bn": {
+        "name": "গোপনীয়তা ও নিরাপত্তা টুল",
+        "blurb": "ভিডিও টাইপ: VPNs, encrypted email, Tor — how they work, who needs them, and simple setup tutorials."
+      },
+      "hi": {
+        "name": "गोपनीयता और सुरक्षा टूल",
+        "blurb": "वीडियो प्रकार: VPNs, encrypted email, Tor — how they work, who needs them, and simple setup tutorials."
+      },
+      "ur": {
+        "name": "پرائیویسی اور سیکیورٹی ٹولز",
+        "blurb": "ویڈیو کی قسم: VPNs, encrypted email, Tor — how they work, who needs them, and simple setup tutorials."
+      },
+      "ta": {
+        "name": "தனியுரிமை & பாதுகாப்பு கருவிகள்",
+        "blurb": "வீடியோ வகை: VPNs, encrypted email, Tor — how they work, who needs them, and simple setup tutorials."
+      },
+      "ml": {
+        "name": "സ്വകാര്യതയും സുരക്ഷാ ഉപകരണങ്ങളും",
+        "blurb": "വീഡിയോ തരം: VPNs, encrypted email, Tor — how they work, who needs them, and simple setup tutorials."
+      }
+    },
+    "96": {
+      "en": {
+        "name": "Open Source Alternatives",
+        "blurb": "Replacements for paid software — GIMP for Photoshop, LibreOffice for Microsoft — with feature comparisons."
+      },
+      "bn": {
+        "name": "ওপেন সোর্স বিকল্প",
+        "blurb": "ভিডিও টাইপ: Replacements for paid software — GIMP for Photoshop, LibreOffice for Microsoft — with feature comparisons."
+      },
+      "hi": {
+        "name": "ओपन सोर्स विकल्प",
+        "blurb": "वीडियो प्रकार: Replacements for paid software — GIMP for Photoshop, LibreOffice for Microsoft — with feature comparisons."
+      },
+      "ur": {
+        "name": "اوپن سورس متبادلات",
+        "blurb": "ویڈیو کی قسم: Replacements for paid software — GIMP for Photoshop, LibreOffice for Microsoft — with feature comparisons."
+      },
+      "ta": {
+        "name": "திறந்த மூல மாற்றுகள்",
+        "blurb": "வீடியோ வகை: Replacements for paid software — GIMP for Photoshop, LibreOffice for Microsoft — with feature comparisons."
+      },
+      "ml": {
+        "name": "ഓപ്പൺ സോഴ്സ് ബദലുകൾ",
+        "blurb": "വീഡിയോ തരം: Replacements for paid software — GIMP for Photoshop, LibreOffice for Microsoft — with feature comparisons."
+      }
+    },
+    "97": {
+      "en": {
+        "name": "Forgotten Search Engines",
+        "blurb": "DuckDuckGo, Ecosia, Startpage — their privacy policies, eco-initiatives, and why people switch from Google."
+      },
+      "bn": {
+        "name": "বিস্মৃত সার্চ ইঞ্জিন",
+        "blurb": "ভিডিও টাইপ: DuckDuckGo, Ecosia, Startpage — their privacy policies, eco-initiatives, and why people switch from Google."
+      },
+      "hi": {
+        "name": "भूले हुए सर्च इंजन",
+        "blurb": "वीडियो प्रकार: DuckDuckGo, Ecosia, Startpage — their privacy policies, eco-initiatives, and why people switch from Google."
+      },
+      "ur": {
+        "name": "بھولے ہوئے سرچ انجن",
+        "blurb": "ویڈیو کی قسم: DuckDuckGo, Ecosia, Startpage — their privacy policies, eco-initiatives, and why people switch from Google."
+      },
+      "ta": {
+        "name": "மறக்கப்பட்ட தேடுபொறிகள்",
+        "blurb": "வீடியோ வகை: DuckDuckGo, Ecosia, Startpage — their privacy policies, eco-initiatives, and why people switch from Google."
+      },
+      "ml": {
+        "name": "മറക്കപ്പെട്ട സെർച്ച് എഞ്ചിനുകൾ",
+        "blurb": "വീഡിയോ തരം: DuckDuckGo, Ecosia, Startpage — their privacy policies, eco-initiatives, and why people switch from Google."
+      }
+    },
+    "98": {
+      "en": {
+        "name": "Citizen Science Platforms",
+        "blurb": "Zooniverse, iNaturalist — how volunteers classify galaxies, track bird migrations, and contribute to real research."
+      },
+      "bn": {
+        "name": "নাগরিক বিজ্ঞান প্ল্যাটফর্ম",
+        "blurb": "ভিডিও টাইপ: Zooniverse, iNaturalist — how volunteers classify galaxies, track bird migrations, and contribute to real research."
+      },
+      "hi": {
+        "name": "नागरिक विज्ञान प्लेटफ़ॉर्म",
+        "blurb": "वीडियो प्रकार: Zooniverse, iNaturalist — how volunteers classify galaxies, track bird migrations, and contribute to real research."
+      },
+      "ur": {
+        "name": "شہری سائنس پلیٹ فارمز",
+        "blurb": "ویڈیو کی قسم: Zooniverse, iNaturalist — how volunteers classify galaxies, track bird migrations, and contribute to real research."
+      },
+      "ta": {
+        "name": "குடிமை அறிவியல் தளங்கள்",
+        "blurb": "வீடியோ வகை: Zooniverse, iNaturalist — how volunteers classify galaxies, track bird migrations, and contribute to real research."
+      },
+      "ml": {
+        "name": "പൗര ശാസ്ത്ര പ്ലാറ്റ്‌ഫോമുകൾ",
+        "blurb": "വീഡിയോ തരം: Zooniverse, iNaturalist — how volunteers classify galaxies, track bird migrations, and contribute to real research."
+      }
+    },
+    "99": {
+      "en": {
+        "name": "Interactive Learning Sites",
+        "blurb": "Duolingo, Brilliant, Khan Academy — gamified education that makes math, language, and coding fun."
+      },
+      "bn": {
+        "name": "ইন্টারঅ্যাকটিভ শিক্ষা সাইট",
+        "blurb": "ভিডিও টাইপ: Duolingo, Brilliant, Khan Academy — gamified education that makes math, language, and coding fun."
+      },
+      "hi": {
+        "name": "इंटरैक्टिव लर्निंग साइटें",
+        "blurb": "वीडियो प्रकार: Duolingo, Brilliant, Khan Academy — gamified education that makes math, language, and coding fun."
+      },
+      "ur": {
+        "name": "انٹرایکٹو لرننگ سائٹس",
+        "blurb": "ویڈیو کی قسم: Duolingo, Brilliant, Khan Academy — gamified education that makes math, language, and coding fun."
+      },
+      "ta": {
+        "name": "ஊடாடும் கற்றல் தளங்கள்",
+        "blurb": "வீடியோ வகை: Duolingo, Brilliant, Khan Academy — gamified education that makes math, language, and coding fun."
+      },
+      "ml": {
+        "name": "ഇന്ററാക്ടീവ് ലേണിംഗ് സൈറ്റുകൾ",
+        "blurb": "വീഡിയോ തരം: Duolingo, Brilliant, Khan Academy — gamified education that makes math, language, and coding fun."
+      }
+    },
+    "100": {
+      "en": {
+        "name": "Digital Museums",
+        "blurb": "Virtual tours of the Louvre, British Museum, etc. — the history of selected artifacts and how to explore online."
+      },
+      "bn": {
+        "name": "ডিজিটাল জাদুঘর",
+        "blurb": "ভিডিও টাইপ: Virtual tours of the Louvre, British Museum, etc. — the history of selected artifacts and how to explore online."
+      },
+      "hi": {
+        "name": "डिजिटल संग्रहालय",
+        "blurb": "वीडियो प्रकार: Virtual tours of the Louvre, British Museum, etc. — the history of selected artifacts and how to explore online."
+      },
+      "ur": {
+        "name": "ڈیجیٹل عجائب گھر",
+        "blurb": "ویڈیو کی قسم: Virtual tours of the Louvre, British Museum, etc. — the history of selected artifacts and how to explore online."
+      },
+      "ta": {
+        "name": "டிஜிட்டல் அருங்காட்சியகங்கள்",
+        "blurb": "வீடியோ வகை: Virtual tours of the Louvre, British Museum, etc. — the history of selected artifacts and how to explore online."
+      },
+      "ml": {
+        "name": "ഡിജിറ്റൽ മ്യൂസിയങ്ങൾ",
+        "blurb": "വീഡിയോ തരം: Virtual tours of the Louvre, British Museum, etc. — the history of selected artifacts and how to explore online."
+      }
+    },
+    "101": {
+      "en": {
+        "name": "AI for Writing",
+        "blurb": "Free AI tools like ChatGPT, Claude, or Bard — how to generate blogs, emails, essays, and scripts effectively."
+      },
+      "bn": {
+        "name": "লেখার জন্য এআই",
+        "blurb": "ভিডিও টাইপ: Free AI tools like ChatGPT, Claude, or Bard — how to generate blogs, emails, essays, and scripts effectively."
+      },
+      "hi": {
+        "name": "लेखन के लिए एआई",
+        "blurb": "वीडियो प्रकार: Free AI tools like ChatGPT, Claude, or Bard — how to generate blogs, emails, essays, and scripts effectively."
+      },
+      "ur": {
+        "name": "لکھائی کے لیے اے آئی",
+        "blurb": "ویڈیو کی قسم: Free AI tools like ChatGPT, Claude, or Bard — how to generate blogs, emails, essays, and scripts effectively."
+      },
+      "ta": {
+        "name": "எழுத்துக்கான AI",
+        "blurb": "வீடியோ வகை: Free AI tools like ChatGPT, Claude, or Bard — how to generate blogs, emails, essays, and scripts effectively."
+      },
+      "ml": {
+        "name": "എഴുത്തിനുള്ള AI",
+        "blurb": "വീഡിയോ തരം: Free AI tools like ChatGPT, Claude, or Bard — how to generate blogs, emails, essays, and scripts effectively."
+      }
+    },
+    "102": {
+      "en": {
+        "name": "AI Image Generators",
+        "blurb": "Stable Diffusion, Playground AI — creating stunning art from text prompts, with tips on prompt engineering."
+      },
+      "bn": {
+        "name": "এআই ইমেজ জেনারেটর",
+        "blurb": "ভিডিও টাইপ: Stable Diffusion, Playground AI — creating stunning art from text prompts, with tips on prompt engineering."
+      },
+      "hi": {
+        "name": "एआई इमेज जनरेटर",
+        "blurb": "वीडियो प्रकार: Stable Diffusion, Playground AI — creating stunning art from text prompts, with tips on prompt engineering."
+      },
+      "ur": {
+        "name": "اے آئی امیج جنریٹرز",
+        "blurb": "ویڈیو کی قسم: Stable Diffusion, Playground AI — creating stunning art from text prompts, with tips on prompt engineering."
+      },
+      "ta": {
+        "name": "AI பட உருவாக்கிகள்",
+        "blurb": "வீடியோ வகை: Stable Diffusion, Playground AI — creating stunning art from text prompts, with tips on prompt engineering."
+      },
+      "ml": {
+        "name": "AI ഇമേജ് ജനറേറ്ററുകൾ",
+        "blurb": "വീഡിയോ തരം: Stable Diffusion, Playground AI — creating stunning art from text prompts, with tips on prompt engineering."
+      }
+    },
+    "103": {
+      "en": {
+        "name": "AI Video Creators",
+        "blurb": "RunwayML, Pika, Kapwing — generating short films, animations, and background removal with zero editing skills."
+      },
+      "bn": {
+        "name": "এআই ভিডিও ক্রিয়েটর",
+        "blurb": "ভিডিও টাইপ: RunwayML, Pika, Kapwing — generating short films, animations, and background removal with zero editing skills."
+      },
+      "hi": {
+        "name": "एआई वीडियो क्रिएटर",
+        "blurb": "वीडियो प्रकार: RunwayML, Pika, Kapwing — generating short films, animations, and background removal with zero editing skills."
+      },
+      "ur": {
+        "name": "اے آئی ویڈیو کریئٹرز",
+        "blurb": "ویڈیو کی قسم: RunwayML, Pika, Kapwing — generating short films, animations, and background removal with zero editing skills."
+      },
+      "ta": {
+        "name": "AI வீடியோ உருவாக்கிகள்",
+        "blurb": "வீடியோ வகை: RunwayML, Pika, Kapwing — generating short films, animations, and background removal with zero editing skills."
+      },
+      "ml": {
+        "name": "AI വീഡിയോ ക്രിയേറ്ററുകൾ",
+        "blurb": "വീഡിയോ തരം: RunwayML, Pika, Kapwing — generating short films, animations, and background removal with zero editing skills."
+      }
+    },
+    "104": {
+      "en": {
+        "name": "AI Audio & Music",
+        "blurb": "Soundraw, Voicemod — creating royalty-free music, voiceovers, or sound effects for content creators."
+      },
+      "bn": {
+        "name": "এআই অডিও ও সঙ্গীত",
+        "blurb": "ভিডিও টাইপ: Soundraw, Voicemod — creating royalty-free music, voiceovers, or sound effects for content creators."
+      },
+      "hi": {
+        "name": "एआई ऑडियो और संगीत",
+        "blurb": "वीडियो प्रकार: Soundraw, Voicemod — creating royalty-free music, voiceovers, or sound effects for content creators."
+      },
+      "ur": {
+        "name": "اے آئی آڈیو اور موسیقی",
+        "blurb": "ویڈیو کی قسم: Soundraw, Voicemod — creating royalty-free music, voiceovers, or sound effects for content creators."
+      },
+      "ta": {
+        "name": "AI ஆடியோ & இசை",
+        "blurb": "வீடியோ வகை: Soundraw, Voicemod — creating royalty-free music, voiceovers, or sound effects for content creators."
+      },
+      "ml": {
+        "name": "AI ഓഡിയോ & സംഗീതം",
+        "blurb": "വീഡിയോ തരം: Soundraw, Voicemod — creating royalty-free music, voiceovers, or sound effects for content creators."
+      }
+    },
+    "105": {
+      "en": {
+        "name": "AI for Research",
+        "blurb": "Elicit, SciSpace — how they summarize academic papers, analyze data, and help students write citations."
+      },
+      "bn": {
+        "name": "গবেষণার জন্য এআই",
+        "blurb": "ভিডিও টাইপ: Elicit, SciSpace — how they summarize academic papers, analyze data, and help students write citations."
+      },
+      "hi": {
+        "name": "शोध के लिए एआई",
+        "blurb": "वीडियो प्रकार: Elicit, SciSpace — how they summarize academic papers, analyze data, and help students write citations."
+      },
+      "ur": {
+        "name": "تحقیق کے لیے اے آئی",
+        "blurb": "ویڈیو کی قسم: Elicit, SciSpace — how they summarize academic papers, analyze data, and help students write citations."
+      },
+      "ta": {
+        "name": "ஆராய்ச்சிக்கான AI",
+        "blurb": "வீடியோ வகை: Elicit, SciSpace — how they summarize academic papers, analyze data, and help students write citations."
+      },
+      "ml": {
+        "name": "ഗവേഷണത്തിനുള്ള AI",
+        "blurb": "വീഡിയോ തരം: Elicit, SciSpace — how they summarize academic papers, analyze data, and help students write citations."
+      }
+    },
+    "106": {
+      "en": {
+        "name": "AI Translators",
+        "blurb": "DeepL and Google Translate compared — which languages, quality differences, and real-world business use."
+      },
+      "bn": {
+        "name": "এআই অনুবাদক",
+        "blurb": "ভিডিও টাইপ: DeepL and Google Translate compared — which languages, quality differences, and real-world business use."
+      },
+      "hi": {
+        "name": "एआई अनुवादक",
+        "blurb": "वीडियो प्रकार: DeepL and Google Translate compared — which languages, quality differences, and real-world business use."
+      },
+      "ur": {
+        "name": "اے آئی مترجم",
+        "blurb": "ویڈیو کی قسم: DeepL and Google Translate compared — which languages, quality differences, and real-world business use."
+      },
+      "ta": {
+        "name": "AI மொழிபெயர்ப்பாளர்கள்",
+        "blurb": "வீடியோ வகை: DeepL and Google Translate compared — which languages, quality differences, and real-world business use."
+      },
+      "ml": {
+        "name": "AI വിവർത്തകർ",
+        "blurb": "വീഡിയോ തരം: DeepL and Google Translate compared — which languages, quality differences, and real-world business use."
+      }
+    },
+    "107": {
+      "en": {
+        "name": "AI Coding Assistants",
+        "blurb": "Codeium, Tabnine — how these free tools debug code, suggest snippets, and teach programming to beginners."
+      },
+      "bn": {
+        "name": "এআই কোডিং সহকারী",
+        "blurb": "ভিডিও টাইপ: Codeium, Tabnine — how these free tools debug code, suggest snippets, and teach programming to beginners."
+      },
+      "hi": {
+        "name": "एआई कोडिंग सहायक",
+        "blurb": "वीडियो प्रकार: Codeium, Tabnine — how these free tools debug code, suggest snippets, and teach programming to beginners."
+      },
+      "ur": {
+        "name": "اے آئی کوڈنگ اسسٹنٹس",
+        "blurb": "ویڈیو کی قسم: Codeium, Tabnine — how these free tools debug code, suggest snippets, and teach programming to beginners."
+      },
+      "ta": {
+        "name": "AI கோடிங் உதவியாளர்கள்",
+        "blurb": "வீடியோ வகை: Codeium, Tabnine — how these free tools debug code, suggest snippets, and teach programming to beginners."
+      },
+      "ml": {
+        "name": "AI കോഡിംഗ് അസിസ്റ്റന്റുകൾ",
+        "blurb": "വീഡിയോ തരം: Codeium, Tabnine — how these free tools debug code, suggest snippets, and teach programming to beginners."
+      }
+    },
+    "108": {
+      "en": {
+        "name": "AI Productivity Boosters",
+        "blurb": "Reclaim, Motion — automating meeting notes, calendar scheduling, and task prioritization with AI."
+      },
+      "bn": {
+        "name": "এআই উৎপাদনশীলতা বৃদ্ধিকারী",
+        "blurb": "ভিডিও টাইপ: Reclaim, Motion — automating meeting notes, calendar scheduling, and task prioritization with AI."
+      },
+      "hi": {
+        "name": "एआई उत्पादकता बढ़ाने वाले",
+        "blurb": "वीडियो प्रकार: Reclaim, Motion — automating meeting notes, calendar scheduling, and task prioritization with AI."
+      },
+      "ur": {
+        "name": "اے آئی پیداواری بوسٹرز",
+        "blurb": "ویڈیو کی قسم: Reclaim, Motion — automating meeting notes, calendar scheduling, and task prioritization with AI."
+      },
+      "ta": {
+        "name": "AI உற்பத்தித்திறன் அதிகரிப்பிகள்",
+        "blurb": "வீடியோ வகை: Reclaim, Motion — automating meeting notes, calendar scheduling, and task prioritization with AI."
+      },
+      "ml": {
+        "name": "AI പ്രൊഡക്ടിവിറ്റി ബൂസ്റ്ററുകൾ",
+        "blurb": "വീഡിയോ തരം: Reclaim, Motion — automating meeting notes, calendar scheduling, and task prioritization with AI."
+      }
+    },
+    "109": {
+      "en": {
+        "name": "AI in Health",
+        "blurb": "Ada, Babylon — free symptom checkers, mental health chatbots, and their accuracy compared to doctors."
+      },
+      "bn": {
+        "name": "স্বাস্থ্যে এআই",
+        "blurb": "ভিডিও টাইপ: Ada, Babylon — free symptom checkers, mental health chatbots, and their accuracy compared to doctors."
+      },
+      "hi": {
+        "name": "स्वास्थ्य में एआई",
+        "blurb": "वीडियो प्रकार: Ada, Babylon — free symptom checkers, mental health chatbots, and their accuracy compared to doctors."
+      },
+      "ur": {
+        "name": "صحت میں اے آئی",
+        "blurb": "ویڈیو کی قسم: Ada, Babylon — free symptom checkers, mental health chatbots, and their accuracy compared to doctors."
+      },
+      "ta": {
+        "name": "சுகாதாரத்தில் AI",
+        "blurb": "வீடியோ வகை: Ada, Babylon — free symptom checkers, mental health chatbots, and their accuracy compared to doctors."
+      },
+      "ml": {
+        "name": "ആരോഗ്യത്തിലെ AI",
+        "blurb": "വീഡിയോ തരം: Ada, Babylon — free symptom checkers, mental health chatbots, and their accuracy compared to doctors."
+      }
+    },
+    "110": {
+      "en": {
+        "name": "AI Tutors for Students",
+        "blurb": "Khanmigo, Socratic — personalized tutoring in physics, algebra, history, and test preparation."
+      },
+      "bn": {
+        "name": "শিক্ষার্থীদের এআই শিক্ষক",
+        "blurb": "ভিডিও টাইপ: Khanmigo, Socratic — personalized tutoring in physics, algebra, history, and test preparation."
+      },
+      "hi": {
+        "name": "छात्रों के लिए एआई ट्यूटर",
+        "blurb": "वीडियो प्रकार: Khanmigo, Socratic — personalized tutoring in physics, algebra, history, and test preparation."
+      },
+      "ur": {
+        "name": "طلبہ کے لیے اے آئی ٹیوٹر",
+        "blurb": "ویڈیو کی قسم: Khanmigo, Socratic — personalized tutoring in physics, algebra, history, and test preparation."
+      },
+      "ta": {
+        "name": "மாணவர்களுக்கான AI ஆசிரியர்கள்",
+        "blurb": "வீடியோ வகை: Khanmigo, Socratic — personalized tutoring in physics, algebra, history, and test preparation."
+      },
+      "ml": {
+        "name": "വിദ്യാർത്ഥികൾക്കുള്ള AI ട്യൂട്ടർമാർ",
+        "blurb": "വീഡിയോ തരം: Khanmigo, Socratic — personalized tutoring in physics, algebra, history, and test preparation."
+      }
+    },
+    "111": {
+      "en": {
+        "name": "Free Design Platforms",
+        "blurb": "Canva, Figma, Photopea — creating graphics, UI mockups, and presentations without expensive software."
+      },
+      "bn": {
+        "name": "বিনামূল্যে ডিজাইন প্ল্যাটফর্ম",
+        "blurb": "ভিডিও টাইপ: Canva, Figma, Photopea — creating graphics, UI mockups, and presentations without expensive software."
+      },
+      "hi": {
+        "name": "मुफ़्त डिज़ाइन प्लेटफ़ॉर्म",
+        "blurb": "वीडियो प्रकार: Canva, Figma, Photopea — creating graphics, UI mockups, and presentations without expensive software."
+      },
+      "ur": {
+        "name": "مفت ڈیزائن پلیٹ فارمز",
+        "blurb": "ویڈیو کی قسم: Canva, Figma, Photopea — creating graphics, UI mockups, and presentations without expensive software."
+      },
+      "ta": {
+        "name": "இலவச வடிவமைப்பு தளங்கள்",
+        "blurb": "வீடியோ வகை: Canva, Figma, Photopea — creating graphics, UI mockups, and presentations without expensive software."
+      },
+      "ml": {
+        "name": "സൗജന്യ ഡിസൈൻ പ്ലാറ്റ്‌ഫോമുകൾ",
+        "blurb": "വീഡിയോ തരം: Canva, Figma, Photopea — creating graphics, UI mockups, and presentations without expensive software."
+      }
+    },
+    "112": {
+      "en": {
+        "name": "Collaboration Tools",
+        "blurb": "Miro, Trello, Slack — free versions for remote teams, with workflow automation ideas."
+      },
+      "bn": {
+        "name": "সহযোগিতার টুল",
+        "blurb": "ভিডিও টাইপ: Miro, Trello, Slack — free versions for remote teams, with workflow automation ideas."
+      },
+      "hi": {
+        "name": "सहयोग उपकरण",
+        "blurb": "वीडियो प्रकार: Miro, Trello, Slack — free versions for remote teams, with workflow automation ideas."
+      },
+      "ur": {
+        "name": "تعاون کے اوزار",
+        "blurb": "ویڈیو کی قسم: Miro, Trello, Slack — free versions for remote teams, with workflow automation ideas."
+      },
+      "ta": {
+        "name": "இணைந்து பணிபுரியும் கருவிகள்",
+        "blurb": "வீடியோ வகை: Miro, Trello, Slack — free versions for remote teams, with workflow automation ideas."
+      },
+      "ml": {
+        "name": "സഹകരണ ഉപകരണങ്ങൾ",
+        "blurb": "വീഡിയോ തരം: Miro, Trello, Slack — free versions for remote teams, with workflow automation ideas."
+      }
+    },
+    "113": {
+      "en": {
+        "name": "Best Free Storage",
+        "blurb": "Google Drive, Dropbox, Mega — storage limits, encryption features, and backup best practices."
+      },
+      "bn": {
+        "name": "সেরা বিনামূল্যে স্টোরেজ",
+        "blurb": "ভিডিও টাইপ: Google Drive, Dropbox, Mega — storage limits, encryption features, and backup best practices."
+      },
+      "hi": {
+        "name": "सर्वश्रेष्ठ मुफ़्त स्टोरेज",
+        "blurb": "वीडियो प्रकार: Google Drive, Dropbox, Mega — storage limits, encryption features, and backup best practices."
+      },
+      "ur": {
+        "name": "بہترین مفت اسٹوریج",
+        "blurb": "ویڈیو کی قسم: Google Drive, Dropbox, Mega — storage limits, encryption features, and backup best practices."
+      },
+      "ta": {
+        "name": "சிறந்த இலவச சேமிப்பு",
+        "blurb": "வீடியோ வகை: Google Drive, Dropbox, Mega — storage limits, encryption features, and backup best practices."
+      },
+      "ml": {
+        "name": "മികച്ച സൗജന്യ സ്റ്റോറേജ്",
+        "blurb": "വീഡിയോ തരം: Google Drive, Dropbox, Mega — storage limits, encryption features, and backup best practices."
+      }
+    },
+    "114": {
+      "en": {
+        "name": "Hidden Learning Communities",
+        "blurb": "Reddit subs, Discord servers, and Telegram groups where professionals share knowledge in tech, art, and science."
+      },
+      "bn": {
+        "name": "লুকানো শিক্ষা সম্প্রদায়",
+        "blurb": "ভিডিও টাইপ: Reddit subs, Discord servers, and Telegram groups where professionals share knowledge in tech, art, and science."
+      },
+      "hi": {
+        "name": "छिपे शिक्षण समुदाय",
+        "blurb": "वीडियो प्रकार: Reddit subs, Discord servers, and Telegram groups where professionals share knowledge in tech, art, and science."
+      },
+      "ur": {
+        "name": "پوشیدہ لرننگ کمیونٹیز",
+        "blurb": "ویڈیو کی قسم: Reddit subs, Discord servers, and Telegram groups where professionals share knowledge in tech, art, and science."
+      },
+      "ta": {
+        "name": "மறைந்த கற்றல் சமூகங்கள்",
+        "blurb": "வீடியோ வகை: Reddit subs, Discord servers, and Telegram groups where professionals share knowledge in tech, art, and science."
+      },
+      "ml": {
+        "name": "മറഞ്ഞ പഠന സമൂഹങ്ങൾ",
+        "blurb": "വീഡിയോ തരം: Reddit subs, Discord servers, and Telegram groups where professionals share knowledge in tech, art, and science."
+      }
+    },
+    "115": {
+      "en": {
+        "name": "Future of Blockchain & Web3",
+        "blurb": "What is Web3? How blockchain works beyond crypto — digital identity, smart contracts, decentralized apps."
+      },
+      "bn": {
+        "name": "ব্লকচেইন ও ওয়েব৩-এর ভবিষ্যৎ",
+        "blurb": "ভিডিও টাইপ: What is Web3? How blockchain works beyond crypto — digital identity, smart contracts, decentralized apps."
+      },
+      "hi": {
+        "name": "ब्लॉकचेन और वेब3 का भविष्य",
+        "blurb": "वीडियो प्रकार: What is Web3? How blockchain works beyond crypto — digital identity, smart contracts, decentralized apps."
+      },
+      "ur": {
+        "name": "بلاک چین اور ویب 3 کا مستقبل",
+        "blurb": "ویڈیو کی قسم: What is Web3? How blockchain works beyond crypto — digital identity, smart contracts, decentralized apps."
+      },
+      "ta": {
+        "name": "பிளாக்செயின் & Web3 எதிர்காலம்",
+        "blurb": "வீடியோ வகை: What is Web3? How blockchain works beyond crypto — digital identity, smart contracts, decentralized apps."
+      },
+      "ml": {
+        "name": "ബ്ലോക്ക്‌ചെയിനും വെബ്3-ഉം — ഭാവി",
+        "blurb": "വീഡിയോ തരം: What is Web3? How blockchain works beyond crypto — digital identity, smart contracts, decentralized apps."
+      }
+    },
+    "116": {
+      "en": {
+        "name": "Smart Home Gadgets",
+        "blurb": "Alexa, Philips Hue, smart locks — how to automate your home, save energy, and boost security."
+      },
+      "bn": {
+        "name": "স্মার্ট হোম গ্যাজেট",
+        "blurb": "ভিডিও টাইপ: Alexa, Philips Hue, smart locks — how to automate your home, save energy, and boost security."
+      },
+      "hi": {
+        "name": "स्मार्ट होम गैजेट",
+        "blurb": "वीडियो प्रकार: Alexa, Philips Hue, smart locks — how to automate your home, save energy, and boost security."
+      },
+      "ur": {
+        "name": "سمارٹ ہوم گیجٹس",
+        "blurb": "ویڈیو کی قسم: Alexa, Philips Hue, smart locks — how to automate your home, save energy, and boost security."
+      },
+      "ta": {
+        "name": "ஸ்மார்ட் ஹோம் கேஜெட்கள்",
+        "blurb": "வீடியோ வகை: Alexa, Philips Hue, smart locks — how to automate your home, save energy, and boost security."
+      },
+      "ml": {
+        "name": "സ്മാർട്ട് ഹോം ഗാഡ്‌ജെറ്റുകൾ",
+        "blurb": "വീഡിയോ തരം: Alexa, Philips Hue, smart locks — how to automate your home, save energy, and boost security."
+      }
+    },
+    "117": {
+      "en": {
+        "name": "AI in Daily Life",
+        "blurb": "Unnoticed AI — from Netflix recommendations to grammar checkers — explaining the algorithms behind daily decisions."
+      },
+      "bn": {
+        "name": "দৈনন্দিন জীবনে এআই",
+        "blurb": "ভিডিও টাইপ: Unnoticed AI — from Netflix recommendations to grammar checkers — explaining the algorithms behind daily decisions."
+      },
+      "hi": {
+        "name": "दैनिक जीवन में एआई",
+        "blurb": "वीडियो प्रकार: Unnoticed AI — from Netflix recommendations to grammar checkers — explaining the algorithms behind daily decisions."
+      },
+      "ur": {
+        "name": "روزمرہ زندگی میں اے آئی",
+        "blurb": "ویڈیو کی قسم: Unnoticed AI — from Netflix recommendations to grammar checkers — explaining the algorithms behind daily decisions."
+      },
+      "ta": {
+        "name": "அன்றாட வாழ்வில் AI",
+        "blurb": "வீடியோ வகை: Unnoticed AI — from Netflix recommendations to grammar checkers — explaining the algorithms behind daily decisions."
+      },
+      "ml": {
+        "name": "ദൈനംദിന ജീവിതത്തിലെ AI",
+        "blurb": "വീഡിയോ തരം: Unnoticed AI — from Netflix recommendations to grammar checkers — explaining the algorithms behind daily decisions."
+      }
+    },
+    "118": {
+      "en": {
+        "name": "5G Connectivity",
+        "blurb": "What 5G enables — from self-driving cars to remote surgeries — and debates about health and privacy."
+      },
+      "bn": {
+        "name": "৫জি সংযোগ",
+        "blurb": "ভিডিও টাইপ: What 5G enables — from self-driving cars to remote surgeries — and debates about health and privacy."
+      },
+      "hi": {
+        "name": "5G कनेक्टिविटी",
+        "blurb": "वीडियो प्रकार: What 5G enables — from self-driving cars to remote surgeries — and debates about health and privacy."
+      },
+      "ur": {
+        "name": "5G کنیکٹیویٹی",
+        "blurb": "ویڈیو کی قسم: What 5G enables — from self-driving cars to remote surgeries — and debates about health and privacy."
+      },
+      "ta": {
+        "name": "5G இணைப்பு",
+        "blurb": "வீடியோ வகை: What 5G enables — from self-driving cars to remote surgeries — and debates about health and privacy."
+      },
+      "ml": {
+        "name": "5G കണക്ടിവിറ്റി",
+        "blurb": "വീഡിയോ തരം: What 5G enables — from self-driving cars to remote surgeries — and debates about health and privacy."
+      }
+    },
+    "119": {
+      "en": {
+        "name": "E-Waste & Recycling",
+        "blurb": "The toxic afterlife of phones and laptops — how to responsibly recycle and why it matters for the planet."
+      },
+      "bn": {
+        "name": "ই-বর্জ্য ও পুনর্ব্যবহার",
+        "blurb": "ভিডিও টাইপ: The toxic afterlife of phones and laptops — how to responsibly recycle and why it matters for the planet."
+      },
+      "hi": {
+        "name": "ई-कचरा और रीसाइक्लिंग",
+        "blurb": "वीडियो प्रकार: The toxic afterlife of phones and laptops — how to responsibly recycle and why it matters for the planet."
+      },
+      "ur": {
+        "name": "ای ویسٹ اور ری سائیکلنگ",
+        "blurb": "ویڈیو کی قسم: The toxic afterlife of phones and laptops — how to responsibly recycle and why it matters for the planet."
+      },
+      "ta": {
+        "name": "மின் கழிவு & மறுசுழற்சி",
+        "blurb": "வீடியோ வகை: The toxic afterlife of phones and laptops — how to responsibly recycle and why it matters for the planet."
+      },
+      "ml": {
+        "name": "ഇ-മാലിന്യവും റീസൈക്ലിംഗും",
+        "blurb": "വീഡിയോ തരം: The toxic afterlife of phones and laptops — how to responsibly recycle and why it matters for the planet."
+      }
+    },
+    "120": {
+      "en": {
+        "name": "Digital Detox",
+        "blurb": "Strategies to reduce screen time, fight burnout, and reclaim mental peace in the hyperconnected age."
+      },
+      "bn": {
+        "name": "ডিজিটাল ডিটক্স",
+        "blurb": "ভিডিও টাইপ: Strategies to reduce screen time, fight burnout, and reclaim mental peace in the hyperconnected age."
+      },
+      "hi": {
+        "name": "डिजिटल डिटॉक्स",
+        "blurb": "वीडियो प्रकार: Strategies to reduce screen time, fight burnout, and reclaim mental peace in the hyperconnected age."
+      },
+      "ur": {
+        "name": "ڈیجیٹل ڈیٹاکس",
+        "blurb": "ویڈیو کی قسم: Strategies to reduce screen time, fight burnout, and reclaim mental peace in the hyperconnected age."
+      },
+      "ta": {
+        "name": "டிஜிட்டல் டிடாக்ஸ்",
+        "blurb": "வீடியோ வகை: Strategies to reduce screen time, fight burnout, and reclaim mental peace in the hyperconnected age."
+      },
+      "ml": {
+        "name": "ഡിജിറ്റൽ ഡിറ്റോക്സ്",
+        "blurb": "വീഡിയോ തരം: Strategies to reduce screen time, fight burnout, and reclaim mental peace in the hyperconnected age."
+      }
+    },
+    "121": {
+      "en": {
+        "name": "Extreme Weather Updates",
+        "blurb": "Real-time-style updates on hurricanes, cyclones, and wildfires — with preparedness tips and science."
+      },
+      "bn": {
+        "name": "চরম আবহাওয়ার আপডেট",
+        "blurb": "ভিডিও টাইপ: Real-time-style updates on hurricanes, cyclones, and wildfires — with preparedness tips and science."
+      },
+      "hi": {
+        "name": "चरम मौसम अपडेट",
+        "blurb": "वीडियो प्रकार: Real-time-style updates on hurricanes, cyclones, and wildfires — with preparedness tips and science."
+      },
+      "ur": {
+        "name": "شدید موسم کی تازہ کاری",
+        "blurb": "ویڈیو کی قسم: Real-time-style updates on hurricanes, cyclones, and wildfires — with preparedness tips and science."
+      },
+      "ta": {
+        "name": "தீவிர வானிலை புதுப்பிப்புகள்",
+        "blurb": "வீடியோ வகை: Real-time-style updates on hurricanes, cyclones, and wildfires — with preparedness tips and science."
+      },
+      "ml": {
+        "name": "തീവ്ര കാലാവസ്ഥ അപ്‌ഡേറ്റുകൾ",
+        "blurb": "വീഡിയോ തരം: Real-time-style updates on hurricanes, cyclones, and wildfires — with preparedness tips and science."
+      }
+    },
+    "122": {
+      "en": {
+        "name": "Climate Change Explained",
+        "blurb": "Glacial retreat, sea-level rise, coral bleaching — simplified for everyone, with hopeful solutions."
+      },
+      "bn": {
+        "name": "জলবায়ু পরিবর্তন ব্যাখ্যা",
+        "blurb": "ভিডিও টাইপ: Glacial retreat, sea-level rise, coral bleaching — simplified for everyone, with hopeful solutions."
+      },
+      "hi": {
+        "name": "जलवायु परिवर्तन समझाया",
+        "blurb": "वीडियो प्रकार: Glacial retreat, sea-level rise, coral bleaching — simplified for everyone, with hopeful solutions."
+      },
+      "ur": {
+        "name": "موسمیاتی تبدیلی کی وضاحت",
+        "blurb": "ویڈیو کی قسم: Glacial retreat, sea-level rise, coral bleaching — simplified for everyone, with hopeful solutions."
+      },
+      "ta": {
+        "name": "காலநிலை மாற்றம் விளக்கம்",
+        "blurb": "வீடியோ வகை: Glacial retreat, sea-level rise, coral bleaching — simplified for everyone, with hopeful solutions."
+      },
+      "ml": {
+        "name": "കാലാവസ്ഥാ വ്യതിയാനം വിശദീകരണം",
+        "blurb": "വീഡിയോ തരം: Glacial retreat, sea-level rise, coral bleaching — simplified for everyone, with hopeful solutions."
+      }
+    },
+    "123": {
+      "en": {
+        "name": "Natural Wonders Countdown",
+        "blurb": "Aurora Borealis, Grand Canyon, Victoria Falls — facts, myths, and the best times to visit."
+      },
+      "bn": {
+        "name": "প্রাকৃতিক বিস্ময় কাউন্টডাউন",
+        "blurb": "ভিডিও টাইপ: Aurora Borealis, Grand Canyon, Victoria Falls — facts, myths, and the best times to visit."
+      },
+      "hi": {
+        "name": "प्राकृतिक आश्चर्य काउंटडाउन",
+        "blurb": "वीडियो प्रकार: Aurora Borealis, Grand Canyon, Victoria Falls — facts, myths, and the best times to visit."
+      },
+      "ur": {
+        "name": "قدرتی عجائب کاؤنٹ ڈاؤن",
+        "blurb": "ویڈیو کی قسم: Aurora Borealis, Grand Canyon, Victoria Falls — facts, myths, and the best times to visit."
+      },
+      "ta": {
+        "name": "இயற்கை அதிசய எண்ணிக்கை",
+        "blurb": "வீடியோ வகை: Aurora Borealis, Grand Canyon, Victoria Falls — facts, myths, and the best times to visit."
+      },
+      "ml": {
+        "name": "പ്രകൃതി അത്ഭുത കൗണ്ട്ഡൗൺ",
+        "blurb": "വീഡിയോ തരം: Aurora Borealis, Grand Canyon, Victoria Falls — facts, myths, and the best times to visit."
+      }
+    },
+    "124": {
+      "en": {
+        "name": "Space Weather Reports",
+        "blurb": "Solar flares, geomagnetic storms — how they affect satellites, power grids, and even your phone."
+      },
+      "bn": {
+        "name": "মহাকাশ আবহাওয়া প্রতিবেদন",
+        "blurb": "ভিডিও টাইপ: Solar flares, geomagnetic storms — how they affect satellites, power grids, and even your phone."
+      },
+      "hi": {
+        "name": "अंतरिक्ष मौसम रिपोर्ट",
+        "blurb": "वीडियो प्रकार: Solar flares, geomagnetic storms — how they affect satellites, power grids, and even your phone."
+      },
+      "ur": {
+        "name": "خلائی موسم کی رپورٹس",
+        "blurb": "ویڈیو کی قسم: Solar flares, geomagnetic storms — how they affect satellites, power grids, and even your phone."
+      },
+      "ta": {
+        "name": "விண்வெளி வானிலை அறிக்கைகள்",
+        "blurb": "வீடியோ வகை: Solar flares, geomagnetic storms — how they affect satellites, power grids, and even your phone."
+      },
+      "ml": {
+        "name": "ബഹിരാകാശ കാലാവസ്ഥ റിപ്പോർട്ടുകൾ",
+        "blurb": "വീഡിയോ തരം: Solar flares, geomagnetic storms — how they affect satellites, power grids, and even your phone."
+      }
+    },
+    "125": {
+      "en": {
+        "name": "Disaster Preparedness",
+        "blurb": "Essential kits, evacuation plans, and emergency contacts — empowering viewers to stay safe."
+      },
+      "bn": {
+        "name": "দুর্যোগ প্রস্তুতি",
+        "blurb": "ভিডিও টাইপ: Essential kits, evacuation plans, and emergency contacts — empowering viewers to stay safe."
+      },
+      "hi": {
+        "name": "आपदा तैयारी",
+        "blurb": "वीडियो प्रकार: Essential kits, evacuation plans, and emergency contacts — empowering viewers to stay safe."
+      },
+      "ur": {
+        "name": "آفات کی تیاری",
+        "blurb": "ویڈیو کی قسم: Essential kits, evacuation plans, and emergency contacts — empowering viewers to stay safe."
+      },
+      "ta": {
+        "name": "பேரிடர் தயார்நிலை",
+        "blurb": "வீடியோ வகை: Essential kits, evacuation plans, and emergency contacts — empowering viewers to stay safe."
+      },
+      "ml": {
+        "name": "ദുരന്ത സജ്ജത",
+        "blurb": "വീഡിയോ തരം: Essential kits, evacuation plans, and emergency contacts — empowering viewers to stay safe."
+      }
+    },
+    "126": {
+      "en": {
+        "name": "Weather Myths",
+        "blurb": "Busting beliefs like \"lightning never strikes twice\" — with scientific evidence and fun animations."
+      },
+      "bn": {
+        "name": "আবহাওয়ার মিথ",
+        "blurb": "ভিডিও টাইপ: Busting beliefs like \"lightning never strikes twice\" — with scientific evidence and fun animations."
+      },
+      "hi": {
+        "name": "मौसम मिथक",
+        "blurb": "वीडियो प्रकार: Busting beliefs like \"lightning never strikes twice\" — with scientific evidence and fun animations."
+      },
+      "ur": {
+        "name": "موسمی افسانے",
+        "blurb": "ویڈیو کی قسم: Busting beliefs like \"lightning never strikes twice\" — with scientific evidence and fun animations."
+      },
+      "ta": {
+        "name": "வானிலை தொன்மங்கள்",
+        "blurb": "வீடியோ வகை: Busting beliefs like \"lightning never strikes twice\" — with scientific evidence and fun animations."
+      },
+      "ml": {
+        "name": "കാലാവസ്ഥാ മിഥ്യകൾ",
+        "blurb": "വീഡിയോ തരം: Busting beliefs like \"lightning never strikes twice\" — with scientific evidence and fun animations."
+      }
+    },
+    "127": {
+      "en": {
+        "name": "True Horror Stories",
+        "blurb": "Real encounters with evil spirits, demonic possessions, or unexplained voices — narrated with chilling ambience."
+      },
+      "bn": {
+        "name": "সত্যি ভৌতিক গল্প",
+        "blurb": "ভিডিও টাইপ: Real encounters with evil spirits, demonic possessions, or unexplained voices — narrated with chilling ambience."
+      },
+      "hi": {
+        "name": "सच्ची डरावनी कहानियाँ",
+        "blurb": "वीडियो प्रकार: Real encounters with evil spirits, demonic possessions, or unexplained voices — narrated with chilling ambience."
+      },
+      "ur": {
+        "name": "سچی خوفناک کہانیاں",
+        "blurb": "ویڈیو کی قسم: Real encounters with evil spirits, demonic possessions, or unexplained voices — narrated with chilling ambience."
+      },
+      "ta": {
+        "name": "உண்மை பயங்கரக் கதைகள்",
+        "blurb": "வீடியோ வகை: Real encounters with evil spirits, demonic possessions, or unexplained voices — narrated with chilling ambience."
+      },
+      "ml": {
+        "name": "യഥാർത്ഥ ഹൊറർ കഥകൾ",
+        "blurb": "വീഡിയോ തരം: Real encounters with evil spirits, demonic possessions, or unexplained voices — narrated with chilling ambience."
+      }
+    },
+    "128": {
+      "en": {
+        "name": "Creepypasta Narration",
+        "blurb": "Internet-born horror fiction — Slender Man, Backrooms — with atmospheric sound design and deep voiceovers."
+      },
+      "bn": {
+        "name": "ক্রিপিপাস্তা বর্ণনা",
+        "blurb": "ভিডিও টাইপ: Internet-born horror fiction — Slender Man, Backrooms — with atmospheric sound design and deep voiceovers."
+      },
+      "hi": {
+        "name": "क्रीपीपास्ता कथन",
+        "blurb": "वीडियो प्रकार: Internet-born horror fiction — Slender Man, Backrooms — with atmospheric sound design and deep voiceovers."
+      },
+      "ur": {
+        "name": "کریپی پاسٹا بیانیہ",
+        "blurb": "ویڈیو کی قسم: Internet-born horror fiction — Slender Man, Backrooms — with atmospheric sound design and deep voiceovers."
+      },
+      "ta": {
+        "name": "க்ரீப்பிபாஸ்தா விவரிப்பு",
+        "blurb": "வீடியோ வகை: Internet-born horror fiction — Slender Man, Backrooms — with atmospheric sound design and deep voiceovers."
+      },
+      "ml": {
+        "name": "ക്രീപ്പിപാസ്ത നിരൂപണം",
+        "blurb": "വീഡിയോ തരം: Internet-born horror fiction — Slender Man, Backrooms — with atmospheric sound design and deep voiceovers."
+      }
+    },
+    "129": {
+      "en": {
+        "name": "Haunted Locations",
+        "blurb": "Abandoned asylums, castles, and forests — documented ghost sightings and historic tragedies attached."
+      },
+      "bn": {
+        "name": "ভূতুড়ে স্থান",
+        "blurb": "ভিডিও টাইপ: Abandoned asylums, castles, and forests — documented ghost sightings and historic tragedies attached."
+      },
+      "hi": {
+        "name": "भूतिया स्थान",
+        "blurb": "वीडियो प्रकार: Abandoned asylums, castles, and forests — documented ghost sightings and historic tragedies attached."
+      },
+      "ur": {
+        "name": "بھوتوں والے مقامات",
+        "blurb": "ویڈیو کی قسم: Abandoned asylums, castles, and forests — documented ghost sightings and historic tragedies attached."
+      },
+      "ta": {
+        "name": "பேய்பிடித்த இடங்கள்",
+        "blurb": "வீடியோ வகை: Abandoned asylums, castles, and forests — documented ghost sightings and historic tragedies attached."
+      },
+      "ml": {
+        "name": "ഭൂതബാധിത സ്ഥലങ്ങൾ",
+        "blurb": "വീഡിയോ തരം: Abandoned asylums, castles, and forests — documented ghost sightings and historic tragedies attached."
+      }
+    },
+    "130": {
+      "en": {
+        "name": "Demonology & Exorcisms",
+        "blurb": "Catholic exorcism cases, demonic signs, and the priests who confront the unknown — respectful yet gripping."
+      },
+      "bn": {
+        "name": "দানববিদ্যা ও ভূতছাড়া",
+        "blurb": "ভিডিও টাইপ: Catholic exorcism cases, demonic signs, and the priests who confront the unknown — respectful yet gripping."
+      },
+      "hi": {
+        "name": "दानवविद्या और भूत भगाना",
+        "blurb": "वीडियो प्रकार: Catholic exorcism cases, demonic signs, and the priests who confront the unknown — respectful yet gripping."
+      },
+      "ur": {
+        "name": "شیطان شناسی اور جن نکالنا",
+        "blurb": "ویڈیو کی قسم: Catholic exorcism cases, demonic signs, and the priests who confront the unknown — respectful yet gripping."
+      },
+      "ta": {
+        "name": "பேயியல் & ஒழிப்பு சடங்குகள்",
+        "blurb": "வீடியோ வகை: Catholic exorcism cases, demonic signs, and the priests who confront the unknown — respectful yet gripping."
+      },
+      "ml": {
+        "name": "ദുഷ്ടാത്മവിദ്യയും ഉന്മൂലനവും",
+        "blurb": "വീഡിയോ തരം: Catholic exorcism cases, demonic signs, and the priests who confront the unknown — respectful yet gripping."
+      }
+    },
+    "131": {
+      "en": {
+        "name": "Midnight Whispers",
+        "blurb": "Strange phone calls, mysterious recordings, and EVPs (electronic voice phenomena) from paranormal investigations."
+      },
+      "bn": {
+        "name": "মধ্যরাতের ফিসফিসানি",
+        "blurb": "ভিডিও টাইপ: Strange phone calls, mysterious recordings, and EVPs (electronic voice phenomena) from paranormal investigations."
+      },
+      "hi": {
+        "name": "आधी रात की फुसफुसाहट",
+        "blurb": "वीडियो प्रकार: Strange phone calls, mysterious recordings, and EVPs (electronic voice phenomena) from paranormal investigations."
+      },
+      "ur": {
+        "name": "آدھی رات کی سرگوشیاں",
+        "blurb": "ویڈیو کی قسم: Strange phone calls, mysterious recordings, and EVPs (electronic voice phenomena) from paranormal investigations."
+      },
+      "ta": {
+        "name": "நள்ளிரவு முனகல்கள்",
+        "blurb": "வீடியோ வகை: Strange phone calls, mysterious recordings, and EVPs (electronic voice phenomena) from paranormal investigations."
+      },
+      "ml": {
+        "name": "അർദ്ധരാത്രി മന്ത്രങ്ങൾ",
+        "blurb": "വീഡിയോ തരം: Strange phone calls, mysterious recordings, and EVPs (electronic voice phenomena) from paranormal investigations."
+      }
+    },
+    "132": {
+      "en": {
+        "name": "Ghost Hunting Gear",
+        "blurb": "EMF meters, REM pods, spirit boxes — how ghost hunters work, and whether the evidence holds up."
+      },
+      "bn": {
+        "name": "ভূত শিকারের সরঞ্জাম",
+        "blurb": "ভিডিও টাইপ: EMF meters, REM pods, spirit boxes — how ghost hunters work, and whether the evidence holds up."
+      },
+      "hi": {
+        "name": "भूत शिकार उपकरण",
+        "blurb": "वीडियो प्रकार: EMF meters, REM pods, spirit boxes — how ghost hunters work, and whether the evidence holds up."
+      },
+      "ur": {
+        "name": "بھوت شکار کا سامان",
+        "blurb": "ویڈیو کی قسم: EMF meters, REM pods, spirit boxes — how ghost hunters work, and whether the evidence holds up."
+      },
+      "ta": {
+        "name": "பேய் வேட்டை கருவிகள்",
+        "blurb": "வீடியோ வகை: EMF meters, REM pods, spirit boxes — how ghost hunters work, and whether the evidence holds up."
+      },
+      "ml": {
+        "name": "ഭൂതവേട്ട ഉപകരണങ്ങൾ",
+        "blurb": "വീഡിയോ തരം: EMF meters, REM pods, spirit boxes — how ghost hunters work, and whether the evidence holds up."
+      }
+    },
+    "133": {
+      "en": {
+        "name": "Urban Exploration Horror",
+        "blurb": "Explorers sneaking into abandoned malls, hospitals, or tunnels — their terrifying finds and near-misses."
+      },
+      "bn": {
+        "name": "শহুরে অন্বেষণ হরর",
+        "blurb": "ভিডিও টাইপ: Explorers sneaking into abandoned malls, hospitals, or tunnels — their terrifying finds and near-misses."
+      },
+      "hi": {
+        "name": "शहरी अन्वेषण हॉरर",
+        "blurb": "वीडियो प्रकार: Explorers sneaking into abandoned malls, hospitals, or tunnels — their terrifying finds and near-misses."
+      },
+      "ur": {
+        "name": "شہری ایکسپلوریشن ہارر",
+        "blurb": "ویڈیو کی قسم: Explorers sneaking into abandoned malls, hospitals, or tunnels — their terrifying finds and near-misses."
+      },
+      "ta": {
+        "name": "நகர ஆய்வு திகில்",
+        "blurb": "வீடியோ வகை: Explorers sneaking into abandoned malls, hospitals, or tunnels — their terrifying finds and near-misses."
+      },
+      "ml": {
+        "name": "നഗര പര്യവേഷണ ഹൊറർ",
+        "blurb": "വീഡിയോ തരം: Explorers sneaking into abandoned malls, hospitals, or tunnels — their terrifying finds and near-misses."
+      }
+    },
+    "134": {
+      "en": {
+        "name": "Bizarre World Records",
+        "blurb": "Guinness entries — longest fingernails, fastest speed eating — presented with fun commentary."
+      },
+      "bn": {
+        "name": "অদ্ভুত বিশ্ব রেকর্ড",
+        "blurb": "ভিডিও টাইপ: Guinness entries — longest fingernails, fastest speed eating — presented with fun commentary."
+      },
+      "hi": {
+        "name": "विचित्र विश्व रिकॉर्ड",
+        "blurb": "वीडियो प्रकार: Guinness entries — longest fingernails, fastest speed eating — presented with fun commentary."
+      },
+      "ur": {
+        "name": "عجیب عالمی ریکارڈز",
+        "blurb": "ویڈیو کی قسم: Guinness entries — longest fingernails, fastest speed eating — presented with fun commentary."
+      },
+      "ta": {
+        "name": "விசித்திர உலக சாதனைகள்",
+        "blurb": "வீடியோ வகை: Guinness entries — longest fingernails, fastest speed eating — presented with fun commentary."
+      },
+      "ml": {
+        "name": "വിചിത്ര ലോക റെക്കോർഡുകൾ",
+        "blurb": "വീഡിയോ തരം: Guinness entries — longest fingernails, fastest speed eating — presented with fun commentary."
+      }
+    },
+    "135": {
+      "en": {
+        "name": "Unpopular Opinions",
+        "blurb": "Debates like \"pineapple on pizza\" or \"milk before cereal\" — with logical arguments and audience polls."
+      },
+      "bn": {
+        "name": "অজনপ্রিয় মতামত",
+        "blurb": "ভিডিও টাইপ: Debates like \"pineapple on pizza\" or \"milk before cereal\" — with logical arguments and audience polls."
+      },
+      "hi": {
+        "name": "अप्रिय मत",
+        "blurb": "वीडियो प्रकार: Debates like \"pineapple on pizza\" or \"milk before cereal\" — with logical arguments and audience polls."
+      },
+      "ur": {
+        "name": "غیر مقبول آراء",
+        "blurb": "ویڈیو کی قسم: Debates like \"pineapple on pizza\" or \"milk before cereal\" — with logical arguments and audience polls."
+      },
+      "ta": {
+        "name": "பிரபலமற்ற கருத்துகள்",
+        "blurb": "வீடியோ வகை: Debates like \"pineapple on pizza\" or \"milk before cereal\" — with logical arguments and audience polls."
+      },
+      "ml": {
+        "name": "ജനപ്രിയമല്ലാത്ത അഭിപ്രായങ്ങൾ",
+        "blurb": "വീഡിയോ തരം: Debates like \"pineapple on pizza\" or \"milk before cereal\" — with logical arguments and audience polls."
+      }
+    },
+    "136": {
+      "en": {
+        "name": "Useless Yet Cool Facts",
+        "blurb": "Did you know? A day on Venus is longer than its year. Octopuses have three hearts. Quick, bite-sized facts with visual puns."
+      },
+      "bn": {
+        "name": "অকেজো কিন্তু মজার তথ্য",
+        "blurb": "ভিডিও টাইপ: Did you know? A day on Venus is longer than its year. Octopuses have three hearts. Quick, bite-sized facts with visual puns."
+      },
+      "hi": {
+        "name": "बेकार पर मज़ेदार तथ्य",
+        "blurb": "वीडियो प्रकार: Did you know? A day on Venus is longer than its year. Octopuses have three hearts. Quick, bite-sized facts with visual puns."
+      },
+      "ur": {
+        "name": "بیکار مگر دلچسپ حقائق",
+        "blurb": "ویڈیو کی قسم: Did you know? A day on Venus is longer than its year. Octopuses have three hearts. Quick, bite-sized facts with visual puns."
+      },
+      "ta": {
+        "name": "பயனற்ற ஆனால் அற்புத உண்மைகள்",
+        "blurb": "வீடியோ வகை: Did you know? A day on Venus is longer than its year. Octopuses have three hearts. Quick, bite-sized facts with visual puns."
+      },
+      "ml": {
+        "name": "ഉപയോഗശൂന്യമെങ്കിലും രസകരമായ വസ്തുതകൾ",
+        "blurb": "വീഡിയോ തരം: Did you know? A day on Venus is longer than its year. Octopuses have three hearts. Quick, bite-sized facts with visual puns."
+      }
+    },
+    "137": {
+      "en": {
+        "name": "Daily Life Hacks",
+        "blurb": "1-minute life hacks — how to fold a fitted sheet, remove stains, or charge your phone faster."
+      },
+      "bn": {
+        "name": "দৈনন্দিন লাইফ হ্যাক",
+        "blurb": "ভিডিও টাইপ: 1-minute life hacks — how to fold a fitted sheet, remove stains, or charge your phone faster."
+      },
+      "hi": {
+        "name": "रोज़मर्रा लाइफ हैक्स",
+        "blurb": "वीडियो प्रकार: 1-minute life hacks — how to fold a fitted sheet, remove stains, or charge your phone faster."
+      },
+      "ur": {
+        "name": "روزمرہ لائف ہیکس",
+        "blurb": "ویڈیو کی قسم: 1-minute life hacks — how to fold a fitted sheet, remove stains, or charge your phone faster."
+      },
+      "ta": {
+        "name": "அன்றாட வாழ்க்கை ஹேக்குகள்",
+        "blurb": "வீடியோ வகை: 1-minute life hacks — how to fold a fitted sheet, remove stains, or charge your phone faster."
+      },
+      "ml": {
+        "name": "ദൈനംദിന ലൈഫ് ഹാക്കുകൾ",
+        "blurb": "വീഡിയോ തരം: 1-minute life hacks — how to fold a fitted sheet, remove stains, or charge your phone faster."
+      }
+    },
+    "138": {
+      "en": {
+        "name": "Stranger Than Fiction",
+        "blurb": "News snippets that sound made up but are 100% real — like a man who won the lottery four times."
+      },
+      "bn": {
+        "name": "কল্পনার চেয়ে অদ্ভুত",
+        "blurb": "ভিডিও টাইপ: News snippets that sound made up but are 100% real — like a man who won the lottery four times."
+      },
+      "hi": {
+        "name": "कल्पना से भी अजीब",
+        "blurb": "वीडियो प्रकार: News snippets that sound made up but are 100% real — like a man who won the lottery four times."
+      },
+      "ur": {
+        "name": "افسانے سے بھی عجیب",
+        "blurb": "ویڈیو کی قسم: News snippets that sound made up but are 100% real — like a man who won the lottery four times."
+      },
+      "ta": {
+        "name": "கற்பனையை விட விசித்திரம்",
+        "blurb": "வீடியோ வகை: News snippets that sound made up but are 100% real — like a man who won the lottery four times."
+      },
+      "ml": {
+        "name": "സാങ്കൽപ്പികതയെക്കാൾ വിചിത്രം",
+        "blurb": "വീഡിയോ തരം: News snippets that sound made up but are 100% real — like a man who won the lottery four times."
+      }
+    },
+    "139": {
+      "en": {
+        "name": "Future of Work",
+        "blurb": "Remote work trends, AI replacing jobs — and the new careers that are emerging in response."
+      },
+      "bn": {
+        "name": "কাজের ভবিষ্যৎ",
+        "blurb": "ভিডিও টাইপ: Remote work trends, AI replacing jobs — and the new careers that are emerging in response."
+      },
+      "hi": {
+        "name": "काम का भविष्य",
+        "blurb": "वीडियो प्रकार: Remote work trends, AI replacing jobs — and the new careers that are emerging in response."
+      },
+      "ur": {
+        "name": "کام کا مستقبل",
+        "blurb": "ویڈیو کی قسم: Remote work trends, AI replacing jobs — and the new careers that are emerging in response."
+      },
+      "ta": {
+        "name": "வேலையின் எதிர்காலம்",
+        "blurb": "வீடியோ வகை: Remote work trends, AI replacing jobs — and the new careers that are emerging in response."
+      },
+      "ml": {
+        "name": "ജോലിയുടെ ഭാവി",
+        "blurb": "വീഡിയോ തരം: Remote work trends, AI replacing jobs — and the new careers that are emerging in response."
+      }
+    },
+    "140": {
+      "en": {
+        "name": "Cryptocurrency Stories",
+        "blurb": "The story of Bitcoin — pizza purchases, trillion-dollar highs, and the people who got rich (or broke)."
+      },
+      "bn": {
+        "name": "ক্রিপ্টোকারেন্সির গল্প",
+        "blurb": "ভিডিও টাইপ: The story of Bitcoin — pizza purchases, trillion-dollar highs, and the people who got rich (or broke)."
+      },
+      "hi": {
+        "name": "क्रिप्टोकरेंसी कहानियाँ",
+        "blurb": "वीडियो प्रकार: The story of Bitcoin — pizza purchases, trillion-dollar highs, and the people who got rich (or broke)."
+      },
+      "ur": {
+        "name": "کریپٹو کرنسی کہانیاں",
+        "blurb": "ویڈیو کی قسم: The story of Bitcoin — pizza purchases, trillion-dollar highs, and the people who got rich (or broke)."
+      },
+      "ta": {
+        "name": "கிரிப்டோகரன்சி கதைகள்",
+        "blurb": "வீடியோ வகை: The story of Bitcoin — pizza purchases, trillion-dollar highs, and the people who got rich (or broke)."
+      },
+      "ml": {
+        "name": "ക്രിപ്‌റ്റോകറൻസി കഥകൾ",
+        "blurb": "വീഡിയോ തരം: The story of Bitcoin — pizza purchases, trillion-dollar highs, and the people who got rich (or broke)."
+      }
+    },
+    "141": {
+      "en": {
+        "name": "NFT Chronicles",
+        "blurb": "How digital art sold for millions — the hype, the backlash, and whether NFTs have a future."
+      },
+      "bn": {
+        "name": "এনএফটি ক্রনিকল",
+        "blurb": "ভিডিও টাইপ: How digital art sold for millions — the hype, the backlash, and whether NFTs have a future."
+      },
+      "hi": {
+        "name": "एनएफटी वृत्तांत",
+        "blurb": "वीडियो प्रकार: How digital art sold for millions — the hype, the backlash, and whether NFTs have a future."
+      },
+      "ur": {
+        "name": "این ایف ٹی داستان",
+        "blurb": "ویڈیو کی قسم: How digital art sold for millions — the hype, the backlash, and whether NFTs have a future."
+      },
+      "ta": {
+        "name": "NFT நாள்குறிப்பு",
+        "blurb": "வீடியோ வகை: How digital art sold for millions — the hype, the backlash, and whether NFTs have a future."
+      },
+      "ml": {
+        "name": "NFT ക്രോണിക്കിൾസ്",
+        "blurb": "വീഡിയോ തരം: How digital art sold for millions — the hype, the backlash, and whether NFTs have a future."
+      }
+    },
+    "142": {
+      "en": {
+        "name": "Dream Interpretation",
+        "blurb": "Common dreams — flying, falling, being chased — and what psychologists think they mean."
+      },
+      "bn": {
+        "name": "স্বপ্নের ব্যাখ্যা",
+        "blurb": "ভিডিও টাইপ: Common dreams — flying, falling, being chased — and what psychologists think they mean."
+      },
+      "hi": {
+        "name": "स्वप्न व्याख्या",
+        "blurb": "वीडियो प्रकार: Common dreams — flying, falling, being chased — and what psychologists think they mean."
+      },
+      "ur": {
+        "name": "خواب کی تعبیر",
+        "blurb": "ویڈیو کی قسم: Common dreams — flying, falling, being chased — and what psychologists think they mean."
+      },
+      "ta": {
+        "name": "கனவு விளக்கம்",
+        "blurb": "வீடியோ வகை: Common dreams — flying, falling, being chased — and what psychologists think they mean."
+      },
+      "ml": {
+        "name": "സ്വപ്ന വ്യാഖ്യാനം",
+        "blurb": "വീഡിയോ തരം: Common dreams — flying, falling, being chased — and what psychologists think they mean."
+      }
+    },
+    "143": {
+      "en": {
+        "name": "The Human Condition",
+        "blurb": "Philosophical musings on happiness, suffering, purpose — presented as soothing audio essays."
+      },
+      "bn": {
+        "name": "মানব অবস্থা",
+        "blurb": "ভিডিও টাইপ: Philosophical musings on happiness, suffering, purpose — presented as soothing audio essays."
+      },
+      "hi": {
+        "name": "मानव दशा",
+        "blurb": "वीडियो प्रकार: Philosophical musings on happiness, suffering, purpose — presented as soothing audio essays."
+      },
+      "ur": {
+        "name": "انسانی حالت",
+        "blurb": "ویڈیو کی قسم: Philosophical musings on happiness, suffering, purpose — presented as soothing audio essays."
+      },
+      "ta": {
+        "name": "மனித நிலை",
+        "blurb": "வீடியோ வகை: Philosophical musings on happiness, suffering, purpose — presented as soothing audio essays."
+      },
+      "ml": {
+        "name": "മാനവ അവസ്ഥ",
+        "blurb": "വീഡിയോ തരം: Philosophical musings on happiness, suffering, purpose — presented as soothing audio essays."
+      }
+    },
+    "144": {
+      "en": {
+        "name": "Everyday Philosophy",
+        "blurb": "Applying Stoicism, Zen, or Confucianism to modern problems like stress, anger, and procrastination."
+      },
+      "bn": {
+        "name": "দৈনন্দিন দর্শন",
+        "blurb": "ভিডিও টাইপ: Applying Stoicism, Zen, or Confucianism to modern problems like stress, anger, and procrastination."
+      },
+      "hi": {
+        "name": "रोज़मर्रा का दर्शन",
+        "blurb": "वीडियो प्रकार: Applying Stoicism, Zen, or Confucianism to modern problems like stress, anger, and procrastination."
+      },
+      "ur": {
+        "name": "روزمرہ فلسفہ",
+        "blurb": "ویڈیو کی قسم: Applying Stoicism, Zen, or Confucianism to modern problems like stress, anger, and procrastination."
+      },
+      "ta": {
+        "name": "அன்றாட தத்துவம்",
+        "blurb": "வீடியோ வகை: Applying Stoicism, Zen, or Confucianism to modern problems like stress, anger, and procrastination."
+      },
+      "ml": {
+        "name": "ദൈനംദിന തത്ത്വചിന്ത",
+        "blurb": "വീഡിയോ തരം: Applying Stoicism, Zen, or Confucianism to modern problems like stress, anger, and procrastination."
+      }
+    },
+    "145": {
+      "en": {
+        "name": "Learn in 5 Minutes",
+        "blurb": "Super-compact lessons — how a battery works, why the sky is blue — perfect for background listening."
+      },
+      "bn": {
+        "name": "৫ মিনিটে শিখুন",
+        "blurb": "ভিডিও টাইপ: Super-compact lessons — how a battery works, why the sky is blue — perfect for background listening."
+      },
+      "hi": {
+        "name": "5 मिनट में सीखें",
+        "blurb": "वीडियो प्रकार: Super-compact lessons — how a battery works, why the sky is blue — perfect for background listening."
+      },
+      "ur": {
+        "name": "5 منٹ میں سیکھیں",
+        "blurb": "ویڈیو کی قسم: Super-compact lessons — how a battery works, why the sky is blue — perfect for background listening."
+      },
+      "ta": {
+        "name": "5 நிமிடத்தில் கற்றுக்கொள்ளுங்கள்",
+        "blurb": "வீடியோ வகை: Super-compact lessons — how a battery works, why the sky is blue — perfect for background listening."
+      },
+      "ml": {
+        "name": "5 മിനിറ്റിൽ പഠിക്കുക",
+        "blurb": "വീഡിയോ തരം: Super-compact lessons — how a battery works, why the sky is blue — perfect for background listening."
+      }
+    },
+    "146": {
+      "en": {
+        "name": "World Through Numbers",
+        "blurb": "Shocking statistics — population growth, plastic waste, deforestation — visualized through audio-narrated data."
+      },
+      "bn": {
+        "name": "সংখ্যার চোখে বিশ্ব",
+        "blurb": "ভিডিও টাইপ: Shocking statistics — population growth, plastic waste, deforestation — visualized through audio-narrated data."
+      },
+      "hi": {
+        "name": "अंकों से देखा संसार",
+        "blurb": "वीडियो प्रकार: Shocking statistics — population growth, plastic waste, deforestation — visualized through audio-narrated data."
+      },
+      "ur": {
+        "name": "اعداد کے آئینے میں دنیا",
+        "blurb": "ویڈیو کی قسم: Shocking statistics — population growth, plastic waste, deforestation — visualized through audio-narrated data."
+      },
+      "ta": {
+        "name": "எண்கள் வழியாக உலகம்",
+        "blurb": "வீடியோ வகை: Shocking statistics — population growth, plastic waste, deforestation — visualized through audio-narrated data."
+      },
+      "ml": {
+        "name": "സംഖ്യകളിലൂടെ ലോകം",
+        "blurb": "വീഡിയോ തരം: Shocking statistics — population growth, plastic waste, deforestation — visualized through audio-narrated data."
+      }
+    },
+    "147": {
+      "en": {
+        "name": "Failed Predictions",
+        "blurb": "Experts who were spectacularly wrong — \"Horses will stay, cars are a fad\" — with humorous hindsight."
+      },
+      "bn": {
+        "name": "ব্যর্থ পূর্বাভাস",
+        "blurb": "ভিডিও টাইপ: Experts who were spectacularly wrong — \"Horses will stay, cars are a fad\" — with humorous hindsight."
+      },
+      "hi": {
+        "name": "असफल भविष्यवाणियाँ",
+        "blurb": "वीडियो प्रकार: Experts who were spectacularly wrong — \"Horses will stay, cars are a fad\" — with humorous hindsight."
+      },
+      "ur": {
+        "name": "ناکام پیش گوئیاں",
+        "blurb": "ویڈیو کی قسم: Experts who were spectacularly wrong — \"Horses will stay, cars are a fad\" — with humorous hindsight."
+      },
+      "ta": {
+        "name": "தோல்வியுற்ற முன்னறிவிப்புகள்",
+        "blurb": "வீடியோ வகை: Experts who were spectacularly wrong — \"Horses will stay, cars are a fad\" — with humorous hindsight."
+      },
+      "ml": {
+        "name": "പരാജയപ്പെട്ട പ്രവചനങ്ങൾ",
+        "blurb": "വീഡിയോ തരം: Experts who were spectacularly wrong — \"Horses will stay, cars are a fad\" — with humorous hindsight."
+      }
+    },
+    "148": {
+      "en": {
+        "name": "Stories of Forgiveness",
+        "blurb": "Reconciliation after betrayal or crime — victims meeting perpetrators — moving and redemption-focused."
+      },
+      "bn": {
+        "name": "ক্ষমার গল্প",
+        "blurb": "ভিডিও টাইপ: Reconciliation after betrayal or crime — victims meeting perpetrators — moving and redemption-focused."
+      },
+      "hi": {
+        "name": "क्षमा की कहानियाँ",
+        "blurb": "वीडियो प्रकार: Reconciliation after betrayal or crime — victims meeting perpetrators — moving and redemption-focused."
+      },
+      "ur": {
+        "name": "معافی کی کہانیاں",
+        "blurb": "ویڈیو کی قسم: Reconciliation after betrayal or crime — victims meeting perpetrators — moving and redemption-focused."
+      },
+      "ta": {
+        "name": "மன்னிப்புக் கதைகள்",
+        "blurb": "வீடியோ வகை: Reconciliation after betrayal or crime — victims meeting perpetrators — moving and redemption-focused."
+      },
+      "ml": {
+        "name": "ക്ഷമയുടെ കഥകൾ",
+        "blurb": "വീഡിയോ തരം: Reconciliation after betrayal or crime — victims meeting perpetrators — moving and redemption-focused."
+      }
+    },
+    "149": {
+      "en": {
+        "name": "Weekend DIY Projects",
+        "blurb": "Build a table, plant a garden, paint a wall — step-by-step narration with simple material lists."
+      },
+      "bn": {
+        "name": "উইকএন্ড ডিআইওয়াই প্রজেক্ট",
+        "blurb": "ভিডিও টাইপ: Build a table, plant a garden, paint a wall — step-by-step narration with simple material lists."
+      },
+      "hi": {
+        "name": "वीकेंड DIY प्रोजेक्ट",
+        "blurb": "वीडियो प्रकार: Build a table, plant a garden, paint a wall — step-by-step narration with simple material lists."
+      },
+      "ur": {
+        "name": "ویک اینڈ DIY پروجیکٹس",
+        "blurb": "ویڈیو کی قسم: Build a table, plant a garden, paint a wall — step-by-step narration with simple material lists."
+      },
+      "ta": {
+        "name": "வார இறுதி DIY திட்டங்கள்",
+        "blurb": "வீடியோ வகை: Build a table, plant a garden, paint a wall — step-by-step narration with simple material lists."
+      },
+      "ml": {
+        "name": "വാരാന്ത്യ DIY പ്രോജക്റ്റുകൾ",
+        "blurb": "വീഡിയോ തരം: Build a table, plant a garden, paint a wall — step-by-step narration with simple material lists."
+      }
+    },
+    "150": {
+      "en": {
+        "name": "Best of the Internet",
+        "blurb": "Viral moments, wholesome memes, and internet challenges — explained culturally with global commentary."
+      },
+      "bn": {
+        "name": "ইন্টারনেটের সেরা",
+        "blurb": "ভিডিও টাইপ: Viral moments, wholesome memes, and internet challenges — explained culturally with global commentary."
+      },
+      "hi": {
+        "name": "इंटरनेट का सर्वश्रेष्ठ",
+        "blurb": "वीडियो प्रकार: Viral moments, wholesome memes, and internet challenges — explained culturally with global commentary."
+      },
+      "ur": {
+        "name": "انٹرنیٹ کا بہترین",
+        "blurb": "ویڈیو کی قسم: Viral moments, wholesome memes, and internet challenges — explained culturally with global commentary."
+      },
+      "ta": {
+        "name": "இணையத்தின் சிறந்தவை",
+        "blurb": "வீடியோ வகை: Viral moments, wholesome memes, and internet challenges — explained culturally with global commentary."
+      },
+      "ml": {
+        "name": "ഇന്റർനെറ്റിലെ മികച്ചവ",
+        "blurb": "വീഡിയോ തരം: Viral moments, wholesome memes, and internet challenges — explained culturally with global commentary."
+      }
+    }
+  }
+}

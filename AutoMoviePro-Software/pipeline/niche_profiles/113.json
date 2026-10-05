@@ -1,0 +1,83 @@
+{
+  "niche_id": 113,
+  "name": "Best Free Storage",
+  "slug": "best-free-storage",
+  "style_family": "history",
+  "status": "VERIFIED",
+  "topic_seeds": [
+    "What new evidence reframes the story of Best Free Storage Google inside Best Free Storage",
+    "How Best Free Storage Google still shapes public curiosity about Best Free Storage",
+    "What new evidence reframes the story of Drive inside Best Free Storage",
+    "How Drive still shapes public curiosity about Best Free Storage",
+    "What new evidence reframes the story of Dropbox inside Best Free Storage",
+    "How Dropbox still shapes public curiosity about Best Free Storage"
+  ],
+  "seo_angles": [
+    "What new evidence reframes the story of Best Free Storage Google inside Best Free Storage",
+    "How Best Free Storage Google still shapes public curiosity about Best Free Storage",
+    "What new evidence reframes the story of Drive inside Best Free Storage",
+    "How Drive still shapes public curiosity about Best Free Storage"
+  ],
+  "forbidden_visuals": [
+    "talking-head lip-sync avatar",
+    "burned-in captions",
+    "watermark",
+    "modern meme text",
+    "modern smartphones",
+    "cars",
+    "LED screens",
+    "sneakers",
+    "contemporary skyline"
+  ],
+  "preferred_subjects": [
+    "Best Free Storage documentary subject",
+    "period-accurate environment",
+    "evidence object close-up"
+  ],
+  "lighting_default": "warm desert sun / torchlit interiors, high-contrast documentary grade",
+  "face_policy": "period extras OK if consistent; prefer environment/object hero when possible",
+  "dialogue_tone": "human documentary narration; specific nouns; 7–9s beats",
+  "audio_ambience": "subtle documentary bed; do not overpower voice",
+  "research_hints": [
+    "Prefer primary evidence and concrete entities for Best Free Storage",
+    "Avoid generic niche-label topics; require specific place/person/event/mechanism",
+    "7–9 second spoken beats with story continuity across scenes"
+  ],
+  "topic_prompt_overlay": "NICHE LOCK (Best Free Storage): only propose topics that fit this niche's video type. Video type: Google Drive, Dropbox, Mega — storage limits, encryption features, and backup best practices. Follow niche topic strategy: Check cloud news, new storage features, or viral backup stories. Generate a topic about a free storage solution with strong security.",
+  "video_prompt_overlay": "NICHE VISUAL LOCK (Best Free Storage / history): Generate a 7–9 second dialogue clip based on the topic `{topic}`. Each dialogue must be secure and practical. For each dialogue, generate: - **Audio Generation Prompt:** Voice — practical, with upload pings and clicks. - **Video Generation Prompt:** Detailed visual — a cloud folder screen. No character — screen. Lighting: bright, clear. Maintain same folder view. Forbidden: talking-head lip-sync avatar, burned-in captions, watermark, modern meme text, modern smartphones, cars, LED screens, sneakers. Preferred subjects: Best Free Storage documentary subject, period-accurate environment, evidence object close-up. Lighting: warm desert sun / torchlit interiors, high-contrast documentary grade. Face policy: period extras OK if consistent; prefer environment/object hero when possible. Dialogue tone: human documentary narration; specific nouns; 7–9s beats. Ambience: subtle documentary bed; do not overpower voice.",
+  "i18n": {
+    "en": {
+      "name": "Best Free Storage",
+      "blurb": "Google Drive, Dropbox, Mega — storage limits, encryption features, and backup best practices."
+    },
+    "bn": {
+      "name": "সেরা বিনামূল্যে স্টোরেজ",
+      "blurb": "ভিডিও টাইপ: Google Drive, Dropbox, Mega — storage limits, encryption features, and backup best practices."
+    },
+    "hi": {
+      "name": "सर्वश्रेष्ठ मुफ़्त स्टोरेज",
+      "blurb": "वीडियो प्रकार: Google Drive, Dropbox, Mega — storage limits, encryption features, and backup best practices."
+    },
+    "ur": {
+      "name": "بہترین مفت اسٹوریج",
+      "blurb": "ویڈیو کی قسم: Google Drive, Dropbox, Mega — storage limits, encryption features, and backup best practices."
+    },
+    "ta": {
+      "name": "சிறந்த இலவச சேமிப்பு",
+      "blurb": "வீடியோ வகை: Google Drive, Dropbox, Mega — storage limits, encryption features, and backup best practices."
+    },
+    "ml": {
+      "name": "മികച്ച സൗജന്യ സ്റ്റോറേജ്",
+      "blurb": "വീഡിയോ തരം: Google Drive, Dropbox, Mega — storage limits, encryption features, and backup best practices."
+    }
+  },
+  "source": "Nish.Md + deterministic research",
+  "research_notes": [
+    "Marathon researched at 2026-09-10T08:30:24Z",
+    "Video type length=93",
+    "Topic prompt length=133",
+    "Video prompt length=365",
+    "Seeds=6"
+  ],
+  "verified_at": "2026-09-10T08:30:25Z"
+}

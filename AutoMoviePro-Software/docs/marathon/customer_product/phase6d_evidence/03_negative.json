@@ -1,0 +1,24 @@
+{
+  "step": "NEGATIVE",
+  "required": "hospital interior / nurse beside hospital bed",
+  "actual_media": "data\\customer_generation_work\\c11_marathon_customer\\job2108\\_fallback_i2v\\fb_beat_00.png",
+  "observation_status": "FAIL",
+  "provider_verified": true,
+  "heuristic": false,
+  "must_not_be_pass": true,
+  "is_not_pass": true,
+  "accepted": true,
+  "live_status": "LIVE",
+  "observed": {
+    "observed_subjects": [
+      "woman with short silver-grey hair"
+    ],
+    "observed_entities": [
+      "futuristic suit collar"
+    ],
+    "observed_location": "futuristic/sci-fi interior",
+    "observed_relationships": [],
+    "provider": "PROVIDER_FRAME:gemini-3.6-flash",
+    "reason": ""
+  }
+}

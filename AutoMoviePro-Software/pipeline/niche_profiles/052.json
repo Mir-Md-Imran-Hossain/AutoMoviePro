@@ -1,0 +1,83 @@
+{
+  "niche_id": 52,
+  "name": "Conquering Phobias",
+  "slug": "conquering-phobias",
+  "style_family": "history",
+  "status": "VERIFIED",
+  "topic_seeds": [
+    "What new evidence reframes the story of Conquering Phobias How inside Conquering Phobias",
+    "How Conquering Phobias How still shapes public curiosity about Conquering Phobias",
+    "What new evidence reframes the story of Look inside Conquering Phobias",
+    "How Look still shapes public curiosity about Conquering Phobias",
+    "What new evidence reframes the story of Talks inside Conquering Phobias",
+    "How Talks still shapes public curiosity about Conquering Phobias"
+  ],
+  "seo_angles": [
+    "What new evidence reframes the story of Conquering Phobias How inside Conquering Phobias",
+    "How Conquering Phobias How still shapes public curiosity about Conquering Phobias",
+    "What new evidence reframes the story of Look inside Conquering Phobias",
+    "How Look still shapes public curiosity about Conquering Phobias"
+  ],
+  "forbidden_visuals": [
+    "talking-head lip-sync avatar",
+    "burned-in captions",
+    "watermark",
+    "modern meme text",
+    "modern smartphones",
+    "cars",
+    "LED screens",
+    "sneakers",
+    "contemporary skyline"
+  ],
+  "preferred_subjects": [
+    "Conquering Phobias documentary subject",
+    "period-accurate environment",
+    "evidence object close-up"
+  ],
+  "lighting_default": "warm desert sun / torchlit interiors, high-contrast documentary grade",
+  "face_policy": "period extras OK if consistent; prefer environment/object hero when possible",
+  "dialogue_tone": "human documentary narration; specific nouns; 7–9s beats",
+  "audio_ambience": "subtle documentary bed; do not overpower voice",
+  "research_hints": [
+    "Prefer primary evidence and concrete entities for Conquering Phobias",
+    "Avoid generic niche-label topics; require specific place/person/event/mechanism",
+    "7–9 second spoken beats with story continuity across scenes"
+  ],
+  "topic_prompt_overlay": "NICHE LOCK (Conquering Phobias): only propose topics that fit this niche's video type. Video type: How people overcame extreme fears — heights, spiders, public speaking — through therapy, exposure, and determination. Follow niche topic strategy: Look for success stories shared on therapy platforms, TED Talks, or new treatment breakthroughs. Generate a topic that inspires and provides practical hope.",
+  "video_prompt_overlay": "NICHE VISUAL LOCK (Conquering Phobias / history): Generate a 7–9 second dialogue clip based on the topic `{topic}`. Each dialogue must be courageous and uplifting. For each dialogue, generate: - **Audio Generation Prompt:** Voice — determined, slightly shaky then confident, with heartbeat fading out. - **Video Generation Prompt:** Detailed visual — a person standing before a feared object (e.g., bridge, spider) then calmly walking away. Character: protagonist (varied). Lighting: bright, hopeful. Maintain same character and gradual relaxation. Forbidden: talking-head lip-sync avatar, burned-in captions, watermark, modern meme text, modern smartphones, cars, LED screens, sneakers. Preferred subjects: Conquering Phobias documentary subject, period-accurate environment, evidence object close-up. Lighting: warm desert sun / torchlit interiors, high-contrast documentary grade. Face policy: period extras OK if consistent; prefer environment/object hero when possible. Dialogue tone: human documentary narration; specific nouns; 7–9s beats. Ambience: subtle documentary bed; do not overpower voice.",
+  "i18n": {
+    "en": {
+      "name": "Conquering Phobias",
+      "blurb": "How people overcame extreme fears — heights, spiders, public speaking — through therapy, exposure, and determination."
+    },
+    "bn": {
+      "name": "ফোবিয়া জয়",
+      "blurb": "ভিডিও টাইপ: How people overcame extreme fears — heights, spiders, public speaking — through therapy, exposure, and determination."
+    },
+    "hi": {
+      "name": "फोबिया पर विजय",
+      "blurb": "वीडियो प्रकार: How people overcame extreme fears — heights, spiders, public speaking — through therapy, exposure, and determination."
+    },
+    "ur": {
+      "name": "خوف پر قابو",
+      "blurb": "ویڈیو کی قسم: How people overcame extreme fears — heights, spiders, public speaking — through therapy, exposure, and determination."
+    },
+    "ta": {
+      "name": "பயம் வெல்லல்",
+      "blurb": "வீடியோ வகை: How people overcame extreme fears — heights, spiders, public speaking — through therapy, exposure, and determination."
+    },
+    "ml": {
+      "name": "ഭയങ്ങളെ കീഴടക്കൽ",
+      "blurb": "വീഡിയോ തരം: How people overcame extreme fears — heights, spiders, public speaking — through therapy, exposure, and determination."
+    }
+  },
+  "source": "Nish.Md + deterministic research",
+  "research_notes": [
+    "Marathon researched at 2026-09-10T08:30:14Z",
+    "Video type length=117",
+    "Topic prompt length=156",
+    "Video prompt length=498",
+    "Seeds=6"
+  ],
+  "verified_at": "2026-09-10T08:30:15Z"
+}

@@ -1,0 +1,83 @@
+{
+  "niche_id": 64,
+  "name": "Sunken Cities",
+  "slug": "sunken-cities",
+  "style_family": "history",
+  "status": "VERIFIED",
+  "topic_seeds": [
+    "What new evidence reframes the story of Sunken Cities Lost inside Sunken Cities",
+    "How Sunken Cities Lost still shapes public curiosity about Sunken Cities",
+    "What new evidence reframes the story of Dwarka inside Sunken Cities",
+    "How Dwarka still shapes public curiosity about Sunken Cities",
+    "What new evidence reframes the story of Port Royal inside Sunken Cities",
+    "How Port Royal still shapes public curiosity about Sunken Cities"
+  ],
+  "seo_angles": [
+    "What new evidence reframes the story of Sunken Cities Lost inside Sunken Cities",
+    "How Sunken Cities Lost still shapes public curiosity about Sunken Cities",
+    "What new evidence reframes the story of Dwarka inside Sunken Cities",
+    "How Dwarka still shapes public curiosity about Sunken Cities"
+  ],
+  "forbidden_visuals": [
+    "talking-head lip-sync avatar",
+    "burned-in captions",
+    "watermark",
+    "modern meme text",
+    "modern smartphones",
+    "cars",
+    "LED screens",
+    "sneakers",
+    "contemporary skyline"
+  ],
+  "preferred_subjects": [
+    "Sunken Cities documentary subject",
+    "period-accurate environment",
+    "evidence object close-up"
+  ],
+  "lighting_default": "warm desert sun / torchlit interiors, high-contrast documentary grade",
+  "face_policy": "period extras OK if consistent; prefer environment/object hero when possible",
+  "dialogue_tone": "human documentary narration; specific nouns; 7–9s beats",
+  "audio_ambience": "subtle documentary bed; do not overpower voice",
+  "research_hints": [
+    "Prefer primary evidence and concrete entities for Sunken Cities",
+    "Avoid generic niche-label topics; require specific place/person/event/mechanism",
+    "7–9 second spoken beats with story continuity across scenes"
+  ],
+  "topic_prompt_overlay": "NICHE LOCK (Sunken Cities): only propose topics that fit this niche's video type. Video type: Lost underwater worlds — Dwarka, Port Royal — how they sank and what archaeologists have recovered. Follow niche topic strategy: Track underwater archaeology discoveries, new diving expeditions, or museum exhibits. Generate a topic about a newly explored sunken ruin.",
+  "video_prompt_overlay": "NICHE VISUAL LOCK (Sunken Cities / history): Generate a 7–9 second dialogue clip based on the topic `{topic}`. Each dialogue must be fascinating and immersive. For each dialogue, generate: - **Audio Generation Prompt:** Voice — echoing, with bubbles and sonar pings. - **Video Generation Prompt:** Detailed visual — underwater ruins with marine life. No characters — camera floating through columns. Lighting: blue-green, dappled. Maintain same ruin structure and blue-green light. Forbidden: talking-head lip-sync avatar, burned-in captions, watermark, modern meme text, modern smartphones, cars, LED screens, sneakers. Preferred subjects: Sunken Cities documentary subject, period-accurate environment, evidence object close-up. Lighting: warm desert sun / torchlit interiors, high-contrast documentary grade. Face policy: period extras OK if consistent; prefer environment/object hero when possible. Dialogue tone: human documentary narration; specific nouns; 7–9s beats. Ambience: subtle documentary bed; do not overpower voice.",
+  "i18n": {
+    "en": {
+      "name": "Sunken Cities",
+      "blurb": "Lost underwater worlds — Dwarka, Port Royal — how they sank and what archaeologists have recovered."
+    },
+    "bn": {
+      "name": "ডুবে যাওয়া শহর",
+      "blurb": "ভিডিও টাইপ: Lost underwater worlds — Dwarka, Port Royal — how they sank and what archaeologists have recovered."
+    },
+    "hi": {
+      "name": "डूबे हुए शहर",
+      "blurb": "वीडियो प्रकार: Lost underwater worlds — Dwarka, Port Royal — how they sank and what archaeologists have recovered."
+    },
+    "ur": {
+      "name": "ڈوبے ہوئے شہر",
+      "blurb": "ویڈیو کی قسم: Lost underwater worlds — Dwarka, Port Royal — how they sank and what archaeologists have recovered."
+    },
+    "ta": {
+      "name": "மூழ்கிய நகரங்கள்",
+      "blurb": "வீடியோ வகை: Lost underwater worlds — Dwarka, Port Royal — how they sank and what archaeologists have recovered."
+    },
+    "ml": {
+      "name": "മുങ്ങിയ നഗരങ്ങൾ",
+      "blurb": "വീഡിയോ തരം: Lost underwater worlds — Dwarka, Port Royal — how they sank and what archaeologists have recovered."
+    }
+  },
+  "source": "Nish.Md + deterministic research",
+  "research_notes": [
+    "Marathon researched at 2026-09-10T08:30:16Z",
+    "Video type length=99",
+    "Topic prompt length=138",
+    "Video prompt length=436",
+    "Seeds=6"
+  ],
+  "verified_at": "2026-09-10T08:30:16Z"
+}

@@ -1,0 +1,120 @@
+{
+  "checkpoint": "C11-REAL-MARATHON-PASS-WITH-LIMITATION",
+  "run_id": "mr_05d3459f7f87438b",
+  "session_id": "ms_9d63683a25c94529",
+  "niche": "space science",
+  "topic": "How James Webb Space Telescope images reveal early galaxies for space science",
+  "long": {
+    "status": "COMPLETED",
+    "classification": "REAL",
+    "job_id": 2272,
+    "local_path": "E:\\All Updaye Project\\AutoMovie_Pro_SAAS_Final_Update\\AutoMoviePro-Software\\data\\customer_generation_work\\c11_marathon_customer\\job2272\\final_long.mp4",
+    "video_meta": {
+      "exists": true,
+      "path": "E:\\All Updaye Project\\AutoMovie_Pro_SAAS_Final_Update\\AutoMoviePro-Software\\data\\customer_generation_work\\c11_marathon_customer\\job2272\\final_long.mp4",
+      "file_size": 805193,
+      "duration": 8.847007,
+      "probe_error": "JSONDecodeError",
+      "audio_status": "UNKNOWN"
+    },
+    "approval_status": "APPROVED",
+    "publish_status": "FAIL",
+    "publish": {
+      "ok": false,
+      "status": null,
+      "error": "publish_validation_failed",
+      "error_code": "VALIDATION_FAILURE",
+      "publish_state": null
+    },
+    "monitor_ok": true,
+    "monitor_state": "PREVIEW_READY",
+    "generation_latency_ms": 197453.00000000134,
+    "total_case_latency_ms": 197858.99999999674,
+    "prep": {
+      "research_class": "REAL",
+      "script_class": "REAL"
+    }
+  },
+  "short": {
+    "status": "COMPLETED",
+    "classification": "REAL",
+    "job_id": 2273,
+    "local_path": "E:\\All Updaye Project\\AutoMovie_Pro_SAAS_Final_Update\\AutoMoviePro-Software\\data\\customer_generation_work\\c11_marathon_customer\\job2273\\final_short.mp4",
+    "video_meta": {
+      "exists": true,
+      "path": "E:\\All Updaye Project\\AutoMovie_Pro_SAAS_Final_Update\\AutoMoviePro-Software\\data\\customer_generation_work\\c11_marathon_customer\\job2273\\final_short.mp4",
+      "file_size": 1295049,
+      "duration": 7.2,
+      "probe_error": "JSONDecodeError",
+      "audio_status": "UNKNOWN"
+    },
+    "approval_status": "APPROVED",
+    "publish_status": "FAIL",
+    "publish": {
+      "ok": false,
+      "status": null,
+      "error": "publish_validation_failed",
+      "error_code": "VALIDATION_FAILURE",
+      "publish_state": null
+    },
+    "monitor_ok": true,
+    "monitor_state": "PREVIEW_READY",
+    "generation_latency_ms": 131640.99999999598,
+    "total_case_latency_ms": 132093.99999999732,
+    "prep": {
+      "research_class": "REAL",
+      "script_class": "REAL"
+    }
+  },
+  "metrics": {
+    "provider_calls": 7,
+    "paid_provider_calls": 7,
+    "api_calls": 7,
+    "failures": 0,
+    "retries": 0,
+    "repairs": 0,
+    "unknown": 0
+  },
+  "classification_notes": [
+    "TOPIC_INTELLIGENCE research attempted REAL (Google keys present)",
+    "BUILD04G placeholder topic replaced with niche-grounded MANUAL topic",
+    "C11-LONG: publish used mock provider path (labeled MOCK) — no CAPTCHA/browser bypass",
+    "C11-SHORT: publish used mock provider path (labeled MOCK) — no CAPTCHA/browser bypass"
+  ],
+  "incidents": 0,
+  "interventions": 0,
+  "injections": 2,
+  "total_runtime_sec": 356.0630000000019,
+  "code_changes": false,
+  "architectural_blocker": false,
+  "quality_certification": {
+    "A_Technical_Integrity": "PASS",
+    "B_Script_Quality": "UNKNOWN",
+    "C_Story_Narrative_Quality": "UNKNOWN",
+    "D_Dialogue_Quality": "UNKNOWN",
+    "E_Visual_Quality": "UNKNOWN",
+    "F_Character_Continuity": "UNKNOWN",
+    "G_Location_Continuity": "UNKNOWN",
+    "H_Object_Entity_Continuity": "UNKNOWN",
+    "I_Relationship_Grounding": "UNKNOWN",
+    "J_Dialogue_Visual_Alignment": "UNKNOWN",
+    "K_Adaptive_Visual_Pacing": "UNKNOWN",
+    "L_Voice_Continuity": "UNKNOWN",
+    "M_Emotion_Alignment": "UNKNOWN",
+    "N_Subtitle_Alignment": "UNKNOWN",
+    "O_Localization_Integrity": "NOT_TESTED",
+    "P_Artifact_Verification": "UNKNOWN",
+    "Q_Rendering_Integrity": "PASS",
+    "R_Publishability": "UNKNOWN",
+    "S_Customer_Isolation": "PASS",
+    "T_Idempotency": "NOT_TESTED",
+    "U_Recovery": "NOT_TESTED",
+    "V_Performance": "UNKNOWN",
+    "W_Evidence_Completeness": "PASS"
+  },
+  "authority_audit": {
+    "second_engines_created": false,
+    "c10_observation_only": true
+  },
+  "final_verdict": "PASS-WITH-LIMITATION"
+}

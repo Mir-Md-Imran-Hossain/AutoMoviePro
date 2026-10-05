@@ -1,0 +1,277 @@
+{
+  "repairs_applied": [
+    "deterministic_industrial_repair_v1"
+  ],
+  "plan": {
+    "topic": "How radio telescopes catch fast radio bursts from distant magnetars",
+    "title": "How radio telescopes catch fast radio bursts from distant magnetars: Crewed Lunar Flight Explained",
+    "description": "How radio telescopes catch fast radio bursts from distant magnetars: Crewed Lunar Flight Explained\n\n#SpaceScience #Artemis #Documentary",
+    "tags": [
+      "How radio telescopes catch fast radio bursts from distant magnetars",
+      "space science",
+      "space science",
+      "artemis",
+      "2026"
+    ],
+    "scenes": [
+      {
+        "element": "intro",
+        "narration": "Most people think How radio telescopes catch fast radio bursts from distant magnetars is just pretty pictures — the instruments prove otherwise. Watch this.",
+        "visual_query": "How radio telescopes catch fast radio bursts from distant magnetars spacecraft documentary hero",
+        "visual_prompt": "cinematic documentary view of spacecraft hardware for How radio telescopes catch fast radio bursts from distant magnetars, deep space backdrop",
+        "quality_notes": "space science documentary beat — real mission hardware",
+        "dialogue_id": "dlg-01",
+        "retention_role": "pattern_interrupt",
+        "estimated_duration_sec": 9.0,
+        "retention": {
+          "role": "pattern_interrupt",
+          "window_start_sec": 0,
+          "window_end_sec": 2,
+          "job": "Pattern Interrupt",
+          "open_loop": null,
+          "payoff_for": null
+        }
+      },
+      {
+        "element": "context",
+        "narration": "From that instruments, why does that matter right now? artemis II sends a crewed Orion around the Moon on a free-return path, proving.",
+        "visual_query": "Orion capsule SLS stack Artemis II",
+        "visual_prompt": "Orion capsule atop SLS, documentary lighting, no fictional UI",
+        "quality_notes": "space science documentary beat — real mission hardware",
+        "dialogue_id": "dlg-02",
+        "retention_role": "question",
+        "open_loop": "What happens after this How?",
+        "estimated_duration_sec": 9.0,
+        "retention": {
+          "role": "question",
+          "window_start_sec": 2,
+          "window_end_sec": 5,
+          "job": "Curiosity Gap",
+          "open_loop": "What happens after this How?",
+          "payoff_for": null
+        }
+      },
+      {
+        "element": "heat_shield",
+        "narration": "Watch what this changes next — orion's heat shield must survive lunar-return plasma; engineers treat every tile and seam as a life-critical surface.",
+        "visual_query": "Orion heat shield ablative tiles close up",
+        "visual_prompt": "close documentary shot of Orion heat shield tiles and seams",
+        "quality_notes": "space science documentary beat — real mission hardware",
+        "dialogue_id": "dlg-03",
+        "retention_role": "evidence",
+        "open_loop": "What happens after this How?",
+        "estimated_duration_sec": 9.0,
+        "retention": {
+          "role": "evidence",
+          "window_start_sec": 5,
+          "window_end_sec": 10,
+          "job": "First Payoff",
+          "open_loop": "What happens after this How?",
+          "payoff_for": null
+        }
+      },
+      {
+        "element": "boosters",
+        "narration": "What most viewers overlook next is this: twin solid rocket boosters and core engines lift the crew clear of Earth before the translunar injection burn.",
+        "visual_query": "SLS solid rocket booster launch documentary",
+        "visual_prompt": "SLS boosters igniting at liftoff, documentary telephoto clarity",
+        "quality_notes": "space science documentary beat — real mission hardware",
+        "dialogue_id": "dlg-04",
+        "retention_role": "question",
+        "open_loop": "What happens after this How?",
+        "estimated_duration_sec": 9.0,
+        "retention": {
+          "role": "question",
+          "window_start_sec": null,
+          "window_end_sec": null,
+          "job": "question",
+          "open_loop": "What happens after this How?",
+          "payoff_for": null
+        }
+      },
+      {
+        "element": "trajectory",
+        "narration": "But here's the detail most explainers skip — the free-return trajectory loops around the Moon and brings Orion home even if the main.",
+        "visual_query": "Moon free-return trajectory diagram space documentary",
+        "visual_prompt": "clear lunar free-return path visualization, calm educational motion",
+        "quality_notes": "space science documentary beat — real mission hardware",
+        "dialogue_id": "dlg-05",
+        "retention_role": "evidence",
+        "open_loop": "What happens after this How?",
+        "estimated_duration_sec": 9.0,
+        "retention": {
+          "role": "evidence",
+          "window_start_sec": null,
+          "window_end_sec": null,
+          "job": "evidence",
+          "open_loop": "What happens after this How?",
+          "payoff_for": null
+        }
+      },
+      {
+        "element": "heat_shield",
+        "narration": "Why does that matter right now? orion's heat shield is sized for lunar-return energy, not low-Earth shortcuts. Point 1: add only new information.",
+        "visual_query": "How radio telescopes catch fast radio bursts from distant magnetars heat_shield space documentary",
+        "visual_prompt": "documentary visualization for heat_shield in How radio telescopes catch fast radio bursts from distant magnetars, continuous calm motion",
+        "quality_notes": "space science budget filler — unique claim",
+        "dialogue_id": "dlg-06",
+        "retention_role": "question",
+        "open_loop": "What happens after this How?",
+        "estimated_duration_sec": 9.0,
+        "retention": {
+          "role": "question",
+          "window_start_sec": null,
+          "window_end_sec": null,
+          "job": "question",
+          "open_loop": "What happens after this How?",
+          "payoff_for": null
+        }
+      },
+      {
+        "element": "boosters",
+        "narration": "Watch what this changes next — solid boosters give the crew the first hard push before the core stage finishes the job. Point.",
+        "visual_query": "How radio telescopes catch fast radio bursts from distant magnetars boosters space documentary",
+        "visual_prompt": "documentary visualization for boosters in How radio telescopes catch fast radio bursts from distant magnetars, continuous calm motion",
+        "quality_notes": "space science budget filler — unique claim",
+        "dialogue_id": "dlg-07",
+        "retention_role": "evidence",
+        "open_loop": "What happens after this How?",
+        "estimated_duration_sec": 9.0,
+        "retention": {
+          "role": "evidence",
+          "window_start_sec": null,
+          "window_end_sec": null,
+          "job": "evidence",
+          "open_loop": "What happens after this How?",
+          "payoff_for": null
+        }
+      },
+      {
+        "element": "outro",
+        "narration": "If How radio telescopes catch fast radio bursts from distant magnetars changed how you see crewed lunar flight, stay with Mock Channel for.",
+        "visual_query": "How radio telescopes catch fast radio bursts from distant magnetars final wide space documentary endcard",
+        "visual_prompt": "wide endcard over cislunar space with soft spotlight hold",
+        "quality_notes": "space science documentary beat — real mission hardware",
+        "dialogue_id": "dlg-08",
+        "retention_role": "ending",
+        "payoff_for": "main_open_loop",
+        "estimated_duration_sec": 9.0,
+        "retention": {
+          "role": "ending",
+          "window_start_sec": null,
+          "window_end_sec": null,
+          "job": "close_main_loop",
+          "open_loop": null,
+          "payoff_for": "main_open_loop"
+        }
+      }
+    ],
+    "director_provider": "mock",
+    "style_family": "science",
+    "max_seconds": 60,
+    "video_type": "short",
+    "director_model": "script-mock-v1",
+    "hook": "Most people think How radio telescopes catch fast radio bursts from distant magnetars is just pretty pictures — the instruments prove otherwise. Watch this.",
+    "metadata": {
+      "retention_cadence_enforced": true,
+      "retention_cadence_repairs": [
+        {
+          "index": 1,
+          "action": "mid_rehook",
+          "prior": "Artemis II sends a crewed Orion around the Moon on a free-return path, proving the stack before landing attempts."
+        },
+        {
+          "index": 2,
+          "action": "mid_rehook",
+          "prior": "Orion's heat shield must survive lunar-return plasma; engineers treat every tile and seam as a life-critical surface."
+        },
+        {
+          "index": 3,
+          "action": "mid_rehook",
+          "prior": "Twin solid rocket boosters and core engines lift the crew clear of Earth before the translunar injection burn."
+        },
+        {
+          "index": 4,
+          "action": "mid_rehook",
+          "prior": "The free-return trajectory loops around the Moon and brings Orion home even if the main engine stays quiet."
+        },
+        {
+          "index": 5,
+          "action": "mid_rehook",
+          "prior": "Orion's heat shield is sized for lunar-return energy, not low-Earth shortcuts. Point 1: add only new information."
+        },
+        {
+          "index": 6,
+          "action": "mid_rehook",
+          "prior": "Solid boosters give the crew the first hard push before the core stage finishes the job. Point 2: add only new informati"
+        },
+        {
+          "index": 7,
+          "action": "ending_close",
+          "prior": "If How radio telescopes catch fast radio bursts from distant magnetars changed how you see crewed lunar flight, stay wit"
+        }
+      ],
+      "dialogue_window_repairs": [
+        {
+          "i": 1,
+          "action": "bridge",
+          "bridge": "instruments"
+        },
+        {
+          "i": 1,
+          "action": "trim",
+          "est_sec": 9.58
+        },
+        {
+          "i": 4,
+          "action": "trim",
+          "est_sec": 9.58
+        },
+        {
+          "i": 6,
+          "action": "trim",
+          "est_sec": 9.58
+        },
+        {
+          "i": 7,
+          "action": "trim",
+          "est_sec": 9.58
+        }
+      ],
+      "dialogue_window_enforced": true,
+      "retention_blueprint": {
+        "format": "short",
+        "windows": [
+          {
+            "id": "pattern_interrupt",
+            "start_sec": 0,
+            "end_sec": 2,
+            "job": "Pattern Interrupt"
+          },
+          {
+            "id": "curiosity_gap",
+            "start_sec": 2,
+            "end_sec": 5,
+            "job": "Curiosity Gap"
+          },
+          {
+            "id": "first_payoff",
+            "start_sec": 5,
+            "end_sec": 10,
+            "job": "First Payoff"
+          }
+        ],
+        "loop": [
+          "question",
+          "evidence",
+          "payoff",
+          "new_question"
+        ],
+        "min_open_loops": 2,
+        "min_loop_close_ratio": 0.7,
+        "forbid_flat_streak": 2,
+        "require_ending_close": true
+      }
+    }
+  }
+}

@@ -1,0 +1,66 @@
+{
+  "research": {
+    "topic_id": "topic-85ee06c5abbb0cdf",
+    "query": "how jwst mid-infrared spectra fingerprint exoplanet atmospheres 56813452",
+    "evidence": [
+      {
+        "id": "N01",
+        "claim": "Research query: how jwst mid-infrared spectra fingerprint exoplanet atmospheres 56813452\nLanguage: en\nRegion:",
+        "evidence": "research_notes",
+        "source": "research_notes",
+        "confidence": 0.4,
+        "freshness": "UNVERIFIED"
+      },
+      {
+        "id": "L02",
+        "claim": "Additional context on How JWST mid-infrared spectra fingerprint exoplanet atmospheres (56813452) from configured research scope.",
+        "evidence": "secondary",
+        "source": "live_research",
+        "confidence": 0.6,
+        "freshness": "recent"
+      }
+    ],
+    "status": "completed",
+    "provider": "live_local",
+    "provider_kind": "configured_local",
+    "provider_capability": "LOCAL_FACTPACK",
+    "provider_mode": "LIVE_LOCAL",
+    "external_api": false,
+    "is_external_live": false,
+    "note": "LOCAL_FACTPACK must not be claimed as EXTERNAL_LIVE_RESEARCH",
+    "timestamp": 1789055502.7824256,
+    "queried_at": 1789055502.7824256,
+    "canonical_topic": "How JWST mid-infrared spectra fingerprint exoplanet atmospheres (56813452)",
+    "sources": [
+      "live_research",
+      "research_notes"
+    ],
+    "fingerprint": "c6789c757e53625936dcc4587a8c6279aa77a4cc542375d7b7176aef2f67bf6a"
+  },
+  "fact_pack": {
+    "topic": "How JWST mid-infrared spectra fingerprint exoplanet atmospheres (56813452)",
+    "version": "v0",
+    "claims": [
+      {
+        "id": "N01",
+        "claim": "Research query: how jwst mid-infrared spectra fingerprint exoplanet atmospheres 56813452\nLanguage: en\nRegion:",
+        "evidence": "research_notes",
+        "source": "research_notes",
+        "confidence": 0.4,
+        "freshness": "UNVERIFIED"
+      },
+      {
+        "id": "L02",
+        "claim": "Additional context on How JWST mid-infrared spectra fingerprint exoplanet atmospheres (56813452) from configured research scope.",
+        "evidence": "secondary",
+        "source": "live_research",
+        "confidence": 0.6,
+        "freshness": "recent"
+      }
+    ],
+    "unknowns": []
+  },
+  "research_fingerprint": "c6789c757e53625936dcc4587a8c6279aa77a4cc542375d7b7176aef2f67bf6a",
+  "provider_mode": "LIVE",
+  "persisted_at": 1789055502.7824256
+}

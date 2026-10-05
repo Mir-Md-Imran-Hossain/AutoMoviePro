@@ -1,0 +1,79 @@
+{
+  "niche_id": 123,
+  "name": "Natural Wonders Countdown",
+  "slug": "natural-wonders-countdown",
+  "style_family": "motivation",
+  "status": "VERIFIED",
+  "topic_seeds": [
+    "What new evidence reframes the story of Natural Wonders Countdown Aurora inside Natural Wonders Countdown",
+    "How Natural Wonders Countdown Aurora still shapes public curiosity about Natural Wonders Countdown",
+    "What new evidence reframes the story of Borealis inside Natural Wonders Countdown",
+    "How Borealis still shapes public curiosity about Natural Wonders Countdown",
+    "What new evidence reframes the story of Grand Canyon inside Natural Wonders Countdown",
+    "How Grand Canyon still shapes public curiosity about Natural Wonders Countdown"
+  ],
+  "seo_angles": [
+    "What new evidence reframes the story of Natural Wonders Countdown Aurora inside Natural Wonders Countdown",
+    "How Natural Wonders Countdown Aurora still shapes public curiosity about Natural Wonders Countdown",
+    "What new evidence reframes the story of Borealis inside Natural Wonders Countdown",
+    "How Borealis still shapes public curiosity about Natural Wonders Countdown"
+  ],
+  "forbidden_visuals": [
+    "talking-head lip-sync avatar",
+    "burned-in captions",
+    "watermark",
+    "modern meme text",
+    "off-niche stock office B-roll"
+  ],
+  "preferred_subjects": [
+    "Natural Wonders Countdown documentary subject",
+    "period-accurate environment",
+    "evidence object close-up"
+  ],
+  "lighting_default": "natural directional key, documentary clarity",
+  "face_policy": "no talking-head lip-sync avatar; cinematic B-roll preferred",
+  "dialogue_tone": "human documentary narration; specific nouns; 7–9s beats",
+  "audio_ambience": "subtle documentary bed; do not overpower voice",
+  "research_hints": [
+    "Prefer primary evidence and concrete entities for Natural Wonders Countdown",
+    "Avoid generic niche-label topics; require specific place/person/event/mechanism",
+    "7–9 second spoken beats with story continuity across scenes"
+  ],
+  "topic_prompt_overlay": "NICHE LOCK (Natural Wonders Countdown): only propose topics that fit this niche's video type. Video type: Aurora Borealis, Grand Canyon, Victoria Falls — facts, myths, and the best times to visit. Follow niche topic strategy: Check travel news, UNESCO updates, or viral wonder videos. Generate a topic about a less-known natural wonder.",
+  "video_prompt_overlay": "NICHE VISUAL LOCK (Natural Wonders Countdown / motivation): Generate a 7–9 second dialogue clip based on the topic `{topic}`. Each dialogue must be awe-inspiring and informative. For each dialogue, generate: - **Audio Generation Prompt:** Voice — amazed, with nature ambience. - **Video Generation Prompt:** Detailed visual — the natural wonder itself. No character — landscape. Lighting: golden or dramatic. Maintain same wonder. Forbidden: talking-head lip-sync avatar, burned-in captions, watermark, modern meme text, off-niche stock office B-roll. Preferred subjects: Natural Wonders Countdown documentary subject, period-accurate environment, evidence object close-up. Lighting: natural directional key, documentary clarity. Face policy: no talking-head lip-sync avatar; cinematic B-roll preferred. Dialogue tone: human documentary narration; specific nouns; 7–9s beats. Ambience: subtle documentary bed; do not overpower voice.",
+  "i18n": {
+    "en": {
+      "name": "Natural Wonders Countdown",
+      "blurb": "Aurora Borealis, Grand Canyon, Victoria Falls — facts, myths, and the best times to visit."
+    },
+    "bn": {
+      "name": "প্রাকৃতিক বিস্ময় কাউন্টডাউন",
+      "blurb": "ভিডিও টাইপ: Aurora Borealis, Grand Canyon, Victoria Falls — facts, myths, and the best times to visit."
+    },
+    "hi": {
+      "name": "प्राकृतिक आश्चर्य काउंटडाउन",
+      "blurb": "वीडियो प्रकार: Aurora Borealis, Grand Canyon, Victoria Falls — facts, myths, and the best times to visit."
+    },
+    "ur": {
+      "name": "قدرتی عجائب کاؤنٹ ڈاؤن",
+      "blurb": "ویڈیو کی قسم: Aurora Borealis, Grand Canyon, Victoria Falls — facts, myths, and the best times to visit."
+    },
+    "ta": {
+      "name": "இயற்கை அதிசய எண்ணிக்கை",
+      "blurb": "வீடியோ வகை: Aurora Borealis, Grand Canyon, Victoria Falls — facts, myths, and the best times to visit."
+    },
+    "ml": {
+      "name": "പ്രകൃതി അത്ഭുത കൗണ്ട്ഡൗൺ",
+      "blurb": "വീഡിയോ തരം: Aurora Borealis, Grand Canyon, Victoria Falls — facts, myths, and the best times to visit."
+    }
+  },
+  "source": "Nish.Md + deterministic research",
+  "research_notes": [
+    "Marathon researched at 2026-09-10T08:30:26Z",
+    "Video type length=90",
+    "Topic prompt length=110",
+    "Video prompt length=370",
+    "Seeds=6"
+  ],
+  "verified_at": "2026-09-10T08:30:26Z"
+}

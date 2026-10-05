@@ -1,0 +1,79 @@
+{
+  "niche_id": 147,
+  "name": "Failed Predictions",
+  "slug": "failed-predictions",
+  "style_family": "news",
+  "status": "VERIFIED",
+  "topic_seeds": [
+    "What new evidence reframes the story of Failed Predictions Experts inside Failed Predictions",
+    "How Failed Predictions Experts still shapes public curiosity about Failed Predictions",
+    "What new evidence reframes the story of Horses inside Failed Predictions",
+    "How Horses still shapes public curiosity about Failed Predictions",
+    "What new evidence reframes the story of Scan inside Failed Predictions",
+    "How Scan still shapes public curiosity about Failed Predictions"
+  ],
+  "seo_angles": [
+    "What new evidence reframes the story of Failed Predictions Experts inside Failed Predictions",
+    "How Failed Predictions Experts still shapes public curiosity about Failed Predictions",
+    "What new evidence reframes the story of Horses inside Failed Predictions",
+    "How Horses still shapes public curiosity about Failed Predictions"
+  ],
+  "forbidden_visuals": [
+    "talking-head lip-sync avatar",
+    "burned-in captions",
+    "watermark",
+    "modern meme text",
+    "off-niche stock office B-roll"
+  ],
+  "preferred_subjects": [
+    "Failed Predictions documentary subject",
+    "period-accurate environment",
+    "evidence object close-up"
+  ],
+  "lighting_default": "natural directional key, documentary clarity",
+  "face_policy": "no talking-head lip-sync avatar; cinematic B-roll preferred",
+  "dialogue_tone": "human documentary narration; specific nouns; 7–9s beats",
+  "audio_ambience": "subtle documentary bed; do not overpower voice",
+  "research_hints": [
+    "Prefer primary evidence and concrete entities for Failed Predictions",
+    "Avoid generic niche-label topics; require specific place/person/event/mechanism",
+    "7–9 second spoken beats with story continuity across scenes"
+  ],
+  "topic_prompt_overlay": "NICHE LOCK (Failed Predictions): only propose topics that fit this niche's video type. Video type: Experts who were spectacularly wrong — \"Horses will stay, cars are a fad\" — with humorous hindsight. Follow niche topic strategy: Scan historical archives, viral prediction lists, or tech history blogs. Generate a topic about a prediction that failed miserably.",
+  "video_prompt_overlay": "NICHE VISUAL LOCK (Failed Predictions / news): Generate a 7–9 second dialogue clip based on the topic `{topic}`. Each dialogue must be ironic and funny. For each dialogue, generate: - **Audio Generation Prompt:** Voice — amused, with laugh track. - **Video Generation Prompt:** Detailed visual — a newspaper headline or old video. No character — static. Lighting: natural. Maintain same paper. Forbidden: talking-head lip-sync avatar, burned-in captions, watermark, modern meme text, off-niche stock office B-roll. Preferred subjects: Failed Predictions documentary subject, period-accurate environment, evidence object close-up. Lighting: natural directional key, documentary clarity. Face policy: no talking-head lip-sync avatar; cinematic B-roll preferred. Dialogue tone: human documentary narration; specific nouns; 7–9s beats. Ambience: subtle documentary bed; do not overpower voice.",
+  "i18n": {
+    "en": {
+      "name": "Failed Predictions",
+      "blurb": "Experts who were spectacularly wrong — \"Horses will stay, cars are a fad\" — with humorous hindsight."
+    },
+    "bn": {
+      "name": "ব্যর্থ পূর্বাভাস",
+      "blurb": "ভিডিও টাইপ: Experts who were spectacularly wrong — \"Horses will stay, cars are a fad\" — with humorous hindsight."
+    },
+    "hi": {
+      "name": "असफल भविष्यवाणियाँ",
+      "blurb": "वीडियो प्रकार: Experts who were spectacularly wrong — \"Horses will stay, cars are a fad\" — with humorous hindsight."
+    },
+    "ur": {
+      "name": "ناکام پیش گوئیاں",
+      "blurb": "ویڈیو کی قسم: Experts who were spectacularly wrong — \"Horses will stay, cars are a fad\" — with humorous hindsight."
+    },
+    "ta": {
+      "name": "தோல்வியுற்ற முன்னறிவிப்புகள்",
+      "blurb": "வீடியோ வகை: Experts who were spectacularly wrong — \"Horses will stay, cars are a fad\" — with humorous hindsight."
+    },
+    "ml": {
+      "name": "പരാജയപ്പെട്ട പ്രവചനങ്ങൾ",
+      "blurb": "വീഡിയോ തരം: Experts who were spectacularly wrong — \"Horses will stay, cars are a fad\" — with humorous hindsight."
+    }
+  },
+  "source": "Nish.Md + deterministic research",
+  "research_notes": [
+    "Marathon researched at 2026-09-10T08:30:32Z",
+    "Video type length=100",
+    "Topic prompt length=131",
+    "Video prompt length=346",
+    "Seeds=6"
+  ],
+  "verified_at": "2026-09-10T08:30:32Z"
+}

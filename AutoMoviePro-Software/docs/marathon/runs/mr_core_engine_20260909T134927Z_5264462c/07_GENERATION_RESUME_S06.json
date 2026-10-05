@@ -1,0 +1,6 @@
+{
+  "ok": false,
+  "latency_sec": 1280.7,
+  "error": "duration_reconciliation_unknown:actual_duration_unknown",
+  "traceback": "Traceback (most recent call last):\n  File \"<string>\", line 24, in <module>\n  File \"E:\\All Updaye Project\\AutoMovie_Pro_SAAS_Final_Update\\AutoMoviePro-Software\\pipeline\\video_pipeline.py\", line 1275, in generate_video\n    raise_if_rendered_duration_blocks(reconciliation=duration_reconciliation)\n  File \"E:\\All Updaye Project\\AutoMovie_Pro_SAAS_Final_Update\\AutoMoviePro-Software\\pipeline\\duration_budget.py\", line 277, in raise_if_rendered_duration_blocks\n    raise RuntimeError(f\"duration_reconciliation_unknown:{reason}\")\nRuntimeError: duration_reconciliation_unknown:actual_duration_unknown\n"
+}

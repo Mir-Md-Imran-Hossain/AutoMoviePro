@@ -1,0 +1,37 @@
+{
+  "execution": "EXECUTED",
+  "repair_triggered": true,
+  "repair_scope": "AUDIO_ASSET",
+  "whole_video_regeneration": false,
+  "second_repair_engine": false,
+  "authority": "BUILD-04F plan_audio_design_repair + existing edge TTS path",
+  "handoff": {
+    "repair_triggered": true,
+    "status": "FAIL",
+    "repair_scope": "AUDIO_ASSET",
+    "whole_video_regeneration": false,
+    "plan": {
+      "repair_scope": "AUDIO_ASSET",
+      "subject_id": "aud-6h",
+      "attempt": 1,
+      "max_attempts": 3,
+      "old_fingerprint": "125dec010cbc337d73d04fb3",
+      "recommended_action": "regenerate_minimal_audio_scope"
+    },
+    "authority": "BUILD-04F plan_repair / plan_audio_design_repair",
+    "second_repair_engine": false
+  },
+  "lineage": {
+    "old_asset_path": "E:\\All Updaye Project\\AutoMovie_Pro_SAAS_Final_Update\\AutoMoviePro-Software\\docs\\marathon\\customer_product\\phase6h_evidence\\_gen\\narration_negative.mp3",
+    "old_content_hash": "125dec010cbc337d73d04fb3b7b0e3459a98ecaf8a1ceffdbe8b88beb26a2d62",
+    "new_asset_path": "E:\\All Updaye Project\\AutoMovie_Pro_SAAS_Final_Update\\AutoMoviePro-Software\\docs\\marathon\\customer_product\\phase6h_evidence\\repair_work\\repair_aud6h_targeted.mp3",
+    "new_content_hash": "481e081ca7009820c669d8876c763e9a25f4320020e618f6a8a4b21eff74ca88",
+    "hash_changed": true,
+    "dialogue_id": "dlg-hosp",
+    "scene_id": "sc-1",
+    "customer_id": "c11_marathon_customer",
+    "channel_id": "4"
+  },
+  "reobservation_status": "UNKNOWN",
+  "max_repair_attempts": 1
+}

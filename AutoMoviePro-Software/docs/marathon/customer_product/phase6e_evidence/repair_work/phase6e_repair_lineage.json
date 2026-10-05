@@ -1,0 +1,63 @@
+{
+  "lineage": {
+    "old_asset_path": "data\\customer_generation_work\\c11_marathon_customer\\job2108\\_fallback_i2v\\fb_beat_00.png",
+    "old_content_hash": "b790e53eca50ef7aaee0fdbc079a825f9369402ff7c64bc08f30989430d34473",
+    "beat_id": "vb-6e-repair",
+    "scene_id": "sc-6e",
+    "customer_id": "c11_marathon_customer",
+    "channel_id": "4",
+    "repair_prompt": "Vertical 9:16 documentary still: nurse standing beside a hospital bed in a bright hospital interior. Medical ward, fluorescent lighting. NO spacecraft, NO astronaut.",
+    "new_asset_path": "docs\\marathon\\customer_product\\phase6e_evidence\\repair_work\\repair_vb6e_a1.mp4",
+    "new_content_hash": "d11ac8300eff4bd03eec6323d777862ff79110d0fb24903ce78423b268f046cb",
+    "fingerprint": "aa3949f70944c9a6cc3affef026b821dd76cc2106f86cdfcb03e4bfecfa27943",
+    "asset_id": "visual-06-aa3949f70944c9a6",
+    "build03_action": "execute",
+    "hash_changed": true
+  },
+  "handoff": {
+    "repair_triggered": true,
+    "status": "FAIL",
+    "repair_scope": "VISUAL_ASSET",
+    "repair_scope_forced": "VISUAL_ASSET",
+    "whole_video_regeneration": false,
+    "plan": {
+      "ok": true,
+      "affected_scene_id": "sc-6e",
+      "preserved_scene_ids": [
+        "vb-6e-repair"
+      ],
+      "targeted_only": true,
+      "repair_engine": "pipeline.quality.repair_planner.plan_repair",
+      "duplicate_repair_engine": false,
+      "plan": {
+        "repair_scope": "VISUAL_ASSET",
+        "subject_id": "sc-6e",
+        "issue_ids": [
+          "c05q_visual_sc-6e"
+        ],
+        "attempt": 1,
+        "max_attempts": 3,
+        "old_fingerprint": "",
+        "revision_id": "r002",
+        "evidence": {
+          "c05q_visual_sc-6e": {}
+        },
+        "recommended_action": "targeted_repair",
+        "escalate": false
+      },
+      "affected_beat_id": "vb-6e-repair",
+      "visual_repair_engine": false,
+      "old_fingerprint": "b790e53eca50ef7aaee0fdbc",
+      "repair_scope_forced": "VISUAL_ASSET",
+      "whole_video_regeneration": false,
+      "observation_overall": "FAIL"
+    },
+    "authority": "BUILD-04F plan_repair / plan_semantic_beat_repair",
+    "second_repair_engine": false
+  },
+  "generation": {
+    "ok": true,
+    "action": "execute",
+    "fingerprint": "aa3949f70944c9a6cc3affef026b821dd76cc2106f86cdfcb03e4bfecfa27943"
+  }
+}

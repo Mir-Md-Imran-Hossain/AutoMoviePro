@@ -1,0 +1,79 @@
+{
+  "niche_id": 5,
+  "name": "Royal Scandals",
+  "slug": "royal-scandals",
+  "style_family": "science",
+  "status": "VERIFIED",
+  "topic_seeds": [
+    "What new evidence reframes the story of Royal Scandals Glamorous inside Royal Scandals",
+    "How Royal Scandals Glamorous still shapes public curiosity about Royal Scandals",
+    "What new evidence reframes the story of Check inside Royal Scandals",
+    "How Check still shapes public curiosity about Royal Scandals",
+    "What new evidence reframes the story of Generate inside Royal Scandals",
+    "How Generate still shapes public curiosity about Royal Scandals"
+  ],
+  "seo_angles": [
+    "What new evidence reframes the story of Royal Scandals Glamorous inside Royal Scandals",
+    "How Royal Scandals Glamorous still shapes public curiosity about Royal Scandals",
+    "What new evidence reframes the story of Check inside Royal Scandals",
+    "How Check still shapes public curiosity about Royal Scandals"
+  ],
+  "forbidden_visuals": [
+    "talking-head lip-sync avatar",
+    "burned-in captions",
+    "watermark",
+    "modern meme text",
+    "off-niche stock office B-roll"
+  ],
+  "preferred_subjects": [
+    "lab instrument close-up",
+    "diagrammatic mechanism metaphor",
+    "field measurement site"
+  ],
+  "lighting_default": "teal/cyan lab grade, high contrast, shallow DOF",
+  "face_policy": "no talking-head lip-sync avatar; cinematic B-roll preferred",
+  "dialogue_tone": "clear explainer; one mechanism per beat",
+  "audio_ambience": "clean room tone, soft electronic texture",
+  "research_hints": [
+    "Prefer primary evidence and concrete entities for Royal Scandals",
+    "Avoid generic niche-label topics; require specific place/person/event/mechanism",
+    "7–9 second spoken beats with story continuity across scenes"
+  ],
+  "topic_prompt_overlay": "NICHE LOCK (Royal Scandals): only propose topics that fit this niche's video type. Video type: Glamorous yet dark stories of kings, queens, and their secret affairs, illegitimate heirs, poisonous intrigues, and court betrayals that threatened entire dynasties. Follow niche topic strategy: Check trending historical dramas, royal family news, or newly published diaries/memoirs. Generate a topic about a lesser-known scandal involving a European or Asian monarchy — one that mixes romance, power, and betrayal.",
+  "video_prompt_overlay": "NICHE VISUAL LOCK (Royal Scandals / science): Generate a 7–9 second dialogue clip based on the topic `{topic}`. Each dialogue must feel like a palace whisper. For each dialogue, generate: - **Audio Generation Prompt:** Voice — intimate, hushed, with harpsichord or classical strings in the background. - **Video Generation Prompt:** Detailed visual — lavish palace interior, gold trimmings, candles, velvet drapes. Consistent character: a noblewoman (30s, elaborate gown, pearl necklace) whispering to a servant. Lighting: warm candlelight, flickering. Camera pans slowly across the room. Maintain same gown style, same candle glow, same room layout. Forbidden: talking-head lip-sync avatar, burned-in captions, watermark, modern meme text, off-niche stock office B-roll. Preferred subjects: lab instrument close-up, diagrammatic mechanism metaphor, field measurement site. Lighting: teal/cyan lab grade, high contrast, shallow DOF. Face policy: no talking-head lip-sync avatar; cinematic B-roll preferred. Dialogue tone: clear explainer; one mechanism per beat. Ambience: clean room tone, soft electronic texture.",
+  "i18n": {
+    "en": {
+      "name": "Royal Scandals",
+      "blurb": "Glamorous yet dark stories of kings, queens, and their secret affairs, illegitimate heirs, poisonous intrigues, and court betrayals that threatened entire…"
+    },
+    "bn": {
+      "name": "রাজকীয় কেলেঙ্কারি",
+      "blurb": "ভিডিও টাইপ: Glamorous yet dark stories of kings, queens, and their secret affairs, illegitimate heirs, poisonous intrigues, and court betrayals that threatened…"
+    },
+    "hi": {
+      "name": "शाही घोटाले",
+      "blurb": "वीडियो प्रकार: Glamorous yet dark stories of kings, queens, and their secret affairs, illegitimate heirs, poisonous intrigues, and court betrayals that threatened…"
+    },
+    "ur": {
+      "name": "شاہی اسکینڈلز",
+      "blurb": "ویڈیو کی قسم: Glamorous yet dark stories of kings, queens, and their secret affairs, illegitimate heirs, poisonous intrigues, and court betrayals that threatened…"
+    },
+    "ta": {
+      "name": "அரச குடும்ப ஊழல்கள்",
+      "blurb": "வீடியோ வகை: Glamorous yet dark stories of kings, queens, and their secret affairs, illegitimate heirs, poisonous intrigues, and court betrayals that threatened…"
+    },
+    "ml": {
+      "name": "രാജകീയ അഴിമതികൾ",
+      "blurb": "വീഡിയോ തരം: Glamorous yet dark stories of kings, queens, and their secret affairs, illegitimate heirs, poisonous intrigues, and court betrayals that threatened…"
+    }
+  },
+  "source": "Nish.Md + deterministic research",
+  "research_notes": [
+    "Marathon researched at 2026-09-10T08:30:08Z",
+    "Video type length=165",
+    "Topic prompt length=220",
+    "Video prompt length=604",
+    "Seeds=6"
+  ],
+  "verified_at": "2026-09-10T08:30:08Z"
+}

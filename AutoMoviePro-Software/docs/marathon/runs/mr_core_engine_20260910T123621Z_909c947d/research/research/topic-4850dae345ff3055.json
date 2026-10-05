@@ -1,0 +1,66 @@
+{
+  "research": {
+    "topic_id": "topic-4850dae345ff3055",
+    "query": "what parker solar probe discovered about the sun's corona in 2026",
+    "evidence": [
+      {
+        "id": "N01",
+        "claim": "Research query: what parker solar probe discovered about the sun's corona in 2026\nLanguage: en\nRegion:",
+        "evidence": "research_notes",
+        "source": "research_notes",
+        "confidence": 0.4,
+        "freshness": "UNVERIFIED"
+      },
+      {
+        "id": "L02",
+        "claim": "Additional context on What Parker Solar Probe discovered about the Sun's corona in 2026 from configured research scope.",
+        "evidence": "secondary",
+        "source": "live_research",
+        "confidence": 0.6,
+        "freshness": "recent"
+      }
+    ],
+    "status": "completed",
+    "provider": "live_local",
+    "provider_kind": "configured_local",
+    "provider_capability": "LOCAL_FACTPACK",
+    "provider_mode": "LIVE_LOCAL",
+    "external_api": false,
+    "is_external_live": false,
+    "note": "LOCAL_FACTPACK must not be claimed as EXTERNAL_LIVE_RESEARCH",
+    "timestamp": 1789043782.0553184,
+    "queried_at": 1789043782.0553184,
+    "canonical_topic": "What Parker Solar Probe discovered about the Sun's corona in 2026",
+    "sources": [
+      "live_research",
+      "research_notes"
+    ],
+    "fingerprint": "e07137cdf44f9a83afbcc3e5085564f9d91de5905f2e577a3795e31e267162a4"
+  },
+  "fact_pack": {
+    "topic": "What Parker Solar Probe discovered about the Sun's corona in 2026",
+    "version": "v0",
+    "claims": [
+      {
+        "id": "N01",
+        "claim": "Research query: what parker solar probe discovered about the sun's corona in 2026\nLanguage: en\nRegion:",
+        "evidence": "research_notes",
+        "source": "research_notes",
+        "confidence": 0.4,
+        "freshness": "UNVERIFIED"
+      },
+      {
+        "id": "L02",
+        "claim": "Additional context on What Parker Solar Probe discovered about the Sun's corona in 2026 from configured research scope.",
+        "evidence": "secondary",
+        "source": "live_research",
+        "confidence": 0.6,
+        "freshness": "recent"
+      }
+    ],
+    "unknowns": []
+  },
+  "research_fingerprint": "e07137cdf44f9a83afbcc3e5085564f9d91de5905f2e577a3795e31e267162a4",
+  "provider_mode": "LIVE",
+  "persisted_at": 1789043782.056317
+}

@@ -1,0 +1,50 @@
+{
+  "schema": "amp_observation_frame_sampling_v1",
+  "status": "PASS",
+  "observation_executed": true,
+  "provider_verified": false,
+  "semantic_pass": false,
+  "unknown_as_pass": false,
+  "creates_final_gate": false,
+  "creates_ffmpeg_engine": false,
+  "reuses_compose_ffmpeg": true,
+  "asset_id": "",
+  "scene_id": "sc-6g",
+  "beat_id": "vb-neg",
+  "source_path": "E:\\All Updaye Project\\AutoMovie_Pro_SAAS_Final_Update\\AutoMoviePro-Software\\data\\customer_generation_work\\c11_marathon_customer\\job2108\\_fallback_i2v\\fb_beat_00.png",
+  "content_hash": "b790e53eca50ef7aaee0fdbc079a825f9369402ff7c64bc08f30989430d34473",
+  "customer_id": "",
+  "channel_id": "",
+  "media_type": "image",
+  "duration_sec": 0.0,
+  "sampling_contract": {
+    "media_type": "image",
+    "duration_sec": 0.0,
+    "max_samples": 1,
+    "strategy": "image_single_frame",
+    "beat_windows": [],
+    "scene_cuts": [],
+    "schema": "amp_frame_sampling_contract_v1"
+  },
+  "contract_hash": "eb4079f58c08c02d387b3a7f",
+  "strategy": "image_single_frame",
+  "frame_count": 1,
+  "frames": [
+    {
+      "asset_id": "",
+      "scene_id": "sc-6g",
+      "beat_id": "vb-neg",
+      "timestamp": 0.0,
+      "frame_index": 0,
+      "source_path": "E:\\All Updaye Project\\AutoMovie_Pro_SAAS_Final_Update\\AutoMoviePro-Software\\data\\customer_generation_work\\c11_marathon_customer\\job2108\\_fallback_i2v\\fb_beat_00.png",
+      "frame_path": "E:\\All Updaye Project\\AutoMovie_Pro_SAAS_Final_Update\\AutoMoviePro-Software\\docs\\marathon\\customer_product\\phase6g_evidence\\work\\neg\\frames_b790e53eca50ef7a_eb4079f58c08c02d387b3a7f\\frame_00_image.png",
+      "content_hash": "b790e53eca50ef7aaee0fdbc079a825f9369402ff7c64bc08f30989430d34473",
+      "parent_content_hash": "b790e53eca50ef7aaee0fdbc079a825f9369402ff7c64bc08f30989430d34473",
+      "customer_id": "",
+      "channel_id": "",
+      "semantic_pass": false
+    }
+  ],
+  "cache_hit": false,
+  "cache_dir": "E:\\All Updaye Project\\AutoMovie_Pro_SAAS_Final_Update\\AutoMoviePro-Software\\docs\\marathon\\customer_product\\phase6g_evidence\\work\\neg\\frames_b790e53eca50ef7a_eb4079f58c08c02d387b3a7f"
+}

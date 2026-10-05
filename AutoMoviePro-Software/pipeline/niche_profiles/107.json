@@ -1,0 +1,83 @@
+{
+  "niche_id": 107,
+  "name": "AI Coding Assistants",
+  "slug": "ai-coding-assistants",
+  "style_family": "history",
+  "status": "VERIFIED",
+  "topic_seeds": [
+    "What new evidence reframes the story of Coding Assistants Codeium inside AI Coding Assistants",
+    "How Coding Assistants Codeium still shapes public curiosity about AI Coding Assistants",
+    "What new evidence reframes the story of Tabnine inside AI Coding Assistants",
+    "How Tabnine still shapes public curiosity about AI Coding Assistants",
+    "What new evidence reframes the story of Check inside AI Coding Assistants",
+    "How Check still shapes public curiosity about AI Coding Assistants"
+  ],
+  "seo_angles": [
+    "What new evidence reframes the story of Coding Assistants Codeium inside AI Coding Assistants",
+    "How Coding Assistants Codeium still shapes public curiosity about AI Coding Assistants",
+    "What new evidence reframes the story of Tabnine inside AI Coding Assistants",
+    "How Tabnine still shapes public curiosity about AI Coding Assistants"
+  ],
+  "forbidden_visuals": [
+    "talking-head lip-sync avatar",
+    "burned-in captions",
+    "watermark",
+    "modern meme text",
+    "modern smartphones",
+    "cars",
+    "LED screens",
+    "sneakers",
+    "contemporary skyline"
+  ],
+  "preferred_subjects": [
+    "AI Coding Assistants documentary subject",
+    "period-accurate environment",
+    "evidence object close-up"
+  ],
+  "lighting_default": "warm desert sun / torchlit interiors, high-contrast documentary grade",
+  "face_policy": "period extras OK if consistent; prefer environment/object hero when possible",
+  "dialogue_tone": "human documentary narration; specific nouns; 7–9s beats",
+  "audio_ambience": "subtle documentary bed; do not overpower voice",
+  "research_hints": [
+    "Prefer primary evidence and concrete entities for AI Coding Assistants",
+    "Avoid generic niche-label topics; require specific place/person/event/mechanism",
+    "7–9 second spoken beats with story continuity across scenes"
+  ],
+  "topic_prompt_overlay": "NICHE LOCK (AI Coding Assistants): only propose topics that fit this niche's video type. Video type: Codeium, Tabnine — how these free tools debug code, suggest snippets, and teach programming to beginners. Follow niche topic strategy: Check developer news, new AI coding features, or viral coding challenge videos. Generate a topic about a tool that makes coding easier.",
+  "video_prompt_overlay": "NICHE VISUAL LOCK (AI Coding Assistants / history): Generate a 7–9 second dialogue clip based on the topic `{topic}`. Each dialogue must be technical and encouraging. For each dialogue, generate: - **Audio Generation Prompt:** Voice — explanatory, with code running and beeps. - **Video Generation Prompt:** Detailed visual — a code editor screen with autocomplete. No character — screen. Lighting: dark with neon code glow. Maintain same code screen. Forbidden: talking-head lip-sync avatar, burned-in captions, watermark, modern meme text, modern smartphones, cars, LED screens, sneakers. Preferred subjects: AI Coding Assistants documentary subject, period-accurate environment, evidence object close-up. Lighting: warm desert sun / torchlit interiors, high-contrast documentary grade. Face policy: period extras OK if consistent; prefer environment/object hero when possible. Dialogue tone: human documentary narration; specific nouns; 7–9s beats. Ambience: subtle documentary bed; do not overpower voice.",
+  "i18n": {
+    "en": {
+      "name": "AI Coding Assistants",
+      "blurb": "Codeium, Tabnine — how these free tools debug code, suggest snippets, and teach programming to beginners."
+    },
+    "bn": {
+      "name": "এআই কোডিং সহকারী",
+      "blurb": "ভিডিও টাইপ: Codeium, Tabnine — how these free tools debug code, suggest snippets, and teach programming to beginners."
+    },
+    "hi": {
+      "name": "एआई कोडिंग सहायक",
+      "blurb": "वीडियो प्रकार: Codeium, Tabnine — how these free tools debug code, suggest snippets, and teach programming to beginners."
+    },
+    "ur": {
+      "name": "اے آئی کوڈنگ اسسٹنٹس",
+      "blurb": "ویڈیو کی قسم: Codeium, Tabnine — how these free tools debug code, suggest snippets, and teach programming to beginners."
+    },
+    "ta": {
+      "name": "AI கோடிங் உதவியாளர்கள்",
+      "blurb": "வீடியோ வகை: Codeium, Tabnine — how these free tools debug code, suggest snippets, and teach programming to beginners."
+    },
+    "ml": {
+      "name": "AI കോഡിംഗ് അസിസ്റ്റന്റുകൾ",
+      "blurb": "വീഡിയോ തരം: Codeium, Tabnine — how these free tools debug code, suggest snippets, and teach programming to beginners."
+    }
+  },
+  "source": "Nish.Md + deterministic research",
+  "research_notes": [
+    "Marathon researched at 2026-09-10T08:30:23Z",
+    "Video type length=105",
+    "Topic prompt length=135",
+    "Video prompt length=399",
+    "Seeds=6"
+  ],
+  "verified_at": "2026-09-10T08:30:24Z"
+}

@@ -1,0 +1,19 @@
+{
+  "attempts": 0,
+  "successes": 0,
+  "paid_google_calls": 0,
+  "edge_tts_generations": 4,
+  "model_downloads": "faster-whisper_may_use_cached_model",
+  "notes": [
+    "option_a_no_pyannote_install",
+    "acoustic_identity_unknown"
+  ],
+  "providers": [
+    {
+      "provider": "faster-whisper",
+      "paid": false,
+      "role": "asr_features"
+    }
+  ],
+  "latency_sec": 10.207
+}

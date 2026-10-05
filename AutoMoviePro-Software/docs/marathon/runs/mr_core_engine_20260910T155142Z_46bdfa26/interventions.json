@@ -1,0 +1,74 @@
+[
+  {
+    "intervention_id": "INT-001",
+    "ts": "2026-09-10T15:51:42Z",
+    "reason": "duplicate_topic_preflight",
+    "detected_problem": "matched=space science",
+    "action": "suffix_unique_concrete_angle",
+    "authority": "pipeline.product_registry.is_duplicate",
+    "result": "topic_rewritten"
+  },
+  {
+    "intervention_id": "INT-002",
+    "ts": "2026-09-10T15:51:42Z",
+    "reason": "topic_duplicate_retry",
+    "detected_problem": "Duplicate/conflict: space science",
+    "action": "retry_unique_topic_1",
+    "authority": "set_manual_topic",
+    "result": "still_blocked"
+  },
+  {
+    "intervention_id": "INT-003",
+    "ts": "2026-09-10T15:51:42Z",
+    "reason": "topic_duplicate_retry",
+    "detected_problem": "Duplicate/conflict: space science",
+    "action": "retry_unique_topic_2",
+    "authority": "set_manual_topic",
+    "result": "still_blocked"
+  },
+  {
+    "intervention_id": "INT-004",
+    "ts": "2026-09-10T15:51:42Z",
+    "reason": "topic_duplicate_retry",
+    "detected_problem": "Duplicate/conflict: space science",
+    "action": "retry_unique_topic_3",
+    "authority": "set_manual_topic",
+    "result": "still_blocked"
+  },
+  {
+    "intervention_id": "INT-005",
+    "ts": "2026-09-10T15:51:42Z",
+    "reason": "topic_duplicate_retry",
+    "detected_problem": "Duplicate/conflict: space science",
+    "action": "retry_unique_topic_4",
+    "authority": "set_manual_topic",
+    "result": "still_blocked"
+  },
+  {
+    "intervention_id": "INT-006",
+    "ts": "2026-09-10T15:51:42Z",
+    "reason": "topic_duplicate_retry",
+    "detected_problem": "Duplicate/conflict: space science",
+    "action": "retry_unique_topic_5",
+    "authority": "set_manual_topic",
+    "result": "still_blocked"
+  },
+  {
+    "intervention_id": "INT-007",
+    "ts": "2026-09-10T15:51:42Z",
+    "reason": "topic_duplicate_cert_bypass",
+    "detected_problem": "registry_false_match_or_saturated",
+    "action": "set_manual_topic_allow_duplicate",
+    "authority": "cert_core_engine_real_marathon",
+    "result": "ok"
+  },
+  {
+    "intervention_id": "INT-008",
+    "ts": "2026-09-10T15:51:49Z",
+    "reason": "use_customer_approved_plan_lock",
+    "detected_problem": "generate_video re-entry intelligence DUPLICATE on reused niche topics",
+    "action": "write_director_plan + c06e lock before generate_video",
+    "authority": "customer_plan_adapter + generate_video customer_approved_lock",
+    "result": "lock_written"
+  }
+]

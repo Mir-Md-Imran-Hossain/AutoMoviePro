@@ -1,0 +1,693 @@
+{
+  "ok": true,
+  "approval": {
+    "state": "APPROVED",
+    "publishes": false,
+    "means_generated": false,
+    "updated_at": "2026-09-10T23:26:03.115903",
+    "note": "customer-approved script — not generated/rendered/published"
+  },
+  "c05_handoff": {
+    "ready": true,
+    "status": "APPROVED_SCRIPT",
+    "path": "ScriptPlan → C05-TRS → C05-S → C05-GA → C05-GP → C05-GX → C05-MR",
+    "note": "Handoff ready — media generation is a later step",
+    "topic_id": "topic-891fe7ac3a689e2a",
+    "topic_text": "How JWST mid-infrared spectra fingerprint exoplanet atmospheres (b5322229)",
+    "script_plan_topic": "JWST Mid-Infrared Spectra Exoplanet Atmospheres"
+  },
+  "workflow": {
+    "contract": "C06-B",
+    "project_id": "trs-ch4",
+    "owner_login_id": "c11_marathon_customer",
+    "channel_id": 4,
+    "updated_at": "2026-09-10T23:26:03.115903",
+    "revision": 499,
+    "topic": {
+      "topic_id": "topic-891fe7ac3a689e2a",
+      "project_id": "trs-ch4",
+      "owner_login_id": "c11_marathon_customer",
+      "topic_text": "How JWST mid-infrared spectra fingerprint exoplanet atmospheres (b5322229)",
+      "topic_source": "MANUAL",
+      "topic_status": "COMPLETED",
+      "selected_at": "2026-09-10T23:25:56.504278",
+      "created_at": "2026-09-06T22:13:16.391863",
+      "updated_at": "2026-09-10T23:25:56.504278",
+      "duplicate": {
+        "blocked": false,
+        "verdict": "ALLOWED_DUP",
+        "matched": null,
+        "cert_bypass": true
+      },
+      "blocked_reason": null,
+      "error_code": null
+    },
+    "suggestions": [
+      {
+        "topic_id": "t-febb33289bd9d462",
+        "topic_text": "The 2026 space science detail most shorts skip (and why it matters)",
+        "canonical_topic": "The 2026 space science detail most shorts skip (and why it matters)",
+        "source": "SUGGESTED",
+        "authority": "BUILD-04G.discovery",
+        "external_api": false
+      },
+      {
+        "topic_id": "t-a1b5a4327f784c01",
+        "topic_text": "Why space science looks obvious — until you see this evidence",
+        "canonical_topic": "Why space science looks obvious — until you see this evidence",
+        "source": "SUGGESTED",
+        "authority": "BUILD-04G.discovery",
+        "external_api": false
+      },
+      {
+        "topic_id": "t-3b65d372264c01ca",
+        "topic_text": "Quick space science insight: the one mechanism viewers miss",
+        "canonical_topic": "Quick space science insight: the one mechanism viewers miss",
+        "source": "SUGGESTED",
+        "authority": "BUILD-04G.discovery",
+        "external_api": false
+      },
+      {
+        "topic_id": "t-cc0a2811b1e2f01a",
+        "topic_text": "One verified fact about space science that changes the next 60 seconds",
+        "canonical_topic": "One verified fact about space science that changes the next 60 seconds",
+        "source": "SUGGESTED",
+        "authority": "BUILD-04G.discovery",
+        "external_api": false
+      },
+      {
+        "topic_id": "t-fa78693c968bc7a0",
+        "topic_text": "60-second space science myth vs measurement — stay for the payoff",
+        "canonical_topic": "60-second space science myth vs measurement — stay for the payoff",
+        "source": "SUGGESTED",
+        "authority": "BUILD-04G.discovery",
+        "external_api": false
+      }
+    ],
+    "reserved": [
+      {
+        "topic_id": "t-71bf9f81dcbd29c3",
+        "topic_text": "One fact about space science you missed today",
+        "source": "RESERVED",
+        "authority": "BUILD-04G.reserve_queue"
+      },
+      {
+        "topic_id": "t-042828b9295d915b",
+        "topic_text": "Quick space science insight for general",
+        "source": "RESERVED",
+        "authority": "BUILD-04G.reserve_queue"
+      },
+      {
+        "topic_id": "t-87e7edb4fdfcde63",
+        "topic_text": "space science: 60-second breakdown",
+        "source": "RESERVED",
+        "authority": "BUILD-04G.reserve_queue"
+      }
+    ],
+    "research": {
+      "research_status": "COMPLETED",
+      "fact_count": 2,
+      "evidence_count": 2,
+      "source_count": 0,
+      "confidence": null,
+      "unresolved_items": [],
+      "capability": {
+        "provider_capability": "LOCAL_FACTPACK",
+        "provider_mode": "LIVE_LOCAL",
+        "external_live_research": "UNAVAILABLE",
+        "is_external_live": false,
+        "external_api": false,
+        "note": "LOCAL_FACTPACK must not be claimed as EXTERNAL_LIVE_RESEARCH"
+      },
+      "gate": {
+        "verdict": "PASS",
+        "reason": "sufficient_evidence",
+        "issues": [],
+        "claim_count": 2,
+        "supported_count": 2,
+        "verified_count": 0,
+        "unsupported_count": 0,
+        "classified": [
+          {
+            "claim": "Research query: how jwst mid-infrared spectra fingerprint exoplanet atmospheres b5322229\nLanguage: en\nRegion:",
+            "class": "SUPPORTED",
+            "source": "research_notes"
+          },
+          {
+            "claim": "Additional context on How JWST mid-infrared spectra fingerprint exoplanet atmospheres (b5322229) from configured research scope.",
+            "class": "SUPPORTED",
+            "source": "live_research"
+          }
+        ]
+      },
+      "fingerprint": "20f04e29649e72bb42b4c0b658e8e5c6b853f868fddebf29d67d76a757f923a0",
+      "action": "execute",
+      "error_code": null,
+      "error_summary": null,
+      "live_research_complete": false,
+      "status_label": "Research complete (local FactPack)",
+      "has_fact_pack": true
+    },
+    "script": {
+      "script_status": "COMPLETED",
+      "preview": {
+        "topic": "JWST Mid-Infrared Spectra Exoplanet Atmospheres",
+        "hook": "Most viewers miss this about JWST Mid-Infrared Spectra Exoplanet Atmospheres — most people miss this: we don't see exoplanets as dots. Stay for the evidence.",
+        "beat_count": 5,
+        "dialogue_count": 5,
+        "scene_count": 5,
+        "entities": [],
+        "locations": [],
+        "relationships": [],
+        "dialogue_ids": [
+          "beat-1",
+          "beat-2",
+          "beat-3",
+          "beat-4",
+          "beat-5"
+        ],
+        "beat_ids": [
+          "beat-1",
+          "beat-2",
+          "beat-3",
+          "beat-4",
+          "beat-5"
+        ],
+        "scene_ids": [
+          "scene-00",
+          "scene-01",
+          "scene-02",
+          "scene-03",
+          "scene-04"
+        ],
+        "beats_summary": [
+          {
+            "beat_id": "beat-1",
+            "narration": "Most viewers miss this about JWST Mid-Infrared Spectra Exoplanet Atmospheres — most people miss this: we don't see exoplanets as dots. Stay for the evidence.",
+            "speaker": "Narrator",
+            "emotion": "",
+            "entity_refs": [],
+            "location_ref": "",
+            "estimated_duration_sec": 10.42
+          },
+          {
+            "beat_id": "beat-2",
+            "narration": "Visible light bounces off clouds. Mid-infrared penetrates dust. That's why we use it to find hidden molecules.",
+            "speaker": "Narrator",
+            "emotion": "",
+            "entity_refs": [],
+            "location_ref": "",
+            "estimated_duration_sec": 7.08
+          },
+          {
+            "beat_id": "beat-3",
+            "narration": "From that penetrates, watch what this changes next — carbon dioxide leaves a distinct dip at 4.3 microns. Methane shows up at 3.3. These are the fingerprints.",
+            "speaker": "Narrator",
+            "emotion": "",
+            "entity_refs": [],
+            "location_ref": "",
+            "estimated_duration_sec": 11.0
+          },
+          {
+            "beat_id": "beat-4",
+            "narration": "But the star is a million times brighter. We subtract its light. What remains is the planet's breath.",
+            "speaker": "Narrator",
+            "emotion": "",
+            "entity_refs": [],
+            "location_ref": "",
+            "estimated_duration_sec": 7.5
+          },
+          {
+            "beat_id": "beat-5",
+            "narration": "From that brighter, water vapor is tricky. It can hide behind clouds or mimic other gases. We need multiple bands to confirm. So.",
+            "speaker": "Narrator",
+            "emotion": "",
+            "entity_refs": [],
+            "location_ref": "",
+            "estimated_duration_sec": 9.58
+          }
+        ]
+      },
+      "scene_count": 5,
+      "beat_count": 5,
+      "dialogue_count": 5,
+      "quality": {
+        "status": "PASS",
+        "issues": [],
+        "actions": [],
+        "preflight": {
+          "status": "PASS",
+          "ok": true,
+          "blocked": false,
+          "blocks": [],
+          "warnings": [],
+          "unknowns": [],
+          "confidence": "DETERMINISTIC",
+          "claims_human_written": false,
+          "claims_guaranteed_engagement": false,
+          "method": "DETERMINISTIC_PREFLIGHT",
+          "note": "stylistic judgments are HEURISTIC; naturalness not proven"
+        },
+        "authority": "BUILD-04F.evaluate_script_quality + TRS preflight"
+      },
+      "approval": {
+        "state": "APPROVED",
+        "publishes": false,
+        "means_generated": false,
+        "updated_at": "2026-09-10T23:26:03.115903",
+        "note": "customer-approved script — not generated/rendered/published"
+      },
+      "error_code": null,
+      "error_summary": null,
+      "script_action": "reuse",
+      "dialogue_segments_count": 5,
+      "has_script_plan": true
+    },
+    "script_plan": {
+      "schema_version": "1.0.0",
+      "id": "50fbbe1b-30f6-40aa-a301-ac44d0c11d7e",
+      "created_at": "2026-09-10 17:26:03.100597+00:00",
+      "updated_at": null,
+      "topic_id": "topic-891fe7ac3a689e2a",
+      "topic": "JWST Mid-Infrared Spectra Exoplanet Atmospheres",
+      "format": "SHORT",
+      "language": "en",
+      "target_duration_sec": 60.0,
+      "hook": "Most viewers miss this about JWST Mid-Infrared Spectra Exoplanet Atmospheres — most people miss this: we don't see exoplanets as dots. Stay for the evidence.",
+      "narrative_structure": [
+        "hook",
+        "context",
+        "development",
+        "payoff",
+        "ending"
+      ],
+      "sections": [
+        "hook",
+        "context",
+        "development",
+        "payoff",
+        "ending"
+      ],
+      "beats": [
+        {
+          "schema_version": "1.0.0",
+          "id": "b7774ec8-f3d0-4c2e-9a64-39d4b53c86b2",
+          "created_at": "2026-09-10 17:26:03.100597+00:00",
+          "updated_at": null,
+          "beat_id": "beat-1",
+          "order": 0,
+          "section_role": "hook",
+          "narration": "Most viewers miss this about JWST Mid-Infrared Spectra Exoplanet Atmospheres — most people miss this: we don't see exoplanets as dots. Stay for the evidence.",
+          "speaker": "Narrator",
+          "emotion": "",
+          "emotion_intensity": 0.5,
+          "action_intent": "",
+          "entity_refs": [],
+          "location_ref": "",
+          "temporal_context": "",
+          "continuity_deps": [],
+          "visual_implication": "Most viewers miss this about JWST Mid-Infrared Spectra Exoplanet Atmospheres — most people miss this: we don't see exopl",
+          "claim_ids": [],
+          "evidence_refs": [
+            "N01"
+          ],
+          "estimated_duration_sec": 10.42,
+          "retention_role": "pattern_interrupt",
+          "open_loop": "",
+          "payoff_for": "",
+          "emotional_intent": "",
+          "metadata": {
+            "legacy_visual_prompt_ownership": {
+              "semantic_visual_intent": "",
+              "legacy_provider_prompts": {
+                "visual_prompt": "JWST mirror catching IR light, cinematic",
+                "visual_query": "JWST mirror infrared light",
+                "exact_ai_video_prompt": "VERTICAL 9:16 portrait (1080x1920) cinematic slow push-in of James Webb Space Telescope hexagonal gold mirror segments catching infrared light, teal/cyan cinematic lab grade, high contrast, shallow DOF, continuous motion, no burned captions, no watermark, no talking-head REQUIRED on-screen anchors: JWST Mid-Infrared Spectra Exoplanet Atmospheres, JWST, exoplanet, light bending, atmosphere, miss, exoplanets, dots, read, Watch. Visual slot: JWST Mid-Infrared Spectra Exoplanet Atmospheres JWST exoplanet: Most viewers miss this about JWST Mid-Infrared Spectra Exoplanet Atmospheres — most — slow cinematic push-in establishing hero."
+              },
+              "legacy_fields_present": true,
+              "canonical_owner": "C05-S DirectedVisualBeat → prompt_compiler",
+              "script_owns_provider_visual_prompts": false,
+              "ownership": "LEGACY_DEPRECATED",
+              "note": "visual_prompt/exact_ai_video_prompt are compatibility fields, not ScriptPlan authority"
+            },
+            "dialogue_id": "beat-1",
+            "scene_id": "scene-00"
+          },
+          "retention": {
+            "role": "pattern_interrupt",
+            "window_start_sec": 0,
+            "window_end_sec": 2,
+            "job": "Pattern Interrupt",
+            "open_loop": null,
+            "payoff_for": null
+          }
+        },
+        {
+          "schema_version": "1.0.0",
+          "id": "eac84e8d-1f91-4f50-a966-d952dbb423cd",
+          "created_at": "2026-09-10 17:26:03.100597+00:00",
+          "updated_at": null,
+          "beat_id": "beat-2",
+          "order": 1,
+          "section_role": "context",
+          "narration": "Visible light bounces off clouds. Mid-infrared penetrates dust. That's why we use it to find hidden molecules.",
+          "speaker": "Narrator",
+          "emotion": "",
+          "emotion_intensity": 0.5,
+          "action_intent": "",
+          "entity_refs": [],
+          "location_ref": "",
+          "temporal_context": "",
+          "continuity_deps": [],
+          "visual_implication": "Visible light bounces off clouds. Mid-infrared penetrates dust. That's why we use it to find hidden molecules.",
+          "claim_ids": [],
+          "evidence_refs": [
+            "N01"
+          ],
+          "estimated_duration_sec": 7.08,
+          "retention_role": "curiosity_gap",
+          "open_loop": "",
+          "payoff_for": "",
+          "emotional_intent": "",
+          "metadata": {
+            "legacy_visual_prompt_ownership": {
+              "semantic_visual_intent": "",
+              "legacy_provider_prompts": {
+                "visual_prompt": "IR waves penetrating dust, cinematic macro",
+                "visual_query": "infrared light through dust cloud",
+                "exact_ai_video_prompt": "VERTICAL 9:16 portrait (1080x1920) macro shot of infrared light waves passing through a dense cosmic dust cloud, teal/cyan grade, high contrast, slow zoom into the dust particles, continuous motion, no burned captions, no watermark, no talking-head REQUIRED on-screen anchors: JWST Mid-Infrared Spectra Exoplanet Atmospheres, mid-infrared, dust penetration, molecules, spectra, Visible, bounces, penetrates. Visual slot: JWST Mid-Infrared Spectra Exoplanet Atmospheres mid-infrared dust penetration: Visible light bounces off clouds. Mid-infrared penetrates dust. That's why we use — environmental wide into subject emphasis."
+              },
+              "legacy_fields_present": true,
+              "canonical_owner": "C05-S DirectedVisualBeat → prompt_compiler",
+              "script_owns_provider_visual_prompts": false,
+              "ownership": "LEGACY_DEPRECATED",
+              "note": "visual_prompt/exact_ai_video_prompt are compatibility fields, not ScriptPlan authority"
+            },
+            "dialogue_id": "beat-2",
+            "scene_id": "scene-01"
+          },
+          "retention": {
+            "role": "curiosity_gap",
+            "window_start_sec": 2,
+            "window_end_sec": 5,
+            "job": "Curiosity Gap",
+            "open_loop": null,
+            "payoff_for": null
+          }
+        },
+        {
+          "schema_version": "1.0.0",
+          "id": "51a733c9-bb10-4983-956a-fb8ba1bf7e9c",
+          "created_at": "2026-09-10 17:26:03.100597+00:00",
+          "updated_at": null,
+          "beat_id": "beat-3",
+          "order": 2,
+          "section_role": "development",
+          "narration": "From that penetrates, watch what this changes next — carbon dioxide leaves a distinct dip at 4.3 microns. Methane shows up at 3.3. These are the fingerprints.",
+          "speaker": "Narrator",
+          "emotion": "",
+          "emotion_intensity": 0.5,
+          "action_intent": "",
+          "entity_refs": [],
+          "location_ref": "",
+          "temporal_context": "",
+          "continuity_deps": [],
+          "visual_implication": "From that penetrates, watch what this changes next — carbon dioxide leaves a distinct dip at 4.3 microns. Methane shows",
+          "claim_ids": [],
+          "evidence_refs": [
+            "N01"
+          ],
+          "estimated_duration_sec": 11.0,
+          "retention_role": "first_payoff",
+          "open_loop": "",
+          "payoff_for": "",
+          "emotional_intent": "",
+          "metadata": {
+            "legacy_visual_prompt_ownership": {
+              "semantic_visual_intent": "",
+              "legacy_provider_prompts": {
+                "visual_prompt": "Spectral graph with molecular dips, cinematic",
+                "visual_query": "spectral graph CO2 methane dips",
+                "exact_ai_video_prompt": "VERTICAL 9:16 portrait (1080x1920) close-up of a spectral graph with sharp dips labeled CO2 and CH4, teal/cyan grade, high contrast, slow pan across the graph lines, continuous motion, no burned captions, no watermark, no talking-head REQUIRED on-screen anchors: JWST Mid-Infrared Spectra Exoplanet Atmospheres, methane, 4.3 microns, Carbon, dioxide, distinct, microns, fingerprints. Visual slot: JWST Mid-Infrared Spectra Exoplanet Atmospheres CO2 methane: From that penetrates, watch what this changes next — carbon dioxide leaves — revealing detail with controlled camera move."
+              },
+              "legacy_fields_present": true,
+              "canonical_owner": "C05-S DirectedVisualBeat → prompt_compiler",
+              "script_owns_provider_visual_prompts": false,
+              "ownership": "LEGACY_DEPRECATED",
+              "note": "visual_prompt/exact_ai_video_prompt are compatibility fields, not ScriptPlan authority"
+            },
+            "dialogue_id": "beat-3",
+            "scene_id": "scene-02"
+          },
+          "retention": {
+            "role": "first_payoff",
+            "window_start_sec": 5,
+            "window_end_sec": 10,
+            "job": "First Payoff",
+            "open_loop": null,
+            "payoff_for": null
+          }
+        },
+        {
+          "schema_version": "1.0.0",
+          "id": "7dd8cec1-a65c-437c-b416-6addceba69da",
+          "created_at": "2026-09-10 17:26:03.100597+00:00",
+          "updated_at": null,
+          "beat_id": "beat-4",
+          "order": 3,
+          "section_role": "payoff",
+          "narration": "But the star is a million times brighter. We subtract its light. What remains is the planet's breath.",
+          "speaker": "Narrator",
+          "emotion": "",
+          "emotion_intensity": 0.5,
+          "action_intent": "",
+          "entity_refs": [],
+          "location_ref": "",
+          "temporal_context": "",
+          "continuity_deps": [],
+          "visual_implication": "But the star is a million times brighter. We subtract its light. What remains is the planet's breath.",
+          "claim_ids": [],
+          "evidence_refs": [
+            "N01"
+          ],
+          "estimated_duration_sec": 7.5,
+          "retention_role": "question",
+          "open_loop": "",
+          "payoff_for": "",
+          "emotional_intent": "",
+          "metadata": {
+            "legacy_visual_prompt_ownership": {
+              "semantic_visual_intent": "",
+              "legacy_provider_prompts": {
+                "visual_prompt": "Star/planet light subtraction effect, cinematic",
+                "visual_query": "star planet light subtraction",
+                "exact_ai_video_prompt": "VERTICAL 9:16 portrait (1080x1920) split screen showing a bright star and a faint exoplanet, then a subtraction effect revealing only the planet's spectral signature, teal/cyan grade, high contrast, smooth transition, continuous motion, no burned captions, no watermark, no talking-head REQUIRED on-screen anchors: JWST Mid-Infrared Spectra Exoplanet Atmospheres, star light, planet breath, signal, million, times, brighter, light. Visual slot: JWST Mid-Infrared Spectra Exoplanet Atmospheres star light subtraction: But the star is a million times brighter. We subtract its light. — macro process detail, continuous motion."
+              },
+              "legacy_fields_present": true,
+              "canonical_owner": "C05-S DirectedVisualBeat → prompt_compiler",
+              "script_owns_provider_visual_prompts": false,
+              "ownership": "LEGACY_DEPRECATED",
+              "note": "visual_prompt/exact_ai_video_prompt are compatibility fields, not ScriptPlan authority"
+            },
+            "dialogue_id": "beat-4",
+            "scene_id": "scene-03"
+          },
+          "retention": {
+            "role": "question",
+            "window_start_sec": null,
+            "window_end_sec": null,
+            "job": "question",
+            "open_loop": null,
+            "payoff_for": null
+          }
+        },
+        {
+          "schema_version": "1.0.0",
+          "id": "78bf4359-89a9-48bd-b64c-6fcbad4339e2",
+          "created_at": "2026-09-10 17:26:03.100597+00:00",
+          "updated_at": null,
+          "beat_id": "beat-5",
+          "order": 4,
+          "section_role": "ending",
+          "narration": "From that brighter, water vapor is tricky. It can hide behind clouds or mimic other gases. We need multiple bands to confirm. So.",
+          "speaker": "Narrator",
+          "emotion": "",
+          "emotion_intensity": 0.5,
+          "action_intent": "",
+          "entity_refs": [],
+          "location_ref": "",
+          "temporal_context": "",
+          "continuity_deps": [],
+          "visual_implication": "From that brighter, water vapor is tricky. It can hide behind clouds or mimic other gases. We need multiple bands to con",
+          "claim_ids": [],
+          "evidence_refs": [
+            "N01"
+          ],
+          "estimated_duration_sec": 9.58,
+          "retention_role": "ending",
+          "open_loop": "",
+          "payoff_for": "main_open_loop",
+          "emotional_intent": "",
+          "metadata": {
+            "legacy_visual_prompt_ownership": {
+              "semantic_visual_intent": "",
+              "legacy_provider_prompts": {
+                "visual_prompt": "Water vapor molecules in space, cinematic macro",
+                "visual_query": "water vapor molecules nebula",
+                "exact_ai_video_prompt": "VERTICAL 9:16 portrait (1080x1920) macro shot of water vapor molecules swirling in a nebula, teal/cyan grade, high contrast, slow rotation, continuous motion, no burned captions, no watermark, no talking-head REQUIRED on-screen anchors: JWST Mid-Infrared Spectra Exoplanet Atmospheres, clouds, multiple bands, confirmation, tricky, hide, behind. Visual slot: JWST Mid-Infrared Spectra Exoplanet Atmospheres water vapor clouds: From that brighter, water vapor is tricky. It can hide behind clouds — environmental wide into subject emphasis."
+              },
+              "legacy_fields_present": true,
+              "canonical_owner": "C05-S DirectedVisualBeat → prompt_compiler",
+              "script_owns_provider_visual_prompts": false,
+              "ownership": "LEGACY_DEPRECATED",
+              "note": "visual_prompt/exact_ai_video_prompt are compatibility fields, not ScriptPlan authority"
+            },
+            "dialogue_id": "beat-5",
+            "scene_id": "scene-04"
+          },
+          "retention": {
+            "role": "ending",
+            "window_start_sec": null,
+            "window_end_sec": null,
+            "job": "close_main_loop",
+            "open_loop": null,
+            "payoff_for": "main_open_loop"
+          }
+        }
+      ],
+      "claims": [
+        {
+          "id": "N01",
+          "claim": "Research query: how jwst mid-infrared spectra fingerprint exoplanet atmospheres b5322229\nLanguage: en\nRegion:",
+          "evidence": "research_notes",
+          "source": "research_notes",
+          "confidence": 0.4,
+          "freshness": "UNVERIFIED"
+        },
+        {
+          "id": "L02",
+          "claim": "Additional context on How JWST mid-infrared spectra fingerprint exoplanet atmospheres (b5322229) from configured research scope.",
+          "evidence": "secondary",
+          "source": "live_research",
+          "confidence": 0.6,
+          "freshness": "recent"
+        }
+      ],
+      "evidence_refs": [
+        "N01",
+        "L02"
+      ],
+      "fact_pack_id": "",
+      "ending": "From that brighter, water vapor is tricky. It can hide behind clouds or mimic other gases. We need multiple bands to confirm. So.",
+      "payoff": "But the star is a million times brighter. We subtract its light. What remains is the planet's breath.",
+      "cta": "",
+      "estimated_duration_sec": 60.0,
+      "legacy_visual_prompts": [
+        {
+          "scene_index": 0,
+          "fields": {
+            "visual_prompt": "JWST mirror catching IR light, cinematic",
+            "visual_query": "JWST mirror infrared light",
+            "exact_ai_video_prompt": "VERTICAL 9:16 portrait (1080x1920) cinematic slow push-in of James Webb Space Telescope hexagonal gold mirror segments catching infrared light, teal/cyan cinematic lab grade, high contrast, shallow DOF, continuous motion, no burned captions, no watermark, no talking-head REQUIRED on-screen anchors: JWST Mid-Infrared Spectra Exoplanet Atmospheres, JWST, exoplanet, light bending, atmosphere, miss, exoplanets, dots, read, Watch. Visual slot: JWST Mid-Infrared Spectra Exoplanet Atmospheres JWST exoplanet: Most viewers miss this about JWST Mid-Infrared Spectra Exoplanet Atmospheres — most — slow cinematic push-in establishing hero."
+          },
+          "ownership": "LEGACY_DEPRECATED"
+        },
+        {
+          "scene_index": 1,
+          "fields": {
+            "visual_prompt": "IR waves penetrating dust, cinematic macro",
+            "visual_query": "infrared light through dust cloud",
+            "exact_ai_video_prompt": "VERTICAL 9:16 portrait (1080x1920) macro shot of infrared light waves passing through a dense cosmic dust cloud, teal/cyan grade, high contrast, slow zoom into the dust particles, continuous motion, no burned captions, no watermark, no talking-head REQUIRED on-screen anchors: JWST Mid-Infrared Spectra Exoplanet Atmospheres, mid-infrared, dust penetration, molecules, spectra, Visible, bounces, penetrates. Visual slot: JWST Mid-Infrared Spectra Exoplanet Atmospheres mid-infrared dust penetration: Visible light bounces off clouds. Mid-infrared penetrates dust. That's why we use — environmental wide into subject emphasis."
+          },
+          "ownership": "LEGACY_DEPRECATED"
+        },
+        {
+          "scene_index": 2,
+          "fields": {
+            "visual_prompt": "Spectral graph with molecular dips, cinematic",
+            "visual_query": "spectral graph CO2 methane dips",
+            "exact_ai_video_prompt": "VERTICAL 9:16 portrait (1080x1920) close-up of a spectral graph with sharp dips labeled CO2 and CH4, teal/cyan grade, high contrast, slow pan across the graph lines, continuous motion, no burned captions, no watermark, no talking-head REQUIRED on-screen anchors: JWST Mid-Infrared Spectra Exoplanet Atmospheres, methane, 4.3 microns, Carbon, dioxide, distinct, microns, fingerprints. Visual slot: JWST Mid-Infrared Spectra Exoplanet Atmospheres CO2 methane: From that penetrates, watch what this changes next — carbon dioxide leaves — revealing detail with controlled camera move."
+          },
+          "ownership": "LEGACY_DEPRECATED"
+        },
+        {
+          "scene_index": 3,
+          "fields": {
+            "visual_prompt": "Star/planet light subtraction effect, cinematic",
+            "visual_query": "star planet light subtraction",
+            "exact_ai_video_prompt": "VERTICAL 9:16 portrait (1080x1920) split screen showing a bright star and a faint exoplanet, then a subtraction effect revealing only the planet's spectral signature, teal/cyan grade, high contrast, smooth transition, continuous motion, no burned captions, no watermark, no talking-head REQUIRED on-screen anchors: JWST Mid-Infrared Spectra Exoplanet Atmospheres, star light, planet breath, signal, million, times, brighter, light. Visual slot: JWST Mid-Infrared Spectra Exoplanet Atmospheres star light subtraction: But the star is a million times brighter. We subtract its light. — macro process detail, continuous motion."
+          },
+          "ownership": "LEGACY_DEPRECATED"
+        },
+        {
+          "scene_index": 4,
+          "fields": {
+            "visual_prompt": "Water vapor molecules in space, cinematic macro",
+            "visual_query": "water vapor molecules nebula",
+            "exact_ai_video_prompt": "VERTICAL 9:16 portrait (1080x1920) macro shot of water vapor molecules swirling in a nebula, teal/cyan grade, high contrast, slow rotation, continuous motion, no burned captions, no watermark, no talking-head REQUIRED on-screen anchors: JWST Mid-Infrared Spectra Exoplanet Atmospheres, clouds, multiple bands, confirmation, tricky, hide, behind. Visual slot: JWST Mid-Infrared Spectra Exoplanet Atmospheres water vapor clouds: From that brighter, water vapor is tricky. It can hide behind clouds — environmental wide into subject emphasis."
+          },
+          "ownership": "LEGACY_DEPRECATED"
+        }
+      ],
+      "metadata": {
+        "source": "niche_director_normalized",
+        "visual_prompt_canonical_owner": "C05-S",
+        "script_owns_provider_visual_prompts": false,
+        "created_at": "2026-09-10T23:26:03.100597",
+        "dialogue_window_repairs": [],
+        "dialogue_window_enforced": true,
+        "retention_blueprint": {
+          "format": "short",
+          "windows": [
+            {
+              "id": "pattern_interrupt",
+              "start_sec": 0,
+              "end_sec": 2,
+              "job": "Pattern Interrupt"
+            },
+            {
+              "id": "curiosity_gap",
+              "start_sec": 2,
+              "end_sec": 5,
+              "job": "Curiosity Gap"
+            },
+            {
+              "id": "first_payoff",
+              "start_sec": 5,
+              "end_sec": 10,
+              "job": "First Payoff"
+            }
+          ],
+          "loop": [
+            "question",
+            "evidence",
+            "payoff",
+            "new_question"
+          ],
+          "min_open_loops": 2,
+          "min_loop_close_ratio": 0.7,
+          "forbid_flat_streak": 2,
+          "require_ending_close": true
+        }
+      },
+      "scenes": []
+    },
+    "c05_handoff": {
+      "ready": true,
+      "status": "APPROVED_SCRIPT",
+      "path": "ScriptPlan → C05-TRS → C05-S → C05-GA → C05-GP → C05-GX → C05-MR",
+      "note": "Handoff ready — media generation is a later step",
+      "topic_id": "topic-891fe7ac3a689e2a",
+      "topic_text": "How JWST mid-infrared spectra fingerprint exoplanet atmospheres (b5322229)",
+      "script_plan_topic": "JWST Mid-Infrared Spectra Exoplanet Atmospheres"
+    },
+    "actions": {
+      "select_topic": true,
+      "research": true,
+      "generate_script": true,
+      "review_script": true,
+      "approve_script": false,
+      "c05_handoff_ready": true
+    }
+  }
+}

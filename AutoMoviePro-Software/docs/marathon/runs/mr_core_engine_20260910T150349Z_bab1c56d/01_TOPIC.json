@@ -1,0 +1,716 @@
+{
+  "ok": true,
+  "topic": "How JWST mid-infrared spectra fingerprint exoplanet atmospheres (d7260457)",
+  "topic_source": "MANUAL_CONCRETE_NICHE_GROUNDED",
+  "topic_quality": {
+    "ok": true,
+    "error_code": "",
+    "issues": [],
+    "specificity_score": 1.0,
+    "token_count": 9,
+    "niche_aligned": true,
+    "seo": {
+      "seo_score": 0.9,
+      "seo_friendly": true,
+      "notes": [
+        "length_ok",
+        "intent_keyword",
+        "niche_anchor",
+        "has_specific_number_or_year"
+      ],
+      "method": "HEURISTIC",
+      "claims_google_rank": false
+    },
+    "authority": "pipeline.intelligence.topic_quality"
+  },
+  "set_result": {
+    "ok": true,
+    "topic": {
+      "topic_id": "topic-d36b2e772d88fc63",
+      "project_id": "trs-ch4",
+      "owner_login_id": "c11_marathon_customer",
+      "topic_text": "How JWST mid-infrared spectra fingerprint exoplanet atmospheres (d7260457)",
+      "topic_source": "MANUAL",
+      "topic_status": "COMPLETED",
+      "selected_at": "2026-09-10T21:03:49.751734",
+      "created_at": "2026-09-06T22:13:16.391863",
+      "updated_at": "2026-09-10T21:03:49.751734",
+      "duplicate": {
+        "verdict": "UNIQUE",
+        "blocked": false,
+        "matched": "",
+        "detail": {
+          "verdict": "UNIQUE",
+          "confidence": 0.88,
+          "evidence": {
+            "rule_version": "1.0.0"
+          },
+          "comparison_target": "",
+          "layer": "all_passed"
+        },
+        "authority": "BUILD-04G.duplicate + product_registry"
+      },
+      "blocked_reason": null,
+      "error_code": null
+    },
+    "workflow": {
+      "contract": "C06-B",
+      "project_id": "trs-ch4",
+      "owner_login_id": "c11_marathon_customer",
+      "channel_id": 4,
+      "updated_at": "2026-09-10T21:03:49.755310",
+      "revision": 428,
+      "topic": {
+        "topic_id": "topic-d36b2e772d88fc63",
+        "project_id": "trs-ch4",
+        "owner_login_id": "c11_marathon_customer",
+        "topic_text": "How JWST mid-infrared spectra fingerprint exoplanet atmospheres (d7260457)",
+        "topic_source": "MANUAL",
+        "topic_status": "COMPLETED",
+        "selected_at": "2026-09-10T21:03:49.751734",
+        "created_at": "2026-09-06T22:13:16.391863",
+        "updated_at": "2026-09-10T21:03:49.751734",
+        "duplicate": {
+          "verdict": "UNIQUE",
+          "blocked": false,
+          "matched": "",
+          "detail": {
+            "verdict": "UNIQUE",
+            "confidence": 0.88,
+            "evidence": {
+              "rule_version": "1.0.0"
+            },
+            "comparison_target": "",
+            "layer": "all_passed"
+          },
+          "authority": "BUILD-04G.duplicate + product_registry"
+        },
+        "blocked_reason": null,
+        "error_code": null
+      },
+      "suggestions": [],
+      "reserved": [
+        {
+          "topic_id": "t-71bf9f81dcbd29c3",
+          "topic_text": "One fact about space science you missed today",
+          "source": "RESERVED",
+          "authority": "BUILD-04G.reserve_queue"
+        },
+        {
+          "topic_id": "t-042828b9295d915b",
+          "topic_text": "Quick space science insight for general",
+          "source": "RESERVED",
+          "authority": "BUILD-04G.reserve_queue"
+        },
+        {
+          "topic_id": "t-87e7edb4fdfcde63",
+          "topic_text": "space science: 60-second breakdown",
+          "source": "RESERVED",
+          "authority": "BUILD-04G.reserve_queue"
+        }
+      ],
+      "research": {
+        "research_status": "READY",
+        "fact_count": 2,
+        "evidence_count": 2,
+        "source_count": 0,
+        "confidence": null,
+        "unresolved_items": [],
+        "capability": {
+          "provider_capability": "MOCK",
+          "provider_mode": "MOCK",
+          "external_live_research": "UNKNOWN",
+          "is_external_live": false,
+          "external_api": false,
+          "note": "LOCAL_FACTPACK must not be claimed as EXTERNAL_LIVE_RESEARCH"
+        },
+        "gate": {
+          "verdict": "RESEARCH_CONFLICT",
+          "reason": "conflicts_detected",
+          "issues": [],
+          "conflicts": [
+            {
+              "claim_a": "How JWST mid-infrared spectra fingerprint exoplanet atmospheres — cert 202609101502-7cf9870d has documented recent developments.",
+              "claim_b": "How JWST mid-infrared spectra fingerprint exoplanet atmospheres — cert 202609101502-7cf9870d has documented recent developments.",
+              "type": "numeric_contradiction"
+            }
+          ],
+          "classified": [
+            {
+              "claim": "How JWST mid-infrared spectra fingerprint exoplanet atmospheres — cert 202609101502-7cf9870d has documented recent developments.",
+              "class": "SUPPORTED",
+              "source": "mock_news"
+            },
+            {
+              "claim": "Analysis of How JWST mid-infrared spectra fingerprint exoplanet atmospheres — cert 202609101502-7cf9870d shows measurable audience interest.",
+              "class": "SUPPORTED",
+              "source": "mock_analytics"
+            }
+          ]
+        },
+        "fingerprint": "2514cca779983700784b9ae4d8f76e0932d7208d30351d74d33461f0a7687cf9",
+        "action": "execute",
+        "error_code": "research_gate_failed",
+        "error_summary": "conflicts_detected",
+        "live_research_complete": false,
+        "status_label": "READY",
+        "has_fact_pack": true
+      },
+      "script": {
+        "script_status": "NOT_STARTED",
+        "preview": {
+          "topic": "Dark Energy Surveys and Galaxy Redshift Measurement",
+          "hook": "Most people miss this about dark energy surveys — they aren't looking for a substance. They're measuring the stretch of space itself.",
+          "beat_count": 5,
+          "dialogue_count": 5,
+          "scene_count": 5,
+          "entities": [],
+          "locations": [],
+          "relationships": [],
+          "dialogue_ids": [
+            "beat-1",
+            "beat-2",
+            "beat-3",
+            "beat-4",
+            "beat-5"
+          ],
+          "beat_ids": [
+            "beat-1",
+            "beat-2",
+            "beat-3",
+            "beat-4",
+            "beat-5"
+          ],
+          "scene_ids": [
+            "scene-00",
+            "scene-01",
+            "scene-02",
+            "scene-03",
+            "scene-04"
+          ],
+          "beats_summary": [
+            {
+              "beat_id": "beat-1",
+              "narration": "Most people miss this about dark energy surveys — they aren't looking for a substance. They're measuring the stretch of space itself.",
+              "speaker": "Narrator",
+              "emotion": "",
+              "entity_refs": [],
+              "location_ref": "",
+              "estimated_duration_sec": 9.17
+            },
+            {
+              "beat_id": "beat-2",
+              "narration": "Why does that matter right now? the key metric is redshift. As light travels through expanding space, its wavelength stretches, shifting toward the.",
+              "speaker": "Narrator",
+              "emotion": "",
+              "entity_refs": [],
+              "location_ref": "",
+              "estimated_duration_sec": 9.58
+            },
+            {
+              "beat_id": "beat-3",
+              "narration": "From that wavelength, watch what this changes next — surveys like DESI map millions of these shifts. The data shows distant galaxies are.",
+              "speaker": "Narrator",
+              "emotion": "",
+              "entity_refs": [],
+              "location_ref": "",
+              "estimated_duration_sec": 9.58
+            },
+            {
+              "beat_id": "beat-4",
+              "narration": "Gravity should slow this down. But something is overpowering it. This 'something' is what we call dark energy, a property of space itself.",
+              "speaker": "Narrator",
+              "emotion": "",
+              "entity_refs": [],
+              "location_ref": "",
+              "estimated_duration_sec": 9.58
+            },
+            {
+              "beat_id": "beat-5",
+              "narration": "It makes up roughly seventy percent of the total energy density. It’s not a particle. It’s the vacuum energy of the void between..",
+              "speaker": "Narrator",
+              "emotion": "",
+              "entity_refs": [],
+              "location_ref": "",
+              "estimated_duration_sec": 9.58
+            }
+          ]
+        },
+        "scene_count": 5,
+        "beat_count": 5,
+        "dialogue_count": 5,
+        "quality": {
+          "status": "PASS",
+          "issues": [],
+          "actions": [],
+          "preflight": {
+            "status": "WARNING",
+            "ok": true,
+            "blocked": false,
+            "blocks": [],
+            "warnings": [
+              "missing_emotional_intent:1"
+            ],
+            "unknowns": [],
+            "confidence": "HEURISTIC",
+            "claims_human_written": false,
+            "claims_guaranteed_engagement": false,
+            "method": "DETERMINISTIC_PREFLIGHT",
+            "note": "stylistic judgments are HEURISTIC; naturalness not proven"
+          },
+          "authority": "BUILD-04F.evaluate_script_quality + TRS preflight"
+        },
+        "approval": {
+          "state": "NOT_READY",
+          "publishes": false,
+          "means_generated": false
+        },
+        "error_code": null,
+        "error_summary": null,
+        "script_action": "reuse",
+        "dialogue_segments_count": 5,
+        "has_script_plan": true
+      },
+      "script_plan": {
+        "schema_version": "1.0.0",
+        "id": "6ed248ac-3246-4ebb-ab14-23ac05f20048",
+        "created_at": "2026-09-10 14:49:54.052079+00:00",
+        "updated_at": null,
+        "topic_id": "topic-4304f6935e2c05ff",
+        "topic": "Dark Energy Surveys and Galaxy Redshift Measurement",
+        "format": "SHORT",
+        "language": "en",
+        "target_duration_sec": 60.0,
+        "hook": "Most people miss this about dark energy surveys — they aren't looking for a substance. They're measuring the stretch of space itself.",
+        "narrative_structure": [
+          "hook",
+          "context",
+          "development",
+          "payoff",
+          "ending"
+        ],
+        "sections": [
+          "hook",
+          "context",
+          "development",
+          "payoff",
+          "ending"
+        ],
+        "beats": [
+          {
+            "schema_version": "1.0.0",
+            "id": "06f5afbb-7c96-49e6-9bf9-6fa48ef9d663",
+            "created_at": "2026-09-10 14:49:54.052079+00:00",
+            "updated_at": null,
+            "beat_id": "beat-1",
+            "order": 0,
+            "section_role": "hook",
+            "narration": "Most people miss this about dark energy surveys — they aren't looking for a substance. They're measuring the stretch of space itself.",
+            "speaker": "Narrator",
+            "emotion": "",
+            "emotion_intensity": 0.5,
+            "action_intent": "",
+            "entity_refs": [],
+            "location_ref": "",
+            "temporal_context": "",
+            "continuity_deps": [],
+            "visual_implication": "Most people miss this about dark energy surveys — they aren't looking for a substance. They're measuring the stretch of",
+            "claim_ids": [],
+            "evidence_refs": [
+              "N01"
+            ],
+            "estimated_duration_sec": 9.17,
+            "retention_role": "pattern_interrupt",
+            "open_loop": "",
+            "payoff_for": "",
+            "emotional_intent": "",
+            "metadata": {
+              "legacy_visual_prompt_ownership": {
+                "semantic_visual_intent": "",
+                "legacy_provider_prompts": {
+                  "exact_ai_video_prompt": "VERTICAL 9:16 portrait (1080x1920) cinematic slow push-in of a distant galaxy cluster, stars appearing to stretch outward radially, teal/cyan cinematic lab grade, high contrast, shallow DOF, no burned captions, no watermark, no talking-head REQUIRED on-screen anchors: Dark Energy Surveys and Galaxy Redshift Measurement, space stretching, cosmic web, miss, dark, energy, surveys, aren, substance. Visual slot: Dark Energy Surveys and Galaxy Redshift Measurement galaxy cluster space stretching: Most people miss this about dark energy surveys — they aren't looking — slow cinematic push-in establishing hero.",
+                  "visual_query": "galaxy cluster stretching space",
+                  "visual_prompt": "cinematic hero of galaxy cluster, continuous motion"
+                },
+                "legacy_fields_present": true,
+                "canonical_owner": "C05-S DirectedVisualBeat → prompt_compiler",
+                "script_owns_provider_visual_prompts": false,
+                "ownership": "LEGACY_DEPRECATED",
+                "note": "visual_prompt/exact_ai_video_prompt are compatibility fields, not ScriptPlan authority"
+              },
+              "dialogue_id": "beat-1",
+              "scene_id": "scene-00"
+            },
+            "retention": {
+              "role": "pattern_interrupt",
+              "window_start_sec": 0,
+              "window_end_sec": 2,
+              "job": "Pattern Interrupt",
+              "open_loop": null,
+              "payoff_for": null
+            }
+          },
+          {
+            "schema_version": "1.0.0",
+            "id": "94cefbaa-14c3-452d-844e-d69afe8b519c",
+            "created_at": "2026-09-10 14:49:54.052079+00:00",
+            "updated_at": null,
+            "beat_id": "beat-2",
+            "order": 1,
+            "section_role": "context",
+            "narration": "Why does that matter right now? the key metric is redshift. As light travels through expanding space, its wavelength stretches, shifting toward the.",
+            "speaker": "Narrator",
+            "emotion": "",
+            "emotion_intensity": 0.5,
+            "action_intent": "",
+            "entity_refs": [],
+            "location_ref": "",
+            "temporal_context": "",
+            "continuity_deps": [],
+            "visual_implication": "Why does that matter right now? the key metric is redshift. As light travels through expanding space, its wavelength str",
+            "claim_ids": [],
+            "evidence_refs": [
+              "N01"
+            ],
+            "estimated_duration_sec": 9.58,
+            "retention_role": "curiosity_gap",
+            "open_loop": "",
+            "payoff_for": "",
+            "emotional_intent": "",
+            "metadata": {
+              "legacy_visual_prompt_ownership": {
+                "semantic_visual_intent": "",
+                "legacy_provider_prompts": {
+                  "exact_ai_video_prompt": "VERTICAL 9:16 portrait (1080x1920) macro view of a light wave stretching and elongating, color shifting from blue to deep red, molecular glass aesthetic, teal/cyan cinematic lab grade, high contrast, no burned captions, no watermark, no talking-head REQUIRED on-screen anchors: Dark Energy Surveys and Galaxy Redshift Measurement, redshift, wavelength stretching, spectrum, metric, travels, expanding, space. Visual slot: Dark Energy Surveys and Galaxy Redshift Measurement light wave redshift: Why does that matter right now? the key metric is redshift. As — environmental wide into subject emphasis.",
+                  "visual_query": "light wave redshift stretching",
+                  "visual_prompt": "cinematic light wave stretching, continuous motion"
+                },
+                "legacy_fields_present": true,
+                "canonical_owner": "C05-S DirectedVisualBeat → prompt_compiler",
+                "script_owns_provider_visual_prompts": false,
+                "ownership": "LEGACY_DEPRECATED",
+                "note": "visual_prompt/exact_ai_video_prompt are compatibility fields, not ScriptPlan authority"
+              },
+              "dialogue_id": "beat-2",
+              "scene_id": "scene-01"
+            },
+            "retention": {
+              "role": "curiosity_gap",
+              "window_start_sec": 2,
+              "window_end_sec": 5,
+              "job": "Curiosity Gap",
+              "open_loop": null,
+              "payoff_for": null
+            }
+          },
+          {
+            "schema_version": "1.0.0",
+            "id": "8e7bb7b4-5009-4c3d-b173-8242355d78b8",
+            "created_at": "2026-09-10 14:49:54.052079+00:00",
+            "updated_at": null,
+            "beat_id": "beat-3",
+            "order": 2,
+            "section_role": "development",
+            "narration": "From that wavelength, watch what this changes next — surveys like DESI map millions of these shifts. The data shows distant galaxies are.",
+            "speaker": "Narrator",
+            "emotion": "",
+            "emotion_intensity": 0.5,
+            "action_intent": "",
+            "entity_refs": [],
+            "location_ref": "",
+            "temporal_context": "",
+            "continuity_deps": [],
+            "visual_implication": "From that wavelength, watch what this changes next — surveys like DESI map millions of these shifts. The data shows dist",
+            "claim_ids": [],
+            "evidence_refs": [
+              "N01"
+            ],
+            "estimated_duration_sec": 9.58,
+            "retention_role": "first_payoff",
+            "open_loop": "",
+            "payoff_for": "",
+            "emotional_intent": "",
+            "metadata": {
+              "legacy_visual_prompt_ownership": {
+                "semantic_visual_intent": "",
+                "legacy_provider_prompts": {
+                  "exact_ai_video_prompt": "VERTICAL 9:16 portrait (1080x1920) dynamic visualization of a 3D data map with points moving outward at increasing speed, glowing red lines indicating acceleration, teal/cyan cinematic lab grade, high contrast, no burned captions, no watermark, no talking-head REQUIRED on-screen anchors: Dark Energy Surveys and Galaxy Redshift Measurement, galaxy distribution, acceleration curve, scientific chart, Surveys, like, DESI, millions, shifts. Visual slot: Dark Energy Surveys and Galaxy Redshift Measurement data map galaxy distribution: From that wavelength, watch what this changes next — surveys like DESI — revealing detail with controlled camera move.",
+                  "visual_query": "galaxy data map acceleration",
+                  "visual_prompt": "cinematic data map, continuous motion"
+                },
+                "legacy_fields_present": true,
+                "canonical_owner": "C05-S DirectedVisualBeat → prompt_compiler",
+                "script_owns_provider_visual_prompts": false,
+                "ownership": "LEGACY_DEPRECATED",
+                "note": "visual_prompt/exact_ai_video_prompt are compatibility fields, not ScriptPlan authority"
+              },
+              "dialogue_id": "beat-3",
+              "scene_id": "scene-02"
+            },
+            "retention": {
+              "role": "first_payoff",
+              "window_start_sec": 5,
+              "window_end_sec": 10,
+              "job": "First Payoff",
+              "open_loop": null,
+              "payoff_for": null
+            }
+          },
+          {
+            "schema_version": "1.0.0",
+            "id": "6ea6bda6-12f5-46a7-843a-ed0c39086982",
+            "created_at": "2026-09-10 14:49:54.052079+00:00",
+            "updated_at": null,
+            "beat_id": "beat-4",
+            "order": 3,
+            "section_role": "payoff",
+            "narration": "Gravity should slow this down. But something is overpowering it. This 'something' is what we call dark energy, a property of space itself.",
+            "speaker": "Narrator",
+            "emotion": "",
+            "emotion_intensity": 0.5,
+            "action_intent": "",
+            "entity_refs": [],
+            "location_ref": "",
+            "temporal_context": "",
+            "continuity_deps": [],
+            "visual_implication": "Gravity should slow this down. But something is overpowering it. This 'something' is what we call dark energy, a propert",
+            "claim_ids": [],
+            "evidence_refs": [
+              "N01"
+            ],
+            "estimated_duration_sec": 9.58,
+            "retention_role": "question",
+            "open_loop": "",
+            "payoff_for": "",
+            "emotional_intent": "",
+            "metadata": {
+              "legacy_visual_prompt_ownership": {
+                "semantic_visual_intent": "",
+                "legacy_provider_prompts": {
+                  "exact_ai_video_prompt": "VERTICAL 9:16 portrait (1080x1920) abstract visualization of a gravitational well being pushed outward by an invisible force, chemical plume aesthetic, teal/cyan cinematic lab grade, high contrast, no burned captions, no watermark, no talking-head REQUIRED on-screen anchors: Dark Energy Surveys and Galaxy Redshift Measurement, gravity pull, dark energy, space property, force field, Gravity, slow, down, overpowering, dark. Visual slot: Dark Energy Surveys and Galaxy Redshift Measurement gravity pull dark energy: Gravity should slow this down. But something is overpowering it. This 'something' — macro process detail, continuous motion.",
+                  "visual_query": "gravity vs dark energy force",
+                  "visual_prompt": "cinematic force field interaction, continuous motion"
+                },
+                "legacy_fields_present": true,
+                "canonical_owner": "C05-S DirectedVisualBeat → prompt_compiler",
+                "script_owns_provider_visual_prompts": false,
+                "ownership": "LEGACY_DEPRECATED",
+                "note": "visual_prompt/exact_ai_video_prompt are compatibility fields, not ScriptPlan authority"
+              },
+              "dialogue_id": "beat-4",
+              "scene_id": "scene-03"
+            },
+            "retention": {
+              "role": "question",
+              "window_start_sec": null,
+              "window_end_sec": null,
+              "job": "question",
+              "open_loop": null,
+              "payoff_for": null
+            }
+          },
+          {
+            "schema_version": "1.0.0",
+            "id": "159d6546-44cf-4f64-b1fa-21c83c83b9d0",
+            "created_at": "2026-09-10 14:49:54.052079+00:00",
+            "updated_at": null,
+            "beat_id": "beat-5",
+            "order": 4,
+            "section_role": "ending",
+            "narration": "It makes up roughly seventy percent of the total energy density. It’s not a particle. It’s the vacuum energy of the void between..",
+            "speaker": "Narrator",
+            "emotion": "",
+            "emotion_intensity": 0.5,
+            "action_intent": "",
+            "entity_refs": [],
+            "location_ref": "",
+            "temporal_context": "",
+            "continuity_deps": [],
+            "visual_implication": "It makes up roughly seventy percent of the total energy density. It’s not a particle. It’s the vacuum energy of the void",
+            "claim_ids": [],
+            "evidence_refs": [
+              "N01"
+            ],
+            "estimated_duration_sec": 9.58,
+            "retention_role": "ending",
+            "open_loop": "",
+            "payoff_for": "main_open_loop",
+            "emotional_intent": "",
+            "metadata": {
+              "legacy_visual_prompt_ownership": {
+                "semantic_visual_intent": "",
+                "legacy_provider_prompts": {
+                  "exact_ai_video_prompt": "VERTICAL 9:16 portrait (1080x1920) slow pan across a vast cosmic void, faint nebulae in the distance, sense of immense emptiness, teal/cyan cinematic lab grade, high contrast, no burned captions, no watermark, no talking-head REQUIRED on-screen anchors: Dark Energy Surveys and Galaxy Redshift Measurement, vacuum energy, energy density, empty space, roughly, seventy, percent, total, energy, density. Visual slot: Dark Energy Surveys and Galaxy Redshift Measurement vacuum energy cosmic void: It makes up roughly seventy percent of the total energy density. It’s — environmental wide into subject emphasis.",
+                  "visual_query": "cosmic void vacuum energy",
+                  "visual_prompt": "cinematic cosmic void, continuous motion"
+                },
+                "legacy_fields_present": true,
+                "canonical_owner": "C05-S DirectedVisualBeat → prompt_compiler",
+                "script_owns_provider_visual_prompts": false,
+                "ownership": "LEGACY_DEPRECATED",
+                "note": "visual_prompt/exact_ai_video_prompt are compatibility fields, not ScriptPlan authority"
+              },
+              "dialogue_id": "beat-5",
+              "scene_id": "scene-04"
+            },
+            "retention": {
+              "role": "ending",
+              "window_start_sec": null,
+              "window_end_sec": null,
+              "job": "close_main_loop",
+              "open_loop": null,
+              "payoff_for": "main_open_loop"
+            }
+          }
+        ],
+        "claims": [
+          {
+            "id": "N01",
+            "claim": "Research query: what dark energy surveys measure when galaxies stretch apart\nLanguage: en\nRegion:",
+            "evidence": "research_notes",
+            "source": "research_notes",
+            "confidence": 0.4,
+            "freshness": "UNVERIFIED"
+          },
+          {
+            "id": "L02",
+            "claim": "Additional context on What dark energy surveys measure when galaxies stretch apart from configured research scope.",
+            "evidence": "secondary",
+            "source": "live_research",
+            "confidence": 0.6,
+            "freshness": "recent"
+          }
+        ],
+        "evidence_refs": [
+          "N01",
+          "L02"
+        ],
+        "fact_pack_id": "",
+        "ending": "It makes up roughly seventy percent of the total energy density. It’s not a particle. It’s the vacuum energy of the void between..",
+        "payoff": "Gravity should slow this down. But something is overpowering it. This 'something' is what we call dark energy, a property of space itself.",
+        "cta": "",
+        "estimated_duration_sec": 60.0,
+        "legacy_visual_prompts": [
+          {
+            "scene_index": 0,
+            "fields": {
+              "exact_ai_video_prompt": "VERTICAL 9:16 portrait (1080x1920) cinematic slow push-in of a distant galaxy cluster, stars appearing to stretch outward radially, teal/cyan cinematic lab grade, high contrast, shallow DOF, no burned captions, no watermark, no talking-head REQUIRED on-screen anchors: Dark Energy Surveys and Galaxy Redshift Measurement, space stretching, cosmic web, miss, dark, energy, surveys, aren, substance. Visual slot: Dark Energy Surveys and Galaxy Redshift Measurement galaxy cluster space stretching: Most people miss this about dark energy surveys — they aren't looking — slow cinematic push-in establishing hero.",
+              "visual_query": "galaxy cluster stretching space",
+              "visual_prompt": "cinematic hero of galaxy cluster, continuous motion"
+            },
+            "ownership": "LEGACY_DEPRECATED"
+          },
+          {
+            "scene_index": 1,
+            "fields": {
+              "exact_ai_video_prompt": "VERTICAL 9:16 portrait (1080x1920) macro view of a light wave stretching and elongating, color shifting from blue to deep red, molecular glass aesthetic, teal/cyan cinematic lab grade, high contrast, no burned captions, no watermark, no talking-head REQUIRED on-screen anchors: Dark Energy Surveys and Galaxy Redshift Measurement, redshift, wavelength stretching, spectrum, metric, travels, expanding, space. Visual slot: Dark Energy Surveys and Galaxy Redshift Measurement light wave redshift: Why does that matter right now? the key metric is redshift. As — environmental wide into subject emphasis.",
+              "visual_query": "light wave redshift stretching",
+              "visual_prompt": "cinematic light wave stretching, continuous motion"
+            },
+            "ownership": "LEGACY_DEPRECATED"
+          },
+          {
+            "scene_index": 2,
+            "fields": {
+              "exact_ai_video_prompt": "VERTICAL 9:16 portrait (1080x1920) dynamic visualization of a 3D data map with points moving outward at increasing speed, glowing red lines indicating acceleration, teal/cyan cinematic lab grade, high contrast, no burned captions, no watermark, no talking-head REQUIRED on-screen anchors: Dark Energy Surveys and Galaxy Redshift Measurement, galaxy distribution, acceleration curve, scientific chart, Surveys, like, DESI, millions, shifts. Visual slot: Dark Energy Surveys and Galaxy Redshift Measurement data map galaxy distribution: From that wavelength, watch what this changes next — surveys like DESI — revealing detail with controlled camera move.",
+              "visual_query": "galaxy data map acceleration",
+              "visual_prompt": "cinematic data map, continuous motion"
+            },
+            "ownership": "LEGACY_DEPRECATED"
+          },
+          {
+            "scene_index": 3,
+            "fields": {
+              "exact_ai_video_prompt": "VERTICAL 9:16 portrait (1080x1920) abstract visualization of a gravitational well being pushed outward by an invisible force, chemical plume aesthetic, teal/cyan cinematic lab grade, high contrast, no burned captions, no watermark, no talking-head REQUIRED on-screen anchors: Dark Energy Surveys and Galaxy Redshift Measurement, gravity pull, dark energy, space property, force field, Gravity, slow, down, overpowering, dark. Visual slot: Dark Energy Surveys and Galaxy Redshift Measurement gravity pull dark energy: Gravity should slow this down. But something is overpowering it. This 'something' — macro process detail, continuous motion.",
+              "visual_query": "gravity vs dark energy force",
+              "visual_prompt": "cinematic force field interaction, continuous motion"
+            },
+            "ownership": "LEGACY_DEPRECATED"
+          },
+          {
+            "scene_index": 4,
+            "fields": {
+              "exact_ai_video_prompt": "VERTICAL 9:16 portrait (1080x1920) slow pan across a vast cosmic void, faint nebulae in the distance, sense of immense emptiness, teal/cyan cinematic lab grade, high contrast, no burned captions, no watermark, no talking-head REQUIRED on-screen anchors: Dark Energy Surveys and Galaxy Redshift Measurement, vacuum energy, energy density, empty space, roughly, seventy, percent, total, energy, density. Visual slot: Dark Energy Surveys and Galaxy Redshift Measurement vacuum energy cosmic void: It makes up roughly seventy percent of the total energy density. It’s — environmental wide into subject emphasis.",
+              "visual_query": "cosmic void vacuum energy",
+              "visual_prompt": "cinematic cosmic void, continuous motion"
+            },
+            "ownership": "LEGACY_DEPRECATED"
+          }
+        ],
+        "metadata": {
+          "source": "niche_director_normalized",
+          "visual_prompt_canonical_owner": "C05-S",
+          "script_owns_provider_visual_prompts": false,
+          "created_at": "2026-09-10T20:49:54.052079",
+          "retention_cadence_enforced": true,
+          "retention_cadence_repairs": [
+            {
+              "index": 4,
+              "action": "ending_close",
+              "prior": "It makes up roughly seventy percent of the total energy density. It’s not a particle. It’s the vacuum energy of the void"
+            }
+          ],
+          "dialogue_window_repairs": [
+            {
+              "i": 4,
+              "action": "trim",
+              "est_sec": 9.58
+            }
+          ],
+          "dialogue_window_enforced": true,
+          "retention_blueprint": {
+            "format": "short",
+            "windows": [
+              {
+                "id": "pattern_interrupt",
+                "start_sec": 0,
+                "end_sec": 2,
+                "job": "Pattern Interrupt"
+              },
+              {
+                "id": "curiosity_gap",
+                "start_sec": 2,
+                "end_sec": 5,
+                "job": "Curiosity Gap"
+              },
+              {
+                "id": "first_payoff",
+                "start_sec": 5,
+                "end_sec": 10,
+                "job": "First Payoff"
+              }
+            ],
+            "loop": [
+              "question",
+              "evidence",
+              "payoff",
+              "new_question"
+            ],
+            "min_open_loops": 2,
+            "min_loop_close_ratio": 0.7,
+            "forbid_flat_streak": 2,
+            "require_ending_close": true
+          }
+        },
+        "scenes": []
+      },
+      "c05_handoff": {
+        "ready": false,
+        "status": "APPROVED_SCRIPT",
+        "path": "ScriptPlan → C05-TRS → C05-S → C05-GA → C05-GP → C05-GX → C05-MR",
+        "note": "Handoff ready — media generation is a later step",
+        "topic_id": "topic-4304f6935e2c05ff",
+        "topic_text": "What dark energy surveys measure when galaxies stretch apart",
+        "script_plan_topic": "Dark Energy Surveys and Galaxy Redshift Measurement"
+      },
+      "actions": {
+        "select_topic": true,
+        "research": true,
+        "generate_script": false,
+        "review_script": false,
+        "approve_script": false,
+        "c05_handoff_ready": false
+      }
+    }
+  }
+}

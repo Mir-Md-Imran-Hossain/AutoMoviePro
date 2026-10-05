@@ -1,0 +1,81 @@
+{
+  "niche_id": 103,
+  "name": "AI Video Creators",
+  "slug": "ai-video-creators",
+  "style_family": "gadget",
+  "status": "VERIFIED",
+  "topic_seeds": [
+    "What new evidence reframes the story of Video Creators inside AI Video Creators",
+    "How Video Creators still shapes public curiosity about AI Video Creators",
+    "What new evidence reframes the story of Pika inside AI Video Creators",
+    "How Pika still shapes public curiosity about AI Video Creators",
+    "What new evidence reframes the story of Kapwing inside AI Video Creators",
+    "How Kapwing still shapes public curiosity about AI Video Creators"
+  ],
+  "seo_angles": [
+    "What new evidence reframes the story of Video Creators inside AI Video Creators",
+    "How Video Creators still shapes public curiosity about AI Video Creators",
+    "What new evidence reframes the story of Pika inside AI Video Creators",
+    "How Pika still shapes public curiosity about AI Video Creators"
+  ],
+  "forbidden_visuals": [
+    "talking-head lip-sync avatar",
+    "burned-in captions",
+    "watermark",
+    "modern meme text",
+    "wrong model phone",
+    "generic unbranded slab",
+    "stock office handshake"
+  ],
+  "preferred_subjects": [
+    "exact product hero",
+    "component close-up",
+    "hands with device only"
+  ],
+  "lighting_default": "natural directional key, documentary clarity",
+  "face_policy": "product-only hero; hands OK; no talking-head",
+  "dialogue_tone": "human documentary narration; specific nouns; 7–9s beats",
+  "audio_ambience": "subtle documentary bed; do not overpower voice",
+  "research_hints": [
+    "Prefer primary evidence and concrete entities for AI Video Creators",
+    "Avoid generic niche-label topics; require specific place/person/event/mechanism",
+    "7–9 second spoken beats with story continuity across scenes"
+  ],
+  "topic_prompt_overlay": "NICHE LOCK (AI Video Creators): only propose topics that fit this niche's video type. Video type: RunwayML, Pika, Kapwing — generating short films, animations, and background removal with zero editing skills. Follow niche topic strategy: Check video tech news, new AI video releases, or viral AI-generated videos. Generate a topic about an AI tool that simplifies video production.",
+  "video_prompt_overlay": "NICHE VISUAL LOCK (AI Video Creators / gadget): Generate a 7–9 second dialogue clip based on the topic `{topic}`. Each dialogue must be fast and impressive. For each dialogue, generate: - **Audio Generation Prompt:** Voice — amazed, with camera clicks and whirrs. - **Video Generation Prompt:** Detailed visual — a timeline or video preview screen. No character — screen. Lighting: bright. Maintain same timeline view. Forbidden: talking-head lip-sync avatar, burned-in captions, watermark, modern meme text, wrong model phone, generic unbranded slab, stock office handshake. Preferred subjects: exact product hero, component close-up, hands with device only. Lighting: natural directional key, documentary clarity. Face policy: product-only hero; hands OK; no talking-head. Dialogue tone: human documentary narration; specific nouns; 7–9s beats. Ambience: subtle documentary bed; do not overpower voice.",
+  "i18n": {
+    "en": {
+      "name": "AI Video Creators",
+      "blurb": "RunwayML, Pika, Kapwing — generating short films, animations, and background removal with zero editing skills."
+    },
+    "bn": {
+      "name": "এআই ভিডিও ক্রিয়েটর",
+      "blurb": "ভিডিও টাইপ: RunwayML, Pika, Kapwing — generating short films, animations, and background removal with zero editing skills."
+    },
+    "hi": {
+      "name": "एआई वीडियो क्रिएटर",
+      "blurb": "वीडियो प्रकार: RunwayML, Pika, Kapwing — generating short films, animations, and background removal with zero editing skills."
+    },
+    "ur": {
+      "name": "اے آئی ویڈیو کریئٹرز",
+      "blurb": "ویڈیو کی قسم: RunwayML, Pika, Kapwing — generating short films, animations, and background removal with zero editing skills."
+    },
+    "ta": {
+      "name": "AI வீடியோ உருவாக்கிகள்",
+      "blurb": "வீடியோ வகை: RunwayML, Pika, Kapwing — generating short films, animations, and background removal with zero editing skills."
+    },
+    "ml": {
+      "name": "AI വീഡിയോ ക്രിയേറ്ററുകൾ",
+      "blurb": "വീഡിയോ തരം: RunwayML, Pika, Kapwing — generating short films, animations, and background removal with zero editing skills."
+    }
+  },
+  "source": "Nish.Md + deterministic research",
+  "research_notes": [
+    "Marathon researched at 2026-09-10T08:30:23Z",
+    "Video type length=110",
+    "Topic prompt length=143",
+    "Video prompt length=370",
+    "Seeds=6"
+  ],
+  "verified_at": "2026-09-10T08:30:23Z"
+}

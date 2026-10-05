@@ -1,0 +1,202 @@
+{
+  "schema_version": "1.0.0",
+  "id": "f2ed856e-e9f3-459e-83dc-eb69f2f6ffb6",
+  "created_at": "2026-09-08T08:20:23Z",
+  "updated_at": null,
+  "topic_id": "topic-rcp02",
+  "topic": "RCP-02 JWST beat-expansion slice v5: edge-tts + verified ESA stills six beats",
+  "format": "SHORT",
+  "language": "en",
+  "target_duration_sec": 30.0,
+  "hook": "The James Webb Space Telescope floats in deep space, its golden mirrors facing the cosmic dark.",
+  "narrative_structure": [
+    "hook",
+    "context",
+    "development",
+    "reveal",
+    "payoff",
+    "ending"
+  ],
+  "sections": [
+    "hook",
+    "context",
+    "development",
+    "reveal",
+    "payoff",
+    "ending"
+  ],
+  "beats": [
+    {
+      "schema_version": "1.0.0",
+      "id": "c36078af-f747-4c0b-a185-13be329274ce",
+      "created_at": "2026-09-08T08:20:23Z",
+      "updated_at": null,
+      "beat_id": "beat-1",
+      "order": 0,
+      "section_role": "hook",
+      "narration": "The James Webb Space Telescope floats in deep space, its golden mirrors facing the cosmic dark.",
+      "speaker": "Narrator",
+      "emotion": "",
+      "emotion_intensity": 0.5,
+      "action_intent": "",
+      "entity_refs": [],
+      "location_ref": "deep space",
+      "temporal_context": "",
+      "continuity_deps": [],
+      "visual_implication": "The James Webb Space Telescope floats in deep space, its golden mirrors facing the cosmic dark.",
+      "claim_ids": [],
+      "evidence_refs": [
+        "N01"
+      ],
+      "estimated_duration_sec": 5.0,
+      "metadata": {
+        "dialogue_id": "beat-1",
+        "scene_id": "scene-00"
+      }
+    },
+    {
+      "schema_version": "1.0.0",
+      "id": "04a7cd00-fc32-4c85-8a8e-b84d6736c17c",
+      "created_at": "2026-09-08T08:20:23Z",
+      "updated_at": null,
+      "beat_id": "beat-2",
+      "order": 1,
+      "section_role": "context",
+      "narration": "Infrared deep-field images reveal galaxies that formed more than thirteen billion years ago.",
+      "speaker": "Narrator",
+      "emotion": "",
+      "emotion_intensity": 0.5,
+      "action_intent": "",
+      "entity_refs": [],
+      "location_ref": "deep space",
+      "temporal_context": "",
+      "continuity_deps": [],
+      "visual_implication": "Infrared deep-field images reveal galaxies that formed more than thirteen billion years ago.",
+      "claim_ids": [],
+      "evidence_refs": [
+        "N01"
+      ],
+      "estimated_duration_sec": 5.0,
+      "metadata": {
+        "dialogue_id": "beat-2",
+        "scene_id": "scene-01"
+      }
+    },
+    {
+      "schema_version": "1.0.0",
+      "id": "a2bfb81c-f210-4c5e-affc-316793e23e84",
+      "created_at": "2026-09-08T08:20:23Z",
+      "updated_at": null,
+      "beat_id": "beat-3",
+      "order": 2,
+      "section_role": "development",
+      "narration": "These images show how early galaxies assembled from gas and dark matter after the Big Bang.",
+      "speaker": "Narrator",
+      "emotion": "",
+      "emotion_intensity": 0.5,
+      "action_intent": "",
+      "entity_refs": [],
+      "location_ref": "deep space",
+      "temporal_context": "",
+      "continuity_deps": [],
+      "visual_implication": "These images show how early galaxies assembled from gas and dark matter after the Big Bang.",
+      "claim_ids": [],
+      "evidence_refs": [
+        "N01"
+      ],
+      "estimated_duration_sec": 5.0,
+      "metadata": {
+        "dialogue_id": "beat-3",
+        "scene_id": "scene-02"
+      }
+    },
+    {
+      "schema_version": "1.0.0",
+      "id": "f5b8569c-269d-46f7-b386-8d58cfccf86c",
+      "created_at": "2026-09-08T08:20:23Z",
+      "updated_at": null,
+      "beat_id": "beat-4",
+      "order": 3,
+      "section_role": "reveal",
+      "narration": "Infrared light pierces cosmic dust, unveiling hidden star-forming nurseries inside a glowing nebula.",
+      "speaker": "Narrator",
+      "emotion": "",
+      "emotion_intensity": 0.5,
+      "action_intent": "",
+      "entity_refs": [],
+      "location_ref": "deep space",
+      "temporal_context": "",
+      "continuity_deps": [],
+      "visual_implication": "Infrared light pierces cosmic dust, unveiling hidden star-forming nurseries inside a glowing nebula.",
+      "claim_ids": [],
+      "evidence_refs": [
+        "N01"
+      ],
+      "estimated_duration_sec": 5.0,
+      "metadata": {
+        "dialogue_id": "beat-4",
+        "scene_id": "scene-03"
+      }
+    },
+    {
+      "schema_version": "1.0.0",
+      "id": "f5c5f335-2fff-4c3b-8409-16228076a8f1",
+      "created_at": "2026-09-08T08:20:23Z",
+      "updated_at": null,
+      "beat_id": "beat-5",
+      "order": 4,
+      "section_role": "payoff",
+      "narration": "The findings challenge older models of how spiral galaxies grew so quickly in the early cosmos.",
+      "speaker": "Narrator",
+      "emotion": "",
+      "emotion_intensity": 0.5,
+      "action_intent": "",
+      "entity_refs": [],
+      "location_ref": "deep space",
+      "temporal_context": "",
+      "continuity_deps": [],
+      "visual_implication": "The findings challenge older models of how spiral galaxies grew so quickly in the early cosmos.",
+      "claim_ids": [],
+      "evidence_refs": [
+        "N01"
+      ],
+      "estimated_duration_sec": 5.0,
+      "metadata": {
+        "dialogue_id": "beat-5",
+        "scene_id": "scene-04"
+      }
+    },
+    {
+      "schema_version": "1.0.0",
+      "id": "513e1062-da8c-46c0-9656-f19bd162f317",
+      "created_at": "2026-09-08T08:20:23Z",
+      "updated_at": null,
+      "beat_id": "beat-6",
+      "order": 5,
+      "section_role": "ending",
+      "narration": "This evolving universe still hides secrets that new observatories are only beginning to unlock.",
+      "speaker": "Narrator",
+      "emotion": "",
+      "emotion_intensity": 0.5,
+      "action_intent": "",
+      "entity_refs": [],
+      "location_ref": "deep space",
+      "temporal_context": "",
+      "continuity_deps": [],
+      "visual_implication": "This evolving universe still hides secrets that new observatories are only beginning to unlock.",
+      "claim_ids": [],
+      "evidence_refs": [
+        "N01"
+      ],
+      "estimated_duration_sec": 5.0,
+      "metadata": {
+        "dialogue_id": "beat-6",
+        "scene_id": "scene-05"
+      }
+    }
+  ],
+  "metadata": {
+    "rcp02": true,
+    "controlled": true
+  }
+}

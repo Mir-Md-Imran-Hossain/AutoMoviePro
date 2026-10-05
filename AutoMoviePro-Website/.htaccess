@@ -1,0 +1,31 @@
+RewriteEngine On
+
+# Canonical host: https://automoviepro.com (no www)
+RewriteCond %{HTTP_HOST} ^www\.automoviepro\.com$ [NC]
+RewriteRule ^ https://automoviepro.com%{REQUEST_URI} [L,R=301]
+
+# Force HTTPS when available
+RewriteCond %{HTTPS} !=on
+RewriteCond %{HTTP:X-Forwarded-Proto} !https
+RewriteCond %{HTTP_HOST} ^(www\.)?automoviepro\.com$ [NC]
+RewriteRule ^ https://automoviepro.com%{REQUEST_URI} [L,R=301]
+
+# Protect config and includes
+RewriteRule ^config\.php$ - [F,L]
+RewriteRule ^includes/ - [F,L]
+
+# Pretty API routes optional – files work as /api/login.php
+Options -Indexes
+
+# Security headers
+<IfModule mod_headers.c>
+  Header set X-Content-Type-Options "nosniff"
+  Header set X-Frame-Options "SAMEORIGIN"
+  Header set Referrer-Policy "strict-origin-when-cross-origin"
+</IfModule>
+
+# PHP upload limits (shared hosting may ignore)
+<IfModule mod_php.c>
+  php_value upload_max_filesize 64M
+  php_value post_max_size 64M
+</IfModule>

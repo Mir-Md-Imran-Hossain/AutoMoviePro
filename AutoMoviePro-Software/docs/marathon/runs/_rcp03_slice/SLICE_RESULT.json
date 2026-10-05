@@ -1,0 +1,555 @@
+{
+  "started_at": "2026-09-08T13:00:19Z",
+  "ok": true,
+  "rcp": "RCP-03",
+  "dialogue_count": 6,
+  "visual_beat_count": 6,
+  "plan_ready": true,
+  "plan_status": "READY_FOR_GENERATION",
+  "coverage_contracts": [
+    {
+      "beat_id": "vb-seg-beat-1",
+      "dialogue_id": "beat-1",
+      "required_subject": "The James Webb Space Telescope",
+      "required_entities": [],
+      "required_relationships": [],
+      "required_actions": [
+        "floats"
+      ],
+      "required_location": "deep space",
+      "coverage_requirement": {
+        "subject": "FULL",
+        "action": "FULL",
+        "entity": "NONE",
+        "object": "UNKNOWN",
+        "relationship": "UNKNOWN",
+        "location": "FULL",
+        "temporal": "UNKNOWN",
+        "overall": "PARTIAL",
+        "confidence": "HEURISTIC",
+        "note": "intent_planning_only_not_artifact_observation"
+      },
+      "reuse_policy": "semantic_beat_compatibility"
+    },
+    {
+      "beat_id": "vb-seg-beat-2",
+      "dialogue_id": "beat-2",
+      "required_subject": "multi-layer sunshield",
+      "required_entities": [],
+      "required_relationships": [],
+      "required_actions": [
+        "protecting"
+      ],
+      "required_location": "deep space",
+      "coverage_requirement": {
+        "subject": "FULL",
+        "action": "FULL",
+        "entity": "NONE",
+        "object": "UNKNOWN",
+        "relationship": "UNKNOWN",
+        "location": "FULL",
+        "temporal": "UNKNOWN",
+        "overall": "PARTIAL",
+        "confidence": "HEURISTIC",
+        "note": "intent_planning_only_not_artifact_observation"
+      },
+      "reuse_policy": "semantic_beat_compatibility"
+    },
+    {
+      "beat_id": "vb-seg-beat-3",
+      "dialogue_id": "beat-3",
+      "required_subject": "observatory",
+      "required_entities": [],
+      "required_relationships": [],
+      "required_actions": [
+        "orbits"
+      ],
+      "required_location": "deep space",
+      "coverage_requirement": {
+        "subject": "FULL",
+        "action": "FULL",
+        "entity": "NONE",
+        "object": "UNKNOWN",
+        "relationship": "NONE",
+        "location": "FULL",
+        "temporal": "UNKNOWN",
+        "overall": "PARTIAL",
+        "confidence": "HEURISTIC",
+        "note": "intent_planning_only_not_artifact_observation"
+      },
+      "reuse_policy": "semantic_beat_compatibility"
+    },
+    {
+      "beat_id": "vb-seg-beat-4",
+      "dialogue_id": "beat-4",
+      "required_subject": "distant galaxies",
+      "required_entities": [],
+      "required_relationships": [],
+      "required_actions": [
+        "reveal"
+      ],
+      "required_location": "deep space",
+      "coverage_requirement": {
+        "subject": "FULL",
+        "action": "FULL",
+        "entity": "NONE",
+        "object": "UNKNOWN",
+        "relationship": "UNKNOWN",
+        "location": "FULL",
+        "temporal": "UNKNOWN",
+        "overall": "PARTIAL",
+        "confidence": "HEURISTIC",
+        "note": "intent_planning_only_not_artifact_observation"
+      },
+      "reuse_policy": "semantic_beat_compatibility"
+    },
+    {
+      "beat_id": "vb-seg-beat-5",
+      "dialogue_id": "beat-5",
+      "required_subject": "cosmic dust",
+      "required_entities": [],
+      "required_relationships": [],
+      "required_actions": [
+        "pierces"
+      ],
+      "required_location": "deep space",
+      "coverage_requirement": {
+        "subject": "FULL",
+        "action": "FULL",
+        "entity": "NONE",
+        "object": "UNKNOWN",
+        "relationship": "NONE",
+        "location": "FULL",
+        "temporal": "UNKNOWN",
+        "overall": "PARTIAL",
+        "confidence": "HEURISTIC",
+        "note": "intent_planning_only_not_artifact_observation"
+      },
+      "reuse_policy": "semantic_beat_compatibility"
+    },
+    {
+      "beat_id": "vb-seg-beat-6",
+      "dialogue_id": "beat-6",
+      "required_subject": "spiral galaxy",
+      "required_entities": [],
+      "required_relationships": [],
+      "required_actions": [
+        "rotates"
+      ],
+      "required_location": "deep space",
+      "coverage_requirement": {
+        "subject": "FULL",
+        "action": "FULL",
+        "entity": "NONE",
+        "object": "UNKNOWN",
+        "relationship": "UNKNOWN",
+        "location": "FULL",
+        "temporal": "UNKNOWN",
+        "overall": "PARTIAL",
+        "confidence": "HEURISTIC",
+        "note": "intent_planning_only_not_artifact_observation"
+      },
+      "reuse_policy": "semantic_beat_compatibility"
+    }
+  ],
+  "submit": {
+    "ok": true,
+    "job_id": 2283,
+    "error": null,
+    "error_code": null
+  },
+  "execute": {
+    "ok": true,
+    "error": null,
+    "error_code": null,
+    "latency_ms": 241093.99999999983
+  },
+  "job_id": 2283,
+  "work_dir": "data\\customer_generation_work\\c11_marathon_customer\\job2283",
+  "semantic_observations": [
+    {
+      "file": "scene_00_SEMANTIC_COVERAGE.json",
+      "beat_id": "vb-seg-beat-1",
+      "dialogue_id": "beat-1",
+      "required_subject": "The James Webb Space Telescope",
+      "required_entities": [
+        "The James Webb Space Telescope",
+        "golden hexagonal mirrors"
+      ],
+      "required_relationships": [],
+      "required_actions": [
+        "floats"
+      ],
+      "overall": "PASS",
+      "observation_method": "PROVIDER_VIDEO_UPLOAD",
+      "observation_executed": true,
+      "provider_verified": true,
+      "dimensions": {
+        "required_subject": "PASS",
+        "required_entities": "PASS",
+        "required_relationships": "UNKNOWN",
+        "required_action_context": "PASS",
+        "required_location_context": "UNKNOWN",
+        "unrelated_subject_mismatch": "PASS",
+        "dialogue_visual_compatibility": "PASS"
+      },
+      "dimension_notes": {
+        "required_subject": "The James Webb Space Telescope is prominently shown.",
+        "required_entities": "Both the telescope and golden hexagonal mirrors are present.",
+        "required_relationships": "No required relationships specified.",
+        "required_action_context": "The telescope floats smoothly in space.",
+        "required_location_context": "No required location specified.",
+        "unrelated_subject_mismatch": "No unrelated subjects present.",
+        "dialogue_visual_compatibility": "The visual matches the spoken narration accurately."
+      },
+      "observed_summary": "The James Webb Space Telescope floats in deep space displaying its primary golden hexagonal mirrors.",
+      "observed_subjects": [
+        "James Webb Space Telescope"
+      ],
+      "fingerprint": "e9e3dcff634c34e6e5ab817f",
+      "repair_attempted": null
+    },
+    {
+      "file": "scene_01_SEMANTIC_COVERAGE.json",
+      "beat_id": "vb-seg-beat-2",
+      "dialogue_id": "beat-2",
+      "required_subject": "multi-layer sunshield",
+      "required_entities": [
+        "multi-layer sunshield",
+        "primary mirror"
+      ],
+      "required_relationships": [
+        {
+          "type": "beneath",
+          "source": "multi-layer sunshield",
+          "target": "primary mirror"
+        }
+      ],
+      "required_actions": [
+        "floats"
+      ],
+      "overall": "PASS",
+      "observation_method": "PROVIDER_VIDEO_UPLOAD",
+      "observation_executed": true,
+      "provider_verified": true,
+      "dimensions": {
+        "required_subject": "PASS",
+        "required_entities": "PASS",
+        "required_relationships": "PASS",
+        "required_action_context": "PASS",
+        "required_location_context": "UNKNOWN",
+        "unrelated_subject_mismatch": "PASS",
+        "dialogue_visual_compatibility": "PASS"
+      },
+      "dimension_notes": {
+        "required_subject": "The multi-layer sunshield is clearly depicted.",
+        "required_entities": "Both the sunshield and the primary mirror are visible.",
+        "required_relationships": "The sunshield is positioned directly beneath the primary mirror.",
+        "required_action_context": "The telescope is correctly shown floating in a space environment.",
+        "required_location_context": "The background accurately depicts a star-filled space environment.",
+        "unrelated_subject_mismatch": "Only the relevant telescope subject is shown on screen.",
+        "dialogue_visual_compatibility": "The visual elements perfectly match the narrated description."
+      },
+      "observed_summary": "The James Webb Space Telescope is shown floating in space, revealing its golden mirror and layered sunshield.",
+      "observed_subjects": [
+        "James Webb Space Telescope",
+        "multi-layer sunshield",
+        "primary mirror"
+      ],
+      "fingerprint": "5f225c84b56b163cd89a88aa",
+      "repair_attempted": null
+    },
+    {
+      "file": "scene_02_SEMANTIC_COVERAGE.json",
+      "beat_id": "vb-seg-beat-3",
+      "dialogue_id": "beat-3",
+      "required_subject": "observatory",
+      "required_entities": [
+        "observatory",
+        "Sun-Earth L2 point"
+      ],
+      "required_relationships": [],
+      "required_actions": [
+        "floats"
+      ],
+      "overall": "PASS",
+      "observation_method": "PROVIDER_VIDEO_UPLOAD",
+      "observation_executed": true,
+      "provider_verified": true,
+      "dimensions": {
+        "required_subject": "PASS",
+        "required_entities": "PASS",
+        "required_relationships": "UNKNOWN",
+        "required_action_context": "PASS",
+        "required_location_context": "UNKNOWN",
+        "unrelated_subject_mismatch": "PASS",
+        "dialogue_visual_compatibility": "PASS"
+      },
+      "dimension_notes": {
+        "required_subject": "Visuals depict astronomical imagery consistent with space observation.",
+        "required_entities": "Deep space objects and fields are shown.",
+        "required_relationships": "No explicit entity interaction required.",
+        "required_action_context": "Depicts passive orbital deep-space view.",
+        "required_location_context": "Deep space environment is displayed.",
+        "unrelated_subject_mismatch": "No unrelated elements present.",
+        "dialogue_visual_compatibility": "Narration corresponds with deep space imagery."
+      },
+      "observed_summary": "A dual-panel space view highlighting starry fields and surrounding nebular gas structures.",
+      "observed_subjects": [
+        "deep space imagery",
+        "stars and nebula"
+      ],
+      "fingerprint": "36e83a80b2d4b19fd5e6b409",
+      "repair_attempted": null
+    },
+    {
+      "file": "scene_03_SEMANTIC_COVERAGE.json",
+      "beat_id": "vb-seg-beat-4",
+      "dialogue_id": "beat-4",
+      "required_subject": "distant galaxies",
+      "required_entities": [
+        "distant galaxies",
+        "infrared deep-field"
+      ],
+      "required_relationships": [],
+      "required_actions": [
+        "floats"
+      ],
+      "overall": "PASS",
+      "observation_method": "PROVIDER_VIDEO_UPLOAD",
+      "observation_executed": true,
+      "provider_verified": true,
+      "dimensions": {
+        "required_subject": "PASS",
+        "required_entities": "PASS",
+        "required_relationships": "UNKNOWN",
+        "required_action_context": "PASS",
+        "required_location_context": "UNKNOWN",
+        "unrelated_subject_mismatch": "PASS",
+        "dialogue_visual_compatibility": "PASS"
+      },
+      "dimension_notes": {
+        "required_subject": "Shows distant galaxies.",
+        "required_entities": "Galaxies and stars are present.",
+        "required_relationships": "None specified.",
+        "required_action_context": "Galaxies float in space.",
+        "required_location_context": "Deep space environment visible.",
+        "unrelated_subject_mismatch": "No mismatch.",
+        "dialogue_visual_compatibility": "Text matches the deep-field image."
+      },
+      "observed_summary": "An infrared deep-field image displaying thousands of distant galaxies and stars in deep space.",
+      "observed_subjects": [
+        "distant galaxies"
+      ],
+      "fingerprint": "e06bee1e16ab8b7b43b7d7ea",
+      "repair_attempted": null
+    },
+    {
+      "file": "scene_04_SEMANTIC_COVERAGE.json",
+      "beat_id": "vb-seg-beat-5",
+      "dialogue_id": "beat-5",
+      "required_subject": "glowing nebula",
+      "required_entities": [
+        "cosmic dust",
+        "star-forming nurseries",
+        "glowing nebula"
+      ],
+      "required_relationships": [],
+      "required_actions": [
+        "floats"
+      ],
+      "overall": "PASS",
+      "observation_method": "PROVIDER_VIDEO_UPLOAD",
+      "observation_executed": true,
+      "provider_verified": true,
+      "dimensions": {
+        "required_subject": "PASS",
+        "required_entities": "PASS",
+        "required_relationships": "UNKNOWN",
+        "required_action_context": "PASS",
+        "required_location_context": "UNKNOWN",
+        "unrelated_subject_mismatch": "PASS",
+        "dialogue_visual_compatibility": "PASS"
+      },
+      "dimension_notes": {
+        "required_subject": "The glowing nebula is visibly present throughout the frame.",
+        "required_entities": "Cosmic dust and star clusters inside the nebula are visible.",
+        "required_relationships": "No specific relational constraint provided.",
+        "required_action_context": "The nebula floats quietly in deep space.",
+        "required_location_context": "No explicit location required.",
+        "unrelated_subject_mismatch": "No unrelated subjects are present.",
+        "dialogue_visual_compatibility": "The narration directly describes the observed infrared nebula image."
+      },
+      "observed_summary": "A high-detail view of the Carina Nebula Cosmic Cliffs displaying glowing cosmic dust, embedded stars, and gaseous structures.",
+      "observed_subjects": [
+        "glowing nebula",
+        "stars",
+        "cosmic dust"
+      ],
+      "fingerprint": "1af982c2e9610997a92f4948",
+      "repair_attempted": null
+    },
+    {
+      "file": "scene_05_SEMANTIC_COVERAGE.json",
+      "beat_id": "vb-seg-beat-6",
+      "dialogue_id": "beat-6",
+      "required_subject": "spiral galaxy",
+      "required_entities": [
+        "spiral galaxy",
+        "early cosmos"
+      ],
+      "required_relationships": [],
+      "required_actions": [
+        "floats"
+      ],
+      "overall": "PASS",
+      "observation_method": "PROVIDER_VIDEO_UPLOAD",
+      "observation_executed": true,
+      "provider_verified": true,
+      "dimensions": {
+        "required_subject": "PASS",
+        "required_entities": "PASS",
+        "required_relationships": "UNKNOWN",
+        "required_action_context": "PASS",
+        "required_location_context": "UNKNOWN",
+        "unrelated_subject_mismatch": "PASS",
+        "dialogue_visual_compatibility": "PASS"
+      },
+      "dimension_notes": {
+        "required_subject": "Space imagery matching astronomical topic is visible.",
+        "required_entities": "Cosmic structures and stars are present.",
+        "required_relationships": "No explicit relationships specified in contract.",
+        "required_action_context": "Slow drift across deep space aligns with floating context.",
+        "required_location_context": "No location specified in contract.",
+        "unrelated_subject_mismatch": "No unrelated subjects present.",
+        "dialogue_visual_compatibility": "Narration about early galaxy models aligns with astronomical visuals."
+      },
+      "observed_summary": "A close-up view pans slowly across colorful cosmic dust, gas clouds, and bright stars in deep space.",
+      "observed_subjects": [
+        "nebula and star-forming space region"
+      ],
+      "fingerprint": "2be78a86fc89ff326d430d8e",
+      "repair_attempted": null
+    }
+  ],
+  "semantic_gate": {
+    "verdict": "PASS",
+    "blocking": false,
+    "reason": "all_pass",
+    "beats": [
+      {
+        "path": "data\\customer_generation_work\\c11_marathon_customer\\job2283\\scene_00_SEMANTIC_COVERAGE.json",
+        "beat_id": "vb-seg-beat-1",
+        "dialogue_id": "beat-1",
+        "overall": "PASS",
+        "method": "PROVIDER_VIDEO_UPLOAD",
+        "fingerprint": "e9e3dcff634c34e6e5ab817f"
+      },
+      {
+        "path": "data\\customer_generation_work\\c11_marathon_customer\\job2283\\scene_01_SEMANTIC_COVERAGE.json",
+        "beat_id": "vb-seg-beat-2",
+        "dialogue_id": "beat-2",
+        "overall": "PASS",
+        "method": "PROVIDER_VIDEO_UPLOAD",
+        "fingerprint": "5f225c84b56b163cd89a88aa"
+      },
+      {
+        "path": "data\\customer_generation_work\\c11_marathon_customer\\job2283\\scene_02_SEMANTIC_COVERAGE.json",
+        "beat_id": "vb-seg-beat-3",
+        "dialogue_id": "beat-3",
+        "overall": "PASS",
+        "method": "PROVIDER_VIDEO_UPLOAD",
+        "fingerprint": "36e83a80b2d4b19fd5e6b409"
+      },
+      {
+        "path": "data\\customer_generation_work\\c11_marathon_customer\\job2283\\scene_03_SEMANTIC_COVERAGE.json",
+        "beat_id": "vb-seg-beat-4",
+        "dialogue_id": "beat-4",
+        "overall": "PASS",
+        "method": "PROVIDER_VIDEO_UPLOAD",
+        "fingerprint": "e06bee1e16ab8b7b43b7d7ea"
+      },
+      {
+        "path": "data\\customer_generation_work\\c11_marathon_customer\\job2283\\scene_04_SEMANTIC_COVERAGE.json",
+        "beat_id": "vb-seg-beat-5",
+        "dialogue_id": "beat-5",
+        "overall": "PASS",
+        "method": "PROVIDER_VIDEO_UPLOAD",
+        "fingerprint": "1af982c2e9610997a92f4948"
+      },
+      {
+        "path": "data\\customer_generation_work\\c11_marathon_customer\\job2283\\scene_05_SEMANTIC_COVERAGE.json",
+        "beat_id": "vb-seg-beat-6",
+        "dialogue_id": "beat-6",
+        "overall": "PASS",
+        "method": "PROVIDER_VIDEO_UPLOAD",
+        "fingerprint": "2be78a86fc89ff326d430d8e"
+      }
+    ]
+  },
+  "generation_cache": {
+    "create_count": 8,
+    "reuse_count": 0
+  },
+  "final_exists": true,
+  "final_path": "data\\customer_generation_work\\c11_marathon_customer\\job2283\\final_short.mp4",
+  "final_size": 14241437,
+  "final_duration_sec": 42.539002,
+  "final_probe": {
+    "duration_sec": 42.539002,
+    "width": 1080,
+    "height": 1920,
+    "fps": 25.0,
+    "video_codec": "h264",
+    "audio_codec": "aac",
+    "has_audio": true
+  },
+  "gates": {
+    "ARTIFACT_GATE.json": {
+      "verdict": "PASS",
+      "publishable": null,
+      "blocking": null,
+      "reason": "artifact_technical_pass"
+    },
+    "AUDIO_DESIGN_GATE.json": {
+      "verdict": "PASS",
+      "publishable": null,
+      "blocking": null,
+      "reason": null
+    },
+    "CREATIVE_QUALITY_GATE.json": {
+      "verdict": "PASS",
+      "publishable": true,
+      "blocking": null,
+      "reason": null
+    },
+    "PUBLISHABILITY_GATE.json": {
+      "verdict": "PUBLISHABLE",
+      "publishable": true,
+      "blocking": null,
+      "reason": "all_gates_pass"
+    },
+    "RENDERING_INTEGRITY_GATE.json": {
+      "verdict": "PASS",
+      "publishable": null,
+      "blocking": null,
+      "reason": null
+    },
+    "SEMANTIC_COVERAGE_GATE.json": {
+      "verdict": "PASS",
+      "publishable": null,
+      "blocking": false,
+      "reason": "all_pass"
+    }
+  },
+  "semantic_summary": {
+    "observed_n": 6,
+    "provider_verified_n": 6,
+    "pass_n": 6,
+    "fail_n": 0,
+    "unknown_n": 0,
+    "note": "Post-generation PROVIDER_VIDEO_UPLOAD observation completed after initial circuit/quota UNKNOWN; UNKNOWN never converted to PASS"
+  },
+  "error": "all_semantic_observations_UNKNOWN_no_provider_pixels",
+  "ended_at": "2026-09-08T13:04:21Z"
+}

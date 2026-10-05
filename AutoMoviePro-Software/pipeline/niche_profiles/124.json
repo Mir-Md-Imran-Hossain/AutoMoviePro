@@ -1,0 +1,79 @@
+{
+  "niche_id": 124,
+  "name": "Space Weather Reports",
+  "slug": "space-weather-reports",
+  "style_family": "science",
+  "status": "VERIFIED",
+  "topic_seeds": [
+    "What new evidence reframes the story of Space Weather Reports Solar inside Space Weather Reports",
+    "How Space Weather Reports Solar still shapes public curiosity about Space Weather Reports",
+    "What new evidence reframes the story of Track inside Space Weather Reports",
+    "How Track still shapes public curiosity about Space Weather Reports",
+    "What new evidence reframes the story of Generate inside Space Weather Reports",
+    "How Generate still shapes public curiosity about Space Weather Reports"
+  ],
+  "seo_angles": [
+    "What new evidence reframes the story of Space Weather Reports Solar inside Space Weather Reports",
+    "How Space Weather Reports Solar still shapes public curiosity about Space Weather Reports",
+    "What new evidence reframes the story of Track inside Space Weather Reports",
+    "How Track still shapes public curiosity about Space Weather Reports"
+  ],
+  "forbidden_visuals": [
+    "talking-head lip-sync avatar",
+    "burned-in captions",
+    "watermark",
+    "modern meme text",
+    "off-niche stock office B-roll"
+  ],
+  "preferred_subjects": [
+    "lab instrument close-up",
+    "diagrammatic mechanism metaphor",
+    "field measurement site"
+  ],
+  "lighting_default": "teal/cyan lab grade, high contrast, shallow DOF",
+  "face_policy": "no talking-head lip-sync avatar; cinematic B-roll preferred",
+  "dialogue_tone": "clear explainer; one mechanism per beat",
+  "audio_ambience": "clean room tone, soft electronic texture",
+  "research_hints": [
+    "Prefer primary evidence and concrete entities for Space Weather Reports",
+    "Avoid generic niche-label topics; require specific place/person/event/mechanism",
+    "7–9 second spoken beats with story continuity across scenes"
+  ],
+  "topic_prompt_overlay": "NICHE LOCK (Space Weather Reports): only propose topics that fit this niche's video type. Video type: Solar flares, geomagnetic storms — how they affect satellites, power grids, and even your phone. Follow niche topic strategy: Track space agency news, solar activity updates, or viral aurora alerts. Generate a topic about a solar event impacting Earth.",
+  "video_prompt_overlay": "NICHE VISUAL LOCK (Space Weather Reports / science): Generate a 7–9 second dialogue clip based on the topic `{topic}`. Each dialogue must be scientific and attentive. For each dialogue, generate: - **Audio Generation Prompt:** Voice — technical, with beeps and solar wind. - **Video Generation Prompt:** Detailed visual — sun animation or aurora. No character — space footage. Lighting: bright, cosmic. Maintain same cosmic. Forbidden: talking-head lip-sync avatar, burned-in captions, watermark, modern meme text, off-niche stock office B-roll. Preferred subjects: lab instrument close-up, diagrammatic mechanism metaphor, field measurement site. Lighting: teal/cyan lab grade, high contrast, shallow DOF. Face policy: no talking-head lip-sync avatar; cinematic B-roll preferred. Dialogue tone: clear explainer; one mechanism per beat. Ambience: clean room tone, soft electronic texture.",
+  "i18n": {
+    "en": {
+      "name": "Space Weather Reports",
+      "blurb": "Solar flares, geomagnetic storms — how they affect satellites, power grids, and even your phone."
+    },
+    "bn": {
+      "name": "মহাকাশ আবহাওয়া প্রতিবেদন",
+      "blurb": "ভিডিও টাইপ: Solar flares, geomagnetic storms — how they affect satellites, power grids, and even your phone."
+    },
+    "hi": {
+      "name": "अंतरिक्ष मौसम रिपोर्ट",
+      "blurb": "वीडियो प्रकार: Solar flares, geomagnetic storms — how they affect satellites, power grids, and even your phone."
+    },
+    "ur": {
+      "name": "خلائی موسم کی رپورٹس",
+      "blurb": "ویڈیو کی قسم: Solar flares, geomagnetic storms — how they affect satellites, power grids, and even your phone."
+    },
+    "ta": {
+      "name": "விண்வெளி வானிலை அறிக்கைகள்",
+      "blurb": "வீடியோ வகை: Solar flares, geomagnetic storms — how they affect satellites, power grids, and even your phone."
+    },
+    "ml": {
+      "name": "ബഹിരാകാശ കാലാവസ്ഥ റിപ്പോർട്ടുകൾ",
+      "blurb": "വീഡിയോ തരം: Solar flares, geomagnetic storms — how they affect satellites, power grids, and even your phone."
+    }
+  },
+  "source": "Nish.Md + deterministic research",
+  "research_notes": [
+    "Marathon researched at 2026-09-10T08:30:26Z",
+    "Video type length=96",
+    "Topic prompt length=126",
+    "Video prompt length=371",
+    "Seeds=6"
+  ],
+  "verified_at": "2026-09-10T08:30:26Z"
+}

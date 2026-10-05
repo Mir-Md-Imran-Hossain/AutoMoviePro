@@ -1,0 +1,124 @@
+{
+  "marathon_id": "mr_core_engine_20260910T124732Z_7d3d953e",
+  "started_at": "2026-09-10T12:47:32Z",
+  "customer": "c11_marathon_customer",
+  "channel_id": 4,
+  "cert_languages": [
+    "en",
+    "bn",
+    "hi",
+    "ur",
+    "ta",
+    "ml"
+  ],
+  "customer_entitlement_forged": false,
+  "youtube_publish": false,
+  "mock_production": false,
+  "ended_at": "2026-09-10T12:58:38Z",
+  "total_runtime_sec": 666.6,
+  "topic": "Why lunar south pole ice matters for propellant and drinking water on Mars missions",
+  "job_id": 2323,
+  "work_dir": "E:\\All Updaye Project\\AutoMovie_Pro_SAAS_Final_Update\\AutoMoviePro-Software\\data\\customer_generation_work\\c11_marathon_customer\\job2323",
+  "verdict": "FAIL",
+  "checkpoints": [
+    {
+      "ts": "2026-09-10T12:47:32Z",
+      "elapsed_sec": 0.1,
+      "stage": "TOPIC",
+      "job_id": null,
+      "status": "HEALTHY",
+      "note": "CP-00 init complete",
+      "db_languages_unchanged": [
+        "en",
+        "bn"
+      ],
+      "cert_overlay_languages": [
+        "en",
+        "bn",
+        "hi",
+        "ur",
+        "ta",
+        "ml"
+      ],
+      "google_keys_env": 19,
+      "agnes_keys_env": 6
+    },
+    {
+      "ts": "2026-09-10T12:47:32Z",
+      "elapsed_sec": 0.3,
+      "stage": "TOPIC",
+      "job_id": null,
+      "status": "PROGRESSING",
+      "note": "topic=Why lunar south pole ice matters for propellant and drinking water on Mars missi",
+      "source": "BUILD-04G_suggest_quality_ranked",
+      "seo": 0.85,
+      "niche_aligned": true
+    },
+    {
+      "ts": "2026-09-10T12:47:43Z",
+      "elapsed_sec": 11.6,
+      "stage": "PLAN",
+      "job_id": null,
+      "status": "PROGRESSING",
+      "note": "research_script_plan_ok",
+      "script_class": "REAL"
+    },
+    {
+      "ts": "2026-09-10T12:58:38Z",
+      "elapsed_sec": 666.6,
+      "stage": "FAILED",
+      "job_id": 2323,
+      "status": "FAILED",
+      "note": "generate_video:RuntimeError:Scene 2 split master unshippable: ['visual_anchors_missing', 'wrong_subject']"
+    },
+    {
+      "ts": "2026-09-10T12:58:38Z",
+      "elapsed_sec": 666.6,
+      "stage": "OBSERVE",
+      "job_id": 2323,
+      "status": "PROGRESSING",
+      "note": "watchdog stage=OBSERVE",
+      "work_dir": "E:\\All Updaye Project\\AutoMovie_Pro_SAAS_Final_Update\\AutoMoviePro-Software\\data\\customer_generation_work\\c11_marathon_customer\\job2323"
+    }
+  ],
+  "interventions": [
+    {
+      "intervention_id": "INT-001",
+      "ts": "2026-09-10T12:47:44Z",
+      "reason": "use_customer_approved_plan_lock",
+      "detected_problem": "generate_video re-entry intelligence DUPLICATE on reused niche topics",
+      "action": "write_director_plan + c06e lock before generate_video",
+      "authority": "customer_plan_adapter + generate_video customer_approved_lock",
+      "result": "lock_written"
+    }
+  ],
+  "failures": [
+    {
+      "ok": false,
+      "error": "Scene 2 split master unshippable: ['visual_anchors_missing', 'wrong_subject']",
+      "traceback": "Traceback (most recent call last):\n  File \"E:\\All Updaye Project\\AutoMovie_Pro_SAAS_Final_Update\\AutoMoviePro-Software\\scripts\\cert_core_engine_real_marathon.py\", line 500, in generate_real\n    result = generate_video(\n             ^^^^^^^^^^^^^^^\n  File \"E:\\All Updaye Project\\AutoMovie_Pro_SAAS_Final_Update\\AutoMoviePro-Software\\pipeline\\video_pipeline.py\", line 1108, in generate_video\n    clip = build_dialogue_clip(\n           ^^^^^^^^^^^^^^^^^^^^\n  File \"E:\\All Updaye Project\\AutoMovie_Pro_SAAS_Final_Update\\AutoMoviePro-Software\\pipeline\\scene_builder.py\", line 432, in build_dialogue_clip\n    return _build_split_dialogue_clip(\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"E:\\All Updaye Project\\AutoMovie_Pro_SAAS_Final_Update\\AutoMoviePro-Software\\pipeline\\scene_builder.py\", line 2471, in _build_split_dialogue_clip\n    raise RuntimeError(\nRuntimeError: Scene 2 split master unshippable: ['visual_anchors_missing', 'wrong_subject']\n"
+    }
+  ],
+  "unknowns": [
+    "UR_RTL_SHAPING_UNKNOWN_NO_DEDICATED_RENDER_SHAPING_PROOF"
+  ],
+  "db_languages_before_after_preserved": true,
+  "generation": {
+    "ok": false,
+    "latency_sec": null,
+    "upload_status": null,
+    "local_path": null,
+    "classification": null,
+    "error": "Scene 2 split master unshippable: ['visual_anchors_missing', 'wrong_subject']"
+  },
+  "artifacts_summary": {
+    "localized_count": 0,
+    "entitlement_preserved": true,
+    "duration_status": null,
+    "publishable": null
+  },
+  "verdict_reasons": [
+    "generation_failed_or_no_local_path"
+  ],
+  "prep_script_class": "REAL"
+}

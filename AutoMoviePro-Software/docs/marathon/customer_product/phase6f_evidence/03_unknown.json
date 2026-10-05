@@ -1,0 +1,8 @@
+{
+  "cross_beat_status": "UNKNOWN",
+  "semantic_overall": "UNKNOWN",
+  "semantic_blocking": true,
+  "repair_triggered": false,
+  "unknown_as_pass": false,
+  "unknown_as_fail": false
+}

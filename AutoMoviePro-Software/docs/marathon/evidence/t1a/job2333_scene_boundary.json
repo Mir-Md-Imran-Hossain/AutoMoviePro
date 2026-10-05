@@ -1,0 +1,200 @@
+{
+  "label": "REAL_MEDIA_GOLDEN_SCENE_BOUNDARY",
+  "job": "job2333",
+  "video": "E:\\All Updaye Project\\AutoMovie_Pro_SAAS_Final_Update\\AutoMoviePro-Software\\data\\customer_generation_work\\c11_marathon_customer\\job2333\\final_short.mp4",
+  "wall_sec": 9.608,
+  "observation": {
+    "schema": "amp_observation_scene_boundary_v1",
+    "schema_version": "amp_observation_scene_boundary_v1.1",
+    "status": "PASS",
+    "reason": "observed",
+    "observation_executed": true,
+    "provider_verified": true,
+    "tool": "pyscenedetect",
+    "tool_version": "0.7.1",
+    "pyscenedetect_available": true,
+    "video_path": "E:\\All Updaye Project\\AutoMovie_Pro_SAAS_Final_Update\\AutoMoviePro-Software\\data\\customer_generation_work\\c11_marathon_customer\\job2333\\final_short.mp4",
+    "source_hash": "7e873ae40a499f0fcbbe915658593fa47970d522e84c42f7f3781d0706b8e71d",
+    "observed_at": "2026-09-11T05:18:53.019413+00:00",
+    "scenes": [
+      {
+        "index": 0,
+        "start_sec": 0.0,
+        "end_sec": 6.68,
+        "method": "pyscenedetect"
+      },
+      {
+        "index": 1,
+        "start_sec": 6.68,
+        "end_sec": 10.08,
+        "method": "pyscenedetect"
+      },
+      {
+        "index": 2,
+        "start_sec": 10.08,
+        "end_sec": 15.44,
+        "method": "pyscenedetect"
+      },
+      {
+        "index": 3,
+        "start_sec": 15.44,
+        "end_sec": 17.32,
+        "method": "pyscenedetect"
+      },
+      {
+        "index": 4,
+        "start_sec": 17.32,
+        "end_sec": 19.6,
+        "method": "pyscenedetect"
+      },
+      {
+        "index": 5,
+        "start_sec": 19.6,
+        "end_sec": 32.8,
+        "method": "pyscenedetect"
+      },
+      {
+        "index": 6,
+        "start_sec": 32.8,
+        "end_sec": 38.88,
+        "method": "pyscenedetect"
+      },
+      {
+        "index": 7,
+        "start_sec": 38.88,
+        "end_sec": 41.88,
+        "method": "pyscenedetect"
+      },
+      {
+        "index": 8,
+        "start_sec": 41.88,
+        "end_sec": 45.32,
+        "method": "pyscenedetect"
+      },
+      {
+        "index": 9,
+        "start_sec": 45.32,
+        "end_sec": 51.84,
+        "method": "pyscenedetect"
+      },
+      {
+        "index": 10,
+        "start_sec": 51.84,
+        "end_sec": 52.32,
+        "method": "pyscenedetect"
+      }
+    ],
+    "boundary_times_sec": [
+      0.0,
+      6.68,
+      10.08,
+      15.44,
+      17.32,
+      19.6,
+      32.8,
+      38.88,
+      41.88,
+      45.32,
+      51.84,
+      52.32
+    ],
+    "scene_count": 11,
+    "issues": [],
+    "hard_issues": [],
+    "soft_issues": [],
+    "metrics": {
+      "scene_count": 11,
+      "boundary_count": 12,
+      "duration_sec": 52.32,
+      "threshold": 27.0,
+      "method": "pyscenedetect"
+    },
+    "provenance": {
+      "video_path": "E:\\All Updaye Project\\AutoMovie_Pro_SAAS_Final_Update\\AutoMoviePro-Software\\data\\customer_generation_work\\c11_marathon_customer\\job2333\\final_short.mp4",
+      "source_hash": "7e873ae40a499f0fcbbe915658593fa47970d522e84c42f7f3781d0706b8e71d",
+      "tool": "pyscenedetect",
+      "tool_version": "0.7.1",
+      "threshold": 27.0,
+      "observed_at": "2026-09-11T05:18:53.019413+00:00",
+      "schema_version": "amp_observation_scene_boundary_v1.1",
+      "pyscenedetect_available": true
+    },
+    "unknown_as_pass": false,
+    "authority": "observation_only",
+    "does_not_replace": [
+      "DirectorPlan",
+      "DirectedVisualBeat",
+      "ContinuityTracker"
+    ],
+    "creates_final_gate": false
+  },
+  "comparison": {
+    "status": "PASS",
+    "reason": "soft_documentary_or_motion_hold",
+    "issues": [
+      "unexpected_cut_density:observed=11_planned=5",
+      "excessive_static_hold:13.2s",
+      "documentary_hold:static:13.2s",
+      "planned_vs_actual_boundary_delta:30.00->32.80"
+    ],
+    "hard_issues": [],
+    "soft_issues": [
+      "unexpected_cut_density:observed=11_planned=5",
+      "excessive_static_hold:13.2s",
+      "documentary_hold:static:13.2s",
+      "planned_vs_actual_boundary_delta:30.00->32.80"
+    ],
+    "soft_issue_visible": true,
+    "classification": {
+      "hard_issues": [],
+      "soft_issues": [
+        "unexpected_cut_density:observed=11_planned=5",
+        "excessive_static_hold:13.2s",
+        "documentary_hold:static:13.2s",
+        "planned_vs_actual_boundary_delta:30.00->32.80"
+      ],
+      "has_hard": false,
+      "has_soft": true
+    },
+    "planned_beat_count": 5,
+    "observed_scene_count": 11,
+    "planned_bounds_sec": [
+      0.0,
+      10.0,
+      20.0,
+      30.0,
+      40.0,
+      50.0
+    ],
+    "observed_bounds_sec": [
+      0.0,
+      6.68,
+      10.08,
+      15.44,
+      17.32,
+      19.6,
+      32.8,
+      38.88,
+      41.88,
+      45.32,
+      51.84,
+      52.32
+    ],
+    "false_cut_candidates": [
+      {
+        "reason": "cut_density_above_2x_planned",
+        "observed_scene_count": 11,
+        "planned_beat_count": 5,
+        "classification": "soft"
+      }
+    ],
+    "unknown_as_pass": false,
+    "creates_final_gate": false,
+    "method": "PLANNED_BEATS_VS_SCENEDETECT",
+    "does_not_replace": [
+      "DirectorPlan",
+      "DirectedVisualBeat",
+      "ContinuityTracker"
+    ]
+  }
+}

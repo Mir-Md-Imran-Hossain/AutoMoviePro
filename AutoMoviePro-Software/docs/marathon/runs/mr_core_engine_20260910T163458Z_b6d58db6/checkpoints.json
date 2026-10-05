@@ -1,0 +1,69 @@
+[
+  {
+    "ts": "2026-09-10T16:34:58Z",
+    "elapsed_sec": 0.1,
+    "stage": "TOPIC",
+    "job_id": null,
+    "status": "HEALTHY",
+    "note": "CP-00 init complete",
+    "db_languages_unchanged": [
+      "en",
+      "bn"
+    ],
+    "cert_overlay_languages": [
+      "en",
+      "bn",
+      "hi",
+      "ur",
+      "ta",
+      "ml"
+    ],
+    "google_keys_env": 19,
+    "agnes_keys_env": 6
+  },
+  {
+    "ts": "2026-09-10T16:34:59Z",
+    "elapsed_sec": 0.4,
+    "stage": "TOPIC",
+    "job_id": null,
+    "status": "PROGRESSING",
+    "note": "topic=How JWST mid-infrared spectra fingerprint exoplanet atmospheres (c9248812)",
+    "source": "BUILD-04G_suggest_quality_ranked+DUP_CERT_BYPASS",
+    "seo": 0.9,
+    "niche_aligned": true
+  },
+  {
+    "ts": "2026-09-10T16:35:05Z",
+    "elapsed_sec": 6.3,
+    "stage": "PLAN",
+    "job_id": null,
+    "status": "PROGRESSING",
+    "note": "research_script_plan_ok",
+    "script_class": "REAL"
+  },
+  {
+    "ts": "2026-09-10T16:35:05Z",
+    "elapsed_sec": 6.5,
+    "stage": "FAILED",
+    "job_id": 2331,
+    "status": "FAILED",
+    "note": "generate_video:RuntimeError:scene_contract_blocked:scene[0]: audio_plan_blocked:repeated_phrase:jwst miri mid (repeated_phrase:jwst miri mid;repeated_phrase:jwst miri mid infrared)"
+  },
+  {
+    "ts": "2026-09-10T16:35:05Z",
+    "elapsed_sec": 6.5,
+    "stage": "OBSERVE",
+    "job_id": 2331,
+    "status": "PROGRESSING",
+    "note": "watchdog stage=OBSERVE",
+    "work_dir": "E:\\All Updaye Project\\AutoMovie_Pro_SAAS_Final_Update\\AutoMoviePro-Software\\data\\customer_generation_work\\c11_marathon_customer\\job2331"
+  },
+  {
+    "ts": "2026-09-10T16:35:05Z",
+    "elapsed_sec": 6.5,
+    "stage": "FAIL",
+    "job_id": 2331,
+    "status": "COMPLETED",
+    "note": "verdict=FAIL"
+  }
+]

@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>AutoMovie Pro — User Monitor & Remote Solver</title>
+  <meta name="theme-color" content="#38bdf8">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <link rel="manifest" href="manifest.json">
+
+  <style>
+    :root {
+      --bg: #0b0f19;
+      --card: #131b2e;
+      --border: #1e293b;
+      --primary: #38bdf8;
+      --accent: #10b981;
+      --warning: #f59e0b;
+      --danger: #ef4444;
+      --text: #f8fafc;
+      --muted: #94a3b8;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; font-family: system-ui, -apple-system, sans-serif; }
+    body { background: var(--bg); color: var(--text); padding: 1rem; padding-bottom: 5rem; }
+    header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 1.25rem; }
+    .status-dot { height: 10px; width: 10px; background-color: var(--accent); border-radius: 50%; display: inline-block; margin-right: 6px; }
+    .card { background: var(--card); border: 1px solid var(--border); border-radius: 16px; padding: 1.25rem; margin-bottom: 1rem; }
+    .stat-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-top: 0.5rem; }
+    .stat-box { background: #1e293b; padding: 1rem; border-radius: 12px; text-align: center; }
+    .stat-val { font-size: 1.8rem; font-weight: 800; color: var(--primary); }
+    .stat-lbl { font-size: 0.8rem; color: var(--muted); margin-top: 4px; }
+    .captcha-alert { background: #451a03; border: 1px solid #f59e0b; border-radius: 14px; padding: 1rem; margin-top: 1rem; }
+    .btn { background: var(--primary); color: #0b0f19; border: none; padding: 0.75rem 1rem; border-radius: 10px; font-weight: bold; width: 100%; cursor: pointer; margin-top: 0.75rem; }
+    .slider-track { width: 100%; height: 40px; background: #1e293b; border-radius: 20px; position: relative; margin-top: 12px; overflow: hidden; border: 1px solid #475569; }
+    .slider-fill { height: 100%; background: rgba(56, 189, 248, 0.2); width: 0%; border-radius: 20px; }
+    .slider-thumb { width: 44px; height: 38px; background: var(--warning); border-radius: 18px; position: absolute; top: 0; left: 0; cursor: pointer; display: flex; align-items: center; justify-content: center; font-size: 1.1rem; color: #000; box-shadow: 0 2px 8px rgba(0,0,0,0.5); user-select: none; }
+  </style>
+</head>
+<body>
+  <header>
+    <div>
+      <h2>AutoMovie Pro</h2>
+      <span style="font-size: 0.85rem; color: var(--muted);"><span class="status-dot" id="liveDot"></span><span id="connLabel">পিসি সফটওয়্যার যাচাই হচ্ছে...</span></span>
+    </div>
+    <span style="background: #1e293b; padding: 4px 10px; border-radius: 12px; font-size: 0.75rem; color: var(--primary);">লাইফটাইম প্ল্যান</span>
+  </header>
+
+  <!-- Endpoint setting -->
+  <div class="card" style="padding: 0.75rem 1rem; font-size: 0.85rem; display: flex; gap: 0.5rem; align-items: center;">
+    <span style="color: var(--muted); white-space: nowrap;">পিসি আইপি:</span>
+    <input type="text" id="pcUrl" value="http://127.0.0.1:8000" style="flex: 1; background: #1e293b; border: 1px solid #334155; color: #fff; padding: 4px 8px; border-radius: 6px; font-size: 0.8rem;">
+    <button style="background: var(--primary); color: #000; border: none; padding: 4px 10px; border-radius: 6px; font-weight: bold; cursor: pointer;" onclick="refreshStatus()">সংযুক্ত</button>
+  </div>
+
+  <div class="card">
+    <div style="font-size: 1rem; font-weight: 600; color: var(--text);">আজকের লাইভ স্বয়ংক্রিয় উৎপাদন</div>
+    <div class="stat-row">
+      <div class="stat-box">
+        <div class="stat-val" id="genCount">০টি</div>
+        <div class="stat-lbl">তৈরিকৃত ভিডিও</div>
+      </div>
+      <div class="stat-box">
+        <div class="stat-val" style="color: var(--accent);" id="pubCount">০টি</div>
+        <div class="stat-lbl">আপলোড সম্পন্ন</div>
+      </div>
+    </div>
+    <div style="margin-top: 1rem; font-size: 0.85rem; color: var(--muted);">
+      সর্বশেষ ফাইল: <span id="lastFile" style="color: var(--primary); font-weight: 600;">অপেক্ষমান...</span>
+    </div>
+    <div style="margin-top: 4px; font-size: 0.75rem; color: var(--muted);" id="serverTimeText"></div>
+  </div>
+
+  <div class="card">
+    <div style="font-size: 1rem; font-weight: 600; margin-bottom: 0.5rem;">🧩 রিমোট ক্যাপচা সহকারী (Remote Solver)</div>
+    <p style="font-size: 0.85rem; color: var(--muted);">পিসিতে সোশ্যাল মিডিয়া আপলোডের সময় কোনো স্লাইডার বা পাজল ক্যাপচা আসলে সাথে সাথে এখানে পুশ নোটিফিকেশন আসবে।</p>
+    
+    <!-- Pending Captcha Alert -->
+    <div class="captcha-alert" id="captchaBox" style="display: none;">
+      <div style="color: #fbbf24; font-weight: bold; font-size: 0.95rem;" id="capTitle">⚠️ লাইভ ক্যাপচা সমাধান প্রয়োজন</div>
+      <p style="font-size: 0.85rem; color: #fef3c7; margin-top: 4px;" id="capDesc">TikTok / YouTube আপলোডে পাজল স্লাইডার সনাক্ত হয়েছে।</p>
+      
+      <!-- Interactive Puzzle Track -->
+      <div class="slider-track" id="sliderTrack">
+        <div class="slider-fill" id="sliderFill"></div>
+        <div class="slider-thumb" id="sliderThumb">👉</div>
+      </div>
+      <p style="font-size: 0.75rem; color: #fbbf24; margin-top: 6px; text-align: center;">স্লাইডারটি ডানে টেনে ছেড়ে দিন</p>
+
+      <button class="btn" style="background: #f59e0b;" onclick="submitDirectSolution()">
+        ✓ ১-ট্যাপে সরাসরি সমাধান নিশ্চিত করুন
+      </button>
+    </div>
+
+    <div id="noCaptchaBox" style="margin-top: 1rem; text-align: center; padding: 1rem; background: #1e293b; border-radius: 12px;">
+      <span style="color: var(--accent); font-size: 1.2rem;">✓</span>
+      <p style="font-size: 0.85rem; color: var(--muted); margin-top: 4px;">বর্তমানে কোনো পেন্ডিং ক্যাপচা নেই। সিস্টেম স্মুথলি চলছে।</p>
+      <button class="btn" style="background: #334155; color: #e2e8f0; font-size: 0.8rem; margin-top: 0.5rem;" onclick="simulateTestCaptcha()">
+        🧪 টেস্ট ক্যাপচা পাঠিয়ে যাচাই করুন
+      </button>
+    </div>
+  </div>
+
+  <div id="pwaInstallBanner" style="display:none; position:fixed; bottom:15px; left:15px; right:15px; background:#1e293b; border:1px solid #38bdf8; padding:12px; border-radius:12px; z-index:999; text-align:center;">
+    <div style="font-size:0.9rem; font-weight:bold; margin-bottom:6px;">📲 হোম স্ক্রিনে অ্যাপ ইনস্টল করুন</div>
+    <button class="btn" id="pwaInstallBtn" style="padding:6px 12px; font-size:0.85rem;">ইনস্টল করুন (Add to Home)</button>
+  </div>
+
+  <script>
+    let activeCaptchaId = null;
+
+    function getEndpoint() {
+      return document.getElementById('pcUrl').value.trim().replace(/\/+$/, '');
+    }
+
+    async function refreshStatus() {
+      const base = getEndpoint();
+      try {
+        const res = await fetch(`${base}/api/mobile/status`, { mode: 'cors' });
+        const data = await res.json();
+        if (data.ok) {
+          document.getElementById('liveDot').style.backgroundColor = '#10b981';
+          document.getElementById('connLabel').innerText = 'পিসি সফটওয়্যার অনলাইন (' + data.system_state + ')';
+          document.getElementById('genCount').innerText = data.videos_generated_today + 'টি';
+          document.getElementById('pubCount').innerText = data.videos_published_today + 'টি';
+          document.getElementById('lastFile').innerText = data.last_video_title || 'N/A';
+          document.getElementById('serverTimeText').innerText = 'সার্ভার সময়: ' + (data.server_time || '');
+        }
+      } catch (e) {
+        document.getElementById('liveDot').style.backgroundColor = '#ef4444';
+        document.getElementById('connLabel').innerText = 'পিসির সাথে সংযোগ বিচ্ছিন্ন';
+      }
+
+      // Check pending captcha
+      try {
+        const capRes = await fetch(`${base}/api/mobile/captcha`, { mode: 'cors' });
+        const capData = await capRes.json();
+        if (capData.has_captcha) {
+          activeCaptchaId = capData.captcha_id;
+          document.getElementById('capTitle').innerText = '⚠️ লাইভ ক্যাপচা: ' + (capData.type || 'Slider');
+          document.getElementById('capDesc').innerText = capData.prompt || 'পাজল স্লাইডারটি টেনে মিলিয়ে ক্যাপচাটি সমাধান করুন।';
+          document.getElementById('captchaBox').style.display = 'block';
+          document.getElementById('noCaptchaBox').style.display = 'none';
+        } else {
+          activeCaptchaId = null;
+          document.getElementById('captchaBox').style.display = 'none';
+          document.getElementById('noCaptchaBox').style.display = 'block';
+        }
+      } catch (e) {}
+    }
+
+    async function submitDirectSolution(coords = { x: 210, y: 150 }) {
+      const base = getEndpoint();
+      const capId = activeCaptchaId || 'cap_live_manual';
+      try {
+        const res = await fetch(`${base}/api/mobile/captcha/solve`, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ captcha_id: capId, coordinates: coords })
+        });
+        const d = await res.json();
+        alert(d.message || 'ক্যাপচা সমাধান সফল!');
+        document.getElementById('captchaBox').style.display = 'none';
+        document.getElementById('noCaptchaBox').style.display = 'block';
+        refreshStatus();
+      } catch (e) {
+        alert('সমাধান পাঠাতে ব্যর্থ: ' + e.message);
+      }
+    }
+
+    async function simulateTestCaptcha() {
+      const base = getEndpoint();
+      try {
+        await fetch(`${base}/api/mobile/captcha/simulate`, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            captcha_id: 'test_' + Date.now(),
+            type: 'TikTok Puzzle Slider',
+            prompt: 'টেস্ট ক্যাপচা: স্লাইডারটি ড্র্যাগ করে পাজলটি সম্পূর্ণ করুন।'
+          })
+        });
+        refreshStatus();
+      } catch (e) {
+        alert('পিসি সার্ভারে রিকোয়েস্ট ব্যর্থ। আইপি চেক করুন।');
+      }
+    }
+
+    // Draggable Slider Interaction
+    const thumb = document.getElementById('sliderThumb');
+    const track = document.getElementById('sliderTrack');
+    const fill = document.getElementById('sliderFill');
+    let isDragging = false;
+
+    function handleStart(e) {
+      isDragging = true;
+    }
+    function handleMove(e) {
+      if (!isDragging) return;
+      const clientX = e.touches ? e.touches[0].clientX : e.clientX;
+      const rect = track.getBoundingClientRect();
+      let offsetX = clientX - rect.left - 22;
+      const maxOffset = rect.width - 44;
+      offsetX = Math.max(0, Math.min(maxOffset, offsetX));
+      thumb.style.left = offsetX + 'px';
+      fill.style.width = (offsetX + 22) + 'px';
+
+      if (offsetX >= maxOffset * 0.9) {
+        isDragging = false;
+        submitDirectSolution({ x: Math.round(offsetX), y: 120 });
+      }
+    }
+    function handleEnd() {
+      if (!isDragging) return;
+      isDragging = false;
+      thumb.style.left = '0px';
+      fill.style.width = '0%';
+    }
+
+    thumb.addEventListener('mousedown', handleStart);
+    thumb.addEventListener('touchstart', handleStart);
+    window.addEventListener('mousemove', handleMove);
+    window.addEventListener('touchmove', handleMove);
+    window.addEventListener('mouseup', handleEnd);
+    window.addEventListener('touchend', handleEnd);
+
+    // Initial load and polling loop
+    refreshStatus();
+    setInterval(refreshStatus, 4000);
+
+    // PWA Service Worker
+    if ('serviceWorker' in navigator) {
+      window.addEventListener('load', () => {
+        navigator.serviceWorker.register('./sw.js').catch(err => console.log('SW fail', err));
+      });
+    }
+    let deferredPrompt;
+    window.addEventListener('beforeinstallprompt', (e) => {
+      e.preventDefault();
+      deferredPrompt = e;
+      const banner = document.getElementById('pwaInstallBanner');
+      if (banner) banner.style.display = 'block';
+    });
+    const installBtn = document.getElementById('pwaInstallBtn');
+    if (installBtn) {
+      installBtn.addEventListener('click', async () => {
+        if (deferredPrompt) {
+          deferredPrompt.prompt();
+          const { outcome } = await deferredPrompt.userChoice;
+          if (outcome === 'accepted') {
+            document.getElementById('pwaInstallBanner').style.display = 'none';
+          }
+          deferredPrompt = null;
+        }
+      });
+    }
+  </script>
+</body>
+</html>

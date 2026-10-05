@@ -1,0 +1,34 @@
+{
+  "checkpoint": "CP-00",
+  "timestamp_utc": "2026-09-09T12:05:27.752517+00:00",
+  "run_id": "mr_phase7_live_20260909T120527Z_75e65d92",
+  "customer": "c11_marathon_customer",
+  "channel_id": 4,
+  "channel_name": "C11 Marathon Channel",
+  "ownership_ok": true,
+  "enabled": true,
+  "configured_languages": [
+    "en",
+    "bn"
+  ],
+  "required_languages": [
+    "en",
+    "bn",
+    "hi",
+    "ur",
+    "ta",
+    "ml"
+  ],
+  "exact_six": false,
+  "session_customer_unlocked": null,
+  "session_rows": 0,
+  "language_requests": [],
+  "entitlement_state": "ABSENT_NO_SESSION",
+  "fake_unlock_detected": false,
+  "block": "LANGUAGE_CONFIGURATION_BLOCKED",
+  "production_started": false,
+  "paid_api_calls": 0,
+  "stage": "LANGUAGE_PREFLIGHT",
+  "watchdog_class": "FAILED",
+  "note": "Catalog support != entitlement. Exact six-language C04+real entitlement not verified. Marathon must not start."
+}

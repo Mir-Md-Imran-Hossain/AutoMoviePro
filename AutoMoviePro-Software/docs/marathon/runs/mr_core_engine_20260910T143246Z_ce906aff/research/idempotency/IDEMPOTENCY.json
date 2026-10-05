@@ -1,0 +1,28 @@
+{
+  "records": {
+    "d5199d20fb9da10849cd4da763ed26167a595974b9362edff55e53c4f1e3c466": {
+      "fingerprint": "d5199d20fb9da10849cd4da763ed26167a595974b9362edff55e53c4f1e3c466",
+      "job_id": "c06b-4-topic-d3350f43c08688e5",
+      "stage": "research",
+      "entity_id": "research-topic-d3350f43c08688e5",
+      "provider": "local",
+      "request_state": "SUCCEEDED",
+      "result_reference": "E:\\All Updaye Project\\AutoMovie_Pro_SAAS_Final_Update\\AutoMoviePro-Software\\docs\\marathon\\runs\\mr_core_engine_20260910T143246Z_ce906aff\\research\\research\\topic-d3350f43c08688e5.json",
+      "result_hash": "4aef712c30f8ac895dd14665306fbc301d1413850a12445452d3dfbc7bb2a478",
+      "attempt": 1,
+      "max_attempts": 3,
+      "created_at": 1789050766.9660769,
+      "updated_at": 1789050766.9861646,
+      "completed_at": 1789050766.9861646,
+      "metadata": {
+        "worker_id": "",
+        "lock_key": "e:\\all updaye project\\automovie_pro_saas_final_update\\automoviepro-software\\docs\\marathon\\runs\\mr_core_engine_20260910t143246z_ce906aff\\research\\idempotency\\idempotency.json"
+      }
+    }
+  },
+  "metrics": {
+    "generation_started": 1,
+    "generation_completed": 1,
+    "checkpoint_count": 1
+  }
+}

@@ -1,0 +1,13 @@
+{
+  "status": "PASS",
+  "ok": true,
+  "blocked": false,
+  "blocks": [],
+  "warnings": [],
+  "unknowns": [],
+  "confidence": "DETERMINISTIC",
+  "claims_human_written": false,
+  "claims_guaranteed_engagement": false,
+  "method": "DETERMINISTIC_PREFLIGHT",
+  "note": "stylistic judgments are HEURISTIC; naturalness not proven"
+}

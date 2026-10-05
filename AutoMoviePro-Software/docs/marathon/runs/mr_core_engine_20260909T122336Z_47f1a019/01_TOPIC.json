@@ -1,0 +1,627 @@
+{
+  "ok": true,
+  "topic": "How James Webb Space Telescope mid-infrared images reveal dust-hidden star nurseries that optical telescopes cannot map",
+  "topic_source": "MANUAL_CONCRETE_NICHE_GROUNDED",
+  "set_result": {
+    "ok": true,
+    "topic": {
+      "topic_id": "topic-666f3e2f0d9f29a7",
+      "project_id": "trs-ch4",
+      "owner_login_id": "c11_marathon_customer",
+      "topic_text": "How James Webb Space Telescope mid-infrared images reveal dust-hidden star nurseries that optical telescopes cannot map",
+      "topic_source": "MANUAL",
+      "topic_status": "COMPLETED",
+      "selected_at": "2026-09-09T18:23:36.698400",
+      "created_at": "2026-09-06T22:13:16.391863",
+      "updated_at": "2026-09-09T18:23:36.698400",
+      "duplicate": {
+        "verdict": "UNIQUE",
+        "blocked": false,
+        "matched": "",
+        "detail": {
+          "verdict": "UNIQUE",
+          "confidence": 0.88,
+          "evidence": {
+            "rule_version": "1.0.0"
+          },
+          "comparison_target": "",
+          "layer": "all_passed"
+        },
+        "authority": "BUILD-04G.duplicate + product_registry"
+      },
+      "blocked_reason": null,
+      "error_code": null
+    },
+    "workflow": {
+      "contract": "C06-B",
+      "project_id": "trs-ch4",
+      "owner_login_id": "c11_marathon_customer",
+      "channel_id": 4,
+      "updated_at": "2026-09-09T18:23:36.698400",
+      "revision": 152,
+      "topic": {
+        "topic_id": "topic-666f3e2f0d9f29a7",
+        "project_id": "trs-ch4",
+        "owner_login_id": "c11_marathon_customer",
+        "topic_text": "How James Webb Space Telescope mid-infrared images reveal dust-hidden star nurseries that optical telescopes cannot map",
+        "topic_source": "MANUAL",
+        "topic_status": "COMPLETED",
+        "selected_at": "2026-09-09T18:23:36.698400",
+        "created_at": "2026-09-06T22:13:16.391863",
+        "updated_at": "2026-09-09T18:23:36.698400",
+        "duplicate": {
+          "verdict": "UNIQUE",
+          "blocked": false,
+          "matched": "",
+          "detail": {
+            "verdict": "UNIQUE",
+            "confidence": 0.88,
+            "evidence": {
+              "rule_version": "1.0.0"
+            },
+            "comparison_target": "",
+            "layer": "all_passed"
+          },
+          "authority": "BUILD-04G.duplicate + product_registry"
+        },
+        "blocked_reason": null,
+        "error_code": null
+      },
+      "suggestions": [],
+      "reserved": [],
+      "research": {
+        "research_status": "READY",
+        "fact_count": 2,
+        "evidence_count": 2,
+        "source_count": 0,
+        "confidence": null,
+        "unresolved_items": [],
+        "capability": {
+          "provider_capability": "LOCAL_FACTPACK",
+          "provider_mode": "LIVE_LOCAL",
+          "external_live_research": "UNAVAILABLE",
+          "is_external_live": false,
+          "external_api": false,
+          "note": "LOCAL_FACTPACK must not be claimed as EXTERNAL_LIVE_RESEARCH"
+        },
+        "gate": {
+          "verdict": "PASS",
+          "reason": "sufficient_evidence",
+          "issues": [],
+          "claim_count": 2,
+          "supported_count": 2,
+          "verified_count": 0,
+          "unsupported_count": 0,
+          "classified": [
+            {
+              "claim": "Research query: how colliding neutron stars forge gold seen by x-ray telescopes rcp07 next-blocker short 20260909t054610z\nLanguage: en\nRegion:",
+              "class": "SUPPORTED",
+              "source": "research_notes"
+            },
+            {
+              "claim": "Additional context on How colliding neutron stars forge gold seen by X-ray telescopes (RCP07 next-blocker SHORT 20260909T054610Z) from configured research scope.",
+              "class": "SUPPORTED",
+              "source": "live_research"
+            }
+          ]
+        },
+        "fingerprint": "79e69bc338470d8b6c537187cd88329fd1664e2551b4bc61ac746e4d318dcc5a",
+        "action": "execute",
+        "error_code": null,
+        "error_summary": null,
+        "live_research_complete": false,
+        "status_label": "READY",
+        "has_fact_pack": true
+      },
+      "script": {
+        "script_status": "NOT_STARTED",
+        "preview": {
+          "topic": "How colliding neutron stars forge gold seen by X-ray telescopes",
+          "hook": "What if I told you that colliding neutron stars create gold? Let's dive into this cosmic phenomenon.",
+          "beat_count": 6,
+          "dialogue_count": 6,
+          "scene_count": 6,
+          "entities": [],
+          "locations": [],
+          "relationships": [],
+          "dialogue_ids": [
+            "beat-1",
+            "beat-2",
+            "beat-3",
+            "beat-4",
+            "beat-5",
+            "beat-6"
+          ],
+          "beat_ids": [
+            "beat-1",
+            "beat-2",
+            "beat-3",
+            "beat-4",
+            "beat-5",
+            "beat-6"
+          ],
+          "scene_ids": [
+            "scene-00",
+            "scene-01",
+            "scene-02",
+            "scene-03",
+            "scene-04",
+            "scene-05"
+          ],
+          "beats_summary": [
+            {
+              "beat_id": "beat-1",
+              "narration": "What if I told you that colliding neutron stars create gold? Let's dive into this cosmic phenomenon.",
+              "speaker": "Narrator",
+              "emotion": "",
+              "entity_refs": [],
+              "location_ref": "",
+              "estimated_duration_sec": 10.0
+            },
+            {
+              "beat_id": "beat-2",
+              "narration": "When neutron stars collide, they unleash incredible energy, forming heavy elements like gold in the process.",
+              "speaker": "Narrator",
+              "emotion": "",
+              "entity_refs": [],
+              "location_ref": "",
+              "estimated_duration_sec": 10.0
+            },
+            {
+              "beat_id": "beat-3",
+              "narration": "X-ray telescopes have captured these events, revealing the birth of gold in the universe.",
+              "speaker": "Narrator",
+              "emotion": "",
+              "entity_refs": [],
+              "location_ref": "",
+              "estimated_duration_sec": 10.0
+            },
+            {
+              "beat_id": "beat-4",
+              "narration": "These telescopes detect X-rays emitted during the collision, showcasing the immense power of these cosmic events.",
+              "speaker": "Narrator",
+              "emotion": "",
+              "entity_refs": [],
+              "location_ref": "",
+              "estimated_duration_sec": 10.0
+            },
+            {
+              "beat_id": "beat-5",
+              "narration": "The gold we find on Earth may have originated from such stellar collisions billions of years ago.",
+              "speaker": "Narrator",
+              "emotion": "",
+              "entity_refs": [],
+              "location_ref": "",
+              "estimated_duration_sec": 10.0
+            },
+            {
+              "beat_id": "beat-6",
+              "narration": "So next time you see gold, remember its cosmic origins from colliding neutron stars.",
+              "speaker": "Narrator",
+              "emotion": "",
+              "entity_refs": [],
+              "location_ref": "",
+              "estimated_duration_sec": 10.0
+            }
+          ]
+        },
+        "scene_count": 6,
+        "beat_count": 6,
+        "dialogue_count": 6,
+        "quality": {
+          "status": "PASS",
+          "issues": [],
+          "actions": [],
+          "preflight": {
+            "status": "WARNING",
+            "ok": true,
+            "blocked": false,
+            "blocks": [],
+            "warnings": [
+              "missing_emotional_intent:0"
+            ],
+            "unknowns": [],
+            "confidence": "HEURISTIC",
+            "claims_human_written": false,
+            "claims_guaranteed_engagement": false,
+            "method": "DETERMINISTIC_PREFLIGHT",
+            "note": "stylistic judgments are HEURISTIC; naturalness not proven"
+          },
+          "authority": "BUILD-04F.evaluate_script_quality + TRS preflight"
+        },
+        "approval": {
+          "state": "NOT_READY",
+          "publishes": false,
+          "means_generated": false
+        },
+        "error_code": null,
+        "error_summary": null,
+        "script_action": "reuse",
+        "dialogue_segments_count": 6,
+        "has_script_plan": true
+      },
+      "script_plan": {
+        "schema_version": "1.0.0",
+        "id": "b816b52b-f89c-4cb9-8383-104270229716",
+        "created_at": "2026-09-09 05:46:20.150379+00:00",
+        "updated_at": null,
+        "topic_id": "topic-05cae7234c01f24f",
+        "topic": "How colliding neutron stars forge gold seen by X-ray telescopes",
+        "format": "SHORT",
+        "language": "en",
+        "target_duration_sec": 60.0,
+        "hook": "What if I told you that colliding neutron stars create gold? Let's dive into this cosmic phenomenon.",
+        "narrative_structure": [
+          "hook",
+          "context",
+          "development",
+          "reveal",
+          "payoff",
+          "ending"
+        ],
+        "sections": [
+          "hook",
+          "context",
+          "development",
+          "reveal",
+          "payoff",
+          "ending"
+        ],
+        "beats": [
+          {
+            "schema_version": "1.0.0",
+            "id": "803c004f-51e3-4898-bfab-2ffd4f3566dc",
+            "created_at": "2026-09-09 05:46:20.150379+00:00",
+            "updated_at": null,
+            "beat_id": "beat-1",
+            "order": 0,
+            "section_role": "hook",
+            "narration": "What if I told you that colliding neutron stars create gold? Let's dive into this cosmic phenomenon.",
+            "speaker": "Narrator",
+            "emotion": "",
+            "emotion_intensity": 0.5,
+            "action_intent": "",
+            "entity_refs": [],
+            "location_ref": "",
+            "temporal_context": "",
+            "continuity_deps": [],
+            "visual_implication": "What if I told you that colliding neutron stars create gold? Let's dive into this cosmic phenomenon.",
+            "claim_ids": [],
+            "evidence_refs": [
+              "N01"
+            ],
+            "estimated_duration_sec": 10.0,
+            "metadata": {
+              "legacy_visual_prompt_ownership": {
+                "semantic_visual_intent": "",
+                "legacy_provider_prompts": {
+                  "exact_ai_video_prompt": "vertical 9:16 cinematic slow push-in of colliding neutron stars, niche color grade, continuous motion, no burned captions, no watermark, no talking-head REQUIRED on-screen anchors: How colliding neutron stars forge gold seen by X-ray telescopes, gold, cosmic collision, told, create.",
+                  "visual_query": "colliding neutron stars hero documentary",
+                  "visual_prompt": "cinematic hero of colliding neutron stars, continuous motion"
+                },
+                "legacy_fields_present": true,
+                "canonical_owner": "C05-S DirectedVisualBeat → prompt_compiler",
+                "script_owns_provider_visual_prompts": false,
+                "ownership": "LEGACY_DEPRECATED",
+                "note": "visual_prompt/exact_ai_video_prompt are compatibility fields, not ScriptPlan authority"
+              },
+              "dialogue_id": "beat-1",
+              "scene_id": "scene-00"
+            }
+          },
+          {
+            "schema_version": "1.0.0",
+            "id": "ce88a0e9-a4de-4d5a-b5aa-e871a5deb421",
+            "created_at": "2026-09-09 05:46:20.150379+00:00",
+            "updated_at": null,
+            "beat_id": "beat-2",
+            "order": 1,
+            "section_role": "context",
+            "narration": "When neutron stars collide, they unleash incredible energy, forming heavy elements like gold in the process.",
+            "speaker": "Narrator",
+            "emotion": "",
+            "emotion_intensity": 0.5,
+            "action_intent": "",
+            "entity_refs": [],
+            "location_ref": "",
+            "temporal_context": "",
+            "continuity_deps": [],
+            "visual_implication": "When neutron stars collide, they unleash incredible energy, forming heavy elements like gold in the process.",
+            "claim_ids": [],
+            "evidence_refs": [
+              "N01"
+            ],
+            "estimated_duration_sec": 10.0,
+            "metadata": {
+              "legacy_visual_prompt_ownership": {
+                "semantic_visual_intent": "",
+                "legacy_provider_prompts": {
+                  "exact_ai_video_prompt": "vertical 9:16 cinematic macro shot of neutron star collision, niche color grade, continuous motion, no burned captions, no watermark, no talking-head REQUIRED on-screen anchors: How colliding neutron stars forge gold seen by X-ray telescopes, energy, heavy elements, collide, unleash, incredible.",
+                  "visual_query": "neutron star collision energy",
+                  "visual_prompt": "cinematic macro of neutron star collision, continuous motion"
+                },
+                "legacy_fields_present": true,
+                "canonical_owner": "C05-S DirectedVisualBeat → prompt_compiler",
+                "script_owns_provider_visual_prompts": false,
+                "ownership": "LEGACY_DEPRECATED",
+                "note": "visual_prompt/exact_ai_video_prompt are compatibility fields, not ScriptPlan authority"
+              },
+              "dialogue_id": "beat-2",
+              "scene_id": "scene-01"
+            }
+          },
+          {
+            "schema_version": "1.0.0",
+            "id": "7b1df03b-85d5-46dc-a3b0-f88f17cf5966",
+            "created_at": "2026-09-09 05:46:20.150379+00:00",
+            "updated_at": null,
+            "beat_id": "beat-3",
+            "order": 2,
+            "section_role": "development",
+            "narration": "X-ray telescopes have captured these events, revealing the birth of gold in the universe.",
+            "speaker": "Narrator",
+            "emotion": "",
+            "emotion_intensity": 0.5,
+            "action_intent": "",
+            "entity_refs": [],
+            "location_ref": "",
+            "temporal_context": "",
+            "continuity_deps": [],
+            "visual_implication": "X-ray telescopes have captured these events, revealing the birth of gold in the universe.",
+            "claim_ids": [],
+            "evidence_refs": [
+              "N01"
+            ],
+            "estimated_duration_sec": 10.0,
+            "metadata": {
+              "legacy_visual_prompt_ownership": {
+                "semantic_visual_intent": "",
+                "legacy_provider_prompts": {
+                  "exact_ai_video_prompt": "vertical 9:16 cinematic view of X-ray telescope capturing neutron star collision, niche color grade, continuous motion, no burned captions, no watermark, no talking-head REQUIRED on-screen anchors: How colliding neutron stars forge gold seen by X-ray telescopes, gold birth, universe, have, captured, events, revealing, birth.",
+                  "visual_query": "X-ray telescope neutron stars",
+                  "visual_prompt": "cinematic view of X-ray telescope, continuous motion"
+                },
+                "legacy_fields_present": true,
+                "canonical_owner": "C05-S DirectedVisualBeat → prompt_compiler",
+                "script_owns_provider_visual_prompts": false,
+                "ownership": "LEGACY_DEPRECATED",
+                "note": "visual_prompt/exact_ai_video_prompt are compatibility fields, not ScriptPlan authority"
+              },
+              "dialogue_id": "beat-3",
+              "scene_id": "scene-02"
+            }
+          },
+          {
+            "schema_version": "1.0.0",
+            "id": "cd7f91e0-c73b-4ed7-a5fa-933b6b6a1cd7",
+            "created_at": "2026-09-09 05:46:20.150379+00:00",
+            "updated_at": null,
+            "beat_id": "beat-4",
+            "order": 3,
+            "section_role": "reveal",
+            "narration": "These telescopes detect X-rays emitted during the collision, showcasing the immense power of these cosmic events.",
+            "speaker": "Narrator",
+            "emotion": "",
+            "emotion_intensity": 0.5,
+            "action_intent": "",
+            "entity_refs": [],
+            "location_ref": "",
+            "temporal_context": "",
+            "continuity_deps": [],
+            "visual_implication": "These telescopes detect X-rays emitted during the collision, showcasing the immense power of these cosmic events.",
+            "claim_ids": [],
+            "evidence_refs": [
+              "N01"
+            ],
+            "estimated_duration_sec": 10.0,
+            "metadata": {
+              "legacy_visual_prompt_ownership": {
+                "semantic_visual_intent": "",
+                "legacy_provider_prompts": {
+                  "exact_ai_video_prompt": "vertical 9:16 cinematic macro of X-ray emissions from neutron star collision, niche color grade, continuous motion, no burned captions, no watermark, no talking-head REQUIRED on-screen anchors: How colliding neutron stars forge gold seen by X-ray telescopes, cosmic power, telescopes, detect, emitted, showcasing.",
+                  "visual_query": "X-ray emissions neutron stars",
+                  "visual_prompt": "cinematic macro of X-ray emissions, continuous motion"
+                },
+                "legacy_fields_present": true,
+                "canonical_owner": "C05-S DirectedVisualBeat → prompt_compiler",
+                "script_owns_provider_visual_prompts": false,
+                "ownership": "LEGACY_DEPRECATED",
+                "note": "visual_prompt/exact_ai_video_prompt are compatibility fields, not ScriptPlan authority"
+              },
+              "dialogue_id": "beat-4",
+              "scene_id": "scene-03"
+            }
+          },
+          {
+            "schema_version": "1.0.0",
+            "id": "bdb2e93b-bacd-4eb4-890b-e8a07b8a6d32",
+            "created_at": "2026-09-09 05:46:20.150379+00:00",
+            "updated_at": null,
+            "beat_id": "beat-5",
+            "order": 4,
+            "section_role": "payoff",
+            "narration": "The gold we find on Earth may have originated from such stellar collisions billions of years ago.",
+            "speaker": "Narrator",
+            "emotion": "",
+            "emotion_intensity": 0.5,
+            "action_intent": "",
+            "entity_refs": [],
+            "location_ref": "",
+            "temporal_context": "",
+            "continuity_deps": [],
+            "visual_implication": "The gold we find on Earth may have originated from such stellar collisions billions of years ago.",
+            "claim_ids": [],
+            "evidence_refs": [
+              "N01"
+            ],
+            "estimated_duration_sec": 10.0,
+            "metadata": {
+              "legacy_visual_prompt_ownership": {
+                "semantic_visual_intent": "",
+                "legacy_provider_prompts": {
+                  "exact_ai_video_prompt": "vertical 9:16 cinematic view of Earth with gold, niche color grade, continuous motion, no burned captions, no watermark, no talking-head REQUIRED on-screen anchors: How colliding neutron stars forge gold seen by X-ray telescopes, stellar collisions, origin, find, have, originated, stellar.",
+                  "visual_query": "Earth gold origin",
+                  "visual_prompt": "cinematic view of Earth with gold, continuous motion"
+                },
+                "legacy_fields_present": true,
+                "canonical_owner": "C05-S DirectedVisualBeat → prompt_compiler",
+                "script_owns_provider_visual_prompts": false,
+                "ownership": "LEGACY_DEPRECATED",
+                "note": "visual_prompt/exact_ai_video_prompt are compatibility fields, not ScriptPlan authority"
+              },
+              "dialogue_id": "beat-5",
+              "scene_id": "scene-04"
+            }
+          },
+          {
+            "schema_version": "1.0.0",
+            "id": "a16cac45-d891-4d1b-bbc0-7c583dd43ba3",
+            "created_at": "2026-09-09 05:46:20.150379+00:00",
+            "updated_at": null,
+            "beat_id": "beat-6",
+            "order": 5,
+            "section_role": "ending",
+            "narration": "So next time you see gold, remember its cosmic origins from colliding neutron stars.",
+            "speaker": "Narrator",
+            "emotion": "",
+            "emotion_intensity": 0.5,
+            "action_intent": "",
+            "entity_refs": [],
+            "location_ref": "",
+            "temporal_context": "",
+            "continuity_deps": [],
+            "visual_implication": "So next time you see gold, remember its cosmic origins from colliding neutron stars.",
+            "claim_ids": [],
+            "evidence_refs": [
+              "N01"
+            ],
+            "estimated_duration_sec": 10.0,
+            "metadata": {
+              "legacy_visual_prompt_ownership": {
+                "semantic_visual_intent": "",
+                "legacy_provider_prompts": {
+                  "exact_ai_video_prompt": "vertical 9:16 cinematic slow pull-away from gold on Earth, niche color grade, continuous motion, no burned captions, no watermark, no talking-head REQUIRED on-screen anchors: How colliding neutron stars forge gold seen by X-ray telescopes, cosmic origins, neutron stars, time, remember, cosmic, origins, colliding.",
+                  "visual_query": "gold cosmic origins",
+                  "visual_prompt": "cinematic slow pull-away from gold, continuous motion"
+                },
+                "legacy_fields_present": true,
+                "canonical_owner": "C05-S DirectedVisualBeat → prompt_compiler",
+                "script_owns_provider_visual_prompts": false,
+                "ownership": "LEGACY_DEPRECATED",
+                "note": "visual_prompt/exact_ai_video_prompt are compatibility fields, not ScriptPlan authority"
+              },
+              "dialogue_id": "beat-6",
+              "scene_id": "scene-05"
+            }
+          }
+        ],
+        "claims": [
+          {
+            "id": "N01",
+            "claim": "Research query: how colliding neutron stars forge gold seen by x-ray telescopes rcp07 next-blocker short 20260909t054610z\nLanguage: en\nRegion:",
+            "evidence": "research_notes",
+            "source": "research_notes",
+            "confidence": 0.4,
+            "freshness": "UNVERIFIED"
+          },
+          {
+            "id": "L02",
+            "claim": "Additional context on How colliding neutron stars forge gold seen by X-ray telescopes (RCP07 next-blocker SHORT 20260909T054610Z) from configured research scope.",
+            "evidence": "secondary",
+            "source": "live_research",
+            "confidence": 0.6,
+            "freshness": "recent"
+          }
+        ],
+        "evidence_refs": [
+          "N01",
+          "L02"
+        ],
+        "fact_pack_id": "",
+        "ending": "So next time you see gold, remember its cosmic origins from colliding neutron stars.",
+        "payoff": "The gold we find on Earth may have originated from such stellar collisions billions of years ago.",
+        "cta": "",
+        "estimated_duration_sec": 60.0,
+        "legacy_visual_prompts": [
+          {
+            "scene_index": 0,
+            "fields": {
+              "exact_ai_video_prompt": "vertical 9:16 cinematic slow push-in of colliding neutron stars, niche color grade, continuous motion, no burned captions, no watermark, no talking-head REQUIRED on-screen anchors: How colliding neutron stars forge gold seen by X-ray telescopes, gold, cosmic collision, told, create.",
+              "visual_query": "colliding neutron stars hero documentary",
+              "visual_prompt": "cinematic hero of colliding neutron stars, continuous motion"
+            },
+            "ownership": "LEGACY_DEPRECATED"
+          },
+          {
+            "scene_index": 1,
+            "fields": {
+              "exact_ai_video_prompt": "vertical 9:16 cinematic macro shot of neutron star collision, niche color grade, continuous motion, no burned captions, no watermark, no talking-head REQUIRED on-screen anchors: How colliding neutron stars forge gold seen by X-ray telescopes, energy, heavy elements, collide, unleash, incredible.",
+              "visual_query": "neutron star collision energy",
+              "visual_prompt": "cinematic macro of neutron star collision, continuous motion"
+            },
+            "ownership": "LEGACY_DEPRECATED"
+          },
+          {
+            "scene_index": 2,
+            "fields": {
+              "exact_ai_video_prompt": "vertical 9:16 cinematic view of X-ray telescope capturing neutron star collision, niche color grade, continuous motion, no burned captions, no watermark, no talking-head REQUIRED on-screen anchors: How colliding neutron stars forge gold seen by X-ray telescopes, gold birth, universe, have, captured, events, revealing, birth.",
+              "visual_query": "X-ray telescope neutron stars",
+              "visual_prompt": "cinematic view of X-ray telescope, continuous motion"
+            },
+            "ownership": "LEGACY_DEPRECATED"
+          },
+          {
+            "scene_index": 3,
+            "fields": {
+              "exact_ai_video_prompt": "vertical 9:16 cinematic macro of X-ray emissions from neutron star collision, niche color grade, continuous motion, no burned captions, no watermark, no talking-head REQUIRED on-screen anchors: How colliding neutron stars forge gold seen by X-ray telescopes, cosmic power, telescopes, detect, emitted, showcasing.",
+              "visual_query": "X-ray emissions neutron stars",
+              "visual_prompt": "cinematic macro of X-ray emissions, continuous motion"
+            },
+            "ownership": "LEGACY_DEPRECATED"
+          },
+          {
+            "scene_index": 4,
+            "fields": {
+              "exact_ai_video_prompt": "vertical 9:16 cinematic view of Earth with gold, niche color grade, continuous motion, no burned captions, no watermark, no talking-head REQUIRED on-screen anchors: How colliding neutron stars forge gold seen by X-ray telescopes, stellar collisions, origin, find, have, originated, stellar.",
+              "visual_query": "Earth gold origin",
+              "visual_prompt": "cinematic view of Earth with gold, continuous motion"
+            },
+            "ownership": "LEGACY_DEPRECATED"
+          },
+          {
+            "scene_index": 5,
+            "fields": {
+              "exact_ai_video_prompt": "vertical 9:16 cinematic slow pull-away from gold on Earth, niche color grade, continuous motion, no burned captions, no watermark, no talking-head REQUIRED on-screen anchors: How colliding neutron stars forge gold seen by X-ray telescopes, cosmic origins, neutron stars, time, remember, cosmic, origins, colliding.",
+              "visual_query": "gold cosmic origins",
+              "visual_prompt": "cinematic slow pull-away from gold, continuous motion"
+            },
+            "ownership": "LEGACY_DEPRECATED"
+          }
+        ],
+        "metadata": {
+          "source": "niche_director_normalized",
+          "visual_prompt_canonical_owner": "C05-S",
+          "script_owns_provider_visual_prompts": false,
+          "created_at": "2026-09-09T11:46:20.150379"
+        }
+      },
+      "c05_handoff": {
+        "ready": false,
+        "status": "APPROVED_SCRIPT",
+        "path": "ScriptPlan → C05-TRS → C05-S → C05-GA → C05-GP → C05-GX → C05-MR",
+        "note": "Handoff ready — media generation is a later step",
+        "topic_id": "topic-05cae7234c01f24f",
+        "topic_text": "How colliding neutron stars forge gold seen by X-ray telescopes (RCP07 next-blocker SHORT 20260909T054610Z)",
+        "script_plan_topic": "How colliding neutron stars forge gold seen by X-ray telescopes"
+      },
+      "actions": {
+        "select_topic": true,
+        "research": true,
+        "generate_script": false,
+        "review_script": false,
+        "approve_script": false,
+        "c05_handoff_ready": false
+      }
+    }
+  }
+}

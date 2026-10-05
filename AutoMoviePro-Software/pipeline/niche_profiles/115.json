@@ -1,0 +1,79 @@
+{
+  "niche_id": 115,
+  "name": "Future of Blockchain & Web3",
+  "slug": "future-of-blockchain-web3",
+  "style_family": "finance",
+  "status": "VERIFIED",
+  "topic_seeds": [
+    "What new evidence reframes the story of Future inside Future of Blockchain & Web3",
+    "How Future still shapes public curiosity about Future of Blockchain & Web3",
+    "What new evidence reframes the story of Blockchain inside Future of Blockchain & Web3",
+    "How Blockchain still shapes public curiosity about Future of Blockchain & Web3",
+    "What new evidence reframes the story of Check inside Future of Blockchain & Web3",
+    "How Check still shapes public curiosity about Future of Blockchain & Web3"
+  ],
+  "seo_angles": [
+    "What new evidence reframes the story of Future inside Future of Blockchain & Web3",
+    "How Future still shapes public curiosity about Future of Blockchain & Web3",
+    "What new evidence reframes the story of Blockchain inside Future of Blockchain & Web3",
+    "How Blockchain still shapes public curiosity about Future of Blockchain & Web3"
+  ],
+  "forbidden_visuals": [
+    "talking-head lip-sync avatar",
+    "burned-in captions",
+    "watermark",
+    "modern meme text",
+    "off-niche stock office B-roll"
+  ],
+  "preferred_subjects": [
+    "Future of Blockchain & Web3 documentary subject",
+    "period-accurate environment",
+    "evidence object close-up"
+  ],
+  "lighting_default": "natural directional key, documentary clarity",
+  "face_policy": "no talking-head lip-sync avatar; cinematic B-roll preferred",
+  "dialogue_tone": "human documentary narration; specific nouns; 7–9s beats",
+  "audio_ambience": "subtle documentary bed; do not overpower voice",
+  "research_hints": [
+    "Prefer primary evidence and concrete entities for Future of Blockchain & Web3",
+    "Avoid generic niche-label topics; require specific place/person/event/mechanism",
+    "7–9 second spoken beats with story continuity across scenes"
+  ],
+  "topic_prompt_overlay": "NICHE LOCK (Future of Blockchain & Web3): only propose topics that fit this niche's video type. Video type: What is Web3? How blockchain works beyond crypto — digital identity, smart contracts, decentralized apps. Follow niche topic strategy: Check crypto news, new Web3 apps, or viral blockchain education posts. Generate a topic about a non-crypto use of blockchain.",
+  "video_prompt_overlay": "NICHE VISUAL LOCK (Future of Blockchain & Web3 / finance): Generate a 7–9 second dialogue clip based on the topic `{topic}`. Each dialogue must be futuristic and clear. For each dialogue, generate: - **Audio Generation Prompt:** Voice — explanatory, with block noises and whooshes. - **Video Generation Prompt:** Detailed visual — a blockchain visualisation screen. No character — graphics. Lighting: neon blue. Maintain same blockchain look. Forbidden: talking-head lip-sync avatar, burned-in captions, watermark, modern meme text, off-niche stock office B-roll. Preferred subjects: Future of Blockchain & Web3 documentary subject, period-accurate environment, evidence object close-up. Lighting: natural directional key, documentary clarity. Face policy: no talking-head lip-sync avatar; cinematic B-roll preferred. Dialogue tone: human documentary narration; specific nouns; 7–9s beats. Ambience: subtle documentary bed; do not overpower voice.",
+  "i18n": {
+    "en": {
+      "name": "Future of Blockchain & Web3",
+      "blurb": "What is Web3? How blockchain works beyond crypto — digital identity, smart contracts, decentralized apps."
+    },
+    "bn": {
+      "name": "ব্লকচেইন ও ওয়েব৩-এর ভবিষ্যৎ",
+      "blurb": "ভিডিও টাইপ: What is Web3? How blockchain works beyond crypto — digital identity, smart contracts, decentralized apps."
+    },
+    "hi": {
+      "name": "ब्लॉकचेन और वेब3 का भविष्य",
+      "blurb": "वीडियो प्रकार: What is Web3? How blockchain works beyond crypto — digital identity, smart contracts, decentralized apps."
+    },
+    "ur": {
+      "name": "بلاک چین اور ویب 3 کا مستقبل",
+      "blurb": "ویڈیو کی قسم: What is Web3? How blockchain works beyond crypto — digital identity, smart contracts, decentralized apps."
+    },
+    "ta": {
+      "name": "பிளாக்செயின் & Web3 எதிர்காலம்",
+      "blurb": "வீடியோ வகை: What is Web3? How blockchain works beyond crypto — digital identity, smart contracts, decentralized apps."
+    },
+    "ml": {
+      "name": "ബ്ലോക്ക്‌ചെയിനും വെബ്3-ഉം — ഭാവി",
+      "blurb": "വീഡിയോ തരം: What is Web3? How blockchain works beyond crypto — digital identity, smart contracts, decentralized apps."
+    }
+  },
+  "source": "Nish.Md + deterministic research",
+  "research_notes": [
+    "Marathon researched at 2026-09-10T08:30:25Z",
+    "Video type length=105",
+    "Topic prompt length=125",
+    "Video prompt length=383",
+    "Seeds=6"
+  ],
+  "verified_at": "2026-09-10T08:30:25Z"
+}

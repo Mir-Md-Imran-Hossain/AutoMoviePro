@@ -1,0 +1,42 @@
+{
+  "protocol_id": "AMP-001",
+  "marathon_status": "COMPLETE",
+  "current_task": null,
+  "current_task_status": "COMPLETE",
+  "completed_tasks": [
+    "TASK-001", "TASK-002", "TASK-003", "TASK-004", "TASK-005",
+    "TASK-006", "TASK-007", "TASK-008", "TASK-009", "TASK-010",
+    "TASK-011", "TASK-012", "TASK-013", "TASK-014", "TASK-015",
+    "TASK-016", "TASK-017", "TASK-018", "TASK-019", "TASK-020"
+  ],
+  "failed_tasks": [],
+  "blocked_tasks": [],
+  "task_attempt_count": {
+    "TASK-001": 1, "TASK-002": 1, "TASK-003": 1, "TASK-004": 1, "TASK-005": 1,
+    "TASK-006": 1, "TASK-007": 1, "TASK-008": 1, "TASK-009": 1, "TASK-010": 1,
+    "TASK-011": 1, "TASK-012": 1, "TASK-013": 1, "TASK-014": 1, "TASK-015": 1,
+    "TASK-016": 1, "TASK-017": 1, "TASK-018": 1, "TASK-019": 1, "TASK-020": 1
+  },
+  "last_passed_task": "TASK-020",
+  "current_checkpoint": "AMP-001-COMPLETE",
+  "test_summary": {
+    "marathon_suites": 12,
+    "marathon_suites_pass": 12,
+    "total_tests_approx": 180,
+    "paid_api_calls": 0,
+    "verified_at": "2026-08-31T11:30:00+06:00"
+  },
+  "changed_files": {
+    "TASK-004": ["pipeline/intelligence/gate.py", "pipeline/video_pipeline.py", "scripts/test_marathon_task004_fail_closed_gate.py"],
+    "TASK-005": ["pipeline/intelligence/research_provider.py", "scripts/test_marathon_task005_research_provider_boundary.py"],
+    "TASK-006": ["pipeline/intelligence/research_runtime.py", "scripts/test_marathon_tasks_006_020.py"],
+    "TASK-003": ["scripts/test_marathon_task003_long_short_isolation.py"],
+    "MARATHON": ["scripts/marathon_run_all_tests.py", "docs/marathon/MARATHON_FINAL_REPORT.md"]
+  },
+  "checkpoint_history": [
+    {"id": "TASK-005-PASS", "timestamp": "2026-08-31T11:00:00+06:00"},
+    {"id": "TASK-020-PASS", "timestamp": "2026-08-31T11:30:00+06:00"},
+    {"id": "AMP-001-COMPLETE", "timestamp": "2026-08-31T11:30:00+06:00"}
+  ],
+  "timestamp": "2026-08-31T11:30:00+06:00"
+}

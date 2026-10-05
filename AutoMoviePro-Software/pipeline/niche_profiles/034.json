@@ -1,0 +1,79 @@
+{
+  "niche_id": 34,
+  "name": "Space Disasters",
+  "slug": "space-disasters",
+  "style_family": "science",
+  "status": "VERIFIED",
+  "topic_seeds": [
+    "What new evidence reframes the story of Space Disasters Tragic inside Space Disasters",
+    "How Space Disasters Tragic still shapes public curiosity about Space Disasters",
+    "What new evidence reframes the story of Apollo inside Space Disasters",
+    "How Apollo still shapes public curiosity about Space Disasters",
+    "What new evidence reframes the story of Challenger inside Space Disasters",
+    "How Challenger still shapes public curiosity about Space Disasters"
+  ],
+  "seo_angles": [
+    "What new evidence reframes the story of Space Disasters Tragic inside Space Disasters",
+    "How Space Disasters Tragic still shapes public curiosity about Space Disasters",
+    "What new evidence reframes the story of Apollo inside Space Disasters",
+    "How Apollo still shapes public curiosity about Space Disasters"
+  ],
+  "forbidden_visuals": [
+    "talking-head lip-sync avatar",
+    "burned-in captions",
+    "watermark",
+    "modern meme text",
+    "off-niche stock office B-roll"
+  ],
+  "preferred_subjects": [
+    "lab instrument close-up",
+    "diagrammatic mechanism metaphor",
+    "field measurement site"
+  ],
+  "lighting_default": "teal/cyan lab grade, high contrast, shallow DOF",
+  "face_policy": "no talking-head lip-sync avatar; cinematic B-roll preferred",
+  "dialogue_tone": "clear explainer; one mechanism per beat",
+  "audio_ambience": "clean room tone, soft electronic texture",
+  "research_hints": [
+    "Prefer primary evidence and concrete entities for Space Disasters",
+    "Avoid generic niche-label topics; require specific place/person/event/mechanism",
+    "7–9 second spoken beats with story continuity across scenes"
+  ],
+  "topic_prompt_overlay": "NICHE LOCK (Space Disasters): only propose topics that fit this niche's video type. Video type: Tragic space missions — Apollo 1, Challenger, Columbia — the technical glitches, human cost, and how NASA rebuilt safety protocols. Follow niche topic strategy: Track space agency news, astronaut interviews, or mission anniversaries. Generate a topic about a space tragedy that taught us resilience.",
+  "video_prompt_overlay": "NICHE VISUAL LOCK (Space Disasters / science): Generate a 7–9 second dialogue clip based on the topic `{topic}`. Each dialogue must be serious and respectful. For each dialogue, generate: - **Audio Generation Prompt:** Voice — calm but sad, with static radio and wind. - **Video Generation Prompt:** Detailed visual — mission control or launch pad. Characters: astronauts or mission controllers. Lighting: harsh white overhead. Maintain same control room layout. Forbidden: talking-head lip-sync avatar, burned-in captions, watermark, modern meme text, off-niche stock office B-roll. Preferred subjects: lab instrument close-up, diagrammatic mechanism metaphor, field measurement site. Lighting: teal/cyan lab grade, high contrast, shallow DOF. Face policy: no talking-head lip-sync avatar; cinematic B-roll preferred. Dialogue tone: clear explainer; one mechanism per beat. Ambience: clean room tone, soft electronic texture.",
+  "i18n": {
+    "en": {
+      "name": "Space Disasters",
+      "blurb": "Tragic space missions — Apollo 1, Challenger, Columbia — the technical glitches, human cost, and how NASA rebuilt safety protocols."
+    },
+    "bn": {
+      "name": "মহাকাশ বিপর্যয়",
+      "blurb": "ভিডিও টাইপ: Tragic space missions — Apollo 1, Challenger, Columbia — the technical glitches, human cost, and how NASA rebuilt safety protocols."
+    },
+    "hi": {
+      "name": "अंतरिक्ष आपदाएँ",
+      "blurb": "वीडियो प्रकार: Tragic space missions — Apollo 1, Challenger, Columbia — the technical glitches, human cost, and how NASA rebuilt safety protocols."
+    },
+    "ur": {
+      "name": "خلائی تباہیاں",
+      "blurb": "ویڈیو کی قسم: Tragic space missions — Apollo 1, Challenger, Columbia — the technical glitches, human cost, and how NASA rebuilt safety protocols."
+    },
+    "ta": {
+      "name": "விண்வெளி பேரழிவுகள்",
+      "blurb": "வீடியோ வகை: Tragic space missions — Apollo 1, Challenger, Columbia — the technical glitches, human cost, and how NASA rebuilt safety protocols."
+    },
+    "ml": {
+      "name": "ബഹിരാകാശ ദുരന്തങ്ങൾ",
+      "blurb": "വീഡിയോ തരം: Tragic space missions — Apollo 1, Challenger, Columbia — the technical glitches, human cost, and how NASA rebuilt safety protocols."
+    }
+  },
+  "source": "Nish.Md + deterministic research",
+  "research_notes": [
+    "Marathon researched at 2026-09-10T08:30:12Z",
+    "Video type length=131",
+    "Topic prompt length=138",
+    "Video prompt length=415",
+    "Seeds=6"
+  ],
+  "verified_at": "2026-09-10T08:30:12Z"
+}

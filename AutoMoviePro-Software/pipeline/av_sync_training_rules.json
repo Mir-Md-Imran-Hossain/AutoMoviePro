@@ -1,0 +1,24 @@
+{
+  "rules": [
+    "If narration mentions a specific gadget model, the frame MUST show that product family — never substitute kitchen/food/unrelated lifestyle B-roll.",
+    "Keyword triggers are mandatory visual targets: if a trigger is missing on screen, fail the clip even if aesthetics look cinematic.",
+    "Talking-head / lip-sync AI avatar is always a critical fail.",
+    "Gadget display beats must show an ON screen with readable UI content and brightness/scroll energy — not a blank black panel.",
+    "Battery beats must show charging cable/port glow or battery indicator — not generic desk without power cues.",
+    "Science/mystery metaphors must map to narration meaning (e.g. nuclear/fire/egg) — pretty unrelated abstract CGI is a fail.",
+    "Pre-generation prompts must name concrete subject + camera motion + lighting; vague 'cinematic shot' alone is invalid.",
+    "After regen, revised_prompt must explicitly name missed keywords from the failed attempt.",
+    "Finish every spoken word before clip end; leave ~1s silence AFTER the last syllable while picture keeps moving (setpts) — never cut mid-word.",
+    "AV length match MUST use mild setpts (slow/fast) and/or pitch-preserving atempo — NEVER tpad/freeze last frame and NEVER clone trailing black.",
+    "Trim Agnes trailing black BEFORE any length fit; ending on a black screen while audio plays is a critical fail.",
+    "Speech pace must stay near documentary ~2.3 words/sec; rushed closing nouns (e.g. crime→cryme) require Charon TTS remux.",
+    "When Gemini critic is on 429/outage: run deterministic AV self-repair agent; NEVER soft-accept hard gates (cutoff/pace/black/freeze/hold).",
+    "Never sleep mid-scene for Google quota; cool down only between clips. Mid-scene sleep leaves broken masters on disk.",
+    "Deliverable master is scene_XX_*.mp4 (agent-repaired), never raw agnes_XX_*.mp4. Write scene_XX_master_for_localize.txt.",
+    "API budget: prefer local gates+ffmpeg; max 1 Agnes create per scene; skip multimodal critic when self-repair already PASSED; avoid meta-audit spam.",
+    "Localization: replace audio+subs only; mild setpts≤1.18 else atempo speech — no stream_loop, no mid-speech freeze.",
+    "Master English: Agnes picture + consistent Charon narration when native Agnes pace/cutoff fails; keep pitch consistent across neighboring clips.",
+    "Finish every spoken word at steady documentary pace; leave silence only after last syllable; keep pitch consistent across clips."
+  ],
+  "updated_by": "scene_0_pace_or_cutoff"
+}

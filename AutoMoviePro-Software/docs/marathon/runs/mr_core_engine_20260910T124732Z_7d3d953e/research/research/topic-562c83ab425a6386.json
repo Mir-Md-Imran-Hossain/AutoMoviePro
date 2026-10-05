@@ -1,0 +1,66 @@
+{
+  "research": {
+    "topic_id": "topic-562c83ab425a6386",
+    "query": "why lunar south pole ice matters for propellant and drinking water on mars missions",
+    "evidence": [
+      {
+        "id": "N01",
+        "claim": "Research query: why lunar south pole ice matters for propellant and drinking water on mars missions\nLanguage: en\nRegion:",
+        "evidence": "research_notes",
+        "source": "research_notes",
+        "confidence": 0.4,
+        "freshness": "UNVERIFIED"
+      },
+      {
+        "id": "L02",
+        "claim": "Additional context on Why lunar south pole ice matters for propellant and drinking water on Mars missions from configured research scope.",
+        "evidence": "secondary",
+        "source": "live_research",
+        "confidence": 0.6,
+        "freshness": "recent"
+      }
+    ],
+    "status": "completed",
+    "provider": "live_local",
+    "provider_kind": "configured_local",
+    "provider_capability": "LOCAL_FACTPACK",
+    "provider_mode": "LIVE_LOCAL",
+    "external_api": false,
+    "is_external_live": false,
+    "note": "LOCAL_FACTPACK must not be claimed as EXTERNAL_LIVE_RESEARCH",
+    "timestamp": 1789044452.6184497,
+    "queried_at": 1789044452.6184497,
+    "canonical_topic": "Why lunar south pole ice matters for propellant and drinking water on Mars missions",
+    "sources": [
+      "live_research",
+      "research_notes"
+    ],
+    "fingerprint": "c2e1e7c71f5c50d0311673bc0cf3c6dfb5e08527c30bcf57f9e0d08bd75f261f"
+  },
+  "fact_pack": {
+    "topic": "Why lunar south pole ice matters for propellant and drinking water on Mars missions",
+    "version": "v0",
+    "claims": [
+      {
+        "id": "N01",
+        "claim": "Research query: why lunar south pole ice matters for propellant and drinking water on mars missions\nLanguage: en\nRegion:",
+        "evidence": "research_notes",
+        "source": "research_notes",
+        "confidence": 0.4,
+        "freshness": "UNVERIFIED"
+      },
+      {
+        "id": "L02",
+        "claim": "Additional context on Why lunar south pole ice matters for propellant and drinking water on Mars missions from configured research scope.",
+        "evidence": "secondary",
+        "source": "live_research",
+        "confidence": 0.6,
+        "freshness": "recent"
+      }
+    ],
+    "unknowns": []
+  },
+  "research_fingerprint": "c2e1e7c71f5c50d0311673bc0cf3c6dfb5e08527c30bcf57f9e0d08bd75f261f",
+  "provider_mode": "LIVE",
+  "persisted_at": 1789044452.6184497
+}

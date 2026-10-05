@@ -1,0 +1,83 @@
+{
+  "niche_id": 28,
+  "name": "Near-Death Experiences",
+  "slug": "near-death-experiences",
+  "style_family": "history",
+  "status": "VERIFIED",
+  "topic_seeds": [
+    "What new evidence reframes the story of Near inside Near-Death Experiences",
+    "How Near still shapes public curiosity about Near-Death Experiences",
+    "What new evidence reframes the story of Death Experiences People inside Near-Death Experiences",
+    "How Death Experiences People still shapes public curiosity about Near-Death Experiences",
+    "What new evidence reframes the story of Follow inside Near-Death Experiences",
+    "How Follow still shapes public curiosity about Near-Death Experiences"
+  ],
+  "seo_angles": [
+    "What new evidence reframes the story of Near inside Near-Death Experiences",
+    "How Near still shapes public curiosity about Near-Death Experiences",
+    "What new evidence reframes the story of Death Experiences People inside Near-Death Experiences",
+    "How Death Experiences People still shapes public curiosity about Near-Death Experiences"
+  ],
+  "forbidden_visuals": [
+    "talking-head lip-sync avatar",
+    "burned-in captions",
+    "watermark",
+    "modern meme text",
+    "modern smartphones",
+    "cars",
+    "LED screens",
+    "sneakers",
+    "contemporary skyline"
+  ],
+  "preferred_subjects": [
+    "Near-Death Experiences documentary subject",
+    "period-accurate environment",
+    "evidence object close-up"
+  ],
+  "lighting_default": "warm desert sun / torchlit interiors, high-contrast documentary grade",
+  "face_policy": "period extras OK if consistent; prefer environment/object hero when possible",
+  "dialogue_tone": "human documentary narration; specific nouns; 7–9s beats",
+  "audio_ambience": "subtle documentary bed; do not overpower voice",
+  "research_hints": [
+    "Prefer primary evidence and concrete entities for Near-Death Experiences",
+    "Avoid generic niche-label topics; require specific place/person/event/mechanism",
+    "7–9 second spoken beats with story continuity across scenes"
+  ],
+  "topic_prompt_overlay": "NICHE LOCK (Near-Death Experiences): only propose topics that fit this niche's video type. Video type: People who clinically died and came back — their visions, out-of-body sensations, and how their life changed afterward. Follow niche topic strategy: Follow medical journals, psychology studies, or personal testimony videos. Generate a topic that explores the boundary between life and death.",
+  "video_prompt_overlay": "NICHE VISUAL LOCK (Near-Death Experiences / history): Generate a 7–9 second dialogue clip based on the topic `{topic}`. Each dialogue must be serene and transformational. For each dialogue, generate: - **Audio Generation Prompt:** Voice — soft, reflective, with warm ambient drone. - **Video Generation Prompt:** Detailed visual — white light, tunnel, or peaceful garden. Character: patient lying down. Lighting: bright golden light. Maintain same bright soft glow. Forbidden: talking-head lip-sync avatar, burned-in captions, watermark, modern meme text, modern smartphones, cars, LED screens, sneakers. Preferred subjects: Near-Death Experiences documentary subject, period-accurate environment, evidence object close-up. Lighting: warm desert sun / torchlit interiors, high-contrast documentary grade. Face policy: period extras OK if consistent; prefer environment/object hero when possible. Dialogue tone: human documentary narration; specific nouns; 7–9s beats. Ambience: subtle documentary bed; do not overpower voice.",
+  "i18n": {
+    "en": {
+      "name": "Near-Death Experiences",
+      "blurb": "People who clinically died and came back — their visions, out-of-body sensations, and how their life changed afterward."
+    },
+    "bn": {
+      "name": "মৃত্যুর কাছাকাছি অভিজ্ঞতা",
+      "blurb": "ভিডিও টাইপ: People who clinically died and came back — their visions, out-of-body sensations, and how their life changed afterward."
+    },
+    "hi": {
+      "name": "मृत्यु-समीप अनुभव",
+      "blurb": "वीडियो प्रकार: People who clinically died and came back — their visions, out-of-body sensations, and how their life changed afterward."
+    },
+    "ur": {
+      "name": "موت کے قریب تجربات",
+      "blurb": "ویڈیو کی قسم: People who clinically died and came back — their visions, out-of-body sensations, and how their life changed afterward."
+    },
+    "ta": {
+      "name": "மரணத்திற்கு அருகில் அனுபவங்கள்",
+      "blurb": "வீடியோ வகை: People who clinically died and came back — their visions, out-of-body sensations, and how their life changed afterward."
+    },
+    "ml": {
+      "name": "മരണസമീപ അനുഭവങ്ങൾ",
+      "blurb": "വീഡിയോ തരം: People who clinically died and came back — their visions, out-of-body sensations, and how their life changed afterward."
+    }
+  },
+  "source": "Nish.Md + deterministic research",
+  "research_notes": [
+    "Marathon researched at 2026-09-10T08:30:11Z",
+    "Video type length=119",
+    "Topic prompt length=142",
+    "Video prompt length=411",
+    "Seeds=6"
+  ],
+  "verified_at": "2026-09-10T08:30:11Z"
+}

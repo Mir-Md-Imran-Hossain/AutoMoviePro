@@ -1,0 +1,23 @@
+{
+  "work_dir": "E:\\All Updaye Project\\AutoMovie_Pro_SAAS_Final_Update\\AutoMoviePro-Software\\data\\customer_generation_work\\c11_marathon_customer\\job2301",
+  "languages": {},
+  "db_languages_after": [
+    "en",
+    "bn"
+  ],
+  "entitlement_preserved": true,
+  "master_candidates": [],
+  "UR_RTL_SHAPING": "UNKNOWN",
+  "ur_rtl_classify": {
+    "rtl": true,
+    "status": "UNKNOWN",
+    "support_level": "PARTIAL_FONT_ONLY",
+    "method": "DETERMINISTIC",
+    "shaping_guaranteed": false,
+    "issues": [
+      "rtl_shaping_not_guaranteed"
+    ],
+    "policy": "UNKNOWN_blocks_publish_when_mandatory",
+    "note": "No FriBidi/HarfBuzz integration — do not claim full RTL"
+  }
+}

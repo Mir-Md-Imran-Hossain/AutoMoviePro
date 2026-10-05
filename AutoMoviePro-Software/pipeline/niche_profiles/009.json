@@ -1,0 +1,83 @@
+{
+  "niche_id": 9,
+  "name": "Air Crash Mysteries",
+  "slug": "air-crash-mysteries",
+  "style_family": "mystery",
+  "status": "VERIFIED",
+  "topic_seeds": [
+    "What new evidence reframes the story of Air Crash Mysteries Black inside Air Crash Mysteries",
+    "How Air Crash Mysteries Black still shapes public curiosity about Air Crash Mysteries",
+    "What new evidence reframes the story of Follow inside Air Crash Mysteries",
+    "How Follow still shapes public curiosity about Air Crash Mysteries",
+    "What new evidence reframes the story of Generate inside Air Crash Mysteries",
+    "How Generate still shapes public curiosity about Air Crash Mysteries"
+  ],
+  "seo_angles": [
+    "What new evidence reframes the story of Air Crash Mysteries Black inside Air Crash Mysteries",
+    "How Air Crash Mysteries Black still shapes public curiosity about Air Crash Mysteries",
+    "What new evidence reframes the story of Follow inside Air Crash Mysteries",
+    "How Follow still shapes public curiosity about Air Crash Mysteries"
+  ],
+  "forbidden_visuals": [
+    "talking-head lip-sync avatar",
+    "burned-in captions",
+    "watermark",
+    "modern meme text",
+    "modern smartphones",
+    "cars",
+    "LED screens",
+    "sneakers",
+    "contemporary skyline"
+  ],
+  "preferred_subjects": [
+    "Air Crash Mysteries documentary subject",
+    "period-accurate environment",
+    "evidence object close-up"
+  ],
+  "lighting_default": "dappled fog light, cool teal shadows, slow push-ins",
+  "face_policy": "no talking-head lip-sync avatar; cinematic B-roll preferred",
+  "dialogue_tone": "slow, ominous, evidence-first",
+  "audio_ambience": "low drone, subtle reverb, sparse percussion",
+  "research_hints": [
+    "Prefer primary evidence and concrete entities for Air Crash Mysteries",
+    "Avoid generic niche-label topics; require specific place/person/event/mechanism",
+    "7–9 second spoken beats with story continuity across scenes"
+  ],
+  "topic_prompt_overlay": "NICHE LOCK (Air Crash Mysteries): only propose topics that fit this niche's video type. Video type: Black-box analysis and investigative storytelling of plane crashes — what went wrong, who survived, and what conspiracy theories emerged afterward. Follow niche topic strategy: Follow aviation safety boards, recent crash investigations, or anniversary of a famous crash. Generate a topic that balances technical detail with human drama.",
+  "video_prompt_overlay": "NICHE VISUAL LOCK (Air Crash Mysteries / mystery): Generate a 7–9 second dialogue clip based on the topic `{topic}`. Each dialogue must feel like a cockpit recording transcript. For each dialogue, generate: - **Audio Generation Prompt:** Voice — mechanical, calm, with cockpit beeps and alarms. - **Video Generation Prompt:** Detailed visual — cockpit interior, or aerial view of crash site. Character: pilot (male, 50s, uniform). Lighting: dim instrument lights, grey sky. Maintain same uniform, same instrument panel layout, same grey tones. Forbidden: talking-head lip-sync avatar, burned-in captions, watermark, modern meme text, modern smartphones, cars, LED screens, sneakers. Preferred subjects: Air Crash Mysteries documentary subject, period-accurate environment, evidence object close-up. Lighting: dappled fog light, cool teal shadows, slow push-ins. Face policy: no talking-head lip-sync avatar; cinematic B-roll preferred. Dialogue tone: slow, ominous, evidence-first. Ambience: low drone, subtle reverb, sparse percussion.",
+  "i18n": {
+    "en": {
+      "name": "Air Crash Mysteries",
+      "blurb": "Black-box analysis and investigative storytelling of plane crashes — what went wrong, who survived, and what conspiracy theories emerged afterward."
+    },
+    "bn": {
+      "name": "বিমান দুর্ঘটনার রহস্য",
+      "blurb": "ভিডিও টাইপ: Black-box analysis and investigative storytelling of plane crashes — what went wrong, who survived, and what conspiracy theories emerged afterward."
+    },
+    "hi": {
+      "name": "विमान दुर्घटना रहस्य",
+      "blurb": "वीडियो प्रकार: Black-box analysis and investigative storytelling of plane crashes — what went wrong, who survived, and what conspiracy theories emerged afterward."
+    },
+    "ur": {
+      "name": "ہوائی حادثات کے اسرار",
+      "blurb": "ویڈیو کی قسم: Black-box analysis and investigative storytelling of plane crashes — what went wrong, who survived, and what conspiracy theories emerged afterward."
+    },
+    "ta": {
+      "name": "விமான விபத்து மர்மங்கள்",
+      "blurb": "வீடியோ வகை: Black-box analysis and investigative storytelling of plane crashes — what went wrong, who survived, and what conspiracy theories emerged afterward."
+    },
+    "ml": {
+      "name": "വിമാന അപകട രഹസ്യങ്ങൾ",
+      "blurb": "വീഡിയോ തരം: Black-box analysis and investigative storytelling of plane crashes — what went wrong, who survived, and what conspiracy theories emerged afterward."
+    }
+  },
+  "source": "Nish.Md + deterministic research",
+  "research_notes": [
+    "Marathon researched at 2026-09-10T08:30:09Z",
+    "Video type length=147",
+    "Topic prompt length=159",
+    "Video prompt length=492",
+    "Seeds=6"
+  ],
+  "verified_at": "2026-09-10T08:30:09Z"
+}

@@ -1,0 +1,83 @@
+{
+  "niche_id": 57,
+  "name": "Child Prodigies",
+  "slug": "child-prodigies",
+  "style_family": "history",
+  "status": "VERIFIED",
+  "topic_seeds": [
+    "What new evidence reframes the story of Child Prodigies Young inside Child Prodigies",
+    "How Child Prodigies Young still shapes public curiosity about Child Prodigies",
+    "What new evidence reframes the story of Check inside Child Prodigies",
+    "How Check still shapes public curiosity about Child Prodigies",
+    "What new evidence reframes the story of Generate inside Child Prodigies",
+    "How Generate still shapes public curiosity about Child Prodigies"
+  ],
+  "seo_angles": [
+    "What new evidence reframes the story of Child Prodigies Young inside Child Prodigies",
+    "How Child Prodigies Young still shapes public curiosity about Child Prodigies",
+    "What new evidence reframes the story of Check inside Child Prodigies",
+    "How Check still shapes public curiosity about Child Prodigies"
+  ],
+  "forbidden_visuals": [
+    "talking-head lip-sync avatar",
+    "burned-in captions",
+    "watermark",
+    "modern meme text",
+    "modern smartphones",
+    "cars",
+    "LED screens",
+    "sneakers",
+    "contemporary skyline"
+  ],
+  "preferred_subjects": [
+    "Child Prodigies documentary subject",
+    "period-accurate environment",
+    "evidence object close-up"
+  ],
+  "lighting_default": "warm desert sun / torchlit interiors, high-contrast documentary grade",
+  "face_policy": "period extras OK if consistent; prefer environment/object hero when possible",
+  "dialogue_tone": "human documentary narration; specific nouns; 7–9s beats",
+  "audio_ambience": "subtle documentary bed; do not overpower voice",
+  "research_hints": [
+    "Prefer primary evidence and concrete entities for Child Prodigies",
+    "Avoid generic niche-label topics; require specific place/person/event/mechanism",
+    "7–9 second spoken beats with story continuity across scenes"
+  ],
+  "topic_prompt_overlay": "NICHE LOCK (Child Prodigies): only propose topics that fit this niche's video type. Video type: Young geniuses in music, math, or chess — their meteoric rise, pressure, and what became of them later. Follow niche topic strategy: Check new talent discoveries, documentaries, or viral performances. Generate a topic about a child prodigy's journey and challenges.",
+  "video_prompt_overlay": "NICHE VISUAL LOCK (Child Prodigies / history): Generate a 7–9 second dialogue clip based on the topic `{topic}`. Each dialogue must be fascinating and bittersweet. For each dialogue, generate: - **Audio Generation Prompt:** Voice — amazed, with applause or chess clock sounds. - **Video Generation Prompt:** Detailed visual — a stage or competition room. Character: child (appropriate outfit, focused). Lighting: spotlight. Maintain same spotlight and outfit. Forbidden: talking-head lip-sync avatar, burned-in captions, watermark, modern meme text, modern smartphones, cars, LED screens, sneakers. Preferred subjects: Child Prodigies documentary subject, period-accurate environment, evidence object close-up. Lighting: warm desert sun / torchlit interiors, high-contrast documentary grade. Face policy: period extras OK if consistent; prefer environment/object hero when possible. Dialogue tone: human documentary narration; specific nouns; 7–9s beats. Ambience: subtle documentary bed; do not overpower voice.",
+  "i18n": {
+    "en": {
+      "name": "Child Prodigies",
+      "blurb": "Young geniuses in music, math, or chess — their meteoric rise, pressure, and what became of them later."
+    },
+    "bn": {
+      "name": "শিশু প্রতিভা",
+      "blurb": "ভিডিও টাইপ: Young geniuses in music, math, or chess — their meteoric rise, pressure, and what became of them later."
+    },
+    "hi": {
+      "name": "बाल प्रतिभाएँ",
+      "blurb": "वीडियो प्रकार: Young geniuses in music, math, or chess — their meteoric rise, pressure, and what became of them later."
+    },
+    "ur": {
+      "name": "بچہ عبقری",
+      "blurb": "ویڈیو کی قسم: Young geniuses in music, math, or chess — their meteoric rise, pressure, and what became of them later."
+    },
+    "ta": {
+      "name": "குழந்தை மேதைகள்",
+      "blurb": "வீடியோ வகை: Young geniuses in music, math, or chess — their meteoric rise, pressure, and what became of them later."
+    },
+    "ml": {
+      "name": "ശിശു പ്രതിഭകൾ",
+      "blurb": "വീഡിയോ തരം: Young geniuses in music, math, or chess — their meteoric rise, pressure, and what became of them later."
+    }
+  },
+  "source": "Nish.Md + deterministic research",
+  "research_notes": [
+    "Marathon researched at 2026-09-10T08:30:15Z",
+    "Video type length=103",
+    "Topic prompt length=132",
+    "Video prompt length=412",
+    "Seeds=6"
+  ],
+  "verified_at": "2026-09-10T08:30:15Z"
+}

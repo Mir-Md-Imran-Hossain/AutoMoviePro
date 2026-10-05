@@ -1,0 +1,83 @@
+{
+  "niche_id": 102,
+  "name": "AI Image Generators",
+  "slug": "ai-image-generators",
+  "style_family": "history",
+  "status": "VERIFIED",
+  "topic_seeds": [
+    "What new evidence reframes the story of Image Generators Stable Diffusion inside AI Image Generators",
+    "How Image Generators Stable Diffusion still shapes public curiosity about AI Image Generators",
+    "What new evidence reframes the story of Playground inside AI Image Generators",
+    "How Playground still shapes public curiosity about AI Image Generators",
+    "What new evidence reframes the story of Follow inside AI Image Generators",
+    "How Follow still shapes public curiosity about AI Image Generators"
+  ],
+  "seo_angles": [
+    "What new evidence reframes the story of Image Generators Stable Diffusion inside AI Image Generators",
+    "How Image Generators Stable Diffusion still shapes public curiosity about AI Image Generators",
+    "What new evidence reframes the story of Playground inside AI Image Generators",
+    "How Playground still shapes public curiosity about AI Image Generators"
+  ],
+  "forbidden_visuals": [
+    "talking-head lip-sync avatar",
+    "burned-in captions",
+    "watermark",
+    "modern meme text",
+    "modern smartphones",
+    "cars",
+    "LED screens",
+    "sneakers",
+    "contemporary skyline"
+  ],
+  "preferred_subjects": [
+    "AI Image Generators documentary subject",
+    "period-accurate environment",
+    "evidence object close-up"
+  ],
+  "lighting_default": "warm desert sun / torchlit interiors, high-contrast documentary grade",
+  "face_policy": "period extras OK if consistent; prefer environment/object hero when possible",
+  "dialogue_tone": "human documentary narration; specific nouns; 7–9s beats",
+  "audio_ambience": "subtle documentary bed; do not overpower voice",
+  "research_hints": [
+    "Prefer primary evidence and concrete entities for AI Image Generators",
+    "Avoid generic niche-label topics; require specific place/person/event/mechanism",
+    "7–9 second spoken beats with story continuity across scenes"
+  ],
+  "topic_prompt_overlay": "NICHE LOCK (AI Image Generators): only propose topics that fit this niche's video type. Video type: Stable Diffusion, Playground AI — creating stunning art from text prompts, with tips on prompt engineering. Follow niche topic strategy: Follow art tech news, new model releases, or viral AI artworks. Generate a topic about an AI art tool with a surprising feature.",
+  "video_prompt_overlay": "NICHE VISUAL LOCK (AI Image Generators / history): Generate a 7–9 second dialogue clip based on the topic `{topic}`. Each dialogue must be creative and illustrative. For each dialogue, generate: - **Audio Generation Prompt:** Voice — artistic, with brush sounds and whooshing. - **Video Generation Prompt:** Detailed visual — a screen with morphing images. No character — screen. Lighting: glowing. Maintain same morphing style. Forbidden: talking-head lip-sync avatar, burned-in captions, watermark, modern meme text, modern smartphones, cars, LED screens, sneakers. Preferred subjects: AI Image Generators documentary subject, period-accurate environment, evidence object close-up. Lighting: warm desert sun / torchlit interiors, high-contrast documentary grade. Face policy: period extras OK if consistent; prefer environment/object hero when possible. Dialogue tone: human documentary narration; specific nouns; 7–9s beats. Ambience: subtle documentary bed; do not overpower voice.",
+  "i18n": {
+    "en": {
+      "name": "AI Image Generators",
+      "blurb": "Stable Diffusion, Playground AI — creating stunning art from text prompts, with tips on prompt engineering."
+    },
+    "bn": {
+      "name": "এআই ইমেজ জেনারেটর",
+      "blurb": "ভিডিও টাইপ: Stable Diffusion, Playground AI — creating stunning art from text prompts, with tips on prompt engineering."
+    },
+    "hi": {
+      "name": "एआई इमेज जनरेटर",
+      "blurb": "वीडियो प्रकार: Stable Diffusion, Playground AI — creating stunning art from text prompts, with tips on prompt engineering."
+    },
+    "ur": {
+      "name": "اے آئی امیج جنریٹرز",
+      "blurb": "ویڈیو کی قسم: Stable Diffusion, Playground AI — creating stunning art from text prompts, with tips on prompt engineering."
+    },
+    "ta": {
+      "name": "AI பட உருவாக்கிகள்",
+      "blurb": "வீடியோ வகை: Stable Diffusion, Playground AI — creating stunning art from text prompts, with tips on prompt engineering."
+    },
+    "ml": {
+      "name": "AI ഇമേജ് ജനറേറ്ററുകൾ",
+      "blurb": "വീഡിയോ തരം: Stable Diffusion, Playground AI — creating stunning art from text prompts, with tips on prompt engineering."
+    }
+  },
+  "source": "Nish.Md + deterministic research",
+  "research_notes": [
+    "Marathon researched at 2026-09-10T08:30:23Z",
+    "Video type length=107",
+    "Topic prompt length=128",
+    "Video prompt length=377",
+    "Seeds=6"
+  ],
+  "verified_at": "2026-09-10T08:30:23Z"
+}

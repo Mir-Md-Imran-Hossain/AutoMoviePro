@@ -1,0 +1,107 @@
+<?php
+declare(strict_types=1);
+
+/**
+ * SQL schema for AutoMovie Pro Website
+ */
+return <<<'SQL'
+CREATE TABLE IF NOT EXISTS admins (
+  id INT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
+  username VARCHAR(64) NOT NULL UNIQUE,
+  password_hash VARCHAR(255) NOT NULL,
+  created_at DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+CREATE TABLE IF NOT EXISTS customers (
+  id INT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
+  name VARCHAR(120) NOT NULL,
+  whatsapp VARCHAR(32) NOT NULL,
+  email VARCHAR(120) NULL,
+  login_id VARCHAR(32) NULL UNIQUE,
+  password_hash VARCHAR(255) NULL,
+  status ENUM('pending','active','inactive','removed') NOT NULL DEFAULT 'pending',
+  notes TEXT NULL,
+  last_heartbeat_at DATETIME NULL,
+  created_at DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  activated_at DATETIME NULL,
+  INDEX (status),
+  INDEX (whatsapp)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+CREATE TABLE IF NOT EXISTS orders (
+  id INT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
+  customer_id INT UNSIGNED NULL,
+  name VARCHAR(120) NOT NULL,
+  whatsapp VARCHAR(32) NOT NULL,
+  email VARCHAR(120) NULL,
+  plan_name VARCHAR(80) NOT NULL DEFAULT 'Standard',
+  amount DECIMAL(10,2) NOT NULL DEFAULT 0,
+  status ENUM('pending_payment','approved','rejected') NOT NULL DEFAULT 'pending_payment',
+  created_at DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  approved_at DATETIME NULL,
+  FOREIGN KEY (customer_id) REFERENCES customers(id) ON DELETE SET NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+CREATE TABLE IF NOT EXISTS licenses (
+  id INT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
+  customer_id INT UNSIGNED NOT NULL,
+  token VARCHAR(64) NOT NULL UNIQUE,
+  expires_at DATETIME NULL,
+  revoked TINYINT(1) NOT NULL DEFAULT 0,
+  created_at DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  FOREIGN KEY (customer_id) REFERENCES customers(id) ON DELETE CASCADE
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+CREATE TABLE IF NOT EXISTS promo_channels (
+  id INT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
+  platform ENUM('youtube','facebook') NOT NULL,
+  title VARCHAR(160) NOT NULL,
+  url VARCHAR(500) NOT NULL,
+  is_active TINYINT(1) NOT NULL DEFAULT 1,
+  sort_order INT NOT NULL DEFAULT 0,
+  created_at DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+CREATE TABLE IF NOT EXISTS customer_jobs (
+  id INT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
+  customer_id INT UNSIGNED NOT NULL,
+  channel_name VARCHAR(160) NULL,
+  video_type ENUM('short','long') NOT NULL DEFAULT 'short',
+  title VARCHAR(300) NOT NULL,
+  description TEXT NULL,
+  platform VARCHAR(40) NULL,
+  upload_status VARCHAR(40) NOT NULL DEFAULT 'generated',
+  uploaded_at DATETIME NULL,
+  remote_url VARCHAR(500) NULL,
+  local_path VARCHAR(500) NULL,
+  meta_json JSON NULL,
+  created_at DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  FOREIGN KEY (customer_id) REFERENCES customers(id) ON DELETE CASCADE,
+  INDEX (customer_id, created_at)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+CREATE TABLE IF NOT EXISTS site_settings (
+  setting_key VARCHAR(100) PRIMARY KEY,
+  setting_value MEDIUMTEXT NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+CREATE TABLE IF NOT EXISTS whatsapp_outbox (
+  id INT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
+  customer_id INT UNSIGNED NULL,
+  to_number VARCHAR(32) NOT NULL,
+  message TEXT NOT NULL,
+  status VARCHAR(32) NOT NULL DEFAULT 'queued',
+  response TEXT NULL,
+  created_at DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+CREATE TABLE IF NOT EXISTS api_logs (
+  id BIGINT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
+  customer_id INT UNSIGNED NULL,
+  action VARCHAR(80) NOT NULL,
+  detail VARCHAR(500) NULL,
+  ip_address VARCHAR(64) NULL,
+  created_at DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  INDEX (customer_id, created_at)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+SQL;

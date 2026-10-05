@@ -1,0 +1,95 @@
+{
+  "os": "Windows-11-10.0.26200-SP0",
+  "python": "3.12.9",
+  "release_version": "0.5.0",
+  "release_identity": {
+    "app_name": "AutoMovie Pro",
+    "release_version": "0.5.0",
+    "build_id": "h5-source",
+    "build_timestamp": "2026-09-09T05:17:01Z",
+    "python_version": "3.12.9",
+    "platform": "Windows-11-10.0.26200-SP0",
+    "os_name": "nt",
+    "supported_deployment": "windows_local_source_venv",
+    "checkpoint": "AMP004-H5-RELEASE-OPERATIONAL-READINESS",
+    "ffmpeg_available": true,
+    "ffprobe_available": true,
+    "ffmpeg_source": "bundled",
+    "ffprobe_source": "bundled",
+    "ffmpeg_version": "ffmpeg version 8.1.1-full_build-www.gyan.dev Copyright (c) 2000-2026 the FFmpeg developers",
+    "ffprobe_version": "ffprobe version 8.1.1-full_build-www.gyan.dev Copyright (c) 2007-2026 the FFmpeg developers"
+  },
+  "media_capability": {
+    "FFMPEG_AVAILABLE": true,
+    "FFPROBE_AVAILABLE": true,
+    "ffmpeg_path": "E:\\All Updaye Project\\AutoMovie_Pro_SAAS_Final_Update\\AutoMoviePro-Software\\ffmpeg-8.1.1-full_build\\ffmpeg-8.1.1-full_build\\bin\\ffmpeg.exe",
+    "ffprobe_path": "E:\\All Updaye Project\\AutoMovie_Pro_SAAS_Final_Update\\AutoMoviePro-Software\\ffmpeg-8.1.1-full_build\\ffmpeg-8.1.1-full_build\\bin\\ffprobe.exe",
+    "ffmpeg_source": "bundled",
+    "ffprobe_source": "bundled",
+    "method": "DETERMINISTIC"
+  },
+  "media_versions": {
+    "ffmpeg_version": "ffmpeg version 8.1.1-full_build-www.gyan.dev Copyright (c) 2000-2026 the FFmpeg developers",
+    "ffprobe_version": "ffprobe version 8.1.1-full_build-www.gyan.dev Copyright (c) 2007-2026 the FFmpeg developers"
+  },
+  "environment": "c11_real_marathon",
+  "data_dir": "E:\\All Updaye Project\\AutoMovie_Pro_SAAS_Final_Update\\AutoMoviePro-Software\\data",
+  "disk_free_gb": 106.95,
+  "utc_now": "2026-09-09T05:17:01Z",
+  "timezone": "UTC",
+  "locale": "en",
+  "provider_inventory": {
+    "google_keys": 19,
+    "agnes_keys": 6,
+    "details_presence": [
+      {
+        "name": "GOOGLE_API_KEY_1",
+        "status": "SET",
+        "length": 39
+      },
+      {
+        "name": "AGNES_API_KEY_1",
+        "status": "SET",
+        "length": 51
+      },
+      {
+        "name": "AGNES_API_BASE_URL",
+        "status": "SET",
+        "length": 30
+      },
+      {
+        "name": "YOUTUBE_API_KEY",
+        "status": "SET",
+        "length": 39
+      },
+      {
+        "name": "YOUTUBE_CLIENT_ID",
+        "status": "SET",
+        "length": 72
+      },
+      {
+        "name": "YOUTUBE_CLIENT_SECRET",
+        "status": "SET",
+        "length": 35
+      },
+      {
+        "name": "GROQ_API_KEY",
+        "status": "EMPTY",
+        "length": 0
+      },
+      {
+        "name": "OPENROUTER_API_KEY",
+        "status": "EMPTY",
+        "length": 0
+      },
+      {
+        "name": "CEREBRAS_API_KEY",
+        "status": "EMPTY",
+        "length": 0
+      }
+    ]
+  },
+  "customer_identity": "c11_marathon_customer",
+  "entitlement_state": "ACTIVE_ASSUMED_FOR_DEDICATED_TEST_LOGIN",
+  "secrets_persisted": false
+}

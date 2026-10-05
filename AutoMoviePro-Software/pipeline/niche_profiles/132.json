@@ -1,0 +1,79 @@
+{
+  "niche_id": 132,
+  "name": "Ghost Hunting Gear",
+  "slug": "ghost-hunting-gear",
+  "style_family": "finance",
+  "status": "VERIFIED",
+  "topic_seeds": [
+    "What new evidence reframes the story of Ghost Hunting Gear inside Ghost Hunting Gear",
+    "How Ghost Hunting Gear still shapes public curiosity about Ghost Hunting Gear",
+    "What new evidence reframes the story of Check inside Ghost Hunting Gear",
+    "How Check still shapes public curiosity about Ghost Hunting Gear",
+    "What new evidence reframes the story of Generate inside Ghost Hunting Gear",
+    "How Generate still shapes public curiosity about Ghost Hunting Gear"
+  ],
+  "seo_angles": [
+    "What new evidence reframes the story of Ghost Hunting Gear inside Ghost Hunting Gear",
+    "How Ghost Hunting Gear still shapes public curiosity about Ghost Hunting Gear",
+    "What new evidence reframes the story of Check inside Ghost Hunting Gear",
+    "How Check still shapes public curiosity about Ghost Hunting Gear"
+  ],
+  "forbidden_visuals": [
+    "talking-head lip-sync avatar",
+    "burned-in captions",
+    "watermark",
+    "modern meme text",
+    "off-niche stock office B-roll"
+  ],
+  "preferred_subjects": [
+    "Ghost Hunting Gear documentary subject",
+    "period-accurate environment",
+    "evidence object close-up"
+  ],
+  "lighting_default": "natural directional key, documentary clarity",
+  "face_policy": "no talking-head lip-sync avatar; cinematic B-roll preferred",
+  "dialogue_tone": "human documentary narration; specific nouns; 7–9s beats",
+  "audio_ambience": "subtle documentary bed; do not overpower voice",
+  "research_hints": [
+    "Prefer primary evidence and concrete entities for Ghost Hunting Gear",
+    "Avoid generic niche-label topics; require specific place/person/event/mechanism",
+    "7–9 second spoken beats with story continuity across scenes"
+  ],
+  "topic_prompt_overlay": "NICHE LOCK (Ghost Hunting Gear): only propose topics that fit this niche's video type. Video type: EMF meters, REM pods, spirit boxes — how ghost hunters work, and whether the evidence holds up. Follow niche topic strategy: Check paranormal tech news, new gadget reviews, or viral ghost hunt videos. Generate a topic about a new tool used by ghost hunters.",
+  "video_prompt_overlay": "NICHE VISUAL LOCK (Ghost Hunting Gear / finance): Generate a 7–9 second dialogue clip based on the topic `{topic}`. Each dialogue must be investigative. For each dialogue, generate: - **Audio Generation Prompt:** Voice — curious, with beeping and static. - **Video Generation Prompt:** Detailed visual — a hand holding a device. Character: ghost hunter (glove, flashlight). Lighting: night vision style. Maintain same device. Forbidden: talking-head lip-sync avatar, burned-in captions, watermark, modern meme text, off-niche stock office B-roll. Preferred subjects: Ghost Hunting Gear documentary subject, period-accurate environment, evidence object close-up. Lighting: natural directional key, documentary clarity. Face policy: no talking-head lip-sync avatar; cinematic B-roll preferred. Dialogue tone: human documentary narration; specific nouns; 7–9s beats. Ambience: subtle documentary bed; do not overpower voice.",
+  "i18n": {
+    "en": {
+      "name": "Ghost Hunting Gear",
+      "blurb": "EMF meters, REM pods, spirit boxes — how ghost hunters work, and whether the evidence holds up."
+    },
+    "bn": {
+      "name": "ভূত শিকারের সরঞ্জাম",
+      "blurb": "ভিডিও টাইপ: EMF meters, REM pods, spirit boxes — how ghost hunters work, and whether the evidence holds up."
+    },
+    "hi": {
+      "name": "भूत शिकार उपकरण",
+      "blurb": "वीडियो प्रकार: EMF meters, REM pods, spirit boxes — how ghost hunters work, and whether the evidence holds up."
+    },
+    "ur": {
+      "name": "بھوت شکار کا سامان",
+      "blurb": "ویڈیو کی قسم: EMF meters, REM pods, spirit boxes — how ghost hunters work, and whether the evidence holds up."
+    },
+    "ta": {
+      "name": "பேய் வேட்டை கருவிகள்",
+      "blurb": "வீடியோ வகை: EMF meters, REM pods, spirit boxes — how ghost hunters work, and whether the evidence holds up."
+    },
+    "ml": {
+      "name": "ഭൂതവേട്ട ഉപകരണങ്ങൾ",
+      "blurb": "വീഡിയോ തരം: EMF meters, REM pods, spirit boxes — how ghost hunters work, and whether the evidence holds up."
+    }
+  },
+  "source": "Nish.Md + deterministic research",
+  "research_notes": [
+    "Marathon researched at 2026-09-10T08:30:28Z",
+    "Video type length=95",
+    "Topic prompt length=132",
+    "Video prompt length=375",
+    "Seeds=6"
+  ],
+  "verified_at": "2026-09-10T08:30:28Z"
+}

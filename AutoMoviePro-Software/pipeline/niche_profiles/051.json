@@ -1,0 +1,83 @@
+{
+  "niche_id": 51,
+  "name": "Psychological Disorders",
+  "slug": "psychological-disorders",
+  "style_family": "history",
+  "status": "VERIFIED",
+  "topic_seeds": [
+    "What new evidence reframes the story of Psychological Disorders Real inside Psychological Disorders",
+    "How Psychological Disorders Real still shapes public curiosity about Psychological Disorders",
+    "What new evidence reframes the story of Follow inside Psychological Disorders",
+    "How Follow still shapes public curiosity about Psychological Disorders",
+    "What new evidence reframes the story of Generate inside Psychological Disorders",
+    "How Generate still shapes public curiosity about Psychological Disorders"
+  ],
+  "seo_angles": [
+    "What new evidence reframes the story of Psychological Disorders Real inside Psychological Disorders",
+    "How Psychological Disorders Real still shapes public curiosity about Psychological Disorders",
+    "What new evidence reframes the story of Follow inside Psychological Disorders",
+    "How Follow still shapes public curiosity about Psychological Disorders"
+  ],
+  "forbidden_visuals": [
+    "talking-head lip-sync avatar",
+    "burned-in captions",
+    "watermark",
+    "modern meme text",
+    "modern smartphones",
+    "cars",
+    "LED screens",
+    "sneakers",
+    "contemporary skyline"
+  ],
+  "preferred_subjects": [
+    "Psychological Disorders documentary subject",
+    "period-accurate environment",
+    "evidence object close-up"
+  ],
+  "lighting_default": "warm desert sun / torchlit interiors, high-contrast documentary grade",
+  "face_policy": "period extras OK if consistent; prefer environment/object hero when possible",
+  "dialogue_tone": "human documentary narration; specific nouns; 7–9s beats",
+  "audio_ambience": "subtle documentary bed; do not overpower voice",
+  "research_hints": [
+    "Prefer primary evidence and concrete entities for Psychological Disorders",
+    "Avoid generic niche-label topics; require specific place/person/event/mechanism",
+    "7–9 second spoken beats with story continuity across scenes"
+  ],
+  "topic_prompt_overlay": "NICHE LOCK (Psychological Disorders): only propose topics that fit this niche's video type. Video type: Real patient stories — schizophrenia, bipolar disorder, OCD — narrated with empathy and clinical accuracy. Follow niche topic strategy: Follow mental health advocacy news, new DSM updates, or personal vlogs about living with a disorder. Generate a topic that educates and reduces stigma.",
+  "video_prompt_overlay": "NICHE VISUAL LOCK (Psychological Disorders / history): Generate a 7–9 second dialogue clip based on the topic `{topic}`. Each dialogue must be empathetic and honest. For each dialogue, generate: - **Audio Generation Prompt:** Voice — compassionate, steady, with soft ambient music. - **Video Generation Prompt:** Detailed visual — a therapy room or home environment. Character: patient (casual clothes) expressing emotion. Lighting: soft neutral light. Maintain same room, same clothing, consistent neutral lighting. Forbidden: talking-head lip-sync avatar, burned-in captions, watermark, modern meme text, modern smartphones, cars, LED screens, sneakers. Preferred subjects: Psychological Disorders documentary subject, period-accurate environment, evidence object close-up. Lighting: warm desert sun / torchlit interiors, high-contrast documentary grade. Face policy: period extras OK if consistent; prefer environment/object hero when possible. Dialogue tone: human documentary narration; specific nouns; 7–9s beats. Ambience: subtle documentary bed; do not overpower voice.",
+  "i18n": {
+    "en": {
+      "name": "Psychological Disorders",
+      "blurb": "Real patient stories — schizophrenia, bipolar disorder, OCD — narrated with empathy and clinical accuracy."
+    },
+    "bn": {
+      "name": "মানসিক ব্যাধি",
+      "blurb": "ভিডিও টাইপ: Real patient stories — schizophrenia, bipolar disorder, OCD — narrated with empathy and clinical accuracy."
+    },
+    "hi": {
+      "name": "मनोवैज्ञानिक विकार",
+      "blurb": "वीडियो प्रकार: Real patient stories — schizophrenia, bipolar disorder, OCD — narrated with empathy and clinical accuracy."
+    },
+    "ur": {
+      "name": "نفسیاتی عوارض",
+      "blurb": "ویڈیو کی قسم: Real patient stories — schizophrenia, bipolar disorder, OCD — narrated with empathy and clinical accuracy."
+    },
+    "ta": {
+      "name": "உளவியல் கோளாறுகள்",
+      "blurb": "வீடியோ வகை: Real patient stories — schizophrenia, bipolar disorder, OCD — narrated with empathy and clinical accuracy."
+    },
+    "ml": {
+      "name": "മാനസിക വൈകല്യങ്ങൾ",
+      "blurb": "വീഡിയോ തരം: Real patient stories — schizophrenia, bipolar disorder, OCD — narrated with empathy and clinical accuracy."
+    }
+  },
+  "source": "Nish.Md + deterministic research",
+  "research_notes": [
+    "Marathon researched at 2026-09-10T08:30:14Z",
+    "Video type length=106",
+    "Topic prompt length=151",
+    "Video prompt length=461",
+    "Seeds=6"
+  ],
+  "verified_at": "2026-09-10T08:30:14Z"
+}

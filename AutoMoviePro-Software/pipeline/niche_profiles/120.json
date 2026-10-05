@@ -1,0 +1,79 @@
+{
+  "niche_id": 120,
+  "name": "Digital Detox",
+  "slug": "digital-detox",
+  "style_family": "health",
+  "status": "VERIFIED",
+  "topic_seeds": [
+    "What new evidence reframes the story of Digital Detox Strategies inside Digital Detox",
+    "How Digital Detox Strategies still shapes public curiosity about Digital Detox",
+    "What new evidence reframes the story of Check inside Digital Detox",
+    "How Check still shapes public curiosity about Digital Detox",
+    "What new evidence reframes the story of Generate inside Digital Detox",
+    "How Generate still shapes public curiosity about Digital Detox"
+  ],
+  "seo_angles": [
+    "What new evidence reframes the story of Digital Detox Strategies inside Digital Detox",
+    "How Digital Detox Strategies still shapes public curiosity about Digital Detox",
+    "What new evidence reframes the story of Check inside Digital Detox",
+    "How Check still shapes public curiosity about Digital Detox"
+  ],
+  "forbidden_visuals": [
+    "talking-head lip-sync avatar",
+    "burned-in captions",
+    "watermark",
+    "modern meme text",
+    "off-niche stock office B-roll"
+  ],
+  "preferred_subjects": [
+    "Digital Detox documentary subject",
+    "period-accurate environment",
+    "evidence object close-up"
+  ],
+  "lighting_default": "natural directional key, documentary clarity",
+  "face_policy": "no talking-head lip-sync avatar; cinematic B-roll preferred",
+  "dialogue_tone": "human documentary narration; specific nouns; 7–9s beats",
+  "audio_ambience": "subtle documentary bed; do not overpower voice",
+  "research_hints": [
+    "Prefer primary evidence and concrete entities for Digital Detox",
+    "Avoid generic niche-label topics; require specific place/person/event/mechanism",
+    "7–9 second spoken beats with story continuity across scenes"
+  ],
+  "topic_prompt_overlay": "NICHE LOCK (Digital Detox): only propose topics that fit this niche's video type. Video type: Strategies to reduce screen time, fight burnout, and reclaim mental peace in the hyperconnected age. Follow niche topic strategy: Check mental health news, viral detox challenges, or new digital wellbeing studies. Generate a topic about a simple detox technique that works.",
+  "video_prompt_overlay": "NICHE VISUAL LOCK (Digital Detox / health): Generate a 7–9 second dialogue clip based on the topic `{topic}`. Each dialogue must be calming and reflective. For each dialogue, generate: - **Audio Generation Prompt:** Voice — peaceful, with nature sounds and no beeps. - **Video Generation Prompt:** Detailed visual — a person relaxing in nature or reading. Character: person (casual). Lighting: soft, natural. Maintain same peaceful scene. Forbidden: talking-head lip-sync avatar, burned-in captions, watermark, modern meme text, off-niche stock office B-roll. Preferred subjects: Digital Detox documentary subject, period-accurate environment, evidence object close-up. Lighting: natural directional key, documentary clarity. Face policy: no talking-head lip-sync avatar; cinematic B-roll preferred. Dialogue tone: human documentary narration; specific nouns; 7–9s beats. Ambience: subtle documentary bed; do not overpower voice.",
+  "i18n": {
+    "en": {
+      "name": "Digital Detox",
+      "blurb": "Strategies to reduce screen time, fight burnout, and reclaim mental peace in the hyperconnected age."
+    },
+    "bn": {
+      "name": "ডিজিটাল ডিটক্স",
+      "blurb": "ভিডিও টাইপ: Strategies to reduce screen time, fight burnout, and reclaim mental peace in the hyperconnected age."
+    },
+    "hi": {
+      "name": "डिजिटल डिटॉक्स",
+      "blurb": "वीडियो प्रकार: Strategies to reduce screen time, fight burnout, and reclaim mental peace in the hyperconnected age."
+    },
+    "ur": {
+      "name": "ڈیجیٹل ڈیٹاکس",
+      "blurb": "ویڈیو کی قسم: Strategies to reduce screen time, fight burnout, and reclaim mental peace in the hyperconnected age."
+    },
+    "ta": {
+      "name": "டிஜிட்டல் டிடாக்ஸ்",
+      "blurb": "வீடியோ வகை: Strategies to reduce screen time, fight burnout, and reclaim mental peace in the hyperconnected age."
+    },
+    "ml": {
+      "name": "ഡിജിറ്റൽ ഡിറ്റോക്സ്",
+      "blurb": "വീഡിയോ തരം: Strategies to reduce screen time, fight burnout, and reclaim mental peace in the hyperconnected age."
+    }
+  },
+  "source": "Nish.Md + deterministic research",
+  "research_notes": [
+    "Marathon researched at 2026-09-10T08:30:26Z",
+    "Video type length=100",
+    "Topic prompt length=143",
+    "Video prompt length=394",
+    "Seeds=6"
+  ],
+  "verified_at": "2026-09-10T08:30:26Z"
+}

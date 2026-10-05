@@ -1,0 +1,7 @@
+{
+  "VOICE_IDENTITY_OBSERVATION": "UNKNOWN",
+  "NATURALNESS_OBSERVATION": "UNKNOWN",
+  "semantic_overall": "UNKNOWN",
+  "semantic_blocking": true,
+  "repair_triggered": false
+}

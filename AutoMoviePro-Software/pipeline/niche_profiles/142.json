@@ -1,0 +1,83 @@
+{
+  "niche_id": 142,
+  "name": "Dream Interpretation",
+  "slug": "dream-interpretation",
+  "style_family": "history",
+  "status": "VERIFIED",
+  "topic_seeds": [
+    "What new evidence reframes the story of Dream Interpretation Common inside Dream Interpretation",
+    "How Dream Interpretation Common still shapes public curiosity about Dream Interpretation",
+    "What new evidence reframes the story of Check inside Dream Interpretation",
+    "How Check still shapes public curiosity about Dream Interpretation",
+    "What new evidence reframes the story of Generate inside Dream Interpretation",
+    "How Generate still shapes public curiosity about Dream Interpretation"
+  ],
+  "seo_angles": [
+    "What new evidence reframes the story of Dream Interpretation Common inside Dream Interpretation",
+    "How Dream Interpretation Common still shapes public curiosity about Dream Interpretation",
+    "What new evidence reframes the story of Check inside Dream Interpretation",
+    "How Check still shapes public curiosity about Dream Interpretation"
+  ],
+  "forbidden_visuals": [
+    "talking-head lip-sync avatar",
+    "burned-in captions",
+    "watermark",
+    "modern meme text",
+    "modern smartphones",
+    "cars",
+    "LED screens",
+    "sneakers",
+    "contemporary skyline"
+  ],
+  "preferred_subjects": [
+    "Dream Interpretation documentary subject",
+    "period-accurate environment",
+    "evidence object close-up"
+  ],
+  "lighting_default": "warm desert sun / torchlit interiors, high-contrast documentary grade",
+  "face_policy": "period extras OK if consistent; prefer environment/object hero when possible",
+  "dialogue_tone": "human documentary narration; specific nouns; 7–9s beats",
+  "audio_ambience": "subtle documentary bed; do not overpower voice",
+  "research_hints": [
+    "Prefer primary evidence and concrete entities for Dream Interpretation",
+    "Avoid generic niche-label topics; require specific place/person/event/mechanism",
+    "7–9 second spoken beats with story continuity across scenes"
+  ],
+  "topic_prompt_overlay": "NICHE LOCK (Dream Interpretation): only propose topics that fit this niche's video type. Video type: Common dreams — flying, falling, being chased — and what psychologists think they mean. Follow niche topic strategy: Check psychology blogs, viral dream studies, or new books on dreams. Generate a topic about a dream symbol with a surprising interpretation.",
+  "video_prompt_overlay": "NICHE VISUAL LOCK (Dream Interpretation / history): Generate a 7–9 second dialogue clip based on the topic `{topic}`. Each dialogue must be introspective. For each dialogue, generate: - **Audio Generation Prompt:** Voice — soothing, with wind and soft chime. - **Video Generation Prompt:** Detailed visual — a dreamy cloud or surreal scene. No character — abstract. Lighting: soft, ethereal. Maintain same surreal. Forbidden: talking-head lip-sync avatar, burned-in captions, watermark, modern meme text, modern smartphones, cars, LED screens, sneakers. Preferred subjects: Dream Interpretation documentary subject, period-accurate environment, evidence object close-up. Lighting: warm desert sun / torchlit interiors, high-contrast documentary grade. Face policy: period extras OK if consistent; prefer environment/object hero when possible. Dialogue tone: human documentary narration; specific nouns; 7–9s beats. Ambience: subtle documentary bed; do not overpower voice.",
+  "i18n": {
+    "en": {
+      "name": "Dream Interpretation",
+      "blurb": "Common dreams — flying, falling, being chased — and what psychologists think they mean."
+    },
+    "bn": {
+      "name": "স্বপ্নের ব্যাখ্যা",
+      "blurb": "ভিডিও টাইপ: Common dreams — flying, falling, being chased — and what psychologists think they mean."
+    },
+    "hi": {
+      "name": "स्वप्न व्याख्या",
+      "blurb": "वीडियो प्रकार: Common dreams — flying, falling, being chased — and what psychologists think they mean."
+    },
+    "ur": {
+      "name": "خواب کی تعبیر",
+      "blurb": "ویڈیو کی قسم: Common dreams — flying, falling, being chased — and what psychologists think they mean."
+    },
+    "ta": {
+      "name": "கனவு விளக்கம்",
+      "blurb": "வீடியோ வகை: Common dreams — flying, falling, being chased — and what psychologists think they mean."
+    },
+    "ml": {
+      "name": "സ്വപ്ന വ്യാഖ്യാനം",
+      "blurb": "വീഡിയോ തരം: Common dreams — flying, falling, being chased — and what psychologists think they mean."
+    }
+  },
+  "source": "Nish.Md + deterministic research",
+  "research_notes": [
+    "Marathon researched at 2026-09-10T08:30:30Z",
+    "Video type length=87",
+    "Topic prompt length=140",
+    "Video prompt length=362",
+    "Seeds=6"
+  ],
+  "verified_at": "2026-09-10T08:30:30Z"
+}

@@ -1,0 +1,26 @@
+{
+  "status": "FAILED",
+  "classification": "REAL",
+  "job_id": 2266,
+  "local_path": "",
+  "video_meta": {
+    "exists": false
+  },
+  "approval_status": "APPROVAL_BLOCKED",
+  "publish_status": "FAIL",
+  "publish": {
+    "ok": false,
+    "status": null,
+    "error": "publish_validation_failed",
+    "error_code": "VALIDATION_FAILURE",
+    "publish_state": null
+  },
+  "monitor_ok": true,
+  "monitor_state": "TERMINAL_FAILED",
+  "generation_latency_ms": 262500.0,
+  "total_case_latency_ms": 262843.9999999973,
+  "prep": {
+    "research_class": "REAL",
+    "script_class": "REAL"
+  }
+}

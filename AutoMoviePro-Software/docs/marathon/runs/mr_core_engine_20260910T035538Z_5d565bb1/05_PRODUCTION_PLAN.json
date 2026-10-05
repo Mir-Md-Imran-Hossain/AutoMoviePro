@@ -1,0 +1,1038 @@
+{
+  "ok": true,
+  "reused": false,
+  "status": "READY_FOR_GENERATION",
+  "plan": {
+    "contract": "C06-C",
+    "plan_id": "pp-f4ea0658c982ea82",
+    "project_id": "trs-ch4",
+    "owner_login_id": "c11_marathon_customer",
+    "channel_id": 4,
+    "status": "READY_FOR_GENERATION",
+    "ready_for_generation": true,
+    "readiness": {
+      "ready": true,
+      "status": "READY_FOR_GENERATION",
+      "blocks": [],
+      "warnings": [
+        "localization_semantic_verification_UNKNOWN"
+      ],
+      "note": "READY_FOR_GENERATION ≠ GENERATED ≠ VERIFIED ≠ PUBLISHABLE ≠ READY_TO_UPLOAD"
+    },
+    "script_status": "APPROVED_SCRIPT",
+    "script_revision": "21358716e364ad77d07119ced062dd96",
+    "fingerprint": "f4ea0658c982ea826b3133a3ec2d129e2a5635c005af7c21d02362c1e7d983cf",
+    "language": "en",
+    "format": "SHORT",
+    "scene_count": 8,
+    "dialogue_beat_count": 8,
+    "visual_beat_count": 8,
+    "audio_readiness": "BOUND",
+    "subtitle_localization_readiness": "BOUND",
+    "continuity_readiness": "REFERENCED",
+    "generation_modes": [
+      "IMAGE"
+    ],
+    "blocking_issues": [],
+    "warnings": [
+      "localization_semantic_verification_UNKNOWN"
+    ],
+    "provenance": {
+      "source": "APPROVED_SCRIPT",
+      "authorities": [
+        "domain.script.ScriptPlan",
+        "C05-S story_visual_direction",
+        "AudioPlan",
+        "VoiceIdentity",
+        "LocalizationContract",
+        "BUILD-03 compute_fingerprint",
+        "ContinuityTracker (reference)"
+      ],
+      "created_at": "2026-09-10T09:55:48.143540",
+      "no_media_generation": true,
+      "paid_api_calls": 0
+    },
+    "world_state_summary": {
+      "characters": [
+        "documentary subject",
+        "regolith",
+        "moon",
+        "spectrometer"
+      ],
+      "locations": [
+        "craters",
+        "moon"
+      ],
+      "relationship_count": 2
+    },
+    "note": "READY_FOR_GENERATION ≠ PUBLISHABLE. No media generated in C06-C.",
+    "dialogue_segments": [
+      {
+        "dialogue_id": "beat-1",
+        "beat_id": "beat-1",
+        "scene_id": "scene-00",
+        "speaker": "Narrator",
+        "text": "In twenty twenty-six, Artemis astronauts are landing at the lunar south pole with a mission to find hidden water.",
+        "emotion": "",
+        "action": "",
+        "location": "",
+        "entities": [],
+        "required_subject": "",
+        "required_entities": [],
+        "required_relationships": [],
+        "required_actions": [],
+        "required_location": "",
+        "start_sec": 0.0,
+        "end_sec": 7.92,
+        "duration_sec": 7.92
+      },
+      {
+        "dialogue_id": "beat-2",
+        "beat_id": "beat-2",
+        "scene_id": "scene-01",
+        "speaker": "Narrator",
+        "text": "From that astronauts, sunlight never reaches these deep craters, leaving ancient ice frozen solid beneath the dark regolith.",
+        "emotion": "",
+        "action": "",
+        "location": "",
+        "entities": [],
+        "required_subject": "",
+        "required_entities": [],
+        "required_relationships": [],
+        "required_actions": [],
+        "required_location": "",
+        "start_sec": 7.92,
+        "end_sec": 15.42,
+        "duration_sec": 7.5
+      },
+      {
+        "dialogue_id": "beat-3",
+        "beat_id": "beat-3",
+        "scene_id": "scene-02",
+        "speaker": "Narrator",
+        "text": "From that astronauts, crews deploy hand-held neutron spectrometers to scan the surface without digging up a single rock.",
+        "emotion": "",
+        "action": "",
+        "location": "",
+        "entities": [],
+        "required_subject": "",
+        "required_entities": [],
+        "required_relationships": [],
+        "required_actions": [],
+        "required_location": "",
+        "start_sec": 15.42,
+        "end_sec": 22.92,
+        "duration_sec": 7.5
+      },
+      {
+        "dialogue_id": "beat-4",
+        "beat_id": "beat-4",
+        "scene_id": "scene-03",
+        "speaker": "Narrator",
+        "text": "From that spectrometers, high-energy cosmic rays strike the moon, causing underground hydrogen atoms to bounce neutrons back upward.",
+        "emotion": "",
+        "action": "",
+        "location": "",
+        "entities": [],
+        "required_subject": "",
+        "required_entities": [],
+        "required_relationships": [],
+        "required_actions": [],
+        "required_location": "",
+        "start_sec": 22.92,
+        "end_sec": 30.42,
+        "duration_sec": 7.5
+      },
+      {
+        "dialogue_id": "beat-5",
+        "beat_id": "beat-5",
+        "scene_id": "scene-04",
+        "speaker": "Narrator",
+        "text": "From that spectrometers, the spectrometer measures these slowed particles, converting invisible radiation into precise moisture maps.",
+        "emotion": "",
+        "action": "",
+        "location": "",
+        "entities": [],
+        "required_subject": "",
+        "required_entities": [],
+        "required_relationships": [],
+        "required_actions": [],
+        "required_location": "",
+        "start_sec": 30.42,
+        "end_sec": 37.42,
+        "duration_sec": 7.0
+      },
+      {
+        "dialogue_id": "beat-6",
+        "beat_id": "beat-6",
+        "scene_id": "scene-05",
+        "speaker": "Narrator",
+        "text": "From that spectrometers, every sweep confirms massive subsurface reserves, vital for drinking water and rocket fuel production.",
+        "emotion": "",
+        "action": "",
+        "location": "",
+        "entities": [],
+        "required_subject": "",
+        "required_entities": [],
+        "required_relationships": [],
+        "required_actions": [],
+        "required_location": "",
+        "start_sec": 37.42,
+        "end_sec": 44.5,
+        "duration_sec": 7.08
+      },
+      {
+        "dialogue_id": "beat-7",
+        "beat_id": "beat-7",
+        "scene_id": "scene-06",
+        "speaker": "Narrator",
+        "text": "This real-time mapping transforms our permanent lunar outpost from a distant dream into an operational reality.",
+        "emotion": "",
+        "action": "",
+        "location": "",
+        "entities": [],
+        "required_subject": "",
+        "required_entities": [],
+        "required_relationships": [],
+        "required_actions": [],
+        "required_location": "",
+        "start_sec": 44.5,
+        "end_sec": 51.5,
+        "duration_sec": 7.0
+      },
+      {
+        "dialogue_id": "beat-8",
+        "beat_id": "beat-8",
+        "scene_id": "scene-07",
+        "speaker": "Narrator",
+        "text": "As twenty twenty-six unfolds, neutron spectrometers give humanity the key to living off the lunar land.",
+        "emotion": "",
+        "action": "",
+        "location": "",
+        "entities": [],
+        "required_subject": "",
+        "required_entities": [],
+        "required_relationships": [],
+        "required_actions": [],
+        "required_location": "",
+        "start_sec": 51.5,
+        "end_sec": 58.5,
+        "duration_sec": 7.0
+      }
+    ],
+    "visual_beats": [
+      {
+        "beat_id": "vb-seg-beat-1",
+        "dialogue_ids": [
+          "beat-1"
+        ],
+        "dialogue_id": "beat-1",
+        "scene_id": "scene-00",
+        "narrative_beat_id": "nb-seg-beat-1",
+        "purpose": "hook",
+        "visual_purpose": "hook",
+        "subject": "documentary subject",
+        "required_subject": "documentary subject",
+        "required_entities": [],
+        "required_relationships": [],
+        "relationships": [],
+        "location": null,
+        "required_location": null,
+        "environment": "space science",
+        "character_state": {
+          "identity": "Narrator",
+          "wardrobe": "",
+          "action": "",
+          "emotion": "",
+          "accessories": ""
+        },
+        "required_character_state": {
+          "identity": "Narrator",
+          "wardrobe": "",
+          "action": "",
+          "emotion": "",
+          "accessories": ""
+        },
+        "object_state": [],
+        "required_object_state": [],
+        "required_actions": [],
+        "required_context": "hook",
+        "camera": "ESTABLISHING",
+        "lighting": "INHERITED",
+        "emotion": "",
+        "action": "",
+        "coverage": {
+          "subject": "FULL",
+          "action": "NONE",
+          "entity": "NONE",
+          "object": "UNKNOWN",
+          "relationship": "UNKNOWN",
+          "location": "UNKNOWN",
+          "temporal": "UNKNOWN",
+          "overall": "PARTIAL",
+          "confidence": "HEURISTIC",
+          "note": "intent_planning_only_not_artifact_observation"
+        },
+        "coverage_requirement": {
+          "subject": "FULL",
+          "action": "NONE",
+          "entity": "NONE",
+          "object": "UNKNOWN",
+          "relationship": "UNKNOWN",
+          "location": "UNKNOWN",
+          "temporal": "UNKNOWN",
+          "overall": "PARTIAL",
+          "confidence": "HEURISTIC",
+          "note": "intent_planning_only_not_artifact_observation"
+        },
+        "visual_mode": "IMAGE",
+        "timing": {
+          "duration_sec": 7.92,
+          "policy": "LONG"
+        },
+        "duration": 7.92,
+        "reuse_policy": "semantic_beat_compatibility",
+        "continuity_predecessor": "",
+        "continuity_successor": "vb-seg-beat-2",
+        "risks": [],
+        "risk_class": null,
+        "semantic_layers": [
+          "INTENT",
+          "PROMPT",
+          "GENERATED_ASSET",
+          "OBSERVED_ASSET",
+          "VERIFIED_COVERAGE"
+        ]
+      },
+      {
+        "beat_id": "vb-seg-beat-2",
+        "dialogue_ids": [
+          "beat-2"
+        ],
+        "dialogue_id": "beat-2",
+        "scene_id": "scene-01",
+        "narrative_beat_id": "nb-seg-beat-2",
+        "purpose": "context",
+        "visual_purpose": "context",
+        "subject": "regolith",
+        "required_subject": "regolith",
+        "required_entities": [
+          "regolith",
+          "ice",
+          "craters"
+        ],
+        "required_relationships": [
+          {
+            "type": "inside",
+            "source": null,
+            "target": null
+          }
+        ],
+        "relationships": [
+          {
+            "type": "inside",
+            "source": null,
+            "target": null
+          }
+        ],
+        "location": "craters",
+        "required_location": "craters",
+        "environment": "space science",
+        "character_state": {
+          "identity": "regolith",
+          "wardrobe": "",
+          "action": "",
+          "emotion": "",
+          "accessories": ""
+        },
+        "required_character_state": {
+          "identity": "regolith",
+          "wardrobe": "",
+          "action": "",
+          "emotion": "",
+          "accessories": ""
+        },
+        "object_state": [
+          "regolith",
+          "ice"
+        ],
+        "required_object_state": [
+          "regolith",
+          "ice"
+        ],
+        "required_actions": [],
+        "required_context": "context",
+        "camera": "MEDIUM",
+        "lighting": "INHERITED",
+        "emotion": "",
+        "action": "",
+        "coverage": {
+          "subject": "FULL",
+          "action": "NONE",
+          "entity": "FULL",
+          "object": "FULL",
+          "relationship": "UNKNOWN",
+          "location": "FULL",
+          "temporal": "UNKNOWN",
+          "overall": "PARTIAL",
+          "confidence": "HEURISTIC",
+          "note": "intent_planning_only_not_artifact_observation"
+        },
+        "coverage_requirement": {
+          "subject": "FULL",
+          "action": "NONE",
+          "entity": "FULL",
+          "object": "FULL",
+          "relationship": "UNKNOWN",
+          "location": "FULL",
+          "temporal": "UNKNOWN",
+          "overall": "PARTIAL",
+          "confidence": "HEURISTIC",
+          "note": "intent_planning_only_not_artifact_observation"
+        },
+        "visual_mode": "IMAGE",
+        "timing": {
+          "duration_sec": 7.5,
+          "policy": "LONG"
+        },
+        "duration": 7.5,
+        "reuse_policy": "semantic_beat_compatibility",
+        "continuity_predecessor": "vb-seg-beat-1",
+        "continuity_successor": "vb-seg-beat-3",
+        "risks": [],
+        "risk_class": null,
+        "semantic_layers": [
+          "INTENT",
+          "PROMPT",
+          "GENERATED_ASSET",
+          "OBSERVED_ASSET",
+          "VERIFIED_COVERAGE"
+        ]
+      },
+      {
+        "beat_id": "vb-seg-beat-3",
+        "dialogue_ids": [
+          "beat-3"
+        ],
+        "dialogue_id": "beat-3",
+        "scene_id": "scene-02",
+        "narrative_beat_id": "nb-seg-beat-3",
+        "purpose": "development",
+        "visual_purpose": "development",
+        "subject": "documentary subject",
+        "required_subject": "documentary subject",
+        "required_entities": [],
+        "required_relationships": [],
+        "relationships": [],
+        "location": "craters",
+        "required_location": "craters",
+        "environment": "space science",
+        "character_state": {
+          "identity": "Narrator",
+          "wardrobe": "",
+          "action": "",
+          "emotion": "",
+          "accessories": ""
+        },
+        "required_character_state": {
+          "identity": "Narrator",
+          "wardrobe": "",
+          "action": "",
+          "emotion": "",
+          "accessories": ""
+        },
+        "object_state": [],
+        "required_object_state": [],
+        "required_actions": [],
+        "required_context": "development",
+        "camera": "MEDIUM",
+        "lighting": "INHERITED",
+        "emotion": "",
+        "action": "",
+        "coverage": {
+          "subject": "FULL",
+          "action": "NONE",
+          "entity": "NONE",
+          "object": "UNKNOWN",
+          "relationship": "UNKNOWN",
+          "location": "FULL",
+          "temporal": "UNKNOWN",
+          "overall": "PARTIAL",
+          "confidence": "HEURISTIC",
+          "note": "intent_planning_only_not_artifact_observation"
+        },
+        "coverage_requirement": {
+          "subject": "FULL",
+          "action": "NONE",
+          "entity": "NONE",
+          "object": "UNKNOWN",
+          "relationship": "UNKNOWN",
+          "location": "FULL",
+          "temporal": "UNKNOWN",
+          "overall": "PARTIAL",
+          "confidence": "HEURISTIC",
+          "note": "intent_planning_only_not_artifact_observation"
+        },
+        "visual_mode": "IMAGE",
+        "timing": {
+          "duration_sec": 7.500000000000002,
+          "policy": "LONG"
+        },
+        "duration": 7.500000000000002,
+        "reuse_policy": "semantic_beat_compatibility",
+        "continuity_predecessor": "vb-seg-beat-2",
+        "continuity_successor": "vb-seg-beat-4",
+        "risks": [],
+        "risk_class": null,
+        "semantic_layers": [
+          "INTENT",
+          "PROMPT",
+          "GENERATED_ASSET",
+          "OBSERVED_ASSET",
+          "VERIFIED_COVERAGE"
+        ]
+      },
+      {
+        "beat_id": "vb-seg-beat-4",
+        "dialogue_ids": [
+          "beat-4"
+        ],
+        "dialogue_id": "beat-4",
+        "scene_id": "scene-03",
+        "narrative_beat_id": "nb-seg-beat-4",
+        "purpose": "reveal",
+        "visual_purpose": "reveal",
+        "subject": "moon",
+        "required_subject": "moon",
+        "required_entities": [
+          "moon"
+        ],
+        "required_relationships": [
+          {
+            "type": "located_at",
+            "source": null,
+            "target": null
+          }
+        ],
+        "relationships": [
+          {
+            "type": "located_at",
+            "source": null,
+            "target": null
+          }
+        ],
+        "location": "moon",
+        "required_location": "moon",
+        "environment": "space science",
+        "character_state": {
+          "identity": "Narrator",
+          "wardrobe": "",
+          "action": "",
+          "emotion": "",
+          "accessories": ""
+        },
+        "required_character_state": {
+          "identity": "Narrator",
+          "wardrobe": "",
+          "action": "",
+          "emotion": "",
+          "accessories": ""
+        },
+        "object_state": [],
+        "required_object_state": [],
+        "required_actions": [],
+        "required_context": "reveal",
+        "camera": "MEDIUM",
+        "lighting": "INHERITED",
+        "emotion": "",
+        "action": "",
+        "coverage": {
+          "subject": "FULL",
+          "action": "NONE",
+          "entity": "FULL",
+          "object": "UNKNOWN",
+          "relationship": "UNKNOWN",
+          "location": "FULL",
+          "temporal": "UNKNOWN",
+          "overall": "PARTIAL",
+          "confidence": "HEURISTIC",
+          "note": "intent_planning_only_not_artifact_observation"
+        },
+        "coverage_requirement": {
+          "subject": "FULL",
+          "action": "NONE",
+          "entity": "FULL",
+          "object": "UNKNOWN",
+          "relationship": "UNKNOWN",
+          "location": "FULL",
+          "temporal": "UNKNOWN",
+          "overall": "PARTIAL",
+          "confidence": "HEURISTIC",
+          "note": "intent_planning_only_not_artifact_observation"
+        },
+        "visual_mode": "IMAGE",
+        "timing": {
+          "duration_sec": 7.5,
+          "policy": "LONG"
+        },
+        "duration": 7.5,
+        "reuse_policy": "semantic_beat_compatibility",
+        "continuity_predecessor": "vb-seg-beat-3",
+        "continuity_successor": "vb-seg-beat-5",
+        "risks": [],
+        "risk_class": null,
+        "semantic_layers": [
+          "INTENT",
+          "PROMPT",
+          "GENERATED_ASSET",
+          "OBSERVED_ASSET",
+          "VERIFIED_COVERAGE"
+        ]
+      },
+      {
+        "beat_id": "vb-seg-beat-5",
+        "dialogue_ids": [
+          "beat-5"
+        ],
+        "dialogue_id": "beat-5",
+        "scene_id": "scene-04",
+        "narrative_beat_id": "nb-seg-beat-5",
+        "purpose": "payoff",
+        "visual_purpose": "payoff",
+        "subject": "spectrometer",
+        "required_subject": "spectrometer",
+        "required_entities": [
+          "spectrometer"
+        ],
+        "required_relationships": [],
+        "relationships": [],
+        "location": "moon",
+        "required_location": "moon",
+        "environment": "space science",
+        "character_state": {
+          "identity": "spectrometer",
+          "wardrobe": "",
+          "action": "",
+          "emotion": "",
+          "accessories": ""
+        },
+        "required_character_state": {
+          "identity": "spectrometer",
+          "wardrobe": "",
+          "action": "",
+          "emotion": "",
+          "accessories": ""
+        },
+        "object_state": [
+          "spectrometer"
+        ],
+        "required_object_state": [
+          "spectrometer"
+        ],
+        "required_actions": [],
+        "required_context": "payoff",
+        "camera": "MEDIUM",
+        "lighting": "INHERITED",
+        "emotion": "",
+        "action": "",
+        "coverage": {
+          "subject": "FULL",
+          "action": "NONE",
+          "entity": "FULL",
+          "object": "FULL",
+          "relationship": "UNKNOWN",
+          "location": "FULL",
+          "temporal": "UNKNOWN",
+          "overall": "PARTIAL",
+          "confidence": "HEURISTIC",
+          "note": "intent_planning_only_not_artifact_observation"
+        },
+        "coverage_requirement": {
+          "subject": "FULL",
+          "action": "NONE",
+          "entity": "FULL",
+          "object": "FULL",
+          "relationship": "UNKNOWN",
+          "location": "FULL",
+          "temporal": "UNKNOWN",
+          "overall": "PARTIAL",
+          "confidence": "HEURISTIC",
+          "note": "intent_planning_only_not_artifact_observation"
+        },
+        "visual_mode": "IMAGE",
+        "timing": {
+          "duration_sec": 7.0,
+          "policy": "LONG"
+        },
+        "duration": 7.0,
+        "reuse_policy": "semantic_beat_compatibility",
+        "continuity_predecessor": "vb-seg-beat-4",
+        "continuity_successor": "vb-seg-beat-6",
+        "risks": [],
+        "risk_class": null,
+        "semantic_layers": [
+          "INTENT",
+          "PROMPT",
+          "GENERATED_ASSET",
+          "OBSERVED_ASSET",
+          "VERIFIED_COVERAGE"
+        ]
+      },
+      {
+        "beat_id": "vb-seg-beat-6",
+        "dialogue_ids": [
+          "beat-6"
+        ],
+        "dialogue_id": "beat-6",
+        "scene_id": "scene-05",
+        "narrative_beat_id": "nb-seg-beat-6",
+        "purpose": "ending",
+        "visual_purpose": "ending",
+        "subject": "documentary subject",
+        "required_subject": "documentary subject",
+        "required_entities": [],
+        "required_relationships": [],
+        "relationships": [],
+        "location": "moon",
+        "required_location": "moon",
+        "environment": "space science",
+        "character_state": {
+          "identity": "Narrator",
+          "wardrobe": "",
+          "action": "",
+          "emotion": "",
+          "accessories": ""
+        },
+        "required_character_state": {
+          "identity": "Narrator",
+          "wardrobe": "",
+          "action": "",
+          "emotion": "",
+          "accessories": ""
+        },
+        "object_state": [],
+        "required_object_state": [],
+        "required_actions": [],
+        "required_context": "ending",
+        "camera": "MEDIUM",
+        "lighting": "INHERITED",
+        "emotion": "",
+        "action": "",
+        "coverage": {
+          "subject": "FULL",
+          "action": "NONE",
+          "entity": "NONE",
+          "object": "UNKNOWN",
+          "relationship": "UNKNOWN",
+          "location": "FULL",
+          "temporal": "UNKNOWN",
+          "overall": "PARTIAL",
+          "confidence": "HEURISTIC",
+          "note": "intent_planning_only_not_artifact_observation"
+        },
+        "coverage_requirement": {
+          "subject": "FULL",
+          "action": "NONE",
+          "entity": "NONE",
+          "object": "UNKNOWN",
+          "relationship": "UNKNOWN",
+          "location": "FULL",
+          "temporal": "UNKNOWN",
+          "overall": "PARTIAL",
+          "confidence": "HEURISTIC",
+          "note": "intent_planning_only_not_artifact_observation"
+        },
+        "visual_mode": "IMAGE",
+        "timing": {
+          "duration_sec": 7.079999999999998,
+          "policy": "LONG"
+        },
+        "duration": 7.079999999999998,
+        "reuse_policy": "semantic_beat_compatibility",
+        "continuity_predecessor": "vb-seg-beat-5",
+        "continuity_successor": "vb-seg-beat-7",
+        "risks": [
+          "VISUAL_REPETITION_RISK"
+        ],
+        "risk_class": "HEURISTIC",
+        "semantic_layers": [
+          "INTENT",
+          "PROMPT",
+          "GENERATED_ASSET",
+          "OBSERVED_ASSET",
+          "VERIFIED_COVERAGE"
+        ]
+      },
+      {
+        "beat_id": "vb-seg-beat-7",
+        "dialogue_ids": [
+          "beat-7"
+        ],
+        "dialogue_id": "beat-7",
+        "scene_id": "scene-06",
+        "narrative_beat_id": "nb-seg-beat-7",
+        "purpose": "cta",
+        "visual_purpose": "cta",
+        "subject": "documentary subject",
+        "required_subject": "documentary subject",
+        "required_entities": [],
+        "required_relationships": [],
+        "relationships": [],
+        "location": "moon",
+        "required_location": "moon",
+        "environment": "space science",
+        "character_state": {
+          "identity": "Narrator",
+          "wardrobe": "",
+          "action": "form",
+          "emotion": "",
+          "accessories": ""
+        },
+        "required_character_state": {
+          "identity": "Narrator",
+          "wardrobe": "",
+          "action": "form",
+          "emotion": "",
+          "accessories": ""
+        },
+        "object_state": [],
+        "required_object_state": [],
+        "required_actions": [
+          "form"
+        ],
+        "required_context": "cta",
+        "camera": "MEDIUM",
+        "lighting": "INHERITED",
+        "emotion": "",
+        "action": "form",
+        "coverage": {
+          "subject": "FULL",
+          "action": "FULL",
+          "entity": "NONE",
+          "object": "UNKNOWN",
+          "relationship": "UNKNOWN",
+          "location": "FULL",
+          "temporal": "UNKNOWN",
+          "overall": "PARTIAL",
+          "confidence": "HEURISTIC",
+          "note": "intent_planning_only_not_artifact_observation"
+        },
+        "coverage_requirement": {
+          "subject": "FULL",
+          "action": "FULL",
+          "entity": "NONE",
+          "object": "UNKNOWN",
+          "relationship": "UNKNOWN",
+          "location": "FULL",
+          "temporal": "UNKNOWN",
+          "overall": "PARTIAL",
+          "confidence": "HEURISTIC",
+          "note": "intent_planning_only_not_artifact_observation"
+        },
+        "visual_mode": "IMAGE",
+        "timing": {
+          "duration_sec": 7.0,
+          "policy": "LONG"
+        },
+        "duration": 7.0,
+        "reuse_policy": "semantic_beat_compatibility",
+        "continuity_predecessor": "vb-seg-beat-6",
+        "continuity_successor": "vb-seg-beat-8",
+        "risks": [],
+        "risk_class": null,
+        "semantic_layers": [
+          "INTENT",
+          "PROMPT",
+          "GENERATED_ASSET",
+          "OBSERVED_ASSET",
+          "VERIFIED_COVERAGE"
+        ]
+      },
+      {
+        "beat_id": "vb-seg-beat-8",
+        "dialogue_ids": [
+          "beat-8"
+        ],
+        "dialogue_id": "beat-8",
+        "scene_id": "scene-07",
+        "narrative_beat_id": "nb-seg-beat-8",
+        "purpose": "development",
+        "visual_purpose": "development",
+        "subject": "documentary subject",
+        "required_subject": "documentary subject",
+        "required_entities": [],
+        "required_relationships": [],
+        "relationships": [],
+        "location": "moon",
+        "required_location": "moon",
+        "environment": "space science",
+        "character_state": {
+          "identity": "Narrator",
+          "wardrobe": "",
+          "action": "",
+          "emotion": "",
+          "accessories": ""
+        },
+        "required_character_state": {
+          "identity": "Narrator",
+          "wardrobe": "",
+          "action": "",
+          "emotion": "",
+          "accessories": ""
+        },
+        "object_state": [],
+        "required_object_state": [],
+        "required_actions": [],
+        "required_context": "development",
+        "camera": "MEDIUM",
+        "lighting": "INHERITED",
+        "emotion": "",
+        "action": "",
+        "coverage": {
+          "subject": "FULL",
+          "action": "NONE",
+          "entity": "NONE",
+          "object": "UNKNOWN",
+          "relationship": "UNKNOWN",
+          "location": "FULL",
+          "temporal": "UNKNOWN",
+          "overall": "PARTIAL",
+          "confidence": "HEURISTIC",
+          "note": "intent_planning_only_not_artifact_observation"
+        },
+        "coverage_requirement": {
+          "subject": "FULL",
+          "action": "NONE",
+          "entity": "NONE",
+          "object": "UNKNOWN",
+          "relationship": "UNKNOWN",
+          "location": "FULL",
+          "temporal": "UNKNOWN",
+          "overall": "PARTIAL",
+          "confidence": "HEURISTIC",
+          "note": "intent_planning_only_not_artifact_observation"
+        },
+        "visual_mode": "IMAGE",
+        "timing": {
+          "duration_sec": 7.0,
+          "policy": "LONG"
+        },
+        "duration": 7.0,
+        "reuse_policy": "semantic_beat_compatibility",
+        "continuity_predecessor": "vb-seg-beat-7",
+        "continuity_successor": "",
+        "risks": [
+          "VISUAL_REPETITION_RISK"
+        ],
+        "risk_class": "HEURISTIC",
+        "semantic_layers": [
+          "INTENT",
+          "PROMPT",
+          "GENERATED_ASSET",
+          "OBSERVED_ASSET",
+          "VERIFIED_COVERAGE"
+        ]
+      }
+    ],
+    "scene_bindings": [
+      {
+        "scene_id": "scene-00",
+        "dialogue_id": "beat-1",
+        "beat_id": "beat-1"
+      },
+      {
+        "scene_id": "scene-01",
+        "dialogue_id": "beat-2",
+        "beat_id": "beat-2"
+      },
+      {
+        "scene_id": "scene-02",
+        "dialogue_id": "beat-3",
+        "beat_id": "beat-3"
+      },
+      {
+        "scene_id": "scene-03",
+        "dialogue_id": "beat-4",
+        "beat_id": "beat-4"
+      },
+      {
+        "scene_id": "scene-04",
+        "dialogue_id": "beat-5",
+        "beat_id": "beat-5"
+      },
+      {
+        "scene_id": "scene-05",
+        "dialogue_id": "beat-6",
+        "beat_id": "beat-6"
+      },
+      {
+        "scene_id": "scene-06",
+        "dialogue_id": "beat-7",
+        "beat_id": "beat-7"
+      },
+      {
+        "scene_id": "scene-07",
+        "dialogue_id": "beat-8",
+        "beat_id": "beat-8"
+      }
+    ],
+    "camera_lighting": {
+      "shots": [
+        {
+          "beat_id": "vb-seg-beat-1",
+          "camera": "ESTABLISHING",
+          "lighting": "INHERITED"
+        },
+        {
+          "beat_id": "vb-seg-beat-2",
+          "camera": "MEDIUM",
+          "lighting": "INHERITED"
+        },
+        {
+          "beat_id": "vb-seg-beat-3",
+          "camera": "MEDIUM",
+          "lighting": "INHERITED"
+        },
+        {
+          "beat_id": "vb-seg-beat-4",
+          "camera": "MEDIUM",
+          "lighting": "INHERITED"
+        },
+        {
+          "beat_id": "vb-seg-beat-5",
+          "camera": "MEDIUM",
+          "lighting": "INHERITED"
+        },
+        {
+          "beat_id": "vb-seg-beat-6",
+          "camera": "MEDIUM",
+          "lighting": "INHERITED"
+        },
+        {
+          "beat_id": "vb-seg-beat-7",
+          "camera": "MEDIUM",
+          "lighting": "INHERITED"
+        },
+        {
+          "beat_id": "vb-seg-beat-8",
+          "camera": "MEDIUM",
+          "lighting": "INHERITED"
+        }
+      ],
+      "note": "Camera transition ≠ location reset",
+      "authority": "SceneIntent / ContinuityTracker"
+    },
+    "audio_plan_summary": {
+      "status": "BOUND",
+      "count": 8,
+      "voice_identity_id": "voice:charon"
+    },
+    "localization_summary": {
+      "status": "BOUND",
+      "semantic_verification": "UNKNOWN"
+    }
+  },
+  "error": null,
+  "error_code": null,
+  "blocks": []
+}

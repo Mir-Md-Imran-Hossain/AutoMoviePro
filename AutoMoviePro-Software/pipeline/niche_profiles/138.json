@@ -1,0 +1,79 @@
+{
+  "niche_id": 138,
+  "name": "Stranger Than Fiction",
+  "slug": "stranger-than-fiction",
+  "style_family": "news",
+  "status": "VERIFIED",
+  "topic_seeds": [
+    "What new evidence reframes the story of Stranger Than Fiction News inside Stranger Than Fiction",
+    "How Stranger Than Fiction News still shapes public curiosity about Stranger Than Fiction",
+    "What new evidence reframes the story of Check inside Stranger Than Fiction",
+    "How Check still shapes public curiosity about Stranger Than Fiction",
+    "What new evidence reframes the story of Generate inside Stranger Than Fiction",
+    "How Generate still shapes public curiosity about Stranger Than Fiction"
+  ],
+  "seo_angles": [
+    "What new evidence reframes the story of Stranger Than Fiction News inside Stranger Than Fiction",
+    "How Stranger Than Fiction News still shapes public curiosity about Stranger Than Fiction",
+    "What new evidence reframes the story of Check inside Stranger Than Fiction",
+    "How Check still shapes public curiosity about Stranger Than Fiction"
+  ],
+  "forbidden_visuals": [
+    "talking-head lip-sync avatar",
+    "burned-in captions",
+    "watermark",
+    "modern meme text",
+    "off-niche stock office B-roll"
+  ],
+  "preferred_subjects": [
+    "Stranger Than Fiction documentary subject",
+    "period-accurate environment",
+    "evidence object close-up"
+  ],
+  "lighting_default": "natural directional key, documentary clarity",
+  "face_policy": "no talking-head lip-sync avatar; cinematic B-roll preferred",
+  "dialogue_tone": "human documentary narration; specific nouns; 7–9s beats",
+  "audio_ambience": "subtle documentary bed; do not overpower voice",
+  "research_hints": [
+    "Prefer primary evidence and concrete entities for Stranger Than Fiction",
+    "Avoid generic niche-label topics; require specific place/person/event/mechanism",
+    "7–9 second spoken beats with story continuity across scenes"
+  ],
+  "topic_prompt_overlay": "NICHE LOCK (Stranger Than Fiction): only propose topics that fit this niche's video type. Video type: News snippets that sound made up but are 100% real — like a man who won the lottery four times. Follow niche topic strategy: Check weird news sites, viral oddity stories, or historical archives. Generate a topic about a recent unbelievable real event.",
+  "video_prompt_overlay": "NICHE VISUAL LOCK (Stranger Than Fiction / news): Generate a 7–9 second dialogue clip based on the topic `{topic}`. Each dialogue must be jaw-dropping. For each dialogue, generate: - **Audio Generation Prompt:** Voice — incredulous, with newspaper rustle and gasp. - **Video Generation Prompt:** Detailed visual — a newspaper headline or photo. No character — static image. Lighting: natural. Maintain same image. Forbidden: talking-head lip-sync avatar, burned-in captions, watermark, modern meme text, off-niche stock office B-roll. Preferred subjects: Stranger Than Fiction documentary subject, period-accurate environment, evidence object close-up. Lighting: natural directional key, documentary clarity. Face policy: no talking-head lip-sync avatar; cinematic B-roll preferred. Dialogue tone: human documentary narration; specific nouns; 7–9s beats. Ambience: subtle documentary bed; do not overpower voice.",
+  "i18n": {
+    "en": {
+      "name": "Stranger Than Fiction",
+      "blurb": "News snippets that sound made up but are 100% real — like a man who won the lottery four times."
+    },
+    "bn": {
+      "name": "কল্পনার চেয়ে অদ্ভুত",
+      "blurb": "ভিডিও টাইপ: News snippets that sound made up but are 100% real — like a man who won the lottery four times."
+    },
+    "hi": {
+      "name": "कल्पना से भी अजीब",
+      "blurb": "वीडियो प्रकार: News snippets that sound made up but are 100% real — like a man who won the lottery four times."
+    },
+    "ur": {
+      "name": "افسانے سے بھی عجیب",
+      "blurb": "ویڈیو کی قسم: News snippets that sound made up but are 100% real — like a man who won the lottery four times."
+    },
+    "ta": {
+      "name": "கற்பனையை விட விசித்திரம்",
+      "blurb": "வீடியோ வகை: News snippets that sound made up but are 100% real — like a man who won the lottery four times."
+    },
+    "ml": {
+      "name": "സാങ്കൽപ്പികതയെക്കാൾ വിചിത്രം",
+      "blurb": "വീഡിയോ തരം: News snippets that sound made up but are 100% real — like a man who won the lottery four times."
+    }
+  },
+  "source": "Nish.Md + deterministic research",
+  "research_notes": [
+    "Marathon researched at 2026-09-10T08:30:29Z",
+    "Video type length=95",
+    "Topic prompt length=126",
+    "Video prompt length=363",
+    "Seeds=6"
+  ],
+  "verified_at": "2026-09-10T08:30:29Z"
+}

@@ -1,0 +1,660 @@
+{
+  "ok": true,
+  "approval": {
+    "state": "APPROVED",
+    "publishes": false,
+    "means_generated": false,
+    "updated_at": "2026-09-10T18:47:43.598023",
+    "note": "customer-approved script — not generated/rendered/published"
+  },
+  "c05_handoff": {
+    "ready": true,
+    "status": "APPROVED_SCRIPT",
+    "path": "ScriptPlan → C05-TRS → C05-S → C05-GA → C05-GP → C05-GX → C05-MR",
+    "note": "Handoff ready — media generation is a later step",
+    "topic_id": "topic-562c83ab425a6386",
+    "topic_text": "Why lunar south pole ice matters for propellant and drinking water on Mars missions",
+    "script_plan_topic": "Lunar South Pole Ice as Mars Propellant"
+  },
+  "workflow": {
+    "contract": "C06-B",
+    "project_id": "trs-ch4",
+    "owner_login_id": "c11_marathon_customer",
+    "channel_id": 4,
+    "updated_at": "2026-09-10T18:47:43.598023",
+    "revision": 371,
+    "topic": {
+      "topic_id": "topic-562c83ab425a6386",
+      "project_id": "trs-ch4",
+      "owner_login_id": "c11_marathon_customer",
+      "topic_text": "Why lunar south pole ice matters for propellant and drinking water on Mars missions",
+      "topic_source": "MANUAL",
+      "topic_status": "COMPLETED",
+      "selected_at": "2026-09-10T18:47:32.594449",
+      "created_at": "2026-09-06T22:13:16.391863",
+      "updated_at": "2026-09-10T18:47:32.594449",
+      "duplicate": {
+        "verdict": "UNIQUE",
+        "blocked": false,
+        "matched": "",
+        "detail": {
+          "verdict": "UNIQUE",
+          "confidence": 0.88,
+          "evidence": {
+            "rule_version": "1.0.0"
+          },
+          "comparison_target": "",
+          "layer": "all_passed"
+        },
+        "authority": "BUILD-04G.duplicate + product_registry"
+      },
+      "blocked_reason": null,
+      "error_code": null
+    },
+    "suggestions": [
+      {
+        "topic_id": "t-7043c2c50947d4e3",
+        "topic_text": "How radio telescopes catch fast radio bursts from distant magnetars",
+        "canonical_topic": "How radio telescopes catch fast radio bursts from distant magnetars",
+        "source": "SUGGESTED",
+        "authority": "BUILD-04G.discovery",
+        "external_api": false
+      },
+      {
+        "topic_id": "t-61bde167336b015b",
+        "topic_text": "How gravitational-wave detectors hear black-hole mergers across the universe",
+        "canonical_topic": "How gravitational-wave detectors hear black-hole mergers across the universe",
+        "source": "SUGGESTED",
+        "authority": "BUILD-04G.discovery",
+        "external_api": false
+      },
+      {
+        "topic_id": "t-d34e881ac1996bc6",
+        "topic_text": "Why lunar south pole ice matters for propellant and drinking water on Mars missions",
+        "canonical_topic": "Why lunar south pole ice matters for propellant and drinking water on Mars missions",
+        "source": "SUGGESTED",
+        "authority": "BUILD-04G.discovery",
+        "external_api": false
+      },
+      {
+        "topic_id": "t-c0d90e538ec14bac",
+        "topic_text": "How neutron albedo mapping finds hydrogen under the Moon's dark crater floors",
+        "canonical_topic": "How neutron albedo mapping finds hydrogen under the Moon's dark crater floors",
+        "source": "SUGGESTED",
+        "authority": "BUILD-04G.discovery",
+        "external_api": false
+      },
+      {
+        "topic_id": "t-4298b094fa8420b6",
+        "topic_text": "How Europa's ice shell could hide a salty ocean — the evidence so far",
+        "canonical_topic": "How Europa's ice shell could hide a salty ocean — the evidence so far",
+        "source": "SUGGESTED",
+        "authority": "BUILD-04G.discovery",
+        "external_api": false
+      },
+      {
+        "topic_id": "t-ee4fb6b2f470c41f",
+        "topic_text": "Why Venus' thick clouds hide surface heat that melts lead — the physics",
+        "canonical_topic": "Why Venus' thick clouds hide surface heat that melts lead — the physics",
+        "source": "SUGGESTED",
+        "authority": "BUILD-04G.discovery",
+        "external_api": false
+      },
+      {
+        "topic_id": "t-9f718aacb1d3c331",
+        "topic_text": "How Starliner and commercial crew change ISS science return timelines",
+        "canonical_topic": "How Starliner and commercial crew change ISS science return timelines",
+        "source": "SUGGESTED",
+        "authority": "BUILD-04G.discovery",
+        "external_api": false
+      },
+      {
+        "topic_id": "t-0702bd364ab658b9",
+        "topic_text": "What dark energy surveys measure when galaxies stretch apart",
+        "canonical_topic": "What dark energy surveys measure when galaxies stretch apart",
+        "source": "SUGGESTED",
+        "authority": "BUILD-04G.discovery",
+        "external_api": false
+      }
+    ],
+    "reserved": [
+      {
+        "topic_id": "t-71bf9f81dcbd29c3",
+        "topic_text": "One fact about space science you missed today",
+        "source": "RESERVED",
+        "authority": "BUILD-04G.reserve_queue"
+      },
+      {
+        "topic_id": "t-042828b9295d915b",
+        "topic_text": "Quick space science insight for general",
+        "source": "RESERVED",
+        "authority": "BUILD-04G.reserve_queue"
+      },
+      {
+        "topic_id": "t-87e7edb4fdfcde63",
+        "topic_text": "space science: 60-second breakdown",
+        "source": "RESERVED",
+        "authority": "BUILD-04G.reserve_queue"
+      }
+    ],
+    "research": {
+      "research_status": "COMPLETED",
+      "fact_count": 2,
+      "evidence_count": 2,
+      "source_count": 0,
+      "confidence": null,
+      "unresolved_items": [],
+      "capability": {
+        "provider_capability": "LOCAL_FACTPACK",
+        "provider_mode": "LIVE_LOCAL",
+        "external_live_research": "UNAVAILABLE",
+        "is_external_live": false,
+        "external_api": false,
+        "note": "LOCAL_FACTPACK must not be claimed as EXTERNAL_LIVE_RESEARCH"
+      },
+      "gate": {
+        "verdict": "PASS",
+        "reason": "sufficient_evidence",
+        "issues": [],
+        "claim_count": 2,
+        "supported_count": 2,
+        "verified_count": 0,
+        "unsupported_count": 0,
+        "classified": [
+          {
+            "claim": "Research query: why lunar south pole ice matters for propellant and drinking water on mars missions\nLanguage: en\nRegion:",
+            "class": "SUPPORTED",
+            "source": "research_notes"
+          },
+          {
+            "claim": "Additional context on Why lunar south pole ice matters for propellant and drinking water on Mars missions from configured research scope.",
+            "class": "SUPPORTED",
+            "source": "live_research"
+          }
+        ]
+      },
+      "fingerprint": "c2e1e7c71f5c50d0311673bc0cf3c6dfb5e08527c30bcf57f9e0d08bd75f261f",
+      "action": "execute",
+      "error_code": null,
+      "error_summary": null,
+      "live_research_complete": false,
+      "status_label": "Research complete (local FactPack)",
+      "has_fact_pack": true
+    },
+    "script": {
+      "script_status": "COMPLETED",
+      "preview": {
+        "topic": "Lunar South Pole Ice as Mars Propellant",
+        "hook": "Most people miss this: the Moon’s ice is not for drinking. It’s the only fuel source that makes Mars missions physically possible.",
+        "beat_count": 5,
+        "dialogue_count": 5,
+        "scene_count": 5,
+        "entities": [],
+        "locations": [],
+        "relationships": [],
+        "dialogue_ids": [
+          "beat-1",
+          "beat-2",
+          "beat-3",
+          "beat-4",
+          "beat-5"
+        ],
+        "beat_ids": [
+          "beat-1",
+          "beat-2",
+          "beat-3",
+          "beat-4",
+          "beat-5"
+        ],
+        "scene_ids": [
+          "scene-00",
+          "scene-01",
+          "scene-02",
+          "scene-03",
+          "scene-04"
+        ],
+        "beats_summary": [
+          {
+            "beat_id": "beat-1",
+            "narration": "Most people miss this: the Moon’s ice is not for drinking. It’s the only fuel source that makes Mars missions physically possible.",
+            "speaker": "Narrator",
+            "emotion": "",
+            "entity_refs": [],
+            "location_ref": "",
+            "estimated_duration_sec": 9.0
+          },
+          {
+            "beat_id": "beat-2",
+            "narration": "Launching fuel from Earth costs billions. But water? We can split it into hydrogen and oxygen right there on the surface.",
+            "speaker": "Narrator",
+            "emotion": "",
+            "entity_refs": [],
+            "location_ref": "",
+            "estimated_duration_sec": 8.75
+          },
+          {
+            "beat_id": "beat-3",
+            "narration": "Watch what this changes next — this ice sits in permanent shadows at the lunar south pole. It’s been frozen for billions of.",
+            "speaker": "Narrator",
+            "emotion": "",
+            "entity_refs": [],
+            "location_ref": "",
+            "estimated_duration_sec": 9.0
+          },
+          {
+            "beat_id": "beat-4",
+            "narration": "What most viewers overlook next is this: one ton of lunar ice yields enough propellant to send a crew back to Earth. That’s.",
+            "speaker": "Narrator",
+            "emotion": "",
+            "entity_refs": [],
+            "location_ref": "",
+            "estimated_duration_sec": 9.0
+          },
+          {
+            "beat_id": "beat-5",
+            "narration": "Mars has no atmosphere to brake into. You need massive fuel reserves to escape its gravity. Lunar ice provides that reserve. So the.",
+            "speaker": "Narrator",
+            "emotion": "",
+            "entity_refs": [],
+            "location_ref": "",
+            "estimated_duration_sec": 9.0
+          }
+        ]
+      },
+      "scene_count": 5,
+      "beat_count": 5,
+      "dialogue_count": 5,
+      "quality": {
+        "status": "UNKNOWN",
+        "issues": [
+          "Dialogue estimated 9.6s exceeds configured max 9.0s.",
+          "Dialogue estimated 9.6s exceeds configured max 9.0s.",
+          "Dialogue estimated 9.6s exceeds configured max 9.0s."
+        ],
+        "actions": [],
+        "preflight": {
+          "status": "BLOCKED",
+          "ok": false,
+          "blocked": true,
+          "blocks": [
+            "missing_retention_roles"
+          ],
+          "warnings": [
+            "missing_emotional_intent:1"
+          ],
+          "unknowns": [],
+          "confidence": "HEURISTIC",
+          "claims_human_written": false,
+          "claims_guaranteed_engagement": false,
+          "method": "DETERMINISTIC_PREFLIGHT",
+          "note": "stylistic judgments are HEURISTIC; naturalness not proven"
+        },
+        "authority": "BUILD-04F.evaluate_script_quality + TRS preflight"
+      },
+      "approval": {
+        "state": "APPROVED",
+        "publishes": false,
+        "means_generated": false,
+        "updated_at": "2026-09-10T18:47:43.598023",
+        "note": "customer-approved script — not generated/rendered/published"
+      },
+      "error_code": null,
+      "error_summary": null,
+      "script_action": "reuse",
+      "dialogue_segments_count": 5,
+      "has_script_plan": true
+    },
+    "script_plan": {
+      "schema_version": "1.0.0",
+      "id": "bb18d3f3-b23c-494a-950b-cff67b43a782",
+      "created_at": "2026-09-10 12:47:43.545563+00:00",
+      "updated_at": null,
+      "topic_id": "topic-562c83ab425a6386",
+      "topic": "Lunar South Pole Ice as Mars Propellant",
+      "format": "SHORT",
+      "language": "en",
+      "target_duration_sec": 60.0,
+      "hook": "Most people miss this: the Moon’s ice is not for drinking. It’s the only fuel source that makes Mars missions physically possible.",
+      "narrative_structure": [
+        "hook",
+        "context",
+        "development",
+        "payoff",
+        "ending"
+      ],
+      "sections": [
+        "hook",
+        "context",
+        "development",
+        "payoff",
+        "ending"
+      ],
+      "beats": [
+        {
+          "schema_version": "1.0.0",
+          "id": "b827eba6-7ccd-4921-be10-0c6ea1fa9336",
+          "created_at": "2026-09-10 12:47:43.545563+00:00",
+          "updated_at": null,
+          "beat_id": "beat-1",
+          "order": 0,
+          "section_role": "hook",
+          "narration": "Most people miss this: the Moon’s ice is not for drinking. It’s the only fuel source that makes Mars missions physically possible.",
+          "speaker": "Narrator",
+          "emotion": "",
+          "emotion_intensity": 0.5,
+          "action_intent": "",
+          "entity_refs": [],
+          "location_ref": "",
+          "temporal_context": "",
+          "continuity_deps": [],
+          "visual_implication": "Most people miss this: the Moon’s ice is not for drinking. It’s the only fuel source that makes Mars missions physically",
+          "claim_ids": [],
+          "evidence_refs": [
+            "N01"
+          ],
+          "estimated_duration_sec": 9.0,
+          "retention_role": "",
+          "open_loop": "",
+          "payoff_for": "",
+          "emotional_intent": "",
+          "metadata": {
+            "legacy_visual_prompt_ownership": {
+              "semantic_visual_intent": "",
+              "legacy_provider_prompts": {
+                "visual_query": "lunar south pole crater ice shadow cinematic",
+                "visual_prompt": "Jagged lunar crater rim with ice glinting in shadow, teal grade",
+                "exact_ai_video_prompt": "VERTICAL 9:16 portrait (1080x1920) cinematic slow push-in on a jagged lunar crater rim, deep shadows revealing glinting ice patches, teal/cyan cinematic lab grade, high contrast, shallow DOF, no burned captions, no watermark, no talking-head REQUIRED on-screen anchors: Lunar South Pole Ice as Mars Propellant, lunar south pole, miss, Moon, drinking, fuel, source. Visual slot: Lunar South Pole Ice as Mars Propellant lunar south pole ice shadow: Most people miss this: the Moon’s ice is not for drinking. It’s — slow cinematic push-in establishing hero."
+              },
+              "legacy_fields_present": true,
+              "canonical_owner": "C05-S DirectedVisualBeat → prompt_compiler",
+              "script_owns_provider_visual_prompts": false,
+              "ownership": "LEGACY_DEPRECATED",
+              "note": "visual_prompt/exact_ai_video_prompt are compatibility fields, not ScriptPlan authority"
+            },
+            "dialogue_id": "beat-1",
+            "scene_id": "scene-00"
+          }
+        },
+        {
+          "schema_version": "1.0.0",
+          "id": "6bf4e427-f5c2-4901-b71e-d21c3062828b",
+          "created_at": "2026-09-10 12:47:43.545563+00:00",
+          "updated_at": null,
+          "beat_id": "beat-2",
+          "order": 1,
+          "section_role": "context",
+          "narration": "Launching fuel from Earth costs billions. But water? We can split it into hydrogen and oxygen right there on the surface.",
+          "speaker": "Narrator",
+          "emotion": "",
+          "emotion_intensity": 0.5,
+          "action_intent": "",
+          "entity_refs": [],
+          "location_ref": "",
+          "temporal_context": "",
+          "continuity_deps": [],
+          "visual_implication": "Launching fuel from Earth costs billions. But water? We can split it into hydrogen and oxygen right there on the surface",
+          "claim_ids": [],
+          "evidence_refs": [
+            "N01"
+          ],
+          "estimated_duration_sec": 8.75,
+          "retention_role": "",
+          "open_loop": "",
+          "payoff_for": "",
+          "emotional_intent": "",
+          "metadata": {
+            "legacy_visual_prompt_ownership": {
+              "semantic_visual_intent": "",
+              "legacy_provider_prompts": {
+                "visual_query": "water electrolysis macro hydrogen oxygen bubbles",
+                "visual_prompt": "Macro lab glassware showing water splitting into gas bubbles, teal grade",
+                "exact_ai_video_prompt": "VERTICAL 9:16 portrait (1080x1920) macro shot of water molecules splitting in a glass lab vessel, hydrogen bubbles rising, oxygen gas collecting, teal/cyan cinematic lab grade, high contrast, shallow DOF, no burned captions, no watermark, no talking-head REQUIRED on-screen anchors: Lunar South Pole Ice as Mars Propellant, electrolysis, Launching, fuel, Earth, costs, billions. Visual slot: Lunar South Pole Ice as Mars Propellant electrolysis hydrogen bubbles: Launching fuel from Earth costs billions. But water? We can split it — environmental wide into subject emphasis."
+              },
+              "legacy_fields_present": true,
+              "canonical_owner": "C05-S DirectedVisualBeat → prompt_compiler",
+              "script_owns_provider_visual_prompts": false,
+              "ownership": "LEGACY_DEPRECATED",
+              "note": "visual_prompt/exact_ai_video_prompt are compatibility fields, not ScriptPlan authority"
+            },
+            "dialogue_id": "beat-2",
+            "scene_id": "scene-01"
+          }
+        },
+        {
+          "schema_version": "1.0.0",
+          "id": "f9e54a16-6d06-4c56-98a8-4d8fdbc11dbe",
+          "created_at": "2026-09-10 12:47:43.545563+00:00",
+          "updated_at": null,
+          "beat_id": "beat-3",
+          "order": 2,
+          "section_role": "development",
+          "narration": "Watch what this changes next — this ice sits in permanent shadows at the lunar south pole. It’s been frozen for billions of.",
+          "speaker": "Narrator",
+          "emotion": "",
+          "emotion_intensity": 0.5,
+          "action_intent": "",
+          "entity_refs": [],
+          "location_ref": "",
+          "temporal_context": "",
+          "continuity_deps": [],
+          "visual_implication": "Watch what this changes next — this ice sits in permanent shadows at the lunar south pole. It’s been frozen for billions",
+          "claim_ids": [],
+          "evidence_refs": [
+            "N01"
+          ],
+          "estimated_duration_sec": 9.0,
+          "retention_role": "",
+          "open_loop": "",
+          "payoff_for": "",
+          "emotional_intent": "",
+          "metadata": {
+            "legacy_visual_prompt_ownership": {
+              "semantic_visual_intent": "",
+              "legacy_provider_prompts": {
+                "visual_query": "lunar south pole permanent shadow ice patch",
+                "visual_prompt": "Dark lunar terrain with white ice patch in shadow, teal grade",
+                "exact_ai_video_prompt": "VERTICAL 9:16 portrait (1080x1920) slow pan across dark lunar terrain, revealing a patch of pristine white ice in a deep shadow, teal/cyan cinematic lab grade, high contrast, shallow DOF, no burned captions, no watermark, no talking-head REQUIRED on-screen anchors: Lunar South Pole Ice as Mars Propellant, permanent shadow, frozen ice, sits, permanent, south, pole. Visual slot: Lunar South Pole Ice as Mars Propellant permanent shadow lunar terrain: Watch what this changes next — this ice sits in permanent shadows — revealing detail with controlled camera move."
+              },
+              "legacy_fields_present": true,
+              "canonical_owner": "C05-S DirectedVisualBeat → prompt_compiler",
+              "script_owns_provider_visual_prompts": false,
+              "ownership": "LEGACY_DEPRECATED",
+              "note": "visual_prompt/exact_ai_video_prompt are compatibility fields, not ScriptPlan authority"
+            },
+            "dialogue_id": "beat-3",
+            "scene_id": "scene-02"
+          }
+        },
+        {
+          "schema_version": "1.0.0",
+          "id": "8133b209-24f2-438d-af13-656a45aef379",
+          "created_at": "2026-09-10 12:47:43.545563+00:00",
+          "updated_at": null,
+          "beat_id": "beat-4",
+          "order": 3,
+          "section_role": "payoff",
+          "narration": "What most viewers overlook next is this: one ton of lunar ice yields enough propellant to send a crew back to Earth. That’s.",
+          "speaker": "Narrator",
+          "emotion": "",
+          "emotion_intensity": 0.5,
+          "action_intent": "",
+          "entity_refs": [],
+          "location_ref": "",
+          "temporal_context": "",
+          "continuity_deps": [],
+          "visual_implication": "What most viewers overlook next is this: one ton of lunar ice yields enough propellant to send a crew back to Earth. Tha",
+          "claim_ids": [],
+          "evidence_refs": [
+            "N01"
+          ],
+          "estimated_duration_sec": 9.0,
+          "retention_role": "",
+          "open_loop": "",
+          "payoff_for": "",
+          "emotional_intent": "",
+          "metadata": {
+            "legacy_visual_prompt_ownership": {
+              "semantic_visual_intent": "",
+              "legacy_provider_prompts": {
+                "visual_query": "rocket engine ignition propellant tank fill",
+                "visual_prompt": "Rocket engine nozzle with blue flame, propellant tanks, teal grade",
+                "exact_ai_video_prompt": "VERTICAL 9:16 portrait (1080x1920) close-up of a rocket engine nozzle igniting, blue flame plume, propellant tanks filling, teal/cyan cinematic lab grade, high contrast, shallow DOF, no burned captions, no watermark, no talking-head REQUIRED on-screen anchors: Lunar South Pole Ice as Mars Propellant, fuel flow, lunar, yields, enough, send, crew. Visual slot: Lunar South Pole Ice as Mars Propellant rocket engine propellant tank: What most viewers overlook next is this: one ton of lunar ice — macro process detail, continuous motion."
+              },
+              "legacy_fields_present": true,
+              "canonical_owner": "C05-S DirectedVisualBeat → prompt_compiler",
+              "script_owns_provider_visual_prompts": false,
+              "ownership": "LEGACY_DEPRECATED",
+              "note": "visual_prompt/exact_ai_video_prompt are compatibility fields, not ScriptPlan authority"
+            },
+            "dialogue_id": "beat-4",
+            "scene_id": "scene-03"
+          }
+        },
+        {
+          "schema_version": "1.0.0",
+          "id": "9b29b3d7-099c-4346-8943-5626f19e1f82",
+          "created_at": "2026-09-10 12:47:43.545563+00:00",
+          "updated_at": null,
+          "beat_id": "beat-5",
+          "order": 4,
+          "section_role": "ending",
+          "narration": "Mars has no atmosphere to brake into. You need massive fuel reserves to escape its gravity. Lunar ice provides that reserve. So the.",
+          "speaker": "Narrator",
+          "emotion": "",
+          "emotion_intensity": 0.5,
+          "action_intent": "",
+          "entity_refs": [],
+          "location_ref": "",
+          "temporal_context": "",
+          "continuity_deps": [],
+          "visual_implication": "Mars has no atmosphere to brake into. You need massive fuel reserves to escape its gravity. Lunar ice provides that rese",
+          "claim_ids": [],
+          "evidence_refs": [
+            "N01"
+          ],
+          "estimated_duration_sec": 9.0,
+          "retention_role": "ending",
+          "open_loop": "",
+          "payoff_for": "main_open_loop",
+          "emotional_intent": "",
+          "metadata": {
+            "legacy_visual_prompt_ownership": {
+              "semantic_visual_intent": "",
+              "legacy_provider_prompts": {
+                "visual_query": "spacecraft ascending mars surface red dust plume",
+                "visual_prompt": "Spacecraft launching from Mars, red dust, engine glow, teal grade",
+                "exact_ai_video_prompt": "VERTICAL 9:16 portrait (1080x1920) cinematic view of a spacecraft ascending from Mars surface, red dust plume, engine glow, teal/cyan cinematic lab grade, high contrast, shallow DOF, no burned captions, no watermark, no talking-head REQUIRED on-screen anchors: Lunar South Pole Ice as Mars Propellant, mars gravity, orbital mechanics, escape velocity, atmosphere, brake, massive, fuel, reserves. Visual slot: Lunar South Pole Ice as Mars Propellant mars gravity orbital mechanics: Mars has no atmosphere to brake into. You need massive fuel reserves — environmental wide into subject emphasis."
+              },
+              "legacy_fields_present": true,
+              "canonical_owner": "C05-S DirectedVisualBeat → prompt_compiler",
+              "script_owns_provider_visual_prompts": false,
+              "ownership": "LEGACY_DEPRECATED",
+              "note": "visual_prompt/exact_ai_video_prompt are compatibility fields, not ScriptPlan authority"
+            },
+            "dialogue_id": "beat-5",
+            "scene_id": "scene-04"
+          }
+        }
+      ],
+      "claims": [
+        {
+          "id": "N01",
+          "claim": "Research query: why lunar south pole ice matters for propellant and drinking water on mars missions\nLanguage: en\nRegion:",
+          "evidence": "research_notes",
+          "source": "research_notes",
+          "confidence": 0.4,
+          "freshness": "UNVERIFIED"
+        },
+        {
+          "id": "L02",
+          "claim": "Additional context on Why lunar south pole ice matters for propellant and drinking water on Mars missions from configured research scope.",
+          "evidence": "secondary",
+          "source": "live_research",
+          "confidence": 0.6,
+          "freshness": "recent"
+        }
+      ],
+      "evidence_refs": [
+        "N01",
+        "L02"
+      ],
+      "fact_pack_id": "",
+      "ending": "Mars has no atmosphere to brake into. You need massive fuel reserves to escape its gravity. Lunar ice provides that reserve. So the.",
+      "payoff": "What most viewers overlook next is this: one ton of lunar ice yields enough propellant to send a crew back to Earth. That’s.",
+      "cta": "",
+      "estimated_duration_sec": 60.0,
+      "legacy_visual_prompts": [
+        {
+          "scene_index": 0,
+          "fields": {
+            "visual_query": "lunar south pole crater ice shadow cinematic",
+            "visual_prompt": "Jagged lunar crater rim with ice glinting in shadow, teal grade",
+            "exact_ai_video_prompt": "VERTICAL 9:16 portrait (1080x1920) cinematic slow push-in on a jagged lunar crater rim, deep shadows revealing glinting ice patches, teal/cyan cinematic lab grade, high contrast, shallow DOF, no burned captions, no watermark, no talking-head REQUIRED on-screen anchors: Lunar South Pole Ice as Mars Propellant, lunar south pole, miss, Moon, drinking, fuel, source. Visual slot: Lunar South Pole Ice as Mars Propellant lunar south pole ice shadow: Most people miss this: the Moon’s ice is not for drinking. It’s — slow cinematic push-in establishing hero."
+          },
+          "ownership": "LEGACY_DEPRECATED"
+        },
+        {
+          "scene_index": 1,
+          "fields": {
+            "visual_query": "water electrolysis macro hydrogen oxygen bubbles",
+            "visual_prompt": "Macro lab glassware showing water splitting into gas bubbles, teal grade",
+            "exact_ai_video_prompt": "VERTICAL 9:16 portrait (1080x1920) macro shot of water molecules splitting in a glass lab vessel, hydrogen bubbles rising, oxygen gas collecting, teal/cyan cinematic lab grade, high contrast, shallow DOF, no burned captions, no watermark, no talking-head REQUIRED on-screen anchors: Lunar South Pole Ice as Mars Propellant, electrolysis, Launching, fuel, Earth, costs, billions. Visual slot: Lunar South Pole Ice as Mars Propellant electrolysis hydrogen bubbles: Launching fuel from Earth costs billions. But water? We can split it — environmental wide into subject emphasis."
+          },
+          "ownership": "LEGACY_DEPRECATED"
+        },
+        {
+          "scene_index": 2,
+          "fields": {
+            "visual_query": "lunar south pole permanent shadow ice patch",
+            "visual_prompt": "Dark lunar terrain with white ice patch in shadow, teal grade",
+            "exact_ai_video_prompt": "VERTICAL 9:16 portrait (1080x1920) slow pan across dark lunar terrain, revealing a patch of pristine white ice in a deep shadow, teal/cyan cinematic lab grade, high contrast, shallow DOF, no burned captions, no watermark, no talking-head REQUIRED on-screen anchors: Lunar South Pole Ice as Mars Propellant, permanent shadow, frozen ice, sits, permanent, south, pole. Visual slot: Lunar South Pole Ice as Mars Propellant permanent shadow lunar terrain: Watch what this changes next — this ice sits in permanent shadows — revealing detail with controlled camera move."
+          },
+          "ownership": "LEGACY_DEPRECATED"
+        },
+        {
+          "scene_index": 3,
+          "fields": {
+            "visual_query": "rocket engine ignition propellant tank fill",
+            "visual_prompt": "Rocket engine nozzle with blue flame, propellant tanks, teal grade",
+            "exact_ai_video_prompt": "VERTICAL 9:16 portrait (1080x1920) close-up of a rocket engine nozzle igniting, blue flame plume, propellant tanks filling, teal/cyan cinematic lab grade, high contrast, shallow DOF, no burned captions, no watermark, no talking-head REQUIRED on-screen anchors: Lunar South Pole Ice as Mars Propellant, fuel flow, lunar, yields, enough, send, crew. Visual slot: Lunar South Pole Ice as Mars Propellant rocket engine propellant tank: What most viewers overlook next is this: one ton of lunar ice — macro process detail, continuous motion."
+          },
+          "ownership": "LEGACY_DEPRECATED"
+        },
+        {
+          "scene_index": 4,
+          "fields": {
+            "visual_query": "spacecraft ascending mars surface red dust plume",
+            "visual_prompt": "Spacecraft launching from Mars, red dust, engine glow, teal grade",
+            "exact_ai_video_prompt": "VERTICAL 9:16 portrait (1080x1920) cinematic view of a spacecraft ascending from Mars surface, red dust plume, engine glow, teal/cyan cinematic lab grade, high contrast, shallow DOF, no burned captions, no watermark, no talking-head REQUIRED on-screen anchors: Lunar South Pole Ice as Mars Propellant, mars gravity, orbital mechanics, escape velocity, atmosphere, brake, massive, fuel, reserves. Visual slot: Lunar South Pole Ice as Mars Propellant mars gravity orbital mechanics: Mars has no atmosphere to brake into. You need massive fuel reserves — environmental wide into subject emphasis."
+          },
+          "ownership": "LEGACY_DEPRECATED"
+        }
+      ],
+      "metadata": {
+        "source": "niche_director_normalized",
+        "visual_prompt_canonical_owner": "C05-S",
+        "script_owns_provider_visual_prompts": false,
+        "created_at": "2026-09-10T18:47:43.545563",
+        "dialogue_window_repairs": [],
+        "dialogue_window_enforced": true
+      }
+    },
+    "c05_handoff": {
+      "ready": true,
+      "status": "APPROVED_SCRIPT",
+      "path": "ScriptPlan → C05-TRS → C05-S → C05-GA → C05-GP → C05-GX → C05-MR",
+      "note": "Handoff ready — media generation is a later step",
+      "topic_id": "topic-562c83ab425a6386",
+      "topic_text": "Why lunar south pole ice matters for propellant and drinking water on Mars missions",
+      "script_plan_topic": "Lunar South Pole Ice as Mars Propellant"
+    },
+    "actions": {
+      "select_topic": true,
+      "research": true,
+      "generate_script": true,
+      "review_script": true,
+      "approve_script": false,
+      "c05_handoff_ready": true
+    }
+  }
+}

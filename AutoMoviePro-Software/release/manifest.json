@@ -1,0 +1,27 @@
+{
+  "schema": "amp004_h5_release_manifest_v1",
+  "app_name": "AutoMovie Pro",
+  "release_version": "0.5.0",
+  "build_id": "h5-source",
+  "build_timestamp": "2026-09-03T11:58:54Z",
+  "supported_os": [
+    "windows"
+  ],
+  "supported_deployment_mode": "windows_local_source_venv",
+  "pyinstaller_status": "PARTIAL_NOT_CERTIFIED",
+  "docker_linux_status": "UNSUPPORTED_NOT_CERTIFIED",
+  "python_version_requirement": ">=3.11",
+  "python_runtime": "3.12.9",
+  "platform": "Windows-11-10.0.26200-SP0",
+  "dependency_authority": "requirements.txt (pinned) + requirements-dev.txt",
+  "dependency_reproducibility": "PARTIAL",
+  "ffmpeg_available": true,
+  "ffprobe_available": true,
+  "ffmpeg_source": "bundled",
+  "ffprobe_source": "bundled",
+  "ffmpeg_version": "ffmpeg version 8.1.1-full_build-www.gyan.dev Copyright (c) 2000-2026 the FFmpeg developers",
+  "ffprobe_version": "ffprobe version 8.1.1-full_build-www.gyan.dev Copyright (c) 2007-2026 the FFmpeg developers",
+  "package_type": "source_tree",
+  "checkpoint": "AMP004-H5-RELEASE-OPERATIONAL-READINESS",
+  "certification_status": "H5"
+}

@@ -1,0 +1,83 @@
+{
+  "niche_id": 53,
+  "name": "Epic Love Stories",
+  "slug": "epic-love-stories",
+  "style_family": "history",
+  "status": "VERIFIED",
+  "topic_seeds": [
+    "What new evidence reframes the story of Epic Love Stories True inside Epic Love Stories",
+    "How Epic Love Stories True still shapes public curiosity about Epic Love Stories",
+    "What new evidence reframes the story of Antony inside Epic Love Stories",
+    "How Antony still shapes public curiosity about Epic Love Stories",
+    "What new evidence reframes the story of Cleopatra inside Epic Love Stories",
+    "How Cleopatra still shapes public curiosity about Epic Love Stories"
+  ],
+  "seo_angles": [
+    "What new evidence reframes the story of Epic Love Stories True inside Epic Love Stories",
+    "How Epic Love Stories True still shapes public curiosity about Epic Love Stories",
+    "What new evidence reframes the story of Antony inside Epic Love Stories",
+    "How Antony still shapes public curiosity about Epic Love Stories"
+  ],
+  "forbidden_visuals": [
+    "talking-head lip-sync avatar",
+    "burned-in captions",
+    "watermark",
+    "modern meme text",
+    "modern smartphones",
+    "cars",
+    "LED screens",
+    "sneakers",
+    "contemporary skyline"
+  ],
+  "preferred_subjects": [
+    "Epic Love Stories documentary subject",
+    "period-accurate environment",
+    "evidence object close-up"
+  ],
+  "lighting_default": "warm desert sun / torchlit interiors, high-contrast documentary grade",
+  "face_policy": "period extras OK if consistent; prefer environment/object hero when possible",
+  "dialogue_tone": "human documentary narration; specific nouns; 7–9s beats",
+  "audio_ambience": "subtle documentary bed; do not overpower voice",
+  "research_hints": [
+    "Prefer primary evidence and concrete entities for Epic Love Stories",
+    "Avoid generic niche-label topics; require specific place/person/event/mechanism",
+    "7–9 second spoken beats with story continuity across scenes"
+  ],
+  "topic_prompt_overlay": "NICHE LOCK (Epic Love Stories): only propose topics that fit this niche's video type. Video type: True-life romances like Antony & Cleopatra, or modern couples who crossed war zones — with all the passion and tragedy. Follow niche topic strategy: Check historical anniversaries, new biography releases, or viral love stories in the news. Generate a topic that captures the drama and sacrifice of love.",
+  "video_prompt_overlay": "NICHE VISUAL LOCK (Epic Love Stories / history): Generate a 7–9 second dialogue clip based on the topic `{topic}`. Each dialogue must be passionate and romantic. For each dialogue, generate: - **Audio Generation Prompt:** Voice — intense, longing, with orchestral strings and distant waves. - **Video Generation Prompt:** Detailed visual — a balcony, a battlefield, or a quiet garden. Characters: two lovers (period clothing). Lighting: sunset or moonlight. Maintain same couple, same clothing era, same romantic lighting. Forbidden: talking-head lip-sync avatar, burned-in captions, watermark, modern meme text, modern smartphones, cars, LED screens, sneakers. Preferred subjects: Epic Love Stories documentary subject, period-accurate environment, evidence object close-up. Lighting: warm desert sun / torchlit interiors, high-contrast documentary grade. Face policy: period extras OK if consistent; prefer environment/object hero when possible. Dialogue tone: human documentary narration; specific nouns; 7–9s beats. Ambience: subtle documentary bed; do not overpower voice.",
+  "i18n": {
+    "en": {
+      "name": "Epic Love Stories",
+      "blurb": "True-life romances like Antony & Cleopatra, or modern couples who crossed war zones — with all the passion and tragedy."
+    },
+    "bn": {
+      "name": "মহাকাব্যিক প্রেমকাহিনি",
+      "blurb": "ভিডিও টাইপ: True-life romances like Antony & Cleopatra, or modern couples who crossed war zones — with all the passion and tragedy."
+    },
+    "hi": {
+      "name": "महाप्रेम कहानियाँ",
+      "blurb": "वीडियो प्रकार: True-life romances like Antony & Cleopatra, or modern couples who crossed war zones — with all the passion and tragedy."
+    },
+    "ur": {
+      "name": "عظیم عشقی کہانیاں",
+      "blurb": "ویڈیو کی قسم: True-life romances like Antony & Cleopatra, or modern couples who crossed war zones — with all the passion and tragedy."
+    },
+    "ta": {
+      "name": "காவிய காதல் கதைகள்",
+      "blurb": "வீடியோ வகை: True-life romances like Antony & Cleopatra, or modern couples who crossed war zones — with all the passion and tragedy."
+    },
+    "ml": {
+      "name": "മഹത്തായ പ്രണയകഥകൾ",
+      "blurb": "വീഡിയോ തരം: True-life romances like Antony & Cleopatra, or modern couples who crossed war zones — with all the passion and tragedy."
+    }
+  },
+  "source": "Nish.Md + deterministic research",
+  "research_notes": [
+    "Marathon researched at 2026-09-10T08:30:15Z",
+    "Video type length=119",
+    "Topic prompt length=154",
+    "Video prompt length=473",
+    "Seeds=6"
+  ],
+  "verified_at": "2026-09-10T08:30:15Z"
+}

@@ -1,0 +1,19 @@
+{
+  "label": "T1B_CLIP_PROBE",
+  "available": false,
+  "backend": "",
+  "model_id": "open_clip:ViT-B-32:openai",
+  "version": "v1",
+  "kind": "CLIP",
+  "device": "cpu",
+  "dtype": "float32",
+  "embedding_dim": 512,
+  "normalized": true,
+  "impl": "",
+  "error": "EMBEDDING_BACKEND_UNAVAILABLE:No module named 'torch'",
+  "gpu_mandatory": false,
+  "load_sec": null,
+  "from_cache": false,
+  "cache_root": "E:\\All Updaye Project\\AutoMovie_Pro_SAAS_Final_Update\\AutoMoviePro-Software\\data\\models\\open-clip",
+  "claims_semantic_truth": false
+}

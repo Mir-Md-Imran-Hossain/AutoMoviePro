@@ -1,0 +1,24 @@
+[
+  {
+    "intervention_id": "INT-001",
+    "ts": "2026-09-09T13:49:39Z",
+    "reason": "use_customer_approved_plan_lock",
+    "detected_problem": "generate_video re-entry intelligence DUPLICATE on reused niche topics",
+    "action": "write_director_plan + c06e lock before generate_video",
+    "authority": "customer_plan_adapter + generate_video customer_approved_lock",
+    "result": "lock_written"
+  },
+  {
+    "intervention_id": "INT-002",
+    "ts": "2026-09-09T15:34:59Z",
+    "reason": "scene06_moon_defaulted_to_webb_nebula",
+    "detected_problem": "SEMANTIC_COVERAGE_BLOCKED scene06 nebula vs Moon/fueling station",
+    "root_cause": "select_documentary_reference_url lacked bare moon key; product_name=station matched nothing \u2192 DEFAULT webb",
+    "action": "add moon/lunar/fueling-station \u2192 PIA14006; clear scene06; resume",
+    "authority": "fallback_image_video.select_documentary_reference_url",
+    "result": "resume_job2302_scene06",
+    "files": [
+      "pipeline/fallback_image_video.py"
+    ]
+  }
+]

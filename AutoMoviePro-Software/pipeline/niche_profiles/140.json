@@ -1,0 +1,79 @@
+{
+  "niche_id": 140,
+  "name": "Cryptocurrency Stories",
+  "slug": "cryptocurrency-stories",
+  "style_family": "finance",
+  "status": "VERIFIED",
+  "topic_seeds": [
+    "What new evidence reframes the story of Cryptocurrency Stories The inside Cryptocurrency Stories",
+    "How Cryptocurrency Stories The still shapes public curiosity about Cryptocurrency Stories",
+    "What new evidence reframes the story of Bitcoin inside Cryptocurrency Stories",
+    "How Bitcoin still shapes public curiosity about Cryptocurrency Stories",
+    "What new evidence reframes the story of Track inside Cryptocurrency Stories",
+    "How Track still shapes public curiosity about Cryptocurrency Stories"
+  ],
+  "seo_angles": [
+    "What new evidence reframes the story of Cryptocurrency Stories The inside Cryptocurrency Stories",
+    "How Cryptocurrency Stories The still shapes public curiosity about Cryptocurrency Stories",
+    "What new evidence reframes the story of Bitcoin inside Cryptocurrency Stories",
+    "How Bitcoin still shapes public curiosity about Cryptocurrency Stories"
+  ],
+  "forbidden_visuals": [
+    "talking-head lip-sync avatar",
+    "burned-in captions",
+    "watermark",
+    "modern meme text",
+    "off-niche stock office B-roll"
+  ],
+  "preferred_subjects": [
+    "Cryptocurrency Stories documentary subject",
+    "period-accurate environment",
+    "evidence object close-up"
+  ],
+  "lighting_default": "natural directional key, documentary clarity",
+  "face_policy": "no talking-head lip-sync avatar; cinematic B-roll preferred",
+  "dialogue_tone": "human documentary narration; specific nouns; 7–9s beats",
+  "audio_ambience": "subtle documentary bed; do not overpower voice",
+  "research_hints": [
+    "Prefer primary evidence and concrete entities for Cryptocurrency Stories",
+    "Avoid generic niche-label topics; require specific place/person/event/mechanism",
+    "7–9 second spoken beats with story continuity across scenes"
+  ],
+  "topic_prompt_overlay": "NICHE LOCK (Cryptocurrency Stories): only propose topics that fit this niche's video type. Video type: The story of Bitcoin — pizza purchases, trillion-dollar highs, and the people who got rich (or broke). Follow niche topic strategy: Track crypto news, new coin trends, or viral trader interviews. Generate a topic about a dramatic crypto rise or fall.",
+  "video_prompt_overlay": "NICHE VISUAL LOCK (Cryptocurrency Stories / finance): Generate a 7–9 second dialogue clip based on the topic `{topic}`. Each dialogue must be dramatic and cautionary. For each dialogue, generate: - **Audio Generation Prompt:** Voice — excited or worried, with coin sounds and alerts. - **Video Generation Prompt:** Detailed visual — a price chart or crypto screen. No character — chart. Lighting: bright green/red. Maintain same chart. Forbidden: talking-head lip-sync avatar, burned-in captions, watermark, modern meme text, off-niche stock office B-roll. Preferred subjects: Cryptocurrency Stories documentary subject, period-accurate environment, evidence object close-up. Lighting: natural directional key, documentary clarity. Face policy: no talking-head lip-sync avatar; cinematic B-roll preferred. Dialogue tone: human documentary narration; specific nouns; 7–9s beats. Ambience: subtle documentary bed; do not overpower voice.",
+  "i18n": {
+    "en": {
+      "name": "Cryptocurrency Stories",
+      "blurb": "The story of Bitcoin — pizza purchases, trillion-dollar highs, and the people who got rich (or broke)."
+    },
+    "bn": {
+      "name": "ক্রিপ্টোকারেন্সির গল্প",
+      "blurb": "ভিডিও টাইপ: The story of Bitcoin — pizza purchases, trillion-dollar highs, and the people who got rich (or broke)."
+    },
+    "hi": {
+      "name": "क्रिप्टोकरेंसी कहानियाँ",
+      "blurb": "वीडियो प्रकार: The story of Bitcoin — pizza purchases, trillion-dollar highs, and the people who got rich (or broke)."
+    },
+    "ur": {
+      "name": "کریپٹو کرنسی کہانیاں",
+      "blurb": "ویڈیو کی قسم: The story of Bitcoin — pizza purchases, trillion-dollar highs, and the people who got rich (or broke)."
+    },
+    "ta": {
+      "name": "கிரிப்டோகரன்சி கதைகள்",
+      "blurb": "வீடியோ வகை: The story of Bitcoin — pizza purchases, trillion-dollar highs, and the people who got rich (or broke)."
+    },
+    "ml": {
+      "name": "ക്രിപ്‌റ്റോകറൻസി കഥകൾ",
+      "blurb": "വീഡിയോ തരം: The story of Bitcoin — pizza purchases, trillion-dollar highs, and the people who got rich (or broke)."
+    }
+  },
+  "source": "Nish.Md + deterministic research",
+  "research_notes": [
+    "Marathon researched at 2026-09-10T08:30:29Z",
+    "Video type length=102",
+    "Topic prompt length=118",
+    "Video prompt length=381",
+    "Seeds=6"
+  ],
+  "verified_at": "2026-09-10T08:30:29Z"
+}

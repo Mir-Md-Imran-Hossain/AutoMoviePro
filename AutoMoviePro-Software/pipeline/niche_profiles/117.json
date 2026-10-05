@@ -1,0 +1,81 @@
+{
+  "niche_id": 117,
+  "name": "AI in Daily Life",
+  "slug": "ai-in-daily-life",
+  "style_family": "gadget",
+  "status": "VERIFIED",
+  "topic_seeds": [
+    "What new evidence reframes the story of Daily Life Unnoticed inside AI in Daily Life",
+    "How Daily Life Unnoticed still shapes public curiosity about AI in Daily Life",
+    "What new evidence reframes the story of Netflix inside AI in Daily Life",
+    "How Netflix still shapes public curiosity about AI in Daily Life",
+    "What new evidence reframes the story of Follow inside AI in Daily Life",
+    "How Follow still shapes public curiosity about AI in Daily Life"
+  ],
+  "seo_angles": [
+    "What new evidence reframes the story of Daily Life Unnoticed inside AI in Daily Life",
+    "How Daily Life Unnoticed still shapes public curiosity about AI in Daily Life",
+    "What new evidence reframes the story of Netflix inside AI in Daily Life",
+    "How Netflix still shapes public curiosity about AI in Daily Life"
+  ],
+  "forbidden_visuals": [
+    "talking-head lip-sync avatar",
+    "burned-in captions",
+    "watermark",
+    "modern meme text",
+    "wrong model phone",
+    "generic unbranded slab",
+    "stock office handshake"
+  ],
+  "preferred_subjects": [
+    "exact product hero",
+    "component close-up",
+    "hands with device only"
+  ],
+  "lighting_default": "natural directional key, documentary clarity",
+  "face_policy": "product-only hero; hands OK; no talking-head",
+  "dialogue_tone": "human documentary narration; specific nouns; 7–9s beats",
+  "audio_ambience": "subtle documentary bed; do not overpower voice",
+  "research_hints": [
+    "Prefer primary evidence and concrete entities for AI in Daily Life",
+    "Avoid generic niche-label topics; require specific place/person/event/mechanism",
+    "7–9 second spoken beats with story continuity across scenes"
+  ],
+  "topic_prompt_overlay": "NICHE LOCK (AI in Daily Life): only propose topics that fit this niche's video type. Video type: Unnoticed AI — from Netflix recommendations to grammar checkers — explaining the algorithms behind daily decisions. Follow niche topic strategy: Follow tech explainer blogs, new AI integrations, or viral AI surprises. Generate a topic about an everyday AI we take for granted.",
+  "video_prompt_overlay": "NICHE VISUAL LOCK (AI in Daily Life / gadget): Generate a 7–9 second dialogue clip based on the topic `{topic}`. Each dialogue must be eye-opening and casual. For each dialogue, generate: - **Audio Generation Prompt:** Voice — conversational, with swipes and clicks. - **Video Generation Prompt:** Detailed visual — a phone screen with apps. No character — screen. Lighting: neutral. Maintain same phone screen. Forbidden: talking-head lip-sync avatar, burned-in captions, watermark, modern meme text, wrong model phone, generic unbranded slab, stock office handshake. Preferred subjects: exact product hero, component close-up, hands with device only. Lighting: natural directional key, documentary clarity. Face policy: product-only hero; hands OK; no talking-head. Dialogue tone: human documentary narration; specific nouns; 7–9s beats. Ambience: subtle documentary bed; do not overpower voice.",
+  "i18n": {
+    "en": {
+      "name": "AI in Daily Life",
+      "blurb": "Unnoticed AI — from Netflix recommendations to grammar checkers — explaining the algorithms behind daily decisions."
+    },
+    "bn": {
+      "name": "দৈনন্দিন জীবনে এআই",
+      "blurb": "ভিডিও টাইপ: Unnoticed AI — from Netflix recommendations to grammar checkers — explaining the algorithms behind daily decisions."
+    },
+    "hi": {
+      "name": "दैनिक जीवन में एआई",
+      "blurb": "वीडियो प्रकार: Unnoticed AI — from Netflix recommendations to grammar checkers — explaining the algorithms behind daily decisions."
+    },
+    "ur": {
+      "name": "روزمرہ زندگی میں اے آئی",
+      "blurb": "ویڈیو کی قسم: Unnoticed AI — from Netflix recommendations to grammar checkers — explaining the algorithms behind daily decisions."
+    },
+    "ta": {
+      "name": "அன்றாட வாழ்வில் AI",
+      "blurb": "வீடியோ வகை: Unnoticed AI — from Netflix recommendations to grammar checkers — explaining the algorithms behind daily decisions."
+    },
+    "ml": {
+      "name": "ദൈനംദിന ജീവിതത്തിലെ AI",
+      "blurb": "വീഡിയോ തരം: Unnoticed AI — from Netflix recommendations to grammar checkers — explaining the algorithms behind daily decisions."
+    }
+  },
+  "source": "Nish.Md + deterministic research",
+  "research_notes": [
+    "Marathon researched at 2026-09-10T08:30:25Z",
+    "Video type length=115",
+    "Topic prompt length=131",
+    "Video prompt length=364",
+    "Seeds=6"
+  ],
+  "verified_at": "2026-09-10T08:30:25Z"
+}

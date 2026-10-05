@@ -1,0 +1,26 @@
+{
+  "job_id": "c06b-script-4-topic-989eccb0547ceb44",
+  "fingerprint": "62ba2b2904b0b05160f7d8278825310be906088a9039561d5b0496b699ab49a4",
+  "entity_id": "script-0000-bad2d0433370a261",
+  "topic": "How Artemis crews use neutron spectrometers to map lunar polar water ice in 2026",
+  "topic_identity": "bad2d0433370a2612e5379a8",
+  "niche": "space science",
+  "niche_id": 0,
+  "fact_pack_id": "",
+  "fact_pack_hash": "",
+  "prompt_version": "v12",
+  "prompt_template_hash": "e344dfbfe39453248f95c06bace9e3d1",
+  "provider": "llm_router",
+  "model": "purpose-script",
+  "generation_id": "",
+  "plan_path": "E:\\All Updaye Project\\AutoMovie_Pro_SAAS_Final_Update\\AutoMoviePro-Software\\docs\\marathon\\runs\\mr_core_engine_20260910T065109Z_aa78c803\\script\\director_plan.json",
+  "plan_hash": "a14da0dc3885d09193b0050118b8f9be98a78cdd3e5f4aed4c976b22e6c0c582",
+  "saved_at": 1789023079.037253,
+  "metadata": {
+    "video_type": "short",
+    "max_seconds": 60,
+    "language": "en",
+    "revision_id": "",
+    "legacy_key": "script:62ba2b2904b0b05160f7d8278825310b"
+  }
+}

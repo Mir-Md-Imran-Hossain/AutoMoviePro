@@ -1,0 +1,5 @@
+{
+  "ok": false,
+  "error": "Scene 2 split master unshippable: ['visual_anchors_missing', 'wrong_subject']",
+  "traceback": "Traceback (most recent call last):\n  File \"E:\\All Updaye Project\\AutoMovie_Pro_SAAS_Final_Update\\AutoMoviePro-Software\\scripts\\cert_core_engine_real_marathon.py\", line 500, in generate_real\n    result = generate_video(\n             ^^^^^^^^^^^^^^^\n  File \"E:\\All Updaye Project\\AutoMovie_Pro_SAAS_Final_Update\\AutoMoviePro-Software\\pipeline\\video_pipeline.py\", line 1108, in generate_video\n    clip = build_dialogue_clip(\n           ^^^^^^^^^^^^^^^^^^^^\n  File \"E:\\All Updaye Project\\AutoMovie_Pro_SAAS_Final_Update\\AutoMoviePro-Software\\pipeline\\scene_builder.py\", line 432, in build_dialogue_clip\n    return _build_split_dialogue_clip(\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"E:\\All Updaye Project\\AutoMovie_Pro_SAAS_Final_Update\\AutoMoviePro-Software\\pipeline\\scene_builder.py\", line 2471, in _build_split_dialogue_clip\n    raise RuntimeError(\nRuntimeError: Scene 2 split master unshippable: ['visual_anchors_missing', 'wrong_subject']\n"
+}

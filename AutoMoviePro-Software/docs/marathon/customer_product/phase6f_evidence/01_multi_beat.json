@@ -1,0 +1,772 @@
+{
+  "scenario": "Nurse beside \u2192 approaching \u2192 at hospital bed",
+  "beats": 3,
+  "entities": [
+    "Nurse",
+    "hospital bed"
+  ],
+  "relationship": "BESIDE\u2192ENTERING\u2192INSIDE",
+  "location": "hospital room",
+  "live_observation_status": "PASS",
+  "provider_verified": true,
+  "heuristic": false,
+  "evidence_source": "PROVIDER_VERIFIED",
+  "observed": {
+    "observed_subjects": [
+      "nurse"
+    ],
+    "observed_entities": [
+      "nurse",
+      "face mask",
+      "nurse cap",
+      "hospital bed",
+      "ceiling light",
+      "medical equipment"
+    ],
+    "observed_location": "hospital room",
+    "observed_relationships": [
+      "nurse is standing in front of the hospital bed",
+      "nurse is wearing a face mask and cap"
+    ],
+    "provider": "PROVIDER_FRAME:gemini-3.6-flash"
+  },
+  "cross_beat": {
+    "schema": "amp_observation_cross_beat_entity_v1",
+    "status": "PASS",
+    "projected_beats": [
+      [
+        {
+          "schema": "amp_observation_cross_beat_entity_v1",
+          "entity_id": "ent-5f00ce118bd9",
+          "entity_type": "CHARACTER",
+          "canonical_name": "Nurse",
+          "beat_id": "vb-6f-1",
+          "scene_id": "sc-6f",
+          "dialogue_id": "dlg-vb-6f-1",
+          "presence": "PRESENT",
+          "observed_state": "standing beside",
+          "location": "hospital room",
+          "location_cluster": "hospital",
+          "relationships": [
+            {
+              "subject_entity": "Nurse",
+              "relation": "beside",
+              "object_entity": "hospital bed",
+              "beat_id": "vb-6f-1"
+            }
+          ],
+          "observed_relationships": [
+            {
+              "raw": "nurse is standing in front of the hospital bed",
+              "relation": "inside",
+              "beat_id": "vb-6f-1"
+            },
+            {
+              "raw": "nurse is wearing a face mask and cap",
+              "relation": "wearing",
+              "beat_id": "vb-6f-1"
+            }
+          ],
+          "source_evidence": {
+            "observation_status": "PASS",
+            "provider_verified": true,
+            "heuristic": false,
+            "evidence_source": "PROVIDER_VERIFIED",
+            "provider": "PROVIDER_FRAME:gemini-3.6-flash",
+            "frame_path": "docs\\marathon\\customer_product\\phase6e_evidence\\repair_work\\repair_frames\\frames_d11ac8300eff4bd0_786da6d87905c97ff8bf7fc9\\frame_00_0000000ms.jpg"
+          },
+          "observation_status": "PASS",
+          "customer_id": "c11_marathon_customer",
+          "channel_id": "4",
+          "job_id": "job2108",
+          "clip_similarity_is_not_identity_pass": true,
+          "created_at": 1788949085.046497
+        },
+        {
+          "schema": "amp_observation_cross_beat_entity_v1",
+          "entity_id": "ent-2421576bdb82",
+          "entity_type": "OBJECT",
+          "canonical_name": "hospital bed",
+          "beat_id": "vb-6f-1",
+          "scene_id": "sc-6f",
+          "dialogue_id": "dlg-vb-6f-1",
+          "presence": "PRESENT",
+          "observed_state": "",
+          "location": "hospital room",
+          "location_cluster": "hospital",
+          "relationships": [
+            {
+              "subject_entity": "Nurse",
+              "relation": "beside",
+              "object_entity": "hospital bed",
+              "beat_id": "vb-6f-1"
+            }
+          ],
+          "observed_relationships": [
+            {
+              "raw": "nurse is standing in front of the hospital bed",
+              "relation": "inside",
+              "beat_id": "vb-6f-1"
+            },
+            {
+              "raw": "nurse is wearing a face mask and cap",
+              "relation": "wearing",
+              "beat_id": "vb-6f-1"
+            }
+          ],
+          "source_evidence": {
+            "observation_status": "PASS",
+            "provider_verified": true,
+            "heuristic": false,
+            "evidence_source": "PROVIDER_VERIFIED",
+            "provider": "PROVIDER_FRAME:gemini-3.6-flash",
+            "frame_path": "docs\\marathon\\customer_product\\phase6e_evidence\\repair_work\\repair_frames\\frames_d11ac8300eff4bd0_786da6d87905c97ff8bf7fc9\\frame_00_0000000ms.jpg"
+          },
+          "observation_status": "PASS",
+          "customer_id": "c11_marathon_customer",
+          "channel_id": "4",
+          "job_id": "job2108",
+          "clip_similarity_is_not_identity_pass": true,
+          "created_at": 1788949085.046497
+        },
+        {
+          "schema": "amp_observation_cross_beat_entity_v1",
+          "entity_id": "ent-40c9926265ba",
+          "entity_type": "LOCATION",
+          "canonical_name": "hospital room",
+          "beat_id": "vb-6f-1",
+          "scene_id": "sc-6f",
+          "dialogue_id": "dlg-vb-6f-1",
+          "presence": "PRESENT",
+          "observed_state": "hospital room",
+          "location": "hospital room",
+          "location_cluster": "hospital",
+          "relationships": [
+            {
+              "subject_entity": "Nurse",
+              "relation": "beside",
+              "object_entity": "hospital bed",
+              "beat_id": "vb-6f-1"
+            }
+          ],
+          "observed_relationships": [
+            {
+              "raw": "nurse is standing in front of the hospital bed",
+              "relation": "inside",
+              "beat_id": "vb-6f-1"
+            },
+            {
+              "raw": "nurse is wearing a face mask and cap",
+              "relation": "wearing",
+              "beat_id": "vb-6f-1"
+            }
+          ],
+          "source_evidence": {
+            "observation_status": "PASS",
+            "provider_verified": true,
+            "heuristic": false,
+            "evidence_source": "PROVIDER_VERIFIED",
+            "provider": "PROVIDER_FRAME:gemini-3.6-flash",
+            "frame_path": "docs\\marathon\\customer_product\\phase6e_evidence\\repair_work\\repair_frames\\frames_d11ac8300eff4bd0_786da6d87905c97ff8bf7fc9\\frame_00_0000000ms.jpg"
+          },
+          "observation_status": "PASS",
+          "customer_id": "c11_marathon_customer",
+          "channel_id": "4",
+          "job_id": "job2108",
+          "clip_similarity_is_not_identity_pass": true,
+          "created_at": 1788949085.046497
+        }
+      ],
+      [
+        {
+          "schema": "amp_observation_cross_beat_entity_v1",
+          "entity_id": "ent-5f00ce118bd9",
+          "entity_type": "CHARACTER",
+          "canonical_name": "Nurse",
+          "beat_id": "vb-6f-2",
+          "scene_id": "sc-6f",
+          "dialogue_id": "dlg-vb-6f-2",
+          "presence": "PRESENT",
+          "observed_state": "approaching",
+          "location": "hospital room",
+          "location_cluster": "hospital",
+          "relationships": [
+            {
+              "subject_entity": "Nurse",
+              "relation": "inside",
+              "object_entity": "hospital bed",
+              "beat_id": "vb-6f-2"
+            }
+          ],
+          "observed_relationships": [
+            {
+              "raw": "nurse is standing in front of the hospital bed",
+              "relation": "inside",
+              "beat_id": "vb-6f-2"
+            },
+            {
+              "raw": "nurse is wearing a face mask and cap",
+              "relation": "wearing",
+              "beat_id": "vb-6f-2"
+            }
+          ],
+          "source_evidence": {
+            "observation_status": "PASS",
+            "provider_verified": true,
+            "heuristic": false,
+            "evidence_source": "PROVIDER_VERIFIED",
+            "provider": "PROVIDER_FRAME:gemini-3.6-flash",
+            "frame_path": "docs\\marathon\\customer_product\\phase6e_evidence\\repair_work\\repair_frames\\frames_d11ac8300eff4bd0_786da6d87905c97ff8bf7fc9\\frame_00_0000000ms.jpg"
+          },
+          "observation_status": "PASS",
+          "customer_id": "c11_marathon_customer",
+          "channel_id": "4",
+          "job_id": "job2108",
+          "clip_similarity_is_not_identity_pass": true,
+          "created_at": 1788949085.046497
+        },
+        {
+          "schema": "amp_observation_cross_beat_entity_v1",
+          "entity_id": "ent-2421576bdb82",
+          "entity_type": "OBJECT",
+          "canonical_name": "hospital bed",
+          "beat_id": "vb-6f-2",
+          "scene_id": "sc-6f",
+          "dialogue_id": "dlg-vb-6f-2",
+          "presence": "PRESENT",
+          "observed_state": "",
+          "location": "hospital room",
+          "location_cluster": "hospital",
+          "relationships": [
+            {
+              "subject_entity": "Nurse",
+              "relation": "inside",
+              "object_entity": "hospital bed",
+              "beat_id": "vb-6f-2"
+            }
+          ],
+          "observed_relationships": [
+            {
+              "raw": "nurse is standing in front of the hospital bed",
+              "relation": "inside",
+              "beat_id": "vb-6f-2"
+            },
+            {
+              "raw": "nurse is wearing a face mask and cap",
+              "relation": "wearing",
+              "beat_id": "vb-6f-2"
+            }
+          ],
+          "source_evidence": {
+            "observation_status": "PASS",
+            "provider_verified": true,
+            "heuristic": false,
+            "evidence_source": "PROVIDER_VERIFIED",
+            "provider": "PROVIDER_FRAME:gemini-3.6-flash",
+            "frame_path": "docs\\marathon\\customer_product\\phase6e_evidence\\repair_work\\repair_frames\\frames_d11ac8300eff4bd0_786da6d87905c97ff8bf7fc9\\frame_00_0000000ms.jpg"
+          },
+          "observation_status": "PASS",
+          "customer_id": "c11_marathon_customer",
+          "channel_id": "4",
+          "job_id": "job2108",
+          "clip_similarity_is_not_identity_pass": true,
+          "created_at": 1788949085.046497
+        },
+        {
+          "schema": "amp_observation_cross_beat_entity_v1",
+          "entity_id": "ent-40c9926265ba",
+          "entity_type": "LOCATION",
+          "canonical_name": "hospital room",
+          "beat_id": "vb-6f-2",
+          "scene_id": "sc-6f",
+          "dialogue_id": "dlg-vb-6f-2",
+          "presence": "PRESENT",
+          "observed_state": "hospital room",
+          "location": "hospital room",
+          "location_cluster": "hospital",
+          "relationships": [
+            {
+              "subject_entity": "Nurse",
+              "relation": "inside",
+              "object_entity": "hospital bed",
+              "beat_id": "vb-6f-2"
+            }
+          ],
+          "observed_relationships": [
+            {
+              "raw": "nurse is standing in front of the hospital bed",
+              "relation": "inside",
+              "beat_id": "vb-6f-2"
+            },
+            {
+              "raw": "nurse is wearing a face mask and cap",
+              "relation": "wearing",
+              "beat_id": "vb-6f-2"
+            }
+          ],
+          "source_evidence": {
+            "observation_status": "PASS",
+            "provider_verified": true,
+            "heuristic": false,
+            "evidence_source": "PROVIDER_VERIFIED",
+            "provider": "PROVIDER_FRAME:gemini-3.6-flash",
+            "frame_path": "docs\\marathon\\customer_product\\phase6e_evidence\\repair_work\\repair_frames\\frames_d11ac8300eff4bd0_786da6d87905c97ff8bf7fc9\\frame_00_0000000ms.jpg"
+          },
+          "observation_status": "PASS",
+          "customer_id": "c11_marathon_customer",
+          "channel_id": "4",
+          "job_id": "job2108",
+          "clip_similarity_is_not_identity_pass": true,
+          "created_at": 1788949085.046497
+        }
+      ],
+      [
+        {
+          "schema": "amp_observation_cross_beat_entity_v1",
+          "entity_id": "ent-5f00ce118bd9",
+          "entity_type": "CHARACTER",
+          "canonical_name": "Nurse",
+          "beat_id": "vb-6f-3",
+          "scene_id": "sc-6f",
+          "dialogue_id": "dlg-vb-6f-3",
+          "presence": "PRESENT",
+          "observed_state": "at bedside",
+          "location": "hospital room",
+          "location_cluster": "hospital",
+          "relationships": [
+            {
+              "subject_entity": "Nurse",
+              "relation": "inside",
+              "object_entity": "hospital bed",
+              "beat_id": "vb-6f-3"
+            }
+          ],
+          "observed_relationships": [
+            {
+              "raw": "nurse is standing in front of the hospital bed",
+              "relation": "inside",
+              "beat_id": "vb-6f-3"
+            },
+            {
+              "raw": "nurse is wearing a face mask and cap",
+              "relation": "wearing",
+              "beat_id": "vb-6f-3"
+            }
+          ],
+          "source_evidence": {
+            "observation_status": "PASS",
+            "provider_verified": true,
+            "heuristic": false,
+            "evidence_source": "PROVIDER_VERIFIED",
+            "provider": "PROVIDER_FRAME:gemini-3.6-flash",
+            "frame_path": "docs\\marathon\\customer_product\\phase6e_evidence\\repair_work\\repair_frames\\frames_d11ac8300eff4bd0_786da6d87905c97ff8bf7fc9\\frame_00_0000000ms.jpg"
+          },
+          "observation_status": "PASS",
+          "customer_id": "c11_marathon_customer",
+          "channel_id": "4",
+          "job_id": "job2108",
+          "clip_similarity_is_not_identity_pass": true,
+          "created_at": 1788949085.046497
+        },
+        {
+          "schema": "amp_observation_cross_beat_entity_v1",
+          "entity_id": "ent-2421576bdb82",
+          "entity_type": "OBJECT",
+          "canonical_name": "hospital bed",
+          "beat_id": "vb-6f-3",
+          "scene_id": "sc-6f",
+          "dialogue_id": "dlg-vb-6f-3",
+          "presence": "PRESENT",
+          "observed_state": "",
+          "location": "hospital room",
+          "location_cluster": "hospital",
+          "relationships": [
+            {
+              "subject_entity": "Nurse",
+              "relation": "inside",
+              "object_entity": "hospital bed",
+              "beat_id": "vb-6f-3"
+            }
+          ],
+          "observed_relationships": [
+            {
+              "raw": "nurse is standing in front of the hospital bed",
+              "relation": "inside",
+              "beat_id": "vb-6f-3"
+            },
+            {
+              "raw": "nurse is wearing a face mask and cap",
+              "relation": "wearing",
+              "beat_id": "vb-6f-3"
+            }
+          ],
+          "source_evidence": {
+            "observation_status": "PASS",
+            "provider_verified": true,
+            "heuristic": false,
+            "evidence_source": "PROVIDER_VERIFIED",
+            "provider": "PROVIDER_FRAME:gemini-3.6-flash",
+            "frame_path": "docs\\marathon\\customer_product\\phase6e_evidence\\repair_work\\repair_frames\\frames_d11ac8300eff4bd0_786da6d87905c97ff8bf7fc9\\frame_00_0000000ms.jpg"
+          },
+          "observation_status": "PASS",
+          "customer_id": "c11_marathon_customer",
+          "channel_id": "4",
+          "job_id": "job2108",
+          "clip_similarity_is_not_identity_pass": true,
+          "created_at": 1788949085.046497
+        },
+        {
+          "schema": "amp_observation_cross_beat_entity_v1",
+          "entity_id": "ent-40c9926265ba",
+          "entity_type": "LOCATION",
+          "canonical_name": "hospital room",
+          "beat_id": "vb-6f-3",
+          "scene_id": "sc-6f",
+          "dialogue_id": "dlg-vb-6f-3",
+          "presence": "PRESENT",
+          "observed_state": "hospital room",
+          "location": "hospital room",
+          "location_cluster": "hospital",
+          "relationships": [
+            {
+              "subject_entity": "Nurse",
+              "relation": "inside",
+              "object_entity": "hospital bed",
+              "beat_id": "vb-6f-3"
+            }
+          ],
+          "observed_relationships": [
+            {
+              "raw": "nurse is standing in front of the hospital bed",
+              "relation": "inside",
+              "beat_id": "vb-6f-3"
+            },
+            {
+              "raw": "nurse is wearing a face mask and cap",
+              "relation": "wearing",
+              "beat_id": "vb-6f-3"
+            }
+          ],
+          "source_evidence": {
+            "observation_status": "PASS",
+            "provider_verified": true,
+            "heuristic": false,
+            "evidence_source": "PROVIDER_VERIFIED",
+            "provider": "PROVIDER_FRAME:gemini-3.6-flash",
+            "frame_path": "docs\\marathon\\customer_product\\phase6e_evidence\\repair_work\\repair_frames\\frames_d11ac8300eff4bd0_786da6d87905c97ff8bf7fc9\\frame_00_0000000ms.jpg"
+          },
+          "observation_status": "PASS",
+          "customer_id": "c11_marathon_customer",
+          "channel_id": "4",
+          "job_id": "job2108",
+          "clip_similarity_is_not_identity_pass": true,
+          "created_at": 1788949085.046497
+        }
+      ]
+    ],
+    "adjacent_comparisons": [
+      {
+        "from_index": 0,
+        "to_index": 1,
+        "result": {
+          "schema": "amp_observation_cross_beat_entity_v1",
+          "status": "PASS",
+          "comparisons": [
+            {
+              "entity_id": "ent-5f00ce118bd9",
+              "canonical_name": "Nurse",
+              "entity_type": "CHARACTER",
+              "prev_beat_id": "vb-6f-1",
+              "next_beat_id": "vb-6f-2",
+              "location": {
+                "class": "same",
+                "reason": "exact_match"
+              },
+              "location_class": "SAME_LOCATION",
+              "class": "COMPATIBLE",
+              "status": "PASS",
+              "relationship": {
+                "class": "same",
+                "reason": "shared_relation",
+                "relations": [
+                  "inside",
+                  "wearing"
+                ]
+              }
+            },
+            {
+              "entity_id": "ent-2421576bdb82",
+              "canonical_name": "hospital bed",
+              "entity_type": "OBJECT",
+              "prev_beat_id": "vb-6f-1",
+              "next_beat_id": "vb-6f-2",
+              "location": {
+                "class": "same",
+                "reason": "exact_match"
+              },
+              "location_class": "SAME_LOCATION",
+              "class": "COMPATIBLE",
+              "status": "PASS",
+              "relationship": {
+                "class": "same",
+                "reason": "shared_relation",
+                "relations": [
+                  "inside",
+                  "wearing"
+                ]
+              }
+            },
+            {
+              "entity_id": "ent-40c9926265ba",
+              "canonical_name": "hospital room",
+              "entity_type": "LOCATION",
+              "prev_beat_id": "vb-6f-1",
+              "next_beat_id": "vb-6f-2",
+              "location": {
+                "class": "same",
+                "reason": "exact_match"
+              },
+              "location_class": "SAME_LOCATION",
+              "class": "COMPATIBLE",
+              "status": "PASS"
+            }
+          ],
+          "issues": [],
+          "adjacent_only": true,
+          "continuity_tracker_authority": "pipeline.visual_semantic.continuity.ContinuityTracker",
+          "second_continuity_engine": false,
+          "identity_certification_engine": false,
+          "clip_similarity_is_not_identity_pass": true,
+          "unknown_as_pass": false,
+          "unknown_as_fail": false,
+          "creates_final_gate": false
+        }
+      },
+      {
+        "from_index": 1,
+        "to_index": 2,
+        "result": {
+          "schema": "amp_observation_cross_beat_entity_v1",
+          "status": "PASS",
+          "comparisons": [
+            {
+              "entity_id": "ent-5f00ce118bd9",
+              "canonical_name": "Nurse",
+              "entity_type": "CHARACTER",
+              "prev_beat_id": "vb-6f-2",
+              "next_beat_id": "vb-6f-3",
+              "location": {
+                "class": "same",
+                "reason": "exact_match"
+              },
+              "location_class": "SAME_LOCATION",
+              "class": "COMPATIBLE",
+              "status": "PASS",
+              "relationship": {
+                "class": "same",
+                "reason": "shared_relation",
+                "relations": [
+                  "inside",
+                  "wearing"
+                ]
+              }
+            },
+            {
+              "entity_id": "ent-2421576bdb82",
+              "canonical_name": "hospital bed",
+              "entity_type": "OBJECT",
+              "prev_beat_id": "vb-6f-2",
+              "next_beat_id": "vb-6f-3",
+              "location": {
+                "class": "same",
+                "reason": "exact_match"
+              },
+              "location_class": "SAME_LOCATION",
+              "class": "COMPATIBLE",
+              "status": "PASS",
+              "relationship": {
+                "class": "same",
+                "reason": "shared_relation",
+                "relations": [
+                  "inside",
+                  "wearing"
+                ]
+              }
+            },
+            {
+              "entity_id": "ent-40c9926265ba",
+              "canonical_name": "hospital room",
+              "entity_type": "LOCATION",
+              "prev_beat_id": "vb-6f-2",
+              "next_beat_id": "vb-6f-3",
+              "location": {
+                "class": "same",
+                "reason": "exact_match"
+              },
+              "location_class": "SAME_LOCATION",
+              "class": "COMPATIBLE",
+              "status": "PASS"
+            }
+          ],
+          "issues": [],
+          "adjacent_only": true,
+          "continuity_tracker_authority": "pipeline.visual_semantic.continuity.ContinuityTracker",
+          "second_continuity_engine": false,
+          "identity_certification_engine": false,
+          "clip_similarity_is_not_identity_pass": true,
+          "unknown_as_pass": false,
+          "unknown_as_fail": false,
+          "creates_final_gate": false
+        }
+      }
+    ],
+    "far_comparisons": [],
+    "require_far_continuity": false,
+    "continuity_tracker_authority": "pipeline.visual_semantic.continuity.ContinuityTracker",
+    "second_continuity_engine": false,
+    "identity_certification_engine": false,
+    "clip_similarity_is_not_identity_pass": true,
+    "unknown_as_pass": false,
+    "unknown_as_fail": false,
+    "creates_final_gate": false
+  },
+  "dialogue_binding": {
+    "dialogue_id": "dlg-vb-6f-1",
+    "beat_id": "vb-6f-1",
+    "scene_id": "sc-6f",
+    "entity_requirements": [
+      "Nurse",
+      "hospital bed",
+      "hospital room"
+    ],
+    "action_requirements": [
+      "standing beside"
+    ],
+    "relationship_requirements": [
+      "Nurse:beside:hospital bed"
+    ],
+    "location_requirements": [
+      "hospital room"
+    ],
+    "entity_states": [
+      {
+        "schema": "amp_observation_cross_beat_entity_v1",
+        "entity_id": "ent-5f00ce118bd9",
+        "entity_type": "CHARACTER",
+        "canonical_name": "Nurse",
+        "beat_id": "vb-6f-1",
+        "scene_id": "sc-6f",
+        "dialogue_id": "dlg-vb-6f-1",
+        "presence": "UNKNOWN",
+        "observed_state": "standing beside",
+        "location": "hospital room",
+        "location_cluster": "hospital",
+        "relationships": [
+          {
+            "subject_entity": "Nurse",
+            "relation": "beside",
+            "object_entity": "hospital bed",
+            "beat_id": "vb-6f-1"
+          }
+        ],
+        "observed_relationships": [],
+        "source_evidence": {
+          "observation_status": "UNKNOWN",
+          "provider_verified": false,
+          "heuristic": false,
+          "evidence_source": "unobserved",
+          "provider": "",
+          "frame_path": "E:\\All Updaye Project\\AutoMovie_Pro_SAAS_Final_Update\\AutoMoviePro-Software\\docs\\marathon\\customer_product\\phase6f_evidence\\work\\hosp_frames\\frames_d11ac8300eff4bd0_786da6d87905c97ff8bf7fc9\\frame_00_0000000ms.jpg"
+        },
+        "observation_status": "UNKNOWN",
+        "customer_id": "",
+        "channel_id": "",
+        "job_id": "",
+        "clip_similarity_is_not_identity_pass": true,
+        "created_at": 1788948792.4450715
+      },
+      {
+        "schema": "amp_observation_cross_beat_entity_v1",
+        "entity_id": "ent-2421576bdb82",
+        "entity_type": "OBJECT",
+        "canonical_name": "hospital bed",
+        "beat_id": "vb-6f-1",
+        "scene_id": "sc-6f",
+        "dialogue_id": "dlg-vb-6f-1",
+        "presence": "UNKNOWN",
+        "observed_state": "",
+        "location": "hospital room",
+        "location_cluster": "hospital",
+        "relationships": [
+          {
+            "subject_entity": "Nurse",
+            "relation": "beside",
+            "object_entity": "hospital bed",
+            "beat_id": "vb-6f-1"
+          }
+        ],
+        "observed_relationships": [],
+        "source_evidence": {
+          "observation_status": "UNKNOWN",
+          "provider_verified": false,
+          "heuristic": false,
+          "evidence_source": "unobserved",
+          "provider": "",
+          "frame_path": "E:\\All Updaye Project\\AutoMovie_Pro_SAAS_Final_Update\\AutoMoviePro-Software\\docs\\marathon\\customer_product\\phase6f_evidence\\work\\hosp_frames\\frames_d11ac8300eff4bd0_786da6d87905c97ff8bf7fc9\\frame_00_0000000ms.jpg"
+        },
+        "observation_status": "UNKNOWN",
+        "customer_id": "",
+        "channel_id": "",
+        "job_id": "",
+        "clip_similarity_is_not_identity_pass": true,
+        "created_at": 1788948792.4450715
+      },
+      {
+        "schema": "amp_observation_cross_beat_entity_v1",
+        "entity_id": "ent-40c9926265ba",
+        "entity_type": "LOCATION",
+        "canonical_name": "hospital room",
+        "beat_id": "vb-6f-1",
+        "scene_id": "sc-6f",
+        "dialogue_id": "dlg-vb-6f-1",
+        "presence": "UNKNOWN",
+        "observed_state": "",
+        "location": "hospital room",
+        "location_cluster": "hospital",
+        "relationships": [
+          {
+            "subject_entity": "Nurse",
+            "relation": "beside",
+            "object_entity": "hospital bed",
+            "beat_id": "vb-6f-1"
+          }
+        ],
+        "observed_relationships": [],
+        "source_evidence": {
+          "observation_status": "UNKNOWN",
+          "provider_verified": false,
+          "heuristic": false,
+          "evidence_source": "unobserved",
+          "provider": "",
+          "frame_path": "E:\\All Updaye Project\\AutoMovie_Pro_SAAS_Final_Update\\AutoMoviePro-Software\\docs\\marathon\\customer_product\\phase6f_evidence\\work\\hosp_frames\\frames_d11ac8300eff4bd0_786da6d87905c97ff8bf7fc9\\frame_00_0000000ms.jpg"
+        },
+        "observation_status": "UNKNOWN",
+        "customer_id": "",
+        "channel_id": "",
+        "job_id": "",
+        "clip_similarity_is_not_identity_pass": true,
+        "created_at": 1788948792.4450715
+      }
+    ],
+    "status": "UNKNOWN",
+    "issues": [
+      "observation_insufficient"
+    ],
+    "keyword_only_pass_forbidden": true,
+    "unknown_as_pass": false
+  },
+  "clip_similarity_is_not_identity_pass": true,
+  "source": "phase6e_live_reobservation_reused_for_cross_beat",
+  "valid_state_transition_status": "PASS",
+  "valid_transition_did_not_false_fail": true
+}

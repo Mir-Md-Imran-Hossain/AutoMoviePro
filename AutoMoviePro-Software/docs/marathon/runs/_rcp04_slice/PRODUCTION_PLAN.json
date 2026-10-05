@@ -1,0 +1,1837 @@
+{
+  "schema_version": "C06-C.1",
+  "plan_id": "pp-76db0932dc5388c0",
+  "project_id": "trs-ch4",
+  "owner_login_id": "c11_marathon_customer",
+  "channel_id": 4,
+  "approved_script_id": "topic-67b61b4f1c8aa8f2",
+  "script_revision": "0600f04b0d284aaa85ddaf0fb136f49a",
+  "workflow_revision": 127,
+  "language": "en",
+  "content_type": "space science",
+  "format": "SHORT",
+  "long_short_mode": "short",
+  "dialogue_segments": [
+    {
+      "dialogue_id": "beat-1",
+      "beat_id": "beat-1",
+      "scene_id": "scene-00",
+      "speaker": "Narrator",
+      "text": "The James Webb Space Telescope floats in deep space, its golden hexagonal mirrors facing the cosmic dark.",
+      "emotion": "",
+      "action": "floats",
+      "location": "deep space",
+      "entities": [
+        "The James Webb Space Telescope",
+        "golden hexagonal mirrors"
+      ],
+      "required_subject": "The James Webb Space Telescope",
+      "required_entities": [
+        "The James Webb Space Telescope",
+        "golden hexagonal mirrors"
+      ],
+      "required_relationships": [],
+      "required_actions": [
+        "floats"
+      ],
+      "required_location": "deep space",
+      "start_sec": 0.0,
+      "end_sec": 5.0,
+      "duration_sec": 5.0
+    },
+    {
+      "dialogue_id": "beat-2",
+      "beat_id": "beat-2",
+      "scene_id": "scene-01",
+      "speaker": "Narrator",
+      "text": "The multi-layer sunshield sits beneath the primary mirror, protecting instruments from solar heat.",
+      "emotion": "",
+      "action": "protecting",
+      "location": "deep space",
+      "entities": [
+        "multi-layer sunshield",
+        "primary mirror"
+      ],
+      "required_subject": "multi-layer sunshield",
+      "required_entities": [
+        "multi-layer sunshield",
+        "primary mirror"
+      ],
+      "required_relationships": [],
+      "required_actions": [
+        "protecting"
+      ],
+      "required_location": "deep space",
+      "start_sec": 5.0,
+      "end_sec": 10.0,
+      "duration_sec": 5.0
+    },
+    {
+      "dialogue_id": "beat-3",
+      "beat_id": "beat-3",
+      "scene_id": "scene-02",
+      "speaker": "Narrator",
+      "text": "Infrared deep-field images reveal thousands of distant galaxies formed more than thirteen billion years ago.",
+      "emotion": "",
+      "action": "reveal",
+      "location": "deep space",
+      "entities": [
+        "distant galaxies",
+        "infrared deep-field"
+      ],
+      "required_subject": "distant galaxies",
+      "required_entities": [
+        "distant galaxies",
+        "infrared deep-field"
+      ],
+      "required_relationships": [],
+      "required_actions": [
+        "reveal"
+      ],
+      "required_location": "deep space",
+      "start_sec": 10.0,
+      "end_sec": 15.0,
+      "duration_sec": 5.0
+    },
+    {
+      "dialogue_id": "beat-4",
+      "beat_id": "beat-4",
+      "scene_id": "scene-03",
+      "speaker": "Narrator",
+      "text": "Infrared light pierces cosmic dust, unveiling hidden star-forming nurseries inside a glowing nebula.",
+      "emotion": "",
+      "action": "pierces",
+      "location": "deep space",
+      "entities": [
+        "cosmic dust",
+        "star-forming nurseries",
+        "glowing nebula"
+      ],
+      "required_subject": "glowing nebula",
+      "required_entities": [
+        "cosmic dust",
+        "star-forming nurseries",
+        "glowing nebula"
+      ],
+      "required_relationships": [],
+      "required_actions": [
+        "pierces",
+        "unveiling"
+      ],
+      "required_location": "deep space",
+      "start_sec": 15.0,
+      "end_sec": 20.0,
+      "duration_sec": 5.0
+    },
+    {
+      "dialogue_id": "beat-5",
+      "beat_id": "beat-5",
+      "scene_id": "scene-04",
+      "speaker": "Narrator",
+      "text": "A spiral galaxy rotates slowly in the early cosmos, challenging older models of rapid growth.",
+      "emotion": "",
+      "action": "rotates",
+      "location": "deep space",
+      "entities": [
+        "spiral galaxy",
+        "early cosmos"
+      ],
+      "required_subject": "spiral galaxy",
+      "required_entities": [
+        "spiral galaxy",
+        "early cosmos"
+      ],
+      "required_relationships": [],
+      "required_actions": [
+        "rotates"
+      ],
+      "required_location": "deep space",
+      "start_sec": 20.0,
+      "end_sec": 25.0,
+      "duration_sec": 5.0
+    },
+    {
+      "dialogue_id": "beat-6",
+      "beat_id": "beat-6",
+      "scene_id": "scene-05",
+      "speaker": "Narrator",
+      "text": "Those same deep-sky maps guide Artemis crews as they cross beyond low Earth orbit.",
+      "emotion": "",
+      "action": "guide",
+      "location": "deep space",
+      "entities": [
+        "deep-sky maps",
+        "Artemis crews",
+        "low Earth orbit"
+      ],
+      "required_subject": "deep-sky maps",
+      "required_entities": [
+        "deep-sky maps",
+        "Artemis crews",
+        "low Earth orbit"
+      ],
+      "required_relationships": [],
+      "required_actions": [
+        "guide",
+        "cross"
+      ],
+      "required_location": "deep space",
+      "start_sec": 25.0,
+      "end_sec": 30.0,
+      "duration_sec": 5.0
+    }
+  ],
+  "narrative_beats": [
+    {
+      "beat_id": "nb-seg-beat-1",
+      "dialogue_segment_id": "seg-beat-1",
+      "semantic_subject": "The James Webb Space Telescope",
+      "action": "floats",
+      "event": "The James Webb Space Telescope floats in deep space, its golden hexagonal mirrors facing the cosmic dark.",
+      "important_entity": "The James Webb Space Telescope",
+      "important_object": "The James Webb Space Telescope",
+      "location_change": "SAME_LOCATION",
+      "emotional_change": false,
+      "visual_change_candidate": true,
+      "visual_change_reason": "dialogue_boundary:first_segment;action:floats",
+      "order": 0
+    },
+    {
+      "beat_id": "nb-seg-beat-2",
+      "dialogue_segment_id": "seg-beat-2",
+      "semantic_subject": "multi-layer sunshield",
+      "action": "protecting",
+      "event": "The multi-layer sunshield sits beneath the primary mirror, protecting instruments from solar heat.",
+      "important_entity": "multi-layer sunshield",
+      "important_object": "multi-layer sunshield",
+      "location_change": "SAME_LOCATION",
+      "emotional_change": false,
+      "visual_change_candidate": true,
+      "visual_change_reason": "subject_change;entity_object_change;action_change:protecting;dialogue_semantic_boundary:delta=1.00;explanatory_visual_change:context",
+      "order": 1
+    },
+    {
+      "beat_id": "nb-seg-beat-3",
+      "dialogue_segment_id": "seg-beat-3",
+      "semantic_subject": "distant galaxies",
+      "action": "reveal",
+      "event": "Infrared deep-field images reveal thousands of distant galaxies formed more than thirteen billion years ago.",
+      "important_entity": "distant galaxies",
+      "important_object": "distant galaxies",
+      "location_change": "SAME_LOCATION",
+      "emotional_change": false,
+      "visual_change_candidate": true,
+      "visual_change_reason": "subject_change;entity_object_change;action_change:reveal;dialogue_semantic_boundary:delta=1.00;explanatory_visual_change:development",
+      "order": 2
+    },
+    {
+      "beat_id": "nb-seg-beat-4",
+      "dialogue_segment_id": "seg-beat-4",
+      "semantic_subject": "cosmic dust",
+      "action": "pierces",
+      "event": "Infrared light pierces cosmic dust, unveiling hidden star-forming nurseries inside a glowing nebula.",
+      "important_entity": "cosmic dust",
+      "important_object": "cosmic dust",
+      "location_change": "SAME_LOCATION",
+      "emotional_change": false,
+      "visual_change_candidate": true,
+      "visual_change_reason": "subject_change;entity_object_change;action_change:pierces;dialogue_semantic_boundary:delta=0.96;explanatory_visual_change:reveal",
+      "order": 3
+    },
+    {
+      "beat_id": "nb-seg-beat-5",
+      "dialogue_segment_id": "seg-beat-5",
+      "semantic_subject": "spiral galaxy",
+      "action": "rotates",
+      "event": "A spiral galaxy rotates slowly in the early cosmos, challenging older models of rapid growth.",
+      "important_entity": "spiral galaxy",
+      "important_object": "spiral galaxy",
+      "location_change": "SAME_LOCATION",
+      "emotional_change": false,
+      "visual_change_candidate": true,
+      "visual_change_reason": "subject_change;entity_object_change;action_change:rotates;dialogue_semantic_boundary:delta=1.00;explanatory_visual_change:payoff",
+      "order": 4
+    },
+    {
+      "beat_id": "nb-seg-beat-6",
+      "dialogue_segment_id": "seg-beat-6",
+      "semantic_subject": "deep-sky maps",
+      "action": "guide",
+      "event": "Those same deep-sky maps guide Artemis crews as they cross beyond low Earth orbit.",
+      "important_entity": "deep-sky maps",
+      "important_object": "deep-sky maps",
+      "location_change": "SAME_LOCATION",
+      "emotional_change": false,
+      "visual_change_candidate": true,
+      "visual_change_reason": "subject_change;entity_object_change;action_change:guide;dialogue_semantic_boundary:delta=1.00;explanatory_visual_change:ending",
+      "order": 5
+    }
+  ],
+  "visual_beats": [
+    {
+      "beat_id": "vb-seg-beat-1",
+      "dialogue_ids": [
+        "beat-1"
+      ],
+      "dialogue_id": "beat-1",
+      "scene_id": "scene-00",
+      "narrative_beat_id": "nb-seg-beat-1",
+      "purpose": "hook",
+      "visual_purpose": "hook",
+      "subject": "The James Webb Space Telescope",
+      "required_subject": "The James Webb Space Telescope",
+      "required_entities": [],
+      "required_relationships": [],
+      "relationships": [],
+      "location": "deep space",
+      "required_location": "deep space",
+      "environment": "space science",
+      "character_state": {
+        "identity": "The James Webb Space Telescope",
+        "wardrobe": "",
+        "action": "floats",
+        "emotion": "",
+        "accessories": ""
+      },
+      "required_character_state": {
+        "identity": "The James Webb Space Telescope",
+        "wardrobe": "",
+        "action": "floats",
+        "emotion": "",
+        "accessories": ""
+      },
+      "object_state": [],
+      "required_object_state": [],
+      "required_actions": [
+        "floats"
+      ],
+      "required_context": "hook",
+      "camera": "ESTABLISHING",
+      "lighting": "UNKNOWN",
+      "emotion": "",
+      "action": "floats",
+      "coverage": {
+        "subject": "FULL",
+        "action": "FULL",
+        "entity": "NONE",
+        "object": "UNKNOWN",
+        "relationship": "UNKNOWN",
+        "location": "FULL",
+        "temporal": "UNKNOWN",
+        "overall": "PARTIAL",
+        "confidence": "HEURISTIC",
+        "note": "intent_planning_only_not_artifact_observation"
+      },
+      "coverage_requirement": {
+        "subject": "FULL",
+        "action": "FULL",
+        "entity": "NONE",
+        "object": "UNKNOWN",
+        "relationship": "UNKNOWN",
+        "location": "FULL",
+        "temporal": "UNKNOWN",
+        "overall": "PARTIAL",
+        "confidence": "HEURISTIC",
+        "note": "intent_planning_only_not_artifact_observation"
+      },
+      "visual_mode": "IMAGE",
+      "timing": {
+        "duration_sec": 5.0,
+        "policy": "NORMAL"
+      },
+      "duration": 5.0,
+      "reuse_policy": "semantic_beat_compatibility",
+      "continuity_predecessor": "",
+      "continuity_successor": "vb-seg-beat-2",
+      "risks": [],
+      "risk_class": null,
+      "semantic_layers": [
+        "INTENT",
+        "PROMPT",
+        "GENERATED_ASSET",
+        "OBSERVED_ASSET",
+        "VERIFIED_COVERAGE"
+      ]
+    },
+    {
+      "beat_id": "vb-seg-beat-2",
+      "dialogue_ids": [
+        "beat-2"
+      ],
+      "dialogue_id": "beat-2",
+      "scene_id": "scene-01",
+      "narrative_beat_id": "nb-seg-beat-2",
+      "purpose": "context",
+      "visual_purpose": "context",
+      "subject": "multi-layer sunshield",
+      "required_subject": "multi-layer sunshield",
+      "required_entities": [],
+      "required_relationships": [],
+      "relationships": [],
+      "location": "deep space",
+      "required_location": "deep space",
+      "environment": "space science",
+      "character_state": {
+        "identity": "multi-layer sunshield",
+        "wardrobe": "",
+        "action": "protecting",
+        "emotion": "",
+        "accessories": ""
+      },
+      "required_character_state": {
+        "identity": "multi-layer sunshield",
+        "wardrobe": "",
+        "action": "protecting",
+        "emotion": "",
+        "accessories": ""
+      },
+      "object_state": [],
+      "required_object_state": [],
+      "required_actions": [
+        "protecting"
+      ],
+      "required_context": "context",
+      "camera": "MEDIUM",
+      "lighting": "INHERITED",
+      "emotion": "",
+      "action": "protecting",
+      "coverage": {
+        "subject": "FULL",
+        "action": "FULL",
+        "entity": "NONE",
+        "object": "UNKNOWN",
+        "relationship": "UNKNOWN",
+        "location": "FULL",
+        "temporal": "UNKNOWN",
+        "overall": "PARTIAL",
+        "confidence": "HEURISTIC",
+        "note": "intent_planning_only_not_artifact_observation"
+      },
+      "coverage_requirement": {
+        "subject": "FULL",
+        "action": "FULL",
+        "entity": "NONE",
+        "object": "UNKNOWN",
+        "relationship": "UNKNOWN",
+        "location": "FULL",
+        "temporal": "UNKNOWN",
+        "overall": "PARTIAL",
+        "confidence": "HEURISTIC",
+        "note": "intent_planning_only_not_artifact_observation"
+      },
+      "visual_mode": "IMAGE",
+      "timing": {
+        "duration_sec": 5.0,
+        "policy": "NORMAL"
+      },
+      "duration": 5.0,
+      "reuse_policy": "semantic_beat_compatibility",
+      "continuity_predecessor": "vb-seg-beat-1",
+      "continuity_successor": "vb-seg-beat-3",
+      "risks": [],
+      "risk_class": null,
+      "semantic_layers": [
+        "INTENT",
+        "PROMPT",
+        "GENERATED_ASSET",
+        "OBSERVED_ASSET",
+        "VERIFIED_COVERAGE"
+      ]
+    },
+    {
+      "beat_id": "vb-seg-beat-3",
+      "dialogue_ids": [
+        "beat-3"
+      ],
+      "dialogue_id": "beat-3",
+      "scene_id": "scene-02",
+      "narrative_beat_id": "nb-seg-beat-3",
+      "purpose": "development",
+      "visual_purpose": "development",
+      "subject": "distant galaxies",
+      "required_subject": "distant galaxies",
+      "required_entities": [],
+      "required_relationships": [],
+      "relationships": [],
+      "location": "deep space",
+      "required_location": "deep space",
+      "environment": "space science",
+      "character_state": {
+        "identity": "distant galaxies",
+        "wardrobe": "",
+        "action": "reveal",
+        "emotion": "",
+        "accessories": ""
+      },
+      "required_character_state": {
+        "identity": "distant galaxies",
+        "wardrobe": "",
+        "action": "reveal",
+        "emotion": "",
+        "accessories": ""
+      },
+      "object_state": [],
+      "required_object_state": [],
+      "required_actions": [
+        "reveal"
+      ],
+      "required_context": "development",
+      "camera": "MEDIUM",
+      "lighting": "INHERITED",
+      "emotion": "",
+      "action": "reveal",
+      "coverage": {
+        "subject": "FULL",
+        "action": "FULL",
+        "entity": "NONE",
+        "object": "UNKNOWN",
+        "relationship": "UNKNOWN",
+        "location": "FULL",
+        "temporal": "UNKNOWN",
+        "overall": "PARTIAL",
+        "confidence": "HEURISTIC",
+        "note": "intent_planning_only_not_artifact_observation"
+      },
+      "coverage_requirement": {
+        "subject": "FULL",
+        "action": "FULL",
+        "entity": "NONE",
+        "object": "UNKNOWN",
+        "relationship": "UNKNOWN",
+        "location": "FULL",
+        "temporal": "UNKNOWN",
+        "overall": "PARTIAL",
+        "confidence": "HEURISTIC",
+        "note": "intent_planning_only_not_artifact_observation"
+      },
+      "visual_mode": "IMAGE",
+      "timing": {
+        "duration_sec": 5.0,
+        "policy": "NORMAL"
+      },
+      "duration": 5.0,
+      "reuse_policy": "semantic_beat_compatibility",
+      "continuity_predecessor": "vb-seg-beat-2",
+      "continuity_successor": "vb-seg-beat-4",
+      "risks": [],
+      "risk_class": null,
+      "semantic_layers": [
+        "INTENT",
+        "PROMPT",
+        "GENERATED_ASSET",
+        "OBSERVED_ASSET",
+        "VERIFIED_COVERAGE"
+      ]
+    },
+    {
+      "beat_id": "vb-seg-beat-4",
+      "dialogue_ids": [
+        "beat-4"
+      ],
+      "dialogue_id": "beat-4",
+      "scene_id": "scene-03",
+      "narrative_beat_id": "nb-seg-beat-4",
+      "purpose": "reveal",
+      "visual_purpose": "reveal",
+      "subject": "cosmic dust",
+      "required_subject": "cosmic dust",
+      "required_entities": [],
+      "required_relationships": [],
+      "relationships": [],
+      "location": "deep space",
+      "required_location": "deep space",
+      "environment": "space science",
+      "character_state": {
+        "identity": "cosmic dust",
+        "wardrobe": "",
+        "action": "pierces",
+        "emotion": "",
+        "accessories": ""
+      },
+      "required_character_state": {
+        "identity": "cosmic dust",
+        "wardrobe": "",
+        "action": "pierces",
+        "emotion": "",
+        "accessories": ""
+      },
+      "object_state": [],
+      "required_object_state": [],
+      "required_actions": [
+        "pierces"
+      ],
+      "required_context": "reveal",
+      "camera": "MEDIUM",
+      "lighting": "INHERITED",
+      "emotion": "",
+      "action": "pierces",
+      "coverage": {
+        "subject": "FULL",
+        "action": "FULL",
+        "entity": "NONE",
+        "object": "UNKNOWN",
+        "relationship": "NONE",
+        "location": "FULL",
+        "temporal": "UNKNOWN",
+        "overall": "PARTIAL",
+        "confidence": "HEURISTIC",
+        "note": "intent_planning_only_not_artifact_observation"
+      },
+      "coverage_requirement": {
+        "subject": "FULL",
+        "action": "FULL",
+        "entity": "NONE",
+        "object": "UNKNOWN",
+        "relationship": "NONE",
+        "location": "FULL",
+        "temporal": "UNKNOWN",
+        "overall": "PARTIAL",
+        "confidence": "HEURISTIC",
+        "note": "intent_planning_only_not_artifact_observation"
+      },
+      "visual_mode": "IMAGE",
+      "timing": {
+        "duration_sec": 5.0,
+        "policy": "NORMAL"
+      },
+      "duration": 5.0,
+      "reuse_policy": "semantic_beat_compatibility",
+      "continuity_predecessor": "vb-seg-beat-3",
+      "continuity_successor": "vb-seg-beat-5",
+      "risks": [],
+      "risk_class": null,
+      "semantic_layers": [
+        "INTENT",
+        "PROMPT",
+        "GENERATED_ASSET",
+        "OBSERVED_ASSET",
+        "VERIFIED_COVERAGE"
+      ]
+    },
+    {
+      "beat_id": "vb-seg-beat-5",
+      "dialogue_ids": [
+        "beat-5"
+      ],
+      "dialogue_id": "beat-5",
+      "scene_id": "scene-04",
+      "narrative_beat_id": "nb-seg-beat-5",
+      "purpose": "payoff",
+      "visual_purpose": "payoff",
+      "subject": "spiral galaxy",
+      "required_subject": "spiral galaxy",
+      "required_entities": [],
+      "required_relationships": [],
+      "relationships": [],
+      "location": "deep space",
+      "required_location": "deep space",
+      "environment": "space science",
+      "character_state": {
+        "identity": "spiral galaxy",
+        "wardrobe": "",
+        "action": "rotates",
+        "emotion": "",
+        "accessories": ""
+      },
+      "required_character_state": {
+        "identity": "spiral galaxy",
+        "wardrobe": "",
+        "action": "rotates",
+        "emotion": "",
+        "accessories": ""
+      },
+      "object_state": [],
+      "required_object_state": [],
+      "required_actions": [
+        "rotates"
+      ],
+      "required_context": "payoff",
+      "camera": "MEDIUM",
+      "lighting": "INHERITED",
+      "emotion": "",
+      "action": "rotates",
+      "coverage": {
+        "subject": "FULL",
+        "action": "FULL",
+        "entity": "NONE",
+        "object": "UNKNOWN",
+        "relationship": "UNKNOWN",
+        "location": "FULL",
+        "temporal": "UNKNOWN",
+        "overall": "PARTIAL",
+        "confidence": "HEURISTIC",
+        "note": "intent_planning_only_not_artifact_observation"
+      },
+      "coverage_requirement": {
+        "subject": "FULL",
+        "action": "FULL",
+        "entity": "NONE",
+        "object": "UNKNOWN",
+        "relationship": "UNKNOWN",
+        "location": "FULL",
+        "temporal": "UNKNOWN",
+        "overall": "PARTIAL",
+        "confidence": "HEURISTIC",
+        "note": "intent_planning_only_not_artifact_observation"
+      },
+      "visual_mode": "IMAGE",
+      "timing": {
+        "duration_sec": 5.0,
+        "policy": "NORMAL"
+      },
+      "duration": 5.0,
+      "reuse_policy": "semantic_beat_compatibility",
+      "continuity_predecessor": "vb-seg-beat-4",
+      "continuity_successor": "vb-seg-beat-6",
+      "risks": [],
+      "risk_class": null,
+      "semantic_layers": [
+        "INTENT",
+        "PROMPT",
+        "GENERATED_ASSET",
+        "OBSERVED_ASSET",
+        "VERIFIED_COVERAGE"
+      ]
+    },
+    {
+      "beat_id": "vb-seg-beat-6",
+      "dialogue_ids": [
+        "beat-6"
+      ],
+      "dialogue_id": "beat-6",
+      "scene_id": "scene-05",
+      "narrative_beat_id": "nb-seg-beat-6",
+      "purpose": "ending",
+      "visual_purpose": "ending",
+      "subject": "deep-sky maps",
+      "required_subject": "deep-sky maps",
+      "required_entities": [],
+      "required_relationships": [],
+      "relationships": [],
+      "location": "deep space",
+      "required_location": "deep space",
+      "environment": "space science",
+      "character_state": {
+        "identity": "deep-sky maps",
+        "wardrobe": "",
+        "action": "guide",
+        "emotion": "",
+        "accessories": ""
+      },
+      "required_character_state": {
+        "identity": "deep-sky maps",
+        "wardrobe": "",
+        "action": "guide",
+        "emotion": "",
+        "accessories": ""
+      },
+      "object_state": [],
+      "required_object_state": [],
+      "required_actions": [
+        "guide"
+      ],
+      "required_context": "ending",
+      "camera": "MEDIUM",
+      "lighting": "INHERITED",
+      "emotion": "",
+      "action": "guide",
+      "coverage": {
+        "subject": "FULL",
+        "action": "FULL",
+        "entity": "NONE",
+        "object": "UNKNOWN",
+        "relationship": "UNKNOWN",
+        "location": "FULL",
+        "temporal": "UNKNOWN",
+        "overall": "PARTIAL",
+        "confidence": "HEURISTIC",
+        "note": "intent_planning_only_not_artifact_observation"
+      },
+      "coverage_requirement": {
+        "subject": "FULL",
+        "action": "FULL",
+        "entity": "NONE",
+        "object": "UNKNOWN",
+        "relationship": "UNKNOWN",
+        "location": "FULL",
+        "temporal": "UNKNOWN",
+        "overall": "PARTIAL",
+        "confidence": "HEURISTIC",
+        "note": "intent_planning_only_not_artifact_observation"
+      },
+      "visual_mode": "IMAGE",
+      "timing": {
+        "duration_sec": 5.0,
+        "policy": "NORMAL"
+      },
+      "duration": 5.0,
+      "reuse_policy": "semantic_beat_compatibility",
+      "continuity_predecessor": "vb-seg-beat-5",
+      "continuity_successor": "",
+      "risks": [],
+      "risk_class": null,
+      "semantic_layers": [
+        "INTENT",
+        "PROMPT",
+        "GENERATED_ASSET",
+        "OBSERVED_ASSET",
+        "VERIFIED_COVERAGE"
+      ]
+    }
+  ],
+  "scene_bindings": [
+    {
+      "scene_id": "scene-00",
+      "dialogue_id": "beat-1",
+      "beat_id": "beat-1"
+    },
+    {
+      "scene_id": "scene-01",
+      "dialogue_id": "beat-2",
+      "beat_id": "beat-2"
+    },
+    {
+      "scene_id": "scene-02",
+      "dialogue_id": "beat-3",
+      "beat_id": "beat-3"
+    },
+    {
+      "scene_id": "scene-03",
+      "dialogue_id": "beat-4",
+      "beat_id": "beat-4"
+    },
+    {
+      "scene_id": "scene-04",
+      "dialogue_id": "beat-5",
+      "beat_id": "beat-5"
+    },
+    {
+      "scene_id": "scene-05",
+      "dialogue_id": "beat-6",
+      "beat_id": "beat-6"
+    }
+  ],
+  "world_state": {
+    "characters": {
+      "The James Webb Space Telescope": {
+        "identity": "The James Webb Space Telescope",
+        "role": "subject",
+        "emotional_state": "",
+        "action": "floats",
+        "appearance_reference": null
+      },
+      "multi-layer sunshield": {
+        "identity": "multi-layer sunshield",
+        "role": "subject",
+        "emotional_state": "",
+        "action": "protecting",
+        "appearance_reference": null
+      },
+      "distant galaxies": {
+        "identity": "distant galaxies",
+        "role": "subject",
+        "emotional_state": "",
+        "action": "reveal",
+        "appearance_reference": null
+      },
+      "cosmic dust": {
+        "identity": "cosmic dust",
+        "role": "subject",
+        "emotional_state": "",
+        "action": "pierces",
+        "appearance_reference": null
+      },
+      "spiral galaxy": {
+        "identity": "spiral galaxy",
+        "role": "subject",
+        "emotional_state": "",
+        "action": "rotates",
+        "appearance_reference": null
+      },
+      "deep-sky maps": {
+        "identity": "deep-sky maps",
+        "role": "subject",
+        "emotional_state": "",
+        "action": "guide",
+        "appearance_reference": null
+      }
+    },
+    "locations": {
+      "deep space": {
+        "location_identity": "deep space",
+        "environment_identity": "deep space"
+      }
+    },
+    "objects": {
+      "The James Webb Space Telescope": {
+        "identity": "The James Webb Space Telescope",
+        "type": "entity"
+      },
+      "golden hexagonal mirrors": {
+        "identity": "golden hexagonal mirrors",
+        "type": "entity"
+      },
+      "multi-layer sunshield": {
+        "identity": "multi-layer sunshield",
+        "type": "entity"
+      },
+      "primary mirror": {
+        "identity": "primary mirror",
+        "type": "entity"
+      },
+      "distant galaxies": {
+        "identity": "distant galaxies",
+        "type": "entity"
+      },
+      "infrared deep-field": {
+        "identity": "infrared deep-field",
+        "type": "entity"
+      },
+      "cosmic dust": {
+        "identity": "cosmic dust",
+        "type": "entity"
+      },
+      "star-forming nurseries": {
+        "identity": "star-forming nurseries",
+        "type": "entity"
+      },
+      "glowing nebula": {
+        "identity": "glowing nebula",
+        "type": "entity"
+      },
+      "spiral galaxy": {
+        "identity": "spiral galaxy",
+        "type": "entity"
+      },
+      "early cosmos": {
+        "identity": "early cosmos",
+        "type": "entity"
+      },
+      "deep-sky maps": {
+        "identity": "deep-sky maps",
+        "type": "entity"
+      },
+      "Artemis crews": {
+        "identity": "Artemis crews",
+        "type": "entity"
+      },
+      "low Earth orbit": {
+        "identity": "low Earth orbit",
+        "type": "entity"
+      }
+    },
+    "relationships": [],
+    "note": "World state projection from approved script + C05-S visual beats \u2014 ContinuityTracker remains authority at generation"
+  },
+  "camera_lighting": {
+    "shots": [
+      {
+        "beat_id": "vb-seg-beat-1",
+        "camera": "ESTABLISHING",
+        "lighting": "UNKNOWN"
+      },
+      {
+        "beat_id": "vb-seg-beat-2",
+        "camera": "MEDIUM",
+        "lighting": "INHERITED"
+      },
+      {
+        "beat_id": "vb-seg-beat-3",
+        "camera": "MEDIUM",
+        "lighting": "INHERITED"
+      },
+      {
+        "beat_id": "vb-seg-beat-4",
+        "camera": "MEDIUM",
+        "lighting": "INHERITED"
+      },
+      {
+        "beat_id": "vb-seg-beat-5",
+        "camera": "MEDIUM",
+        "lighting": "INHERITED"
+      },
+      {
+        "beat_id": "vb-seg-beat-6",
+        "camera": "MEDIUM",
+        "lighting": "INHERITED"
+      }
+    ],
+    "note": "Camera transition \u2260 location reset",
+    "authority": "SceneIntent / ContinuityTracker"
+  },
+  "audio_plan": {
+    "status": "BOUND",
+    "count": 6,
+    "segments": [
+      {
+        "dialogue_id": "beat-1",
+        "scene_id": "scene-00",
+        "speaker": "Narrator",
+        "voice_identity_ref": "",
+        "emotion_intent": "neutral",
+        "timing": {
+          "start_sec": 0.0,
+          "duration_sec": 5.0,
+          "end_sec": 5.0
+        },
+        "audio_plan": {
+          "schema_version": "1.1.0",
+          "id": "422ed9bd-d41b-4f8f-8c19-b7f78280092c",
+          "created_at": "2026-09-08 15:08:54.657402+00:00",
+          "updated_at": null,
+          "scene_id": "scene-00",
+          "dialogue_id": "beat-1",
+          "segment_id": null,
+          "revision_id": "0600f04b0d284aaa85ddaf0fb136f49a",
+          "language": "en",
+          "speaker_id": "Narrator",
+          "voice_profile": null,
+          "emotion": "neutral",
+          "intensity": 0.5,
+          "delivery_style": "neutral",
+          "speech_rate": 1.0,
+          "speed": 1.0,
+          "pause_hints": [],
+          "pause_intent": [],
+          "pronunciation": [],
+          "ambience": null,
+          "sfx_events": [],
+          "music": null,
+          "ducking": {
+            "policy": "dialogue_primary_v1",
+            "when_dialogue_active_db": -12.0,
+            "recovery_db": 0.0,
+            "attack_ms": 50,
+            "release_ms": 200
+          },
+          "mix_priority": {
+            "dialogue": 1,
+            "sfx": 2,
+            "ambience": 3,
+            "music": 4
+          },
+          "loudness_policy": "dialogue_primary_v1",
+          "provider": null,
+          "generation_reference": null,
+          "duration_target_sec": 5.0,
+          "metadata": {
+            "plan_fingerprint": "84225755487ca3db3fa50295d968fed6cb28a4a155b58f563448e9d3be8f263b",
+            "location": "",
+            "environment": "",
+            "primary_action": "",
+            "dialogue_preview": "The James Webb Space Telescope floats in deep space, its golden hexagonal mirrors facing the cosmic dark."
+          }
+        },
+        "note": "Voice Identity and Scene Emotion remain separate; no TTS executed"
+      },
+      {
+        "dialogue_id": "beat-2",
+        "scene_id": "scene-01",
+        "speaker": "Narrator",
+        "voice_identity_ref": "",
+        "emotion_intent": "neutral",
+        "timing": {
+          "start_sec": 5.0,
+          "duration_sec": 5.0,
+          "end_sec": 10.0
+        },
+        "audio_plan": {
+          "schema_version": "1.1.0",
+          "id": "b096a370-48eb-4a16-bf2d-ce6b4e973858",
+          "created_at": "2026-09-08 15:08:54.658398+00:00",
+          "updated_at": null,
+          "scene_id": "scene-01",
+          "dialogue_id": "beat-2",
+          "segment_id": null,
+          "revision_id": "0600f04b0d284aaa85ddaf0fb136f49a",
+          "language": "en",
+          "speaker_id": "Narrator",
+          "voice_profile": null,
+          "emotion": "neutral",
+          "intensity": 0.5,
+          "delivery_style": "neutral",
+          "speech_rate": 1.0,
+          "speed": 1.0,
+          "pause_hints": [],
+          "pause_intent": [],
+          "pronunciation": [],
+          "ambience": null,
+          "sfx_events": [],
+          "music": null,
+          "ducking": {
+            "policy": "dialogue_primary_v1",
+            "when_dialogue_active_db": -12.0,
+            "recovery_db": 0.0,
+            "attack_ms": 50,
+            "release_ms": 200
+          },
+          "mix_priority": {
+            "dialogue": 1,
+            "sfx": 2,
+            "ambience": 3,
+            "music": 4
+          },
+          "loudness_policy": "dialogue_primary_v1",
+          "provider": null,
+          "generation_reference": null,
+          "duration_target_sec": 5.0,
+          "metadata": {
+            "plan_fingerprint": "4bd817cdb01a033d5ea689fc26c7e6bf53a866282bdb7d25dc5cfcbb2afbc4c7",
+            "location": "",
+            "environment": "",
+            "primary_action": "",
+            "dialogue_preview": "The multi-layer sunshield sits beneath the primary mirror, protecting instruments from solar heat."
+          }
+        },
+        "note": "Voice Identity and Scene Emotion remain separate; no TTS executed"
+      },
+      {
+        "dialogue_id": "beat-3",
+        "scene_id": "scene-02",
+        "speaker": "Narrator",
+        "voice_identity_ref": "",
+        "emotion_intent": "neutral",
+        "timing": {
+          "start_sec": 10.0,
+          "duration_sec": 5.0,
+          "end_sec": 15.0
+        },
+        "audio_plan": {
+          "schema_version": "1.1.0",
+          "id": "284c8d2c-89f1-4bb6-b405-cec3911e2a67",
+          "created_at": "2026-09-08 15:08:54.658398+00:00",
+          "updated_at": null,
+          "scene_id": "scene-02",
+          "dialogue_id": "beat-3",
+          "segment_id": null,
+          "revision_id": "0600f04b0d284aaa85ddaf0fb136f49a",
+          "language": "en",
+          "speaker_id": "Narrator",
+          "voice_profile": null,
+          "emotion": "neutral",
+          "intensity": 0.5,
+          "delivery_style": "neutral",
+          "speech_rate": 1.0,
+          "speed": 1.0,
+          "pause_hints": [],
+          "pause_intent": [],
+          "pronunciation": [],
+          "ambience": null,
+          "sfx_events": [],
+          "music": null,
+          "ducking": {
+            "policy": "dialogue_primary_v1",
+            "when_dialogue_active_db": -12.0,
+            "recovery_db": 0.0,
+            "attack_ms": 50,
+            "release_ms": 200
+          },
+          "mix_priority": {
+            "dialogue": 1,
+            "sfx": 2,
+            "ambience": 3,
+            "music": 4
+          },
+          "loudness_policy": "dialogue_primary_v1",
+          "provider": null,
+          "generation_reference": null,
+          "duration_target_sec": 5.0,
+          "metadata": {
+            "plan_fingerprint": "c48653c4f930a3a64f3b81e67f670f7783fb38fe7ad54d9204ed650ba0f3745c",
+            "location": "",
+            "environment": "",
+            "primary_action": "",
+            "dialogue_preview": "Infrared deep-field images reveal thousands of distant galaxies formed more than thirteen billion years ago."
+          }
+        },
+        "note": "Voice Identity and Scene Emotion remain separate; no TTS executed"
+      },
+      {
+        "dialogue_id": "beat-4",
+        "scene_id": "scene-03",
+        "speaker": "Narrator",
+        "voice_identity_ref": "",
+        "emotion_intent": "neutral",
+        "timing": {
+          "start_sec": 15.0,
+          "duration_sec": 5.0,
+          "end_sec": 20.0
+        },
+        "audio_plan": {
+          "schema_version": "1.1.0",
+          "id": "414fcf22-ecba-4ef8-95c7-ef33f5d1b52c",
+          "created_at": "2026-09-08 15:08:54.658398+00:00",
+          "updated_at": null,
+          "scene_id": "scene-03",
+          "dialogue_id": "beat-4",
+          "segment_id": null,
+          "revision_id": "0600f04b0d284aaa85ddaf0fb136f49a",
+          "language": "en",
+          "speaker_id": "Narrator",
+          "voice_profile": null,
+          "emotion": "neutral",
+          "intensity": 0.5,
+          "delivery_style": "neutral",
+          "speech_rate": 1.0,
+          "speed": 1.0,
+          "pause_hints": [],
+          "pause_intent": [],
+          "pronunciation": [],
+          "ambience": null,
+          "sfx_events": [],
+          "music": null,
+          "ducking": {
+            "policy": "dialogue_primary_v1",
+            "when_dialogue_active_db": -12.0,
+            "recovery_db": 0.0,
+            "attack_ms": 50,
+            "release_ms": 200
+          },
+          "mix_priority": {
+            "dialogue": 1,
+            "sfx": 2,
+            "ambience": 3,
+            "music": 4
+          },
+          "loudness_policy": "dialogue_primary_v1",
+          "provider": null,
+          "generation_reference": null,
+          "duration_target_sec": 5.0,
+          "metadata": {
+            "plan_fingerprint": "17c6012597f8c48afc17ede82f4f2d53d39cfaa78bc7e704b6b1ecad425f3421",
+            "location": "",
+            "environment": "",
+            "primary_action": "",
+            "dialogue_preview": "Infrared light pierces cosmic dust, unveiling hidden star-forming nurseries inside a glowing nebula."
+          }
+        },
+        "note": "Voice Identity and Scene Emotion remain separate; no TTS executed"
+      },
+      {
+        "dialogue_id": "beat-5",
+        "scene_id": "scene-04",
+        "speaker": "Narrator",
+        "voice_identity_ref": "",
+        "emotion_intent": "neutral",
+        "timing": {
+          "start_sec": 20.0,
+          "duration_sec": 5.0,
+          "end_sec": 25.0
+        },
+        "audio_plan": {
+          "schema_version": "1.1.0",
+          "id": "44bcda69-e618-4f39-8483-d178b76bca3c",
+          "created_at": "2026-09-08 15:08:54.658398+00:00",
+          "updated_at": null,
+          "scene_id": "scene-04",
+          "dialogue_id": "beat-5",
+          "segment_id": null,
+          "revision_id": "0600f04b0d284aaa85ddaf0fb136f49a",
+          "language": "en",
+          "speaker_id": "Narrator",
+          "voice_profile": null,
+          "emotion": "neutral",
+          "intensity": 0.5,
+          "delivery_style": "neutral",
+          "speech_rate": 1.0,
+          "speed": 1.0,
+          "pause_hints": [],
+          "pause_intent": [],
+          "pronunciation": [],
+          "ambience": null,
+          "sfx_events": [],
+          "music": null,
+          "ducking": {
+            "policy": "dialogue_primary_v1",
+            "when_dialogue_active_db": -12.0,
+            "recovery_db": 0.0,
+            "attack_ms": 50,
+            "release_ms": 200
+          },
+          "mix_priority": {
+            "dialogue": 1,
+            "sfx": 2,
+            "ambience": 3,
+            "music": 4
+          },
+          "loudness_policy": "dialogue_primary_v1",
+          "provider": null,
+          "generation_reference": null,
+          "duration_target_sec": 5.0,
+          "metadata": {
+            "plan_fingerprint": "69b09e09c2a4204ef99eaec4dc9c67a9c53e7e5d9877fc3ef7c739d91750123a",
+            "location": "",
+            "environment": "",
+            "primary_action": "",
+            "dialogue_preview": "A spiral galaxy rotates slowly in the early cosmos, challenging older models of rapid growth."
+          }
+        },
+        "note": "Voice Identity and Scene Emotion remain separate; no TTS executed"
+      },
+      {
+        "dialogue_id": "beat-6",
+        "scene_id": "scene-05",
+        "speaker": "Narrator",
+        "voice_identity_ref": "",
+        "emotion_intent": "neutral",
+        "timing": {
+          "start_sec": 25.0,
+          "duration_sec": 5.0,
+          "end_sec": 30.0
+        },
+        "audio_plan": {
+          "schema_version": "1.1.0",
+          "id": "ef486f36-2e6c-41fa-a3c3-1fa78b8aa26e",
+          "created_at": "2026-09-08 15:08:54.658398+00:00",
+          "updated_at": null,
+          "scene_id": "scene-05",
+          "dialogue_id": "beat-6",
+          "segment_id": null,
+          "revision_id": "0600f04b0d284aaa85ddaf0fb136f49a",
+          "language": "en",
+          "speaker_id": "Narrator",
+          "voice_profile": null,
+          "emotion": "neutral",
+          "intensity": 0.5,
+          "delivery_style": "neutral",
+          "speech_rate": 1.0,
+          "speed": 1.0,
+          "pause_hints": [],
+          "pause_intent": [],
+          "pronunciation": [],
+          "ambience": null,
+          "sfx_events": [],
+          "music": null,
+          "ducking": {
+            "policy": "dialogue_primary_v1",
+            "when_dialogue_active_db": -12.0,
+            "recovery_db": 0.0,
+            "attack_ms": 50,
+            "release_ms": 200
+          },
+          "mix_priority": {
+            "dialogue": 1,
+            "sfx": 2,
+            "ambience": 3,
+            "music": 4
+          },
+          "loudness_policy": "dialogue_primary_v1",
+          "provider": null,
+          "generation_reference": null,
+          "duration_target_sec": 5.0,
+          "metadata": {
+            "plan_fingerprint": "d1b2d2d217d38b8f381b1328593698c59b0862fc5ad4a77cb37662b9b50f507d",
+            "location": "",
+            "environment": "",
+            "primary_action": "",
+            "dialogue_preview": "Those same deep-sky maps guide Artemis crews as they cross beyond low Earth orbit."
+          }
+        },
+        "note": "Voice Identity and Scene Emotion remain separate; no TTS executed"
+      }
+    ],
+    "authority": "AudioPlan / build_industrial_audio_plan"
+  },
+  "localization_plan": {
+    "status": "BOUND",
+    "count": 6,
+    "segments": [
+      {
+        "dialogue_id": "beat-1",
+        "language": "en",
+        "speaker": "Narrator",
+        "timing": {
+          "start_sec": 0.0,
+          "end_sec": 5.0
+        },
+        "localization_contract": {
+          "job_id": "c06c-c11_marathon_customer-4-0600f04b",
+          "scene_id": "scene-00",
+          "dialogue_id": "beat-1",
+          "segment_id": "",
+          "revision_id": "0600f04b0d284aaa85ddaf0fb136f49a",
+          "source_language": "en",
+          "target_language": "en",
+          "source_text": "The James Webb Space Telescope floats in deep space, its golden hexagonal mirrors facing the cosmic dark.",
+          "localized_text": "The James Webb Space Telescope floats in deep space, its golden hexagonal mirrors facing the cosmic dark.",
+          "speaker_id": "Narrator",
+          "entity_bindings": [
+            "The James Webb",
+            "Space Telescope"
+          ],
+          "fact_bindings": [],
+          "emotion_intent": "",
+          "emotion_intensity": 0.5,
+          "action_events": [],
+          "rtl": false,
+          "numeral_policy": "preserve_source_digits",
+          "unit_policy": "preserve_source_units",
+          "currency_policy": "preserve_source_currency",
+          "name_policy": "preserve_latin_proper_nouns",
+          "reading_speed_cps": 17.0,
+          "max_chars_per_line": 42,
+          "max_lines": 2,
+          "audio_fingerprint": "",
+          "contract_fingerprint": "06eec7f8956da5d3e3d07b794c87882a6cbd8c5589a2d3f659943ac4fa6a8cbd",
+          "text_plan": {
+            "scene_id": "scene-00",
+            "language": "en",
+            "elements": [
+              {
+                "text_id": "sub-beat-1",
+                "scene_id": "scene-00",
+                "language": "en",
+                "content": "The James Webb Space Telescope floats in deep space, its golden hexagonal mirrors facing the cosmic dark.",
+                "purpose": "SUBTITLE",
+                "timing_start": 0.0,
+                "timing_end": 0.0,
+                "position": "bottom_center",
+                "safe_area": true,
+                "style": "default",
+                "priority": 1,
+                "effect": "none",
+                "max_width_pct": 0.9,
+                "max_height_pct": 0.25
+              }
+            ],
+            "effect_policy": "purposeful_v1",
+            "revision_id": "0600f04b0d284aaa85ddaf0fb136f49a"
+          },
+          "metadata": {}
+        },
+        "observation": "UNKNOWN",
+        "note": "No OCR/VLM semantic verification \u2014 UNKNOWN remains UNKNOWN"
+      },
+      {
+        "dialogue_id": "beat-2",
+        "language": "en",
+        "speaker": "Narrator",
+        "timing": {
+          "start_sec": 5.0,
+          "end_sec": 10.0
+        },
+        "localization_contract": {
+          "job_id": "c06c-c11_marathon_customer-4-0600f04b",
+          "scene_id": "scene-01",
+          "dialogue_id": "beat-2",
+          "segment_id": "",
+          "revision_id": "0600f04b0d284aaa85ddaf0fb136f49a",
+          "source_language": "en",
+          "target_language": "en",
+          "source_text": "The multi-layer sunshield sits beneath the primary mirror, protecting instruments from solar heat.",
+          "localized_text": "The multi-layer sunshield sits beneath the primary mirror, protecting instruments from solar heat.",
+          "speaker_id": "Narrator",
+          "entity_bindings": [
+            "The"
+          ],
+          "fact_bindings": [],
+          "emotion_intent": "",
+          "emotion_intensity": 0.5,
+          "action_events": [],
+          "rtl": false,
+          "numeral_policy": "preserve_source_digits",
+          "unit_policy": "preserve_source_units",
+          "currency_policy": "preserve_source_currency",
+          "name_policy": "preserve_latin_proper_nouns",
+          "reading_speed_cps": 17.0,
+          "max_chars_per_line": 42,
+          "max_lines": 2,
+          "audio_fingerprint": "",
+          "contract_fingerprint": "094f88376423fb23150ffdc6854f956397815c6194e9c4057b1e3f98a01a5f59",
+          "text_plan": {
+            "scene_id": "scene-01",
+            "language": "en",
+            "elements": [
+              {
+                "text_id": "sub-beat-2",
+                "scene_id": "scene-01",
+                "language": "en",
+                "content": "The multi-layer sunshield sits beneath the primary mirror, protecting instruments from solar heat.",
+                "purpose": "SUBTITLE",
+                "timing_start": 0.0,
+                "timing_end": 0.0,
+                "position": "bottom_center",
+                "safe_area": true,
+                "style": "default",
+                "priority": 1,
+                "effect": "none",
+                "max_width_pct": 0.9,
+                "max_height_pct": 0.25
+              }
+            ],
+            "effect_policy": "purposeful_v1",
+            "revision_id": "0600f04b0d284aaa85ddaf0fb136f49a"
+          },
+          "metadata": {}
+        },
+        "observation": "UNKNOWN",
+        "note": "No OCR/VLM semantic verification \u2014 UNKNOWN remains UNKNOWN"
+      },
+      {
+        "dialogue_id": "beat-3",
+        "language": "en",
+        "speaker": "Narrator",
+        "timing": {
+          "start_sec": 10.0,
+          "end_sec": 15.0
+        },
+        "localization_contract": {
+          "job_id": "c06c-c11_marathon_customer-4-0600f04b",
+          "scene_id": "scene-02",
+          "dialogue_id": "beat-3",
+          "segment_id": "",
+          "revision_id": "0600f04b0d284aaa85ddaf0fb136f49a",
+          "source_language": "en",
+          "target_language": "en",
+          "source_text": "Infrared deep-field images reveal thousands of distant galaxies formed more than thirteen billion years ago.",
+          "localized_text": "Infrared deep-field images reveal thousands of distant galaxies formed more than thirteen billion years ago.",
+          "speaker_id": "Narrator",
+          "entity_bindings": [
+            "Infrared"
+          ],
+          "fact_bindings": [],
+          "emotion_intent": "",
+          "emotion_intensity": 0.5,
+          "action_events": [],
+          "rtl": false,
+          "numeral_policy": "preserve_source_digits",
+          "unit_policy": "preserve_source_units",
+          "currency_policy": "preserve_source_currency",
+          "name_policy": "preserve_latin_proper_nouns",
+          "reading_speed_cps": 17.0,
+          "max_chars_per_line": 42,
+          "max_lines": 2,
+          "audio_fingerprint": "",
+          "contract_fingerprint": "a4b1616b53fff2d3c95713180cf517ebdc7e05d7cdeade4772414f85295742ae",
+          "text_plan": {
+            "scene_id": "scene-02",
+            "language": "en",
+            "elements": [
+              {
+                "text_id": "sub-beat-3",
+                "scene_id": "scene-02",
+                "language": "en",
+                "content": "Infrared deep-field images reveal thousands of distant galaxies formed more than thirteen billion years ago.",
+                "purpose": "SUBTITLE",
+                "timing_start": 0.0,
+                "timing_end": 0.0,
+                "position": "bottom_center",
+                "safe_area": true,
+                "style": "default",
+                "priority": 1,
+                "effect": "none",
+                "max_width_pct": 0.9,
+                "max_height_pct": 0.25
+              }
+            ],
+            "effect_policy": "purposeful_v1",
+            "revision_id": "0600f04b0d284aaa85ddaf0fb136f49a"
+          },
+          "metadata": {}
+        },
+        "observation": "UNKNOWN",
+        "note": "No OCR/VLM semantic verification \u2014 UNKNOWN remains UNKNOWN"
+      },
+      {
+        "dialogue_id": "beat-4",
+        "language": "en",
+        "speaker": "Narrator",
+        "timing": {
+          "start_sec": 15.0,
+          "end_sec": 20.0
+        },
+        "localization_contract": {
+          "job_id": "c06c-c11_marathon_customer-4-0600f04b",
+          "scene_id": "scene-03",
+          "dialogue_id": "beat-4",
+          "segment_id": "",
+          "revision_id": "0600f04b0d284aaa85ddaf0fb136f49a",
+          "source_language": "en",
+          "target_language": "en",
+          "source_text": "Infrared light pierces cosmic dust, unveiling hidden star-forming nurseries inside a glowing nebula.",
+          "localized_text": "Infrared light pierces cosmic dust, unveiling hidden star-forming nurseries inside a glowing nebula.",
+          "speaker_id": "Narrator",
+          "entity_bindings": [
+            "Infrared"
+          ],
+          "fact_bindings": [],
+          "emotion_intent": "",
+          "emotion_intensity": 0.5,
+          "action_events": [],
+          "rtl": false,
+          "numeral_policy": "preserve_source_digits",
+          "unit_policy": "preserve_source_units",
+          "currency_policy": "preserve_source_currency",
+          "name_policy": "preserve_latin_proper_nouns",
+          "reading_speed_cps": 17.0,
+          "max_chars_per_line": 42,
+          "max_lines": 2,
+          "audio_fingerprint": "",
+          "contract_fingerprint": "aa4c4772e95e3995fd33d674be9070b999f5ad9ad67fcf787587d00d1e244d18",
+          "text_plan": {
+            "scene_id": "scene-03",
+            "language": "en",
+            "elements": [
+              {
+                "text_id": "sub-beat-4",
+                "scene_id": "scene-03",
+                "language": "en",
+                "content": "Infrared light pierces cosmic dust, unveiling hidden star-forming nurseries inside a glowing nebula.",
+                "purpose": "SUBTITLE",
+                "timing_start": 0.0,
+                "timing_end": 0.0,
+                "position": "bottom_center",
+                "safe_area": true,
+                "style": "default",
+                "priority": 1,
+                "effect": "none",
+                "max_width_pct": 0.9,
+                "max_height_pct": 0.25
+              }
+            ],
+            "effect_policy": "purposeful_v1",
+            "revision_id": "0600f04b0d284aaa85ddaf0fb136f49a"
+          },
+          "metadata": {}
+        },
+        "observation": "UNKNOWN",
+        "note": "No OCR/VLM semantic verification \u2014 UNKNOWN remains UNKNOWN"
+      },
+      {
+        "dialogue_id": "beat-5",
+        "language": "en",
+        "speaker": "Narrator",
+        "timing": {
+          "start_sec": 20.0,
+          "end_sec": 25.0
+        },
+        "localization_contract": {
+          "job_id": "c06c-c11_marathon_customer-4-0600f04b",
+          "scene_id": "scene-04",
+          "dialogue_id": "beat-5",
+          "segment_id": "",
+          "revision_id": "0600f04b0d284aaa85ddaf0fb136f49a",
+          "source_language": "en",
+          "target_language": "en",
+          "source_text": "A spiral galaxy rotates slowly in the early cosmos, challenging older models of rapid growth.",
+          "localized_text": "A spiral galaxy rotates slowly in the early cosmos, challenging older models of rapid growth.",
+          "speaker_id": "Narrator",
+          "entity_bindings": [],
+          "fact_bindings": [],
+          "emotion_intent": "",
+          "emotion_intensity": 0.5,
+          "action_events": [],
+          "rtl": false,
+          "numeral_policy": "preserve_source_digits",
+          "unit_policy": "preserve_source_units",
+          "currency_policy": "preserve_source_currency",
+          "name_policy": "preserve_latin_proper_nouns",
+          "reading_speed_cps": 17.0,
+          "max_chars_per_line": 42,
+          "max_lines": 2,
+          "audio_fingerprint": "",
+          "contract_fingerprint": "ce84f5ac580379f0525ac385e620f39f0eebc779de1d8aecae595fcafdac5f40",
+          "text_plan": {
+            "scene_id": "scene-04",
+            "language": "en",
+            "elements": [
+              {
+                "text_id": "sub-beat-5",
+                "scene_id": "scene-04",
+                "language": "en",
+                "content": "A spiral galaxy rotates slowly in the early cosmos, challenging older models of rapid growth.",
+                "purpose": "SUBTITLE",
+                "timing_start": 0.0,
+                "timing_end": 0.0,
+                "position": "bottom_center",
+                "safe_area": true,
+                "style": "default",
+                "priority": 1,
+                "effect": "none",
+                "max_width_pct": 0.9,
+                "max_height_pct": 0.25
+              }
+            ],
+            "effect_policy": "purposeful_v1",
+            "revision_id": "0600f04b0d284aaa85ddaf0fb136f49a"
+          },
+          "metadata": {}
+        },
+        "observation": "UNKNOWN",
+        "note": "No OCR/VLM semantic verification \u2014 UNKNOWN remains UNKNOWN"
+      },
+      {
+        "dialogue_id": "beat-6",
+        "language": "en",
+        "speaker": "Narrator",
+        "timing": {
+          "start_sec": 25.0,
+          "end_sec": 30.0
+        },
+        "localization_contract": {
+          "job_id": "c06c-c11_marathon_customer-4-0600f04b",
+          "scene_id": "scene-05",
+          "dialogue_id": "beat-6",
+          "segment_id": "",
+          "revision_id": "0600f04b0d284aaa85ddaf0fb136f49a",
+          "source_language": "en",
+          "target_language": "en",
+          "source_text": "Those same deep-sky maps guide Artemis crews as they cross beyond low Earth orbit.",
+          "localized_text": "Those same deep-sky maps guide Artemis crews as they cross beyond low Earth orbit.",
+          "speaker_id": "Narrator",
+          "entity_bindings": [
+            "Those",
+            "Artemis",
+            "Earth"
+          ],
+          "fact_bindings": [],
+          "emotion_intent": "",
+          "emotion_intensity": 0.5,
+          "action_events": [],
+          "rtl": false,
+          "numeral_policy": "preserve_source_digits",
+          "unit_policy": "preserve_source_units",
+          "currency_policy": "preserve_source_currency",
+          "name_policy": "preserve_latin_proper_nouns",
+          "reading_speed_cps": 17.0,
+          "max_chars_per_line": 42,
+          "max_lines": 2,
+          "audio_fingerprint": "",
+          "contract_fingerprint": "0d3959d989aebce327e5a81f8e398664884436a31048c62f483c2a14168134b3",
+          "text_plan": {
+            "scene_id": "scene-05",
+            "language": "en",
+            "elements": [
+              {
+                "text_id": "sub-beat-6",
+                "scene_id": "scene-05",
+                "language": "en",
+                "content": "Those same deep-sky maps guide Artemis crews as they cross beyond low Earth orbit.",
+                "purpose": "SUBTITLE",
+                "timing_start": 0.0,
+                "timing_end": 0.0,
+                "position": "bottom_center",
+                "safe_area": true,
+                "style": "default",
+                "priority": 1,
+                "effect": "none",
+                "max_width_pct": 0.9,
+                "max_height_pct": 0.25
+              }
+            ],
+            "effect_policy": "purposeful_v1",
+            "revision_id": "0600f04b0d284aaa85ddaf0fb136f49a"
+          },
+          "metadata": {}
+        },
+        "observation": "UNKNOWN",
+        "note": "No OCR/VLM semantic verification \u2014 UNKNOWN remains UNKNOWN"
+      }
+    ],
+    "authority": "LocalizationContract / TextPlan",
+    "semantic_verification": "UNKNOWN"
+  },
+  "subtitle_plan": {
+    "status": "BOUND",
+    "bound_to_script_revision": "0600f04b0d284aaa85ddaf0fb136f49a",
+    "semantic_verification": "UNKNOWN",
+    "authority": "LocalizationContract / subtitle request contracts"
+  },
+  "generation_modes": {
+    "modes": [
+      "IMAGE"
+    ],
+    "unsupported": [],
+    "requested_vs_actual": [
+      {
+        "requested": "IMAGE",
+        "actual": "IMAGE",
+        "fallback_reason": null
+      }
+    ],
+    "authority": "C05-V / DirectedVisualBeat.visual_mode"
+  },
+  "continuity": {
+    "authority": "ContinuityTracker",
+    "reference_only": true,
+    "beat_chain": [
+      {
+        "beat_id": "vb-seg-beat-1",
+        "predecessor": "",
+        "successor": "vb-seg-beat-2",
+        "location": "deep space",
+        "lighting": "UNKNOWN",
+        "camera": "ESTABLISHING"
+      },
+      {
+        "beat_id": "vb-seg-beat-2",
+        "predecessor": "vb-seg-beat-1",
+        "successor": "vb-seg-beat-3",
+        "location": "deep space",
+        "lighting": "INHERITED",
+        "camera": "MEDIUM"
+      },
+      {
+        "beat_id": "vb-seg-beat-3",
+        "predecessor": "vb-seg-beat-2",
+        "successor": "vb-seg-beat-4",
+        "location": "deep space",
+        "lighting": "INHERITED",
+        "camera": "MEDIUM"
+      },
+      {
+        "beat_id": "vb-seg-beat-4",
+        "predecessor": "vb-seg-beat-3",
+        "successor": "vb-seg-beat-5",
+        "location": "deep space",
+        "lighting": "INHERITED",
+        "camera": "MEDIUM"
+      },
+      {
+        "beat_id": "vb-seg-beat-5",
+        "predecessor": "vb-seg-beat-4",
+        "successor": "vb-seg-beat-6",
+        "location": "deep space",
+        "lighting": "INHERITED",
+        "camera": "MEDIUM"
+      },
+      {
+        "beat_id": "vb-seg-beat-6",
+        "predecessor": "vb-seg-beat-5",
+        "successor": "",
+        "location": "deep space",
+        "lighting": "INHERITED",
+        "camera": "MEDIUM"
+      }
+    ],
+    "note": "Camera changes must not reset world location; ContinuityTracker remains sole continuity authority at generation"
+  },
+  "provenance": {
+    "source": "APPROVED_SCRIPT",
+    "authorities": [
+      "domain.script.ScriptPlan",
+      "C05-S story_visual_direction",
+      "AudioPlan",
+      "LocalizationContract",
+      "BUILD-03 compute_fingerprint",
+      "ContinuityTracker (reference)"
+    ],
+    "created_at": "2026-09-08T21:08:54.664397",
+    "no_media_generation": true,
+    "paid_api_calls": 0
+  },
+  "fingerprint": "76db0932dc5388c07fa56ab99e6666c495076af98a344b9c33ffd3bfeb19a20b",
+  "build_blocks": [],
+  "status": "READY_FOR_GENERATION",
+  "created_at": "2026-09-08T21:08:54.664397",
+  "updated_at": "2026-09-08T21:08:54.664397",
+  "readiness": {
+    "ready": true,
+    "status": "READY_FOR_GENERATION",
+    "blocks": [],
+    "warnings": [
+      "localization_semantic_verification_UNKNOWN"
+    ],
+    "note": "READY_FOR_GENERATION \u2260 GENERATED \u2260 VERIFIED \u2260 PUBLISHABLE \u2260 READY_TO_UPLOAD"
+  }
+}

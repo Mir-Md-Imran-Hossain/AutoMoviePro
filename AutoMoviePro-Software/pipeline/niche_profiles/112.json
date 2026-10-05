@@ -1,0 +1,79 @@
+{
+  "niche_id": 112,
+  "name": "Collaboration Tools",
+  "slug": "collaboration-tools",
+  "style_family": "science",
+  "status": "VERIFIED",
+  "topic_seeds": [
+    "What new evidence reframes the story of Collaboration Tools Miro inside Collaboration Tools",
+    "How Collaboration Tools Miro still shapes public curiosity about Collaboration Tools",
+    "What new evidence reframes the story of Trello inside Collaboration Tools",
+    "How Trello still shapes public curiosity about Collaboration Tools",
+    "What new evidence reframes the story of Slack inside Collaboration Tools",
+    "How Slack still shapes public curiosity about Collaboration Tools"
+  ],
+  "seo_angles": [
+    "What new evidence reframes the story of Collaboration Tools Miro inside Collaboration Tools",
+    "How Collaboration Tools Miro still shapes public curiosity about Collaboration Tools",
+    "What new evidence reframes the story of Trello inside Collaboration Tools",
+    "How Trello still shapes public curiosity about Collaboration Tools"
+  ],
+  "forbidden_visuals": [
+    "talking-head lip-sync avatar",
+    "burned-in captions",
+    "watermark",
+    "modern meme text",
+    "off-niche stock office B-roll"
+  ],
+  "preferred_subjects": [
+    "lab instrument close-up",
+    "diagrammatic mechanism metaphor",
+    "field measurement site"
+  ],
+  "lighting_default": "teal/cyan lab grade, high contrast, shallow DOF",
+  "face_policy": "no talking-head lip-sync avatar; cinematic B-roll preferred",
+  "dialogue_tone": "clear explainer; one mechanism per beat",
+  "audio_ambience": "clean room tone, soft electronic texture",
+  "research_hints": [
+    "Prefer primary evidence and concrete entities for Collaboration Tools",
+    "Avoid generic niche-label topics; require specific place/person/event/mechanism",
+    "7–9 second spoken beats with story continuity across scenes"
+  ],
+  "topic_prompt_overlay": "NICHE LOCK (Collaboration Tools): only propose topics that fit this niche's video type. Video type: Miro, Trello, Slack — free versions for remote teams, with workflow automation ideas. Follow niche topic strategy: Follow remote work news, new collaboration releases, or viral team success stories. Generate a topic about a tool that transformed teamwork.",
+  "video_prompt_overlay": "NICHE VISUAL LOCK (Collaboration Tools / science): Generate a 7–9 second dialogue clip based on the topic `{topic}`. Each dialogue must be collaborative and smooth. For each dialogue, generate: - **Audio Generation Prompt:** Voice — team-like, with notification dings and chat sounds. - **Video Generation Prompt:** Detailed visual — a board or chat window screen. No character — screen. Lighting: clean, neutral. Maintain same board. Forbidden: talking-head lip-sync avatar, burned-in captions, watermark, modern meme text, off-niche stock office B-roll. Preferred subjects: lab instrument close-up, diagrammatic mechanism metaphor, field measurement site. Lighting: teal/cyan lab grade, high contrast, shallow DOF. Face policy: no talking-head lip-sync avatar; cinematic B-roll preferred. Dialogue tone: clear explainer; one mechanism per beat. Ambience: clean room tone, soft electronic texture.",
+  "i18n": {
+    "en": {
+      "name": "Collaboration Tools",
+      "blurb": "Miro, Trello, Slack — free versions for remote teams, with workflow automation ideas."
+    },
+    "bn": {
+      "name": "সহযোগিতার টুল",
+      "blurb": "ভিডিও টাইপ: Miro, Trello, Slack — free versions for remote teams, with workflow automation ideas."
+    },
+    "hi": {
+      "name": "सहयोग उपकरण",
+      "blurb": "वीडियो प्रकार: Miro, Trello, Slack — free versions for remote teams, with workflow automation ideas."
+    },
+    "ur": {
+      "name": "تعاون کے اوزار",
+      "blurb": "ویڈیو کی قسم: Miro, Trello, Slack — free versions for remote teams, with workflow automation ideas."
+    },
+    "ta": {
+      "name": "இணைந்து பணிபுரியும் கருவிகள்",
+      "blurb": "வீடியோ வகை: Miro, Trello, Slack — free versions for remote teams, with workflow automation ideas."
+    },
+    "ml": {
+      "name": "സഹകരണ ഉപകരണങ്ങൾ",
+      "blurb": "വീഡിയോ തരം: Miro, Trello, Slack — free versions for remote teams, with workflow automation ideas."
+    }
+  },
+  "source": "Nish.Md + deterministic research",
+  "research_notes": [
+    "Marathon researched at 2026-09-10T08:30:24Z",
+    "Video type length=85",
+    "Topic prompt length=140",
+    "Video prompt length=383",
+    "Seeds=6"
+  ],
+  "verified_at": "2026-09-10T08:30:24Z"
+}

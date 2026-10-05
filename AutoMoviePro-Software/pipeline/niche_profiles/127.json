@@ -1,0 +1,83 @@
+{
+  "niche_id": 127,
+  "name": "True Horror Stories",
+  "slug": "true-horror-stories",
+  "style_family": "history",
+  "status": "VERIFIED",
+  "topic_seeds": [
+    "What new evidence reframes the story of True Horror Stories Real inside True Horror Stories",
+    "How True Horror Stories Real still shapes public curiosity about True Horror Stories",
+    "What new evidence reframes the story of Check inside True Horror Stories",
+    "How Check still shapes public curiosity about True Horror Stories",
+    "What new evidence reframes the story of Generate inside True Horror Stories",
+    "How Generate still shapes public curiosity about True Horror Stories"
+  ],
+  "seo_angles": [
+    "What new evidence reframes the story of True Horror Stories Real inside True Horror Stories",
+    "How True Horror Stories Real still shapes public curiosity about True Horror Stories",
+    "What new evidence reframes the story of Check inside True Horror Stories",
+    "How Check still shapes public curiosity about True Horror Stories"
+  ],
+  "forbidden_visuals": [
+    "talking-head lip-sync avatar",
+    "burned-in captions",
+    "watermark",
+    "modern meme text",
+    "modern smartphones",
+    "cars",
+    "LED screens",
+    "sneakers",
+    "contemporary skyline"
+  ],
+  "preferred_subjects": [
+    "True Horror Stories documentary subject",
+    "period-accurate environment",
+    "evidence object close-up"
+  ],
+  "lighting_default": "warm desert sun / torchlit interiors, high-contrast documentary grade",
+  "face_policy": "period extras OK if consistent; prefer environment/object hero when possible",
+  "dialogue_tone": "human documentary narration; specific nouns; 7–9s beats",
+  "audio_ambience": "subtle documentary bed; do not overpower voice",
+  "research_hints": [
+    "Prefer primary evidence and concrete entities for True Horror Stories",
+    "Avoid generic niche-label topics; require specific place/person/event/mechanism",
+    "7–9 second spoken beats with story continuity across scenes"
+  ],
+  "topic_prompt_overlay": "NICHE LOCK (True Horror Stories): only propose topics that fit this niche's video type. Video type: Real encounters with evil spirits, demonic possessions, or unexplained voices — narrated with chilling ambience. Follow niche topic strategy: Check paranormal forums, viral ghost stories, or new horror docu-series. Generate a topic about a true encounter that recently went viral.",
+  "video_prompt_overlay": "NICHE VISUAL LOCK (True Horror Stories / history): Generate a 7–9 second dialogue clip based on the topic `{topic}`. Each dialogue must be spine-chilling. For each dialogue, generate: - **Audio Generation Prompt:** Voice — shaky, with whispers and creaking. - **Video Generation Prompt:** Detailed visual — a dark house or abandoned room. Character: witness (frightened). Lighting: dim, flickering. Maintain same room and fear. Forbidden: talking-head lip-sync avatar, burned-in captions, watermark, modern meme text, modern smartphones, cars, LED screens, sneakers. Preferred subjects: True Horror Stories documentary subject, period-accurate environment, evidence object close-up. Lighting: warm desert sun / torchlit interiors, high-contrast documentary grade. Face policy: period extras OK if consistent; prefer environment/object hero when possible. Dialogue tone: human documentary narration; specific nouns; 7–9s beats. Ambience: subtle documentary bed; do not overpower voice.",
+  "i18n": {
+    "en": {
+      "name": "True Horror Stories",
+      "blurb": "Real encounters with evil spirits, demonic possessions, or unexplained voices — narrated with chilling ambience."
+    },
+    "bn": {
+      "name": "সত্যি ভৌতিক গল্প",
+      "blurb": "ভিডিও টাইপ: Real encounters with evil spirits, demonic possessions, or unexplained voices — narrated with chilling ambience."
+    },
+    "hi": {
+      "name": "सच्ची डरावनी कहानियाँ",
+      "blurb": "वीडियो प्रकार: Real encounters with evil spirits, demonic possessions, or unexplained voices — narrated with chilling ambience."
+    },
+    "ur": {
+      "name": "سچی خوفناک کہانیاں",
+      "blurb": "ویڈیو کی قسم: Real encounters with evil spirits, demonic possessions, or unexplained voices — narrated with chilling ambience."
+    },
+    "ta": {
+      "name": "உண்மை பயங்கரக் கதைகள்",
+      "blurb": "வீடியோ வகை: Real encounters with evil spirits, demonic possessions, or unexplained voices — narrated with chilling ambience."
+    },
+    "ml": {
+      "name": "യഥാർത്ഥ ഹൊറർ കഥകൾ",
+      "blurb": "വീഡിയോ തരം: Real encounters with evil spirits, demonic possessions, or unexplained voices — narrated with chilling ambience."
+    }
+  },
+  "source": "Nish.Md + deterministic research",
+  "research_notes": [
+    "Marathon researched at 2026-09-10T08:30:27Z",
+    "Video type length=112",
+    "Topic prompt length=138",
+    "Video prompt length=376",
+    "Seeds=6"
+  ],
+  "verified_at": "2026-09-10T08:30:27Z"
+}

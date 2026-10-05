@@ -1,0 +1,348 @@
+{
+  "required": "hospital room + nurse + hospital bed",
+  "observed_status": "FAIL",
+  "observed": {
+    "observed_subjects": [
+      "woman with short silver-grey hair"
+    ],
+    "observed_entities": [
+      "futuristic suit collar"
+    ],
+    "observed_location": "futuristic/sci-fi interior",
+    "provider_verified": true,
+    "heuristic": false
+  },
+  "cross_beat": {
+    "schema": "amp_observation_cross_beat_entity_v1",
+    "status": "FAIL",
+    "projected_beats": [
+      [
+        {
+          "schema": "amp_observation_cross_beat_entity_v1",
+          "entity_id": "ent-5f00ce118bd9",
+          "entity_type": "CHARACTER",
+          "canonical_name": "Nurse",
+          "beat_id": "vb-pos",
+          "scene_id": "sc-6f",
+          "dialogue_id": "dlg-vb-pos",
+          "presence": "PRESENT",
+          "observed_state": "standing",
+          "location": "hospital room",
+          "location_cluster": "hospital",
+          "relationships": [
+            {
+              "subject_entity": "Nurse",
+              "relation": "beside",
+              "object_entity": "hospital bed",
+              "beat_id": "vb-pos"
+            }
+          ],
+          "observed_relationships": [
+            {
+              "raw": "nurse is standing in front of the hospital bed",
+              "relation": "inside",
+              "beat_id": "vb-pos"
+            },
+            {
+              "raw": "nurse is wearing a face mask and cap",
+              "relation": "wearing",
+              "beat_id": "vb-pos"
+            }
+          ],
+          "source_evidence": {
+            "observation_status": "PASS",
+            "provider_verified": true,
+            "heuristic": false,
+            "evidence_source": "PROVIDER_VERIFIED",
+            "provider": "PROVIDER_FRAME:gemini-3.6-flash",
+            "frame_path": "docs\\marathon\\customer_product\\phase6e_evidence\\repair_work\\repair_frames\\frames_d11ac8300eff4bd0_786da6d87905c97ff8bf7fc9\\frame_00_0000000ms.jpg"
+          },
+          "observation_status": "PASS",
+          "customer_id": "c11_marathon_customer",
+          "channel_id": "4",
+          "job_id": "job2108",
+          "clip_similarity_is_not_identity_pass": true,
+          "created_at": 1788949085.0500147
+        },
+        {
+          "schema": "amp_observation_cross_beat_entity_v1",
+          "entity_id": "ent-2421576bdb82",
+          "entity_type": "OBJECT",
+          "canonical_name": "hospital bed",
+          "beat_id": "vb-pos",
+          "scene_id": "sc-6f",
+          "dialogue_id": "dlg-vb-pos",
+          "presence": "PRESENT",
+          "observed_state": "",
+          "location": "hospital room",
+          "location_cluster": "hospital",
+          "relationships": [
+            {
+              "subject_entity": "Nurse",
+              "relation": "beside",
+              "object_entity": "hospital bed",
+              "beat_id": "vb-pos"
+            }
+          ],
+          "observed_relationships": [
+            {
+              "raw": "nurse is standing in front of the hospital bed",
+              "relation": "inside",
+              "beat_id": "vb-pos"
+            },
+            {
+              "raw": "nurse is wearing a face mask and cap",
+              "relation": "wearing",
+              "beat_id": "vb-pos"
+            }
+          ],
+          "source_evidence": {
+            "observation_status": "PASS",
+            "provider_verified": true,
+            "heuristic": false,
+            "evidence_source": "PROVIDER_VERIFIED",
+            "provider": "PROVIDER_FRAME:gemini-3.6-flash",
+            "frame_path": "docs\\marathon\\customer_product\\phase6e_evidence\\repair_work\\repair_frames\\frames_d11ac8300eff4bd0_786da6d87905c97ff8bf7fc9\\frame_00_0000000ms.jpg"
+          },
+          "observation_status": "PASS",
+          "customer_id": "c11_marathon_customer",
+          "channel_id": "4",
+          "job_id": "job2108",
+          "clip_similarity_is_not_identity_pass": true,
+          "created_at": 1788949085.0500147
+        },
+        {
+          "schema": "amp_observation_cross_beat_entity_v1",
+          "entity_id": "ent-40c9926265ba",
+          "entity_type": "LOCATION",
+          "canonical_name": "hospital room",
+          "beat_id": "vb-pos",
+          "scene_id": "sc-6f",
+          "dialogue_id": "dlg-vb-pos",
+          "presence": "PRESENT",
+          "observed_state": "hospital room",
+          "location": "hospital room",
+          "location_cluster": "hospital",
+          "relationships": [
+            {
+              "subject_entity": "Nurse",
+              "relation": "beside",
+              "object_entity": "hospital bed",
+              "beat_id": "vb-pos"
+            }
+          ],
+          "observed_relationships": [
+            {
+              "raw": "nurse is standing in front of the hospital bed",
+              "relation": "inside",
+              "beat_id": "vb-pos"
+            },
+            {
+              "raw": "nurse is wearing a face mask and cap",
+              "relation": "wearing",
+              "beat_id": "vb-pos"
+            }
+          ],
+          "source_evidence": {
+            "observation_status": "PASS",
+            "provider_verified": true,
+            "heuristic": false,
+            "evidence_source": "PROVIDER_VERIFIED",
+            "provider": "PROVIDER_FRAME:gemini-3.6-flash",
+            "frame_path": "docs\\marathon\\customer_product\\phase6e_evidence\\repair_work\\repair_frames\\frames_d11ac8300eff4bd0_786da6d87905c97ff8bf7fc9\\frame_00_0000000ms.jpg"
+          },
+          "observation_status": "PASS",
+          "customer_id": "c11_marathon_customer",
+          "channel_id": "4",
+          "job_id": "job2108",
+          "clip_similarity_is_not_identity_pass": true,
+          "created_at": 1788949085.0500147
+        }
+      ],
+      [
+        {
+          "schema": "amp_observation_cross_beat_entity_v1",
+          "entity_id": "ent-5f00ce118bd9",
+          "entity_type": "CHARACTER",
+          "canonical_name": "Nurse",
+          "beat_id": "vb-neg",
+          "scene_id": "sc-6f",
+          "dialogue_id": "dlg-vb-neg",
+          "presence": "ABSENT",
+          "observed_state": "standing",
+          "location": "futuristic/sci-fi interior",
+          "location_cluster": "spacecraft_interior",
+          "relationships": [
+            {
+              "subject_entity": "Nurse",
+              "relation": "beside",
+              "object_entity": "hospital bed",
+              "beat_id": "vb-neg"
+            }
+          ],
+          "observed_relationships": [],
+          "source_evidence": {
+            "observation_status": "FAIL",
+            "provider_verified": true,
+            "heuristic": false,
+            "evidence_source": "PROVIDER_VERIFIED",
+            "provider": "PROVIDER_FRAME:gemini-3.6-flash",
+            "frame_path": ""
+          },
+          "observation_status": "FAIL",
+          "customer_id": "c11_marathon_customer",
+          "channel_id": "4",
+          "job_id": "job2108",
+          "clip_similarity_is_not_identity_pass": true,
+          "created_at": 1788949085.0500147
+        },
+        {
+          "schema": "amp_observation_cross_beat_entity_v1",
+          "entity_id": "ent-2421576bdb82",
+          "entity_type": "OBJECT",
+          "canonical_name": "hospital bed",
+          "beat_id": "vb-neg",
+          "scene_id": "sc-6f",
+          "dialogue_id": "dlg-vb-neg",
+          "presence": "ABSENT",
+          "observed_state": "",
+          "location": "futuristic/sci-fi interior",
+          "location_cluster": "spacecraft_interior",
+          "relationships": [
+            {
+              "subject_entity": "Nurse",
+              "relation": "beside",
+              "object_entity": "hospital bed",
+              "beat_id": "vb-neg"
+            }
+          ],
+          "observed_relationships": [],
+          "source_evidence": {
+            "observation_status": "FAIL",
+            "provider_verified": true,
+            "heuristic": false,
+            "evidence_source": "PROVIDER_VERIFIED",
+            "provider": "PROVIDER_FRAME:gemini-3.6-flash",
+            "frame_path": ""
+          },
+          "observation_status": "FAIL",
+          "customer_id": "c11_marathon_customer",
+          "channel_id": "4",
+          "job_id": "job2108",
+          "clip_similarity_is_not_identity_pass": true,
+          "created_at": 1788949085.0500147
+        },
+        {
+          "schema": "amp_observation_cross_beat_entity_v1",
+          "entity_id": "ent-40c9926265ba",
+          "entity_type": "LOCATION",
+          "canonical_name": "hospital room",
+          "beat_id": "vb-neg",
+          "scene_id": "sc-6f",
+          "dialogue_id": "dlg-vb-neg",
+          "presence": "ABSENT",
+          "observed_state": "futuristic/sci-fi interior",
+          "location": "futuristic/sci-fi interior",
+          "location_cluster": "spacecraft_interior",
+          "relationships": [
+            {
+              "subject_entity": "Nurse",
+              "relation": "beside",
+              "object_entity": "hospital bed",
+              "beat_id": "vb-neg"
+            }
+          ],
+          "observed_relationships": [],
+          "source_evidence": {
+            "observation_status": "FAIL",
+            "provider_verified": true,
+            "heuristic": false,
+            "evidence_source": "PROVIDER_VERIFIED",
+            "provider": "PROVIDER_FRAME:gemini-3.6-flash",
+            "frame_path": ""
+          },
+          "observation_status": "FAIL",
+          "customer_id": "c11_marathon_customer",
+          "channel_id": "4",
+          "job_id": "job2108",
+          "clip_similarity_is_not_identity_pass": true,
+          "created_at": 1788949085.0500147
+        }
+      ]
+    ],
+    "adjacent_comparisons": [
+      {
+        "from_index": 0,
+        "to_index": 1,
+        "result": {
+          "schema": "amp_observation_cross_beat_entity_v1",
+          "status": "FAIL",
+          "comparisons": [
+            {
+              "entity_id": "ent-5f00ce118bd9",
+              "canonical_name": "Nurse",
+              "entity_type": "CHARACTER",
+              "prev_beat_id": "vb-pos",
+              "next_beat_id": "vb-neg",
+              "class": "IDENTITY_BREAK",
+              "status": "FAIL"
+            },
+            {
+              "entity_id": "ent-2421576bdb82",
+              "canonical_name": "hospital bed",
+              "entity_type": "OBJECT",
+              "prev_beat_id": "vb-pos",
+              "next_beat_id": "vb-neg",
+              "class": "IDENTITY_BREAK",
+              "status": "FAIL"
+            },
+            {
+              "entity_id": "ent-40c9926265ba",
+              "canonical_name": "hospital room",
+              "entity_type": "LOCATION",
+              "prev_beat_id": "vb-pos",
+              "next_beat_id": "vb-neg",
+              "location": {
+                "class": "contradiction",
+                "clusters": [
+                  "hospital",
+                  "spacecraft_interior"
+                ],
+                "reason": "cluster_contradiction"
+              },
+              "location_class": "CONTRADICTION",
+              "class": "LOCATION_CONTRADICTION",
+              "status": "FAIL"
+            }
+          ],
+          "issues": [
+            "identity_break:Nurse",
+            "identity_break:hospital bed",
+            "location_contradiction:{'class': 'contradiction', 'clusters': ['hospital', 'spacecraft_interior'], 'reason': 'cluster_contradiction'}"
+          ],
+          "adjacent_only": true,
+          "continuity_tracker_authority": "pipeline.visual_semantic.continuity.ContinuityTracker",
+          "second_continuity_engine": false,
+          "identity_certification_engine": false,
+          "clip_similarity_is_not_identity_pass": true,
+          "unknown_as_pass": false,
+          "unknown_as_fail": false,
+          "creates_final_gate": false
+        }
+      }
+    ],
+    "far_comparisons": [],
+    "require_far_continuity": false,
+    "continuity_tracker_authority": "pipeline.visual_semantic.continuity.ContinuityTracker",
+    "second_continuity_engine": false,
+    "identity_certification_engine": false,
+    "clip_similarity_is_not_identity_pass": true,
+    "unknown_as_pass": false,
+    "unknown_as_fail": false,
+    "creates_final_gate": false
+  },
+  "status": "FAIL",
+  "must_not_be_pass": true,
+  "is_not_pass": true,
+  "source": "phase6d_live_negative_reused"
+}

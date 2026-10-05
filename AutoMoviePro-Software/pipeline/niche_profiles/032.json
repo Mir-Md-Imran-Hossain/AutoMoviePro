@@ -1,0 +1,83 @@
+{
+  "niche_id": 32,
+  "name": "Eureka Moments",
+  "slug": "eureka-moments",
+  "style_family": "history",
+  "status": "VERIFIED",
+  "topic_seeds": [
+    "What new evidence reframes the story of Eureka Moments The inside Eureka Moments",
+    "How Eureka Moments The still shapes public curiosity about Eureka Moments",
+    "What new evidence reframes the story of Archimedes inside Eureka Moments",
+    "How Archimedes still shapes public curiosity about Eureka Moments",
+    "What new evidence reframes the story of Newton inside Eureka Moments",
+    "How Newton still shapes public curiosity about Eureka Moments"
+  ],
+  "seo_angles": [
+    "What new evidence reframes the story of Eureka Moments The inside Eureka Moments",
+    "How Eureka Moments The still shapes public curiosity about Eureka Moments",
+    "What new evidence reframes the story of Archimedes inside Eureka Moments",
+    "How Archimedes still shapes public curiosity about Eureka Moments"
+  ],
+  "forbidden_visuals": [
+    "talking-head lip-sync avatar",
+    "burned-in captions",
+    "watermark",
+    "modern meme text",
+    "modern smartphones",
+    "cars",
+    "LED screens",
+    "sneakers",
+    "contemporary skyline"
+  ],
+  "preferred_subjects": [
+    "Eureka Moments documentary subject",
+    "period-accurate environment",
+    "evidence object close-up"
+  ],
+  "lighting_default": "warm desert sun / torchlit interiors, high-contrast documentary grade",
+  "face_policy": "period extras OK if consistent; prefer environment/object hero when possible",
+  "dialogue_tone": "human documentary narration; specific nouns; 7–9s beats",
+  "audio_ambience": "subtle documentary bed; do not overpower voice",
+  "research_hints": [
+    "Prefer primary evidence and concrete entities for Eureka Moments",
+    "Avoid generic niche-label topics; require specific place/person/event/mechanism",
+    "7–9 second spoken beats with story continuity across scenes"
+  ],
+  "topic_prompt_overlay": "NICHE LOCK (Eureka Moments): only propose topics that fit this niche's video type. Video type: The flash of genius — Archimedes in his bath, Newton under the apple tree — the personal stories behind world-changing insights. Follow niche topic strategy: Check biographies, science history anniversaries, or inspirational viral posts. Generate a topic about a sudden realization that changed the world.",
+  "video_prompt_overlay": "NICHE VISUAL LOCK (Eureka Moments / history): Generate a 7–9 second dialogue clip based on the topic `{topic}`. Each dialogue must be exciting and dramatic. For each dialogue, generate: - **Audio Generation Prompt:** Voice — excited, gasping, with dramatic orchestral hit. - **Video Generation Prompt:** Detailed visual — a study or outdoor scene. Character: thinker (historical clothing). Lighting: warm sunlight or candle. Maintain same room, same cloth. Forbidden: talking-head lip-sync avatar, burned-in captions, watermark, modern meme text, modern smartphones, cars, LED screens, sneakers. Preferred subjects: Eureka Moments documentary subject, period-accurate environment, evidence object close-up. Lighting: warm desert sun / torchlit interiors, high-contrast documentary grade. Face policy: period extras OK if consistent; prefer environment/object hero when possible. Dialogue tone: human documentary narration; specific nouns; 7–9s beats. Ambience: subtle documentary bed; do not overpower voice.",
+  "i18n": {
+    "en": {
+      "name": "Eureka Moments",
+      "blurb": "The flash of genius — Archimedes in his bath, Newton under the apple tree — the personal stories behind world-changing insights."
+    },
+    "bn": {
+      "name": "ইউরেকা মুহূর্ত",
+      "blurb": "ভিডিও টাইপ: The flash of genius — Archimedes in his bath, Newton under the apple tree — the personal stories behind world-changing insights."
+    },
+    "hi": {
+      "name": "यूरेका क्षण",
+      "blurb": "वीडियो प्रकार: The flash of genius — Archimedes in his bath, Newton under the apple tree — the personal stories behind world-changing insights."
+    },
+    "ur": {
+      "name": "یوریکا لمحات",
+      "blurb": "ویڈیو کی قسم: The flash of genius — Archimedes in his bath, Newton under the apple tree — the personal stories behind world-changing insights."
+    },
+    "ta": {
+      "name": "யுரேகா தருணங்கள்",
+      "blurb": "வீடியோ வகை: The flash of genius — Archimedes in his bath, Newton under the apple tree — the personal stories behind world-changing insights."
+    },
+    "ml": {
+      "name": "യുറീക്ക നിമിഷങ്ങൾ",
+      "blurb": "വീഡിയോ തരം: The flash of genius — Archimedes in his bath, Newton under the apple tree — the personal stories behind world-changing insights."
+    }
+  },
+  "source": "Nish.Md + deterministic research",
+  "research_notes": [
+    "Marathon researched at 2026-09-10T08:30:12Z",
+    "Video type length=128",
+    "Topic prompt length=147",
+    "Video prompt length=410",
+    "Seeds=6"
+  ],
+  "verified_at": "2026-09-10T08:30:12Z"
+}

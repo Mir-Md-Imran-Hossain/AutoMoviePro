@@ -1,0 +1,67 @@
+[
+  {
+    "ts": "2026-09-09T16:04:18Z",
+    "elapsed_sec": 0.1,
+    "stage": "TOPIC",
+    "job_id": null,
+    "status": "HEALTHY",
+    "note": "CP-00 init complete",
+    "db_languages_unchanged": [
+      "en",
+      "bn"
+    ],
+    "cert_overlay_languages": [
+      "en",
+      "bn",
+      "hi",
+      "ur",
+      "ta",
+      "ml"
+    ],
+    "google_keys_env": 19,
+    "agnes_keys_env": 6
+  },
+  {
+    "ts": "2026-09-09T16:04:18Z",
+    "elapsed_sec": 0.3,
+    "stage": "TOPIC",
+    "job_id": null,
+    "status": "PROGRESSING",
+    "note": "topic=How lunar polar permanently shadowed craters preserve water ice that Artemis pro",
+    "source": "MANUAL_CONCRETE_NICHE_GROUNDED"
+  },
+  {
+    "ts": "2026-09-09T16:05:34Z",
+    "elapsed_sec": 76.3,
+    "stage": "PLAN",
+    "job_id": null,
+    "status": "PROGRESSING",
+    "note": "research_script_plan_ok",
+    "script_class": "REAL"
+  },
+  {
+    "ts": "2026-09-09T17:05:59Z",
+    "elapsed_sec": 3700.5,
+    "stage": "FAILED",
+    "job_id": 2303,
+    "status": "FAILED",
+    "note": "generate_video:RuntimeError:Scene 5 (beat) AV sync failed hard (best_score=55). Issues: ['wrong_subject', 'visual_anchors_missing'] critical=['wrong_subject', 'visual_anchors_missing']"
+  },
+  {
+    "ts": "2026-09-09T17:05:59Z",
+    "elapsed_sec": 3700.5,
+    "stage": "OBSERVE",
+    "job_id": 2303,
+    "status": "PROGRESSING",
+    "note": "watchdog stage=OBSERVE",
+    "work_dir": "E:\\All Updaye Project\\AutoMovie_Pro_SAAS_Final_Update\\AutoMoviePro-Software\\data\\customer_generation_work\\c11_marathon_customer\\job2303"
+  },
+  {
+    "ts": "2026-09-09T17:05:59Z",
+    "elapsed_sec": 3700.5,
+    "stage": "FAIL",
+    "job_id": 2303,
+    "status": "COMPLETED",
+    "note": "verdict=FAIL"
+  }
+]

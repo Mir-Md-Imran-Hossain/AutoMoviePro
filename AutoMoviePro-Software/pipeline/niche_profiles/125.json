@@ -1,0 +1,83 @@
+{
+  "niche_id": 125,
+  "name": "Disaster Preparedness",
+  "slug": "disaster-preparedness",
+  "style_family": "history",
+  "status": "VERIFIED",
+  "topic_seeds": [
+    "What new evidence reframes the story of Disaster Preparedness Essential inside Disaster Preparedness",
+    "How Disaster Preparedness Essential still shapes public curiosity about Disaster Preparedness",
+    "What new evidence reframes the story of Check inside Disaster Preparedness",
+    "How Check still shapes public curiosity about Disaster Preparedness",
+    "What new evidence reframes the story of Generate inside Disaster Preparedness",
+    "How Generate still shapes public curiosity about Disaster Preparedness"
+  ],
+  "seo_angles": [
+    "What new evidence reframes the story of Disaster Preparedness Essential inside Disaster Preparedness",
+    "How Disaster Preparedness Essential still shapes public curiosity about Disaster Preparedness",
+    "What new evidence reframes the story of Check inside Disaster Preparedness",
+    "How Check still shapes public curiosity about Disaster Preparedness"
+  ],
+  "forbidden_visuals": [
+    "talking-head lip-sync avatar",
+    "burned-in captions",
+    "watermark",
+    "modern meme text",
+    "modern smartphones",
+    "cars",
+    "LED screens",
+    "sneakers",
+    "contemporary skyline"
+  ],
+  "preferred_subjects": [
+    "Disaster Preparedness documentary subject",
+    "period-accurate environment",
+    "evidence object close-up"
+  ],
+  "lighting_default": "warm desert sun / torchlit interiors, high-contrast documentary grade",
+  "face_policy": "period extras OK if consistent; prefer environment/object hero when possible",
+  "dialogue_tone": "human documentary narration; specific nouns; 7–9s beats",
+  "audio_ambience": "subtle documentary bed; do not overpower voice",
+  "research_hints": [
+    "Prefer primary evidence and concrete entities for Disaster Preparedness",
+    "Avoid generic niche-label topics; require specific place/person/event/mechanism",
+    "7–9 second spoken beats with story continuity across scenes"
+  ],
+  "topic_prompt_overlay": "NICHE LOCK (Disaster Preparedness): only propose topics that fit this niche's video type. Video type: Essential kits, evacuation plans, and emergency contacts — empowering viewers to stay safe. Follow niche topic strategy: Check safety news, new emergency guidelines, or viral disaster tips. Generate a topic about a simple preparedness step many ignore.",
+  "video_prompt_overlay": "NICHE VISUAL LOCK (Disaster Preparedness / history): Generate a 7–9 second dialogue clip based on the topic `{topic}`. Each dialogue must be practical and reassuring. For each dialogue, generate: - **Audio Generation Prompt:** Voice — calm, with bag zipping and radio static. - **Video Generation Prompt:** Detailed visual — a family packing an emergency kit. Characters: family (varied). Lighting: clear, bright. Maintain same family. Forbidden: talking-head lip-sync avatar, burned-in captions, watermark, modern meme text, modern smartphones, cars, LED screens, sneakers. Preferred subjects: Disaster Preparedness documentary subject, period-accurate environment, evidence object close-up. Lighting: warm desert sun / torchlit interiors, high-contrast documentary grade. Face policy: period extras OK if consistent; prefer environment/object hero when possible. Dialogue tone: human documentary narration; specific nouns; 7–9s beats. Ambience: subtle documentary bed; do not overpower voice.",
+  "i18n": {
+    "en": {
+      "name": "Disaster Preparedness",
+      "blurb": "Essential kits, evacuation plans, and emergency contacts — empowering viewers to stay safe."
+    },
+    "bn": {
+      "name": "দুর্যোগ প্রস্তুতি",
+      "blurb": "ভিডিও টাইপ: Essential kits, evacuation plans, and emergency contacts — empowering viewers to stay safe."
+    },
+    "hi": {
+      "name": "आपदा तैयारी",
+      "blurb": "वीडियो प्रकार: Essential kits, evacuation plans, and emergency contacts — empowering viewers to stay safe."
+    },
+    "ur": {
+      "name": "آفات کی تیاری",
+      "blurb": "ویڈیو کی قسم: Essential kits, evacuation plans, and emergency contacts — empowering viewers to stay safe."
+    },
+    "ta": {
+      "name": "பேரிடர் தயார்நிலை",
+      "blurb": "வீடியோ வகை: Essential kits, evacuation plans, and emergency contacts — empowering viewers to stay safe."
+    },
+    "ml": {
+      "name": "ദുരന്ത സജ്ജത",
+      "blurb": "വീഡിയോ തരം: Essential kits, evacuation plans, and emergency contacts — empowering viewers to stay safe."
+    }
+  },
+  "source": "Nish.Md + deterministic research",
+  "research_notes": [
+    "Marathon researched at 2026-09-10T08:30:26Z",
+    "Video type length=91",
+    "Topic prompt length=131",
+    "Video prompt length=382",
+    "Seeds=6"
+  ],
+  "verified_at": "2026-09-10T08:30:27Z"
+}

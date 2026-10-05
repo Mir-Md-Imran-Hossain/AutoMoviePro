@@ -1,0 +1,83 @@
+{
+  "niche_id": 129,
+  "name": "Haunted Locations",
+  "slug": "haunted-locations",
+  "style_family": "mystery",
+  "status": "VERIFIED",
+  "topic_seeds": [
+    "What new evidence reframes the story of Haunted Locations Abandoned inside Haunted Locations",
+    "How Haunted Locations Abandoned still shapes public curiosity about Haunted Locations",
+    "What new evidence reframes the story of Check inside Haunted Locations",
+    "How Check still shapes public curiosity about Haunted Locations",
+    "What new evidence reframes the story of Generate inside Haunted Locations",
+    "How Generate still shapes public curiosity about Haunted Locations"
+  ],
+  "seo_angles": [
+    "What new evidence reframes the story of Haunted Locations Abandoned inside Haunted Locations",
+    "How Haunted Locations Abandoned still shapes public curiosity about Haunted Locations",
+    "What new evidence reframes the story of Check inside Haunted Locations",
+    "How Check still shapes public curiosity about Haunted Locations"
+  ],
+  "forbidden_visuals": [
+    "talking-head lip-sync avatar",
+    "burned-in captions",
+    "watermark",
+    "modern meme text",
+    "modern smartphones",
+    "cars",
+    "LED screens",
+    "sneakers",
+    "contemporary skyline"
+  ],
+  "preferred_subjects": [
+    "Haunted Locations documentary subject",
+    "period-accurate environment",
+    "evidence object close-up"
+  ],
+  "lighting_default": "dappled fog light, cool teal shadows, slow push-ins",
+  "face_policy": "no talking-head lip-sync avatar; cinematic B-roll preferred",
+  "dialogue_tone": "slow, ominous, evidence-first",
+  "audio_ambience": "low drone, subtle reverb, sparse percussion",
+  "research_hints": [
+    "Prefer primary evidence and concrete entities for Haunted Locations",
+    "Avoid generic niche-label topics; require specific place/person/event/mechanism",
+    "7–9 second spoken beats with story continuity across scenes"
+  ],
+  "topic_prompt_overlay": "NICHE LOCK (Haunted Locations): only propose topics that fit this niche's video type. Video type: Abandoned asylums, castles, and forests — documented ghost sightings and historic tragedies attached. Follow niche topic strategy: Check paranormal travel blogs, new investigations, or viral location videos. Generate a topic about a newly popular haunted site.",
+  "video_prompt_overlay": "NICHE VISUAL LOCK (Haunted Locations / mystery): Generate a 7–9 second dialogue clip based on the topic `{topic}`. Each dialogue must be atmospheric. For each dialogue, generate: - **Audio Generation Prompt:** Voice — hushed, with footsteps and wind. - **Video Generation Prompt:** Detailed visual — an abandoned building or forest. No character — location. Lighting: grey, misty. Maintain same location. Forbidden: talking-head lip-sync avatar, burned-in captions, watermark, modern meme text, modern smartphones, cars, LED screens, sneakers. Preferred subjects: Haunted Locations documentary subject, period-accurate environment, evidence object close-up. Lighting: dappled fog light, cool teal shadows, slow push-ins. Face policy: no talking-head lip-sync avatar; cinematic B-roll preferred. Dialogue tone: slow, ominous, evidence-first. Ambience: low drone, subtle reverb, sparse percussion.",
+  "i18n": {
+    "en": {
+      "name": "Haunted Locations",
+      "blurb": "Abandoned asylums, castles, and forests — documented ghost sightings and historic tragedies attached."
+    },
+    "bn": {
+      "name": "ভূতুড়ে স্থান",
+      "blurb": "ভিডিও টাইপ: Abandoned asylums, castles, and forests — documented ghost sightings and historic tragedies attached."
+    },
+    "hi": {
+      "name": "भूतिया स्थान",
+      "blurb": "वीडियो प्रकार: Abandoned asylums, castles, and forests — documented ghost sightings and historic tragedies attached."
+    },
+    "ur": {
+      "name": "بھوتوں والے مقامات",
+      "blurb": "ویڈیو کی قسم: Abandoned asylums, castles, and forests — documented ghost sightings and historic tragedies attached."
+    },
+    "ta": {
+      "name": "பேய்பிடித்த இடங்கள்",
+      "blurb": "வீடியோ வகை: Abandoned asylums, castles, and forests — documented ghost sightings and historic tragedies attached."
+    },
+    "ml": {
+      "name": "ഭൂതബാധിത സ്ഥലങ്ങൾ",
+      "blurb": "വീഡിയോ തരം: Abandoned asylums, castles, and forests — documented ghost sightings and historic tragedies attached."
+    }
+  },
+  "source": "Nish.Md + deterministic research",
+  "research_notes": [
+    "Marathon researched at 2026-09-10T08:30:27Z",
+    "Video type length=101",
+    "Topic prompt length=129",
+    "Video prompt length=355",
+    "Seeds=6"
+  ],
+  "verified_at": "2026-09-10T08:30:27Z"
+}

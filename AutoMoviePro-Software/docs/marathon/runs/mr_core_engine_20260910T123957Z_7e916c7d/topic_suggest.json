@@ -1,0 +1,855 @@
+{
+  "raw": {
+    "ok": true,
+    "suggestions": [
+      {
+        "topic_id": "t-7043c2c50947d4e3",
+        "topic_text": "How radio telescopes catch fast radio bursts from distant magnetars",
+        "canonical_topic": "How radio telescopes catch fast radio bursts from distant magnetars",
+        "source": "SUGGESTED",
+        "authority": "BUILD-04G.discovery",
+        "external_api": false
+      },
+      {
+        "topic_id": "t-61bde167336b015b",
+        "topic_text": "How gravitational-wave detectors hear black-hole mergers across the universe",
+        "canonical_topic": "How gravitational-wave detectors hear black-hole mergers across the universe",
+        "source": "SUGGESTED",
+        "authority": "BUILD-04G.discovery",
+        "external_api": false
+      },
+      {
+        "topic_id": "t-00249ecec1a979a8",
+        "topic_text": "Why permanently shadowed craters keep water ice colder than dry ice on the Moon",
+        "canonical_topic": "Why permanently shadowed craters keep water ice colder than dry ice on the Moon",
+        "source": "SUGGESTED",
+        "authority": "BUILD-04G.discovery",
+        "external_api": false
+      },
+      {
+        "topic_id": "t-4680cbbc204913a2",
+        "topic_text": "What JWST mid-infrared spectra reveal about exoplanet atmospheres this week",
+        "canonical_topic": "What JWST mid-infrared spectra reveal about exoplanet atmospheres this week",
+        "source": "SUGGESTED",
+        "authority": "BUILD-04G.discovery",
+        "external_api": false
+      },
+      {
+        "topic_id": "t-5a076a77d8b0e969",
+        "topic_text": "How solar wind strips Mars of atmosphere — the MAVEN evidence explained",
+        "canonical_topic": "How solar wind strips Mars of atmosphere — the MAVEN evidence explained",
+        "source": "SUGGESTED",
+        "authority": "BUILD-04G.discovery",
+        "external_api": false
+      },
+      {
+        "topic_id": "t-c0d90e538ec14bac",
+        "topic_text": "How neutron albedo mapping finds hydrogen under the Moon's dark crater floors",
+        "canonical_topic": "How neutron albedo mapping finds hydrogen under the Moon's dark crater floors",
+        "source": "SUGGESTED",
+        "authority": "BUILD-04G.discovery",
+        "external_api": false
+      },
+      {
+        "topic_id": "t-4298b094fa8420b6",
+        "topic_text": "How Europa's ice shell could hide a salty ocean — the evidence so far",
+        "canonical_topic": "How Europa's ice shell could hide a salty ocean — the evidence so far",
+        "source": "SUGGESTED",
+        "authority": "BUILD-04G.discovery",
+        "external_api": false
+      },
+      {
+        "topic_id": "t-ee4fb6b2f470c41f",
+        "topic_text": "Why Venus' thick clouds hide surface heat that melts lead — the physics",
+        "canonical_topic": "Why Venus' thick clouds hide surface heat that melts lead — the physics",
+        "source": "SUGGESTED",
+        "authority": "BUILD-04G.discovery",
+        "external_api": false
+      }
+    ],
+    "reserved": [
+      {
+        "topic_id": "t-71bf9f81dcbd29c3",
+        "topic_text": "One fact about space science you missed today",
+        "source": "RESERVED",
+        "authority": "BUILD-04G.reserve_queue"
+      },
+      {
+        "topic_id": "t-042828b9295d915b",
+        "topic_text": "Quick space science insight for general",
+        "source": "RESERVED",
+        "authority": "BUILD-04G.reserve_queue"
+      },
+      {
+        "topic_id": "t-87e7edb4fdfcde63",
+        "topic_text": "space science: 60-second breakdown",
+        "source": "RESERVED",
+        "authority": "BUILD-04G.reserve_queue"
+      }
+    ],
+    "historical_count": 4,
+    "note": "Suggestions are local BUILD-04G discovery with anti-repeat history — not external live web research",
+    "workflow": {
+      "contract": "C06-B",
+      "project_id": "trs-ch4",
+      "owner_login_id": "c11_marathon_customer",
+      "channel_id": 4,
+      "updated_at": "2026-09-10T18:39:57.850773",
+      "revision": 340,
+      "topic": {
+        "topic_id": "topic-a5b3126729882d83",
+        "project_id": "trs-ch4",
+        "owner_login_id": "c11_marathon_customer",
+        "topic_text": "Why lunar dust abrasion threatens Artemis spacesuits in 2026",
+        "topic_source": "MANUAL",
+        "topic_status": "COMPLETED",
+        "selected_at": "2026-09-10T18:37:45.664684",
+        "created_at": "2026-09-06T22:13:16.391863",
+        "updated_at": "2026-09-10T18:37:45.664684",
+        "duplicate": {
+          "verdict": "UNIQUE",
+          "blocked": false,
+          "matched": "",
+          "detail": {
+            "verdict": "UNIQUE",
+            "confidence": 0.88,
+            "evidence": {
+              "rule_version": "1.0.0"
+            },
+            "comparison_target": "",
+            "layer": "all_passed"
+          },
+          "authority": "BUILD-04G.duplicate + product_registry"
+        },
+        "blocked_reason": null,
+        "error_code": null
+      },
+      "suggestions": [
+        {
+          "topic_id": "t-7043c2c50947d4e3",
+          "topic_text": "How radio telescopes catch fast radio bursts from distant magnetars",
+          "canonical_topic": "How radio telescopes catch fast radio bursts from distant magnetars",
+          "source": "SUGGESTED",
+          "authority": "BUILD-04G.discovery",
+          "external_api": false
+        },
+        {
+          "topic_id": "t-61bde167336b015b",
+          "topic_text": "How gravitational-wave detectors hear black-hole mergers across the universe",
+          "canonical_topic": "How gravitational-wave detectors hear black-hole mergers across the universe",
+          "source": "SUGGESTED",
+          "authority": "BUILD-04G.discovery",
+          "external_api": false
+        },
+        {
+          "topic_id": "t-00249ecec1a979a8",
+          "topic_text": "Why permanently shadowed craters keep water ice colder than dry ice on the Moon",
+          "canonical_topic": "Why permanently shadowed craters keep water ice colder than dry ice on the Moon",
+          "source": "SUGGESTED",
+          "authority": "BUILD-04G.discovery",
+          "external_api": false
+        },
+        {
+          "topic_id": "t-4680cbbc204913a2",
+          "topic_text": "What JWST mid-infrared spectra reveal about exoplanet atmospheres this week",
+          "canonical_topic": "What JWST mid-infrared spectra reveal about exoplanet atmospheres this week",
+          "source": "SUGGESTED",
+          "authority": "BUILD-04G.discovery",
+          "external_api": false
+        },
+        {
+          "topic_id": "t-5a076a77d8b0e969",
+          "topic_text": "How solar wind strips Mars of atmosphere — the MAVEN evidence explained",
+          "canonical_topic": "How solar wind strips Mars of atmosphere — the MAVEN evidence explained",
+          "source": "SUGGESTED",
+          "authority": "BUILD-04G.discovery",
+          "external_api": false
+        },
+        {
+          "topic_id": "t-c0d90e538ec14bac",
+          "topic_text": "How neutron albedo mapping finds hydrogen under the Moon's dark crater floors",
+          "canonical_topic": "How neutron albedo mapping finds hydrogen under the Moon's dark crater floors",
+          "source": "SUGGESTED",
+          "authority": "BUILD-04G.discovery",
+          "external_api": false
+        },
+        {
+          "topic_id": "t-4298b094fa8420b6",
+          "topic_text": "How Europa's ice shell could hide a salty ocean — the evidence so far",
+          "canonical_topic": "How Europa's ice shell could hide a salty ocean — the evidence so far",
+          "source": "SUGGESTED",
+          "authority": "BUILD-04G.discovery",
+          "external_api": false
+        },
+        {
+          "topic_id": "t-ee4fb6b2f470c41f",
+          "topic_text": "Why Venus' thick clouds hide surface heat that melts lead — the physics",
+          "canonical_topic": "Why Venus' thick clouds hide surface heat that melts lead — the physics",
+          "source": "SUGGESTED",
+          "authority": "BUILD-04G.discovery",
+          "external_api": false
+        }
+      ],
+      "reserved": [
+        {
+          "topic_id": "t-71bf9f81dcbd29c3",
+          "topic_text": "One fact about space science you missed today",
+          "source": "RESERVED",
+          "authority": "BUILD-04G.reserve_queue"
+        },
+        {
+          "topic_id": "t-042828b9295d915b",
+          "topic_text": "Quick space science insight for general",
+          "source": "RESERVED",
+          "authority": "BUILD-04G.reserve_queue"
+        },
+        {
+          "topic_id": "t-87e7edb4fdfcde63",
+          "topic_text": "space science: 60-second breakdown",
+          "source": "RESERVED",
+          "authority": "BUILD-04G.reserve_queue"
+        }
+      ],
+      "research": {
+        "research_status": "COMPLETED",
+        "fact_count": 2,
+        "evidence_count": 2,
+        "source_count": 0,
+        "confidence": null,
+        "unresolved_items": [],
+        "capability": {
+          "provider_capability": "LOCAL_FACTPACK",
+          "provider_mode": "LIVE_LOCAL",
+          "external_live_research": "UNAVAILABLE",
+          "is_external_live": false,
+          "external_api": false,
+          "note": "LOCAL_FACTPACK must not be claimed as EXTERNAL_LIVE_RESEARCH"
+        },
+        "gate": {
+          "verdict": "PASS",
+          "reason": "sufficient_evidence",
+          "issues": [],
+          "claim_count": 2,
+          "supported_count": 2,
+          "verified_count": 0,
+          "unsupported_count": 0,
+          "classified": [
+            {
+              "claim": "Research query: why lunar dust abrasion threatens artemis spacesuits in 2026\nLanguage: en\nRegion:",
+              "class": "SUPPORTED",
+              "source": "research_notes"
+            },
+            {
+              "claim": "Additional context on Why lunar dust abrasion threatens Artemis spacesuits in 2026 from configured research scope.",
+              "class": "SUPPORTED",
+              "source": "live_research"
+            }
+          ]
+        },
+        "fingerprint": "91984dca41ae1beaa8b0f6f61b80fdb4527485ce78b0e46f29bd397da7d18d5f",
+        "action": "execute",
+        "error_code": null,
+        "error_summary": null,
+        "live_research_complete": false,
+        "status_label": "Research complete (local FactPack)",
+        "has_fact_pack": true
+      },
+      "script": {
+        "script_status": "COMPLETED",
+        "preview": {
+          "topic": "Lunar dust abrasion on Artemis spacesuits",
+          "hook": "Most people think lunar dust is just gray powder. It is actually microscopic glass shrapnel that can slice through your suit.",
+          "beat_count": 6,
+          "dialogue_count": 6,
+          "scene_count": 6,
+          "entities": [],
+          "locations": [],
+          "relationships": [],
+          "dialogue_ids": [
+            "beat-1",
+            "beat-2",
+            "beat-3",
+            "beat-4",
+            "beat-5",
+            "beat-6"
+          ],
+          "beat_ids": [
+            "beat-1",
+            "beat-2",
+            "beat-3",
+            "beat-4",
+            "beat-5",
+            "beat-6"
+          ],
+          "scene_ids": [
+            "scene-00",
+            "scene-01",
+            "scene-02",
+            "scene-03",
+            "scene-04",
+            "scene-05"
+          ],
+          "beats_summary": [
+            {
+              "beat_id": "beat-1",
+              "narration": "Most people think lunar dust is just gray powder. It is actually microscopic glass shrapnel that can slice through your suit.",
+              "speaker": "Narrator",
+              "emotion": "",
+              "entity_refs": [],
+              "location_ref": "",
+              "estimated_duration_sec": 8.75
+            },
+            {
+              "beat_id": "beat-2",
+              "narration": "Why does that matter right now? in the vacuum, these particles carry a static charge. They stick to everything, including the outer layers.",
+              "speaker": "Narrator",
+              "emotion": "",
+              "entity_refs": [],
+              "location_ref": "",
+              "estimated_duration_sec": 9.0
+            },
+            {
+              "beat_id": "beat-3",
+              "narration": "Watch what this changes next — when an astronaut moves, that dust rubs against the suit. It acts like sandpaper, wearing down the.",
+              "speaker": "Narrator",
+              "emotion": "",
+              "entity_refs": [],
+              "location_ref": "",
+              "estimated_duration_sec": 9.0
+            },
+            {
+              "beat_id": "beat-4",
+              "narration": "What most viewers overlook next is this: after just one lunar walk, the outer layer thins. The dust penetrates the fabric, reaching the.",
+              "speaker": "Narrator",
+              "emotion": "",
+              "entity_refs": [],
+              "location_ref": "",
+              "estimated_duration_sec": 9.0
+            },
+            {
+              "beat_id": "beat-5",
+              "narration": "The Artemis suits are designed for short stays. But if the outer shell fails, the vacuum of space enters the suit instantly.",
+              "speaker": "Narrator",
+              "emotion": "",
+              "entity_refs": [],
+              "location_ref": "",
+              "estimated_duration_sec": 9.0
+            },
+            {
+              "beat_id": "beat-6",
+              "narration": "From that instantly, engineers are testing new coatings that repel static. But until that works, every step on the moon is a gamble..",
+              "speaker": "Narrator",
+              "emotion": "",
+              "entity_refs": [],
+              "location_ref": "",
+              "estimated_duration_sec": 9.0
+            }
+          ]
+        },
+        "scene_count": 6,
+        "beat_count": 6,
+        "dialogue_count": 6,
+        "quality": {
+          "status": "UNKNOWN",
+          "issues": [
+            "Dialogue estimated 9.6s exceeds configured max 9.0s.",
+            "Dialogue estimated 9.6s exceeds configured max 9.0s.",
+            "Dialogue estimated 9.6s exceeds configured max 9.0s.",
+            "Dialogue estimated 9.6s exceeds configured max 9.0s."
+          ],
+          "actions": [],
+          "preflight": {
+            "status": "BLOCKED",
+            "ok": false,
+            "blocked": true,
+            "blocks": [
+              "missing_retention_roles"
+            ],
+            "warnings": [
+              "missing_emotional_intent:1",
+              "weak_payoff_language"
+            ],
+            "unknowns": [],
+            "confidence": "HEURISTIC",
+            "claims_human_written": false,
+            "claims_guaranteed_engagement": false,
+            "method": "DETERMINISTIC_PREFLIGHT",
+            "note": "stylistic judgments are HEURISTIC; naturalness not proven"
+          },
+          "authority": "BUILD-04F.evaluate_script_quality + TRS preflight"
+        },
+        "approval": {
+          "state": "APPROVED",
+          "publishes": false,
+          "means_generated": false,
+          "updated_at": "2026-09-10T18:37:51.748615",
+          "note": "customer-approved script — not generated/rendered/published"
+        },
+        "error_code": null,
+        "error_summary": null,
+        "script_action": "reuse",
+        "dialogue_segments_count": 6,
+        "has_script_plan": true
+      },
+      "script_plan": {
+        "schema_version": "1.0.0",
+        "id": "b649e1f9-05f4-41a1-abcb-3d5bbd3fa631",
+        "created_at": "2026-09-10 12:37:51.732631+00:00",
+        "updated_at": null,
+        "topic_id": "topic-a5b3126729882d83",
+        "topic": "Lunar dust abrasion on Artemis spacesuits",
+        "format": "SHORT",
+        "language": "en",
+        "target_duration_sec": 60.0,
+        "hook": "Most people think lunar dust is just gray powder. It is actually microscopic glass shrapnel that can slice through your suit.",
+        "narrative_structure": [
+          "hook",
+          "context",
+          "development",
+          "reveal",
+          "payoff",
+          "ending"
+        ],
+        "sections": [
+          "hook",
+          "context",
+          "development",
+          "reveal",
+          "payoff",
+          "ending"
+        ],
+        "beats": [
+          {
+            "schema_version": "1.0.0",
+            "id": "4be66a43-942f-4121-956d-7be213fff001",
+            "created_at": "2026-09-10 12:37:51.732631+00:00",
+            "updated_at": null,
+            "beat_id": "beat-1",
+            "order": 0,
+            "section_role": "hook",
+            "narration": "Most people think lunar dust is just gray powder. It is actually microscopic glass shrapnel that can slice through your suit.",
+            "speaker": "Narrator",
+            "emotion": "",
+            "emotion_intensity": 0.5,
+            "action_intent": "",
+            "entity_refs": [],
+            "location_ref": "",
+            "temporal_context": "",
+            "continuity_deps": [],
+            "visual_implication": "Most people think lunar dust is just gray powder. It is actually microscopic glass shrapnel that can slice through your",
+            "claim_ids": [],
+            "evidence_refs": [
+              "N01"
+            ],
+            "estimated_duration_sec": 8.75,
+            "metadata": {
+              "legacy_visual_prompt_ownership": {
+                "semantic_visual_intent": "",
+                "legacy_provider_prompts": {
+                  "visual_prompt": "cinematic macro of sharp dust particles",
+                  "visual_query": "macro lunar dust sharp edges",
+                  "exact_ai_video_prompt": "VERTICAL 9:16 portrait (1080x1920) extreme macro shot of sharp, jagged lunar regolith particles under high-contrast teal/cyan lab lighting, slow push-in revealing their glass-like edges, no burned captions, no watermark, no talking-head REQUIRED on-screen anchors: Lunar dust abrasion on Artemis spacesuits, microscopic glass, dust, gray, powder, actually, microscopic. Visual slot: Lunar dust abrasion on Artemis spacesuits lunar regolith microscopic glass: Most people think lunar dust is just gray powder. It is actually — slow cinematic push-in establishing hero."
+                },
+                "legacy_fields_present": true,
+                "canonical_owner": "C05-S DirectedVisualBeat → prompt_compiler",
+                "script_owns_provider_visual_prompts": false,
+                "ownership": "LEGACY_DEPRECATED",
+                "note": "visual_prompt/exact_ai_video_prompt are compatibility fields, not ScriptPlan authority"
+              },
+              "dialogue_id": "beat-1",
+              "scene_id": "scene-00"
+            },
+            "retention_role": "pattern_interrupt"
+          },
+          {
+            "schema_version": "1.0.0",
+            "id": "b4e18809-b096-4b0e-a5f7-bc02b9dca00f",
+            "created_at": "2026-09-10 12:37:51.732631+00:00",
+            "updated_at": null,
+            "beat_id": "beat-2",
+            "order": 1,
+            "section_role": "context",
+            "narration": "Why does that matter right now? in the vacuum, these particles carry a static charge. They stick to everything, including the outer layers.",
+            "speaker": "Narrator",
+            "emotion": "",
+            "emotion_intensity": 0.5,
+            "action_intent": "",
+            "entity_refs": [],
+            "location_ref": "",
+            "temporal_context": "",
+            "continuity_deps": [],
+            "visual_implication": "Why does that matter right now? in the vacuum, these particles carry a static charge. They stick to everything, includin",
+            "claim_ids": [],
+            "evidence_refs": [
+              "N01"
+            ],
+            "estimated_duration_sec": 9.0,
+            "metadata": {
+              "legacy_visual_prompt_ownership": {
+                "semantic_visual_intent": "",
+                "legacy_provider_prompts": {
+                  "visual_prompt": "dust adhering to suit material",
+                  "visual_query": "dust sticking to fabric static",
+                  "exact_ai_video_prompt": "VERTICAL 9:16 portrait (1080x1920) cinematic close-up of gray dust particles clinging to a white fabric surface, subtle electric blue glow indicating static charge, shallow depth of field, teal grade, no burned captions, no watermark, no talking-head REQUIRED on-screen anchors: Lunar dust abrasion on Artemis spacesuits, adhesion, spacesuit exterior, vacuum, carry, stick. Visual slot: Lunar dust abrasion on Artemis spacesuits static charge adhesion: Why does that matter right now? in the vacuum, these particles carry — environmental wide into subject emphasis."
+                },
+                "legacy_fields_present": true,
+                "canonical_owner": "C05-S DirectedVisualBeat → prompt_compiler",
+                "script_owns_provider_visual_prompts": false,
+                "ownership": "LEGACY_DEPRECATED",
+                "note": "visual_prompt/exact_ai_video_prompt are compatibility fields, not ScriptPlan authority"
+              },
+              "dialogue_id": "beat-2",
+              "scene_id": "scene-01"
+            }
+          },
+          {
+            "schema_version": "1.0.0",
+            "id": "72980046-3687-48df-be3a-d1d9f3f095e7",
+            "created_at": "2026-09-10 12:37:51.732631+00:00",
+            "updated_at": null,
+            "beat_id": "beat-3",
+            "order": 2,
+            "section_role": "development",
+            "narration": "Watch what this changes next — when an astronaut moves, that dust rubs against the suit. It acts like sandpaper, wearing down the.",
+            "speaker": "Narrator",
+            "emotion": "",
+            "emotion_intensity": 0.5,
+            "action_intent": "",
+            "entity_refs": [],
+            "location_ref": "",
+            "temporal_context": "",
+            "continuity_deps": [],
+            "visual_implication": "Watch what this changes next — when an astronaut moves, that dust rubs against the suit. It acts like sandpaper, wearing",
+            "claim_ids": [],
+            "evidence_refs": [
+              "N01"
+            ],
+            "estimated_duration_sec": 9.0,
+            "metadata": {
+              "legacy_visual_prompt_ownership": {
+                "semantic_visual_intent": "",
+                "legacy_provider_prompts": {
+                  "visual_prompt": "dust scratching suit surface",
+                  "visual_query": "material abrasion macro scratch",
+                  "exact_ai_video_prompt": "VERTICAL 9:16 portrait (1080x1920) slow-motion macro of rough particles scraping across a white composite material, showing visible micro-scratches forming, high contrast, teal/cyan grade, no burned captions, no watermark, no talking-head REQUIRED on-screen anchors: Lunar dust abrasion on Artemis spacesuits, abrasion, sandpaper effect, suit wear, astronaut, moves, dust, rubs, against, suit. Visual slot: Lunar dust abrasion on Artemis spacesuits abrasion sandpaper effect: Watch what this changes next — when an astronaut moves, that dust — revealing detail with controlled camera move."
+                },
+                "legacy_fields_present": true,
+                "canonical_owner": "C05-S DirectedVisualBeat → prompt_compiler",
+                "script_owns_provider_visual_prompts": false,
+                "ownership": "LEGACY_DEPRECATED",
+                "note": "visual_prompt/exact_ai_video_prompt are compatibility fields, not ScriptPlan authority"
+              },
+              "dialogue_id": "beat-3",
+              "scene_id": "scene-02"
+            }
+          },
+          {
+            "schema_version": "1.0.0",
+            "id": "2d431cd0-b492-4eea-9179-8a4d00b63af7",
+            "created_at": "2026-09-10 12:37:51.732631+00:00",
+            "updated_at": null,
+            "beat_id": "beat-4",
+            "order": 3,
+            "section_role": "reveal",
+            "narration": "What most viewers overlook next is this: after just one lunar walk, the outer layer thins. The dust penetrates the fabric, reaching the.",
+            "speaker": "Narrator",
+            "emotion": "",
+            "emotion_intensity": 0.5,
+            "action_intent": "",
+            "entity_refs": [],
+            "location_ref": "",
+            "temporal_context": "",
+            "continuity_deps": [],
+            "visual_implication": "What most viewers overlook next is this: after just one lunar walk, the outer layer thins. The dust penetrates the fabri",
+            "claim_ids": [],
+            "evidence_refs": [
+              "N01"
+            ],
+            "estimated_duration_sec": 9.0,
+            "metadata": {
+              "legacy_visual_prompt_ownership": {
+                "semantic_visual_intent": "",
+                "legacy_provider_prompts": {
+                  "visual_prompt": "internal suit damage visualization",
+                  "visual_query": "suit layer cross section damage",
+                  "exact_ai_video_prompt": "VERTICAL 9:16 portrait (1080x1920) cross-section view of a multi-layer suit material, showing the outer layer worn thin and dust particles embedded in the inner layer, clinical lab lighting, teal grade, no burned captions, no watermark, no talking-head REQUIRED on-screen anchors: Lunar dust abrasion on Artemis spacesuits, layer thinning, pressure bladder, penetration, lunar, walk. Visual slot: Lunar dust abrasion on Artemis spacesuits layer thinning pressure bladder: What most viewers overlook next is this: after just one lunar walk, — macro process detail, continuous motion."
+                },
+                "legacy_fields_present": true,
+                "canonical_owner": "C05-S DirectedVisualBeat → prompt_compiler",
+                "script_owns_provider_visual_prompts": false,
+                "ownership": "LEGACY_DEPRECATED",
+                "note": "visual_prompt/exact_ai_video_prompt are compatibility fields, not ScriptPlan authority"
+              },
+              "dialogue_id": "beat-4",
+              "scene_id": "scene-03"
+            }
+          },
+          {
+            "schema_version": "1.0.0",
+            "id": "149e8bee-a93b-4b68-89b2-e9fb0080cbb2",
+            "created_at": "2026-09-10 12:37:51.732631+00:00",
+            "updated_at": null,
+            "beat_id": "beat-5",
+            "order": 4,
+            "section_role": "payoff",
+            "narration": "The Artemis suits are designed for short stays. But if the outer shell fails, the vacuum of space enters the suit instantly.",
+            "speaker": "Narrator",
+            "emotion": "",
+            "emotion_intensity": 0.5,
+            "action_intent": "",
+            "entity_refs": [],
+            "location_ref": "",
+            "temporal_context": "",
+            "continuity_deps": [],
+            "visual_implication": "The Artemis suits are designed for short stays. But if the outer shell fails, the vacuum of space enters the suit instan",
+            "claim_ids": [],
+            "evidence_refs": [
+              "N01"
+            ],
+            "estimated_duration_sec": 9.0,
+            "metadata": {
+              "legacy_visual_prompt_ownership": {
+                "semantic_visual_intent": "",
+                "legacy_provider_prompts": {
+                  "visual_prompt": "critical suit breach point",
+                  "visual_query": "suit tear vacuum leak",
+                  "exact_ai_video_prompt": "VERTICAL 9:16 portrait (1080x1920) dramatic close-up of a suit seam or joint, showing a tiny tear with a subtle vacuum effect (particles pulling out), high tension lighting, teal/cyan grade, no burned captions, no watermark, no talking-head REQUIRED on-screen anchors: Lunar dust abrasion on Artemis spacesuits, vacuum breach, suit failure, Artemis timeline, Artemis, designed, short, stays, outer. Visual slot: Lunar dust abrasion on Artemis spacesuits vacuum breach suit failure: The Artemis suits are designed for short stays. But if the outer — environmental wide into subject emphasis."
+                },
+                "legacy_fields_present": true,
+                "canonical_owner": "C05-S DirectedVisualBeat → prompt_compiler",
+                "script_owns_provider_visual_prompts": false,
+                "ownership": "LEGACY_DEPRECATED",
+                "note": "visual_prompt/exact_ai_video_prompt are compatibility fields, not ScriptPlan authority"
+              },
+              "dialogue_id": "beat-5",
+              "scene_id": "scene-04"
+            }
+          },
+          {
+            "schema_version": "1.0.0",
+            "id": "36f55b69-2abe-4e92-a1a5-839880e2481c",
+            "created_at": "2026-09-10 12:37:51.732631+00:00",
+            "updated_at": null,
+            "beat_id": "beat-6",
+            "order": 5,
+            "section_role": "ending",
+            "narration": "From that instantly, engineers are testing new coatings that repel static. But until that works, every step on the moon is a gamble..",
+            "speaker": "Narrator",
+            "emotion": "",
+            "emotion_intensity": 0.5,
+            "action_intent": "",
+            "entity_refs": [],
+            "location_ref": "",
+            "temporal_context": "",
+            "continuity_deps": [],
+            "visual_implication": "From that instantly, engineers are testing new coatings that repel static. But until that works, every step on the moon",
+            "claim_ids": [],
+            "evidence_refs": [
+              "N01"
+            ],
+            "estimated_duration_sec": 9.0,
+            "metadata": {
+              "legacy_visual_prompt_ownership": {
+                "semantic_visual_intent": "",
+                "legacy_provider_prompts": {
+                  "visual_prompt": "repellent coating application",
+                  "visual_query": "suit coating lab test",
+                  "exact_ai_video_prompt": "VERTICAL 9:16 portrait (1080x1920) laboratory setting, a robotic arm applying a clear coating to a suit sample, dust particles bouncing off the surface, clean bright lighting with teal accents, no burned captions, no watermark, no talking-head REQUIRED on-screen anchors: Lunar dust abrasion on Artemis spacesuits, static repel coating, engineering solution, lab testing, Engineers, testing, repel, static, until. Visual slot: Lunar dust abrasion on Artemis spacesuits static repel coating engineering solution: Engineers are testing new coatings that repel static. But until that works, — revealing detail with controlled camera move."
+                },
+                "legacy_fields_present": true,
+                "canonical_owner": "C05-S DirectedVisualBeat → prompt_compiler",
+                "script_owns_provider_visual_prompts": false,
+                "ownership": "LEGACY_DEPRECATED",
+                "note": "visual_prompt/exact_ai_video_prompt are compatibility fields, not ScriptPlan authority"
+              },
+              "dialogue_id": "beat-6",
+              "scene_id": "scene-05"
+            },
+            "retention_role": "ending",
+            "payoff_for": "main_open_loop"
+          }
+        ],
+        "claims": [
+          {
+            "id": "N01",
+            "claim": "Research query: why lunar dust abrasion threatens artemis spacesuits in 2026\nLanguage: en\nRegion:",
+            "evidence": "research_notes",
+            "source": "research_notes",
+            "confidence": 0.4,
+            "freshness": "UNVERIFIED"
+          },
+          {
+            "id": "L02",
+            "claim": "Additional context on Why lunar dust abrasion threatens Artemis spacesuits in 2026 from configured research scope.",
+            "evidence": "secondary",
+            "source": "live_research",
+            "confidence": 0.6,
+            "freshness": "recent"
+          }
+        ],
+        "evidence_refs": [
+          "N01",
+          "L02"
+        ],
+        "fact_pack_id": "",
+        "ending": "From that instantly, engineers are testing new coatings that repel static. But until that works, every step on the moon is a gamble..",
+        "payoff": "The Artemis suits are designed for short stays. But if the outer shell fails, the vacuum of space enters the suit instantly.",
+        "cta": "",
+        "estimated_duration_sec": 60.0,
+        "legacy_visual_prompts": [
+          {
+            "scene_index": 0,
+            "fields": {
+              "visual_prompt": "cinematic macro of sharp dust particles",
+              "visual_query": "macro lunar dust sharp edges",
+              "exact_ai_video_prompt": "VERTICAL 9:16 portrait (1080x1920) extreme macro shot of sharp, jagged lunar regolith particles under high-contrast teal/cyan lab lighting, slow push-in revealing their glass-like edges, no burned captions, no watermark, no talking-head REQUIRED on-screen anchors: Lunar dust abrasion on Artemis spacesuits, microscopic glass, dust, gray, powder, actually, microscopic. Visual slot: Lunar dust abrasion on Artemis spacesuits lunar regolith microscopic glass: Most people think lunar dust is just gray powder. It is actually — slow cinematic push-in establishing hero."
+            },
+            "ownership": "LEGACY_DEPRECATED"
+          },
+          {
+            "scene_index": 1,
+            "fields": {
+              "visual_prompt": "dust adhering to suit material",
+              "visual_query": "dust sticking to fabric static",
+              "exact_ai_video_prompt": "VERTICAL 9:16 portrait (1080x1920) cinematic close-up of gray dust particles clinging to a white fabric surface, subtle electric blue glow indicating static charge, shallow depth of field, teal grade, no burned captions, no watermark, no talking-head REQUIRED on-screen anchors: Lunar dust abrasion on Artemis spacesuits, adhesion, spacesuit exterior, vacuum, carry, stick. Visual slot: Lunar dust abrasion on Artemis spacesuits static charge adhesion: Why does that matter right now? in the vacuum, these particles carry — environmental wide into subject emphasis."
+            },
+            "ownership": "LEGACY_DEPRECATED"
+          },
+          {
+            "scene_index": 2,
+            "fields": {
+              "visual_prompt": "dust scratching suit surface",
+              "visual_query": "material abrasion macro scratch",
+              "exact_ai_video_prompt": "VERTICAL 9:16 portrait (1080x1920) slow-motion macro of rough particles scraping across a white composite material, showing visible micro-scratches forming, high contrast, teal/cyan grade, no burned captions, no watermark, no talking-head REQUIRED on-screen anchors: Lunar dust abrasion on Artemis spacesuits, abrasion, sandpaper effect, suit wear, astronaut, moves, dust, rubs, against, suit. Visual slot: Lunar dust abrasion on Artemis spacesuits abrasion sandpaper effect: Watch what this changes next — when an astronaut moves, that dust — revealing detail with controlled camera move."
+            },
+            "ownership": "LEGACY_DEPRECATED"
+          },
+          {
+            "scene_index": 3,
+            "fields": {
+              "visual_prompt": "internal suit damage visualization",
+              "visual_query": "suit layer cross section damage",
+              "exact_ai_video_prompt": "VERTICAL 9:16 portrait (1080x1920) cross-section view of a multi-layer suit material, showing the outer layer worn thin and dust particles embedded in the inner layer, clinical lab lighting, teal grade, no burned captions, no watermark, no talking-head REQUIRED on-screen anchors: Lunar dust abrasion on Artemis spacesuits, layer thinning, pressure bladder, penetration, lunar, walk. Visual slot: Lunar dust abrasion on Artemis spacesuits layer thinning pressure bladder: What most viewers overlook next is this: after just one lunar walk, — macro process detail, continuous motion."
+            },
+            "ownership": "LEGACY_DEPRECATED"
+          },
+          {
+            "scene_index": 4,
+            "fields": {
+              "visual_prompt": "critical suit breach point",
+              "visual_query": "suit tear vacuum leak",
+              "exact_ai_video_prompt": "VERTICAL 9:16 portrait (1080x1920) dramatic close-up of a suit seam or joint, showing a tiny tear with a subtle vacuum effect (particles pulling out), high tension lighting, teal/cyan grade, no burned captions, no watermark, no talking-head REQUIRED on-screen anchors: Lunar dust abrasion on Artemis spacesuits, vacuum breach, suit failure, Artemis timeline, Artemis, designed, short, stays, outer. Visual slot: Lunar dust abrasion on Artemis spacesuits vacuum breach suit failure: The Artemis suits are designed for short stays. But if the outer — environmental wide into subject emphasis."
+            },
+            "ownership": "LEGACY_DEPRECATED"
+          },
+          {
+            "scene_index": 5,
+            "fields": {
+              "visual_prompt": "repellent coating application",
+              "visual_query": "suit coating lab test",
+              "exact_ai_video_prompt": "VERTICAL 9:16 portrait (1080x1920) laboratory setting, a robotic arm applying a clear coating to a suit sample, dust particles bouncing off the surface, clean bright lighting with teal accents, no burned captions, no watermark, no talking-head REQUIRED on-screen anchors: Lunar dust abrasion on Artemis spacesuits, static repel coating, engineering solution, lab testing, Engineers, testing, repel, static, until. Visual slot: Lunar dust abrasion on Artemis spacesuits static repel coating engineering solution: Engineers are testing new coatings that repel static. But until that works, — revealing detail with controlled camera move."
+            },
+            "ownership": "LEGACY_DEPRECATED"
+          }
+        ],
+        "metadata": {
+          "source": "niche_director_normalized",
+          "visual_prompt_canonical_owner": "C05-S",
+          "script_owns_provider_visual_prompts": false,
+          "created_at": "2026-09-10T18:37:51.732631",
+          "retention_cadence_enforced": true,
+          "retention_cadence_repairs": [
+            {
+              "index": 5,
+              "action": "ending_close",
+              "prior": "From that instantly, engineers are testing new coatings that repel static. But until that works, every step on the moon "
+            }
+          ],
+          "dialogue_window_repairs": [
+            {
+              "i": 5,
+              "action": "trim",
+              "est_sec": 9.58
+            }
+          ],
+          "dialogue_window_enforced": true
+        }
+      },
+      "c05_handoff": {
+        "ready": true,
+        "status": "APPROVED_SCRIPT",
+        "path": "ScriptPlan → C05-TRS → C05-S → C05-GA → C05-GP → C05-GX → C05-MR",
+        "note": "Handoff ready — media generation is a later step",
+        "topic_id": "topic-a5b3126729882d83",
+        "topic_text": "Why lunar dust abrasion threatens Artemis spacesuits in 2026",
+        "script_plan_topic": "Lunar dust abrasion on Artemis spacesuits"
+      },
+      "actions": {
+        "select_topic": true,
+        "research": true,
+        "generate_script": true,
+        "review_script": true,
+        "approve_script": false,
+        "c05_handoff_ready": true
+      }
+    }
+  },
+  "ranked_preview": [
+    {
+      "topic": "Why permanently shadowed craters keep water ice colder than dry ice on the Moon",
+      "ok": true,
+      "seo": 0.85,
+      "specificity": 1.0,
+      "issues": []
+    },
+    {
+      "topic": "What JWST mid-infrared spectra reveal about exoplanet atmospheres this week",
+      "ok": true,
+      "seo": 0.85,
+      "specificity": 1.0,
+      "issues": []
+    },
+    {
+      "topic": "How solar wind strips Mars of atmosphere — the MAVEN evidence explained",
+      "ok": true,
+      "seo": 0.85,
+      "specificity": 1.0,
+      "issues": []
+    },
+    {
+      "topic": "How neutron albedo mapping finds hydrogen under the Moon's dark crater floors",
+      "ok": true,
+      "seo": 0.85,
+      "specificity": 1.0,
+      "issues": []
+    },
+    {
+      "topic": "How Europa's ice shell could hide a salty ocean — the evidence so far",
+      "ok": true,
+      "seo": 0.85,
+      "specificity": 1.0,
+      "issues": []
+    },
+    {
+      "topic": "Why Venus' thick clouds hide surface heat that melts lead — the physics",
+      "ok": true,
+      "seo": 0.85,
+      "specificity": 1.0,
+      "issues": []
+    },
+    {
+      "topic": "How radio telescopes catch fast radio bursts from distant magnetars",
+      "ok": true,
+      "seo": 0.7,
+      "specificity": 1.0,
+      "issues": []
+    },
+    {
+      "topic": "How gravitational-wave detectors hear black-hole mergers across the universe",
+      "ok": true,
+      "seo": 0.7,
+      "specificity": 1.0,
+      "issues": []
+    }
+  ]
+}

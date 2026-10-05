@@ -1,0 +1,80 @@
+{
+  "niche_id": 71,
+  "name": "Climate Refugees",
+  "slug": "climate-refugees",
+  "style_family": "nature",
+  "status": "VERIFIED",
+  "topic_seeds": [
+    "What new evidence reframes the story of Climate Refugees Communities inside Climate Refugees",
+    "How Climate Refugees Communities still shapes public curiosity about Climate Refugees",
+    "What new evidence reframes the story of Follow inside Climate Refugees",
+    "How Follow still shapes public curiosity about Climate Refugees",
+    "What new evidence reframes the story of Generate inside Climate Refugees",
+    "How Generate still shapes public curiosity about Climate Refugees"
+  ],
+  "seo_angles": [
+    "What new evidence reframes the story of Climate Refugees Communities inside Climate Refugees",
+    "How Climate Refugees Communities still shapes public curiosity about Climate Refugees",
+    "What new evidence reframes the story of Follow inside Climate Refugees",
+    "How Follow still shapes public curiosity about Climate Refugees"
+  ],
+  "forbidden_visuals": [
+    "talking-head lip-sync avatar",
+    "burned-in captions",
+    "watermark",
+    "modern meme text",
+    "CGI cartoon animals",
+    "studio green-screen obvious seams"
+  ],
+  "preferred_subjects": [
+    "biome wide establishing shot",
+    "species macro detail",
+    "weather system overhead"
+  ],
+  "lighting_default": "natural directional key, documentary clarity",
+  "face_policy": "no talking-head lip-sync avatar; cinematic B-roll preferred",
+  "dialogue_tone": "human documentary narration; specific nouns; 7–9s beats",
+  "audio_ambience": "subtle documentary bed; do not overpower voice",
+  "research_hints": [
+    "Prefer primary evidence and concrete entities for Climate Refugees",
+    "Avoid generic niche-label topics; require specific place/person/event/mechanism",
+    "7–9 second spoken beats with story continuity across scenes"
+  ],
+  "topic_prompt_overlay": "NICHE LOCK (Climate Refugees): only propose topics that fit this niche's video type. Video type: Communities forced to abandon homes due to rising sea levels, drought, or wildfire — their struggle and resilience. Follow niche topic strategy: Follow climate news, UNHCR reports, or environmental documentaries. Generate a topic about a community that recently relocated due to climate change.",
+  "video_prompt_overlay": "NICHE VISUAL LOCK (Climate Refugees / nature): Generate a 7–9 second dialogue clip based on the topic `{topic}`. Each dialogue must be poignant and urgent. For each dialogue, generate: - **Audio Generation Prompt:** Voice — solemn, with fire crackling or water lapping. - **Video Generation Prompt:** Detailed visual — flooded village or burning forest. Characters: family evacuating. Lighting: dark, smoky. Maintain same family and disaster atmosphere. Forbidden: talking-head lip-sync avatar, burned-in captions, watermark, modern meme text, CGI cartoon animals, studio green-screen obvious seams. Preferred subjects: biome wide establishing shot, species macro detail, weather system overhead. Lighting: natural directional key, documentary clarity. Face policy: no talking-head lip-sync avatar; cinematic B-roll preferred. Dialogue tone: human documentary narration; specific nouns; 7–9s beats. Ambience: subtle documentary bed; do not overpower voice.",
+  "i18n": {
+    "en": {
+      "name": "Climate Refugees",
+      "blurb": "Communities forced to abandon homes due to rising sea levels, drought, or wildfire — their struggle and resilience."
+    },
+    "bn": {
+      "name": "জলবায়ু শরণার্থী",
+      "blurb": "ভিডিও টাইপ: Communities forced to abandon homes due to rising sea levels, drought, or wildfire — their struggle and resilience."
+    },
+    "hi": {
+      "name": "जलवायु शरणार्थी",
+      "blurb": "वीडियो प्रकार: Communities forced to abandon homes due to rising sea levels, drought, or wildfire — their struggle and resilience."
+    },
+    "ur": {
+      "name": "موسمیاتی مہاجرین",
+      "blurb": "ویڈیو کی قسم: Communities forced to abandon homes due to rising sea levels, drought, or wildfire — their struggle and resilience."
+    },
+    "ta": {
+      "name": "காலநிலை அகதிகள்",
+      "blurb": "வீடியோ வகை: Communities forced to abandon homes due to rising sea levels, drought, or wildfire — their struggle and resilience."
+    },
+    "ml": {
+      "name": "കാലാവസ്ഥാ അഭയാർത്ഥികൾ",
+      "blurb": "വീഡിയോ തരം: Communities forced to abandon homes due to rising sea levels, drought, or wildfire — their struggle and resilience."
+    }
+  },
+  "source": "Nish.Md + deterministic research",
+  "research_notes": [
+    "Marathon researched at 2026-09-10T08:30:17Z",
+    "Video type length=115",
+    "Topic prompt length=149",
+    "Video prompt length=406",
+    "Seeds=6"
+  ],
+  "verified_at": "2026-09-10T08:30:18Z"
+}

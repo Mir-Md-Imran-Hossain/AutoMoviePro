@@ -1,0 +1,66 @@
+{
+  "research": {
+    "topic_id": "topic-66d7a5235c0385f7",
+    "query": "how neutron albedo mapping finds hydrogen under the moon's dark crater floors",
+    "evidence": [
+      {
+        "id": "N01",
+        "claim": "Research query: how neutron albedo mapping finds hydrogen under the moon's dark crater floors\nLanguage: en\nRegion:",
+        "evidence": "research_notes",
+        "source": "research_notes",
+        "confidence": 0.4,
+        "freshness": "UNVERIFIED"
+      },
+      {
+        "id": "L02",
+        "claim": "Additional context on How neutron albedo mapping finds hydrogen under the Moon's dark crater floors from configured research scope.",
+        "evidence": "secondary",
+        "source": "live_research",
+        "confidence": 0.6,
+        "freshness": "recent"
+      }
+    ],
+    "status": "completed",
+    "provider": "live_local",
+    "provider_kind": "configured_local",
+    "provider_capability": "LOCAL_FACTPACK",
+    "provider_mode": "LIVE_LOCAL",
+    "external_api": false,
+    "is_external_live": false,
+    "note": "LOCAL_FACTPACK must not be claimed as EXTERNAL_LIVE_RESEARCH",
+    "timestamp": 1789045253.1413796,
+    "queried_at": 1789045253.1413796,
+    "canonical_topic": "How neutron albedo mapping finds hydrogen under the Moon's dark crater floors",
+    "sources": [
+      "live_research",
+      "research_notes"
+    ],
+    "fingerprint": "26421e3c752cfab10f1be0660edae61703ed2df086acb0939cd2e3f7a18ee64f"
+  },
+  "fact_pack": {
+    "topic": "How neutron albedo mapping finds hydrogen under the Moon's dark crater floors",
+    "version": "v0",
+    "claims": [
+      {
+        "id": "N01",
+        "claim": "Research query: how neutron albedo mapping finds hydrogen under the moon's dark crater floors\nLanguage: en\nRegion:",
+        "evidence": "research_notes",
+        "source": "research_notes",
+        "confidence": 0.4,
+        "freshness": "UNVERIFIED"
+      },
+      {
+        "id": "L02",
+        "claim": "Additional context on How neutron albedo mapping finds hydrogen under the Moon's dark crater floors from configured research scope.",
+        "evidence": "secondary",
+        "source": "live_research",
+        "confidence": 0.6,
+        "freshness": "recent"
+      }
+    ],
+    "unknowns": []
+  },
+  "research_fingerprint": "26421e3c752cfab10f1be0660edae61703ed2df086acb0939cd2e3f7a18ee64f",
+  "provider_mode": "LIVE",
+  "persisted_at": 1789045253.1413796
+}

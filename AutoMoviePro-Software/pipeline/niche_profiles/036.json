@@ -1,0 +1,83 @@
+{
+  "niche_id": 36,
+  "name": "Alien & UFO Phenomena",
+  "slug": "alien-ufo-phenomena",
+  "style_family": "mystery",
+  "status": "VERIFIED",
+  "topic_seeds": [
+    "What new evidence reframes the story of Alien inside Alien & UFO Phenomena",
+    "How Alien still shapes public curiosity about Alien & UFO Phenomena",
+    "What new evidence reframes the story of Phenomena Documented inside Alien & UFO Phenomena",
+    "How Phenomena Documented still shapes public curiosity about Alien & UFO Phenomena",
+    "What new evidence reframes the story of Follow Pentagon inside Alien & UFO Phenomena",
+    "How Follow Pentagon still shapes public curiosity about Alien & UFO Phenomena"
+  ],
+  "seo_angles": [
+    "What new evidence reframes the story of Alien inside Alien & UFO Phenomena",
+    "How Alien still shapes public curiosity about Alien & UFO Phenomena",
+    "What new evidence reframes the story of Phenomena Documented inside Alien & UFO Phenomena",
+    "How Phenomena Documented still shapes public curiosity about Alien & UFO Phenomena"
+  ],
+  "forbidden_visuals": [
+    "talking-head lip-sync avatar",
+    "burned-in captions",
+    "watermark",
+    "modern meme text",
+    "modern smartphones",
+    "cars",
+    "LED screens",
+    "sneakers",
+    "contemporary skyline"
+  ],
+  "preferred_subjects": [
+    "Alien & UFO Phenomena documentary subject",
+    "period-accurate environment",
+    "evidence object close-up"
+  ],
+  "lighting_default": "dappled fog light, cool teal shadows, slow push-ins",
+  "face_policy": "no talking-head lip-sync avatar; cinematic B-roll preferred",
+  "dialogue_tone": "slow, ominous, evidence-first",
+  "audio_ambience": "low drone, subtle reverb, sparse percussion",
+  "research_hints": [
+    "Prefer primary evidence and concrete entities for Alien & UFO Phenomena",
+    "Avoid generic niche-label topics; require specific place/person/event/mechanism",
+    "7–9 second spoken beats with story continuity across scenes"
+  ],
+  "topic_prompt_overlay": "NICHE LOCK (Alien & UFO Phenomena): only propose topics that fit this niche's video type. Video type: Documented UFO sightings, whistleblower testimonies, and the government's secret files — skepticism meets curiosity. Follow niche topic strategy: Follow Pentagon reports, viral UFO videos, or congressional testimonies. Generate a topic that balances skepticism and wonder.",
+  "video_prompt_overlay": "NICHE VISUAL LOCK (Alien & UFO Phenomena / mystery): Generate a 7–9 second dialogue clip based on the topic `{topic}`. Each dialogue must be mysterious and questioning. For each dialogue, generate: - **Audio Generation Prompt:** Voice — intrigued, with static and beeping. - **Video Generation Prompt:** Detailed visual — night sky with strange lights. No characters. Lighting: dark with light streaks. Maintain same sky and streak pattern. Forbidden: talking-head lip-sync avatar, burned-in captions, watermark, modern meme text, modern smartphones, cars, LED screens, sneakers. Preferred subjects: Alien & UFO Phenomena documentary subject, period-accurate environment, evidence object close-up. Lighting: dappled fog light, cool teal shadows, slow push-ins. Face policy: no talking-head lip-sync avatar; cinematic B-roll preferred. Dialogue tone: slow, ominous, evidence-first. Ambience: low drone, subtle reverb, sparse percussion.",
+  "i18n": {
+    "en": {
+      "name": "Alien & UFO Phenomena",
+      "blurb": "Documented UFO sightings, whistleblower testimonies, and the government's secret files — skepticism meets curiosity."
+    },
+    "bn": {
+      "name": "এলিয়েন ও ইউএফও ঘটনা",
+      "blurb": "ভিডিও টাইপ: Documented UFO sightings, whistleblower testimonies, and the government's secret files — skepticism meets curiosity."
+    },
+    "hi": {
+      "name": "एलियन और यूएफओ घटनाएँ",
+      "blurb": "वीडियो प्रकार: Documented UFO sightings, whistleblower testimonies, and the government's secret files — skepticism meets curiosity."
+    },
+    "ur": {
+      "name": "ایلین اور یو ایف او مظاہر",
+      "blurb": "ویڈیو کی قسم: Documented UFO sightings, whistleblower testimonies, and the government's secret files — skepticism meets curiosity."
+    },
+    "ta": {
+      "name": "ஏலியன் & UFO நிகழ்வுகள்",
+      "blurb": "வீடியோ வகை: Documented UFO sightings, whistleblower testimonies, and the government's secret files — skepticism meets curiosity."
+    },
+    "ml": {
+      "name": "ഏലിയൻ & യുഎഫ്ഒ പ്രതിഭാസങ്ങൾ",
+      "blurb": "വീഡിയോ തരം: Documented UFO sightings, whistleblower testimonies, and the government's secret files — skepticism meets curiosity."
+    }
+  },
+  "source": "Nish.Md + deterministic research",
+  "research_notes": [
+    "Marathon researched at 2026-09-10T08:30:12Z",
+    "Video type length=116",
+    "Topic prompt length=126",
+    "Video prompt length=387",
+    "Seeds=6"
+  ],
+  "verified_at": "2026-09-10T08:30:12Z"
+}

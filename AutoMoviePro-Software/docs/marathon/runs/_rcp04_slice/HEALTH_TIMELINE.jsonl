@@ -1,0 +1,6 @@
+{"ts": "2026-09-08T15:08:54Z", "status": "PROGRESSING", "note": "RCP-04 start"}
+{"ts": "2026-09-08T15:08:54Z", "status": "PROGRESSING", "note": "research starting"}
+{"ts": "2026-09-08T15:08:54Z", "status": "PROGRESSING", "note": "script generation (visual-contract short)"}
+{"ts": "2026-09-08T15:08:54Z", "status": "PROGRESSING", "note": "execute_claimed_job job2293"}
+{"ts": "2026-09-08T15:16:46Z", "status": "FAILED", "note": "execute returned not-ok: localization_packaging_incomplete:bn"}
+{"ts": "2026-09-08T15:16:47Z", "status": "FAILED", "note": "BLOCKED:semantic_gate_UNKNOWN,bn_package_incomplete_or_english_as_localized"}

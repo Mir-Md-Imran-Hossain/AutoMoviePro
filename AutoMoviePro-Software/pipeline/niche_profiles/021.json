@@ -1,0 +1,83 @@
+{
+  "niche_id": 21,
+  "name": "Spy Games",
+  "slug": "spy-games",
+  "style_family": "mystery",
+  "status": "VERIFIED",
+  "topic_seeds": [
+    "What new evidence reframes the story of Spy Games Real inside Spy Games",
+    "How Spy Games Real still shapes public curiosity about Spy Games",
+    "What new evidence reframes the story of Cold War inside Spy Games",
+    "How Cold War still shapes public curiosity about Spy Games",
+    "What new evidence reframes the story of Enigma inside Spy Games",
+    "How Enigma still shapes public curiosity about Spy Games"
+  ],
+  "seo_angles": [
+    "What new evidence reframes the story of Spy Games Real inside Spy Games",
+    "How Spy Games Real still shapes public curiosity about Spy Games",
+    "What new evidence reframes the story of Cold War inside Spy Games",
+    "How Cold War still shapes public curiosity about Spy Games"
+  ],
+  "forbidden_visuals": [
+    "talking-head lip-sync avatar",
+    "burned-in captions",
+    "watermark",
+    "modern meme text",
+    "modern smartphones",
+    "cars",
+    "LED screens",
+    "sneakers",
+    "contemporary skyline"
+  ],
+  "preferred_subjects": [
+    "Spy Games documentary subject",
+    "period-accurate environment",
+    "evidence object close-up"
+  ],
+  "lighting_default": "dappled fog light, cool teal shadows, slow push-ins",
+  "face_policy": "no talking-head lip-sync avatar; cinematic B-roll preferred",
+  "dialogue_tone": "slow, ominous, evidence-first",
+  "audio_ambience": "low drone, subtle reverb, sparse percussion",
+  "research_hints": [
+    "Prefer primary evidence and concrete entities for Spy Games",
+    "Avoid generic niche-label topics; require specific place/person/event/mechanism",
+    "7–9 second spoken beats with story continuity across scenes"
+  ],
+  "topic_prompt_overlay": "NICHE LOCK (Spy Games): only propose topics that fit this niche's video type. Video type: Real espionage tales — Cold War double agents, the Enigma code, CIA vs. KGB — with high-stakes deception and life-or-death secrecy. Follow niche topic strategy: Follow declassified documents, spy museum exhibits, or recent cyber-espionage news. Generate a topic about a lesser-known spy operation.",
+  "video_prompt_overlay": "NICHE VISUAL LOCK (Spy Games / mystery): Generate a 7–9 second dialogue clip based on the topic `{topic}`. Each dialogue must be secretive and brisk. For each dialogue, generate: - **Audio Generation Prompt:** Voice — whispered, urgent, with typewriter or static radio. - **Video Generation Prompt:** Detailed visual — a safe house or archive room. Character: spy (gender neutral, trench coat, hat). Lighting: dim desk lamp. Maintain same coat, same lamp glow. Forbidden: talking-head lip-sync avatar, burned-in captions, watermark, modern meme text, modern smartphones, cars, LED screens, sneakers. Preferred subjects: Spy Games documentary subject, period-accurate environment, evidence object close-up. Lighting: dappled fog light, cool teal shadows, slow push-ins. Face policy: no talking-head lip-sync avatar; cinematic B-roll preferred. Dialogue tone: slow, ominous, evidence-first. Ambience: low drone, subtle reverb, sparse percussion.",
+  "i18n": {
+    "en": {
+      "name": "Spy Games",
+      "blurb": "Real espionage tales — Cold War double agents, the Enigma code, CIA vs. KGB — with high-stakes deception and life-or-death secrecy."
+    },
+    "bn": {
+      "name": "গুপ্তচর খেলা",
+      "blurb": "ভিডিও টাইপ: Real espionage tales — Cold War double agents, the Enigma code, CIA vs. KGB — with high-stakes deception and life-or-death secrecy."
+    },
+    "hi": {
+      "name": "जासूसी खेल",
+      "blurb": "वीडियो प्रकार: Real espionage tales — Cold War double agents, the Enigma code, CIA vs. KGB — with high-stakes deception and life-or-death secrecy."
+    },
+    "ur": {
+      "name": "جاسوسی کھیل",
+      "blurb": "ویڈیو کی قسم: Real espionage tales — Cold War double agents, the Enigma code, CIA vs. KGB — with high-stakes deception and life-or-death secrecy."
+    },
+    "ta": {
+      "name": "உளவு விளையாட்டுகள்",
+      "blurb": "வீடியோ வகை: Real espionage tales — Cold War double agents, the Enigma code, CIA vs. KGB — with high-stakes deception and life-or-death secrecy."
+    },
+    "ml": {
+      "name": "ചാരക്കളികൾ",
+      "blurb": "വീഡിയോ തരം: Real espionage tales — Cold War double agents, the Enigma code, CIA vs. KGB — with high-stakes deception and life-or-death secrecy."
+    }
+  },
+  "source": "Nish.Md + deterministic research",
+  "research_notes": [
+    "Marathon researched at 2026-09-10T08:30:10Z",
+    "Video type length=131",
+    "Topic prompt length=136",
+    "Video prompt length=419",
+    "Seeds=6"
+  ],
+  "verified_at": "2026-09-10T08:30:11Z"
+}

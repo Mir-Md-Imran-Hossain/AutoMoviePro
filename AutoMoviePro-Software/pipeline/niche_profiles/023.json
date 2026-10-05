@@ -1,0 +1,79 @@
+{
+  "niche_id": 23,
+  "name": "Forensic Breakthroughs",
+  "slug": "forensic-breakthroughs",
+  "style_family": "science",
+  "status": "VERIFIED",
+  "topic_seeds": [
+    "What new evidence reframes the story of Forensic Breakthroughs How inside Forensic Breakthroughs",
+    "How Forensic Breakthroughs How still shapes public curiosity about Forensic Breakthroughs",
+    "What new evidence reframes the story of Look inside Forensic Breakthroughs",
+    "How Look still shapes public curiosity about Forensic Breakthroughs",
+    "What new evidence reframes the story of Generate inside Forensic Breakthroughs",
+    "How Generate still shapes public curiosity about Forensic Breakthroughs"
+  ],
+  "seo_angles": [
+    "What new evidence reframes the story of Forensic Breakthroughs How inside Forensic Breakthroughs",
+    "How Forensic Breakthroughs How still shapes public curiosity about Forensic Breakthroughs",
+    "What new evidence reframes the story of Look inside Forensic Breakthroughs",
+    "How Look still shapes public curiosity about Forensic Breakthroughs"
+  ],
+  "forbidden_visuals": [
+    "talking-head lip-sync avatar",
+    "burned-in captions",
+    "watermark",
+    "modern meme text",
+    "off-niche stock office B-roll"
+  ],
+  "preferred_subjects": [
+    "lab instrument close-up",
+    "diagrammatic mechanism metaphor",
+    "field measurement site"
+  ],
+  "lighting_default": "teal/cyan lab grade, high contrast, shallow DOF",
+  "face_policy": "no talking-head lip-sync avatar; cinematic B-roll preferred",
+  "dialogue_tone": "clear explainer; one mechanism per beat",
+  "audio_ambience": "clean room tone, soft electronic texture",
+  "research_hints": [
+    "Prefer primary evidence and concrete entities for Forensic Breakthroughs",
+    "Avoid generic niche-label topics; require specific place/person/event/mechanism",
+    "7–9 second spoken beats with story continuity across scenes"
+  ],
+  "topic_prompt_overlay": "NICHE LOCK (Forensic Breakthroughs): only propose topics that fit this niche's video type. Video type: How DNA, fingerprinting, and toxicology turned cold cases into solved mysteries — celebrating the science behind justice. Follow niche topic strategy: Look for new forensic technology news, cold case resolved stories, or anniversary of a famous forensic case. Generate a topic that educates and astounds.",
+  "video_prompt_overlay": "NICHE VISUAL LOCK (Forensic Breakthroughs / science): Generate a 7–9 second dialogue clip based on the topic `{topic}`. Each dialogue must be scientific and hopeful. For each dialogue, generate: - **Audio Generation Prompt:** Voice — clear, educational, with lab equipment hum. - **Video Generation Prompt:** Detailed visual — modern lab with microscopes and screens. Character: scientist (lab coat, glasses). Lighting: cool white lab light. Maintain same lab coat, same white balance. Forbidden: talking-head lip-sync avatar, burned-in captions, watermark, modern meme text, off-niche stock office B-roll. Preferred subjects: lab instrument close-up, diagrammatic mechanism metaphor, field measurement site. Lighting: teal/cyan lab grade, high contrast, shallow DOF. Face policy: no talking-head lip-sync avatar; cinematic B-roll preferred. Dialogue tone: clear explainer; one mechanism per beat. Ambience: clean room tone, soft electronic texture.",
+  "i18n": {
+    "en": {
+      "name": "Forensic Breakthroughs",
+      "blurb": "How DNA, fingerprinting, and toxicology turned cold cases into solved mysteries — celebrating the science behind justice."
+    },
+    "bn": {
+      "name": "ফরেনসিক অগ্রগতি",
+      "blurb": "ভিডিও টাইপ: How DNA, fingerprinting, and toxicology turned cold cases into solved mysteries — celebrating the science behind justice."
+    },
+    "hi": {
+      "name": "फोरेंसिक सफलताएँ",
+      "blurb": "वीडियो प्रकार: How DNA, fingerprinting, and toxicology turned cold cases into solved mysteries — celebrating the science behind justice."
+    },
+    "ur": {
+      "name": "فارینزک کامیابیاں",
+      "blurb": "ویڈیو کی قسم: How DNA, fingerprinting, and toxicology turned cold cases into solved mysteries — celebrating the science behind justice."
+    },
+    "ta": {
+      "name": "தடயவியல் முன்னேற்றங்கள்",
+      "blurb": "வீடியோ வகை: How DNA, fingerprinting, and toxicology turned cold cases into solved mysteries — celebrating the science behind justice."
+    },
+    "ml": {
+      "name": "ഫോറൻസിക് മുന്നേറ്റങ്ങൾ",
+      "blurb": "വീഡിയോ തരം: How DNA, fingerprinting, and toxicology turned cold cases into solved mysteries — celebrating the science behind justice."
+    }
+  },
+  "source": "Nish.Md + deterministic research",
+  "research_notes": [
+    "Marathon researched at 2026-09-10T08:30:11Z",
+    "Video type length=121",
+    "Topic prompt length=153",
+    "Video prompt length=431",
+    "Seeds=6"
+  ],
+  "verified_at": "2026-09-10T08:30:11Z"
+}

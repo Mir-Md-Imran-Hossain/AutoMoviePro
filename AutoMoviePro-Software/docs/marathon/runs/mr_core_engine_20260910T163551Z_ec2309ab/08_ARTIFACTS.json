@@ -1,0 +1,763 @@
+{
+  "work_dir": "E:\\All Updaye Project\\AutoMovie_Pro_SAAS_Final_Update\\AutoMoviePro-Software\\data\\customer_generation_work\\c11_marathon_customer\\job2332",
+  "languages": {},
+  "db_languages_after": [
+    "en",
+    "bn"
+  ],
+  "entitlement_preserved": true,
+  "master_candidates": [
+    {
+      "path": "E:\\All Updaye Project\\AutoMovie_Pro_SAAS_Final_Update\\AutoMoviePro-Software\\data\\customer_generation_work\\c11_marathon_customer\\job2332\\final_short.mp4",
+      "size": 9187092,
+      "meta": {
+        "duration_sec": 63.0,
+        "width": 1080,
+        "height": 1920,
+        "fps": 25.0,
+        "has_video": true,
+        "has_audio": true,
+        "video_codec": "h264",
+        "audio_codec": "aac"
+      }
+    }
+  ],
+  "montage_brain_files": [
+    "director_plan.json"
+  ],
+  "montage_checklist": {
+    "ok": true,
+    "issues": [],
+    "hero_count": 3,
+    "slots_with_queries": 6,
+    "video_mode_count": 6,
+    "scene_count": 6,
+    "version": "amp_montage_brain_v1"
+  },
+  "montage_manifest": {
+    "version": "amp_montage_brain_v1",
+    "openmontage_agpl_imported": false,
+    "slots": 6
+  },
+  "DURATION_CONTRACT.json": {
+    "schema": "amp_duration_contract_v1",
+    "video_type": "short",
+    "target_seconds": 60,
+    "max_seconds": 120,
+    "authority": "pipeline.duration_budget.resolve_duration_contract"
+  },
+  "DURATION_RECONCILIATION.json": {
+    "schema": "amp_duration_reconciliation_v1",
+    "authority": "pipeline.duration_budget.reconcile_rendered_duration",
+    "contract": {
+      "schema": "amp_duration_contract_v1",
+      "video_type": "short",
+      "target_seconds": 60,
+      "max_seconds": 120,
+      "authority": "pipeline.duration_budget.resolve_duration_contract"
+    },
+    "planned_duration_sec": 60.0,
+    "planned_is_not_actual": true,
+    "actual_duration_sec": 63.0,
+    "scene_count": 6,
+    "min_acceptable_sec": 42.0,
+    "max_seconds": 120.0,
+    "target_seconds": 60.0,
+    "blocks": [],
+    "status": "PASS",
+    "allows_completed": true,
+    "allows_approved": true,
+    "allows_publishable": true,
+    "allows_ready_to_upload": true,
+    "reason": "actual_duration_meets_contract"
+  },
+  "PUBLISHABILITY_GATE.json": {
+    "technical_pass": true,
+    "creative_pass": true,
+    "multimodal_status": "ABSENT",
+    "semantic_status": "FAIL",
+    "artifact_status": "PASS",
+    "render_status": "PASS",
+    "audio_status": "PASS",
+    "localization_status": "PASS",
+    "creative_production_status": "PASS",
+    "rendering_integrity_status": "PASS",
+    "duration_status": "PASS",
+    "asr_evidence_status": "PASS",
+    "asr_dialogue_verified": true,
+    "asr_unknown_as_pass": false,
+    "scene_boundary_status": "FAIL",
+    "audience_status": "FAIL",
+    "multimodal_meta": {},
+    "verdict": "BLOCKED",
+    "publishable": false,
+    "reason": "semantic_blocked"
+  },
+  "SEMANTIC_COVERAGE_GATE.json": {
+    "verdict": "FAIL",
+    "blocking": false,
+    "reason": "semantic_fail",
+    "beats": [
+      {
+        "path": "E:\\All Updaye Project\\AutoMovie_Pro_SAAS_Final_Update\\AutoMoviePro-Software\\data\\customer_generation_work\\c11_marathon_customer\\job2332\\scene_00_SEMANTIC_COVERAGE.json",
+        "beat_id": "vb-seg-beat-1",
+        "dialogue_id": "11753610-fa9b-4bc2-827a-169015a125da",
+        "overall": "PASS",
+        "method": "PROVIDER_VIDEO_UPLOAD",
+        "fingerprint": "fddfaa1e5ccda5d981778241",
+        "mandatory_frame_evidence": null
+      },
+      {
+        "path": "E:\\All Updaye Project\\AutoMovie_Pro_SAAS_Final_Update\\AutoMoviePro-Software\\data\\customer_generation_work\\c11_marathon_customer\\job2332\\scene_01_SEMANTIC_COVERAGE.json",
+        "beat_id": "vb-seg-beat-2",
+        "dialogue_id": "bf036eaf-8b4f-48e5-8508-f0eac6821534",
+        "overall": "PASS",
+        "method": "PROVIDER_VIDEO_UPLOAD",
+        "fingerprint": "99c3edb6ecbe926690459248",
+        "mandatory_frame_evidence": null
+      },
+      {
+        "path": "E:\\All Updaye Project\\AutoMovie_Pro_SAAS_Final_Update\\AutoMoviePro-Software\\data\\customer_generation_work\\c11_marathon_customer\\job2332\\scene_02_SEMANTIC_COVERAGE.json",
+        "beat_id": "vb-seg-beat-3",
+        "dialogue_id": "04c24268-0050-4cb4-8329-5f6ca92dcaf9",
+        "overall": "UNKNOWN",
+        "method": "UNAVAILABLE",
+        "fingerprint": "5cfec5410babae81140a7e54",
+        "mandatory_frame_evidence": null
+      },
+      {
+        "path": "E:\\All Updaye Project\\AutoMovie_Pro_SAAS_Final_Update\\AutoMoviePro-Software\\data\\customer_generation_work\\c11_marathon_customer\\job2332\\scene_03_SEMANTIC_COVERAGE.json",
+        "beat_id": "vb-seg-beat-4",
+        "dialogue_id": "10ff49d1-24ef-4774-a41a-307988f12e58",
+        "overall": "PASS",
+        "method": "PROVIDER_VIDEO_UPLOAD",
+        "fingerprint": "30564b73ca833e8622ef54da",
+        "mandatory_frame_evidence": null
+      },
+      {
+        "path": "E:\\All Updaye Project\\AutoMovie_Pro_SAAS_Final_Update\\AutoMoviePro-Software\\data\\customer_generation_work\\c11_marathon_customer\\job2332\\scene_04_SEMANTIC_COVERAGE.json",
+        "beat_id": "vb-seg-beat-5",
+        "dialogue_id": "8d997697-d55a-46f9-b286-5fdb513c6838",
+        "overall": "PASS",
+        "method": "PROVIDER_VIDEO_UPLOAD",
+        "fingerprint": "a1ddf55f12bee65997c52fde",
+        "mandatory_frame_evidence": null
+      },
+      {
+        "path": "E:\\All Updaye Project\\AutoMovie_Pro_SAAS_Final_Update\\AutoMoviePro-Software\\data\\customer_generation_work\\c11_marathon_customer\\job2332\\scene_05_SEMANTIC_COVERAGE.json",
+        "beat_id": "vb-seg-beat-6",
+        "dialogue_id": "5ff18a27-8d6a-48ca-aaf1-d420795e13db",
+        "overall": "FAIL",
+        "method": "PROVIDER_VIDEO_UPLOAD",
+        "fingerprint": "f93bdc2b78244adb9d647f77",
+        "mandatory_frame_evidence": null
+      }
+    ],
+    "soft_continue": true,
+    "soft_reason": "AMP_SEMANTIC_UNKNOWN_SOFT",
+    "original_verdict": "FAIL"
+  },
+  "ARTIFACT_GATE.json": {
+    "status": "PASS",
+    "verdict": "PASS",
+    "reason": "artifact_technical_pass",
+    "job_id": "job2332",
+    "observation_count": 40,
+    "failed_count": 0,
+    "semantic_fail_count": 0,
+    "semantic_unknown_count": 40,
+    "final_verified": true,
+    "semantic_summary": {
+      "unknown_is_not_pass": true,
+      "technical_pass_implies_semantic_pass": false,
+      "unknown_count": 40,
+      "fail_count": 0
+    },
+    "observations": [
+      {
+        "artifact_id": "visual:scene_00_agent_repair_s1.mp4",
+        "media_type": "VIDEO",
+        "technical_status": "PASS",
+        "semantic_status": "UNKNOWN",
+        "observation_status": "PASS",
+        "path": "E:\\All Updaye Project\\AutoMovie_Pro_SAAS_Final_Update\\AutoMoviePro-Software\\data\\customer_generation_work\\c11_marathon_customer\\job2332\\scene_00_agent_repair_s1.mp4",
+        "issues": [
+          "semantic_unknown_not_pass"
+        ]
+      },
+      {
+        "artifact_id": "visual:scene_00_agent_tts_picture_setpts.mp4",
+        "media_type": "VIDEO",
+        "technical_status": "PASS",
+        "semantic_status": "UNKNOWN",
+        "observation_status": "PASS",
+        "path": "E:\\All Updaye Project\\AutoMovie_Pro_SAAS_Final_Update\\AutoMoviePro-Software\\data\\customer_generation_work\\c11_marathon_customer\\job2332\\scene_00_agent_tts_picture_setpts.mp4",
+        "issues": [
+          "semantic_unknown_not_pass"
+        ]
+      },
+      {
+        "artifact_id": "visual:scene_00_agent_unpadded.mp4",
+        "media_type": "VIDEO",
+        "technical_status": "PASS",
+        "semantic_status": "UNKNOWN",
+        "observation_status": "PASS",
+        "path": "E:\\All Updaye Project\\AutoMovie_Pro_SAAS_Final_Update\\AutoMoviePro-Software\\data\\customer_generation_work\\c11_marathon_customer\\job2332\\scene_00_agent_unpadded.mp4",
+        "issues": [
+          "semantic_unknown_not_pass"
+        ]
+      },
+      {
+        "artifact_id": "visual:scene_00_beat.mp4",
+        "media_type": "VIDEO",
+        "technical_status": "PASS",
+        "semantic_status": "UNKNOWN",
+        "observation_status": "PASS",
+        "path": "E:\\All Updaye Project\\AutoMovie_Pro_SAAS_Final_Update\\AutoMoviePro-Software\\data\\customer_generation_work\\c11_marathon_customer\\job2332\\scene_00_beat.mp4",
+        "issues": [
+          "semantic_unknown_not_pass"
+        ]
+      },
+      {
+        "artifact_id": "visual:scene_00_beat_a1.mp4",
+        "media_type": "VIDEO",
+        "technical_status": "PASS",
+        "semantic_status": "UNKNOWN",
+        "observation_status": "PASS",
+        "path": "E:\\All Updaye Project\\AutoMovie_Pro_SAAS_Final_Update\\AutoMoviePro-Software\\data\\customer_generation_work\\c11_marathon_customer\\job2332\\scene_00_beat_a1.mp4",
+        "issues": [
+          "semantic_unknown_not_pass"
+        ]
+      },
+      {
+        "artifact_id": "visual:scene_00_beat_agent_fixed.mp4",
+        "media_type": "VIDEO",
+        "technical_status": "PASS",
+        "semantic_status": "UNKNOWN",
+        "observation_status": "PASS",
+        "path": "E:\\All Updaye Project\\AutoMovie_Pro_SAAS_Final_Update\\AutoMoviePro-Software\\data\\customer_generation_work\\c11_marathon_customer\\job2332\\scene_00_beat_agent_fixed.mp4",
+        "issues": [
+          "semantic_unknown_not_pass"
+        ]
+      },
+      {
+        "artifact_id": "visual:scene_00_beat_unpadded.mp4",
+        "media_type": "VIDEO",
+        "technical_status": "PASS",
+        "semantic_status": "UNKNOWN",
+        "observation_status": "PASS",
+        "path": "E:\\All Updaye Project\\AutoMovie_Pro_SAAS_Final_Update\\AutoMoviePro-Software\\data\\customer_generation_work\\c11_marathon_customer\\job2332\\scene_00_beat_unpadded.mp4",
+        "issues": [
+          "semantic_unknown_not_pass"
+        ]
+      },
+      {
+        "artifact_id": "visual:scene_01_beat.mp4",
+        "media_type": "VIDEO",
+        "technical_status": "PASS",
+        "semantic_status": "UNKNOWN",
+        "observation_status": "PASS",
+        "path": "E:\\All Updaye Project\\AutoMovie_Pro_SAAS_Final_Update\\AutoMoviePro-Software\\data\\customer_generation_work\\c11_marathon_customer\\job2332\\scene_01_beat.mp4",
+        "issues": [
+          "semantic_unknown_not_pass"
+        ]
+      },
+      {
+        "artifact_id": "visual:scene_01_beat_p0_a1.mp4",
+        "media_type": "VIDEO",
+        "technical_status": "PASS",
+        "semantic_status": "UNKNOWN",
+        "observation_status": "PASS",
+        "path": "E:\\All Updaye Project\\AutoMovie_Pro_SAAS_Final_Update\\AutoMoviePro-Software\\data\\customer_generation_work\\c11_marathon_customer\\job2332\\scene_01_beat_p0_a1.mp4",
+        "issues": [
+          "semantic_unknown_not_pass"
+        ]
+      },
+      {
+        "artifact_id": "visual:scene_01_beat_p1_a1.mp4",
+        "media_type": "VIDEO",
+        "technical_status": "PASS",
+        "semantic_status": "UNKNOWN",
+        "observation_status": "PASS",
+        "path": "E:\\All Updaye Project\\AutoMovie_Pro_SAAS_Final_Update\\AutoMoviePro-Software\\data\\customer_generation_work\\c11_marathon_customer\\job2332\\scene_01_beat_p1_a1.mp4",
+        "issues": [
+          "semantic_unknown_not_pass"
+        ]
+      },
+      {
+        "artifact_id": "visual:scene_01_beat_split_agent.mp4",
+        "media_type": "VIDEO",
+        "technical_status": "PASS",
+        "semantic_status": "UNKNOWN",
+        "observation_status": "PASS",
+        "path": "E:\\All Updaye Project\\AutoMovie_Pro_SAAS_Final_Update\\AutoMoviePro-Software\\data\\customer_generation_work\\c11_marathon_customer\\job2332\\scene_01_beat_split_agent.mp4",
+        "issues": [
+          "semantic_unknown_not_pass"
+        ]
+      },
+      {
+        "artifact_id": "visual:scene_01_beat_tailsetpts_picture_setpts.mp4",
+        "media_type": "VIDEO",
+        "technical_status": "PASS",
+        "semantic_status": "UNKNOWN",
+        "observation_status": "PASS",
+        "path": "E:\\All Updaye Project\\AutoMovie_Pro_SAAS_Final_Update\\AutoMoviePro-Software\\data\\customer_generation_work\\c11_marathon_customer\\job2332\\scene_01_beat_tailsetpts_picture_setpts.mp4",
+        "issues": [
+          "semantic_unknown_not_pass"
+        ]
+      },
+      {
+        "artifact_id": "visual:scene_02_beat.mp4",
+        "media_type": "VIDEO",
+        "technical_status": "PASS",
+        "semantic_status": "UNKNOWN",
+        "observation_status": "PASS",
+        "path": "E:\\All Updaye Project\\AutoMovie_Pro_SAAS_Final_Update\\AutoMoviePro-Software\\data\\customer_generation_work\\c11_marathon_customer\\job2332\\scene_02_beat.mp4",
+        "issues": [
+          "semantic_unknown_not_pass"
+        ]
+      },
+      {
+        "artifact_id": "visual:scene_02_beat_p0_a1.mp4",
+        "media_type": "VIDEO",
+        "technical_status": "PASS",
+        "semantic_status": "UNKNOWN",
+        "observation_status": "PASS",
+        "path": "E:\\All Updaye Project\\AutoMovie_Pro_SAAS_Final_Update\\AutoMoviePro-Software\\data\\customer_generation_work\\c11_marathon_customer\\job2332\\scene_02_beat_p0_a1.mp4",
+        "issues": [
+          "semantic_unknown_not_pass"
+        ]
+      },
+      {
+        "artifact_id": "visual:scene_02_beat_p1_a1.mp4",
+        "media_type": "VIDEO",
+        "technical_status": "PASS",
+        "semantic_status": "UNKNOWN",
+        "observation_status": "PASS",
+        "path": "E:\\All Updaye Project\\AutoMovie_Pro_SAAS_Final_Update\\AutoMoviePro-Software\\data\\customer_generation_work\\c11_marathon_customer\\job2332\\scene_02_beat_p1_a1.mp4",
+        "issues": [
+          "semantic_unknown_not_pass"
+        ]
+      },
+      {
+        "artifact_id": "visual:scene_02_beat_split_agent.mp4",
+        "media_type": "VIDEO",
+        "technical_status": "PASS",
+        "semantic_status": "UNKNOWN",
+        "observation_status": "PASS",
+        "path": "E:\\All Updaye Project\\AutoMovie_Pro_SAAS_Final_Update\\AutoMoviePro-Software\\data\\customer_generation_work\\c11_marathon_customer\\job2332\\scene_02_beat_split_agent.mp4",
+        "issues": [
+          "semantic_unknown_not_pass"
+        ]
+      },
+      {
+        "artifact_id": "visual:scene_02_beat_tailsetpts_picture_setpts.mp4",
+        "media_type": "VIDEO",
+        "technical_status": "PASS",
+        "semantic_status": "UNKNOWN",
+        "observation_status": "PASS",
+        "path": "E:\\All Updaye Project\\AutoMovie_Pro_SAAS_Final_Update\\AutoMoviePro-Software\\data\\customer_generation_work\\c11_marathon_customer\\job2332\\scene_02_beat_tailsetpts_picture_setpts.mp4",
+        "issues": [
+          "semantic_unknown_not_pass"
+        ]
+      },
+      {
+        "artifact_id": "visual:scene_03_agent_repair_s1.mp4",
+        "media_type": "VIDEO",
+        "technical_status": "PASS",
+        "semantic_status": "UNKNOWN",
+        "observation_status": "PASS",
+        "path": "E:\\All Updaye Project\\AutoMovie_Pro_SAAS_Final_Update\\AutoMoviePro-Software\\data\\customer_generation_work\\c11_marathon_customer\\job2332\\scene_03_agent_repair_s1.mp4",
+        "issues": [
+          "semantic_unknown_not_pass"
+        ]
+      },
+      {
+        "artifact_id": "visual:scene_03_agent_tts_picture_setpts.mp4",
+        "media_type": "VIDEO",
+        "technical_status": "PASS",
+        "semantic_status": "UNKNOWN",
+        "observation_status": "PASS",
+        "path": "E:\\All Updaye Project\\AutoMovie_Pro_SAAS_Final_Update\\AutoMoviePro-Software\\data\\customer_generation_work\\c11_marathon_customer\\job2332\\scene_03_agent_tts_picture_setpts.mp4",
+        "issues": [
+          "semantic_unknown_not_pass"
+        ]
+      },
+      {
+        "artifact_id": "visual:scene_03_agent_unpadded.mp4",
+        "media_type": "VIDEO",
+        "technical_status": "PASS",
+        "semantic_status": "UNKNOWN",
+        "observation_status": "PASS",
+        "path": "E:\\All Updaye Project\\AutoMovie_Pro_SAAS_Final_Update\\AutoMoviePro-Software\\data\\customer_generation_work\\c11_marathon_customer\\job2332\\scene_03_agent_unpadded.mp4",
+        "issues": [
+          "semantic_unknown_not_pass"
+        ]
+      },
+      {
+        "artifact_id": "visual:scene_03_beat.mp4",
+        "media_type": "VIDEO",
+        "technical_status": "PASS",
+        "semantic_status": "UNKNOWN",
+        "observation_status": "PASS",
+        "path": "E:\\All Updaye Project\\AutoMovie_Pro_SAAS_Final_Update\\AutoMoviePro-Software\\data\\customer_generation_work\\c11_marathon_customer\\job2332\\scene_03_beat.mp4",
+        "issues": [
+          "semantic_unknown_not_pass"
+        ]
+      },
+      {
+        "artifact_id": "visual:scene_03_beat_a1.mp4",
+        "media_type": "VIDEO",
+        "technical_status": "PASS",
+        "semantic_status": "UNKNOWN",
+        "observation_status": "PASS",
+        "path": "E:\\All Updaye Project\\AutoMovie_Pro_SAAS_Final_Update\\AutoMoviePro-Software\\data\\customer_generation_work\\c11_marathon_customer\\job2332\\scene_03_beat_a1.mp4",
+        "issues": [
+          "semantic_unknown_not_pass"
+        ]
+      },
+      {
+        "artifact_id": "visual:scene_03_beat_agent_fixed.mp4",
+        "media_type": "VIDEO",
+        "technical_status": "PASS",
+        "semantic_status": "UNKNOWN",
+        "observation_status": "PASS",
+        "path": "E:\\All Updaye Project\\AutoMovie_Pro_SAAS_Final_Update\\AutoMoviePro-Software\\data\\customer_generation_work\\c11_marathon_customer\\job2332\\scene_03_beat_agent_fixed.mp4",
+        "issues": [
+          "semantic_unknown_not_pass"
+        ]
+      },
+      {
+        "artifact_id": "visual:scene_03_beat_unpadded.mp4",
+        "media_type": "VIDEO",
+        "technical_status": "PASS",
+        "semantic_status": "UNKNOWN",
+        "observation_status": "PASS",
+        "path": "E:\\All Updaye Project\\AutoMovie_Pro_SAAS_Final_Update\\AutoMoviePro-Software\\data\\customer_generation_work\\c11_marathon_customer\\job2332\\scene_03_beat_unpadded.mp4",
+        "issues": [
+          "semantic_unknown_not_pass"
+        ]
+      },
+      {
+        "artifact_id": "visual:scene_04_agent_repair_s1.mp4",
+        "media_type": "VIDEO",
+        "technical_status": "PASS",
+        "semantic_status": "UNKNOWN",
+        "observation_status": "PASS",
+        "path": "E:\\All Updaye Project\\AutoMovie_Pro_SAAS_Final_Update\\AutoMoviePro-Software\\data\\customer_generation_work\\c11_marathon_customer\\job2332\\scene_04_agent_repair_s1.mp4",
+        "issues": [
+          "semantic_unknown_not_pass"
+        ]
+      },
+      {
+        "artifact_id": "visual:scene_04_agent_tts_picture_setpts.mp4",
+        "media_type": "VIDEO",
+        "technical_status": "PASS",
+        "semantic_status": "UNKNOWN",
+        "observation_status": "PASS",
+        "path": "E:\\All Updaye Project\\AutoMovie_Pro_SAAS_Final_Update\\AutoMoviePro-Software\\data\\customer_generation_work\\c11_marathon_customer\\job2332\\scene_04_agent_tts_picture_setpts.mp4",
+        "issues": [
+          "semantic_unknown_not_pass"
+        ]
+      },
+      {
+        "artifact_id": "visual:scene_04_agent_unpadded.mp4",
+        "media_type": "VIDEO",
+        "technical_status": "PASS",
+        "semantic_status": "UNKNOWN",
+        "observation_status": "PASS",
+        "path": "E:\\All Updaye Project\\AutoMovie_Pro_SAAS_Final_Update\\AutoMoviePro-Software\\data\\customer_generation_work\\c11_marathon_customer\\job2332\\scene_04_agent_unpadded.mp4",
+        "issues": [
+          "semantic_unknown_not_pass"
+        ]
+      },
+      {
+        "artifact_id": "visual:scene_04_beat.mp4",
+        "media_type": "VIDEO",
+        "technical_status": "PASS",
+        "semantic_status": "UNKNOWN",
+        "observation_status": "PASS",
+        "path": "E:\\All Updaye Project\\AutoMovie_Pro_SAAS_Final_Update\\AutoMoviePro-Software\\data\\customer_generation_work\\c11_marathon_customer\\job2332\\scene_04_beat.mp4",
+        "issues": [
+          "semantic_unknown_not_pass"
+        ]
+      },
+      {
+        "artifact_id": "visual:scene_04_beat_a1.mp4",
+        "media_type": "VIDEO",
+        "technical_status": "PASS",
+        "semantic_status": "UNKNOWN",
+        "observation_status": "PASS",
+        "path": "E:\\All Updaye Project\\AutoMovie_Pro_SAAS_Final_Update\\AutoMoviePro-Software\\data\\customer_generation_work\\c11_marathon_customer\\job2332\\scene_04_beat_a1.mp4",
+        "issues": [
+          "semantic_unknown_not_pass"
+        ]
+      },
+      {
+        "artifact_id": "visual:scene_04_beat_agent_fixed.mp4",
+        "media_type": "VIDEO",
+        "technical_status": "PASS",
+        "semantic_status": "UNKNOWN",
+        "observation_status": "PASS",
+        "path": "E:\\All Updaye Project\\AutoMovie_Pro_SAAS_Final_Update\\AutoMoviePro-Software\\data\\customer_generation_work\\c11_marathon_customer\\job2332\\scene_04_beat_agent_fixed.mp4",
+        "issues": [
+          "semantic_unknown_not_pass"
+        ]
+      },
+      {
+        "artifact_id": "visual:scene_04_beat_unpadded.mp4",
+        "media_type": "VIDEO",
+        "technical_status": "PASS",
+        "semantic_status": "UNKNOWN",
+        "observation_status": "PASS",
+        "path": "E:\\All Updaye Project\\AutoMovie_Pro_SAAS_Final_Update\\AutoMoviePro-Software\\data\\customer_generation_work\\c11_marathon_customer\\job2332\\scene_04_beat_unpadded.mp4",
+        "issues": [
+          "semantic_unknown_not_pass"
+        ]
+      },
+      {
+        "artifact_id": "visual:scene_05_agent_repair_s1.mp4",
+        "media_type": "VIDEO",
+        "technical_status": "PASS",
+        "semantic_status": "UNKNOWN",
+        "observation_status": "PASS",
+        "path": "E:\\All Updaye Project\\AutoMovie_Pro_SAAS_Final_Update\\AutoMoviePro-Software\\data\\customer_generation_work\\c11_marathon_customer\\job2332\\scene_05_agent_repair_s1.mp4",
+        "issues": [
+          "semantic_unknown_not_pass"
+        ]
+      },
+      {
+        "artifact_id": "audio:narration_00.m4a",
+        "media_type": "AUDIO",
+        "technical_status": "PASS",
+        "semantic_status": "UNKNOWN",
+        "observation_status": "PASS",
+        "path": "E:\\All Updaye Project\\AutoMovie_Pro_SAAS_Final_Update\\AutoMoviePro-Software\\data\\customer_generation_work\\c11_marathon_customer\\job2332\\narration_00.m4a",
+        "issues": [
+          "semantic_unknown_not_pass"
+        ]
+      },
+      {
+        "artifact_id": "audio:narration_01.m4a",
+        "media_type": "AUDIO",
+        "technical_status": "PASS",
+        "semantic_status": "UNKNOWN",
+        "observation_status": "PASS",
+        "path": "E:\\All Updaye Project\\AutoMovie_Pro_SAAS_Final_Update\\AutoMoviePro-Software\\data\\customer_generation_work\\c11_marathon_customer\\job2332\\narration_01.m4a",
+        "issues": [
+          "semantic_unknown_not_pass"
+        ]
+      },
+      {
+        "artifact_id": "audio:narration_02.m4a",
+        "media_type": "AUDIO",
+        "technical_status": "PASS",
+        "semantic_status": "UNKNOWN",
+        "observation_status": "PASS",
+        "path": "E:\\All Updaye Project\\AutoMovie_Pro_SAAS_Final_Update\\AutoMoviePro-Software\\data\\customer_generation_work\\c11_marathon_customer\\job2332\\narration_02.m4a",
+        "issues": [
+          "semantic_unknown_not_pass"
+        ]
+      },
+      {
+        "artifact_id": "audio:narration_03.m4a",
+        "media_type": "AUDIO",
+        "technical_status": "PASS",
+        "semantic_status": "UNKNOWN",
+        "observation_status": "PASS",
+        "path": "E:\\All Updaye Project\\AutoMovie_Pro_SAAS_Final_Update\\AutoMoviePro-Software\\data\\customer_generation_work\\c11_marathon_customer\\job2332\\narration_03.m4a",
+        "issues": [
+          "semantic_unknown_not_pass"
+        ]
+      },
+      {
+        "artifact_id": "audio:narration_04.m4a",
+        "media_type": "AUDIO",
+        "technical_status": "PASS",
+        "semantic_status": "UNKNOWN",
+        "observation_status": "PASS",
+        "path": "E:\\All Updaye Project\\AutoMovie_Pro_SAAS_Final_Update\\AutoMoviePro-Software\\data\\customer_generation_work\\c11_marathon_customer\\job2332\\narration_04.m4a",
+        "issues": [
+          "semantic_unknown_not_pass"
+        ]
+      },
+      {
+        "artifact_id": "audio:narration_05.m4a",
+        "media_type": "AUDIO",
+        "technical_status": "PASS",
+        "semantic_status": "UNKNOWN",
+        "observation_status": "PASS",
+        "path": "E:\\All Updaye Project\\AutoMovie_Pro_SAAS_Final_Update\\AutoMoviePro-Software\\data\\customer_generation_work\\c11_marathon_customer\\job2332\\narration_05.m4a",
+        "issues": [
+          "semantic_unknown_not_pass"
+        ]
+      },
+      {
+        "artifact_id": "subtitle:english_master.srt",
+        "media_type": "SUBTITLE",
+        "technical_status": "PASS",
+        "semantic_status": "UNKNOWN",
+        "observation_status": "PASS",
+        "path": "E:\\All Updaye Project\\AutoMovie_Pro_SAAS_Final_Update\\AutoMoviePro-Software\\data\\customer_generation_work\\c11_marathon_customer\\job2332\\english_master.srt",
+        "issues": [
+          "semantic_unknown_not_pass"
+        ]
+      },
+      {
+        "artifact_id": "composite:final_short.mp4",
+        "media_type": "COMPOSITE",
+        "technical_status": "PASS",
+        "semantic_status": "UNKNOWN",
+        "observation_status": "PASS",
+        "path": "E:\\All Updaye Project\\AutoMovie_Pro_SAAS_Final_Update\\AutoMoviePro-Software\\data\\customer_generation_work\\c11_marathon_customer\\job2332\\final_short.mp4",
+        "issues": [
+          "semantic_unknown_not_pass"
+        ]
+      }
+    ],
+    "provenance_chain": [
+      "Research",
+      "FactPack",
+      "Script",
+      "SceneIntent",
+      "Plan",
+      "Prompt",
+      "Generation",
+      "ProviderArtifact",
+      "Observation",
+      "Repair?",
+      "Render",
+      "FinalObservation",
+      "Publication"
+    ],
+    "authority": "pipeline.artifact_verification"
+  },
+  "MASTER_SHIP_GATE.json": {
+    "ok": true,
+    "unshippable": false,
+    "gates": [
+      {
+        "check": "leading_silence",
+        "passed": true,
+        "issues": [],
+        "critical_issues": [],
+        "lead_sec": 0.0
+      },
+      {
+        "check": "dead_air_ratio",
+        "passed": true,
+        "issues": [],
+        "critical_issues": [],
+        "silent_sec": 11.43,
+        "ratio": 0.182,
+        "gaps": 6
+      },
+      {
+        "check": "dialogue_cutoff",
+        "passed": true,
+        "issues": [],
+        "critical_issues": [],
+        "media": "E:\\All Updaye Project\\AutoMovie_Pro_SAAS_Final_Update\\AutoMoviePro-Software\\data\\customer_generation_work\\c11_marathon_customer\\job2332\\final_short.mp4",
+        "duration_sec": 63.0,
+        "spoken_estimate_sec": 52.917,
+        "start_rms": 0.0,
+        "end_rms": 0.0,
+        "peak_rms": 0.0
+      },
+      {
+        "check": "dialogue_uniqueness",
+        "passed": true,
+        "issues": [],
+        "critical_issues": [],
+        "pairs": [],
+        "max_overlap": 0.074
+      },
+      {
+        "check": "niche_template",
+        "passed": true,
+        "issues": [],
+        "critical_issues": []
+      }
+    ],
+    "issues": [],
+    "critical_issues": []
+  },
+  "RENDERING_INTEGRITY_GATE.json": {
+    "status": "PASS",
+    "verdict": "PASS",
+    "issues": [],
+    "frame_integrity": {
+      "status": "UNKNOWN",
+      "black_frame_spans": [],
+      "black_seconds": 0.0,
+      "missing_frame_estimate": 0,
+      "issues": [
+        "probe_error:[WinError 2] The system cannot find the file specified"
+      ],
+      "method": "ffmpeg_blackdetect",
+      "unknown_as_pass": false
+    },
+    "job_id": "job2332",
+    "stage": "post_render",
+    "observation": {
+      "status": "PASS",
+      "issues": [],
+      "metadata": {
+        "duration_sec": 63.0,
+        "width": 1080,
+        "height": 1920,
+        "fps": 25.0,
+        "has_video": true,
+        "has_audio": true,
+        "video_codec": "h264",
+        "audio_codec": "aac"
+      },
+      "sync_status": "PASS",
+      "validation_reason": "ok",
+      "perceptual_quality": {
+        "schema": "amp_observation_perceptual_quality_v1",
+        "status": "UNKNOWN",
+        "observation_executed": false,
+        "provider_verified": false,
+        "tool": "ffmpeg_libvmaf",
+        "reason": "reference_media_unavailable",
+        "issues": [
+          "vmaf_reference_unavailable"
+        ],
+        "unknown_as_pass": false,
+        "authority": "observation_only",
+        "does_not_replace": [
+          "FFmpeg",
+          "compose",
+          "rendering_integrity"
+        ],
+        "distorted_path": "E:\\All Updaye Project\\AutoMovie_Pro_SAAS_Final_Update\\AutoMoviePro-Software\\data\\customer_generation_work\\c11_marathon_customer\\job2332\\final_short.mp4",
+        "reference_path": null
+      },
+      "method": "DETERMINISTIC",
+      "layer": "E",
+      "path": "E:\\All Updaye Project\\AutoMovie_Pro_SAAS_Final_Update\\AutoMoviePro-Software\\data\\customer_generation_work\\c11_marathon_customer\\job2332\\final_short.mp4",
+      "subprocess_success_is_not_proof": true,
+      "unknown_as_pass": false
+    },
+    "final_path": "E:\\All Updaye Project\\AutoMovie_Pro_SAAS_Final_Update\\AutoMoviePro-Software\\data\\customer_generation_work\\c11_marathon_customer\\job2332\\final_short.mp4",
+    "contract_fingerprint": "c4a8aa974b689a41035383bc",
+    "classification": "UNKNOWN",
+    "method": "DETERMINISTIC",
+    "layer": "E",
+    "subprocess_success_is_not_proof": true,
+    "unknown_as_pass": false
+  },
+  "UR_RTL_SHAPING": "UNKNOWN",
+  "ur_rtl_classify": {
+    "rtl": true,
+    "status": "PASS",
+    "support_level": "SHAPING_LIBS_AVAILABLE",
+    "method": "DETERMINISTIC",
+    "shaping_guaranteed": true,
+    "libs": [
+      "arabic_reshaper",
+      "python-bidi"
+    ]
+  }
+}

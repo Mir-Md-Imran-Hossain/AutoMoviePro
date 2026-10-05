@@ -1,0 +1,7 @@
+| Query | Expected concept | Hash Top-1 | CLIP Top-1 | Hash Top-3 | CLIP Top-3 | Relevant? | Notes |
+|---|---|---|---|---|---|---|---|
+| cinematic documentary shot of Most viewers Most JWST Mid-Inf | JWST / telescope / exoplanet atmospheres | scene_01_beat_t010 | UNAVAILABLE | scene_01_beat_t010,scene_03_beat_t010,agnes_03_beat_i2v_a1_t008 | UNAVAILABLE | UNKNOWN | CLIP unavailable — cannot claim semantic quality;  |
+| cinematic documentary shot of Visible light Visible Mid-infr | visible vs mid-infrared light / dust / s | scene_04_beat_t015 | UNAVAILABLE | scene_04_beat_t015,final_short_t010,agnes_00_beat_i2v_a1_t008 | UNAVAILABLE | UNKNOWN | CLIP unavailable — cannot claim semantic quality;  |
+| cinematic documentary shot of penetrates watch Methane: From | spectral fingerprint / methane / carbon  | scene_02_beat_t020 | UNAVAILABLE | scene_02_beat_t020,agnes_03_beat_i2v_a1_t008,final_short_t160 | UNAVAILABLE | UNKNOWN | CLIP unavailable — cannot claim semantic quality;  |
+| cinematic documentary shot of star million We: But the star  | bright star light subtraction / exoplane | agnes_00_beat_i2v_a1_t008 | UNAVAILABLE | agnes_00_beat_i2v_a1_t008,scene_01_beat_t010,agnes_03_beat_i2v_a1_t008 | UNAVAILABLE | UNKNOWN | CLIP unavailable — cannot claim semantic quality;  |
+| cinematic documentary shot of brighter water It: From that b | water vapor / clouds / atmospheric spect | final_short_t010 | UNAVAILABLE | final_short_t010,scene_02_beat_t020,final_short_t280 | UNAVAILABLE | UNKNOWN | CLIP unavailable — cannot claim semantic quality;  |

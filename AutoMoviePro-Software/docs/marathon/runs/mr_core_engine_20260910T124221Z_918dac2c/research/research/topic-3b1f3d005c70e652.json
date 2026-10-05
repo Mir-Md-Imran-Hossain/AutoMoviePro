@@ -1,0 +1,66 @@
+{
+  "research": {
+    "topic_id": "topic-3b1f3d005c70e652",
+    "query": "what jwst mid-infrared spectra reveal about exoplanet atmospheres this week",
+    "evidence": [
+      {
+        "id": "N01",
+        "claim": "Research query: what jwst mid-infrared spectra reveal about exoplanet atmospheres this week\nLanguage: en\nRegion:",
+        "evidence": "research_notes",
+        "source": "research_notes",
+        "confidence": 0.4,
+        "freshness": "UNVERIFIED"
+      },
+      {
+        "id": "L02",
+        "claim": "Additional context on What JWST mid-infrared spectra reveal about exoplanet atmospheres this week from configured research scope.",
+        "evidence": "secondary",
+        "source": "live_research",
+        "confidence": 0.6,
+        "freshness": "recent"
+      }
+    ],
+    "status": "completed",
+    "provider": "live_local",
+    "provider_kind": "configured_local",
+    "provider_capability": "LOCAL_FACTPACK",
+    "provider_mode": "LIVE_LOCAL",
+    "external_api": false,
+    "is_external_live": false,
+    "note": "LOCAL_FACTPACK must not be claimed as EXTERNAL_LIVE_RESEARCH",
+    "timestamp": 1789044142.1521251,
+    "queried_at": 1789044142.1521251,
+    "canonical_topic": "What JWST mid-infrared spectra reveal about exoplanet atmospheres this week",
+    "sources": [
+      "live_research",
+      "research_notes"
+    ],
+    "fingerprint": "820bf2dcb50942f0f7ccb738af0bc5481e94ed010277bb79f915859e146a65c3"
+  },
+  "fact_pack": {
+    "topic": "What JWST mid-infrared spectra reveal about exoplanet atmospheres this week",
+    "version": "v0",
+    "claims": [
+      {
+        "id": "N01",
+        "claim": "Research query: what jwst mid-infrared spectra reveal about exoplanet atmospheres this week\nLanguage: en\nRegion:",
+        "evidence": "research_notes",
+        "source": "research_notes",
+        "confidence": 0.4,
+        "freshness": "UNVERIFIED"
+      },
+      {
+        "id": "L02",
+        "claim": "Additional context on What JWST mid-infrared spectra reveal about exoplanet atmospheres this week from configured research scope.",
+        "evidence": "secondary",
+        "source": "live_research",
+        "confidence": 0.6,
+        "freshness": "recent"
+      }
+    ],
+    "unknowns": []
+  },
+  "research_fingerprint": "820bf2dcb50942f0f7ccb738af0bc5481e94ed010277bb79f915859e146a65c3",
+  "provider_mode": "LIVE",
+  "persisted_at": 1789044142.1521251
+}

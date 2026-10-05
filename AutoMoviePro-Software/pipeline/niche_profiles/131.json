@@ -1,0 +1,83 @@
+{
+  "niche_id": 131,
+  "name": "Midnight Whispers",
+  "slug": "midnight-whispers",
+  "style_family": "mystery",
+  "status": "VERIFIED",
+  "topic_seeds": [
+    "What new evidence reframes the story of Midnight Whispers Strange inside Midnight Whispers",
+    "How Midnight Whispers Strange still shapes public curiosity about Midnight Whispers",
+    "What new evidence reframes the story of Scan inside Midnight Whispers",
+    "How Scan still shapes public curiosity about Midnight Whispers",
+    "What new evidence reframes the story of Generate inside Midnight Whispers",
+    "How Generate still shapes public curiosity about Midnight Whispers"
+  ],
+  "seo_angles": [
+    "What new evidence reframes the story of Midnight Whispers Strange inside Midnight Whispers",
+    "How Midnight Whispers Strange still shapes public curiosity about Midnight Whispers",
+    "What new evidence reframes the story of Scan inside Midnight Whispers",
+    "How Scan still shapes public curiosity about Midnight Whispers"
+  ],
+  "forbidden_visuals": [
+    "talking-head lip-sync avatar",
+    "burned-in captions",
+    "watermark",
+    "modern meme text",
+    "modern smartphones",
+    "cars",
+    "LED screens",
+    "sneakers",
+    "contemporary skyline"
+  ],
+  "preferred_subjects": [
+    "Midnight Whispers documentary subject",
+    "period-accurate environment",
+    "evidence object close-up"
+  ],
+  "lighting_default": "dappled fog light, cool teal shadows, slow push-ins",
+  "face_policy": "no talking-head lip-sync avatar; cinematic B-roll preferred",
+  "dialogue_tone": "slow, ominous, evidence-first",
+  "audio_ambience": "low drone, subtle reverb, sparse percussion",
+  "research_hints": [
+    "Prefer primary evidence and concrete entities for Midnight Whispers",
+    "Avoid generic niche-label topics; require specific place/person/event/mechanism",
+    "7–9 second spoken beats with story continuity across scenes"
+  ],
+  "topic_prompt_overlay": "NICHE LOCK (Midnight Whispers): only propose topics that fit this niche's video type. Video type: Strange phone calls, mysterious recordings, and EVPs (electronic voice phenomena) from paranormal investigations. Follow niche topic strategy: Scan paranormal audio archives, viral EVP videos, or new ghost hunting tech. Generate a topic about a recording that baffled experts.",
+  "video_prompt_overlay": "NICHE VISUAL LOCK (Midnight Whispers / mystery): Generate a 7–9 second dialogue clip based on the topic `{topic}`. Each dialogue must be unsettling. For each dialogue, generate: - **Audio Generation Prompt:** Voice — whispery, with static and white noise. - **Video Generation Prompt:** Detailed visual — a recorder or a dark room. No clear character — focus on audio device. Lighting: dim red. Maintain same device. Forbidden: talking-head lip-sync avatar, burned-in captions, watermark, modern meme text, modern smartphones, cars, LED screens, sneakers. Preferred subjects: Midnight Whispers documentary subject, period-accurate environment, evidence object close-up. Lighting: dappled fog light, cool teal shadows, slow push-ins. Face policy: no talking-head lip-sync avatar; cinematic B-roll preferred. Dialogue tone: slow, ominous, evidence-first. Ambience: low drone, subtle reverb, sparse percussion.",
+  "i18n": {
+    "en": {
+      "name": "Midnight Whispers",
+      "blurb": "Strange phone calls, mysterious recordings, and EVPs (electronic voice phenomena) from paranormal investigations."
+    },
+    "bn": {
+      "name": "মধ্যরাতের ফিসফিসানি",
+      "blurb": "ভিডিও টাইপ: Strange phone calls, mysterious recordings, and EVPs (electronic voice phenomena) from paranormal investigations."
+    },
+    "hi": {
+      "name": "आधी रात की फुसफुसाहट",
+      "blurb": "वीडियो प्रकार: Strange phone calls, mysterious recordings, and EVPs (electronic voice phenomena) from paranormal investigations."
+    },
+    "ur": {
+      "name": "آدھی رات کی سرگوشیاں",
+      "blurb": "ویڈیو کی قسم: Strange phone calls, mysterious recordings, and EVPs (electronic voice phenomena) from paranormal investigations."
+    },
+    "ta": {
+      "name": "நள்ளிரவு முனகல்கள்",
+      "blurb": "வீடியோ வகை: Strange phone calls, mysterious recordings, and EVPs (electronic voice phenomena) from paranormal investigations."
+    },
+    "ml": {
+      "name": "അർദ്ധരാത്രി മന്ത്രങ്ങൾ",
+      "blurb": "വീഡിയോ തരം: Strange phone calls, mysterious recordings, and EVPs (electronic voice phenomena) from paranormal investigations."
+    }
+  },
+  "source": "Nish.Md + deterministic research",
+  "research_notes": [
+    "Marathon researched at 2026-09-10T08:30:28Z",
+    "Video type length=113",
+    "Topic prompt length=133",
+    "Video prompt length=367",
+    "Seeds=6"
+  ],
+  "verified_at": "2026-09-10T08:30:28Z"
+}

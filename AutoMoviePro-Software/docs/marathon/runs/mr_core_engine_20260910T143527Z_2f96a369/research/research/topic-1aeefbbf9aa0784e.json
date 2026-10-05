@@ -1,0 +1,66 @@
+{
+  "research": {
+    "topic_id": "topic-1aeefbbf9aa0784e",
+    "query": "how starliner and commercial crew change iss science return timelines",
+    "evidence": [
+      {
+        "id": "N01",
+        "claim": "Research query: how starliner and commercial crew change iss science return timelines\nLanguage: en\nRegion:",
+        "evidence": "research_notes",
+        "source": "research_notes",
+        "confidence": 0.4,
+        "freshness": "UNVERIFIED"
+      },
+      {
+        "id": "L02",
+        "claim": "Additional context on How Starliner and commercial crew change ISS science return timelines from configured research scope.",
+        "evidence": "secondary",
+        "source": "live_research",
+        "confidence": 0.6,
+        "freshness": "recent"
+      }
+    ],
+    "status": "completed",
+    "provider": "live_local",
+    "provider_kind": "configured_local",
+    "provider_capability": "LOCAL_FACTPACK",
+    "provider_mode": "LIVE_LOCAL",
+    "external_api": false,
+    "is_external_live": false,
+    "note": "LOCAL_FACTPACK must not be claimed as EXTERNAL_LIVE_RESEARCH",
+    "timestamp": 1789050927.4729135,
+    "queried_at": 1789050927.4729135,
+    "canonical_topic": "How Starliner and commercial crew change ISS science return timelines",
+    "sources": [
+      "live_research",
+      "research_notes"
+    ],
+    "fingerprint": "284c8da81913040bb019e6d4a02b983ecda8daa0af4a5242bc3cc8461aa99028"
+  },
+  "fact_pack": {
+    "topic": "How Starliner and commercial crew change ISS science return timelines",
+    "version": "v0",
+    "claims": [
+      {
+        "id": "N01",
+        "claim": "Research query: how starliner and commercial crew change iss science return timelines\nLanguage: en\nRegion:",
+        "evidence": "research_notes",
+        "source": "research_notes",
+        "confidence": 0.4,
+        "freshness": "UNVERIFIED"
+      },
+      {
+        "id": "L02",
+        "claim": "Additional context on How Starliner and commercial crew change ISS science return timelines from configured research scope.",
+        "evidence": "secondary",
+        "source": "live_research",
+        "confidence": 0.6,
+        "freshness": "recent"
+      }
+    ],
+    "unknowns": []
+  },
+  "research_fingerprint": "284c8da81913040bb019e6d4a02b983ecda8daa0af4a5242bc3cc8461aa99028",
+  "provider_mode": "LIVE",
+  "persisted_at": 1789050927.4729135
+}

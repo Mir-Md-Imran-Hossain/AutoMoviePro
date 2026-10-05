@@ -1,0 +1,83 @@
+{
+  "niche_id": 144,
+  "name": "Everyday Philosophy",
+  "slug": "everyday-philosophy",
+  "style_family": "history",
+  "status": "VERIFIED",
+  "topic_seeds": [
+    "What new evidence reframes the story of Everyday Philosophy Applying Stoicism inside Everyday Philosophy",
+    "How Everyday Philosophy Applying Stoicism still shapes public curiosity about Everyday Philosophy",
+    "What new evidence reframes the story of Zen inside Everyday Philosophy",
+    "How Zen still shapes public curiosity about Everyday Philosophy",
+    "What new evidence reframes the story of Confucianism inside Everyday Philosophy",
+    "How Confucianism still shapes public curiosity about Everyday Philosophy"
+  ],
+  "seo_angles": [
+    "What new evidence reframes the story of Everyday Philosophy Applying Stoicism inside Everyday Philosophy",
+    "How Everyday Philosophy Applying Stoicism still shapes public curiosity about Everyday Philosophy",
+    "What new evidence reframes the story of Zen inside Everyday Philosophy",
+    "How Zen still shapes public curiosity about Everyday Philosophy"
+  ],
+  "forbidden_visuals": [
+    "talking-head lip-sync avatar",
+    "burned-in captions",
+    "watermark",
+    "modern meme text",
+    "modern smartphones",
+    "cars",
+    "LED screens",
+    "sneakers",
+    "contemporary skyline"
+  ],
+  "preferred_subjects": [
+    "Everyday Philosophy documentary subject",
+    "period-accurate environment",
+    "evidence object close-up"
+  ],
+  "lighting_default": "warm desert sun / torchlit interiors, high-contrast documentary grade",
+  "face_policy": "period extras OK if consistent; prefer environment/object hero when possible",
+  "dialogue_tone": "human documentary narration; specific nouns; 7–9s beats",
+  "audio_ambience": "subtle documentary bed; do not overpower voice",
+  "research_hints": [
+    "Prefer primary evidence and concrete entities for Everyday Philosophy",
+    "Avoid generic niche-label topics; require specific place/person/event/mechanism",
+    "7–9 second spoken beats with story continuity across scenes"
+  ],
+  "topic_prompt_overlay": "NICHE LOCK (Everyday Philosophy): only propose topics that fit this niche's video type. Video type: Applying Stoicism, Zen, or Confucianism to modern problems like stress, anger, and procrastination. Follow niche topic strategy: Check philosophy blogs, viral self-help posts, or new practical philosophy books. Generate a topic about a philosophical principle that solves a modern issue.",
+  "video_prompt_overlay": "NICHE VISUAL LOCK (Everyday Philosophy / history): Generate a 7–9 second dialogue clip based on the topic `{topic}`. Each dialogue must be wise and applicable. For each dialogue, generate: - **Audio Generation Prompt:** Voice — calm, with soft bell and nature. - **Video Generation Prompt:** Detailed visual — a person meditating or in nature. Character: thinker (casual). Lighting: peaceful, warm. Maintain same peace. Forbidden: talking-head lip-sync avatar, burned-in captions, watermark, modern meme text, modern smartphones, cars, LED screens, sneakers. Preferred subjects: Everyday Philosophy documentary subject, period-accurate environment, evidence object close-up. Lighting: warm desert sun / torchlit interiors, high-contrast documentary grade. Face policy: period extras OK if consistent; prefer environment/object hero when possible. Dialogue tone: human documentary narration; specific nouns; 7–9s beats. Ambience: subtle documentary bed; do not overpower voice.",
+  "i18n": {
+    "en": {
+      "name": "Everyday Philosophy",
+      "blurb": "Applying Stoicism, Zen, or Confucianism to modern problems like stress, anger, and procrastination."
+    },
+    "bn": {
+      "name": "দৈনন্দিন দর্শন",
+      "blurb": "ভিডিও টাইপ: Applying Stoicism, Zen, or Confucianism to modern problems like stress, anger, and procrastination."
+    },
+    "hi": {
+      "name": "रोज़मर्रा का दर्शन",
+      "blurb": "वीडियो प्रकार: Applying Stoicism, Zen, or Confucianism to modern problems like stress, anger, and procrastination."
+    },
+    "ur": {
+      "name": "روزمرہ فلسفہ",
+      "blurb": "ویڈیو کی قسم: Applying Stoicism, Zen, or Confucianism to modern problems like stress, anger, and procrastination."
+    },
+    "ta": {
+      "name": "அன்றாட தத்துவம்",
+      "blurb": "வீடியோ வகை: Applying Stoicism, Zen, or Confucianism to modern problems like stress, anger, and procrastination."
+    },
+    "ml": {
+      "name": "ദൈനംദിന തത്ത്വചിന്ത",
+      "blurb": "വീഡിയോ തരം: Applying Stoicism, Zen, or Confucianism to modern problems like stress, anger, and procrastination."
+    }
+  },
+  "source": "Nish.Md + deterministic research",
+  "research_notes": [
+    "Marathon researched at 2026-09-10T08:30:31Z",
+    "Video type length=99",
+    "Topic prompt length=158",
+    "Video prompt length=368",
+    "Seeds=6"
+  ],
+  "verified_at": "2026-09-10T08:30:31Z"
+}

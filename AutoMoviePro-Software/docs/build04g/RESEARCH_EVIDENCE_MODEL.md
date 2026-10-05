@@ -1,0 +1,5 @@
+**ভাষা:** বাংলা
+
+# Research Evidence Model
+
+PRIMARY|SECONDARY|SUPPORTING|WEAK|CONFLICTING|UNKNOWN

@@ -1,0 +1,83 @@
+{
+  "niche_id": 67,
+  "name": "Mountaineering Tragedies",
+  "slug": "mountaineering-tragedies",
+  "style_family": "history",
+  "status": "VERIFIED",
+  "topic_seeds": [
+    "What new evidence reframes the story of Mountaineering Tragedies Everest inside Mountaineering Tragedies",
+    "How Mountaineering Tragedies Everest still shapes public curiosity about Mountaineering Tragedies",
+    "What new evidence reframes the story of Check inside Mountaineering Tragedies",
+    "How Check still shapes public curiosity about Mountaineering Tragedies",
+    "What new evidence reframes the story of Generate inside Mountaineering Tragedies",
+    "How Generate still shapes public curiosity about Mountaineering Tragedies"
+  ],
+  "seo_angles": [
+    "What new evidence reframes the story of Mountaineering Tragedies Everest inside Mountaineering Tragedies",
+    "How Mountaineering Tragedies Everest still shapes public curiosity about Mountaineering Tragedies",
+    "What new evidence reframes the story of Check inside Mountaineering Tragedies",
+    "How Check still shapes public curiosity about Mountaineering Tragedies"
+  ],
+  "forbidden_visuals": [
+    "talking-head lip-sync avatar",
+    "burned-in captions",
+    "watermark",
+    "modern meme text",
+    "modern smartphones",
+    "cars",
+    "LED screens",
+    "sneakers",
+    "contemporary skyline"
+  ],
+  "preferred_subjects": [
+    "Mountaineering Tragedies documentary subject",
+    "period-accurate environment",
+    "evidence object close-up"
+  ],
+  "lighting_default": "warm desert sun / torchlit interiors, high-contrast documentary grade",
+  "face_policy": "period extras OK if consistent; prefer environment/object hero when possible",
+  "dialogue_tone": "human documentary narration; specific nouns; 7–9s beats",
+  "audio_ambience": "subtle documentary bed; do not overpower voice",
+  "research_hints": [
+    "Prefer primary evidence and concrete entities for Mountaineering Tragedies",
+    "Avoid generic niche-label topics; require specific place/person/event/mechanism",
+    "7–9 second spoken beats with story continuity across scenes"
+  ],
+  "topic_prompt_overlay": "NICHE LOCK (Mountaineering Tragedies): only propose topics that fit this niche's video type. Video type: Everest, K2 climbing accidents — human error, weather, and rescue helicopters — with commentary from sherpas. Follow niche topic strategy: Check mountaineering news, climbing season updates, or expedition documentaries. Generate a topic about a recent or historic mountaineering disaster.",
+  "video_prompt_overlay": "NICHE VISUAL LOCK (Mountaineering Tragedies / history): Generate a 7–9 second dialogue clip based on the topic `{topic}`. Each dialogue must be tense and awe-inspiring. For each dialogue, generate: - **Audio Generation Prompt:** Voice — breathless, with wind gusts and ice picks. - **Video Generation Prompt:** Detailed visual — snowy peak and cliffs. Characters: climbers in gear. Lighting: bright snow glare. Maintain same gear and glare. Forbidden: talking-head lip-sync avatar, burned-in captions, watermark, modern meme text, modern smartphones, cars, LED screens, sneakers. Preferred subjects: Mountaineering Tragedies documentary subject, period-accurate environment, evidence object close-up. Lighting: warm desert sun / torchlit interiors, high-contrast documentary grade. Face policy: period extras OK if consistent; prefer environment/object hero when possible. Dialogue tone: human documentary narration; specific nouns; 7–9s beats. Ambience: subtle documentary bed; do not overpower voice.",
+  "i18n": {
+    "en": {
+      "name": "Mountaineering Tragedies",
+      "blurb": "Everest, K2 climbing accidents — human error, weather, and rescue helicopters — with commentary from sherpas."
+    },
+    "bn": {
+      "name": "পর্বতারোহণের ট্র্যাজেডি",
+      "blurb": "ভিডিও টাইপ: Everest, K2 climbing accidents — human error, weather, and rescue helicopters — with commentary from sherpas."
+    },
+    "hi": {
+      "name": "पर्वतारोहण त्रासदियाँ",
+      "blurb": "वीडियो प्रकार: Everest, K2 climbing accidents — human error, weather, and rescue helicopters — with commentary from sherpas."
+    },
+    "ur": {
+      "name": "پہاڑ چڑھائی المیے",
+      "blurb": "ویڈیو کی قسم: Everest, K2 climbing accidents — human error, weather, and rescue helicopters — with commentary from sherpas."
+    },
+    "ta": {
+      "name": "மலையேற்ற சோகங்கள்",
+      "blurb": "வீடியோ வகை: Everest, K2 climbing accidents — human error, weather, and rescue helicopters — with commentary from sherpas."
+    },
+    "ml": {
+      "name": "പർവതാരോഹണ ദുരന്തങ്ങൾ",
+      "blurb": "വീഡിയോ തരം: Everest, K2 climbing accidents — human error, weather, and rescue helicopters — with commentary from sherpas."
+    }
+  },
+  "source": "Nish.Md + deterministic research",
+  "research_notes": [
+    "Marathon researched at 2026-09-10T08:30:17Z",
+    "Video type length=109",
+    "Topic prompt length=149",
+    "Video prompt length=384",
+    "Seeds=6"
+  ],
+  "verified_at": "2026-09-10T08:30:17Z"
+}

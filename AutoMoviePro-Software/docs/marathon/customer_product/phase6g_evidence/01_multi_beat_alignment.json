@@ -1,0 +1,1298 @@
+{
+  "dialogues": 4,
+  "visual_beats": 3,
+  "semantic_changes": 2,
+  "alignment": {
+    "schema": "amp_observation_dialogue_visual_alignment_v1",
+    "status": "PASS",
+    "issues": [],
+    "dialogue_timeline": {
+      "schema": "amp_observation_dialogue_visual_alignment_v1",
+      "kind": "dialogue_timeline",
+      "segments": [
+        {
+          "dialogue_id": "dlg-1",
+          "segment_id": "seg-1",
+          "scene_id": "sc-6g",
+          "beat_id": "",
+          "start": 0.0,
+          "end": 2.5,
+          "duration": 2.5,
+          "text": "The nurse stands beside the hospital bed.",
+          "entities": [
+            {
+              "label": "Nurse"
+            },
+            {
+              "label": "hospital bed"
+            }
+          ],
+          "relationships": [
+            {
+              "subject": "Nurse",
+              "relation": "BESIDE",
+              "object": "hospital bed"
+            }
+          ],
+          "actions": [
+            "standing beside"
+          ],
+          "location": "hospital room",
+          "emotion": "calm",
+          "customer_id": "c11_marathon_customer",
+          "channel_id": "4",
+          "job_id": "job2108"
+        },
+        {
+          "dialogue_id": "dlg-2",
+          "segment_id": "seg-2",
+          "scene_id": "sc-6g",
+          "beat_id": "",
+          "start": 2.5,
+          "end": 5.0,
+          "duration": 2.5,
+          "text": "She approaches the bedside carefully.",
+          "entities": [
+            {
+              "label": "Nurse"
+            },
+            {
+              "label": "hospital bed"
+            }
+          ],
+          "relationships": [
+            {
+              "subject": "Nurse",
+              "relation": "NEAR",
+              "object": "hospital bed"
+            }
+          ],
+          "actions": [
+            "approaching"
+          ],
+          "location": "hospital room",
+          "emotion": "focused",
+          "customer_id": "c11_marathon_customer",
+          "channel_id": "4",
+          "job_id": "job2108"
+        },
+        {
+          "dialogue_id": "dlg-3",
+          "segment_id": "seg-3",
+          "scene_id": "sc-6g",
+          "beat_id": "",
+          "start": 5.0,
+          "end": 7.5,
+          "duration": 2.5,
+          "text": "She checks the patient monitor.",
+          "entities": [
+            {
+              "label": "Nurse"
+            },
+            {
+              "label": "monitor"
+            }
+          ],
+          "relationships": [
+            {
+              "subject": "Nurse",
+              "relation": "INTERACTING",
+              "object": "monitor"
+            }
+          ],
+          "actions": [
+            "checking"
+          ],
+          "location": "hospital room",
+          "emotion": "attentive",
+          "customer_id": "c11_marathon_customer",
+          "channel_id": "4",
+          "job_id": "job2108"
+        },
+        {
+          "dialogue_id": "dlg-4",
+          "segment_id": "seg-4",
+          "scene_id": "sc-6g",
+          "beat_id": "",
+          "start": 7.5,
+          "end": 10.0,
+          "duration": 2.5,
+          "text": "She remains at the bedside.",
+          "entities": [
+            {
+              "label": "Nurse"
+            },
+            {
+              "label": "hospital bed"
+            }
+          ],
+          "relationships": [
+            {
+              "subject": "Nurse",
+              "relation": "BESIDE",
+              "object": "hospital bed"
+            }
+          ],
+          "actions": [
+            "at bedside"
+          ],
+          "location": "hospital room",
+          "emotion": "calm",
+          "customer_id": "c11_marathon_customer",
+          "channel_id": "4",
+          "job_id": "job2108"
+        }
+      ],
+      "segment_count": 4,
+      "total_dialogue_sec": 10.0,
+      "audio_timeline_sec": 10.0,
+      "audio_authority": "AudioPlan/ffprobe \u2014 this layer does not invent a second audio clock",
+      "second_audio_engine": false,
+      "customer_id": "c11_marathon_customer",
+      "channel_id": "4",
+      "job_id": "job2108",
+      "created_at": 1788949906.115454
+    },
+    "visual_timeline": {
+      "schema": "amp_observation_dialogue_visual_alignment_v1",
+      "kind": "visual_timeline",
+      "beats": [
+        {
+          "visual_beat_id": "vb-1",
+          "dialogue_id": "dlg-1",
+          "scene_id": "sc-6g",
+          "asset_id": "asset-hosp-1",
+          "start": 0.0,
+          "end": 2.5,
+          "duration": 2.5,
+          "coverage": null,
+          "entities": [
+            {
+              "label": "Nurse"
+            },
+            {
+              "label": "hospital bed"
+            }
+          ],
+          "relationships": [
+            {
+              "subject": "Nurse",
+              "relation": "BESIDE",
+              "object": "hospital bed"
+            }
+          ],
+          "location": "hospital room",
+          "action": "standing beside",
+          "emotion": "",
+          "mode": "IMAGE",
+          "hold_policy": "",
+          "customer_id": "c11_marathon_customer",
+          "channel_id": "4",
+          "job_id": "job2108"
+        },
+        {
+          "visual_beat_id": "vb-2",
+          "dialogue_id": "dlg-2",
+          "scene_id": "sc-6g",
+          "asset_id": "asset-hosp-2",
+          "start": 2.5,
+          "end": 7.5,
+          "duration": 5.0,
+          "coverage": null,
+          "entities": [
+            {
+              "label": "Nurse"
+            },
+            {
+              "label": "hospital bed"
+            }
+          ],
+          "relationships": [
+            {
+              "subject": "Nurse",
+              "relation": "NEAR",
+              "object": "hospital bed"
+            }
+          ],
+          "location": "hospital room",
+          "action": "approaching then checking",
+          "emotion": "",
+          "mode": "IMAGE",
+          "hold_policy": "",
+          "customer_id": "c11_marathon_customer",
+          "channel_id": "4",
+          "job_id": "job2108"
+        },
+        {
+          "visual_beat_id": "vb-3",
+          "dialogue_id": "dlg-4",
+          "scene_id": "sc-6g",
+          "asset_id": "asset-hosp-3",
+          "start": 7.5,
+          "end": 10.0,
+          "duration": 2.5,
+          "coverage": null,
+          "entities": [
+            {
+              "label": "Nurse"
+            },
+            {
+              "label": "hospital bed"
+            }
+          ],
+          "relationships": [
+            {
+              "subject": "Nurse",
+              "relation": "BESIDE",
+              "object": "hospital bed"
+            }
+          ],
+          "location": "hospital room",
+          "action": "at bedside",
+          "emotion": "",
+          "mode": "IMAGE",
+          "hold_policy": "",
+          "customer_id": "c11_marathon_customer",
+          "channel_id": "4",
+          "job_id": "job2108"
+        }
+      ],
+      "beat_count": 3,
+      "total_visual_sec": 10.0,
+      "fixed_n_switching_forbidden": true,
+      "duration_contract_authority": "pipeline.duration_budget.resolve_duration_contract",
+      "second_duration_engine": false,
+      "second_pacing_authority": false,
+      "customer_id": "c11_marathon_customer",
+      "channel_id": "4",
+      "job_id": "job2108",
+      "created_at": 1788949906.115454
+    },
+    "no_silent_drop": {
+      "schema": "amp_observation_dialogue_visual_alignment_v1",
+      "invariant": "planned_dialogue_segments_must_equal_materialized",
+      "planned_count": 4,
+      "materialized_count": 4,
+      "planned_dialogue_ids": [
+        "dlg-1",
+        "dlg-2",
+        "dlg-3",
+        "dlg-4"
+      ],
+      "materialized_dialogue_ids": [
+        "dlg-1",
+        "dlg-2",
+        "dlg-3",
+        "dlg-4"
+      ],
+      "missing": [],
+      "extra": [],
+      "silent_drop": false,
+      "status": "PASS",
+      "blocking_code": "",
+      "hold_cap_must_not_truncate_dialogue": true
+    },
+    "temporal_coverage": [
+      {
+        "dialogue_id": "dlg-1",
+        "coverage": "FULL",
+        "overlap_sec": 2.5,
+        "required_sec": 2.5,
+        "covering_visual_beat_ids": [
+          "vb-1"
+        ],
+        "timing_overlap_is_not_semantic_pass": true,
+        "status": "TEMPORAL_OK",
+        "vocabulary": "C05-S VisualCoverage"
+      },
+      {
+        "dialogue_id": "dlg-2",
+        "coverage": "FULL",
+        "overlap_sec": 2.5,
+        "required_sec": 2.5,
+        "covering_visual_beat_ids": [
+          "vb-2"
+        ],
+        "timing_overlap_is_not_semantic_pass": true,
+        "status": "TEMPORAL_OK",
+        "vocabulary": "C05-S VisualCoverage"
+      },
+      {
+        "dialogue_id": "dlg-3",
+        "coverage": "FULL",
+        "overlap_sec": 2.5,
+        "required_sec": 2.5,
+        "covering_visual_beat_ids": [
+          "vb-2"
+        ],
+        "timing_overlap_is_not_semantic_pass": true,
+        "status": "TEMPORAL_OK",
+        "vocabulary": "C05-S VisualCoverage"
+      },
+      {
+        "dialogue_id": "dlg-4",
+        "coverage": "FULL",
+        "overlap_sec": 2.5,
+        "required_sec": 2.5,
+        "covering_visual_beat_ids": [
+          "vb-3"
+        ],
+        "timing_overlap_is_not_semantic_pass": true,
+        "status": "TEMPORAL_OK",
+        "vocabulary": "C05-S VisualCoverage"
+      }
+    ],
+    "semantic_alignment": [
+      {
+        "dialogue_id": "dlg-1",
+        "status": "PASS",
+        "reason": "provider_supports_dialogue_visual_intent",
+        "binding": {
+          "dialogue_id": "dlg-1",
+          "beat_id": "vb-dlg-1",
+          "scene_id": "sc-6g",
+          "entity_requirements": [
+            "Nurse",
+            "hospital bed",
+            "hospital room"
+          ],
+          "action_requirements": [
+            "standing beside"
+          ],
+          "relationship_requirements": [
+            "Nurse:beside:hospital bed"
+          ],
+          "location_requirements": [
+            "hospital room"
+          ],
+          "entity_states": [
+            {
+              "schema": "amp_observation_cross_beat_entity_v1",
+              "entity_id": "ent-5f00ce118bd9",
+              "entity_type": "CHARACTER",
+              "canonical_name": "Nurse",
+              "beat_id": "vb-dlg-1",
+              "scene_id": "sc-6g",
+              "dialogue_id": "dlg-1",
+              "presence": "PRESENT",
+              "observed_state": "standing beside",
+              "location": "hospital room",
+              "location_cluster": "hospital",
+              "relationships": [
+                {
+                  "subject_entity": "Nurse",
+                  "relation": "beside",
+                  "object_entity": "hospital bed",
+                  "beat_id": "vb-dlg-1"
+                }
+              ],
+              "observed_relationships": [
+                {
+                  "raw": "nurse standing in front of hospital bed",
+                  "relation": "inside",
+                  "beat_id": "vb-dlg-1"
+                },
+                {
+                  "raw": "nurse beside hospital bed",
+                  "relation": "beside",
+                  "beat_id": "vb-dlg-1"
+                }
+              ],
+              "source_evidence": {
+                "observation_status": "PASS",
+                "provider_verified": true,
+                "heuristic": false,
+                "evidence_source": "PROVIDER_VERIFIED",
+                "provider": "PROVIDER_FRAME:gemini-flash-latest",
+                "frame_path": "E:\\All Updaye Project\\AutoMovie_Pro_SAAS_Final_Update\\AutoMoviePro-Software\\docs\\marathon\\customer_product\\phase6g_evidence\\work\\hosp\\frames_d11ac8300eff4bd0_2e6035d2380e1e01a4b65f49\\frame_00_0000000ms.jpg"
+              },
+              "observation_status": "PASS",
+              "customer_id": "",
+              "channel_id": "",
+              "job_id": "",
+              "clip_similarity_is_not_identity_pass": true,
+              "created_at": 1788949906.116453
+            },
+            {
+              "schema": "amp_observation_cross_beat_entity_v1",
+              "entity_id": "ent-a7d14ee77b59",
+              "entity_type": "LOCATION",
+              "canonical_name": "hospital bed",
+              "beat_id": "vb-dlg-1",
+              "scene_id": "sc-6g",
+              "dialogue_id": "dlg-1",
+              "presence": "PRESENT",
+              "observed_state": "hospital room",
+              "location": "hospital room",
+              "location_cluster": "hospital",
+              "relationships": [
+                {
+                  "subject_entity": "Nurse",
+                  "relation": "beside",
+                  "object_entity": "hospital bed",
+                  "beat_id": "vb-dlg-1"
+                }
+              ],
+              "observed_relationships": [
+                {
+                  "raw": "nurse standing in front of hospital bed",
+                  "relation": "inside",
+                  "beat_id": "vb-dlg-1"
+                },
+                {
+                  "raw": "nurse beside hospital bed",
+                  "relation": "beside",
+                  "beat_id": "vb-dlg-1"
+                }
+              ],
+              "source_evidence": {
+                "observation_status": "PASS",
+                "provider_verified": true,
+                "heuristic": false,
+                "evidence_source": "PROVIDER_VERIFIED",
+                "provider": "PROVIDER_FRAME:gemini-flash-latest",
+                "frame_path": "E:\\All Updaye Project\\AutoMovie_Pro_SAAS_Final_Update\\AutoMoviePro-Software\\docs\\marathon\\customer_product\\phase6g_evidence\\work\\hosp\\frames_d11ac8300eff4bd0_2e6035d2380e1e01a4b65f49\\frame_00_0000000ms.jpg"
+              },
+              "observation_status": "PASS",
+              "customer_id": "",
+              "channel_id": "",
+              "job_id": "",
+              "clip_similarity_is_not_identity_pass": true,
+              "created_at": 1788949906.116453
+            },
+            {
+              "schema": "amp_observation_cross_beat_entity_v1",
+              "entity_id": "ent-40c9926265ba",
+              "entity_type": "LOCATION",
+              "canonical_name": "hospital room",
+              "beat_id": "vb-dlg-1",
+              "scene_id": "sc-6g",
+              "dialogue_id": "dlg-1",
+              "presence": "PRESENT",
+              "observed_state": "hospital room",
+              "location": "hospital room",
+              "location_cluster": "hospital",
+              "relationships": [
+                {
+                  "subject_entity": "Nurse",
+                  "relation": "beside",
+                  "object_entity": "hospital bed",
+                  "beat_id": "vb-dlg-1"
+                }
+              ],
+              "observed_relationships": [
+                {
+                  "raw": "nurse standing in front of hospital bed",
+                  "relation": "inside",
+                  "beat_id": "vb-dlg-1"
+                },
+                {
+                  "raw": "nurse beside hospital bed",
+                  "relation": "beside",
+                  "beat_id": "vb-dlg-1"
+                }
+              ],
+              "source_evidence": {
+                "observation_status": "PASS",
+                "provider_verified": true,
+                "heuristic": false,
+                "evidence_source": "PROVIDER_VERIFIED",
+                "provider": "PROVIDER_FRAME:gemini-flash-latest",
+                "frame_path": "E:\\All Updaye Project\\AutoMovie_Pro_SAAS_Final_Update\\AutoMoviePro-Software\\docs\\marathon\\customer_product\\phase6g_evidence\\work\\hosp\\frames_d11ac8300eff4bd0_2e6035d2380e1e01a4b65f49\\frame_00_0000000ms.jpg"
+              },
+              "observation_status": "PASS",
+              "customer_id": "",
+              "channel_id": "",
+              "job_id": "",
+              "clip_similarity_is_not_identity_pass": true,
+              "created_at": 1788949906.116453
+            }
+          ],
+          "status": "PASS",
+          "issues": [],
+          "keyword_only_pass_forbidden": true,
+          "unknown_as_pass": false
+        },
+        "dims_checked": [
+          "subject",
+          "entity",
+          "relationship",
+          "location",
+          "action",
+          "emotion"
+        ],
+        "keyword_only_pass_forbidden": true,
+        "provider_verified": true,
+        "heuristic": false,
+        "timing_overlap_is_not_semantic_pass": true
+      },
+      {
+        "dialogue_id": "dlg-2",
+        "status": "PASS",
+        "reason": "provider_supports_dialogue_visual_intent",
+        "binding": {
+          "dialogue_id": "dlg-2",
+          "beat_id": "vb-dlg-2",
+          "scene_id": "sc-6g",
+          "entity_requirements": [
+            "Nurse",
+            "hospital bed",
+            "hospital room"
+          ],
+          "action_requirements": [
+            "approaching"
+          ],
+          "relationship_requirements": [
+            "Nurse:beside:hospital bed"
+          ],
+          "location_requirements": [
+            "hospital room"
+          ],
+          "entity_states": [
+            {
+              "schema": "amp_observation_cross_beat_entity_v1",
+              "entity_id": "ent-5f00ce118bd9",
+              "entity_type": "CHARACTER",
+              "canonical_name": "Nurse",
+              "beat_id": "vb-dlg-2",
+              "scene_id": "sc-6g",
+              "dialogue_id": "dlg-2",
+              "presence": "PRESENT",
+              "observed_state": "approaching",
+              "location": "hospital room",
+              "location_cluster": "hospital",
+              "relationships": [
+                {
+                  "subject_entity": "Nurse",
+                  "relation": "beside",
+                  "object_entity": "hospital bed",
+                  "beat_id": "vb-dlg-2"
+                }
+              ],
+              "observed_relationships": [
+                {
+                  "raw": "nurse standing in front of hospital bed",
+                  "relation": "inside",
+                  "beat_id": "vb-dlg-2"
+                },
+                {
+                  "raw": "nurse beside hospital bed",
+                  "relation": "beside",
+                  "beat_id": "vb-dlg-2"
+                }
+              ],
+              "source_evidence": {
+                "observation_status": "PASS",
+                "provider_verified": true,
+                "heuristic": false,
+                "evidence_source": "PROVIDER_VERIFIED",
+                "provider": "PROVIDER_FRAME:gemini-flash-latest",
+                "frame_path": "E:\\All Updaye Project\\AutoMovie_Pro_SAAS_Final_Update\\AutoMoviePro-Software\\docs\\marathon\\customer_product\\phase6g_evidence\\work\\hosp\\frames_d11ac8300eff4bd0_2e6035d2380e1e01a4b65f49\\frame_00_0000000ms.jpg"
+              },
+              "observation_status": "PASS",
+              "customer_id": "",
+              "channel_id": "",
+              "job_id": "",
+              "clip_similarity_is_not_identity_pass": true,
+              "created_at": 1788949906.116453
+            },
+            {
+              "schema": "amp_observation_cross_beat_entity_v1",
+              "entity_id": "ent-a7d14ee77b59",
+              "entity_type": "LOCATION",
+              "canonical_name": "hospital bed",
+              "beat_id": "vb-dlg-2",
+              "scene_id": "sc-6g",
+              "dialogue_id": "dlg-2",
+              "presence": "PRESENT",
+              "observed_state": "hospital room",
+              "location": "hospital room",
+              "location_cluster": "hospital",
+              "relationships": [
+                {
+                  "subject_entity": "Nurse",
+                  "relation": "beside",
+                  "object_entity": "hospital bed",
+                  "beat_id": "vb-dlg-2"
+                }
+              ],
+              "observed_relationships": [
+                {
+                  "raw": "nurse standing in front of hospital bed",
+                  "relation": "inside",
+                  "beat_id": "vb-dlg-2"
+                },
+                {
+                  "raw": "nurse beside hospital bed",
+                  "relation": "beside",
+                  "beat_id": "vb-dlg-2"
+                }
+              ],
+              "source_evidence": {
+                "observation_status": "PASS",
+                "provider_verified": true,
+                "heuristic": false,
+                "evidence_source": "PROVIDER_VERIFIED",
+                "provider": "PROVIDER_FRAME:gemini-flash-latest",
+                "frame_path": "E:\\All Updaye Project\\AutoMovie_Pro_SAAS_Final_Update\\AutoMoviePro-Software\\docs\\marathon\\customer_product\\phase6g_evidence\\work\\hosp\\frames_d11ac8300eff4bd0_2e6035d2380e1e01a4b65f49\\frame_00_0000000ms.jpg"
+              },
+              "observation_status": "PASS",
+              "customer_id": "",
+              "channel_id": "",
+              "job_id": "",
+              "clip_similarity_is_not_identity_pass": true,
+              "created_at": 1788949906.116453
+            },
+            {
+              "schema": "amp_observation_cross_beat_entity_v1",
+              "entity_id": "ent-40c9926265ba",
+              "entity_type": "LOCATION",
+              "canonical_name": "hospital room",
+              "beat_id": "vb-dlg-2",
+              "scene_id": "sc-6g",
+              "dialogue_id": "dlg-2",
+              "presence": "PRESENT",
+              "observed_state": "hospital room",
+              "location": "hospital room",
+              "location_cluster": "hospital",
+              "relationships": [
+                {
+                  "subject_entity": "Nurse",
+                  "relation": "beside",
+                  "object_entity": "hospital bed",
+                  "beat_id": "vb-dlg-2"
+                }
+              ],
+              "observed_relationships": [
+                {
+                  "raw": "nurse standing in front of hospital bed",
+                  "relation": "inside",
+                  "beat_id": "vb-dlg-2"
+                },
+                {
+                  "raw": "nurse beside hospital bed",
+                  "relation": "beside",
+                  "beat_id": "vb-dlg-2"
+                }
+              ],
+              "source_evidence": {
+                "observation_status": "PASS",
+                "provider_verified": true,
+                "heuristic": false,
+                "evidence_source": "PROVIDER_VERIFIED",
+                "provider": "PROVIDER_FRAME:gemini-flash-latest",
+                "frame_path": "E:\\All Updaye Project\\AutoMovie_Pro_SAAS_Final_Update\\AutoMoviePro-Software\\docs\\marathon\\customer_product\\phase6g_evidence\\work\\hosp\\frames_d11ac8300eff4bd0_2e6035d2380e1e01a4b65f49\\frame_00_0000000ms.jpg"
+              },
+              "observation_status": "PASS",
+              "customer_id": "",
+              "channel_id": "",
+              "job_id": "",
+              "clip_similarity_is_not_identity_pass": true,
+              "created_at": 1788949906.116453
+            }
+          ],
+          "status": "PASS",
+          "issues": [],
+          "keyword_only_pass_forbidden": true,
+          "unknown_as_pass": false
+        },
+        "dims_checked": [
+          "subject",
+          "entity",
+          "relationship",
+          "location",
+          "action",
+          "emotion"
+        ],
+        "keyword_only_pass_forbidden": true,
+        "provider_verified": true,
+        "heuristic": false,
+        "timing_overlap_is_not_semantic_pass": true
+      },
+      {
+        "dialogue_id": "dlg-3",
+        "status": "PASS",
+        "reason": "provider_supports_dialogue_visual_intent",
+        "binding": {
+          "dialogue_id": "dlg-3",
+          "beat_id": "vb-dlg-3",
+          "scene_id": "sc-6g",
+          "entity_requirements": [
+            "Nurse",
+            "monitor",
+            "hospital room"
+          ],
+          "action_requirements": [
+            "checking"
+          ],
+          "relationship_requirements": [
+            "Nurse:interacting:monitor"
+          ],
+          "location_requirements": [
+            "hospital room"
+          ],
+          "entity_states": [
+            {
+              "schema": "amp_observation_cross_beat_entity_v1",
+              "entity_id": "ent-5f00ce118bd9",
+              "entity_type": "CHARACTER",
+              "canonical_name": "Nurse",
+              "beat_id": "vb-dlg-3",
+              "scene_id": "sc-6g",
+              "dialogue_id": "dlg-3",
+              "presence": "PRESENT",
+              "observed_state": "checking",
+              "location": "hospital room",
+              "location_cluster": "hospital",
+              "relationships": [
+                {
+                  "subject_entity": "Nurse",
+                  "relation": "interacting",
+                  "object_entity": "monitor",
+                  "beat_id": "vb-dlg-3"
+                }
+              ],
+              "observed_relationships": [
+                {
+                  "raw": "nurse standing in front of hospital bed",
+                  "relation": "inside",
+                  "beat_id": "vb-dlg-3"
+                },
+                {
+                  "raw": "nurse beside hospital bed",
+                  "relation": "beside",
+                  "beat_id": "vb-dlg-3"
+                }
+              ],
+              "source_evidence": {
+                "observation_status": "PASS",
+                "provider_verified": true,
+                "heuristic": false,
+                "evidence_source": "PROVIDER_VERIFIED",
+                "provider": "PROVIDER_FRAME:gemini-flash-latest",
+                "frame_path": "E:\\All Updaye Project\\AutoMovie_Pro_SAAS_Final_Update\\AutoMoviePro-Software\\docs\\marathon\\customer_product\\phase6g_evidence\\work\\hosp\\frames_d11ac8300eff4bd0_2e6035d2380e1e01a4b65f49\\frame_00_0000000ms.jpg"
+              },
+              "observation_status": "PASS",
+              "customer_id": "",
+              "channel_id": "",
+              "job_id": "",
+              "clip_similarity_is_not_identity_pass": true,
+              "created_at": 1788949906.116453
+            },
+            {
+              "schema": "amp_observation_cross_beat_entity_v1",
+              "entity_id": "ent-0bb8d74caab9",
+              "entity_type": "OBJECT",
+              "canonical_name": "monitor",
+              "beat_id": "vb-dlg-3",
+              "scene_id": "sc-6g",
+              "dialogue_id": "dlg-3",
+              "presence": "ABSENT",
+              "observed_state": "",
+              "location": "hospital room",
+              "location_cluster": "hospital",
+              "relationships": [
+                {
+                  "subject_entity": "Nurse",
+                  "relation": "interacting",
+                  "object_entity": "monitor",
+                  "beat_id": "vb-dlg-3"
+                }
+              ],
+              "observed_relationships": [
+                {
+                  "raw": "nurse standing in front of hospital bed",
+                  "relation": "inside",
+                  "beat_id": "vb-dlg-3"
+                },
+                {
+                  "raw": "nurse beside hospital bed",
+                  "relation": "beside",
+                  "beat_id": "vb-dlg-3"
+                }
+              ],
+              "source_evidence": {
+                "observation_status": "PASS",
+                "provider_verified": true,
+                "heuristic": false,
+                "evidence_source": "PROVIDER_VERIFIED",
+                "provider": "PROVIDER_FRAME:gemini-flash-latest",
+                "frame_path": "E:\\All Updaye Project\\AutoMovie_Pro_SAAS_Final_Update\\AutoMoviePro-Software\\docs\\marathon\\customer_product\\phase6g_evidence\\work\\hosp\\frames_d11ac8300eff4bd0_2e6035d2380e1e01a4b65f49\\frame_00_0000000ms.jpg"
+              },
+              "observation_status": "PASS",
+              "customer_id": "",
+              "channel_id": "",
+              "job_id": "",
+              "clip_similarity_is_not_identity_pass": true,
+              "created_at": 1788949906.116453
+            },
+            {
+              "schema": "amp_observation_cross_beat_entity_v1",
+              "entity_id": "ent-40c9926265ba",
+              "entity_type": "LOCATION",
+              "canonical_name": "hospital room",
+              "beat_id": "vb-dlg-3",
+              "scene_id": "sc-6g",
+              "dialogue_id": "dlg-3",
+              "presence": "PRESENT",
+              "observed_state": "hospital room",
+              "location": "hospital room",
+              "location_cluster": "hospital",
+              "relationships": [
+                {
+                  "subject_entity": "Nurse",
+                  "relation": "interacting",
+                  "object_entity": "monitor",
+                  "beat_id": "vb-dlg-3"
+                }
+              ],
+              "observed_relationships": [
+                {
+                  "raw": "nurse standing in front of hospital bed",
+                  "relation": "inside",
+                  "beat_id": "vb-dlg-3"
+                },
+                {
+                  "raw": "nurse beside hospital bed",
+                  "relation": "beside",
+                  "beat_id": "vb-dlg-3"
+                }
+              ],
+              "source_evidence": {
+                "observation_status": "PASS",
+                "provider_verified": true,
+                "heuristic": false,
+                "evidence_source": "PROVIDER_VERIFIED",
+                "provider": "PROVIDER_FRAME:gemini-flash-latest",
+                "frame_path": "E:\\All Updaye Project\\AutoMovie_Pro_SAAS_Final_Update\\AutoMoviePro-Software\\docs\\marathon\\customer_product\\phase6g_evidence\\work\\hosp\\frames_d11ac8300eff4bd0_2e6035d2380e1e01a4b65f49\\frame_00_0000000ms.jpg"
+              },
+              "observation_status": "PASS",
+              "customer_id": "",
+              "channel_id": "",
+              "job_id": "",
+              "clip_similarity_is_not_identity_pass": true,
+              "created_at": 1788949906.116453
+            }
+          ],
+          "status": "PASS",
+          "issues": [],
+          "keyword_only_pass_forbidden": true,
+          "unknown_as_pass": false
+        },
+        "dims_checked": [
+          "subject",
+          "entity",
+          "relationship",
+          "location",
+          "action",
+          "emotion"
+        ],
+        "keyword_only_pass_forbidden": true,
+        "provider_verified": true,
+        "heuristic": false,
+        "timing_overlap_is_not_semantic_pass": true
+      },
+      {
+        "dialogue_id": "dlg-4",
+        "status": "PASS",
+        "reason": "provider_supports_dialogue_visual_intent",
+        "binding": {
+          "dialogue_id": "dlg-4",
+          "beat_id": "vb-dlg-4",
+          "scene_id": "sc-6g",
+          "entity_requirements": [
+            "Nurse",
+            "hospital bed",
+            "hospital room"
+          ],
+          "action_requirements": [
+            "at bedside"
+          ],
+          "relationship_requirements": [
+            "Nurse:beside:hospital bed"
+          ],
+          "location_requirements": [
+            "hospital room"
+          ],
+          "entity_states": [
+            {
+              "schema": "amp_observation_cross_beat_entity_v1",
+              "entity_id": "ent-5f00ce118bd9",
+              "entity_type": "CHARACTER",
+              "canonical_name": "Nurse",
+              "beat_id": "vb-dlg-4",
+              "scene_id": "sc-6g",
+              "dialogue_id": "dlg-4",
+              "presence": "PRESENT",
+              "observed_state": "at bedside",
+              "location": "hospital room",
+              "location_cluster": "hospital",
+              "relationships": [
+                {
+                  "subject_entity": "Nurse",
+                  "relation": "beside",
+                  "object_entity": "hospital bed",
+                  "beat_id": "vb-dlg-4"
+                }
+              ],
+              "observed_relationships": [
+                {
+                  "raw": "nurse standing in front of hospital bed",
+                  "relation": "inside",
+                  "beat_id": "vb-dlg-4"
+                },
+                {
+                  "raw": "nurse beside hospital bed",
+                  "relation": "beside",
+                  "beat_id": "vb-dlg-4"
+                }
+              ],
+              "source_evidence": {
+                "observation_status": "PASS",
+                "provider_verified": true,
+                "heuristic": false,
+                "evidence_source": "PROVIDER_VERIFIED",
+                "provider": "PROVIDER_FRAME:gemini-flash-latest",
+                "frame_path": "E:\\All Updaye Project\\AutoMovie_Pro_SAAS_Final_Update\\AutoMoviePro-Software\\docs\\marathon\\customer_product\\phase6g_evidence\\work\\hosp\\frames_d11ac8300eff4bd0_2e6035d2380e1e01a4b65f49\\frame_00_0000000ms.jpg"
+              },
+              "observation_status": "PASS",
+              "customer_id": "",
+              "channel_id": "",
+              "job_id": "",
+              "clip_similarity_is_not_identity_pass": true,
+              "created_at": 1788949906.116453
+            },
+            {
+              "schema": "amp_observation_cross_beat_entity_v1",
+              "entity_id": "ent-a7d14ee77b59",
+              "entity_type": "LOCATION",
+              "canonical_name": "hospital bed",
+              "beat_id": "vb-dlg-4",
+              "scene_id": "sc-6g",
+              "dialogue_id": "dlg-4",
+              "presence": "PRESENT",
+              "observed_state": "hospital room",
+              "location": "hospital room",
+              "location_cluster": "hospital",
+              "relationships": [
+                {
+                  "subject_entity": "Nurse",
+                  "relation": "beside",
+                  "object_entity": "hospital bed",
+                  "beat_id": "vb-dlg-4"
+                }
+              ],
+              "observed_relationships": [
+                {
+                  "raw": "nurse standing in front of hospital bed",
+                  "relation": "inside",
+                  "beat_id": "vb-dlg-4"
+                },
+                {
+                  "raw": "nurse beside hospital bed",
+                  "relation": "beside",
+                  "beat_id": "vb-dlg-4"
+                }
+              ],
+              "source_evidence": {
+                "observation_status": "PASS",
+                "provider_verified": true,
+                "heuristic": false,
+                "evidence_source": "PROVIDER_VERIFIED",
+                "provider": "PROVIDER_FRAME:gemini-flash-latest",
+                "frame_path": "E:\\All Updaye Project\\AutoMovie_Pro_SAAS_Final_Update\\AutoMoviePro-Software\\docs\\marathon\\customer_product\\phase6g_evidence\\work\\hosp\\frames_d11ac8300eff4bd0_2e6035d2380e1e01a4b65f49\\frame_00_0000000ms.jpg"
+              },
+              "observation_status": "PASS",
+              "customer_id": "",
+              "channel_id": "",
+              "job_id": "",
+              "clip_similarity_is_not_identity_pass": true,
+              "created_at": 1788949906.116453
+            },
+            {
+              "schema": "amp_observation_cross_beat_entity_v1",
+              "entity_id": "ent-40c9926265ba",
+              "entity_type": "LOCATION",
+              "canonical_name": "hospital room",
+              "beat_id": "vb-dlg-4",
+              "scene_id": "sc-6g",
+              "dialogue_id": "dlg-4",
+              "presence": "PRESENT",
+              "observed_state": "hospital room",
+              "location": "hospital room",
+              "location_cluster": "hospital",
+              "relationships": [
+                {
+                  "subject_entity": "Nurse",
+                  "relation": "beside",
+                  "object_entity": "hospital bed",
+                  "beat_id": "vb-dlg-4"
+                }
+              ],
+              "observed_relationships": [
+                {
+                  "raw": "nurse standing in front of hospital bed",
+                  "relation": "inside",
+                  "beat_id": "vb-dlg-4"
+                },
+                {
+                  "raw": "nurse beside hospital bed",
+                  "relation": "beside",
+                  "beat_id": "vb-dlg-4"
+                }
+              ],
+              "source_evidence": {
+                "observation_status": "PASS",
+                "provider_verified": true,
+                "heuristic": false,
+                "evidence_source": "PROVIDER_VERIFIED",
+                "provider": "PROVIDER_FRAME:gemini-flash-latest",
+                "frame_path": "E:\\All Updaye Project\\AutoMovie_Pro_SAAS_Final_Update\\AutoMoviePro-Software\\docs\\marathon\\customer_product\\phase6g_evidence\\work\\hosp\\frames_d11ac8300eff4bd0_2e6035d2380e1e01a4b65f49\\frame_00_0000000ms.jpg"
+              },
+              "observation_status": "PASS",
+              "customer_id": "",
+              "channel_id": "",
+              "job_id": "",
+              "clip_similarity_is_not_identity_pass": true,
+              "created_at": 1788949906.116453
+            }
+          ],
+          "status": "PASS",
+          "issues": [],
+          "keyword_only_pass_forbidden": true,
+          "unknown_as_pass": false
+        },
+        "dims_checked": [
+          "subject",
+          "entity",
+          "relationship",
+          "location",
+          "action",
+          "emotion"
+        ],
+        "keyword_only_pass_forbidden": true,
+        "provider_verified": true,
+        "heuristic": false,
+        "timing_overlap_is_not_semantic_pass": true
+      }
+    ],
+    "semantic_boundaries": [
+      {
+        "from": "dlg-1",
+        "to": "dlg-2",
+        "visual_change_recommended": true,
+        "change_dims": [
+          "action",
+          "relationship",
+          "emotion"
+        ],
+        "every_sentence_change_forbidden": true,
+        "fixed_n_switching_forbidden": true,
+        "note": "meaningful_semantic_change_only"
+      },
+      {
+        "from": "dlg-2",
+        "to": "dlg-3",
+        "visual_change_recommended": true,
+        "change_dims": [
+          "action",
+          "entity",
+          "relationship",
+          "emotion"
+        ],
+        "every_sentence_change_forbidden": true,
+        "fixed_n_switching_forbidden": true,
+        "note": "meaningful_semantic_change_only"
+      },
+      {
+        "from": "dlg-3",
+        "to": "dlg-4",
+        "visual_change_recommended": true,
+        "change_dims": [
+          "action",
+          "entity",
+          "relationship",
+          "emotion"
+        ],
+        "every_sentence_change_forbidden": true,
+        "fixed_n_switching_forbidden": true,
+        "note": "meaningful_semantic_change_only"
+      }
+    ],
+    "adaptive_holds": [
+      {
+        "schema": "amp_observation_dialogue_visual_alignment_v1",
+        "kind": "adaptive_hold_recommendation",
+        "recommended_hold_sec": 2.5,
+        "max_hold_sec": 8.0,
+        "policy": "SHORT",
+        "risks": [],
+        "c05s_hold_authority": "pipeline.story_visual_direction.decide_visual_hold_policy",
+        "second_pacing_authority": false,
+        "overrides_duration_contract": false,
+        "overrides_audio_timing": false,
+        "overrides_dialogue_coverage": false,
+        "fixed_n_switching_forbidden": true,
+        "fixed_n_hard_rule_rejected": true,
+        "long_coherent_hold_allowed": false,
+        "new_visual_beat_recommended": false,
+        "inputs": {
+          "dialogue_duration_sec": 2.5,
+          "semantic_change": false,
+          "action_change": false,
+          "entity_change": false,
+          "relationship_change": false,
+          "location_change": false,
+          "emotion_change": false,
+          "repetition_risk": false,
+          "available_assets": 0,
+          "media_mode": "IMAGE"
+        },
+        "confidence": "HEURISTIC_RECOMMENDATION",
+        "note": "asset_hold_budget_not_timeline_duration;dialogue_drives_timeline"
+      },
+      {
+        "schema": "amp_observation_dialogue_visual_alignment_v1",
+        "kind": "adaptive_hold_recommendation",
+        "recommended_hold_sec": 2.0,
+        "max_hold_sec": 8.0,
+        "policy": "SHORT",
+        "risks": [],
+        "c05s_hold_authority": "pipeline.story_visual_direction.decide_visual_hold_policy",
+        "second_pacing_authority": false,
+        "overrides_duration_contract": false,
+        "overrides_audio_timing": false,
+        "overrides_dialogue_coverage": false,
+        "fixed_n_switching_forbidden": true,
+        "fixed_n_hard_rule_rejected": true,
+        "long_coherent_hold_allowed": false,
+        "new_visual_beat_recommended": true,
+        "inputs": {
+          "dialogue_duration_sec": 2.5,
+          "semantic_change": true,
+          "action_change": true,
+          "entity_change": false,
+          "relationship_change": false,
+          "location_change": false,
+          "emotion_change": false,
+          "repetition_risk": false,
+          "available_assets": 0,
+          "media_mode": "IMAGE"
+        },
+        "confidence": "HEURISTIC_RECOMMENDATION",
+        "note": "asset_hold_budget_not_timeline_duration;dialogue_drives_timeline"
+      },
+      {
+        "schema": "amp_observation_dialogue_visual_alignment_v1",
+        "kind": "adaptive_hold_recommendation",
+        "recommended_hold_sec": 2.0,
+        "max_hold_sec": 8.0,
+        "policy": "SHORT",
+        "risks": [],
+        "c05s_hold_authority": "pipeline.story_visual_direction.decide_visual_hold_policy",
+        "second_pacing_authority": false,
+        "overrides_duration_contract": false,
+        "overrides_audio_timing": false,
+        "overrides_dialogue_coverage": false,
+        "fixed_n_switching_forbidden": true,
+        "fixed_n_hard_rule_rejected": true,
+        "long_coherent_hold_allowed": false,
+        "new_visual_beat_recommended": true,
+        "inputs": {
+          "dialogue_duration_sec": 2.5,
+          "semantic_change": true,
+          "action_change": true,
+          "entity_change": false,
+          "relationship_change": false,
+          "location_change": false,
+          "emotion_change": false,
+          "repetition_risk": false,
+          "available_assets": 0,
+          "media_mode": "IMAGE"
+        },
+        "confidence": "HEURISTIC_RECOMMENDATION",
+        "note": "asset_hold_budget_not_timeline_duration;dialogue_drives_timeline"
+      },
+      {
+        "schema": "amp_observation_dialogue_visual_alignment_v1",
+        "kind": "adaptive_hold_recommendation",
+        "recommended_hold_sec": 2.0,
+        "max_hold_sec": 8.0,
+        "policy": "SHORT",
+        "risks": [],
+        "c05s_hold_authority": "pipeline.story_visual_direction.decide_visual_hold_policy",
+        "second_pacing_authority": false,
+        "overrides_duration_contract": false,
+        "overrides_audio_timing": false,
+        "overrides_dialogue_coverage": false,
+        "fixed_n_switching_forbidden": true,
+        "fixed_n_hard_rule_rejected": true,
+        "long_coherent_hold_allowed": false,
+        "new_visual_beat_recommended": true,
+        "inputs": {
+          "dialogue_duration_sec": 2.5,
+          "semantic_change": true,
+          "action_change": true,
+          "entity_change": false,
+          "relationship_change": false,
+          "location_change": false,
+          "emotion_change": false,
+          "repetition_risk": false,
+          "available_assets": 0,
+          "media_mode": "IMAGE"
+        },
+        "confidence": "HEURISTIC_RECOMMENDATION",
+        "note": "asset_hold_budget_not_timeline_duration;dialogue_drives_timeline"
+      }
+    ],
+    "duration_contract": {
+      "authority": "pipeline.duration_budget.resolve_duration_contract",
+      "target_seconds": 60,
+      "max_seconds": 120,
+      "overridden_by_alignment_layer": false
+    },
+    "audio_timeline_sec": 10.0,
+    "second_audio_engine": false,
+    "second_duration_engine": false,
+    "second_pacing_authority": false,
+    "second_continuity_engine": false,
+    "second_semantic_gate": false,
+    "second_repair_engine": false,
+    "second_ffmpeg_engine": false,
+    "fixed_n_switching_forbidden": true,
+    "timing_overlap_is_not_semantic_pass": true,
+    "unknown_as_pass": false,
+    "creates_final_gate": false,
+    "customer_id": "c11_marathon_customer",
+    "channel_id": "4",
+    "job_id": "job2108",
+    "cross_beat_helper": "pipeline.observation.frame_evidence.cross_beat",
+    "created_at": 1788949906.1176345
+  },
+  "provider_verified": true,
+  "no_silent_drop": {
+    "schema": "amp_observation_dialogue_visual_alignment_v1",
+    "invariant": "planned_dialogue_segments_must_equal_materialized",
+    "planned_count": 4,
+    "materialized_count": 4,
+    "planned_dialogue_ids": [
+      "dlg-1",
+      "dlg-2",
+      "dlg-3",
+      "dlg-4"
+    ],
+    "materialized_dialogue_ids": [
+      "dlg-1",
+      "dlg-2",
+      "dlg-3",
+      "dlg-4"
+    ],
+    "missing": [],
+    "extra": [],
+    "silent_drop": false,
+    "status": "PASS",
+    "blocking_code": "",
+    "hold_cap_must_not_truncate_dialogue": true
+  },
+  "fixed_n_switching_forbidden": true
+}

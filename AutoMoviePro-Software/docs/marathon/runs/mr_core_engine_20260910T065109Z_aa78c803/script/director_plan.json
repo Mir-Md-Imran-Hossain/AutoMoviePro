@@ -1,0 +1,188 @@
+{
+  "analysis": {
+    "niche_summary": "Custom niche documentary storytelling focusing on space science and planetary exploration.",
+    "why_this_topic": "How Artemis crews use neutron spectrometers to map lunar polar water ice in 2026 offers high curiosity, cutting-edge mission relevance, and strong visual appeal.",
+    "audience": "Science enthusiasts and space mission followers looking for concrete technical insights.",
+    "tone": "Teal/cyan cinematic lab grade, high contrast, documentary serious, professional narrator.",
+    "product_category": "science",
+    "style_pack": "science",
+    "nish_id": 0,
+    "avoided_duplicates": [],
+    "master_lang": "en",
+    "master_lang_bcp47": "en-US"
+  },
+  "topic": "How Artemis crews use neutron spectrometers to map lunar polar water ice in 2026",
+  "product_key_hint": "artemis neutron spectrometer lunar water ice 2026",
+  "title": "How Artemis Crews Hunt Lunar Ice With Neutron Spectrometers in 2026",
+  "description": "Discover how Artemis astronauts deploy advanced neutron spectrometers to detect buried water ice in permanently shadowed lunar craters. Real science in action for future moon bases.\n\n#Artemis #SpaceScience #LunarIce #SpaceExploration #NASA2026",
+  "tags": [
+    "Artemis",
+    "neutron spectrometer",
+    "lunar water ice",
+    "space science",
+    "Moon landing 2026"
+  ],
+  "scenes": [
+    {
+      "element": "intro",
+      "start_hint_s": 0.0,
+      "end_hint_s": 8.5,
+      "narration": "In twenty twenty-six, Artemis astronauts touch down at the lunar south pole carrying handheld neutron spectrometers.",
+      "keyword_triggers": [
+        "How Artemis crews use neutron spectrometers to map lunar polar water ice in 2026",
+        "Artemis",
+        "neutron spectrometer",
+        "lunar south pole"
+      ],
+      "exact_ai_video_prompt": "VERTICAL 9:16 cinematic slow push-in of a high-tech neutron spectrometer device resting on a metallic lunar lander surface, teal/cyan cinematic lab grade, high contrast, shallow depth of field, no burned captions, no watermarks, no talking-head REQUIRED on-screen anchors: How Artemis crews use neutron spectrometers to map lunar polar water ice in 2026, 2026, Artemis, lunar south pole, twenty, astronauts, touch, down.",
+      "visual_query": "neutron spectrometer on lunar lander",
+      "visual_prompt": "cinematic hero establish shot of a neutron spectrometer",
+      "quality_notes": "Establishes mission hardware and location context.",
+      "lang": "en",
+      "lang_bcp47": "en-US"
+    },
+    {
+      "element": "context",
+      "start_hint_s": 8.5,
+      "end_hint_s": 17.0,
+      "narration": "Permanently shadowed craters hide ancient water ice locked beneath meters of dry regolith dust.",
+      "keyword_triggers": [
+        "How Artemis crews use neutron spectrometers to map lunar polar water ice in 2026",
+        "shadowed craters",
+        "water ice",
+        "regolith dust"
+      ],
+      "exact_ai_video_prompt": "VERTICAL 9:16 macro pan across dark, cold lunar crater model with glowing chemical plume highlights, teal/cyan cinematic lab grade, high contrast, shallow depth of field, no burned captions, no watermarks, no talking-head REQUIRED on-screen anchors: How Artemis crews use neutron spectrometers to map lunar polar water ice in 2026, 2026, shadowed craters, water ice, regolith dust, Permanently, shadowed, hide, ancient.",
+      "visual_query": "lunar crater regolith ice model",
+      "visual_prompt": "macro pan of dark regolith and ice model",
+      "quality_notes": "Shows the geological challenge of buried ice.",
+      "lang": "en",
+      "lang_bcp47": "en-US"
+    },
+    {
+      "element": "discovery",
+      "start_hint_s": 17.0,
+      "end_hint_s": 25.5,
+      "narration": "Cosmic rays constantly smash into the Moon, bouncing high-energy neutrons up through the surface layer.",
+      "keyword_triggers": [
+        "How Artemis crews use neutron spectrometers to map lunar polar water ice in 2026",
+        "cosmic rays",
+        "high-energy neutrons",
+        "surface layer"
+      ],
+      "exact_ai_video_prompt": "VERTICAL 9:16 macro flame simulation of energetic particle collisions interacting with molecular glass structures, teal/cyan cinematic lab grade, high contrast, shallow depth of field, no burned captions, no watermarks, no talking-head REQUIRED on-screen anchors: How Artemis crews use neutron spectrometers to map lunar polar water ice in 2026, 2026, cosmic rays, high-energy neutrons, surface layer, Cosmic, rays, constantly, smash, Moon.",
+      "visual_query": "cosmic ray neutron particle interaction",
+      "visual_prompt": "macro animation of cosmic ray collisions",
+      "quality_notes": "Visualizes invisible particle physics.",
+      "lang": "en",
+      "lang_bcp47": "en-US"
+    },
+    {
+      "element": "technique",
+      "start_hint_s": 25.5,
+      "end_hint_s": 34.0,
+      "narration": "When those bouncing neutrons hit buried hydrogen atoms inside water ice, they instantly slow down.",
+      "keyword_triggers": [
+        "How Artemis crews use neutron spectrometers to map lunar polar water ice in 2026",
+        "hydrogen atoms",
+        "water ice",
+        "slow down"
+      ],
+      "exact_ai_video_prompt": "VERTICAL 9:16 close-up of lab glassware and chemical plume sensors tracking slowing particle trajectories, teal/cyan cinematic lab grade, high contrast, shallow depth of field, no burned captions, no watermarks, no talking-head REQUIRED on-screen anchors: How Artemis crews use neutron spectrometers to map lunar polar water ice in 2026, 2026, hydrogen atoms, water ice, slow down, bouncing, neutrons, buried, hydrogen, atoms.",
+      "visual_query": "neutron moderation hydrogen detection",
+      "visual_prompt": "close-up of sensor tracking particle speed change",
+      "quality_notes": "Explains the core physics principle.",
+      "lang": "en",
+      "lang_bcp47": "en-US"
+    },
+    {
+      "element": "technique",
+      "start_hint_s": 34.0,
+      "end_hint_s": 42.5,
+      "narration": "The spectrometer counts these moderated thermal neutrons, mapping invisible moisture gradients beneath the boots.",
+      "keyword_triggers": [
+        "How Artemis crews use neutron spectrometers to map lunar polar water ice in 2026",
+        "thermal neutrons",
+        "moisture gradients",
+        "spectrometer"
+      ],
+      "exact_ai_video_prompt": "VERTICAL 9:16 macro shot of digital lab glassware interface displaying live moisture gradient data readouts, teal/cyan cinematic lab grade, high contrast, shallow depth of field, no burned captions, no watermarks, no talking-head REQUIRED on-screen anchors: How Artemis crews use neutron spectrometers to map lunar polar water ice in 2026, 2026, thermal neutrons, spectrometer, counts, moderated, thermal, neutrons, mapping.",
+      "visual_query": "spectrometer digital data readout",
+      "visual_prompt": "macro screen showing live moisture mapping data",
+      "quality_notes": "Demonstrates data collection mechanics.",
+      "lang": "en",
+      "lang_bcp47": "en-US"
+    },
+    {
+      "element": "legacy",
+      "start_hint_s": 42.5,
+      "end_hint_s": 51.0,
+      "narration": "This precise subsurface mapping prevents costly drilling mistakes across unpredictable polar terrain.",
+      "keyword_triggers": [
+        "How Artemis crews use neutron spectrometers to map lunar polar water ice in 2026",
+        "subsurface mapping",
+        "drilling",
+        "polar terrain"
+      ],
+      "exact_ai_video_prompt": "VERTICAL 9:16 smooth orbital push-in over a 3D topographic map of the lunar south pole with glowing ice deposits, teal/cyan cinematic lab grade, high contrast, shallow depth of field, no burned captions, no watermarks, no talking-head REQUIRED on-screen anchors: How Artemis crews use neutron spectrometers to map lunar polar water ice in 2026, 2026, subsurface mapping, drilling, polar terrain, precise, subsurface, mapping, prevents, costly.",
+      "visual_query": "lunar south pole topographic map",
+      "visual_prompt": "3D topographic map of polar terrain",
+      "quality_notes": "Highlights mission utility and planning.",
+      "lang": "en",
+      "lang_bcp47": "en-US"
+    },
+    {
+      "element": "legacy",
+      "start_hint_s": 51.0,
+      "end_hint_s": 59.5,
+      "narration": "Engineers convert these neutron signatures directly into drill targets for future permanent outpost construction.",
+      "keyword_triggers": [
+        "How Artemis crews use neutron spectrometers to map lunar polar water ice in 2026",
+        "neutron signatures",
+        "drill targets",
+        "outpost construction"
+      ],
+      "exact_ai_video_prompt": "VERTICAL 9:16 macro pan across futuristic lab glassware models of lunar base habitats surrounded by chemical plume indicators, teal/cyan cinematic lab grade, high contrast, shallow depth of field, no burned captions, no watermarks, no talking-head REQUIRED on-screen anchors: How Artemis crews use neutron spectrometers to map lunar polar water ice in 2026, 2026, neutron signatures, drill targets, outpost construction, Engineers, convert, neutron, signatures, directly.",
+      "visual_query": "lunar outpost habitat model",
+      "visual_prompt": "macro pan of base habitat models",
+      "quality_notes": "Connects data to future human habitation.",
+      "lang": "en",
+      "lang_bcp47": "en-US"
+    },
+    {
+      "element": "outro",
+      "start_hint_s": 59.5,
+      "end_hint_s": 68.0,
+      "narration": "Neutron spectrometers finally turn hidden polar ice into accessible rocket propellant for deep space missions.",
+      "keyword_triggers": [
+        "How Artemis crews use neutron spectrometers to map lunar polar water ice in 2026",
+        "hidden polar ice",
+        "rocket propellant",
+        "deep space missions"
+      ],
+      "exact_ai_video_prompt": "VERTICAL 9:16 cinematic hero reveal of a spacecraft engine ignition glowing against a dark lunar horizon, teal/cyan cinematic lab grade, high contrast, shallow depth of field, no burned captions, no watermarks, no talking-head REQUIRED on-screen anchors: How Artemis crews use neutron spectrometers to map lunar polar water ice in 2026, 2026, hidden polar ice, rocket propellant, deep space missions, Neutron, spectrometers, finally, turn, hidden.",
+      "visual_query": "spacecraft engine ignition lunar horizon",
+      "visual_prompt": "cinematic engine ignition hero shot",
+      "quality_notes": "Strong concluding visual linking ice to exploration future.",
+      "lang": "en",
+      "lang_bcp47": "en-US"
+    }
+  ],
+  "director_provider": "google",
+  "nish_id": 0,
+  "nish_name": "space science",
+  "video_type": "short",
+  "max_seconds": 60,
+  "master_lang": "en",
+  "master_lang_bcp47": "en-US",
+  "sourceLanguage": "en",
+  "master_lang_policy": "english_pivot_then_localize",
+  "narrator_voice": "Charon",
+  "master_lang_repairs": [
+    {
+      "field": "tags",
+      "repaired": true,
+      "via": "drop_non_english_tags"
+    }
+  ]
+}

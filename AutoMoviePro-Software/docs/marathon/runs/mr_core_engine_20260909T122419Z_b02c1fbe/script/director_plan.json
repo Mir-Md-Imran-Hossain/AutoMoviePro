@@ -1,0 +1,188 @@
+{
+  "analysis": {
+    "niche_summary": "Space science documentary storytelling focusing on astronomical discoveries and advanced telescope optics.",
+    "why_this_topic": "Reveals hidden star nurseries using mid-infrared imaging, generating high curiosity and strong visual appeal for science enthusiasts.",
+    "audience": "Science enthusiasts, astronomy hobbyists, curious minds interested in space exploration.",
+    "tone": "Cinematic, awe-inspiring, precise, documentary-style.",
+    "product_category": "science",
+    "style_pack": "science",
+    "nish_id": 0,
+    "avoided_duplicates": [],
+    "master_lang": "en",
+    "master_lang_bcp47": "en-US"
+  },
+  "topic": "How James Webb Space Telescope mid-infrared images reveal dust-hidden star nurseries that optical telescopes cannot map",
+  "product_key_hint": "jwst mid-infrared star nurseries",
+  "title": "What Hides Inside Space Dust? JWST's Mid-Infrared Breakthrough (2026)",
+  "description": "Standard optical telescopes hit a wall of cosmic dust, but the James Webb Space Telescope's mid-infrared eyes peer straight through to map active star nurseries. Discover how MIRI technology is rewriting stellar birth records.\n\n#JWST #SpaceScience #Astronomy #StarNurseries #JamesWebb",
+  "tags": [
+    "JWST",
+    "James Webb Space Telescope",
+    "star nurseries",
+    "mid-infrared",
+    "space science"
+  ],
+  "scenes": [
+    {
+      "element": "intro",
+      "start_hint_s": 0.0,
+      "end_hint_s": 7.0,
+      "narration": "Optical telescopes hit a solid wall of cosmic dust when looking deep into stellar nurseries across the galaxy.",
+      "keyword_triggers": [
+        "How James Webb Space Telescope mid-infrared images reveal dust-hidden star nurseries that optical telescopes cannot map",
+        "JWST",
+        "cosmic dust",
+        "optical telescope"
+      ],
+      "exact_ai_video_prompt": "VERTICAL 9:16 cinematic slow push-in of a dense cosmic dust cloud in space, teal and cyan cinematic lab grade, high contrast, shallow depth of field, no burned captions, no watermarks, no talking-head REQUIRED on-screen anchors: How James Webb Space Telescope mid-infrared images reveal dust-hidden star nurseries that optical telescopes cannot map, JWST, optical telescope, Optical, telescopes, solid, wall.",
+      "visual_query": "cosmic dust cloud space telescope view",
+      "visual_prompt": "Cinematic wide shot of dense interstellar dust clouds glowing in teal and cyan hues.",
+      "quality_notes": "Establish the optical barrier problem.",
+      "lang": "en",
+      "lang_bcp47": "en-US"
+    },
+    {
+      "element": "context",
+      "start_hint_s": 7.0,
+      "end_hint_s": 15.0,
+      "narration": "Visible light scatters against these microscopic particles, leaving vast stellar creation zones completely hidden from human view.",
+      "keyword_triggers": [
+        "How James Webb Space Telescope mid-infrared images reveal dust-hidden star nurseries that optical telescopes cannot map",
+        "visible light",
+        "microscopic particles",
+        "stellar zone"
+      ],
+      "exact_ai_video_prompt": "VERTICAL 9:16 macro flame and molecular glass metaphor simulation, teal/cyan cinematic lab grade, high contrast, continuous motion, no burned captions, no watermarks, no talking-head REQUIRED on-screen anchors: How James Webb Space Telescope mid-infrared images reveal dust-hidden star nurseries that optical telescopes cannot map, visible light, microscopic particles, stellar zone, Visible, light, scatters, against, microscopic, particles.",
+      "visual_query": "light scattering molecular particle simulation",
+      "visual_prompt": "Macro shot of light rays scattering through microscopic glass particles in a lab setting.",
+      "quality_notes": "Explain why standard telescopes fail.",
+      "lang": "en",
+      "lang_bcp47": "en-US"
+    },
+    {
+      "element": "discovery",
+      "start_hint_s": 15.0,
+      "end_hint_s": 23.0,
+      "narration": "Enter the James Webb Space Telescope and its specialized mid-infrared instrument designed to bypass this blinding interference.",
+      "keyword_triggers": [
+        "How James Webb Space Telescope mid-infrared images reveal dust-hidden star nurseries that optical telescopes cannot map",
+        "James Webb Space Telescope",
+        "mid-infrared",
+        "instrument"
+      ],
+      "exact_ai_video_prompt": "VERTICAL 9:16 macro pans of sophisticated lab glassware and golden space telescope mirror segments, teal/cyan cinematic lab grade, high contrast, continuous motion, no burned captions, no watermarks, no talking-head REQUIRED on-screen anchors: How James Webb Space Telescope mid-infrared images reveal dust-hidden star nurseries that optical telescopes cannot map, James Webb Space Telescope, mid-infrared, instrument, Enter, James, Webb, specialized.",
+      "visual_query": "JWST golden mirror segment macro",
+      "visual_prompt": "Macro pan across metallic hexagonal mirror segments with cold lab lighting.",
+      "quality_notes": "Introduce the hero instrument JWST.",
+      "lang": "en",
+      "lang_bcp47": "en-US"
+    },
+    {
+      "element": "technique",
+      "start_hint_s": 23.0,
+      "end_hint_s": 31.0,
+      "narration": "Longer infrared wavelengths slice straight through molecular glass and dense carbon plumes like they aren't even there.",
+      "keyword_triggers": [
+        "How James Webb Space Telescope mid-infrared images reveal dust-hidden star nurseries that optical telescopes cannot map",
+        "infrared wavelengths",
+        "molecular glass",
+        "carbon plumes"
+      ],
+      "exact_ai_video_prompt": "VERTICAL 9:16 slow push-in of infrared beam penetrating chemical plumes and molecular glass structures, teal/cyan cinematic lab grade, high contrast, continuous motion, no burned captions, no watermarks, no talking-head REQUIRED on-screen anchors: How James Webb Space Telescope mid-infrared images reveal dust-hidden star nurseries that optical telescopes cannot map, infrared wavelengths, carbon plumes, Longer, wavelengths, slice, straight.",
+      "visual_query": "infrared wave penetrating chemical plume",
+      "visual_prompt": "Close-up of a laser wave piercing through a swirling chemical vapor plume in a dark lab.",
+      "quality_notes": "Show the physical mechanism of mid-infrared imaging.",
+      "lang": "en",
+      "lang_bcp47": "en-US"
+    },
+    {
+      "element": "discovery",
+      "start_hint_s": 31.0,
+      "end_hint_s": 39.0,
+      "narration": "Suddenly, embedded protostars trapped inside suffocating cocoons glow brightly on MIRI sensors for the very first time.",
+      "keyword_triggers": [
+        "How James Webb Space Telescope mid-infrared images reveal dust-hidden star nurseries that optical telescopes cannot map",
+        "protostars",
+        "cocoons",
+        "MIRI sensors"
+      ],
+      "exact_ai_video_prompt": "VERTICAL 9:16 macro flame ignition inside a cooling chamber, teal/cyan cinematic lab grade, high contrast, continuous motion, no burned captions, no watermarks, no talking-head REQUIRED on-screen anchors: How James Webb Space Telescope mid-infrared images reveal dust-hidden star nurseries that optical telescopes cannot map, protostars, cocoons, MIRI sensors, Suddenly, embedded, trapped, suffocating.",
+      "visual_query": "protostar ignition simulation lab",
+      "visual_prompt": "Macro shot of intense heat radiating from an egg-like structure under controlled lab conditions.",
+      "quality_notes": "Reveal the hidden protostars.",
+      "lang": "en",
+      "lang_bcp47": "en-US"
+    },
+    {
+      "element": "technique",
+      "start_hint_s": 39.0,
+      "end_hint_s": 47.0,
+      "narration": "Thermal emissions map out intricate gas filaments feeding infant suns with atomic precision and zero atmospheric blur.",
+      "keyword_triggers": [
+        "How James Webb Space Telescope mid-infrared images reveal dust-hidden star nurseries that optical telescopes cannot map",
+        "thermal emissions",
+        "gas filaments",
+        "infant suns"
+      ],
+      "exact_ai_video_prompt": "VERTICAL 9:16 cinematic pan across glowing thermal gas filaments in a dark vacuum chamber, teal/cyan cinematic lab grade, high contrast, continuous motion, no burned captions, no watermarks, no talking-head REQUIRED on-screen anchors: How James Webb Space Telescope mid-infrared images reveal dust-hidden star nurseries that optical telescopes cannot map, thermal emissions, infant suns, emissions, intricate, feeding, infant.",
+      "visual_query": "thermal gas filament mapping space",
+      "visual_prompt": "Close-up of glowing gas currents weaving around high-intensity heat sources.",
+      "quality_notes": "Detail the precision of the thermal mapping.",
+      "lang": "en",
+      "lang_bcp47": "en-US"
+    },
+    {
+      "element": "legacy",
+      "start_hint_s": 47.0,
+      "end_hint_s": 55.0,
+      "narration": "Astronomers can now chart stellar birth rates across epochs that optical instruments wrote off as completely blank.",
+      "keyword_triggers": [
+        "How James Webb Space Telescope mid-infrared images reveal dust-hidden star nurseries that optical telescopes cannot map",
+        "astronomers",
+        "stellar birth rates",
+        "epochs"
+      ],
+      "exact_ai_video_prompt": "VERTICAL 9:16 macro pan over complex lab glassware tracking dynamic fluid data, teal/cyan cinematic lab grade, high contrast, continuous motion, no burned captions, no watermarks, no talking-head REQUIRED on-screen anchors: How James Webb Space Telescope mid-infrared images reveal dust-hidden star nurseries that optical telescopes cannot map, astronomers, stellar birth rates, epochs, chart, stellar, birth, rates.",
+      "visual_query": "astronomer charting stellar data lab glassware",
+      "visual_prompt": "Macro shot of illuminated charts reflecting off high-tech glass apparatus.",
+      "quality_notes": "Highlight the historical impact on astronomy.",
+      "lang": "en",
+      "lang_bcp47": "en-US"
+    },
+    {
+      "element": "outro",
+      "start_hint_s": 55.0,
+      "end_hint_s": 62.0,
+      "narration": "By stripping away the dust, James Webb redefines our understanding of how stars ignite in the dark universe.",
+      "keyword_triggers": [
+        "How James Webb Space Telescope mid-infrared images reveal dust-hidden star nurseries that optical telescopes cannot map",
+        "James Webb",
+        "dark universe",
+        "stars ignite"
+      ],
+      "exact_ai_video_prompt": "VERTICAL 9:16 hero establish shot of a gleaming space telescope model against a deep starfield, teal/cyan cinematic lab grade, high contrast, continuous motion, no burned captions, no watermarks, no talking-head REQUIRED on-screen anchors: How James Webb Space Telescope mid-infrared images reveal dust-hidden star nurseries that optical telescopes cannot map, James Webb, dark universe, stars ignite, stripping, away, dust, James, Webb, redefines.",
+      "visual_query": "JWST hero shot space backdrop",
+      "visual_prompt": "Cinematic ending shot of a high-tech instrument floating in a simulated cosmic void.",
+      "quality_notes": "Strong conclusive visual and verbal hook.",
+      "lang": "en",
+      "lang_bcp47": "en-US"
+    }
+  ],
+  "director_provider": "google",
+  "nish_id": 0,
+  "nish_name": "space science",
+  "video_type": "short",
+  "max_seconds": 60,
+  "master_lang": "en",
+  "master_lang_bcp47": "en-US",
+  "sourceLanguage": "en",
+  "master_lang_policy": "english_pivot_then_localize",
+  "narrator_voice": "Charon",
+  "master_lang_repairs": [
+    {
+      "field": "tags",
+      "repaired": true,
+      "via": "drop_non_english_tags"
+    }
+  ]
+}

@@ -1,0 +1,147 @@
+{
+  "repairs_applied": [
+    "deterministic_industrial_repair_v1"
+  ],
+  "plan": {
+    "title": "What Parker Solar Probe discovered about the Sun's corona in 2026 — Documentary",
+    "topic": "What Parker Solar Probe discovered about the Sun's corona in 2026",
+    "description": "A cinematic short about What Parker Solar Probe discovered about the Sun's corona in 2026.",
+    "tags": [
+      "what",
+      "parker",
+      "solar",
+      "probe",
+      "discovered",
+      "about",
+      "documentary",
+      "explained",
+      "evidence",
+      "2026",
+      "retention"
+    ],
+    "niche": "space science",
+    "language": "en",
+    "scenes": [
+      {
+        "element": "intro",
+        "dialogue_id": "dlg-01",
+        "narration": "Why does What Parker Solar Probe discovered about the Sun's matter right now? Welcome to the story of What Parker Solar Probe discovered.",
+        "visual_query": "What Parker Solar Probe discovered about the Sun's corona in 2026 establishing shot",
+        "visual_prompt": "cinematic intro of What Parker Solar Probe discovered about the Sun's corona in 2026",
+        "exact_ai_video_prompt": "vertical cinematic intro What Parker Solar Probe discovered about the Sun's corona in 2026",
+        "retention_role": "pattern_interrupt",
+        "open_loop": "What makes What Parker Solar Probe discovered about the Sun's corona in 2026 different?",
+        "estimated_duration_sec": 9.0,
+        "retention": {
+          "role": "pattern_interrupt",
+          "window_start_sec": 0,
+          "window_end_sec": 2,
+          "job": "Pattern Interrupt",
+          "open_loop": "What makes What Parker Solar Probe discovered about the Sun's corona in 2026 different?",
+          "payoff_for": null
+        }
+      },
+      {
+        "element": "discovery",
+        "dialogue_id": "dlg-02",
+        "narration": "Researchers uncovered new evidence about What Parker Solar Probe discovered about the Sun's corona in 2026.",
+        "visual_query": "What Parker Solar Probe discovered about the Sun's corona in 2026 discovery",
+        "visual_prompt": "artifact close-up What Parker Solar Probe discovered about the Sun's corona in 2026",
+        "exact_ai_video_prompt": "macro discovery shot What Parker Solar Probe discovered about the Sun's corona in 2026",
+        "estimated_duration_sec": 7.0,
+        "retention_role": "curiosity_gap",
+        "retention": {
+          "role": "curiosity_gap",
+          "window_start_sec": 2,
+          "window_end_sec": 5,
+          "job": "Curiosity Gap",
+          "open_loop": null,
+          "payoff_for": null
+        }
+      },
+      {
+        "element": "outro",
+        "dialogue_id": "dlg-03",
+        "narration": "This is why What Parker Solar Probe discovered about the Sun's corona in 2026 still matters today. So the takeaway on What Parker.",
+        "visual_query": "What Parker Solar Probe discovered about the Sun's corona in 2026 outro",
+        "visual_prompt": "sunset silhouette What Parker Solar Probe discovered about the Sun's corona in 2026",
+        "exact_ai_video_prompt": "cinematic outro What Parker Solar Probe discovered about the Sun's corona in 2026",
+        "retention_role": "ending",
+        "payoff_for": "main_open_loop",
+        "estimated_duration_sec": 9.0,
+        "retention": {
+          "role": "ending",
+          "window_start_sec": 5,
+          "window_end_sec": 10,
+          "job": "First Payoff",
+          "open_loop": null,
+          "payoff_for": "main_open_loop"
+        }
+      }
+    ],
+    "director_provider": "mock",
+    "director_model": "script-mock-v1",
+    "hook": "Why does What Parker Solar Probe discovered about the Sun's matter right now? Welcome to the story of What Parker Solar Probe discovered.",
+    "metadata": {
+      "opening_hook_enforced": true,
+      "opening_hook_prior": "Welcome to the story of What Parker Solar Probe discovered about the Sun's corona in 2026.",
+      "opening_hook_issues": [
+        "opening_no_curiosity_hook"
+      ],
+      "retention_cadence_enforced": true,
+      "retention_cadence_repairs": [
+        {
+          "index": 2,
+          "action": "ending_close",
+          "prior": "This is why What Parker Solar Probe discovered about the Sun's corona in 2026 still matters today."
+        }
+      ],
+      "dialogue_window_repairs": [
+        {
+          "i": 0,
+          "action": "trim",
+          "est_sec": 9.58
+        },
+        {
+          "i": 2,
+          "action": "trim",
+          "est_sec": 9.58
+        }
+      ],
+      "dialogue_window_enforced": true
+    },
+    "retention_blueprint": {
+      "format": "short",
+      "windows": [
+        {
+          "id": "pattern_interrupt",
+          "start_sec": 0,
+          "end_sec": 2,
+          "job": "Pattern Interrupt"
+        },
+        {
+          "id": "curiosity_gap",
+          "start_sec": 2,
+          "end_sec": 5,
+          "job": "Curiosity Gap"
+        },
+        {
+          "id": "first_payoff",
+          "start_sec": 5,
+          "end_sec": 10,
+          "job": "First Payoff"
+        }
+      ],
+      "loop": [
+        "question",
+        "evidence",
+        "payoff",
+        "new_question"
+      ],
+      "min_open_loops": 2,
+      "min_loop_close_ratio": 0.7,
+      "forbid_flat_streak": 2,
+      "require_ending_close": true
+    }
+  }
+}

@@ -1,0 +1,79 @@
+{
+  "niche_id": 25,
+  "name": "Famous Hoaxes & Frauds",
+  "slug": "famous-hoaxes-frauds",
+  "style_family": "science",
+  "status": "VERIFIED",
+  "topic_seeds": [
+    "What new evidence reframes the story of Famous Hoaxes inside Famous Hoaxes & Frauds",
+    "How Famous Hoaxes still shapes public curiosity about Famous Hoaxes & Frauds",
+    "What new evidence reframes the story of Frauds Unmasking inside Famous Hoaxes & Frauds",
+    "How Frauds Unmasking still shapes public curiosity about Famous Hoaxes & Frauds",
+    "What new evidence reframes the story of Piltdown Man inside Famous Hoaxes & Frauds",
+    "How Piltdown Man still shapes public curiosity about Famous Hoaxes & Frauds"
+  ],
+  "seo_angles": [
+    "What new evidence reframes the story of Famous Hoaxes inside Famous Hoaxes & Frauds",
+    "How Famous Hoaxes still shapes public curiosity about Famous Hoaxes & Frauds",
+    "What new evidence reframes the story of Frauds Unmasking inside Famous Hoaxes & Frauds",
+    "How Frauds Unmasking still shapes public curiosity about Famous Hoaxes & Frauds"
+  ],
+  "forbidden_visuals": [
+    "talking-head lip-sync avatar",
+    "burned-in captions",
+    "watermark",
+    "modern meme text",
+    "off-niche stock office B-roll"
+  ],
+  "preferred_subjects": [
+    "lab instrument close-up",
+    "diagrammatic mechanism metaphor",
+    "field measurement site"
+  ],
+  "lighting_default": "teal/cyan lab grade, high contrast, shallow DOF",
+  "face_policy": "no talking-head lip-sync avatar; cinematic B-roll preferred",
+  "dialogue_tone": "clear explainer; one mechanism per beat",
+  "audio_ambience": "clean room tone, soft electronic texture",
+  "research_hints": [
+    "Prefer primary evidence and concrete entities for Famous Hoaxes & Frauds",
+    "Avoid generic niche-label topics; require specific place/person/event/mechanism",
+    "7–9 second spoken beats with story continuity across scenes"
+  ],
+  "topic_prompt_overlay": "NICHE LOCK (Famous Hoaxes & Frauds): only propose topics that fit this niche's video type. Video type: Unmasking scams — from the Piltdown Man to Fyre Festival — exploring how they fooled experts and the public, and how they were exposed. Follow niche topic strategy: Follow social media debunking channels, investigative journalism, or recent financial scams. Generate a topic that reveals deception.",
+  "video_prompt_overlay": "NICHE VISUAL LOCK (Famous Hoaxes & Frauds / science): Generate a 7–9 second dialogue clip based on the topic `{topic}`. Each dialogue must be skeptical and revealing. For each dialogue, generate: - **Audio Generation Prompt:** Voice — sarcastic or investigative, with newspaper rustling. - **Video Generation Prompt:** Detailed visual — press conference or laboratory. Character: scientist or promoter. Lighting: flash photography bright. Maintain same suit style, same flashy lighting. Forbidden: talking-head lip-sync avatar, burned-in captions, watermark, modern meme text, off-niche stock office B-roll. Preferred subjects: lab instrument close-up, diagrammatic mechanism metaphor, field measurement site. Lighting: teal/cyan lab grade, high contrast, shallow DOF. Face policy: no talking-head lip-sync avatar; cinematic B-roll preferred. Dialogue tone: clear explainer; one mechanism per beat. Ambience: clean room tone, soft electronic texture.",
+  "i18n": {
+    "en": {
+      "name": "Famous Hoaxes & Frauds",
+      "blurb": "Unmasking scams — from the Piltdown Man to Fyre Festival — exploring how they fooled experts and the public, and how they were exposed."
+    },
+    "bn": {
+      "name": "বিখ্যাত প্রতারণা ও জালিয়াতি",
+      "blurb": "ভিডিও টাইপ: Unmasking scams — from the Piltdown Man to Fyre Festival — exploring how they fooled experts and the public, and how they were exposed."
+    },
+    "hi": {
+      "name": "प्रसिद्ध धोखाधड़ी",
+      "blurb": "वीडियो प्रकार: Unmasking scams — from the Piltdown Man to Fyre Festival — exploring how they fooled experts and the public, and how they were exposed."
+    },
+    "ur": {
+      "name": "مشہور دھوکے اور فراڈ",
+      "blurb": "ویڈیو کی قسم: Unmasking scams — from the Piltdown Man to Fyre Festival — exploring how they fooled experts and the public, and how they were exposed."
+    },
+    "ta": {
+      "name": "பிரபல மோசடிகள்",
+      "blurb": "வீடியோ வகை: Unmasking scams — from the Piltdown Man to Fyre Festival — exploring how they fooled experts and the public, and how they were exposed."
+    },
+    "ml": {
+      "name": "പ്രശസ്ത വഞ്ചനകളും തട്ടിപ്പുകളും",
+      "blurb": "വീഡിയോ തരം: Unmasking scams — from the Piltdown Man to Fyre Festival — exploring how they fooled experts and the public, and how they were exposed."
+    }
+  },
+  "source": "Nish.Md + deterministic research",
+  "research_notes": [
+    "Marathon researched at 2026-09-10T08:30:11Z",
+    "Video type length=135",
+    "Topic prompt length=133",
+    "Video prompt length=432",
+    "Seeds=6"
+  ],
+  "verified_at": "2026-09-10T08:30:11Z"
+}

@@ -1,0 +1,10 @@
+{
+  "step": "UNKNOWN",
+  "observation_status": "UNKNOWN",
+  "mandatory_evidence": "ABSENT",
+  "semantic_after_attach": "UNKNOWN",
+  "blocking": true,
+  "absent_blocks": true,
+  "repair_triggered": false,
+  "heuristic_promoted": false
+}

@@ -1,0 +1,52 @@
+{
+  "protocol_id": "AMP-002",
+  "marathon_status": "IN_PROGRESS",
+  "current_task": "RV-012",
+  "current_task_status": "VERIFIED_PASS",
+  "previous_task": "RV-011",
+  "next_task": "RV-013",
+  "next_task_status": "AWAITING_USER_COMMAND",
+  "completed_tasks": ["RV-006", "RV-007", "RV-008", "RV-009", "RV-010", "RV-011", "RV-012"],
+  "failed_tasks": [],
+  "blocked_tasks": [],
+  "task_attempt_count": {"RV-006": 1, "RV-007": 1, "RV-008": 1, "RV-009": 1, "RV-010": 1, "RV-011": 1, "RV-012": 1},
+  "last_passed_task": "RV-012",
+  "current_checkpoint": "RV-012-PASS",
+  "verdict": "VERIFIED_PASS",
+  "test_summary": {
+    "RV-012": {
+      "target": "scripts/test_reverification_rv012.py",
+      "result": "25/25 PASS",
+      "regression": {
+        "RV-011": "28/28 PASS",
+        "RV-010": "26/26 PASS",
+        "RV-009": "27/27 PASS",
+        "RV-008": "21/21 PASS",
+        "RV-007": "20/20 PASS",
+        "RV-006": "13/13 PASS",
+        "BUILD-04G-H": "21/21 PASS",
+        "BUILD-04G": "58/58 PASS"
+      },
+      "paid_api_calls": 0,
+      "external_api": false,
+      "verified_at": "2026-08-31T17:30:00+06:00"
+    }
+  },
+  "changed_files": {
+    "RV-012": [
+      "pipeline/intelligence/reserve_queue.py",
+      "scripts/test_reverification_rv012.py",
+      "docs/marathon/reverification/RV-012_REPORT.md"
+    ]
+  },
+  "checkpoint_history": [
+    {"id": "RV-006-PASS", "timestamp": "2026-08-31T11:50:00+06:00", "verdict": "VERIFIED_PASS"},
+    {"id": "RV-007-PASS", "timestamp": "2026-08-31T12:00:00+06:00", "verdict": "VERIFIED_PASS"},
+    {"id": "RV-008-PASS", "timestamp": "2026-08-31T13:30:00+06:00", "verdict": "VERIFIED_PASS"},
+    {"id": "RV-009-PASS", "timestamp": "2026-08-31T14:00:00+06:00", "verdict": "VERIFIED_PASS"},
+    {"id": "RV-010-PASS", "timestamp": "2026-08-31T15:00:00+06:00", "verdict": "VERIFIED_PASS"},
+    {"id": "RV-011-PASS", "timestamp": "2026-08-31T16:00:00+06:00", "verdict": "VERIFIED_PASS"},
+    {"id": "RV-012-PASS", "timestamp": "2026-08-31T17:30:00+06:00", "verdict": "VERIFIED_PASS"}
+  ],
+  "timestamp": "2026-08-31T17:30:00+06:00"
+}

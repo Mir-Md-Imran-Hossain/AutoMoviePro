@@ -1,0 +1,79 @@
+{
+  "niche_id": 121,
+  "name": "Extreme Weather Updates",
+  "slug": "extreme-weather-updates",
+  "style_family": "science",
+  "status": "VERIFIED",
+  "topic_seeds": [
+    "What new evidence reframes the story of Extreme Weather Updates Real inside Extreme Weather Updates",
+    "How Extreme Weather Updates Real still shapes public curiosity about Extreme Weather Updates",
+    "What new evidence reframes the story of Follow inside Extreme Weather Updates",
+    "How Follow still shapes public curiosity about Extreme Weather Updates",
+    "What new evidence reframes the story of Generate inside Extreme Weather Updates",
+    "How Generate still shapes public curiosity about Extreme Weather Updates"
+  ],
+  "seo_angles": [
+    "What new evidence reframes the story of Extreme Weather Updates Real inside Extreme Weather Updates",
+    "How Extreme Weather Updates Real still shapes public curiosity about Extreme Weather Updates",
+    "What new evidence reframes the story of Follow inside Extreme Weather Updates",
+    "How Follow still shapes public curiosity about Extreme Weather Updates"
+  ],
+  "forbidden_visuals": [
+    "talking-head lip-sync avatar",
+    "burned-in captions",
+    "watermark",
+    "modern meme text",
+    "off-niche stock office B-roll"
+  ],
+  "preferred_subjects": [
+    "lab instrument close-up",
+    "diagrammatic mechanism metaphor",
+    "field measurement site"
+  ],
+  "lighting_default": "teal/cyan lab grade, high contrast, shallow DOF",
+  "face_policy": "no talking-head lip-sync avatar; cinematic B-roll preferred",
+  "dialogue_tone": "clear explainer; one mechanism per beat",
+  "audio_ambience": "clean room tone, soft electronic texture",
+  "research_hints": [
+    "Prefer primary evidence and concrete entities for Extreme Weather Updates",
+    "Avoid generic niche-label topics; require specific place/person/event/mechanism",
+    "7–9 second spoken beats with story continuity across scenes"
+  ],
+  "topic_prompt_overlay": "NICHE LOCK (Extreme Weather Updates): only propose topics that fit this niche's video type. Video type: Real-time-style updates on hurricanes, cyclones, and wildfires — with preparedness tips and science. Follow niche topic strategy: Follow weather news, new storm updates, or climate emergency alerts. Generate a topic about a current or recent extreme weather event.",
+  "video_prompt_overlay": "NICHE VISUAL LOCK (Extreme Weather Updates / science): Generate a 7–9 second dialogue clip based on the topic `{topic}`. Each dialogue must be urgent and clear. For each dialogue, generate: - **Audio Generation Prompt:** Voice — alert, with wind and rain sounds. - **Video Generation Prompt:** Detailed visual — radar screen or storm footage. No character — weather map. Lighting: dramatic. Maintain same radar view. Forbidden: talking-head lip-sync avatar, burned-in captions, watermark, modern meme text, off-niche stock office B-roll. Preferred subjects: lab instrument close-up, diagrammatic mechanism metaphor, field measurement site. Lighting: teal/cyan lab grade, high contrast, shallow DOF. Face policy: no talking-head lip-sync avatar; cinematic B-roll preferred. Dialogue tone: clear explainer; one mechanism per beat. Ambience: clean room tone, soft electronic texture.",
+  "i18n": {
+    "en": {
+      "name": "Extreme Weather Updates",
+      "blurb": "Real-time-style updates on hurricanes, cyclones, and wildfires — with preparedness tips and science."
+    },
+    "bn": {
+      "name": "চরম আবহাওয়ার আপডেট",
+      "blurb": "ভিডিও টাইপ: Real-time-style updates on hurricanes, cyclones, and wildfires — with preparedness tips and science."
+    },
+    "hi": {
+      "name": "चरम मौसम अपडेट",
+      "blurb": "वीडियो प्रकार: Real-time-style updates on hurricanes, cyclones, and wildfires — with preparedness tips and science."
+    },
+    "ur": {
+      "name": "شدید موسم کی تازہ کاری",
+      "blurb": "ویڈیو کی قسم: Real-time-style updates on hurricanes, cyclones, and wildfires — with preparedness tips and science."
+    },
+    "ta": {
+      "name": "தீவிர வானிலை புதுப்பிப்புகள்",
+      "blurb": "வீடியோ வகை: Real-time-style updates on hurricanes, cyclones, and wildfires — with preparedness tips and science."
+    },
+    "ml": {
+      "name": "തീവ്ര കാലാവസ്ഥ അപ്‌ഡേറ്റുകൾ",
+      "blurb": "വീഡിയോ തരം: Real-time-style updates on hurricanes, cyclones, and wildfires — with preparedness tips and science."
+    }
+  },
+  "source": "Nish.Md + deterministic research",
+  "research_notes": [
+    "Marathon researched at 2026-09-10T08:30:26Z",
+    "Video type length=100",
+    "Topic prompt length=134",
+    "Video prompt length=361",
+    "Seeds=6"
+  ],
+  "verified_at": "2026-09-10T08:30:26Z"
+}

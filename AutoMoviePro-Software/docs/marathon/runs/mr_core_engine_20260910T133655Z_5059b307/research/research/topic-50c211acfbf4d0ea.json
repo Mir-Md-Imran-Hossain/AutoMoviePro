@@ -1,0 +1,66 @@
+{
+  "research": {
+    "topic_id": "topic-50c211acfbf4d0ea",
+    "query": "how europa's ice shell could hide a salty ocean the evidence so far",
+    "evidence": [
+      {
+        "id": "N01",
+        "claim": "Research query: how europa's ice shell could hide a salty ocean the evidence so far\nLanguage: en\nRegion:",
+        "evidence": "research_notes",
+        "source": "research_notes",
+        "confidence": 0.4,
+        "freshness": "UNVERIFIED"
+      },
+      {
+        "id": "L02",
+        "claim": "Additional context on How Europa's ice shell could hide a salty ocean — the evidence so far from configured research scope.",
+        "evidence": "secondary",
+        "source": "live_research",
+        "confidence": 0.6,
+        "freshness": "recent"
+      }
+    ],
+    "status": "completed",
+    "provider": "live_local",
+    "provider_kind": "configured_local",
+    "provider_capability": "LOCAL_FACTPACK",
+    "provider_mode": "LIVE_LOCAL",
+    "external_api": false,
+    "is_external_live": false,
+    "note": "LOCAL_FACTPACK must not be claimed as EXTERNAL_LIVE_RESEARCH",
+    "timestamp": 1789047415.5054343,
+    "queried_at": 1789047415.5054343,
+    "canonical_topic": "How Europa's ice shell could hide a salty ocean — the evidence so far",
+    "sources": [
+      "live_research",
+      "research_notes"
+    ],
+    "fingerprint": "72d35193d8314be8a05be3f25dcaa0fa966720dc9a1bdb09ccd20a8cdd102cce"
+  },
+  "fact_pack": {
+    "topic": "How Europa's ice shell could hide a salty ocean — the evidence so far",
+    "version": "v0",
+    "claims": [
+      {
+        "id": "N01",
+        "claim": "Research query: how europa's ice shell could hide a salty ocean the evidence so far\nLanguage: en\nRegion:",
+        "evidence": "research_notes",
+        "source": "research_notes",
+        "confidence": 0.4,
+        "freshness": "UNVERIFIED"
+      },
+      {
+        "id": "L02",
+        "claim": "Additional context on How Europa's ice shell could hide a salty ocean — the evidence so far from configured research scope.",
+        "evidence": "secondary",
+        "source": "live_research",
+        "confidence": 0.6,
+        "freshness": "recent"
+      }
+    ],
+    "unknowns": []
+  },
+  "research_fingerprint": "72d35193d8314be8a05be3f25dcaa0fa966720dc9a1bdb09ccd20a8cdd102cce",
+  "provider_mode": "LIVE",
+  "persisted_at": 1789047415.5054343
+}

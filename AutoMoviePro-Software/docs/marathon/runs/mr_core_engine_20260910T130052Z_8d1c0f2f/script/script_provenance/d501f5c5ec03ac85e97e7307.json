@@ -1,0 +1,26 @@
+{
+  "job_id": "c06b-script-4-topic-66d7a5235c0385f7",
+  "fingerprint": "d501f5c5ec03ac85e97e73077a543b1f3387b47a0e13b896f3a45a99e10a0ced",
+  "entity_id": "script-0000-02cc55bc354f5481",
+  "topic": "How neutron albedo mapping finds hydrogen under the Moon's dark crater floors",
+  "topic_identity": "02cc55bc354f54812643015e",
+  "niche": "space science",
+  "niche_id": 0,
+  "fact_pack_id": "",
+  "fact_pack_hash": "",
+  "prompt_version": "v12",
+  "prompt_template_hash": "0eb19ea36a22cf406694f6e7dea91b9f",
+  "provider": "llm_router",
+  "model": "purpose-script",
+  "generation_id": "",
+  "plan_path": "E:\\All Updaye Project\\AutoMovie_Pro_SAAS_Final_Update\\AutoMoviePro-Software\\docs\\marathon\\runs\\mr_core_engine_20260910T130052Z_8d1c0f2f\\script\\director_plan.json",
+  "plan_hash": "02fbf393bcb6576e12b0184978d72a978b480ff91e0375813e587fdbfe456aee",
+  "saved_at": 1789045259.9903598,
+  "metadata": {
+    "video_type": "short",
+    "max_seconds": 60,
+    "language": "en",
+    "revision_id": "",
+    "legacy_key": "script:d501f5c5ec03ac85e97e73077a543b1f"
+  }
+}

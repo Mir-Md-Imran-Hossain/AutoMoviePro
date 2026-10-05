@@ -1,0 +1,27 @@
+{
+  "path": "docs\\marathon\\customer_product\\phase6e_evidence\\repair_work\\repair_vb6e_a1.mp4",
+  "provider": "image_kenburns_fallback",
+  "beats": 1,
+  "seed": 584072082,
+  "base_seed": 584072082,
+  "inspector": {
+    "sync_ok": true,
+    "sync_issues": [],
+    "beats": [
+      {
+        "index": 0,
+        "text": "hospital nurse ward",
+        "duration": 3.0,
+        "prompt": "Vertical 9:16 documentary still: nurse standing beside a hospital bed in a bright hospital interior. Medical ward, fluorescent lighting. NO spacecraft, NO astronaut.. cinematic photorealistic documentary, 8k, natural light. Scene lock: hospital — photoreal cinematic documentary still of hospital, NO human face, NO portrait, NO talking head, exact subject fills frame. Photoreal still for Ken Burns: vertical 9:16, sharp subject, EXACT topic/product + SKU in frame, no burned text/watermark, no talking-head. Describe only the still photograph — no clip duration and no spoken-word timing. EXACT subject on screen: hospital. Visual triggers: hospital, nurse, bed. Vertical 9:16, continuous camera motion, English picture, no burned captions/watermarks/subtitles, no talking-head. DIALOGUE nouns to show: hospital, nurse, ward. Beat 1/1: hospital nurse ward. seed=584072082.",
+        "seed": 584072082,
+        "motion": "zoom_in"
+      }
+    ]
+  },
+  "keywords": [
+    "hospital",
+    "nurse",
+    "bed"
+  ],
+  "base_prompt": "Vertical 9:16 documentary still: nurse standing beside a hospital bed in a bright hospital interior. Medical ward, fluorescent lighting. NO spacecraft, NO astronaut."
+}

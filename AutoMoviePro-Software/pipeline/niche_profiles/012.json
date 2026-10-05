@@ -1,0 +1,83 @@
+{
+  "niche_id": 12,
+  "name": "Pandemics Through Time",
+  "slug": "pandemics-through-time",
+  "style_family": "history",
+  "status": "VERIFIED",
+  "topic_seeds": [
+    "What new evidence reframes the story of Pandemics Through Time Historical inside Pandemics Through Time",
+    "How Pandemics Through Time Historical still shapes public curiosity about Pandemics Through Time",
+    "What new evidence reframes the story of Black Death inside Pandemics Through Time",
+    "How Black Death still shapes public curiosity about Pandemics Through Time",
+    "What new evidence reframes the story of Spanish Flu inside Pandemics Through Time",
+    "How Spanish Flu still shapes public curiosity about Pandemics Through Time"
+  ],
+  "seo_angles": [
+    "What new evidence reframes the story of Pandemics Through Time Historical inside Pandemics Through Time",
+    "How Pandemics Through Time Historical still shapes public curiosity about Pandemics Through Time",
+    "What new evidence reframes the story of Black Death inside Pandemics Through Time",
+    "How Black Death still shapes public curiosity about Pandemics Through Time"
+  ],
+  "forbidden_visuals": [
+    "talking-head lip-sync avatar",
+    "burned-in captions",
+    "watermark",
+    "modern meme text",
+    "modern smartphones",
+    "cars",
+    "LED screens",
+    "sneakers",
+    "contemporary skyline"
+  ],
+  "preferred_subjects": [
+    "Pandemics Through Time documentary subject",
+    "period-accurate environment",
+    "evidence object close-up"
+  ],
+  "lighting_default": "warm desert sun / torchlit interiors, high-contrast documentary grade",
+  "face_policy": "period extras OK if consistent; prefer environment/object hero when possible",
+  "dialogue_tone": "human documentary narration; specific nouns; 7–9s beats",
+  "audio_ambience": "subtle documentary bed; do not overpower voice",
+  "research_hints": [
+    "Prefer primary evidence and concrete entities for Pandemics Through Time",
+    "Avoid generic niche-label topics; require specific place/person/event/mechanism",
+    "7–9 second spoken beats with story continuity across scenes"
+  ],
+  "topic_prompt_overlay": "NICHE LOCK (Pandemics Through Time): only propose topics that fit this niche's video type. Video type: Historical pandemics — Black Death, Spanish Flu, COVID-19 — how they spread, how societies collapsed, and how humanity bounced back with new medical insights. Follow niche topic strategy: Monitor WHO reports, virology news, or historical anniversaries of past pandemics. Generate a topic that draws parallels between past and present.",
+  "video_prompt_overlay": "NICHE VISUAL LOCK (Pandemics Through Time / history): Generate a 7–9 second dialogue clip based on the topic `{topic}`. Each dialogue must be informative and sobering. For each dialogue, generate: - **Audio Generation Prompt:** Voice — calm, medical-professional tone, with heartbeat or breathing sounds. - **Video Generation Prompt:** Detailed visual — hospital ward or empty streets. Characters: doctors in PPE or sick patients. Lighting: cold, clinical white. Maintain same PPE style, same ward layout, same cold lighting. Forbidden: talking-head lip-sync avatar, burned-in captions, watermark, modern meme text, modern smartphones, cars, LED screens, sneakers. Preferred subjects: Pandemics Through Time documentary subject, period-accurate environment, evidence object close-up. Lighting: warm desert sun / torchlit interiors, high-contrast documentary grade. Face policy: period extras OK if consistent; prefer environment/object hero when possible. Dialogue tone: human documentary narration; specific nouns; 7–9s beats. Ambience: subtle documentary bed; do not overpower voice.",
+  "i18n": {
+    "en": {
+      "name": "Pandemics Through Time",
+      "blurb": "Historical pandemics — Black Death, Spanish Flu, COVID-19 — how they spread, how societies collapsed, and how humanity bounced back with new medical insights."
+    },
+    "bn": {
+      "name": "কালের মহামারী",
+      "blurb": "ভিডিও টাইপ: Historical pandemics — Black Death, Spanish Flu, COVID-19 — how they spread, how societies collapsed, and how humanity bounced back with new medical…"
+    },
+    "hi": {
+      "name": "काल की महामारियाँ",
+      "blurb": "वीडियो प्रकार: Historical pandemics — Black Death, Spanish Flu, COVID-19 — how they spread, how societies collapsed, and how humanity bounced back with new medical…"
+    },
+    "ur": {
+      "name": "تاریخ کی وبائیں",
+      "blurb": "ویڈیو کی قسم: Historical pandemics — Black Death, Spanish Flu, COVID-19 — how they spread, how societies collapsed, and how humanity bounced back with new medical…"
+    },
+    "ta": {
+      "name": "காலத்தின் தொற்றுநோய்கள்",
+      "blurb": "வீடியோ வகை: Historical pandemics — Black Death, Spanish Flu, COVID-19 — how they spread, how societies collapsed, and how humanity bounced back with new medical…"
+    },
+    "ml": {
+      "name": "കാലത്തിലൂടെയുള്ള മഹാമാരികൾ",
+      "blurb": "വീഡിയോ തരം: Historical pandemics — Black Death, Spanish Flu, COVID-19 — how they spread, how societies collapsed, and how humanity bounced back with new medical…"
+    }
+  },
+  "source": "Nish.Md + deterministic research",
+  "research_notes": [
+    "Marathon researched at 2026-09-10T08:30:09Z",
+    "Video type length=158",
+    "Topic prompt length=146",
+    "Video prompt length=471",
+    "Seeds=6"
+  ],
+  "verified_at": "2026-09-10T08:30:09Z"
+}

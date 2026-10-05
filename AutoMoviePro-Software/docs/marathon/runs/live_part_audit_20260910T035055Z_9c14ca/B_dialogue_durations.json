@@ -1,0 +1,55 @@
+{
+  "min": 7.0,
+  "max": 9.0,
+  "rows": [
+    {
+      "i": 0,
+      "est_sec": 8.33,
+      "words": 20,
+      "in_window": true,
+      "preview": "In 2026, Artemis crews will use neutron spectrometers to map lunar polar water ice, a crucial resour"
+    },
+    {
+      "i": 1,
+      "est_sec": 7.08,
+      "words": 17,
+      "in_window": true,
+      "preview": "These spectrometers are designed with advanced materials and sensors to detect hydrogen signatures i"
+    },
+    {
+      "i": 2,
+      "est_sec": 7.08,
+      "words": 17,
+      "in_window": true,
+      "preview": "When activated, the spectrometers display real-time data, highlighting areas rich in water ice benea"
+    },
+    {
+      "i": 3,
+      "est_sec": 7.5,
+      "words": 18,
+      "in_window": true,
+      "preview": "The camera module captures high-resolution images of the lunar terrain, aiding in precise mapping of"
+    },
+    {
+      "i": 4,
+      "est_sec": 7.92,
+      "words": 19,
+      "in_window": true,
+      "preview": "Building on resolution, using a technique called neutron activation analysis, these instruments can "
+    },
+    {
+      "i": 5,
+      "est_sec": 7.92,
+      "words": 19,
+      "in_window": true,
+      "preview": "The findings from these missions will lay the groundwork for sustainable human presence on the Moon,"
+    },
+    {
+      "i": 6,
+      "est_sec": 7.92,
+      "words": 19,
+      "in_window": true,
+      "preview": "As we prepare for Artemis, the quest for lunar water ice opens new horizons for humanity's future in"
+    }
+  ]
+}

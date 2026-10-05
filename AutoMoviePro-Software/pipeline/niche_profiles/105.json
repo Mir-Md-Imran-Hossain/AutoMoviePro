@@ -1,0 +1,79 @@
+{
+  "niche_id": 105,
+  "name": "AI for Research",
+  "slug": "ai-for-research",
+  "style_family": "science",
+  "status": "VERIFIED",
+  "topic_seeds": [
+    "What new evidence reframes the story of Research Elicit inside AI for Research",
+    "How Research Elicit still shapes public curiosity about AI for Research",
+    "What new evidence reframes the story of Check inside AI for Research",
+    "How Check still shapes public curiosity about AI for Research",
+    "What new evidence reframes the story of Generate inside AI for Research",
+    "How Generate still shapes public curiosity about AI for Research"
+  ],
+  "seo_angles": [
+    "What new evidence reframes the story of Research Elicit inside AI for Research",
+    "How Research Elicit still shapes public curiosity about AI for Research",
+    "What new evidence reframes the story of Check inside AI for Research",
+    "How Check still shapes public curiosity about AI for Research"
+  ],
+  "forbidden_visuals": [
+    "talking-head lip-sync avatar",
+    "burned-in captions",
+    "watermark",
+    "modern meme text",
+    "off-niche stock office B-roll"
+  ],
+  "preferred_subjects": [
+    "lab instrument close-up",
+    "diagrammatic mechanism metaphor",
+    "field measurement site"
+  ],
+  "lighting_default": "teal/cyan lab grade, high contrast, shallow DOF",
+  "face_policy": "no talking-head lip-sync avatar; cinematic B-roll preferred",
+  "dialogue_tone": "clear explainer; one mechanism per beat",
+  "audio_ambience": "clean room tone, soft electronic texture",
+  "research_hints": [
+    "Prefer primary evidence and concrete entities for AI for Research",
+    "Avoid generic niche-label topics; require specific place/person/event/mechanism",
+    "7–9 second spoken beats with story continuity across scenes"
+  ],
+  "topic_prompt_overlay": "NICHE LOCK (AI for Research): only propose topics that fit this niche's video type. Video type: Elicit, SciSpace — how they summarize academic papers, analyze data, and help students write citations. Follow niche topic strategy: Check academic tech news, new research tools, or student testimonials. Generate a topic about an AI that simplifies academic work.",
+  "video_prompt_overlay": "NICHE VISUAL LOCK (AI for Research / science): Generate a 7–9 second dialogue clip based on the topic `{topic}`. Each dialogue must be scholarly and efficient. For each dialogue, generate: - **Audio Generation Prompt:** Voice — precise, with page flipping and citation beeps. - **Video Generation Prompt:** Detailed visual — a research paper screen with highlights. No character — screen. Lighting: clear, neutral. Maintain same paper layout. Forbidden: talking-head lip-sync avatar, burned-in captions, watermark, modern meme text, off-niche stock office B-roll. Preferred subjects: lab instrument close-up, diagrammatic mechanism metaphor, field measurement site. Lighting: teal/cyan lab grade, high contrast, shallow DOF. Face policy: no talking-head lip-sync avatar; cinematic B-roll preferred. Dialogue tone: clear explainer; one mechanism per beat. Ambience: clean room tone, soft electronic texture.",
+  "i18n": {
+    "en": {
+      "name": "AI for Research",
+      "blurb": "Elicit, SciSpace — how they summarize academic papers, analyze data, and help students write citations."
+    },
+    "bn": {
+      "name": "গবেষণার জন্য এআই",
+      "blurb": "ভিডিও টাইপ: Elicit, SciSpace — how they summarize academic papers, analyze data, and help students write citations."
+    },
+    "hi": {
+      "name": "शोध के लिए एआई",
+      "blurb": "वीडियो प्रकार: Elicit, SciSpace — how they summarize academic papers, analyze data, and help students write citations."
+    },
+    "ur": {
+      "name": "تحقیق کے لیے اے آئی",
+      "blurb": "ویڈیو کی قسم: Elicit, SciSpace — how they summarize academic papers, analyze data, and help students write citations."
+    },
+    "ta": {
+      "name": "ஆராய்ச்சிக்கான AI",
+      "blurb": "வீடியோ வகை: Elicit, SciSpace — how they summarize academic papers, analyze data, and help students write citations."
+    },
+    "ml": {
+      "name": "ഗവേഷണത്തിനുള്ള AI",
+      "blurb": "വീഡിയോ തരം: Elicit, SciSpace — how they summarize academic papers, analyze data, and help students write citations."
+    }
+  },
+  "source": "Nish.Md + deterministic research",
+  "research_notes": [
+    "Marathon researched at 2026-09-10T08:30:23Z",
+    "Video type length=103",
+    "Topic prompt length=130",
+    "Video prompt length=395",
+    "Seeds=6"
+  ],
+  "verified_at": "2026-09-10T08:30:23Z"
+}

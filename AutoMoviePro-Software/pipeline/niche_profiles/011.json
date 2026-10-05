@@ -1,0 +1,80 @@
+{
+  "niche_id": 11,
+  "name": "Nature’s Wrath",
+  "slug": "nature-s-wrath",
+  "style_family": "nature",
+  "status": "VERIFIED",
+  "topic_seeds": [
+    "What new evidence reframes the story of Nature inside Nature’s Wrath",
+    "How Nature still shapes public curiosity about Nature’s Wrath",
+    "What new evidence reframes the story of Wrath Real inside Nature’s Wrath",
+    "How Wrath Real still shapes public curiosity about Nature’s Wrath",
+    "What new evidence reframes the story of Track inside Nature’s Wrath",
+    "How Track still shapes public curiosity about Nature’s Wrath"
+  ],
+  "seo_angles": [
+    "What new evidence reframes the story of Nature inside Nature’s Wrath",
+    "How Nature still shapes public curiosity about Nature’s Wrath",
+    "What new evidence reframes the story of Wrath Real inside Nature’s Wrath",
+    "How Wrath Real still shapes public curiosity about Nature’s Wrath"
+  ],
+  "forbidden_visuals": [
+    "talking-head lip-sync avatar",
+    "burned-in captions",
+    "watermark",
+    "modern meme text",
+    "CGI cartoon animals",
+    "studio green-screen obvious seams"
+  ],
+  "preferred_subjects": [
+    "biome wide establishing shot",
+    "species macro detail",
+    "weather system overhead"
+  ],
+  "lighting_default": "natural directional key, documentary clarity",
+  "face_policy": "no talking-head lip-sync avatar; cinematic B-roll preferred",
+  "dialogue_tone": "human documentary narration; specific nouns; 7–9s beats",
+  "audio_ambience": "subtle documentary bed; do not overpower voice",
+  "research_hints": [
+    "Prefer primary evidence and concrete entities for Nature’s Wrath",
+    "Avoid generic niche-label topics; require specific place/person/event/mechanism",
+    "7–9 second spoken beats with story continuity across scenes"
+  ],
+  "topic_prompt_overlay": "NICHE LOCK (Nature’s Wrath): only propose topics that fit this niche's video type. Video type: Real-time simulation and survivor stories of tsunamis, earthquakes, tornadoes, and volcanic eruptions — how communities faced sudden annihilation and rebuilt. Follow niche topic strategy: Track recent natural disasters, seismic activity reports, or climate data. Generate a topic that uses real footage or scientific simulations to educate and captivate.",
+  "video_prompt_overlay": "NICHE VISUAL LOCK (Nature’s Wrath / nature): Generate a 7–9 second dialogue clip based on the topic `{topic}`. Each dialogue must be urgent and survival-focused. For each dialogue, generate: - **Audio Generation Prompt:** Voice — panicked but clear, with roaring wind, breaking glass, or rumbling earth. - **Video Generation Prompt:** Detailed visual — debris flying, people running, dark sky. Characters: diverse families. Lighting: dark, dusty, contrasty. Maintain same debris color, same sky darkness, same running speed. Forbidden: talking-head lip-sync avatar, burned-in captions, watermark, modern meme text, CGI cartoon animals, studio green-screen obvious seams. Preferred subjects: biome wide establishing shot, species macro detail, weather system overhead. Lighting: natural directional key, documentary clarity. Face policy: no talking-head lip-sync avatar; cinematic B-roll preferred. Dialogue tone: human documentary narration; specific nouns; 7–9s beats. Ambience: subtle documentary bed; do not overpower voice.",
+  "i18n": {
+    "en": {
+      "name": "Nature’s Wrath",
+      "blurb": "Real-time simulation and survivor stories of tsunamis, earthquakes, tornadoes, and volcanic eruptions — how communities faced sudden annihilation and rebuilt."
+    },
+    "bn": {
+      "name": "প্রকৃতির রোষ",
+      "blurb": "ভিডিও টাইপ: Real-time simulation and survivor stories of tsunamis, earthquakes, tornadoes, and volcanic eruptions — how communities faced sudden annihilation…"
+    },
+    "hi": {
+      "name": "प्रकृति का प्रकोप",
+      "blurb": "वीडियो प्रकार: Real-time simulation and survivor stories of tsunamis, earthquakes, tornadoes, and volcanic eruptions — how communities faced sudden annihilation…"
+    },
+    "ur": {
+      "name": "قدرت کا قہر",
+      "blurb": "ویڈیو کی قسم: Real-time simulation and survivor stories of tsunamis, earthquakes, tornadoes, and volcanic eruptions — how communities faced sudden annihilation…"
+    },
+    "ta": {
+      "name": "இயற்கையின் கோபம்",
+      "blurb": "வீடியோ வகை: Real-time simulation and survivor stories of tsunamis, earthquakes, tornadoes, and volcanic eruptions — how communities faced sudden annihilation…"
+    },
+    "ml": {
+      "name": "പ്രകൃതിയുടെ കോപം",
+      "blurb": "വീഡിയോ തരം: Real-time simulation and survivor stories of tsunamis, earthquakes, tornadoes, and volcanic eruptions — how communities faced sudden annihilation…"
+    }
+  },
+  "source": "Nish.Md + deterministic research",
+  "research_notes": [
+    "Marathon researched at 2026-09-10T08:30:09Z",
+    "Video type length=158",
+    "Topic prompt length=166",
+    "Video prompt length=479",
+    "Seeds=6"
+  ],
+  "verified_at": "2026-09-10T08:30:09Z"
+}

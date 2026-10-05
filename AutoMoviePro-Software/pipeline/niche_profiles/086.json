@@ -1,0 +1,83 @@
+{
+  "niche_id": 86,
+  "name": "Uncontacted Tribes",
+  "slug": "uncontacted-tribes",
+  "style_family": "history",
+  "status": "VERIFIED",
+  "topic_seeds": [
+    "What new evidence reframes the story of Uncontacted Tribes Indigenous inside Uncontacted Tribes",
+    "How Uncontacted Tribes Indigenous still shapes public curiosity about Uncontacted Tribes",
+    "What new evidence reframes the story of Amazon inside Uncontacted Tribes",
+    "How Amazon still shapes public curiosity about Uncontacted Tribes",
+    "What new evidence reframes the story of Sentinel Islands inside Uncontacted Tribes",
+    "How Sentinel Islands still shapes public curiosity about Uncontacted Tribes"
+  ],
+  "seo_angles": [
+    "What new evidence reframes the story of Uncontacted Tribes Indigenous inside Uncontacted Tribes",
+    "How Uncontacted Tribes Indigenous still shapes public curiosity about Uncontacted Tribes",
+    "What new evidence reframes the story of Amazon inside Uncontacted Tribes",
+    "How Amazon still shapes public curiosity about Uncontacted Tribes"
+  ],
+  "forbidden_visuals": [
+    "talking-head lip-sync avatar",
+    "burned-in captions",
+    "watermark",
+    "modern meme text",
+    "modern smartphones",
+    "cars",
+    "LED screens",
+    "sneakers",
+    "contemporary skyline"
+  ],
+  "preferred_subjects": [
+    "Uncontacted Tribes documentary subject",
+    "period-accurate environment",
+    "evidence object close-up"
+  ],
+  "lighting_default": "warm desert sun / torchlit interiors, high-contrast documentary grade",
+  "face_policy": "period extras OK if consistent; prefer environment/object hero when possible",
+  "dialogue_tone": "human documentary narration; specific nouns; 7–9s beats",
+  "audio_ambience": "subtle documentary bed; do not overpower voice",
+  "research_hints": [
+    "Prefer primary evidence and concrete entities for Uncontacted Tribes",
+    "Avoid generic niche-label topics; require specific place/person/event/mechanism",
+    "7–9 second spoken beats with story continuity across scenes"
+  ],
+  "topic_prompt_overlay": "NICHE LOCK (Uncontacted Tribes): only propose topics that fit this niche's video type. Video type: Indigenous groups in the Amazon, Sentinel Islands — their fear of outsiders and why governments protect their isolation. Follow niche topic strategy: Check indigenous rights news, new aerial footage, or anthropology reports. Generate a topic about a tribe that recently made contact or news.",
+  "video_prompt_overlay": "NICHE VISUAL LOCK (Uncontacted Tribes / history): Generate a 7–9 second dialogue clip based on the topic `{topic}`. Each dialogue must be respectful and remote. For each dialogue, generate: - **Audio Generation Prompt:** Voice — quiet, observant, with forest sounds. - **Video Generation Prompt:** Detailed visual — jungle clearing or river. Characters: distant figures. Lighting: dappled forest light. Maintain same jungle vibe. Forbidden: talking-head lip-sync avatar, burned-in captions, watermark, modern meme text, modern smartphones, cars, LED screens, sneakers. Preferred subjects: Uncontacted Tribes documentary subject, period-accurate environment, evidence object close-up. Lighting: warm desert sun / torchlit interiors, high-contrast documentary grade. Face policy: period extras OK if consistent; prefer environment/object hero when possible. Dialogue tone: human documentary narration; specific nouns; 7–9s beats. Ambience: subtle documentary bed; do not overpower voice.",
+  "i18n": {
+    "en": {
+      "name": "Uncontacted Tribes",
+      "blurb": "Indigenous groups in the Amazon, Sentinel Islands — their fear of outsiders and why governments protect their isolation."
+    },
+    "bn": {
+      "name": "অসংস্পর্শিত উপজাতি",
+      "blurb": "ভিডিও টাইপ: Indigenous groups in the Amazon, Sentinel Islands — their fear of outsiders and why governments protect their isolation."
+    },
+    "hi": {
+      "name": "असंपर्कित जनजातियाँ",
+      "blurb": "वीडियो प्रकार: Indigenous groups in the Amazon, Sentinel Islands — their fear of outsiders and why governments protect their isolation."
+    },
+    "ur": {
+      "name": "غیر رابطہ شدہ قبائل",
+      "blurb": "ویڈیو کی قسم: Indigenous groups in the Amazon, Sentinel Islands — their fear of outsiders and why governments protect their isolation."
+    },
+    "ta": {
+      "name": "தொடர்பில்லாத பழங்குடிகள்",
+      "blurb": "வீடியோ வகை: Indigenous groups in the Amazon, Sentinel Islands — their fear of outsiders and why governments protect their isolation."
+    },
+    "ml": {
+      "name": "സമ്പർക്കമില്ലാത്ത ഗോത്രങ്ങൾ",
+      "blurb": "വീഡിയോ തരം: Indigenous groups in the Amazon, Sentinel Islands — their fear of outsiders and why governments protect their isolation."
+    }
+  },
+  "source": "Nish.Md + deterministic research",
+  "research_notes": [
+    "Marathon researched at 2026-09-10T08:30:20Z",
+    "Video type length=120",
+    "Topic prompt length=141",
+    "Video prompt length=379",
+    "Seeds=6"
+  ],
+  "verified_at": "2026-09-10T08:30:20Z"
+}

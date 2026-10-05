@@ -1,0 +1,18 @@
+{
+  "attempts": 4,
+  "successes": 2,
+  "key_masks": [
+    "\u2026syGE"
+  ],
+  "notes": [
+    "multi_beat_observe:UNKNOWN",
+    "negative_observe:UNKNOWN",
+    "repair_reobserve_from_loop:PASS",
+    "multi_beat_live_reuse:6E status=PASS cross=PASS",
+    "negative_live_reuse:6D status=FAIL",
+    "session_retry_observe:PASS:pv=True"
+  ],
+  "latency_sec": 299.684,
+  "circuit_open": false,
+  "generation_provider_invocations": 1
+}

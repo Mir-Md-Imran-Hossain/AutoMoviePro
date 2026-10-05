@@ -1,0 +1,79 @@
+{
+  "niche_id": 87,
+  "name": "Modern Slavery",
+  "slug": "modern-slavery",
+  "style_family": "science",
+  "status": "VERIFIED",
+  "topic_seeds": [
+    "What new evidence reframes the story of Modern Slavery Reports inside Modern Slavery",
+    "How Modern Slavery Reports still shapes public curiosity about Modern Slavery",
+    "What new evidence reframes the story of Follow inside Modern Slavery",
+    "How Follow still shapes public curiosity about Modern Slavery",
+    "What new evidence reframes the story of Generate inside Modern Slavery",
+    "How Generate still shapes public curiosity about Modern Slavery"
+  ],
+  "seo_angles": [
+    "What new evidence reframes the story of Modern Slavery Reports inside Modern Slavery",
+    "How Modern Slavery Reports still shapes public curiosity about Modern Slavery",
+    "What new evidence reframes the story of Follow inside Modern Slavery",
+    "How Follow still shapes public curiosity about Modern Slavery"
+  ],
+  "forbidden_visuals": [
+    "talking-head lip-sync avatar",
+    "burned-in captions",
+    "watermark",
+    "modern meme text",
+    "off-niche stock office B-roll"
+  ],
+  "preferred_subjects": [
+    "lab instrument close-up",
+    "diagrammatic mechanism metaphor",
+    "field measurement site"
+  ],
+  "lighting_default": "teal/cyan lab grade, high contrast, shallow DOF",
+  "face_policy": "no talking-head lip-sync avatar; cinematic B-roll preferred",
+  "dialogue_tone": "clear explainer; one mechanism per beat",
+  "audio_ambience": "clean room tone, soft electronic texture",
+  "research_hints": [
+    "Prefer primary evidence and concrete entities for Modern Slavery",
+    "Avoid generic niche-label topics; require specific place/person/event/mechanism",
+    "7–9 second spoken beats with story continuity across scenes"
+  ],
+  "topic_prompt_overlay": "NICHE LOCK (Modern Slavery): only propose topics that fit this niche's video type. Video type: Reports on human trafficking, forced labor, and child exploitation — and the NGOs fighting to free victims. Follow niche topic strategy: Follow human rights news, NGO reports, or survivor interviews. Generate a topic about a modern slavery case recently uncovered.",
+  "video_prompt_overlay": "NICHE VISUAL LOCK (Modern Slavery / science): Generate a 7–9 second dialogue clip based on the topic `{topic}`. Each dialogue must be sobering and urgent. For each dialogue, generate: - **Audio Generation Prompt:** Voice — grave, with chains rattling and footsteps. - **Video Generation Prompt:** Detailed visual — a factory or house. Characters: workers (varied). Lighting: dim, oppressive. Maintain same location and darkness. Forbidden: talking-head lip-sync avatar, burned-in captions, watermark, modern meme text, off-niche stock office B-roll. Preferred subjects: lab instrument close-up, diagrammatic mechanism metaphor, field measurement site. Lighting: teal/cyan lab grade, high contrast, shallow DOF. Face policy: no talking-head lip-sync avatar; cinematic B-roll preferred. Dialogue tone: clear explainer; one mechanism per beat. Ambience: clean room tone, soft electronic texture.",
+  "i18n": {
+    "en": {
+      "name": "Modern Slavery",
+      "blurb": "Reports on human trafficking, forced labor, and child exploitation — and the NGOs fighting to free victims."
+    },
+    "bn": {
+      "name": "আধুনিক দাসত্ব",
+      "blurb": "ভিডিও টাইপ: Reports on human trafficking, forced labor, and child exploitation — and the NGOs fighting to free victims."
+    },
+    "hi": {
+      "name": "आधुनिक गुलामी",
+      "blurb": "वीडियो प्रकार: Reports on human trafficking, forced labor, and child exploitation — and the NGOs fighting to free victims."
+    },
+    "ur": {
+      "name": "جدید غلامی",
+      "blurb": "ویڈیو کی قسم: Reports on human trafficking, forced labor, and child exploitation — and the NGOs fighting to free victims."
+    },
+    "ta": {
+      "name": "நவீன அடிமைத்தனம்",
+      "blurb": "வீடியோ வகை: Reports on human trafficking, forced labor, and child exploitation — and the NGOs fighting to free victims."
+    },
+    "ml": {
+      "name": "ആധുനിക അടിമത്തം",
+      "blurb": "വീഡിയോ തരം: Reports on human trafficking, forced labor, and child exploitation — and the NGOs fighting to free victims."
+    }
+  },
+  "source": "Nish.Md + deterministic research",
+  "research_notes": [
+    "Marathon researched at 2026-09-10T08:30:20Z",
+    "Video type length=107",
+    "Topic prompt length=127",
+    "Video prompt length=382",
+    "Seeds=6"
+  ],
+  "verified_at": "2026-09-10T08:30:20Z"
+}

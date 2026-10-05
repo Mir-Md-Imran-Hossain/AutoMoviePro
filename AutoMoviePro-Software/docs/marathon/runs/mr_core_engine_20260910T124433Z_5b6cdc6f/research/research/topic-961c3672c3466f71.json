@@ -1,0 +1,66 @@
+{
+  "research": {
+    "topic_id": "topic-961c3672c3466f71",
+    "query": "how solar wind strips mars of atmosphere the maven evidence explained",
+    "evidence": [
+      {
+        "id": "N01",
+        "claim": "Research query: how solar wind strips mars of atmosphere the maven evidence explained\nLanguage: en\nRegion:",
+        "evidence": "research_notes",
+        "source": "research_notes",
+        "confidence": 0.4,
+        "freshness": "UNVERIFIED"
+      },
+      {
+        "id": "L02",
+        "claim": "Additional context on How solar wind strips Mars of atmosphere — the MAVEN evidence explained from configured research scope.",
+        "evidence": "secondary",
+        "source": "live_research",
+        "confidence": 0.6,
+        "freshness": "recent"
+      }
+    ],
+    "status": "completed",
+    "provider": "live_local",
+    "provider_kind": "configured_local",
+    "provider_capability": "LOCAL_FACTPACK",
+    "provider_mode": "LIVE_LOCAL",
+    "external_api": false,
+    "is_external_live": false,
+    "note": "LOCAL_FACTPACK must not be claimed as EXTERNAL_LIVE_RESEARCH",
+    "timestamp": 1789044273.7864535,
+    "queried_at": 1789044273.7864535,
+    "canonical_topic": "How solar wind strips Mars of atmosphere — the MAVEN evidence explained",
+    "sources": [
+      "live_research",
+      "research_notes"
+    ],
+    "fingerprint": "253b848a921ca124f6d27db08daa90a916a372a4ad338f4bf4473293618b82fd"
+  },
+  "fact_pack": {
+    "topic": "How solar wind strips Mars of atmosphere — the MAVEN evidence explained",
+    "version": "v0",
+    "claims": [
+      {
+        "id": "N01",
+        "claim": "Research query: how solar wind strips mars of atmosphere the maven evidence explained\nLanguage: en\nRegion:",
+        "evidence": "research_notes",
+        "source": "research_notes",
+        "confidence": 0.4,
+        "freshness": "UNVERIFIED"
+      },
+      {
+        "id": "L02",
+        "claim": "Additional context on How solar wind strips Mars of atmosphere — the MAVEN evidence explained from configured research scope.",
+        "evidence": "secondary",
+        "source": "live_research",
+        "confidence": 0.6,
+        "freshness": "recent"
+      }
+    ],
+    "unknowns": []
+  },
+  "research_fingerprint": "253b848a921ca124f6d27db08daa90a916a372a4ad338f4bf4473293618b82fd",
+  "provider_mode": "LIVE",
+  "persisted_at": 1789044273.7864535
+}

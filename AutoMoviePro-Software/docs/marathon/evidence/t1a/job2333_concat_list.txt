@@ -1,0 +1,5 @@
+file 'E:/All Updaye Project/AutoMovie_Pro_SAAS_Final_Update/AutoMoviePro-Software/data/customer_generation_work/c11_marathon_customer/job2333/narration_00.m4a'
+file 'E:/All Updaye Project/AutoMovie_Pro_SAAS_Final_Update/AutoMoviePro-Software/data/customer_generation_work/c11_marathon_customer/job2333/narration_01.m4a'
+file 'E:/All Updaye Project/AutoMovie_Pro_SAAS_Final_Update/AutoMoviePro-Software/data/customer_generation_work/c11_marathon_customer/job2333/narration_02.m4a'
+file 'E:/All Updaye Project/AutoMovie_Pro_SAAS_Final_Update/AutoMoviePro-Software/data/customer_generation_work/c11_marathon_customer/job2333/narration_03.m4a'
+file 'E:/All Updaye Project/AutoMovie_Pro_SAAS_Final_Update/AutoMoviePro-Software/data/customer_generation_work/c11_marathon_customer/job2333/narration_04.m4a'

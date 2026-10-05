@@ -1,0 +1,81 @@
+{
+  "niche_id": 17,
+  "name": "Serial Killers Unveiled",
+  "slug": "serial-killers-unveiled",
+  "style_family": "true_crime",
+  "status": "VERIFIED",
+  "topic_seeds": [
+    "What new evidence reframes the story of Serial Killers Unveiled Psychological inside Serial Killers Unveiled",
+    "How Serial Killers Unveiled Psychological still shapes public curiosity about Serial Killers Unveiled",
+    "What new evidence reframes the story of Bundy inside Serial Killers Unveiled",
+    "How Bundy still shapes public curiosity about Serial Killers Unveiled",
+    "What new evidence reframes the story of Dahmer inside Serial Killers Unveiled",
+    "How Dahmer still shapes public curiosity about Serial Killers Unveiled"
+  ],
+  "seo_angles": [
+    "What new evidence reframes the story of Serial Killers Unveiled Psychological inside Serial Killers Unveiled",
+    "How Serial Killers Unveiled Psychological still shapes public curiosity about Serial Killers Unveiled",
+    "What new evidence reframes the story of Bundy inside Serial Killers Unveiled",
+    "How Bundy still shapes public curiosity about Serial Killers Unveiled"
+  ],
+  "forbidden_visuals": [
+    "talking-head lip-sync avatar",
+    "burned-in captions",
+    "watermark",
+    "modern meme text",
+    "gore close-ups",
+    "victim exploitation",
+    "glorified violence"
+  ],
+  "preferred_subjects": [
+    "Serial Killers Unveiled documentary subject",
+    "period-accurate environment",
+    "evidence object close-up"
+  ],
+  "lighting_default": "desaturated overcast, practical interiors",
+  "face_policy": "silhouettes / archival only; never glorify violence",
+  "dialogue_tone": "restrained investigative; respectful",
+  "audio_ambience": "subtle documentary bed; do not overpower voice",
+  "research_hints": [
+    "Prefer primary evidence and concrete entities for Serial Killers Unveiled",
+    "Avoid generic niche-label topics; require specific place/person/event/mechanism",
+    "7–9 second spoken beats with story continuity across scenes"
+  ],
+  "topic_prompt_overlay": "NICHE LOCK (Serial Killers Unveiled): only propose topics that fit this niche's video type. Video type: Psychological profiling of notorious serial killers — Bundy, Dahmer, Zodiac — their childhood, modus operandi, and how they were finally caught. Follow niche topic strategy: Monitor true crime podcasts, Netflix releases, or newly declassified FBI files. Generate a topic that offers a fresh psychological angle.",
+  "video_prompt_overlay": "NICHE VISUAL LOCK (Serial Killers Unveiled / true_crime): Generate a 7–9 second dialogue clip based on the topic `{topic}`. Each dialogue must be dark and clinical. For each dialogue, generate: - **Audio Generation Prompt:** Voice — flat, analytical, with distant police radio chatter. - **Video Generation Prompt:** Detailed visual — a dim interrogation room or case evidence board. Character: detective (male, 50s, trench coat). Lighting: single overhead bulb, harsh shadows. Maintain same coat, same room, same lighting. Forbidden: talking-head lip-sync avatar, burned-in captions, watermark, modern meme text, gore close-ups, victim exploitation, glorified violence. Preferred subjects: Serial Killers Unveiled documentary subject, period-accurate environment, evidence object close-up. Lighting: desaturated overcast, practical interiors. Face policy: silhouettes / archival only; never glorify violence. Dialogue tone: restrained investigative; respectful. Ambience: subtle documentary bed; do not overpower voice.",
+  "i18n": {
+    "en": {
+      "name": "Serial Killers Unveiled",
+      "blurb": "Psychological profiling of notorious serial killers — Bundy, Dahmer, Zodiac — their childhood, modus operandi, and how they were finally caught."
+    },
+    "bn": {
+      "name": "সিরিয়াল কিলার উন্মোচন",
+      "blurb": "ভিডিও টাইপ: Psychological profiling of notorious serial killers — Bundy, Dahmer, Zodiac — their childhood, modus operandi, and how they were finally caught."
+    },
+    "hi": {
+      "name": "सीरियल किलर अनावरण",
+      "blurb": "वीडियो प्रकार: Psychological profiling of notorious serial killers — Bundy, Dahmer, Zodiac — their childhood, modus operandi, and how they were finally caught."
+    },
+    "ur": {
+      "name": "سیریل کلرز کا انکشاف",
+      "blurb": "ویڈیو کی قسم: Psychological profiling of notorious serial killers — Bundy, Dahmer, Zodiac — their childhood, modus operandi, and how they were finally caught."
+    },
+    "ta": {
+      "name": "தொடர்கொலைகாரர் வெளிப்பாடு",
+      "blurb": "வீடியோ வகை: Psychological profiling of notorious serial killers — Bundy, Dahmer, Zodiac — their childhood, modus operandi, and how they were finally caught."
+    },
+    "ml": {
+      "name": "സീരിയൽ കില്ലേഴ്സ് അനാവരണം",
+      "blurb": "വീഡിയോ തരം: Psychological profiling of notorious serial killers — Bundy, Dahmer, Zodiac — their childhood, modus operandi, and how they were finally caught."
+    }
+  },
+  "source": "Nish.Md + deterministic research",
+  "research_notes": [
+    "Marathon researched at 2026-09-10T08:30:10Z",
+    "Video type length=144",
+    "Topic prompt length=137",
+    "Video prompt length=465",
+    "Seeds=6"
+  ],
+  "verified_at": "2026-09-10T08:30:10Z"
+}

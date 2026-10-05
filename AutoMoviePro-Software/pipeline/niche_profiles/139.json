@@ -1,0 +1,79 @@
+{
+  "niche_id": 139,
+  "name": "Future of Work",
+  "slug": "future-of-work",
+  "style_family": "science",
+  "status": "VERIFIED",
+  "topic_seeds": [
+    "What new evidence reframes the story of Future inside Future of Work",
+    "How Future still shapes public curiosity about Future of Work",
+    "What new evidence reframes the story of Work Remote inside Future of Work",
+    "How Work Remote still shapes public curiosity about Future of Work",
+    "What new evidence reframes the story of Check inside Future of Work",
+    "How Check still shapes public curiosity about Future of Work"
+  ],
+  "seo_angles": [
+    "What new evidence reframes the story of Future inside Future of Work",
+    "How Future still shapes public curiosity about Future of Work",
+    "What new evidence reframes the story of Work Remote inside Future of Work",
+    "How Work Remote still shapes public curiosity about Future of Work"
+  ],
+  "forbidden_visuals": [
+    "talking-head lip-sync avatar",
+    "burned-in captions",
+    "watermark",
+    "modern meme text",
+    "off-niche stock office B-roll"
+  ],
+  "preferred_subjects": [
+    "lab instrument close-up",
+    "diagrammatic mechanism metaphor",
+    "field measurement site"
+  ],
+  "lighting_default": "teal/cyan lab grade, high contrast, shallow DOF",
+  "face_policy": "no talking-head lip-sync avatar; cinematic B-roll preferred",
+  "dialogue_tone": "clear explainer; one mechanism per beat",
+  "audio_ambience": "clean room tone, soft electronic texture",
+  "research_hints": [
+    "Prefer primary evidence and concrete entities for Future of Work",
+    "Avoid generic niche-label topics; require specific place/person/event/mechanism",
+    "7–9 second spoken beats with story continuity across scenes"
+  ],
+  "topic_prompt_overlay": "NICHE LOCK (Future of Work): only propose topics that fit this niche's video type. Video type: Remote work trends, AI replacing jobs — and the new careers that are emerging in response. Follow niche topic strategy: Check business news, new employment studies, or viral work-from-home trends. Generate a topic about a job that didn't exist 10 years ago.",
+  "video_prompt_overlay": "NICHE VISUAL LOCK (Future of Work / science): Generate a 7–9 second dialogue clip based on the topic `{topic}`. Each dialogue must be forward-looking. For each dialogue, generate: - **Audio Generation Prompt:** Voice — professional, with keyboard clicks and meeting chime. - **Video Generation Prompt:** Detailed visual — a modern home office or co-working space. Character: remote worker. Lighting: bright, clean. Maintain same office. Forbidden: talking-head lip-sync avatar, burned-in captions, watermark, modern meme text, off-niche stock office B-roll. Preferred subjects: lab instrument close-up, diagrammatic mechanism metaphor, field measurement site. Lighting: teal/cyan lab grade, high contrast, shallow DOF. Face policy: no talking-head lip-sync avatar; cinematic B-roll preferred. Dialogue tone: clear explainer; one mechanism per beat. Ambience: clean room tone, soft electronic texture.",
+  "i18n": {
+    "en": {
+      "name": "Future of Work",
+      "blurb": "Remote work trends, AI replacing jobs — and the new careers that are emerging in response."
+    },
+    "bn": {
+      "name": "কাজের ভবিষ্যৎ",
+      "blurb": "ভিডিও টাইপ: Remote work trends, AI replacing jobs — and the new careers that are emerging in response."
+    },
+    "hi": {
+      "name": "काम का भविष्य",
+      "blurb": "वीडियो प्रकार: Remote work trends, AI replacing jobs — and the new careers that are emerging in response."
+    },
+    "ur": {
+      "name": "کام کا مستقبل",
+      "blurb": "ویڈیو کی قسم: Remote work trends, AI replacing jobs — and the new careers that are emerging in response."
+    },
+    "ta": {
+      "name": "வேலையின் எதிர்காலம்",
+      "blurb": "வீடியோ வகை: Remote work trends, AI replacing jobs — and the new careers that are emerging in response."
+    },
+    "ml": {
+      "name": "ജോലിയുടെ ഭാവി",
+      "blurb": "വീഡിയോ തരം: Remote work trends, AI replacing jobs — and the new careers that are emerging in response."
+    }
+  },
+  "source": "Nish.Md + deterministic research",
+  "research_notes": [
+    "Marathon researched at 2026-09-10T08:30:29Z",
+    "Video type length=90",
+    "Topic prompt length=137",
+    "Video prompt length=390",
+    "Seeds=6"
+  ],
+  "verified_at": "2026-09-10T08:30:29Z"
+}

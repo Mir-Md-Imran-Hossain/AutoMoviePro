@@ -1,0 +1,66 @@
+{
+  "research": {
+    "topic_id": "topic-030fcc73602a5abb",
+    "query": "how jwst mid-infrared spectra fingerprint exoplanet atmospheres cert 202609101502-7cf9870d",
+    "evidence": [
+      {
+        "id": "N01",
+        "claim": "Research query: how jwst mid-infrared spectra fingerprint exoplanet atmospheres cert 202609101502-7cf9870d\nLanguage: en\nRegion:",
+        "evidence": "research_notes",
+        "source": "research_notes",
+        "confidence": 0.4,
+        "freshness": "UNVERIFIED"
+      },
+      {
+        "id": "L02",
+        "claim": "Additional context on How JWST mid-infrared spectra fingerprint exoplanet atmospheres — cert 202609101502-7cf9870d from configured research scope.",
+        "evidence": "secondary",
+        "source": "live_research",
+        "confidence": 0.6,
+        "freshness": "recent"
+      }
+    ],
+    "status": "completed",
+    "provider": "live_local",
+    "provider_kind": "configured_local",
+    "provider_capability": "LOCAL_FACTPACK",
+    "provider_mode": "LIVE_LOCAL",
+    "external_api": false,
+    "is_external_live": false,
+    "note": "LOCAL_FACTPACK must not be claimed as EXTERNAL_LIVE_RESEARCH",
+    "timestamp": 1789052558.9797077,
+    "queried_at": 1789052558.9797077,
+    "canonical_topic": "How JWST mid-infrared spectra fingerprint exoplanet atmospheres — cert 202609101502-7cf9870d",
+    "sources": [
+      "live_research",
+      "research_notes"
+    ],
+    "fingerprint": "2514cca779983700784b9ae4d8f76e0932d7208d30351d74d33461f0a7687cf9"
+  },
+  "fact_pack": {
+    "topic": "How JWST mid-infrared spectra fingerprint exoplanet atmospheres — cert 202609101502-7cf9870d",
+    "version": "v0",
+    "claims": [
+      {
+        "id": "N01",
+        "claim": "Research query: how jwst mid-infrared spectra fingerprint exoplanet atmospheres cert 202609101502-7cf9870d\nLanguage: en\nRegion:",
+        "evidence": "research_notes",
+        "source": "research_notes",
+        "confidence": 0.4,
+        "freshness": "UNVERIFIED"
+      },
+      {
+        "id": "L02",
+        "claim": "Additional context on How JWST mid-infrared spectra fingerprint exoplanet atmospheres — cert 202609101502-7cf9870d from configured research scope.",
+        "evidence": "secondary",
+        "source": "live_research",
+        "confidence": 0.6,
+        "freshness": "recent"
+      }
+    ],
+    "unknowns": []
+  },
+  "research_fingerprint": "2514cca779983700784b9ae4d8f76e0932d7208d30351d74d33461f0a7687cf9",
+  "provider_mode": "LIVE",
+  "persisted_at": 1789052558.9807081
+}

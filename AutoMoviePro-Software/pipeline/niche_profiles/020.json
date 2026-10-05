@@ -1,0 +1,83 @@
+{
+  "niche_id": 20,
+  "name": "Great Prison Escapes",
+  "slug": "great-prison-escapes",
+  "style_family": "history",
+  "status": "VERIFIED",
+  "topic_seeds": [
+    "What new evidence reframes the story of Great Prison Escapes Detailed inside Great Prison Escapes",
+    "How Great Prison Escapes Detailed still shapes public curiosity about Great Prison Escapes",
+    "What new evidence reframes the story of Alcatraz inside Great Prison Escapes",
+    "How Alcatraz still shapes public curiosity about Great Prison Escapes",
+    "What new evidence reframes the story of Devil inside Great Prison Escapes",
+    "How Devil still shapes public curiosity about Great Prison Escapes"
+  ],
+  "seo_angles": [
+    "What new evidence reframes the story of Great Prison Escapes Detailed inside Great Prison Escapes",
+    "How Great Prison Escapes Detailed still shapes public curiosity about Great Prison Escapes",
+    "What new evidence reframes the story of Alcatraz inside Great Prison Escapes",
+    "How Alcatraz still shapes public curiosity about Great Prison Escapes"
+  ],
+  "forbidden_visuals": [
+    "talking-head lip-sync avatar",
+    "burned-in captions",
+    "watermark",
+    "modern meme text",
+    "modern smartphones",
+    "cars",
+    "LED screens",
+    "sneakers",
+    "contemporary skyline"
+  ],
+  "preferred_subjects": [
+    "Great Prison Escapes documentary subject",
+    "period-accurate environment",
+    "evidence object close-up"
+  ],
+  "lighting_default": "warm desert sun / torchlit interiors, high-contrast documentary grade",
+  "face_policy": "period extras OK if consistent; prefer environment/object hero when possible",
+  "dialogue_tone": "human documentary narration; specific nouns; 7–9s beats",
+  "audio_ambience": "subtle documentary bed; do not overpower voice",
+  "research_hints": [
+    "Prefer primary evidence and concrete entities for Great Prison Escapes",
+    "Avoid generic niche-label topics; require specific place/person/event/mechanism",
+    "7–9 second spoken beats with story continuity across scenes"
+  ],
+  "topic_prompt_overlay": "NICHE LOCK (Great Prison Escapes): only propose topics that fit this niche's video type. Video type: Detailed retelling of history's most ingenious breakouts — from Alcatraz to Devil's Island — the planning, execution, and the fugitives' fate. Follow niche topic strategy: Check for prison break anniversary, new docu-series, or security breach news. Generate a topic that focuses on the psychology of escape.",
+  "video_prompt_overlay": "NICHE VISUAL LOCK (Great Prison Escapes / history): Generate a 7–9 second dialogue clip based on the topic `{topic}`. Each dialogue must be tense and meticulous. For each dialogue, generate: - **Audio Generation Prompt:** Voice — whispery, cautious, with metal clangs and storm sounds. - **Video Generation Prompt:** Detailed visual — dark prison cell or tunnel. Character: prisoner (male, 30s, striped uniform). Lighting: moonlight or small torch. Maintain same uniform, same torch flame color. Forbidden: talking-head lip-sync avatar, burned-in captions, watermark, modern meme text, modern smartphones, cars, LED screens, sneakers. Preferred subjects: Great Prison Escapes documentary subject, period-accurate environment, evidence object close-up. Lighting: warm desert sun / torchlit interiors, high-contrast documentary grade. Face policy: period extras OK if consistent; prefer environment/object hero when possible. Dialogue tone: human documentary narration; specific nouns; 7–9s beats. Ambience: subtle documentary bed; do not overpower voice.",
+  "i18n": {
+    "en": {
+      "name": "Great Prison Escapes",
+      "blurb": "Detailed retelling of history's most ingenious breakouts — from Alcatraz to Devil's Island — the planning, execution, and the fugitives' fate."
+    },
+    "bn": {
+      "name": "মহান কারাগার পলায়ন",
+      "blurb": "ভিডিও টাইপ: Detailed retelling of history's most ingenious breakouts — from Alcatraz to Devil's Island — the planning, execution, and the fugitives' fate."
+    },
+    "hi": {
+      "name": "बड़ी जेल भगाने की कहानियाँ",
+      "blurb": "वीडियो प्रकार: Detailed retelling of history's most ingenious breakouts — from Alcatraz to Devil's Island — the planning, execution, and the fugitives' fate."
+    },
+    "ur": {
+      "name": "عظیم جیل فراریں",
+      "blurb": "ویڈیو کی قسم: Detailed retelling of history's most ingenious breakouts — from Alcatraz to Devil's Island — the planning, execution, and the fugitives' fate."
+    },
+    "ta": {
+      "name": "பெரிய சிறைத் தப்பிப்புகள்",
+      "blurb": "வீடியோ வகை: Detailed retelling of history's most ingenious breakouts — from Alcatraz to Devil's Island — the planning, execution, and the fugitives' fate."
+    },
+    "ml": {
+      "name": "വലിയ ജയിൽ രക്ഷപ്പെടലുകൾ",
+      "blurb": "വീഡിയോ തരം: Detailed retelling of history's most ingenious breakouts — from Alcatraz to Devil's Island — the planning, execution, and the fugitives' fate."
+    }
+  },
+  "source": "Nish.Md + deterministic research",
+  "research_notes": [
+    "Marathon researched at 2026-09-10T08:30:10Z",
+    "Video type length=142",
+    "Topic prompt length=136",
+    "Video prompt length=443",
+    "Seeds=6"
+  ],
+  "verified_at": "2026-09-10T08:30:10Z"
+}

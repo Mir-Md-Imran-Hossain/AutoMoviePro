@@ -1,0 +1,83 @@
+{
+  "niche_id": 19,
+  "name": "Mafia Empires",
+  "slug": "mafia-empires",
+  "style_family": "history",
+  "status": "VERIFIED",
+  "topic_seeds": [
+    "What new evidence reframes the story of Mafia Empires Inside inside Mafia Empires",
+    "How Mafia Empires Inside still shapes public curiosity about Mafia Empires",
+    "What new evidence reframes the story of Follow inside Mafia Empires",
+    "How Follow still shapes public curiosity about Mafia Empires",
+    "What new evidence reframes the story of Generate inside Mafia Empires",
+    "How Generate still shapes public curiosity about Mafia Empires"
+  ],
+  "seo_angles": [
+    "What new evidence reframes the story of Mafia Empires Inside inside Mafia Empires",
+    "How Mafia Empires Inside still shapes public curiosity about Mafia Empires",
+    "What new evidence reframes the story of Follow inside Mafia Empires",
+    "How Follow still shapes public curiosity about Mafia Empires"
+  ],
+  "forbidden_visuals": [
+    "talking-head lip-sync avatar",
+    "burned-in captions",
+    "watermark",
+    "modern meme text",
+    "modern smartphones",
+    "cars",
+    "LED screens",
+    "sneakers",
+    "contemporary skyline"
+  ],
+  "preferred_subjects": [
+    "Mafia Empires documentary subject",
+    "period-accurate environment",
+    "evidence object close-up"
+  ],
+  "lighting_default": "warm desert sun / torchlit interiors, high-contrast documentary grade",
+  "face_policy": "period extras OK if consistent; prefer environment/object hero when possible",
+  "dialogue_tone": "human documentary narration; specific nouns; 7–9s beats",
+  "audio_ambience": "subtle documentary bed; do not overpower voice",
+  "research_hints": [
+    "Prefer primary evidence and concrete entities for Mafia Empires",
+    "Avoid generic niche-label topics; require specific place/person/event/mechanism",
+    "7–9 second spoken beats with story continuity across scenes"
+  ],
+  "topic_prompt_overlay": "NICHE LOCK (Mafia Empires): only propose topics that fit this niche's video type. Video type: Inside stories of mafia families, drug cartels, and gangster rivalries — loyalty, betrayal, and the law enforcement crackdowns that brought them down. Follow niche topic strategy: Follow court cases, mobster memoirs, or anniversary of famous arrests. Generate a topic about a specific crime family operation.",
+  "video_prompt_overlay": "NICHE VISUAL LOCK (Mafia Empires / history): Generate a 7–9 second dialogue clip based on the topic `{topic}`. Each dialogue must be gritty and cinematic. For each dialogue, generate: - **Audio Generation Prompt:** Voice — rough, Italian-American accent or neutral, with jazz or lounge music. - **Video Generation Prompt:** Detailed visual — a dim backroom or street corner. Character: mob boss (male, 60s, suit, hat). Lighting: low-key, warm amber. Maintain same suit, same hat, same amber lighting. Forbidden: talking-head lip-sync avatar, burned-in captions, watermark, modern meme text, modern smartphones, cars, LED screens, sneakers. Preferred subjects: Mafia Empires documentary subject, period-accurate environment, evidence object close-up. Lighting: warm desert sun / torchlit interiors, high-contrast documentary grade. Face policy: period extras OK if consistent; prefer environment/object hero when possible. Dialogue tone: human documentary narration; specific nouns; 7–9s beats. Ambience: subtle documentary bed; do not overpower voice.",
+  "i18n": {
+    "en": {
+      "name": "Mafia Empires",
+      "blurb": "Inside stories of mafia families, drug cartels, and gangster rivalries — loyalty, betrayal, and the law enforcement crackdowns that brought them down."
+    },
+    "bn": {
+      "name": "মাফিয়া সাম্রাজ্য",
+      "blurb": "ভিডিও টাইপ: Inside stories of mafia families, drug cartels, and gangster rivalries — loyalty, betrayal, and the law enforcement crackdowns that brought them down."
+    },
+    "hi": {
+      "name": "माफिया साम्राज्य",
+      "blurb": "वीडियो प्रकार: Inside stories of mafia families, drug cartels, and gangster rivalries — loyalty, betrayal, and the law enforcement crackdowns that brought them down."
+    },
+    "ur": {
+      "name": "مافیا سلطنتیں",
+      "blurb": "ویڈیو کی قسم: Inside stories of mafia families, drug cartels, and gangster rivalries — loyalty, betrayal, and the law enforcement crackdowns that brought them down."
+    },
+    "ta": {
+      "name": "மாஃபியா பேரரசுகள்",
+      "blurb": "வீடியோ வகை: Inside stories of mafia families, drug cartels, and gangster rivalries — loyalty, betrayal, and the law enforcement crackdowns that brought them down."
+    },
+    "ml": {
+      "name": "മാഫിയ സാമ്രാജ്യങ്ങൾ",
+      "blurb": "വീഡിയോ തരം: Inside stories of mafia families, drug cartels, and gangster rivalries — loyalty, betrayal, and the law enforcement crackdowns that brought them down."
+    }
+  },
+  "source": "Nish.Md + deterministic research",
+  "research_notes": [
+    "Marathon researched at 2026-09-10T08:30:10Z",
+    "Video type length=150",
+    "Topic prompt length=128",
+    "Video prompt length=455",
+    "Seeds=6"
+  ],
+  "verified_at": "2026-09-10T08:30:10Z"
+}

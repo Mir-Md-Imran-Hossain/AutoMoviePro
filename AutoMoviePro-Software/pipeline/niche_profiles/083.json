@@ -1,0 +1,83 @@
+{
+  "niche_id": 83,
+  "name": "Cursed Objects",
+  "slug": "cursed-objects",
+  "style_family": "history",
+  "status": "VERIFIED",
+  "topic_seeds": [
+    "What new evidence reframes the story of Cursed Objects The Hope inside Cursed Objects",
+    "How Cursed Objects The Hope still shapes public curiosity about Cursed Objects",
+    "What new evidence reframes the story of Diamond inside Cursed Objects",
+    "How Diamond still shapes public curiosity about Cursed Objects",
+    "What new evidence reframes the story of Tutankhamun inside Cursed Objects",
+    "How Tutankhamun still shapes public curiosity about Cursed Objects"
+  ],
+  "seo_angles": [
+    "What new evidence reframes the story of Cursed Objects The Hope inside Cursed Objects",
+    "How Cursed Objects The Hope still shapes public curiosity about Cursed Objects",
+    "What new evidence reframes the story of Diamond inside Cursed Objects",
+    "How Diamond still shapes public curiosity about Cursed Objects"
+  ],
+  "forbidden_visuals": [
+    "talking-head lip-sync avatar",
+    "burned-in captions",
+    "watermark",
+    "modern meme text",
+    "modern smartphones",
+    "cars",
+    "LED screens",
+    "sneakers",
+    "contemporary skyline"
+  ],
+  "preferred_subjects": [
+    "Cursed Objects documentary subject",
+    "period-accurate environment",
+    "evidence object close-up"
+  ],
+  "lighting_default": "warm desert sun / torchlit interiors, high-contrast documentary grade",
+  "face_policy": "period extras OK if consistent; prefer environment/object hero when possible",
+  "dialogue_tone": "human documentary narration; specific nouns; 7–9s beats",
+  "audio_ambience": "subtle documentary bed; do not overpower voice",
+  "research_hints": [
+    "Prefer primary evidence and concrete entities for Cursed Objects",
+    "Avoid generic niche-label topics; require specific place/person/event/mechanism",
+    "7–9 second spoken beats with story continuity across scenes"
+  ],
+  "topic_prompt_overlay": "NICHE LOCK (Cursed Objects): only propose topics that fit this niche's video type. Video type: The Hope Diamond, Tutankhamun's tomb, the Dybbuk box — stories of misfortune attached to seemingly innocent items. Follow niche topic strategy: Track museum news, paranormal forums, or new discoveries about famous cursed objects. Generate a topic about a cursed item with a dramatic history.",
+  "video_prompt_overlay": "NICHE VISUAL LOCK (Cursed Objects / history): Generate a 7–9 second dialogue clip based on the topic `{topic}`. Each dialogue must be chilling and fascinating. For each dialogue, generate: - **Audio Generation Prompt:** Voice — eerie, with heartbeat and whisper. - **Video Generation Prompt:** Detailed visual — a museum display or box. No characters — focus on object. Lighting: spotlight on object. Maintain same object and spotlight. Forbidden: talking-head lip-sync avatar, burned-in captions, watermark, modern meme text, modern smartphones, cars, LED screens, sneakers. Preferred subjects: Cursed Objects documentary subject, period-accurate environment, evidence object close-up. Lighting: warm desert sun / torchlit interiors, high-contrast documentary grade. Face policy: period extras OK if consistent; prefer environment/object hero when possible. Dialogue tone: human documentary narration; specific nouns; 7–9s beats. Ambience: subtle documentary bed; do not overpower voice.",
+  "i18n": {
+    "en": {
+      "name": "Cursed Objects",
+      "blurb": "The Hope Diamond, Tutankhamun's tomb, the Dybbuk box — stories of misfortune attached to seemingly innocent items."
+    },
+    "bn": {
+      "name": "অভিশপ্ত বস্তু",
+      "blurb": "ভিডিও টাইপ: The Hope Diamond, Tutankhamun's tomb, the Dybbuk box — stories of misfortune attached to seemingly innocent items."
+    },
+    "hi": {
+      "name": "शापित वस्तुएँ",
+      "blurb": "वीडियो प्रकार: The Hope Diamond, Tutankhamun's tomb, the Dybbuk box — stories of misfortune attached to seemingly innocent items."
+    },
+    "ur": {
+      "name": "لعنتی اشیاء",
+      "blurb": "ویڈیو کی قسم: The Hope Diamond, Tutankhamun's tomb, the Dybbuk box — stories of misfortune attached to seemingly innocent items."
+    },
+    "ta": {
+      "name": "சாபமிட்ட பொருட்கள்",
+      "blurb": "வீடியோ வகை: The Hope Diamond, Tutankhamun's tomb, the Dybbuk box — stories of misfortune attached to seemingly innocent items."
+    },
+    "ml": {
+      "name": "ശപിക്കപ്പെട്ട വസ്തുക്കൾ",
+      "blurb": "വീഡിയോ തരം: The Hope Diamond, Tutankhamun's tomb, the Dybbuk box — stories of misfortune attached to seemingly innocent items."
+    }
+  },
+  "source": "Nish.Md + deterministic research",
+  "research_notes": [
+    "Marathon researched at 2026-09-10T08:30:19Z",
+    "Video type length=114",
+    "Topic prompt length=147",
+    "Video prompt length=390",
+    "Seeds=6"
+  ],
+  "verified_at": "2026-09-10T08:30:20Z"
+}

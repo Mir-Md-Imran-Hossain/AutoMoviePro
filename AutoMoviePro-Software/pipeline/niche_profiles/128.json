@@ -1,0 +1,83 @@
+{
+  "niche_id": 128,
+  "name": "Creepypasta Narration",
+  "slug": "creepypasta-narration",
+  "style_family": "history",
+  "status": "VERIFIED",
+  "topic_seeds": [
+    "What new evidence reframes the story of Creepypasta Narration Internet inside Creepypasta Narration",
+    "How Creepypasta Narration Internet still shapes public curiosity about Creepypasta Narration",
+    "What new evidence reframes the story of Slender Man inside Creepypasta Narration",
+    "How Slender Man still shapes public curiosity about Creepypasta Narration",
+    "What new evidence reframes the story of Backrooms inside Creepypasta Narration",
+    "How Backrooms still shapes public curiosity about Creepypasta Narration"
+  ],
+  "seo_angles": [
+    "What new evidence reframes the story of Creepypasta Narration Internet inside Creepypasta Narration",
+    "How Creepypasta Narration Internet still shapes public curiosity about Creepypasta Narration",
+    "What new evidence reframes the story of Slender Man inside Creepypasta Narration",
+    "How Slender Man still shapes public curiosity about Creepypasta Narration"
+  ],
+  "forbidden_visuals": [
+    "talking-head lip-sync avatar",
+    "burned-in captions",
+    "watermark",
+    "modern meme text",
+    "modern smartphones",
+    "cars",
+    "LED screens",
+    "sneakers",
+    "contemporary skyline"
+  ],
+  "preferred_subjects": [
+    "Creepypasta Narration documentary subject",
+    "period-accurate environment",
+    "evidence object close-up"
+  ],
+  "lighting_default": "warm desert sun / torchlit interiors, high-contrast documentary grade",
+  "face_policy": "period extras OK if consistent; prefer environment/object hero when possible",
+  "dialogue_tone": "human documentary narration; specific nouns; 7–9s beats",
+  "audio_ambience": "subtle documentary bed; do not overpower voice",
+  "research_hints": [
+    "Prefer primary evidence and concrete entities for Creepypasta Narration",
+    "Avoid generic niche-label topics; require specific place/person/event/mechanism",
+    "7–9 second spoken beats with story continuity across scenes"
+  ],
+  "topic_prompt_overlay": "NICHE LOCK (Creepypasta Narration): only propose topics that fit this niche's video type. Video type: Internet-born horror fiction — Slender Man, Backrooms — with atmospheric sound design and deep voiceovers. Follow niche topic strategy: Follow online horror communities, viral creepypasta, or new scary stories. Generate a topic about a popular fresh creepypasta.",
+  "video_prompt_overlay": "NICHE VISUAL LOCK (Creepypasta Narration / history): Generate a 7–9 second dialogue clip based on the topic `{topic}`. Each dialogue must be eerie and imaginative. For each dialogue, generate: - **Audio Generation Prompt:** Voice — deep, slow, with ambient drone. - **Video Generation Prompt:** Detailed visual — a creepy corridor or digital glitch. No clear character — shadowy figure. Lighting: grey, glitchy. Maintain same glitch. Forbidden: talking-head lip-sync avatar, burned-in captions, watermark, modern meme text, modern smartphones, cars, LED screens, sneakers. Preferred subjects: Creepypasta Narration documentary subject, period-accurate environment, evidence object close-up. Lighting: warm desert sun / torchlit interiors, high-contrast documentary grade. Face policy: period extras OK if consistent; prefer environment/object hero when possible. Dialogue tone: human documentary narration; specific nouns; 7–9s beats. Ambience: subtle documentary bed; do not overpower voice.",
+  "i18n": {
+    "en": {
+      "name": "Creepypasta Narration",
+      "blurb": "Internet-born horror fiction — Slender Man, Backrooms — with atmospheric sound design and deep voiceovers."
+    },
+    "bn": {
+      "name": "ক্রিপিপাস্তা বর্ণনা",
+      "blurb": "ভিডিও টাইপ: Internet-born horror fiction — Slender Man, Backrooms — with atmospheric sound design and deep voiceovers."
+    },
+    "hi": {
+      "name": "क्रीपीपास्ता कथन",
+      "blurb": "वीडियो प्रकार: Internet-born horror fiction — Slender Man, Backrooms — with atmospheric sound design and deep voiceovers."
+    },
+    "ur": {
+      "name": "کریپی پاسٹا بیانیہ",
+      "blurb": "ویڈیو کی قسم: Internet-born horror fiction — Slender Man, Backrooms — with atmospheric sound design and deep voiceovers."
+    },
+    "ta": {
+      "name": "க்ரீப்பிபாஸ்தா விவரிப்பு",
+      "blurb": "வீடியோ வகை: Internet-born horror fiction — Slender Man, Backrooms — with atmospheric sound design and deep voiceovers."
+    },
+    "ml": {
+      "name": "ക്രീപ്പിപാസ്ത നിരൂപണം",
+      "blurb": "വീഡിയോ തരം: Internet-born horror fiction — Slender Man, Backrooms — with atmospheric sound design and deep voiceovers."
+    }
+  },
+  "source": "Nish.Md + deterministic research",
+  "research_notes": [
+    "Marathon researched at 2026-09-10T08:30:27Z",
+    "Video type length=106",
+    "Topic prompt length=126",
+    "Video prompt length=380",
+    "Seeds=6"
+  ],
+  "verified_at": "2026-09-10T08:30:27Z"
+}

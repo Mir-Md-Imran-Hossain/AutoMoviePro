@@ -1,0 +1,83 @@
+{
+  "niche_id": 46,
+  "name": "Poetry & Prose Origins",
+  "slug": "poetry-prose-origins",
+  "style_family": "history",
+  "status": "VERIFIED",
+  "topic_seeds": [
+    "What new evidence reframes the story of Poetry inside Poetry & Prose Origins",
+    "How Poetry still shapes public curiosity about Poetry & Prose Origins",
+    "What new evidence reframes the story of Prose Origins The inside Poetry & Prose Origins",
+    "How Prose Origins The still shapes public curiosity about Poetry & Prose Origins",
+    "What new evidence reframes the story of Scan inside Poetry & Prose Origins",
+    "How Scan still shapes public curiosity about Poetry & Prose Origins"
+  ],
+  "seo_angles": [
+    "What new evidence reframes the story of Poetry inside Poetry & Prose Origins",
+    "How Poetry still shapes public curiosity about Poetry & Prose Origins",
+    "What new evidence reframes the story of Prose Origins The inside Poetry & Prose Origins",
+    "How Prose Origins The still shapes public curiosity about Poetry & Prose Origins"
+  ],
+  "forbidden_visuals": [
+    "talking-head lip-sync avatar",
+    "burned-in captions",
+    "watermark",
+    "modern meme text",
+    "modern smartphones",
+    "cars",
+    "LED screens",
+    "sneakers",
+    "contemporary skyline"
+  ],
+  "preferred_subjects": [
+    "Poetry & Prose Origins documentary subject",
+    "period-accurate environment",
+    "evidence object close-up"
+  ],
+  "lighting_default": "warm desert sun / torchlit interiors, high-contrast documentary grade",
+  "face_policy": "period extras OK if consistent; prefer environment/object hero when possible",
+  "dialogue_tone": "human documentary narration; specific nouns; 7–9s beats",
+  "audio_ambience": "subtle documentary bed; do not overpower voice",
+  "research_hints": [
+    "Prefer primary evidence and concrete entities for Poetry & Prose Origins",
+    "Avoid generic niche-label topics; require specific place/person/event/mechanism",
+    "7–9 second spoken beats with story continuity across scenes"
+  ],
+  "topic_prompt_overlay": "NICHE LOCK (Poetry & Prose Origins): only propose topics that fit this niche's video type. Video type: The emotional backstory behind famous poems and novels — how loss, love, or war inspired literature that speaks to all generations. Follow niche topic strategy: Scan literary anniversaries, new book releases, or viral poetry posts on social media. Identify a poem or novel whose origin story is both emotional and universally relatable. Look for recent academic papers or biographical discoveries about the author's life during the writing period.",
+  "video_prompt_overlay": "NICHE VISUAL LOCK (Poetry & Prose Origins / history): Generate a 7–9 second dialogue clip based on the topic `{topic}`. Each dialogue must be poetic and introspective. For each dialogue, generate: - **Audio Generation Prompt:** Voice — soft, melodic, with gentle page-turning and quill scratching in the background. - **Video Generation Prompt:** Detailed visual — a candlelit study filled with books and papers. Character: the author (gender appropriate, period clothing, ink-stained fingers, focused expression). Lighting: warm amber candlelight, creating soft shadows on the face. Camera slowly pans across handwritten pages. Maintain same study, same candle position, same clothing style across all clips. Forbidden: talking-head lip-sync avatar, burned-in captions, watermark, modern meme text, modern smartphones, cars, LED screens, sneakers. Preferred subjects: Poetry & Prose Origins documentary subject, period-accurate environment, evidence object close-up. Lighting: warm desert sun / torchlit interiors, high-contrast documentary grade. Face policy: period extras OK if consistent; prefer environment/object hero when possible. Dialogue tone: human documentary narration; specific nouns; 7–9s beats. Ambience: subtle documentary bed; do not overpower voice.",
+  "i18n": {
+    "en": {
+      "name": "Poetry & Prose Origins",
+      "blurb": "The emotional backstory behind famous poems and novels — how loss, love, or war inspired literature that speaks to all generations."
+    },
+    "bn": {
+      "name": "কবিতা ও গদ্যের উৎস",
+      "blurb": "ভিডিও টাইপ: The emotional backstory behind famous poems and novels — how loss, love, or war inspired literature that speaks to all generations."
+    },
+    "hi": {
+      "name": "कविता और गद्य की उत्पत्ति",
+      "blurb": "वीडियो प्रकार: The emotional backstory behind famous poems and novels — how loss, love, or war inspired literature that speaks to all generations."
+    },
+    "ur": {
+      "name": "شاعری اور نثر کی ابتدا",
+      "blurb": "ویڈیو کی قسم: The emotional backstory behind famous poems and novels — how loss, love, or war inspired literature that speaks to all generations."
+    },
+    "ta": {
+      "name": "கவிதை & உரைநடை தோற்றம்",
+      "blurb": "வீடியோ வகை: The emotional backstory behind famous poems and novels — how loss, love, or war inspired literature that speaks to all generations."
+    },
+    "ml": {
+      "name": "കവിതയും ഗദ്യവും — ഉത്ഭവം",
+      "blurb": "വീഡിയോ തരം: The emotional backstory behind famous poems and novels — how loss, love, or war inspired literature that speaks to all generations."
+    }
+  },
+  "source": "Nish.Md + deterministic research",
+  "research_notes": [
+    "Marathon researched at 2026-09-10T08:30:14Z",
+    "Video type length=131",
+    "Topic prompt length=286",
+    "Video prompt length=655",
+    "Seeds=6"
+  ],
+  "verified_at": "2026-09-10T08:30:14Z"
+}

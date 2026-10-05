@@ -1,0 +1,83 @@
+{
+  "niche_id": 38,
+  "name": "Internet History",
+  "slug": "internet-history",
+  "style_family": "history",
+  "status": "VERIFIED",
+  "topic_seeds": [
+    "What new evidence reframes the story of Internet History The inside Internet History",
+    "How Internet History The still shapes public curiosity about Internet History",
+    "What new evidence reframes the story of World Wide Web inside Internet History",
+    "How World Wide Web still shapes public curiosity about Internet History",
+    "What new evidence reframes the story of Check inside Internet History",
+    "How Check still shapes public curiosity about Internet History"
+  ],
+  "seo_angles": [
+    "What new evidence reframes the story of Internet History The inside Internet History",
+    "How Internet History The still shapes public curiosity about Internet History",
+    "What new evidence reframes the story of World Wide Web inside Internet History",
+    "How World Wide Web still shapes public curiosity about Internet History"
+  ],
+  "forbidden_visuals": [
+    "talking-head lip-sync avatar",
+    "burned-in captions",
+    "watermark",
+    "modern meme text",
+    "modern smartphones",
+    "cars",
+    "LED screens",
+    "sneakers",
+    "contemporary skyline"
+  ],
+  "preferred_subjects": [
+    "Internet History documentary subject",
+    "period-accurate environment",
+    "evidence object close-up"
+  ],
+  "lighting_default": "warm desert sun / torchlit interiors, high-contrast documentary grade",
+  "face_policy": "period extras OK if consistent; prefer environment/object hero when possible",
+  "dialogue_tone": "human documentary narration; specific nouns; 7–9s beats",
+  "audio_ambience": "subtle documentary bed; do not overpower voice",
+  "research_hints": [
+    "Prefer primary evidence and concrete entities for Internet History",
+    "Avoid generic niche-label topics; require specific place/person/event/mechanism",
+    "7–9 second spoken beats with story continuity across scenes"
+  ],
+  "topic_prompt_overlay": "NICHE LOCK (Internet History): only propose topics that fit this niche's video type. Video type: The birth of ARPANET, the World Wide Web, social media, and cybercrime — the pioneers, the dot-com crash, and the digital age explosion. Follow niche topic strategy: Check internet anniversaries (e.g., first email, first website), or new digital culture books. Generate a topic about a forgotten internet milestone.",
+  "video_prompt_overlay": "NICHE VISUAL LOCK (Internet History / history): Generate a 7–9 second dialogue clip based on the topic `{topic}`. Each dialogue must be nostalgic and informative. For each dialogue, generate: - **Audio Generation Prompt:** Voice — narrating, with modem dial-up and keyboard clicks. - **Video Generation Prompt:** Detailed visual — old computer room or server rack. Characters: early tech enthusiast. Lighting: warm CRT monitor glow. Maintain same computer style. Forbidden: talking-head lip-sync avatar, burned-in captions, watermark, modern meme text, modern smartphones, cars, LED screens, sneakers. Preferred subjects: Internet History documentary subject, period-accurate environment, evidence object close-up. Lighting: warm desert sun / torchlit interiors, high-contrast documentary grade. Face policy: period extras OK if consistent; prefer environment/object hero when possible. Dialogue tone: human documentary narration; specific nouns; 7–9s beats. Ambience: subtle documentary bed; do not overpower voice.",
+  "i18n": {
+    "en": {
+      "name": "Internet History",
+      "blurb": "The birth of ARPANET, the World Wide Web, social media, and cybercrime — the pioneers, the dot-com crash, and the digital age explosion."
+    },
+    "bn": {
+      "name": "ইন্টারনেটের ইতিহাস",
+      "blurb": "ভিডিও টাইপ: The birth of ARPANET, the World Wide Web, social media, and cybercrime — the pioneers, the dot-com crash, and the digital age explosion."
+    },
+    "hi": {
+      "name": "इंटरनेट का इतिहास",
+      "blurb": "वीडियो प्रकार: The birth of ARPANET, the World Wide Web, social media, and cybercrime — the pioneers, the dot-com crash, and the digital age explosion."
+    },
+    "ur": {
+      "name": "انٹرنیٹ کی تاریخ",
+      "blurb": "ویڈیو کی قسم: The birth of ARPANET, the World Wide Web, social media, and cybercrime — the pioneers, the dot-com crash, and the digital age explosion."
+    },
+    "ta": {
+      "name": "இணைய வரலாறு",
+      "blurb": "வீடியோ வகை: The birth of ARPANET, the World Wide Web, social media, and cybercrime — the pioneers, the dot-com crash, and the digital age explosion."
+    },
+    "ml": {
+      "name": "ഇന്റർനെറ്റ് ചരിത്രം",
+      "blurb": "വീഡിയോ തരം: The birth of ARPANET, the World Wide Web, social media, and cybercrime — the pioneers, the dot-com crash, and the digital age explosion."
+    }
+  },
+  "source": "Nish.Md + deterministic research",
+  "research_notes": [
+    "Marathon researched at 2026-09-10T08:30:13Z",
+    "Video type length=136",
+    "Topic prompt length=149",
+    "Video prompt length=414",
+    "Seeds=6"
+  ],
+  "verified_at": "2026-09-10T08:30:13Z"
+}

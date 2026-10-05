@@ -1,0 +1,65 @@
+{
+  "research_status": "COMPLETED",
+  "fact_count": 2,
+  "evidence_count": 2,
+  "source_count": 0,
+  "confidence": null,
+  "unresolved_items": [],
+  "capability": {
+    "provider_capability": "LOCAL_FACTPACK",
+    "provider_mode": "LIVE_LOCAL",
+    "external_live_research": "UNAVAILABLE",
+    "is_external_live": false,
+    "external_api": false,
+    "note": "LOCAL_FACTPACK must not be claimed as EXTERNAL_LIVE_RESEARCH"
+  },
+  "fact_pack": {
+    "topic": "How JWST infrared deep fields and nebulae map the deep-sky backdrop Artemis crews will navigate beyond low Earth orbit",
+    "version": "v0",
+    "claims": [
+      {
+        "id": "N01",
+        "claim": "Research query: how jwst infrared deep fields and nebulae map the deep-sky backdrop artemis crews will navigate beyond low earth orbit\nLanguage: en\nRegion:",
+        "evidence": "research_notes",
+        "source": "research_notes",
+        "confidence": 0.4,
+        "freshness": "UNVERIFIED"
+      },
+      {
+        "id": "L02",
+        "claim": "Additional context on How JWST infrared deep fields and nebulae map the deep-sky backdrop Artemis crews will navigate beyond low Earth orbit from configured research scope.",
+        "evidence": "secondary",
+        "source": "live_research",
+        "confidence": 0.6,
+        "freshness": "recent"
+      }
+    ],
+    "unknowns": []
+  },
+  "gate": {
+    "verdict": "PASS",
+    "reason": "sufficient_evidence",
+    "issues": [],
+    "claim_count": 2,
+    "supported_count": 2,
+    "verified_count": 0,
+    "unsupported_count": 0,
+    "classified": [
+      {
+        "claim": "Research query: how jwst infrared deep fields and nebulae map the deep-sky backdrop artemis crews will navigate beyond low earth orbit\nLanguage: en\nRegion:",
+        "class": "SUPPORTED",
+        "source": "research_notes"
+      },
+      {
+        "claim": "Additional context on How JWST infrared deep fields and nebulae map the deep-sky backdrop Artemis crews will navigate beyond low Earth orbit from configured research scope.",
+        "class": "SUPPORTED",
+        "source": "live_research"
+      }
+    ]
+  },
+  "fingerprint": "0ed0ef3310f2f65b40998de081520decf2310103a07a937f96b1a876daa08de5",
+  "action": "reuse",
+  "error_code": null,
+  "error_summary": null,
+  "live_research_complete": false
+}

@@ -1,0 +1,1 @@
+"""AutoMovie Pro desktop package."""

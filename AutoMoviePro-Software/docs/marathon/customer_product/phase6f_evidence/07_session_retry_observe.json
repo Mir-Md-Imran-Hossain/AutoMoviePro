@@ -1,0 +1,41 @@
+{
+  "schema": "amp_observation_frame_evidence_v1",
+  "schema_version": "amp_frame_evidence_v1",
+  "asset_id": "phase6f-retry",
+  "scene_id": "sc-6f",
+  "beat_id": "vb-retry",
+  "timestamp": 0.0,
+  "frame_path": "E:\\All Updaye Project\\AutoMovie_Pro_SAAS_Final_Update\\AutoMoviePro-Software\\docs\\marathon\\customer_product\\phase6f_evidence\\work\\retry_frames\\frames_d11ac8300eff4bd0_2e6035d2380e1e01a4b65f49\\frame_00_0000000ms.jpg",
+  "frame_reference": "E:\\All Updaye Project\\AutoMovie_Pro_SAAS_Final_Update\\AutoMoviePro-Software\\docs\\marathon\\customer_product\\phase6f_evidence\\work\\retry_frames\\frames_d11ac8300eff4bd0_2e6035d2380e1e01a4b65f49\\frame_00_0000000ms.jpg",
+  "observation_status": "PASS",
+  "provider": "PROVIDER_FRAME:gemini-3.6-flash",
+  "observed_subjects": [
+    "nurse"
+  ],
+  "observed_entities": [
+    "hospital bed",
+    "overhead light fixtures",
+    "medical equipment pole"
+  ],
+  "observed_relationships": [
+    "nurse beside hospital bed",
+    "nurse standing in hospital room"
+  ],
+  "observed_location": "hospital room",
+  "observed_actions": [
+    "standing"
+  ],
+  "observed_environment": "indoor sterile clinical room with dim ambient lighting and bright overhead fixtures",
+  "camera_observation": "eye-level medium shot centered on the nurse, slightly blurry/soft focus",
+  "lighting_observation": "cool, high-contrast overhead fluorescent lighting with muted shadows",
+  "confidence": "PROVIDER",
+  "evidence_source": "PROVIDER_VERIFIED",
+  "provider_verified": true,
+  "heuristic": false,
+  "clip_similarity_is_not_visual_truth": true,
+  "filename_match_is_not_observation": true,
+  "unknown_as_pass": false,
+  "reason": "",
+  "created_at": 1788949087.1781075,
+  "observation_executed": true
+}

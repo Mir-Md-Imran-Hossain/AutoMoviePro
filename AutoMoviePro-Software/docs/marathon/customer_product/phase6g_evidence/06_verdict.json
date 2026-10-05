@@ -1,0 +1,29 @@
+{
+  "alignment_status": "PASS",
+  "dialogues_complete": true,
+  "provider_verified_multi": true,
+  "negative_status": "FAIL",
+  "unknown_status": "UNKNOWN",
+  "semantic_blocked_on_unknown": true,
+  "unknown_no_repair": true,
+  "handoff_triggered": true,
+  "repair_scope": "VISUAL_ASSET",
+  "whole_video_regeneration": false,
+  "fixed_n_switching_forbidden": true,
+  "duration_contract_overridden": false,
+  "paid": {
+    "attempts": 3,
+    "successes": 3,
+    "key_masks": [
+      "\u2026syGE"
+    ],
+    "notes": [
+      "multi_beat_observe:PASS:pv=True",
+      "negative_observe:FAIL",
+      "repair_reobserve:PASS"
+    ],
+    "latency_sec": 26.312,
+    "circuit_open": false,
+    "generation_provider_invocations": 1
+  }
+}

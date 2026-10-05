@@ -1,0 +1,83 @@
+{
+  "niche_id": 84,
+  "name": "Digital Ghosts",
+  "slug": "digital-ghosts",
+  "style_family": "history",
+  "status": "VERIFIED",
+  "topic_seeds": [
+    "What new evidence reframes the story of Digital Ghosts What inside Digital Ghosts",
+    "How Digital Ghosts What still shapes public curiosity about Digital Ghosts",
+    "What new evidence reframes the story of Ethical inside Digital Ghosts",
+    "How Ethical still shapes public curiosity about Digital Ghosts",
+    "What new evidence reframes the story of Check inside Digital Ghosts",
+    "How Check still shapes public curiosity about Digital Ghosts"
+  ],
+  "seo_angles": [
+    "What new evidence reframes the story of Digital Ghosts What inside Digital Ghosts",
+    "How Digital Ghosts What still shapes public curiosity about Digital Ghosts",
+    "What new evidence reframes the story of Ethical inside Digital Ghosts",
+    "How Ethical still shapes public curiosity about Digital Ghosts"
+  ],
+  "forbidden_visuals": [
+    "talking-head lip-sync avatar",
+    "burned-in captions",
+    "watermark",
+    "modern meme text",
+    "modern smartphones",
+    "cars",
+    "LED screens",
+    "sneakers",
+    "contemporary skyline"
+  ],
+  "preferred_subjects": [
+    "Digital Ghosts documentary subject",
+    "period-accurate environment",
+    "evidence object close-up"
+  ],
+  "lighting_default": "warm desert sun / torchlit interiors, high-contrast documentary grade",
+  "face_policy": "period extras OK if consistent; prefer environment/object hero when possible",
+  "dialogue_tone": "human documentary narration; specific nouns; 7–9s beats",
+  "audio_ambience": "subtle documentary bed; do not overpower voice",
+  "research_hints": [
+    "Prefer primary evidence and concrete entities for Digital Ghosts",
+    "Avoid generic niche-label topics; require specific place/person/event/mechanism",
+    "7–9 second spoken beats with story continuity across scenes"
+  ],
+  "topic_prompt_overlay": "NICHE LOCK (Digital Ghosts): only propose topics that fit this niche's video type. Video type: What happens to our social media and AI avatars after death — can they live forever? Ethical questions included. Follow niche topic strategy: Check tech ethics articles, new AI developments, or viral stories about digital resurrections. Generate a topic about digital afterlife.",
+  "video_prompt_overlay": "NICHE VISUAL LOCK (Digital Ghosts / history): Generate a 7–9 second dialogue clip based on the topic `{topic}`. Each dialogue must be futuristic and philosophical. For each dialogue, generate: - **Audio Generation Prompt:** Voice — digital, slightly robotic, with beeping and static. - **Video Generation Prompt:** Detailed visual — a computer screen or server room. No character — screen shows digital face. Lighting: neon blue. Maintain same digital vibe. Forbidden: talking-head lip-sync avatar, burned-in captions, watermark, modern meme text, modern smartphones, cars, LED screens, sneakers. Preferred subjects: Digital Ghosts documentary subject, period-accurate environment, evidence object close-up. Lighting: warm desert sun / torchlit interiors, high-contrast documentary grade. Face policy: period extras OK if consistent; prefer environment/object hero when possible. Dialogue tone: human documentary narration; specific nouns; 7–9s beats. Ambience: subtle documentary bed; do not overpower voice.",
+  "i18n": {
+    "en": {
+      "name": "Digital Ghosts",
+      "blurb": "What happens to our social media and AI avatars after death — can they live forever? Ethical questions included."
+    },
+    "bn": {
+      "name": "ডিজিটাল ভূত",
+      "blurb": "ভিডিও টাইপ: What happens to our social media and AI avatars after death — can they live forever? Ethical questions included."
+    },
+    "hi": {
+      "name": "डिजिटल भूत",
+      "blurb": "वीडियो प्रकार: What happens to our social media and AI avatars after death — can they live forever? Ethical questions included."
+    },
+    "ur": {
+      "name": "ڈیجیٹل بھوت",
+      "blurb": "ویڈیو کی قسم: What happens to our social media and AI avatars after death — can they live forever? Ethical questions included."
+    },
+    "ta": {
+      "name": "டிஜிட்டல் பேய்கள்",
+      "blurb": "வீடியோ வகை: What happens to our social media and AI avatars after death — can they live forever? Ethical questions included."
+    },
+    "ml": {
+      "name": "ഡിജിറ്റൽ ഭൂതങ്ങൾ",
+      "blurb": "വീഡിയോ തരം: What happens to our social media and AI avatars after death — can they live forever? Ethical questions included."
+    }
+  },
+  "source": "Nish.Md + deterministic research",
+  "research_notes": [
+    "Marathon researched at 2026-09-10T08:30:20Z",
+    "Video type length=112",
+    "Topic prompt length=136",
+    "Video prompt length=411",
+    "Seeds=6"
+  ],
+  "verified_at": "2026-09-10T08:30:20Z"
+}

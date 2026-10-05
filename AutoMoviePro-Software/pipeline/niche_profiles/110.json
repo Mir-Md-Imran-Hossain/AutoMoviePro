@@ -1,0 +1,79 @@
+{
+  "niche_id": 110,
+  "name": "AI Tutors for Students",
+  "slug": "ai-tutors-for-students",
+  "style_family": "science",
+  "status": "VERIFIED",
+  "topic_seeds": [
+    "What new evidence reframes the story of Tutors inside AI Tutors for Students",
+    "How Tutors still shapes public curiosity about AI Tutors for Students",
+    "What new evidence reframes the story of Students Khanmigo inside AI Tutors for Students",
+    "How Students Khanmigo still shapes public curiosity about AI Tutors for Students",
+    "What new evidence reframes the story of Socratic inside AI Tutors for Students",
+    "How Socratic still shapes public curiosity about AI Tutors for Students"
+  ],
+  "seo_angles": [
+    "What new evidence reframes the story of Tutors inside AI Tutors for Students",
+    "How Tutors still shapes public curiosity about AI Tutors for Students",
+    "What new evidence reframes the story of Students Khanmigo inside AI Tutors for Students",
+    "How Students Khanmigo still shapes public curiosity about AI Tutors for Students"
+  ],
+  "forbidden_visuals": [
+    "talking-head lip-sync avatar",
+    "burned-in captions",
+    "watermark",
+    "modern meme text",
+    "off-niche stock office B-roll"
+  ],
+  "preferred_subjects": [
+    "lab instrument close-up",
+    "diagrammatic mechanism metaphor",
+    "field measurement site"
+  ],
+  "lighting_default": "teal/cyan lab grade, high contrast, shallow DOF",
+  "face_policy": "no talking-head lip-sync avatar; cinematic B-roll preferred",
+  "dialogue_tone": "clear explainer; one mechanism per beat",
+  "audio_ambience": "clean room tone, soft electronic texture",
+  "research_hints": [
+    "Prefer primary evidence and concrete entities for AI Tutors for Students",
+    "Avoid generic niche-label topics; require specific place/person/event/mechanism",
+    "7–9 second spoken beats with story continuity across scenes"
+  ],
+  "topic_prompt_overlay": "NICHE LOCK (AI Tutors for Students): only propose topics that fit this niche's video type. Video type: Khanmigo, Socratic — personalized tutoring in physics, algebra, history, and test preparation. Follow niche topic strategy: Check education tech news, new AI tutor releases, or viral learning success stories. Generate a topic about an AI that helped a student pass.",
+  "video_prompt_overlay": "NICHE VISUAL LOCK (AI Tutors for Students / science): Generate a 7–9 second dialogue clip based on the topic `{topic}`. Each dialogue must be encouraging and educational. For each dialogue, generate: - **Audio Generation Prompt:** Voice — teacher-like, with chalkboard and affirmation. - **Video Generation Prompt:** Detailed visual — a student's desk with tablet. Character: student (young). Lighting: warm study light. Maintain same desk and student. Forbidden: talking-head lip-sync avatar, burned-in captions, watermark, modern meme text, off-niche stock office B-roll. Preferred subjects: lab instrument close-up, diagrammatic mechanism metaphor, field measurement site. Lighting: teal/cyan lab grade, high contrast, shallow DOF. Face policy: no talking-head lip-sync avatar; cinematic B-roll preferred. Dialogue tone: clear explainer; one mechanism per beat. Ambience: clean room tone, soft electronic texture.",
+  "i18n": {
+    "en": {
+      "name": "AI Tutors for Students",
+      "blurb": "Khanmigo, Socratic — personalized tutoring in physics, algebra, history, and test preparation."
+    },
+    "bn": {
+      "name": "শিক্ষার্থীদের এআই শিক্ষক",
+      "blurb": "ভিডিও টাইপ: Khanmigo, Socratic — personalized tutoring in physics, algebra, history, and test preparation."
+    },
+    "hi": {
+      "name": "छात्रों के लिए एआई ट्यूटर",
+      "blurb": "वीडियो प्रकार: Khanmigo, Socratic — personalized tutoring in physics, algebra, history, and test preparation."
+    },
+    "ur": {
+      "name": "طلبہ کے لیے اے آئی ٹیوٹر",
+      "blurb": "ویڈیو کی قسم: Khanmigo, Socratic — personalized tutoring in physics, algebra, history, and test preparation."
+    },
+    "ta": {
+      "name": "மாணவர்களுக்கான AI ஆசிரியர்கள்",
+      "blurb": "வீடியோ வகை: Khanmigo, Socratic — personalized tutoring in physics, algebra, history, and test preparation."
+    },
+    "ml": {
+      "name": "വിദ്യാർത്ഥികൾക്കുള്ള AI ട്യൂട്ടർമാർ",
+      "blurb": "വീഡിയോ തരം: Khanmigo, Socratic — personalized tutoring in physics, algebra, history, and test preparation."
+    }
+  },
+  "source": "Nish.Md + deterministic research",
+  "research_notes": [
+    "Marathon researched at 2026-09-10T08:30:24Z",
+    "Video type length=94",
+    "Topic prompt length=141",
+    "Video prompt length=398",
+    "Seeds=6"
+  ],
+  "verified_at": "2026-09-10T08:30:24Z"
+}

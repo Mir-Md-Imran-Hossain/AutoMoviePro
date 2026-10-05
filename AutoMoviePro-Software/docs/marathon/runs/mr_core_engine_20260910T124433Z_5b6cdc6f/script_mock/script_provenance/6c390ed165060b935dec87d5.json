@@ -1,0 +1,26 @@
+{
+  "job_id": "c06b-script-4-topic-961c3672c3466f71",
+  "fingerprint": "6c390ed165060b935dec87d5cd65180175b6e606c63c758fbba4b97b1e0b76b3",
+  "entity_id": "script-0000-403249f66a0d8b8a",
+  "topic": "How solar wind strips Mars of atmosphere — the MAVEN evidence explained",
+  "topic_identity": "403249f66a0d8b8aa87ff45f",
+  "niche": "space science",
+  "niche_id": 0,
+  "fact_pack_id": "",
+  "fact_pack_hash": "",
+  "prompt_version": "v12",
+  "prompt_template_hash": "0eb19ea36a22cf406694f6e7dea91b9f",
+  "provider": "llm_router",
+  "model": "purpose-script",
+  "generation_id": "mock-script-0001",
+  "plan_path": "E:\\All Updaye Project\\AutoMovie_Pro_SAAS_Final_Update\\AutoMoviePro-Software\\docs\\marathon\\runs\\mr_core_engine_20260910T124433Z_5b6cdc6f\\script_mock\\director_plan.json",
+  "plan_hash": "dcbf1c1342c0a324832d49b9ca7498f9f705e8db1c7ed33dc29c71e24173df61",
+  "saved_at": 1789044284.2180574,
+  "metadata": {
+    "video_type": "short",
+    "max_seconds": 60,
+    "language": "en",
+    "revision_id": "",
+    "legacy_key": "script:6c390ed165060b935dec87d5cd651801"
+  }
+}

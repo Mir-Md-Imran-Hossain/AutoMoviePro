@@ -1,0 +1,26 @@
+{
+  "job_id": "c06b-script-4-topic-562c83ab425a6386",
+  "fingerprint": "27fdf944c633be7b6a2d5e6b6cacbed37974210217598b1fbcdef532e5c9d454",
+  "entity_id": "script-0000-d1b639e431cf034f",
+  "topic": "Why lunar south pole ice matters for propellant and drinking water on Mars missions",
+  "topic_identity": "d1b639e431cf034f369cf172",
+  "niche": "space science",
+  "niche_id": 0,
+  "fact_pack_id": "",
+  "fact_pack_hash": "",
+  "prompt_version": "v12",
+  "prompt_template_hash": "0eb19ea36a22cf406694f6e7dea91b9f",
+  "provider": "llm_router",
+  "model": "purpose-script",
+  "generation_id": "",
+  "plan_path": "E:\\All Updaye Project\\AutoMovie_Pro_SAAS_Final_Update\\AutoMoviePro-Software\\docs\\marathon\\runs\\mr_core_engine_20260910T124732Z_7d3d953e\\script\\director_plan.json",
+  "plan_hash": "61046a03e39474141347c564ade7eba525441d590dfa8d3bbe496411bdf223d6",
+  "saved_at": 1789044463.273728,
+  "metadata": {
+    "video_type": "short",
+    "max_seconds": 60,
+    "language": "en",
+    "revision_id": "",
+    "legacy_key": "script:27fdf944c633be7b6a2d5e6b6cacbed3"
+  }
+}

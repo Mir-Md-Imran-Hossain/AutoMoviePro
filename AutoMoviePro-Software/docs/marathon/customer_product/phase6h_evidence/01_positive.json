@@ -1,0 +1,972 @@
+{
+  "schema": "amp_observation_audio_evidence_v1",
+  "status": "PASS",
+  "issues": [],
+  "artifact": {
+    "schema": "amp_observation_audio_evidence_v1",
+    "schema_version": "amp_audio_evidence_v1",
+    "audio_asset_id": "phase6h-pos",
+    "job_id": "job2108",
+    "scene_id": "sc-1",
+    "dialogue_id": "",
+    "customer_id": "c11_marathon_customer",
+    "channel_id": "4",
+    "audio_path": "E:\\All Updaye Project\\AutoMovie_Pro_SAAS_Final_Update\\AutoMoviePro-Software\\docs\\marathon\\customer_product\\phase6h_evidence\\_gen\\narration_positive.mp3",
+    "provider": "ffprobe",
+    "evidence_source": "TECHNICAL_PROBE",
+    "technical_is_not_semantic_pass": true,
+    "second_ffmpeg_engine": false,
+    "created_at": 1788950688.6394503,
+    "observation_status": "PASS",
+    "duration": 8.256,
+    "sample_rate": 24000,
+    "channels": 1,
+    "format": "mp3",
+    "codec": "mp3",
+    "validation_ok": true,
+    "validation_reason": "ok",
+    "loudness": {
+      "status": "UNKNOWN",
+      "method": "UNAVAILABLE",
+      "issues": [
+        "non_wav_loudness_unverified"
+      ],
+      "claim": "no_broadcast_lufs"
+    },
+    "content_hash": "f507c8365c5dc22d50e8c211867397ada718733de9af6d7ff287d659e2b7dced",
+    "naturalness_pass_forbidden_without_evidence": true,
+    "tts_success_is_not_naturalness_pass": true,
+    "issues": [],
+    "unknown_as_pass": false,
+    "authority": "observation_only",
+    "does_not_replace": [
+      "AudioPlan",
+      "VoiceIdentity",
+      "av_quality_gates"
+    ]
+  },
+  "speech": {
+    "schema": "amp_observation_audio_evidence_v1",
+    "kind": "speech_segments",
+    "observation_status": "PASS",
+    "status": "PASS",
+    "provider": "faster-whisper",
+    "provider_verified": true,
+    "heuristic": false,
+    "evidence_source": "LOCAL_ASR",
+    "transcript": "The nurse stands beside the hospital bed. She approaches carefully. She remains calm at the bedside.",
+    "segments": [
+      {
+        "segment_id": "asr-1",
+        "dialogue_id": "dlg-1",
+        "start": 0.0,
+        "end": 2.46,
+        "duration": 2.46,
+        "text": "The nurse stands beside the hospital bed.",
+        "confidence": null,
+        "provider": "faster-whisper",
+        "observation_status": "PASS"
+      },
+      {
+        "segment_id": "asr-2",
+        "dialogue_id": "dlg-2",
+        "start": 3.38,
+        "end": 4.7,
+        "duration": 1.32,
+        "text": "She approaches carefully.",
+        "confidence": null,
+        "provider": "faster-whisper",
+        "observation_status": "PASS"
+      },
+      {
+        "segment_id": "asr-3",
+        "dialogue_id": "dlg-3",
+        "start": 5.68,
+        "end": 7.44,
+        "duration": 1.76,
+        "text": "She remains calm at the bedside.",
+        "confidence": null,
+        "provider": "faster-whisper",
+        "observation_status": "PASS"
+      }
+    ],
+    "words": [
+      {
+        "word": "The",
+        "start": 0.0,
+        "end": 0.38,
+        "probability": 0.7702909111976624
+      },
+      {
+        "word": "nurse",
+        "start": 0.38,
+        "end": 0.68,
+        "probability": 0.9621638059616089
+      },
+      {
+        "word": "stands",
+        "start": 0.68,
+        "end": 1.0,
+        "probability": 0.9889301657676697
+      },
+      {
+        "word": "beside",
+        "start": 1.0,
+        "end": 1.44,
+        "probability": 0.9966579675674438
+      },
+      {
+        "word": "the",
+        "start": 1.44,
+        "end": 1.7,
+        "probability": 0.9943629503250122
+      },
+      {
+        "word": "hospital",
+        "start": 1.7,
+        "end": 2.0,
+        "probability": 0.9829311966896057
+      },
+      {
+        "word": "bed.",
+        "start": 2.0,
+        "end": 2.46,
+        "probability": 0.9983140230178833
+      },
+      {
+        "word": "She",
+        "start": 3.38,
+        "end": 3.6,
+        "probability": 0.9813304543495178
+      },
+      {
+        "word": "approaches",
+        "start": 3.6,
+        "end": 4.0,
+        "probability": 0.9701994061470032
+      },
+      {
+        "word": "carefully.",
+        "start": 4.0,
+        "end": 4.7,
+        "probability": 0.9867070913314819
+      },
+      {
+        "word": "She",
+        "start": 5.68,
+        "end": 5.92,
+        "probability": 0.9904227256774902
+      },
+      {
+        "word": "remains",
+        "start": 5.92,
+        "end": 6.2,
+        "probability": 0.9889348149299622
+      },
+      {
+        "word": "calm",
+        "start": 6.2,
+        "end": 6.6,
+        "probability": 0.9880082607269287
+      },
+      {
+        "word": "at",
+        "start": 6.6,
+        "end": 6.8,
+        "probability": 0.9965236783027649
+      },
+      {
+        "word": "the",
+        "start": 6.8,
+        "end": 6.92,
+        "probability": 0.9978280663490295
+      },
+      {
+        "word": "bedside.",
+        "start": 6.92,
+        "end": 7.44,
+        "probability": 0.9663486182689667
+      }
+    ],
+    "speaker_observation": "UNAVAILABLE",
+    "second_asr_engine": false,
+    "asr_authority": "pipeline.observation.speech_timing.observe_speech_timing",
+    "does_not_replace": [
+      "AudioPlan",
+      "VoiceIdentity",
+      "planned_srt"
+    ],
+    "customer_id": "c11_marathon_customer",
+    "channel_id": "4",
+    "job_id": "job2108",
+    "scene_id": "sc-1",
+    "unknown_as_pass": false
+  },
+  "dialogue_timeline": {
+    "schema": "amp_observation_dialogue_visual_alignment_v1",
+    "kind": "dialogue_timeline",
+    "segments": [
+      {
+        "dialogue_id": "dlg-1",
+        "segment_id": "seg-1",
+        "scene_id": "sc-1",
+        "beat_id": "",
+        "start": 0.0,
+        "end": 2.5,
+        "duration": 2.5,
+        "text": "The nurse stands beside the hospital bed.",
+        "entities": [
+          {
+            "label": "Nurse"
+          }
+        ],
+        "relationships": [],
+        "actions": [
+          "standing beside"
+        ],
+        "location": "hospital room",
+        "emotion": "neutral",
+        "customer_id": "c11_marathon_customer",
+        "channel_id": "4",
+        "job_id": "job2108"
+      },
+      {
+        "dialogue_id": "dlg-2",
+        "segment_id": "seg-2",
+        "scene_id": "sc-1",
+        "beat_id": "",
+        "start": 2.5,
+        "end": 5.0,
+        "duration": 2.5,
+        "text": "She approaches carefully.",
+        "entities": [
+          {
+            "label": "Nurse"
+          }
+        ],
+        "relationships": [],
+        "actions": [
+          "approaching"
+        ],
+        "location": "hospital room",
+        "emotion": "concerned",
+        "customer_id": "c11_marathon_customer",
+        "channel_id": "4",
+        "job_id": "job2108"
+      },
+      {
+        "dialogue_id": "dlg-3",
+        "segment_id": "seg-3",
+        "scene_id": "sc-2",
+        "beat_id": "",
+        "start": 5.0,
+        "end": 8.0,
+        "duration": 3.0,
+        "text": "She remains calm at the bedside.",
+        "entities": [
+          {
+            "label": "Nurse"
+          }
+        ],
+        "relationships": [],
+        "actions": [
+          "at bedside"
+        ],
+        "location": "hospital room",
+        "emotion": "relieved",
+        "customer_id": "c11_marathon_customer",
+        "channel_id": "4",
+        "job_id": "job2108"
+      }
+    ],
+    "segment_count": 3,
+    "total_dialogue_sec": 8.0,
+    "audio_timeline_sec": 8.256,
+    "audio_authority": "AudioPlan/ffprobe \u2014 this layer does not invent a second audio clock",
+    "second_audio_engine": false,
+    "customer_id": "c11_marathon_customer",
+    "channel_id": "4",
+    "job_id": "job2108",
+    "created_at": 1788950688.7246752
+  },
+  "coverages": [
+    {
+      "dialogue_id": "dlg-1",
+      "coverage": "PARTIAL",
+      "overlap_sec": 2.46,
+      "required_sec": 2.5,
+      "speech_segment_ids": [
+        "asr-1"
+      ],
+      "timing_overlap_is_not_semantic_pass": true,
+      "vocabulary": "C05-S VisualCoverage"
+    },
+    {
+      "dialogue_id": "dlg-2",
+      "coverage": "PARTIAL",
+      "overlap_sec": 1.32,
+      "required_sec": 2.5,
+      "speech_segment_ids": [
+        "asr-2"
+      ],
+      "timing_overlap_is_not_semantic_pass": true,
+      "vocabulary": "C05-S VisualCoverage"
+    },
+    {
+      "dialogue_id": "dlg-3",
+      "coverage": "PARTIAL",
+      "overlap_sec": 1.76,
+      "required_sec": 3.0,
+      "speech_segment_ids": [
+        "asr-3"
+      ],
+      "timing_overlap_is_not_semantic_pass": true,
+      "vocabulary": "C05-S VisualCoverage"
+    }
+  ],
+  "transcript_alignments": [
+    {
+      "dialogue_id": "dlg-1",
+      "class": "MATCH",
+      "similarity_is_not_production_pass": true
+    },
+    {
+      "dialogue_id": "dlg-2",
+      "class": "MATCH",
+      "similarity_is_not_production_pass": true
+    },
+    {
+      "dialogue_id": "dlg-3",
+      "class": "MATCH",
+      "similarity_is_not_production_pass": true
+    }
+  ],
+  "no_silent_drop": {
+    "schema": "amp_observation_dialogue_visual_alignment_v1",
+    "invariant": "planned_dialogue_segments_must_equal_materialized",
+    "planned_count": 3,
+    "materialized_count": 3,
+    "planned_dialogue_ids": [
+      "dlg-1",
+      "dlg-2",
+      "dlg-3"
+    ],
+    "materialized_dialogue_ids": [
+      "dlg-1",
+      "dlg-2",
+      "dlg-3"
+    ],
+    "missing": [],
+    "extra": [],
+    "silent_drop": false,
+    "status": "PASS",
+    "blocking_code": "",
+    "hold_cap_must_not_truncate_dialogue": true
+  },
+  "voice_bindings": [
+    {
+      "voice_identity_id": "voice:male",
+      "canonical_voice_name": "male",
+      "dialogue_id": "dlg-1",
+      "scene_id": "sc-1",
+      "emotion": "neutral",
+      "VOICE_IDENTITY_OBSERVATION": "UNKNOWN",
+      "tts_request_is_not_acoustic_verification": true,
+      "voice_identity_authority": "pipeline.production_consistency.VoiceIdentity",
+      "second_voice_identity_authority": false,
+      "acoustic_verification_available": false
+    },
+    {
+      "voice_identity_id": "voice:male",
+      "canonical_voice_name": "male",
+      "dialogue_id": "dlg-2",
+      "scene_id": "sc-1",
+      "emotion": "concerned",
+      "VOICE_IDENTITY_OBSERVATION": "UNKNOWN",
+      "tts_request_is_not_acoustic_verification": true,
+      "voice_identity_authority": "pipeline.production_consistency.VoiceIdentity",
+      "second_voice_identity_authority": false,
+      "acoustic_verification_available": false
+    },
+    {
+      "voice_identity_id": "voice:male",
+      "canonical_voice_name": "male",
+      "dialogue_id": "dlg-3",
+      "scene_id": "sc-2",
+      "emotion": "relieved",
+      "VOICE_IDENTITY_OBSERVATION": "UNKNOWN",
+      "tts_request_is_not_acoustic_verification": true,
+      "voice_identity_authority": "pipeline.production_consistency.VoiceIdentity",
+      "second_voice_identity_authority": false,
+      "acoustic_verification_available": false
+    }
+  ],
+  "voice_continuity": {
+    "contract_stable": true,
+    "voice_identity_ids": [
+      "voice:male",
+      "voice:male",
+      "voice:male"
+    ],
+    "emotions": [
+      "neutral",
+      "concerned",
+      "relieved"
+    ],
+    "emotion_change_is_not_identity_failure": true,
+    "VOICE_IDENTITY_OBSERVATION": "UNKNOWN",
+    "status": "PASS",
+    "authority": "pipeline.production_consistency.evaluate_voice_identity_continuity",
+    "second_voice_identity_authority": false
+  },
+  "audio_timeline": {
+    "schema": "amp_observation_audio_evidence_v1",
+    "kind": "audio_timeline",
+    "rows": [
+      {
+        "dialogue_id": "dlg-1",
+        "planned_start": 0.0,
+        "planned_end": 2.5,
+        "speech_segments": [
+          {
+            "segment_id": "asr-1",
+            "dialogue_id": "dlg-1",
+            "start": 0.0,
+            "end": 2.46,
+            "duration": 2.46,
+            "text": "The nurse stands beside the hospital bed.",
+            "confidence": null,
+            "provider": "faster-whisper",
+            "observation_status": "PASS"
+          }
+        ],
+        "audio_asset_id": "phase6h-pos",
+        "scene_id": "sc-1",
+        "visual_beat_ids": [
+          "vb-1"
+        ]
+      },
+      {
+        "dialogue_id": "dlg-2",
+        "planned_start": 2.5,
+        "planned_end": 5.0,
+        "speech_segments": [
+          {
+            "segment_id": "asr-2",
+            "dialogue_id": "dlg-2",
+            "start": 3.38,
+            "end": 4.7,
+            "duration": 1.32,
+            "text": "She approaches carefully.",
+            "confidence": null,
+            "provider": "faster-whisper",
+            "observation_status": "PASS"
+          }
+        ],
+        "audio_asset_id": "phase6h-pos",
+        "scene_id": "sc-1",
+        "visual_beat_ids": [
+          "vb-2"
+        ]
+      },
+      {
+        "dialogue_id": "dlg-3",
+        "planned_start": 5.0,
+        "planned_end": 8.0,
+        "speech_segments": [
+          {
+            "segment_id": "asr-3",
+            "dialogue_id": "dlg-3",
+            "start": 5.68,
+            "end": 7.44,
+            "duration": 1.76,
+            "text": "She remains calm at the bedside.",
+            "confidence": null,
+            "provider": "faster-whisper",
+            "observation_status": "PASS"
+          }
+        ],
+        "audio_asset_id": "phase6h-pos",
+        "scene_id": "sc-2",
+        "visual_beat_ids": [
+          "vb-3"
+        ]
+      }
+    ],
+    "dialogue_timeline": {
+      "schema": "amp_observation_dialogue_visual_alignment_v1",
+      "kind": "dialogue_timeline",
+      "segments": [
+        {
+          "dialogue_id": "dlg-1",
+          "segment_id": "seg-1",
+          "scene_id": "sc-1",
+          "beat_id": "",
+          "start": 0.0,
+          "end": 2.5,
+          "duration": 2.5,
+          "text": "The nurse stands beside the hospital bed.",
+          "entities": [
+            {
+              "label": "Nurse"
+            }
+          ],
+          "relationships": [],
+          "actions": [
+            "standing beside"
+          ],
+          "location": "hospital room",
+          "emotion": "neutral",
+          "customer_id": "c11_marathon_customer",
+          "channel_id": "4",
+          "job_id": "job2108"
+        },
+        {
+          "dialogue_id": "dlg-2",
+          "segment_id": "seg-2",
+          "scene_id": "sc-1",
+          "beat_id": "",
+          "start": 2.5,
+          "end": 5.0,
+          "duration": 2.5,
+          "text": "She approaches carefully.",
+          "entities": [
+            {
+              "label": "Nurse"
+            }
+          ],
+          "relationships": [],
+          "actions": [
+            "approaching"
+          ],
+          "location": "hospital room",
+          "emotion": "concerned",
+          "customer_id": "c11_marathon_customer",
+          "channel_id": "4",
+          "job_id": "job2108"
+        },
+        {
+          "dialogue_id": "dlg-3",
+          "segment_id": "seg-3",
+          "scene_id": "sc-2",
+          "beat_id": "",
+          "start": 5.0,
+          "end": 8.0,
+          "duration": 3.0,
+          "text": "She remains calm at the bedside.",
+          "entities": [
+            {
+              "label": "Nurse"
+            }
+          ],
+          "relationships": [],
+          "actions": [
+            "at bedside"
+          ],
+          "location": "hospital room",
+          "emotion": "relieved",
+          "customer_id": "c11_marathon_customer",
+          "channel_id": "4",
+          "job_id": "job2108"
+        }
+      ],
+      "segment_count": 3,
+      "total_dialogue_sec": 8.0,
+      "audio_timeline_sec": 8.256,
+      "audio_authority": "AudioPlan/ffprobe \u2014 this layer does not invent a second audio clock",
+      "second_audio_engine": false,
+      "customer_id": "c11_marathon_customer",
+      "channel_id": "4",
+      "job_id": "job2108",
+      "created_at": 1788950690.644347
+    },
+    "artifact": {
+      "audio_asset_id": "phase6h-pos",
+      "duration": 8.256,
+      "content_hash": "f507c8365c5dc22d50e8c211867397ada718733de9af6d7ff287d659e2b7dced"
+    },
+    "second_audio_clock": false,
+    "audio_authority": "AudioPlan/ffprobe",
+    "customer_id": "c11_marathon_customer",
+    "channel_id": "4",
+    "job_id": "job2108"
+  },
+  "dialogue_audio_visual": [
+    {
+      "dialogue_id": "dlg-1",
+      "transcript_alignment": {
+        "class": "MATCH",
+        "similarity_is_not_production_pass": true
+      },
+      "visual_alignment": {
+        "dialogue_id": "dlg-1",
+        "status": "PASS",
+        "reason": "provider_supports_dialogue_visual_intent",
+        "binding": {
+          "dialogue_id": "dlg-1",
+          "beat_id": "vb-dlg-1",
+          "scene_id": "sc-1",
+          "entity_requirements": [
+            "Nurse",
+            "hospital room"
+          ],
+          "action_requirements": [
+            "standing beside"
+          ],
+          "relationship_requirements": [],
+          "location_requirements": [
+            "hospital room"
+          ],
+          "entity_states": [
+            {
+              "schema": "amp_observation_cross_beat_entity_v1",
+              "entity_id": "ent-5f00ce118bd9",
+              "entity_type": "CHARACTER",
+              "canonical_name": "Nurse",
+              "beat_id": "vb-dlg-1",
+              "scene_id": "sc-1",
+              "dialogue_id": "dlg-1",
+              "presence": "PRESENT",
+              "observed_state": "standing beside",
+              "location": "hospital room",
+              "location_cluster": "hospital",
+              "relationships": [],
+              "observed_relationships": [
+                {
+                  "raw": "nurse beside hospital bed",
+                  "relation": "beside",
+                  "beat_id": "vb-dlg-1"
+                }
+              ],
+              "source_evidence": {
+                "observation_status": "PASS",
+                "provider_verified": true,
+                "heuristic": false,
+                "evidence_source": "PROVIDER_VERIFIED",
+                "provider": null,
+                "frame_path": null
+              },
+              "observation_status": "PASS",
+              "customer_id": "",
+              "channel_id": "",
+              "job_id": "",
+              "clip_similarity_is_not_identity_pass": true,
+              "created_at": 1788950690.6448534
+            },
+            {
+              "schema": "amp_observation_cross_beat_entity_v1",
+              "entity_id": "ent-40c9926265ba",
+              "entity_type": "LOCATION",
+              "canonical_name": "hospital room",
+              "beat_id": "vb-dlg-1",
+              "scene_id": "sc-1",
+              "dialogue_id": "dlg-1",
+              "presence": "PRESENT",
+              "observed_state": "hospital room",
+              "location": "hospital room",
+              "location_cluster": "hospital",
+              "relationships": [],
+              "observed_relationships": [
+                {
+                  "raw": "nurse beside hospital bed",
+                  "relation": "beside",
+                  "beat_id": "vb-dlg-1"
+                }
+              ],
+              "source_evidence": {
+                "observation_status": "PASS",
+                "provider_verified": true,
+                "heuristic": false,
+                "evidence_source": "PROVIDER_VERIFIED",
+                "provider": null,
+                "frame_path": null
+              },
+              "observation_status": "PASS",
+              "customer_id": "",
+              "channel_id": "",
+              "job_id": "",
+              "clip_similarity_is_not_identity_pass": true,
+              "created_at": 1788950690.6448534
+            }
+          ],
+          "status": "PASS",
+          "issues": [],
+          "keyword_only_pass_forbidden": true,
+          "unknown_as_pass": false
+        },
+        "dims_checked": [
+          "subject",
+          "entity",
+          "relationship",
+          "location",
+          "action",
+          "emotion"
+        ],
+        "keyword_only_pass_forbidden": true,
+        "provider_verified": true,
+        "heuristic": false,
+        "timing_overlap_is_not_semantic_pass": true
+      },
+      "status": "PASS",
+      "second_semantic_gate": false,
+      "timing_overlap_is_not_semantic_pass": true,
+      "creates_final_gate": false
+    },
+    {
+      "dialogue_id": "dlg-2",
+      "transcript_alignment": {
+        "class": "MATCH",
+        "similarity_is_not_production_pass": true
+      },
+      "visual_alignment": {
+        "dialogue_id": "dlg-2",
+        "status": "PASS",
+        "reason": "provider_supports_dialogue_visual_intent",
+        "binding": {
+          "dialogue_id": "dlg-2",
+          "beat_id": "vb-dlg-2",
+          "scene_id": "sc-1",
+          "entity_requirements": [
+            "Nurse",
+            "hospital room"
+          ],
+          "action_requirements": [
+            "approaching"
+          ],
+          "relationship_requirements": [],
+          "location_requirements": [
+            "hospital room"
+          ],
+          "entity_states": [
+            {
+              "schema": "amp_observation_cross_beat_entity_v1",
+              "entity_id": "ent-5f00ce118bd9",
+              "entity_type": "CHARACTER",
+              "canonical_name": "Nurse",
+              "beat_id": "vb-dlg-2",
+              "scene_id": "sc-1",
+              "dialogue_id": "dlg-2",
+              "presence": "PRESENT",
+              "observed_state": "approaching",
+              "location": "hospital room",
+              "location_cluster": "hospital",
+              "relationships": [],
+              "observed_relationships": [
+                {
+                  "raw": "nurse beside hospital bed",
+                  "relation": "beside",
+                  "beat_id": "vb-dlg-2"
+                }
+              ],
+              "source_evidence": {
+                "observation_status": "PASS",
+                "provider_verified": true,
+                "heuristic": false,
+                "evidence_source": "PROVIDER_VERIFIED",
+                "provider": null,
+                "frame_path": null
+              },
+              "observation_status": "PASS",
+              "customer_id": "",
+              "channel_id": "",
+              "job_id": "",
+              "clip_similarity_is_not_identity_pass": true,
+              "created_at": 1788950690.6448534
+            },
+            {
+              "schema": "amp_observation_cross_beat_entity_v1",
+              "entity_id": "ent-40c9926265ba",
+              "entity_type": "LOCATION",
+              "canonical_name": "hospital room",
+              "beat_id": "vb-dlg-2",
+              "scene_id": "sc-1",
+              "dialogue_id": "dlg-2",
+              "presence": "PRESENT",
+              "observed_state": "hospital room",
+              "location": "hospital room",
+              "location_cluster": "hospital",
+              "relationships": [],
+              "observed_relationships": [
+                {
+                  "raw": "nurse beside hospital bed",
+                  "relation": "beside",
+                  "beat_id": "vb-dlg-2"
+                }
+              ],
+              "source_evidence": {
+                "observation_status": "PASS",
+                "provider_verified": true,
+                "heuristic": false,
+                "evidence_source": "PROVIDER_VERIFIED",
+                "provider": null,
+                "frame_path": null
+              },
+              "observation_status": "PASS",
+              "customer_id": "",
+              "channel_id": "",
+              "job_id": "",
+              "clip_similarity_is_not_identity_pass": true,
+              "created_at": 1788950690.6448534
+            }
+          ],
+          "status": "PASS",
+          "issues": [],
+          "keyword_only_pass_forbidden": true,
+          "unknown_as_pass": false
+        },
+        "dims_checked": [
+          "subject",
+          "entity",
+          "relationship",
+          "location",
+          "action",
+          "emotion"
+        ],
+        "keyword_only_pass_forbidden": true,
+        "provider_verified": true,
+        "heuristic": false,
+        "timing_overlap_is_not_semantic_pass": true
+      },
+      "status": "PASS",
+      "second_semantic_gate": false,
+      "timing_overlap_is_not_semantic_pass": true,
+      "creates_final_gate": false
+    },
+    {
+      "dialogue_id": "dlg-3",
+      "transcript_alignment": {
+        "class": "MATCH",
+        "similarity_is_not_production_pass": true
+      },
+      "visual_alignment": {
+        "dialogue_id": "dlg-3",
+        "status": "PASS",
+        "reason": "provider_supports_dialogue_visual_intent",
+        "binding": {
+          "dialogue_id": "dlg-3",
+          "beat_id": "vb-dlg-3",
+          "scene_id": "sc-2",
+          "entity_requirements": [
+            "Nurse",
+            "hospital room"
+          ],
+          "action_requirements": [
+            "at bedside"
+          ],
+          "relationship_requirements": [],
+          "location_requirements": [
+            "hospital room"
+          ],
+          "entity_states": [
+            {
+              "schema": "amp_observation_cross_beat_entity_v1",
+              "entity_id": "ent-5f00ce118bd9",
+              "entity_type": "CHARACTER",
+              "canonical_name": "Nurse",
+              "beat_id": "vb-dlg-3",
+              "scene_id": "sc-2",
+              "dialogue_id": "dlg-3",
+              "presence": "PRESENT",
+              "observed_state": "at bedside",
+              "location": "hospital room",
+              "location_cluster": "hospital",
+              "relationships": [],
+              "observed_relationships": [
+                {
+                  "raw": "nurse beside hospital bed",
+                  "relation": "beside",
+                  "beat_id": "vb-dlg-3"
+                }
+              ],
+              "source_evidence": {
+                "observation_status": "PASS",
+                "provider_verified": true,
+                "heuristic": false,
+                "evidence_source": "PROVIDER_VERIFIED",
+                "provider": null,
+                "frame_path": null
+              },
+              "observation_status": "PASS",
+              "customer_id": "",
+              "channel_id": "",
+              "job_id": "",
+              "clip_similarity_is_not_identity_pass": true,
+              "created_at": 1788950690.6448534
+            },
+            {
+              "schema": "amp_observation_cross_beat_entity_v1",
+              "entity_id": "ent-40c9926265ba",
+              "entity_type": "LOCATION",
+              "canonical_name": "hospital room",
+              "beat_id": "vb-dlg-3",
+              "scene_id": "sc-2",
+              "dialogue_id": "dlg-3",
+              "presence": "PRESENT",
+              "observed_state": "hospital room",
+              "location": "hospital room",
+              "location_cluster": "hospital",
+              "relationships": [],
+              "observed_relationships": [
+                {
+                  "raw": "nurse beside hospital bed",
+                  "relation": "beside",
+                  "beat_id": "vb-dlg-3"
+                }
+              ],
+              "source_evidence": {
+                "observation_status": "PASS",
+                "provider_verified": true,
+                "heuristic": false,
+                "evidence_source": "PROVIDER_VERIFIED",
+                "provider": null,
+                "frame_path": null
+              },
+              "observation_status": "PASS",
+              "customer_id": "",
+              "channel_id": "",
+              "job_id": "",
+              "clip_similarity_is_not_identity_pass": true,
+              "created_at": 1788950690.645861
+            }
+          ],
+          "status": "PASS",
+          "issues": [],
+          "keyword_only_pass_forbidden": true,
+          "unknown_as_pass": false
+        },
+        "dims_checked": [
+          "subject",
+          "entity",
+          "relationship",
+          "location",
+          "action",
+          "emotion"
+        ],
+        "keyword_only_pass_forbidden": true,
+        "provider_verified": true,
+        "heuristic": false,
+        "timing_overlap_is_not_semantic_pass": true
+      },
+      "status": "PASS",
+      "second_semantic_gate": false,
+      "timing_overlap_is_not_semantic_pass": true,
+      "creates_final_gate": false
+    }
+  ],
+  "second_audio_engine": false,
+  "second_asr_engine": false,
+  "second_voice_identity_authority": false,
+  "second_subtitle_engine": false,
+  "second_quality_engine": false,
+  "second_repair_engine": false,
+  "second_ffmpeg_engine": false,
+  "second_duration_engine": false,
+  "second_semantic_gate": false,
+  "unknown_as_pass": false,
+  "unknown_as_fail": false,
+  "creates_final_gate": false,
+  "customer_id": "c11_marathon_customer",
+  "channel_id": "4",
+  "job_id": "job2108",
+  "created_at": 1788950690.645861
+}

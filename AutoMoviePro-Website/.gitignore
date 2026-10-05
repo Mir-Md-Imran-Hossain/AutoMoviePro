@@ -1,0 +1,7 @@
+config.php
+config.local.php
+.local-demo
+storage/*.sqlite
+storage/*.sqlite-journal
+assets/uploads/*
+!assets/uploads/.gitkeep

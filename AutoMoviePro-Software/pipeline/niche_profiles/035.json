@@ -1,0 +1,79 @@
+{
+  "niche_id": 35,
+  "name": "Cosmic Mysteries",
+  "slug": "cosmic-mysteries",
+  "style_family": "science",
+  "status": "VERIFIED",
+  "topic_seeds": [
+    "What new evidence reframes the story of Cosmic Mysteries Black inside Cosmic Mysteries",
+    "How Cosmic Mysteries Black still shapes public curiosity about Cosmic Mysteries",
+    "What new evidence reframes the story of Monitor inside Cosmic Mysteries",
+    "How Monitor still shapes public curiosity about Cosmic Mysteries",
+    "What new evidence reframes the story of Generate inside Cosmic Mysteries",
+    "How Generate still shapes public curiosity about Cosmic Mysteries"
+  ],
+  "seo_angles": [
+    "What new evidence reframes the story of Cosmic Mysteries Black inside Cosmic Mysteries",
+    "How Cosmic Mysteries Black still shapes public curiosity about Cosmic Mysteries",
+    "What new evidence reframes the story of Monitor inside Cosmic Mysteries",
+    "How Monitor still shapes public curiosity about Cosmic Mysteries"
+  ],
+  "forbidden_visuals": [
+    "talking-head lip-sync avatar",
+    "burned-in captions",
+    "watermark",
+    "modern meme text",
+    "off-niche stock office B-roll"
+  ],
+  "preferred_subjects": [
+    "lab instrument close-up",
+    "diagrammatic mechanism metaphor",
+    "field measurement site"
+  ],
+  "lighting_default": "teal/cyan lab grade, high contrast, shallow DOF",
+  "face_policy": "no talking-head lip-sync avatar; cinematic B-roll preferred",
+  "dialogue_tone": "clear explainer; one mechanism per beat",
+  "audio_ambience": "clean room tone, soft electronic texture",
+  "research_hints": [
+    "Prefer primary evidence and concrete entities for Cosmic Mysteries",
+    "Avoid generic niche-label topics; require specific place/person/event/mechanism",
+    "7–9 second spoken beats with story continuity across scenes"
+  ],
+  "topic_prompt_overlay": "NICHE LOCK (Cosmic Mysteries): only propose topics that fit this niche's video type. Video type: Black holes, dark matter, exoplanets — exploring the universe's most mind-bending puzzles with visual analogies and simple science. Follow niche topic strategy: Monitor NASA/ESA announcements, new astrophysics papers, or viral space content. Generate a topic that makes complex science accessible.",
+  "video_prompt_overlay": "NICHE VISUAL LOCK (Cosmic Mysteries / science): Generate a 7–9 second dialogue clip based on the topic `{topic}`. Each dialogue must be awe-inspiring. For each dialogue, generate: - **Audio Generation Prompt:** Voice — deep, awed, with cosmic drone. - **Video Generation Prompt:** Detailed visual — star field, nebula, or black hole simulation. No characters. Lighting: deep space glow. Maintain same cosmic color palette. Forbidden: talking-head lip-sync avatar, burned-in captions, watermark, modern meme text, off-niche stock office B-roll. Preferred subjects: lab instrument close-up, diagrammatic mechanism metaphor, field measurement site. Lighting: teal/cyan lab grade, high contrast, shallow DOF. Face policy: no talking-head lip-sync avatar; cinematic B-roll preferred. Dialogue tone: clear explainer; one mechanism per beat. Ambience: clean room tone, soft electronic texture.",
+  "i18n": {
+    "en": {
+      "name": "Cosmic Mysteries",
+      "blurb": "Black holes, dark matter, exoplanets — exploring the universe's most mind-bending puzzles with visual analogies and simple science."
+    },
+    "bn": {
+      "name": "মহাজাগতিক রহস্য",
+      "blurb": "ভিডিও টাইপ: Black holes, dark matter, exoplanets — exploring the universe's most mind-bending puzzles with visual analogies and simple science."
+    },
+    "hi": {
+      "name": "ब्रह्मांडीय रहस्य",
+      "blurb": "वीडियो प्रकार: Black holes, dark matter, exoplanets — exploring the universe's most mind-bending puzzles with visual analogies and simple science."
+    },
+    "ur": {
+      "name": "کائناتی اسرار",
+      "blurb": "ویڈیو کی قسم: Black holes, dark matter, exoplanets — exploring the universe's most mind-bending puzzles with visual analogies and simple science."
+    },
+    "ta": {
+      "name": "அண்ட மர்மங்கள்",
+      "blurb": "வீடியோ வகை: Black holes, dark matter, exoplanets — exploring the universe's most mind-bending puzzles with visual analogies and simple science."
+    },
+    "ml": {
+      "name": "പ്രപഞ്ച രഹസ്യങ്ങൾ",
+      "blurb": "വീഡിയോ തരം: Black holes, dark matter, exoplanets — exploring the universe's most mind-bending puzzles with visual analogies and simple science."
+    }
+  },
+  "source": "Nish.Md + deterministic research",
+  "research_notes": [
+    "Marathon researched at 2026-09-10T08:30:12Z",
+    "Video type length=131",
+    "Topic prompt length=136",
+    "Video prompt length=374",
+    "Seeds=6"
+  ],
+  "verified_at": "2026-09-10T08:30:12Z"
+}

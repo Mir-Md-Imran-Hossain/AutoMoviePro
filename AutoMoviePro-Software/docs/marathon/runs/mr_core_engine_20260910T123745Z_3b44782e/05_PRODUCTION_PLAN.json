@@ -1,0 +1,7 @@
+{
+  "ok": false,
+  "error": "malformed_script_plan",
+  "error_code": "malformed_script",
+  "status": "BLOCKED",
+  "message": "3 validation errors for ScriptPlan beats.0.retention_role Extra inputs are not permitted [type=extra_forbidden, input_value='pattern_interrupt', input_type=str] For further information visit https://errors.pydantic.dev/2.13/v/extra_forbidd…"
+}

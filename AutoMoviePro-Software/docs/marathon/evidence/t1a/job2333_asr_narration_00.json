@@ -1,0 +1,236 @@
+{
+  "label": "REAL_MEDIA_GOLDEN_ASR",
+  "job": "job2333",
+  "audio": "E:\\All Updaye Project\\AutoMovie_Pro_SAAS_Final_Update\\AutoMoviePro-Software\\data\\customer_generation_work\\c11_marathon_customer\\job2333\\narration_00.m4a",
+  "wall_sec": 2.22,
+  "observation": {
+    "schema": "amp_observation_speech_timing_v1",
+    "schema_version": "amp_observation_speech_timing_v1.1",
+    "status": "PASS",
+    "reason": "observed",
+    "observation_executed": true,
+    "provider_verified": true,
+    "tool": "faster-whisper",
+    "tool_version": "1.2.1",
+    "tool_alternate_rejected": "whisperx",
+    "selection_reason": "windows_lighter_deps_cpu_fallback_already_installed",
+    "model": "tiny",
+    "model_size": "tiny",
+    "device": "cpu",
+    "compute_type": "int8",
+    "language_detected": "en",
+    "language_probability": 1.0,
+    "audio_path": "E:\\All Updaye Project\\AutoMovie_Pro_SAAS_Final_Update\\AutoMoviePro-Software\\data\\customer_generation_work\\c11_marathon_customer\\job2333\\narration_00.m4a",
+    "source_hash": "c67563bca5ece7af6263516a85dfd1f4efaa6a088de9221006417858bedc3bd5",
+    "observed_at": "2026-09-11T05:18:49.063524+00:00",
+    "transcript": "Most viewers miss this about JWST and infrared spectra exoplanet atmospheres, most people miss this, we don't see exoplanets as dots. Stay for the evidence.",
+    "segments": [
+      {
+        "start": 0.0,
+        "end": 8.04,
+        "text": "Most viewers miss this about JWST and infrared spectra exoplanet atmospheres, most people miss this, we don't see exoplanets as dots."
+      },
+      {
+        "start": 9.04,
+        "end": 9.88,
+        "text": "Stay for the evidence."
+      }
+    ],
+    "words": [
+      {
+        "word": "Most",
+        "start": 0.0,
+        "end": 0.54,
+        "probability": 0.9295526146888733
+      },
+      {
+        "word": "viewers",
+        "start": 0.54,
+        "end": 0.82,
+        "probability": 0.9961389899253845
+      },
+      {
+        "word": "miss",
+        "start": 0.82,
+        "end": 1.14,
+        "probability": 0.7610430121421814
+      },
+      {
+        "word": "this",
+        "start": 1.14,
+        "end": 1.38,
+        "probability": 0.9919834733009338
+      },
+      {
+        "word": "about",
+        "start": 1.38,
+        "end": 1.62,
+        "probability": 0.9779158234596252
+      },
+      {
+        "word": "JWST",
+        "start": 1.62,
+        "end": 2.48,
+        "probability": 0.7569997310638428
+      },
+      {
+        "word": "and",
+        "start": 2.48,
+        "end": 2.72,
+        "probability": 0.3082994222640991
+      },
+      {
+        "word": "infrared",
+        "start": 2.72,
+        "end": 3.14,
+        "probability": 0.556126058101654
+      },
+      {
+        "word": "spectra",
+        "start": 3.14,
+        "end": 3.6,
+        "probability": 0.8116241097450256
+      },
+      {
+        "word": "exoplanet",
+        "start": 3.6,
+        "end": 4.24,
+        "probability": 0.9415193994839987
+      },
+      {
+        "word": "atmospheres,",
+        "start": 4.24,
+        "end": 4.84,
+        "probability": 0.9758999149004618
+      },
+      {
+        "word": "most",
+        "start": 5.02,
+        "end": 5.24,
+        "probability": 0.9325556755065918
+      },
+      {
+        "word": "people",
+        "start": 5.24,
+        "end": 5.52,
+        "probability": 0.9979883432388306
+      },
+      {
+        "word": "miss",
+        "start": 5.52,
+        "end": 5.72,
+        "probability": 0.9866194128990173
+      },
+      {
+        "word": "this,",
+        "start": 5.72,
+        "end": 6.04,
+        "probability": 0.9966443777084351
+      },
+      {
+        "word": "we",
+        "start": 6.26,
+        "end": 6.3,
+        "probability": 0.9748201370239258
+      },
+      {
+        "word": "don't",
+        "start": 6.3,
+        "end": 6.52,
+        "probability": 0.9924290180206299
+      },
+      {
+        "word": "see",
+        "start": 6.52,
+        "end": 6.72,
+        "probability": 0.9976617097854614
+      },
+      {
+        "word": "exoplanets",
+        "start": 6.72,
+        "end": 7.28,
+        "probability": 0.9701285163561503
+      },
+      {
+        "word": "as",
+        "start": 7.28,
+        "end": 7.54,
+        "probability": 0.991572380065918
+      },
+      {
+        "word": "dots.",
+        "start": 7.54,
+        "end": 8.04,
+        "probability": 0.9772458672523499
+      },
+      {
+        "word": "Stay",
+        "start": 9.04,
+        "end": 9.18,
+        "probability": 0.978324830532074
+      },
+      {
+        "word": "for",
+        "start": 9.18,
+        "end": 9.38,
+        "probability": 0.951066255569458
+      },
+      {
+        "word": "the",
+        "start": 9.38,
+        "end": 9.58,
+        "probability": 0.9366282224655151
+      },
+      {
+        "word": "evidence.",
+        "start": 9.58,
+        "end": 9.88,
+        "probability": 0.9207048416137695
+      }
+    ],
+    "speakers": [],
+    "speaker_observation": "UNAVAILABLE",
+    "speaker_note": "faster-whisper path does not claim diarization; pyannote deferred",
+    "metrics": {
+      "segment_count": 2,
+      "word_count": 25,
+      "words_with_timestamps": 25,
+      "word_timestamps_requested": true,
+      "word_timestamps_present": true,
+      "duration_span_sec": 9.88,
+      "model_load_sec": 1.414,
+      "asr_execution_sec": 0.626,
+      "from_cache": false,
+      "audio_bytes": 137012
+    },
+    "provenance": {
+      "audio_path": "E:\\All Updaye Project\\AutoMovie_Pro_SAAS_Final_Update\\AutoMoviePro-Software\\data\\customer_generation_work\\c11_marathon_customer\\job2333\\narration_00.m4a",
+      "source_hash": "c67563bca5ece7af6263516a85dfd1f4efaa6a088de9221006417858bedc3bd5",
+      "download_root": "E:\\All Updaye Project\\AutoMovie_Pro_SAAS_Final_Update\\AutoMoviePro-Software\\data\\models\\faster-whisper",
+      "model": "tiny",
+      "device": "cpu",
+      "compute_type": "int8",
+      "beam_size": 1,
+      "word_timestamps": true,
+      "tool": "faster-whisper",
+      "tool_version": "1.2.1",
+      "observed_at": "2026-09-11T05:18:49.063524+00:00",
+      "schema_version": "amp_observation_speech_timing_v1.1"
+    },
+    "timestamp_validation": {
+      "ok": true,
+      "issues": [],
+      "segment_count": 2,
+      "word_count": 25
+    },
+    "issues": [],
+    "unknown_as_pass": false,
+    "authority": "observation_only",
+    "does_not_replace": [
+      "AudioPlan",
+      "VoiceIdentity",
+      "planned_srt"
+    ],
+    "claims_semantic_truth": false
+  }
+}

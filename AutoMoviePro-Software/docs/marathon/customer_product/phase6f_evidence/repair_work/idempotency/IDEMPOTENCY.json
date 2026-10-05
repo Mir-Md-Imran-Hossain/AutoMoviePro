@@ -1,0 +1,28 @@
+{
+  "records": {
+    "cf4a1207aeb319ede01b8978600825eadce1f01e27ecb7d1faba9edea448b8d9": {
+      "fingerprint": "cf4a1207aeb319ede01b8978600825eadce1f01e27ecb7d1faba9edea448b8d9",
+      "job_id": "phase6e-vb-6f-repair",
+      "stage": "visual",
+      "entity_id": "scene-06-dlg-vb-6f-repair-vb-6f-repair",
+      "provider": "fallback_image_video",
+      "request_state": "SUCCEEDED",
+      "result_reference": "E:\\All Updaye Project\\AutoMovie_Pro_SAAS_Final_Update\\AutoMoviePro-Software\\docs\\marathon\\customer_product\\phase6f_evidence\\repair_work\\repair_vb6f_targeted.mp4",
+      "result_hash": "17168dc081dd4597022c03a656d338d8b2a3ba3e817e22e726651e0b0ccace87",
+      "attempt": 1,
+      "max_attempts": 3,
+      "created_at": 1788948993.4765701,
+      "updated_at": 1788948993.5098774,
+      "completed_at": 1788948993.5089545,
+      "metadata": {
+        "worker_id": "",
+        "lock_key": "e:\\all updaye project\\automovie_pro_saas_final_update\\automoviepro-software\\docs\\marathon\\customer_product\\phase6f_evidence\\repair_work\\idempotency\\idempotency.json"
+      }
+    }
+  },
+  "metrics": {
+    "generation_started": 1,
+    "generation_completed": 1,
+    "checkpoint_count": 1
+  }
+}

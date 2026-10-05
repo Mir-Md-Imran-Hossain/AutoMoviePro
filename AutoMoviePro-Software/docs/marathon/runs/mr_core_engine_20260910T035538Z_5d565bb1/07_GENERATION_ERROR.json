@@ -1,0 +1,5 @@
+{
+  "ok": false,
+  "error": "scene_localize_failed:2:scene_localize_incomplete:2:hi,ur,ta,ml",
+  "traceback": "Traceback (most recent call last):\n  File \"E:\\All Updaye Project\\AutoMovie_Pro_SAAS_Final_Update\\AutoMoviePro-Software\\pipeline\\video_pipeline.py\", line 1129, in generate_video\n    raise RuntimeError(\nRuntimeError: scene_localize_incomplete:2:hi,ur,ta,ml\n\nThe above exception was the direct cause of the following exception:\n\nTraceback (most recent call last):\n  File \"E:\\All Updaye Project\\AutoMovie_Pro_SAAS_Final_Update\\AutoMoviePro-Software\\scripts\\cert_core_engine_real_marathon.py\", line 495, in generate_real\n    result = generate_video(\n             ^^^^^^^^^^^^^^^\n  File \"E:\\All Updaye Project\\AutoMovie_Pro_SAAS_Final_Update\\AutoMoviePro-Software\\pipeline\\video_pipeline.py\", line 1147, in generate_video\n    raise RuntimeError(f\"scene_localize_failed:{idx}:{loc_exc}\") from loc_exc\nRuntimeError: scene_localize_failed:2:scene_localize_incomplete:2:hi,ur,ta,ml\n"
+}

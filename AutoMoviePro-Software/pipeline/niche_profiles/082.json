@@ -1,0 +1,79 @@
+{
+  "niche_id": 82,
+  "name": "Occult Sciences",
+  "slug": "occult-sciences",
+  "style_family": "science",
+  "status": "VERIFIED",
+  "topic_seeds": [
+    "What new evidence reframes the story of Occult Sciences Astrology inside Occult Sciences",
+    "How Occult Sciences Astrology still shapes public curiosity about Occult Sciences",
+    "What new evidence reframes the story of Check inside Occult Sciences",
+    "How Check still shapes public curiosity about Occult Sciences",
+    "What new evidence reframes the story of Generate inside Occult Sciences",
+    "How Generate still shapes public curiosity about Occult Sciences"
+  ],
+  "seo_angles": [
+    "What new evidence reframes the story of Occult Sciences Astrology inside Occult Sciences",
+    "How Occult Sciences Astrology still shapes public curiosity about Occult Sciences",
+    "What new evidence reframes the story of Check inside Occult Sciences",
+    "How Check still shapes public curiosity about Occult Sciences"
+  ],
+  "forbidden_visuals": [
+    "talking-head lip-sync avatar",
+    "burned-in captions",
+    "watermark",
+    "modern meme text",
+    "off-niche stock office B-roll"
+  ],
+  "preferred_subjects": [
+    "lab instrument close-up",
+    "diagrammatic mechanism metaphor",
+    "field measurement site"
+  ],
+  "lighting_default": "teal/cyan lab grade, high contrast, shallow DOF",
+  "face_policy": "no talking-head lip-sync avatar; cinematic B-roll preferred",
+  "dialogue_tone": "clear explainer; one mechanism per beat",
+  "audio_ambience": "clean room tone, soft electronic texture",
+  "research_hints": [
+    "Prefer primary evidence and concrete entities for Occult Sciences",
+    "Avoid generic niche-label topics; require specific place/person/event/mechanism",
+    "7–9 second spoken beats with story continuity across scenes"
+  ],
+  "topic_prompt_overlay": "NICHE LOCK (Occult Sciences): only propose topics that fit this niche's video type. Video type: Astrology, alchemy, herbal magic — how they were once mainstream sciences and why they faded or persisted. Follow niche topic strategy: Check new age trends, historical research, or museum exhibits. Generate a topic about an occult practice that influenced modern science.",
+  "video_prompt_overlay": "NICHE VISUAL LOCK (Occult Sciences / science): Generate a 7–9 second dialogue clip based on the topic `{topic}`. Each dialogue must be mystical and thoughtful. For each dialogue, generate: - **Audio Generation Prompt:** Voice — mysterious, with bubbling potion and soft chants. - **Video Generation Prompt:** Detailed visual — an alchemist's lab or astrologer's study. Character: scholar in robe. Lighting: candlelight. Maintain same robe and candle. Forbidden: talking-head lip-sync avatar, burned-in captions, watermark, modern meme text, off-niche stock office B-roll. Preferred subjects: lab instrument close-up, diagrammatic mechanism metaphor, field measurement site. Lighting: teal/cyan lab grade, high contrast, shallow DOF. Face policy: no talking-head lip-sync avatar; cinematic B-roll preferred. Dialogue tone: clear explainer; one mechanism per beat. Ambience: clean room tone, soft electronic texture.",
+  "i18n": {
+    "en": {
+      "name": "Occult Sciences",
+      "blurb": "Astrology, alchemy, herbal magic — how they were once mainstream sciences and why they faded or persisted."
+    },
+    "bn": {
+      "name": "গুপ্ত বিজ্ঞান",
+      "blurb": "ভিডিও টাইপ: Astrology, alchemy, herbal magic — how they were once mainstream sciences and why they faded or persisted."
+    },
+    "hi": {
+      "name": "गुप्त विज्ञान",
+      "blurb": "वीडियो प्रकार: Astrology, alchemy, herbal magic — how they were once mainstream sciences and why they faded or persisted."
+    },
+    "ur": {
+      "name": "غیب علوم",
+      "blurb": "ویڈیو کی قسم: Astrology, alchemy, herbal magic — how they were once mainstream sciences and why they faded or persisted."
+    },
+    "ta": {
+      "name": "மறை அறிவியல்",
+      "blurb": "வீடியோ வகை: Astrology, alchemy, herbal magic — how they were once mainstream sciences and why they faded or persisted."
+    },
+    "ml": {
+      "name": "ഗൂഢ ശാസ്ത്രങ്ങൾ",
+      "blurb": "വീഡിയോ തരം: Astrology, alchemy, herbal magic — how they were once mainstream sciences and why they faded or persisted."
+    }
+  },
+  "source": "Nish.Md + deterministic research",
+  "research_notes": [
+    "Marathon researched at 2026-09-10T08:30:19Z",
+    "Video type length=106",
+    "Topic prompt length=136",
+    "Video prompt length=403",
+    "Seeds=6"
+  ],
+  "verified_at": "2026-09-10T08:30:19Z"
+}

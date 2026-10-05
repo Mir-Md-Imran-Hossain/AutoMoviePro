@@ -1,0 +1,520 @@
+{
+  "ok": true,
+  "approval": {
+    "state": "APPROVED",
+    "publishes": false,
+    "means_generated": false,
+    "updated_at": "2026-09-10T18:44:44.271059",
+    "note": "customer-approved script — not generated/rendered/published"
+  },
+  "c05_handoff": {
+    "ready": true,
+    "status": "APPROVED_SCRIPT",
+    "path": "ScriptPlan → C05-TRS → C05-S → C05-GA → C05-GP → C05-GX → C05-MR",
+    "note": "Handoff ready — media generation is a later step",
+    "topic_id": "topic-961c3672c3466f71",
+    "topic_text": "How solar wind strips Mars of atmosphere — the MAVEN evidence explained",
+    "script_plan_topic": "How solar wind strips Mars of atmosphere — the MAVEN evidence explained"
+  },
+  "workflow": {
+    "contract": "C06-B",
+    "project_id": "trs-ch4",
+    "owner_login_id": "c11_marathon_customer",
+    "channel_id": 4,
+    "updated_at": "2026-09-10T18:44:44.271059",
+    "revision": 362,
+    "topic": {
+      "topic_id": "topic-961c3672c3466f71",
+      "project_id": "trs-ch4",
+      "owner_login_id": "c11_marathon_customer",
+      "topic_text": "How solar wind strips Mars of atmosphere — the MAVEN evidence explained",
+      "topic_source": "MANUAL",
+      "topic_status": "COMPLETED",
+      "selected_at": "2026-09-10T18:44:33.762924",
+      "created_at": "2026-09-06T22:13:16.391863",
+      "updated_at": "2026-09-10T18:44:33.762924",
+      "duplicate": {
+        "verdict": "UNIQUE",
+        "blocked": false,
+        "matched": "",
+        "detail": {
+          "verdict": "UNIQUE",
+          "confidence": 0.88,
+          "evidence": {
+            "rule_version": "1.0.0"
+          },
+          "comparison_target": "",
+          "layer": "all_passed"
+        },
+        "authority": "BUILD-04G.duplicate + product_registry"
+      },
+      "blocked_reason": null,
+      "error_code": null
+    },
+    "suggestions": [
+      {
+        "topic_id": "t-7043c2c50947d4e3",
+        "topic_text": "How radio telescopes catch fast radio bursts from distant magnetars",
+        "canonical_topic": "How radio telescopes catch fast radio bursts from distant magnetars",
+        "source": "SUGGESTED",
+        "authority": "BUILD-04G.discovery",
+        "external_api": false
+      },
+      {
+        "topic_id": "t-61bde167336b015b",
+        "topic_text": "How gravitational-wave detectors hear black-hole mergers across the universe",
+        "canonical_topic": "How gravitational-wave detectors hear black-hole mergers across the universe",
+        "source": "SUGGESTED",
+        "authority": "BUILD-04G.discovery",
+        "external_api": false
+      },
+      {
+        "topic_id": "t-5a076a77d8b0e969",
+        "topic_text": "How solar wind strips Mars of atmosphere — the MAVEN evidence explained",
+        "canonical_topic": "How solar wind strips Mars of atmosphere — the MAVEN evidence explained",
+        "source": "SUGGESTED",
+        "authority": "BUILD-04G.discovery",
+        "external_api": false
+      },
+      {
+        "topic_id": "t-c0d90e538ec14bac",
+        "topic_text": "How neutron albedo mapping finds hydrogen under the Moon's dark crater floors",
+        "canonical_topic": "How neutron albedo mapping finds hydrogen under the Moon's dark crater floors",
+        "source": "SUGGESTED",
+        "authority": "BUILD-04G.discovery",
+        "external_api": false
+      },
+      {
+        "topic_id": "t-4298b094fa8420b6",
+        "topic_text": "How Europa's ice shell could hide a salty ocean — the evidence so far",
+        "canonical_topic": "How Europa's ice shell could hide a salty ocean — the evidence so far",
+        "source": "SUGGESTED",
+        "authority": "BUILD-04G.discovery",
+        "external_api": false
+      },
+      {
+        "topic_id": "t-ee4fb6b2f470c41f",
+        "topic_text": "Why Venus' thick clouds hide surface heat that melts lead — the physics",
+        "canonical_topic": "Why Venus' thick clouds hide surface heat that melts lead — the physics",
+        "source": "SUGGESTED",
+        "authority": "BUILD-04G.discovery",
+        "external_api": false
+      },
+      {
+        "topic_id": "t-9f718aacb1d3c331",
+        "topic_text": "How Starliner and commercial crew change ISS science return timelines",
+        "canonical_topic": "How Starliner and commercial crew change ISS science return timelines",
+        "source": "SUGGESTED",
+        "authority": "BUILD-04G.discovery",
+        "external_api": false
+      },
+      {
+        "topic_id": "t-0702bd364ab658b9",
+        "topic_text": "What dark energy surveys measure when galaxies stretch apart",
+        "canonical_topic": "What dark energy surveys measure when galaxies stretch apart",
+        "source": "SUGGESTED",
+        "authority": "BUILD-04G.discovery",
+        "external_api": false
+      }
+    ],
+    "reserved": [
+      {
+        "topic_id": "t-71bf9f81dcbd29c3",
+        "topic_text": "One fact about space science you missed today",
+        "source": "RESERVED",
+        "authority": "BUILD-04G.reserve_queue"
+      },
+      {
+        "topic_id": "t-042828b9295d915b",
+        "topic_text": "Quick space science insight for general",
+        "source": "RESERVED",
+        "authority": "BUILD-04G.reserve_queue"
+      },
+      {
+        "topic_id": "t-87e7edb4fdfcde63",
+        "topic_text": "space science: 60-second breakdown",
+        "source": "RESERVED",
+        "authority": "BUILD-04G.reserve_queue"
+      }
+    ],
+    "research": {
+      "research_status": "COMPLETED",
+      "fact_count": 2,
+      "evidence_count": 2,
+      "source_count": 0,
+      "confidence": null,
+      "unresolved_items": [],
+      "capability": {
+        "provider_capability": "LOCAL_FACTPACK",
+        "provider_mode": "LIVE_LOCAL",
+        "external_live_research": "UNAVAILABLE",
+        "is_external_live": false,
+        "external_api": false,
+        "note": "LOCAL_FACTPACK must not be claimed as EXTERNAL_LIVE_RESEARCH"
+      },
+      "gate": {
+        "verdict": "PASS",
+        "reason": "sufficient_evidence",
+        "issues": [],
+        "claim_count": 2,
+        "supported_count": 2,
+        "verified_count": 0,
+        "unsupported_count": 0,
+        "classified": [
+          {
+            "claim": "Research query: how solar wind strips mars of atmosphere the maven evidence explained\nLanguage: en\nRegion:",
+            "class": "SUPPORTED",
+            "source": "research_notes"
+          },
+          {
+            "claim": "Additional context on How solar wind strips Mars of atmosphere — the MAVEN evidence explained from configured research scope.",
+            "class": "SUPPORTED",
+            "source": "live_research"
+          }
+        ]
+      },
+      "fingerprint": "253b848a921ca124f6d27db08daa90a916a372a4ad338f4bf4473293618b82fd",
+      "action": "execute",
+      "error_code": null,
+      "error_summary": null,
+      "live_research_complete": false,
+      "status_label": "Research complete (local FactPack)",
+      "has_fact_pack": true
+    },
+    "script": {
+      "script_status": "COMPLETED",
+      "preview": {
+        "topic": "How solar wind strips Mars of atmosphere — the MAVEN evidence explained",
+        "hook": "Welcome to the story of How solar wind strips Mars of atmosphere — the MAVEN evidence explained.",
+        "beat_count": 3,
+        "dialogue_count": 3,
+        "scene_count": 3,
+        "entities": [],
+        "locations": [],
+        "relationships": [],
+        "dialogue_ids": [
+          "dlg-01",
+          "dlg-02",
+          "dlg-03"
+        ],
+        "beat_ids": [
+          "dlg-01",
+          "dlg-02",
+          "dlg-03"
+        ],
+        "scene_ids": [
+          "scene-00",
+          "scene-01",
+          "scene-02"
+        ],
+        "beats_summary": [
+          {
+            "beat_id": "dlg-01",
+            "narration": "Welcome to the story of How solar wind strips Mars of atmosphere — the MAVEN evidence explained.",
+            "speaker": "Narrator",
+            "emotion": "",
+            "entity_refs": [],
+            "location_ref": "",
+            "estimated_duration_sec": 7.08
+          },
+          {
+            "beat_id": "dlg-02",
+            "narration": "Researchers uncovered new evidence about How solar wind strips Mars of atmosphere — the MAVEN evidence explained.",
+            "speaker": "Narrator",
+            "emotion": "",
+            "entity_refs": [],
+            "location_ref": "",
+            "estimated_duration_sec": 7.08
+          },
+          {
+            "beat_id": "dlg-03",
+            "narration": "This is why How solar wind strips Mars of atmosphere — the MAVEN evidence explained still matters today. So the takeaway on How.",
+            "speaker": "Narrator",
+            "emotion": "",
+            "entity_refs": [],
+            "location_ref": "",
+            "estimated_duration_sec": 9.0
+          }
+        ]
+      },
+      "scene_count": 3,
+      "beat_count": 3,
+      "dialogue_count": 3,
+      "quality": {
+        "status": "UNKNOWN",
+        "issues": [
+          "Dialogue estimated 9.6s exceeds configured max 9.0s."
+        ],
+        "actions": [],
+        "preflight": {
+          "status": "BLOCKED",
+          "ok": false,
+          "blocked": true,
+          "blocks": [
+            "missing_retention_roles"
+          ],
+          "warnings": [],
+          "unknowns": [],
+          "confidence": "DETERMINISTIC",
+          "claims_human_written": false,
+          "claims_guaranteed_engagement": false,
+          "method": "DETERMINISTIC_PREFLIGHT",
+          "note": "stylistic judgments are HEURISTIC; naturalness not proven"
+        },
+        "authority": "BUILD-04F.evaluate_script_quality + TRS preflight"
+      },
+      "approval": {
+        "state": "APPROVED",
+        "publishes": false,
+        "means_generated": false,
+        "updated_at": "2026-09-10T18:44:44.271059",
+        "note": "customer-approved script — not generated/rendered/published"
+      },
+      "error_code": null,
+      "error_summary": null,
+      "script_action": "reuse",
+      "dialogue_segments_count": 3,
+      "has_script_plan": true
+    },
+    "script_plan": {
+      "schema_version": "1.0.0",
+      "id": "7fbea1ff-7639-40a2-8fb9-fec1ea5c16db",
+      "created_at": "2026-09-10 12:44:44.256063+00:00",
+      "updated_at": null,
+      "topic_id": "topic-961c3672c3466f71",
+      "topic": "How solar wind strips Mars of atmosphere — the MAVEN evidence explained",
+      "format": "SHORT",
+      "language": "en",
+      "target_duration_sec": 60.0,
+      "hook": "Welcome to the story of How solar wind strips Mars of atmosphere — the MAVEN evidence explained.",
+      "narrative_structure": [
+        "hook",
+        "development",
+        "payoff"
+      ],
+      "sections": [
+        "hook",
+        "development",
+        "payoff"
+      ],
+      "beats": [
+        {
+          "schema_version": "1.0.0",
+          "id": "15776989-3e52-4e4d-a4d0-74aff7eb6ffe",
+          "created_at": "2026-09-10 12:44:44.256063+00:00",
+          "updated_at": null,
+          "beat_id": "dlg-01",
+          "order": 0,
+          "section_role": "hook",
+          "narration": "Welcome to the story of How solar wind strips Mars of atmosphere — the MAVEN evidence explained.",
+          "speaker": "Narrator",
+          "emotion": "",
+          "emotion_intensity": 0.5,
+          "action_intent": "",
+          "entity_refs": [],
+          "location_ref": "",
+          "temporal_context": "",
+          "continuity_deps": [],
+          "visual_implication": "Welcome to the story of How solar wind strips Mars of atmosphere — the MAVEN evidence explained.",
+          "claim_ids": [],
+          "evidence_refs": [
+            "N01"
+          ],
+          "estimated_duration_sec": 7.08,
+          "retention_role": "",
+          "open_loop": "",
+          "payoff_for": "",
+          "emotional_intent": "",
+          "metadata": {
+            "legacy_visual_prompt_ownership": {
+              "semantic_visual_intent": "",
+              "legacy_provider_prompts": {
+                "visual_prompt": "cinematic intro of How solar wind strips Mars of atmosphere — the MAVEN evidence explained",
+                "exact_ai_video_prompt": "vertical cinematic intro How solar wind strips Mars of atmosphere — the MAVEN evidence explained",
+                "visual_query": "How solar wind strips Mars of atmosphere — the MAVEN evidence explained establishing shot"
+              },
+              "legacy_fields_present": true,
+              "canonical_owner": "C05-S DirectedVisualBeat → prompt_compiler",
+              "script_owns_provider_visual_prompts": false,
+              "ownership": "LEGACY_DEPRECATED",
+              "note": "visual_prompt/exact_ai_video_prompt are compatibility fields, not ScriptPlan authority"
+            },
+            "dialogue_id": "dlg-01",
+            "scene_id": "scene-00"
+          }
+        },
+        {
+          "schema_version": "1.0.0",
+          "id": "441354be-0860-4b37-8c75-994294be8c71",
+          "created_at": "2026-09-10 12:44:44.256063+00:00",
+          "updated_at": null,
+          "beat_id": "dlg-02",
+          "order": 1,
+          "section_role": "development",
+          "narration": "Researchers uncovered new evidence about How solar wind strips Mars of atmosphere — the MAVEN evidence explained.",
+          "speaker": "Narrator",
+          "emotion": "",
+          "emotion_intensity": 0.5,
+          "action_intent": "",
+          "entity_refs": [],
+          "location_ref": "",
+          "temporal_context": "",
+          "continuity_deps": [],
+          "visual_implication": "Researchers uncovered new evidence about How solar wind strips Mars of atmosphere — the MAVEN evidence explained.",
+          "claim_ids": [],
+          "evidence_refs": [
+            "N01"
+          ],
+          "estimated_duration_sec": 7.08,
+          "retention_role": "",
+          "open_loop": "",
+          "payoff_for": "",
+          "emotional_intent": "",
+          "metadata": {
+            "legacy_visual_prompt_ownership": {
+              "semantic_visual_intent": "",
+              "legacy_provider_prompts": {
+                "visual_prompt": "artifact close-up How solar wind strips Mars of atmosphere — the MAVEN evidence explained",
+                "exact_ai_video_prompt": "macro discovery shot How solar wind strips Mars of atmosphere — the MAVEN evidence explained",
+                "visual_query": "How solar wind strips Mars of atmosphere — the MAVEN evidence explained discovery"
+              },
+              "legacy_fields_present": true,
+              "canonical_owner": "C05-S DirectedVisualBeat → prompt_compiler",
+              "script_owns_provider_visual_prompts": false,
+              "ownership": "LEGACY_DEPRECATED",
+              "note": "visual_prompt/exact_ai_video_prompt are compatibility fields, not ScriptPlan authority"
+            },
+            "dialogue_id": "dlg-02",
+            "scene_id": "scene-01"
+          }
+        },
+        {
+          "schema_version": "1.0.0",
+          "id": "1d219cd4-a4fc-4060-9022-9a606cd32e9d",
+          "created_at": "2026-09-10 12:44:44.256063+00:00",
+          "updated_at": null,
+          "beat_id": "dlg-03",
+          "order": 2,
+          "section_role": "payoff",
+          "narration": "This is why How solar wind strips Mars of atmosphere — the MAVEN evidence explained still matters today. So the takeaway on How.",
+          "speaker": "Narrator",
+          "emotion": "",
+          "emotion_intensity": 0.5,
+          "action_intent": "",
+          "entity_refs": [],
+          "location_ref": "",
+          "temporal_context": "",
+          "continuity_deps": [],
+          "visual_implication": "This is why How solar wind strips Mars of atmosphere — the MAVEN evidence explained still matters today. So the takeaway",
+          "claim_ids": [],
+          "evidence_refs": [
+            "N01"
+          ],
+          "estimated_duration_sec": 9.0,
+          "retention_role": "ending",
+          "open_loop": "",
+          "payoff_for": "main_open_loop",
+          "emotional_intent": "",
+          "metadata": {
+            "legacy_visual_prompt_ownership": {
+              "semantic_visual_intent": "",
+              "legacy_provider_prompts": {
+                "visual_prompt": "sunset silhouette How solar wind strips Mars of atmosphere — the MAVEN evidence explained",
+                "exact_ai_video_prompt": "cinematic outro How solar wind strips Mars of atmosphere — the MAVEN evidence explained",
+                "visual_query": "How solar wind strips Mars of atmosphere — the MAVEN evidence explained outro"
+              },
+              "legacy_fields_present": true,
+              "canonical_owner": "C05-S DirectedVisualBeat → prompt_compiler",
+              "script_owns_provider_visual_prompts": false,
+              "ownership": "LEGACY_DEPRECATED",
+              "note": "visual_prompt/exact_ai_video_prompt are compatibility fields, not ScriptPlan authority"
+            },
+            "dialogue_id": "dlg-03",
+            "scene_id": "scene-02"
+          }
+        }
+      ],
+      "claims": [
+        {
+          "id": "N01",
+          "claim": "Research query: how solar wind strips mars of atmosphere the maven evidence explained\nLanguage: en\nRegion:",
+          "evidence": "research_notes",
+          "source": "research_notes",
+          "confidence": 0.4,
+          "freshness": "UNVERIFIED"
+        },
+        {
+          "id": "L02",
+          "claim": "Additional context on How solar wind strips Mars of atmosphere — the MAVEN evidence explained from configured research scope.",
+          "evidence": "secondary",
+          "source": "live_research",
+          "confidence": 0.6,
+          "freshness": "recent"
+        }
+      ],
+      "evidence_refs": [
+        "N01",
+        "L02"
+      ],
+      "fact_pack_id": "",
+      "ending": "This is why How solar wind strips Mars of atmosphere — the MAVEN evidence explained still matters today. So the takeaway on How.",
+      "payoff": "This is why How solar wind strips Mars of atmosphere — the MAVEN evidence explained still matters today. So the takeaway on How.",
+      "cta": "",
+      "estimated_duration_sec": 60.0,
+      "legacy_visual_prompts": [
+        {
+          "scene_index": 0,
+          "fields": {
+            "visual_prompt": "cinematic intro of How solar wind strips Mars of atmosphere — the MAVEN evidence explained",
+            "exact_ai_video_prompt": "vertical cinematic intro How solar wind strips Mars of atmosphere — the MAVEN evidence explained",
+            "visual_query": "How solar wind strips Mars of atmosphere — the MAVEN evidence explained establishing shot"
+          },
+          "ownership": "LEGACY_DEPRECATED"
+        },
+        {
+          "scene_index": 1,
+          "fields": {
+            "visual_prompt": "artifact close-up How solar wind strips Mars of atmosphere — the MAVEN evidence explained",
+            "exact_ai_video_prompt": "macro discovery shot How solar wind strips Mars of atmosphere — the MAVEN evidence explained",
+            "visual_query": "How solar wind strips Mars of atmosphere — the MAVEN evidence explained discovery"
+          },
+          "ownership": "LEGACY_DEPRECATED"
+        },
+        {
+          "scene_index": 2,
+          "fields": {
+            "visual_prompt": "sunset silhouette How solar wind strips Mars of atmosphere — the MAVEN evidence explained",
+            "exact_ai_video_prompt": "cinematic outro How solar wind strips Mars of atmosphere — the MAVEN evidence explained",
+            "visual_query": "How solar wind strips Mars of atmosphere — the MAVEN evidence explained outro"
+          },
+          "ownership": "LEGACY_DEPRECATED"
+        }
+      ],
+      "metadata": {
+        "source": "niche_director_normalized",
+        "visual_prompt_canonical_owner": "C05-S",
+        "script_owns_provider_visual_prompts": false,
+        "created_at": "2026-09-10T18:44:44.256063",
+        "dialogue_window_repairs": [],
+        "dialogue_window_enforced": true
+      }
+    },
+    "c05_handoff": {
+      "ready": true,
+      "status": "APPROVED_SCRIPT",
+      "path": "ScriptPlan → C05-TRS → C05-S → C05-GA → C05-GP → C05-GX → C05-MR",
+      "note": "Handoff ready — media generation is a later step",
+      "topic_id": "topic-961c3672c3466f71",
+      "topic_text": "How solar wind strips Mars of atmosphere — the MAVEN evidence explained",
+      "script_plan_topic": "How solar wind strips Mars of atmosphere — the MAVEN evidence explained"
+    },
+    "actions": {
+      "select_topic": true,
+      "research": true,
+      "generate_script": true,
+      "review_script": true,
+      "approve_script": false,
+      "c05_handoff_ready": true
+    }
+  }
+}

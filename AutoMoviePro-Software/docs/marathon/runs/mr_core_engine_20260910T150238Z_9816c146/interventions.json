@@ -1,0 +1,11 @@
+[
+  {
+    "intervention_id": "INT-001",
+    "ts": "2026-09-10T15:02:39Z",
+    "reason": "research_live_failed",
+    "detected_problem": "None",
+    "root_cause": "provider_or_research_runtime",
+    "action": "retry_research_mock_labeled",
+    "authority": "customer_trs_workflow.run_research"
+  }
+]

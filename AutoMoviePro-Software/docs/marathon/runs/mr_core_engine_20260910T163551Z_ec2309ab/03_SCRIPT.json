@@ -1,0 +1,1361 @@
+{
+  "ok": true,
+  "script": {
+    "script_status": "COMPLETED",
+    "script_plan": {
+      "schema_version": "1.0.0",
+      "id": "b6ddae16-7573-477c-97a1-b339584a47cb",
+      "created_at": "2026-09-10 16:36:23.075640+00:00",
+      "updated_at": null,
+      "topic_id": "topic-4bebb4ac14bca2e0",
+      "topic": "How JWST mid-infrared spectra fingerprint exoplanet atmospheres",
+      "format": "SHORT",
+      "language": "en",
+      "target_duration_sec": 60.0,
+      "hook": "What if I told you we can now fingerprint exoplanet atmospheres? This is the power of JWST's mid-infrared spectra.",
+      "narrative_structure": [
+        "hook",
+        "context",
+        "development",
+        "reveal",
+        "payoff",
+        "ending"
+      ],
+      "sections": [
+        "hook",
+        "context",
+        "development",
+        "reveal",
+        "payoff",
+        "ending"
+      ],
+      "beats": [
+        {
+          "schema_version": "1.0.0",
+          "id": "166fcff9-9567-4d72-ad81-cb2d2ea44ca7",
+          "created_at": "2026-09-10 16:36:23.075640+00:00",
+          "updated_at": null,
+          "beat_id": "beat-1",
+          "order": 0,
+          "section_role": "hook",
+          "narration": "What if I told you we can now fingerprint exoplanet atmospheres? This is the power of JWST's mid-infrared spectra.",
+          "speaker": "Narrator",
+          "emotion": "",
+          "emotion_intensity": 0.5,
+          "action_intent": "",
+          "entity_refs": [],
+          "location_ref": "",
+          "temporal_context": "",
+          "continuity_deps": [],
+          "visual_implication": "What if I told you we can now fingerprint exoplanet atmospheres? This is the power of JWST's mid-infrared spectra.",
+          "claim_ids": [],
+          "evidence_refs": [
+            "N01"
+          ],
+          "estimated_duration_sec": 7.92,
+          "retention_role": "pattern_interrupt",
+          "open_loop": "",
+          "payoff_for": "",
+          "emotional_intent": "",
+          "metadata": {
+            "legacy_visual_prompt_ownership": {
+              "semantic_visual_intent": "",
+              "legacy_provider_prompts": {
+                "visual_prompt": "cinematic hero of JWST in action, continuous motion",
+                "exact_ai_video_prompt": "VERTICAL 9:16 portrait (1080x1920) cinematic slow push-in of the JWST telescope capturing mid-infrared light, niche color grade, continuous motion, no burned captions, no watermark, no talking-head REQUIRED on-screen anchors: How JWST mid-infrared spectra fingerprint exoplanet atmospheres, mid-infrared spectra, fingerprint, told, exoplanet, atmospheres, power. Visual slot: How JWST mid-infrared spectra fingerprint exoplanet atmospheres JWST mid-infrared spectra: What if I told you we can now fingerprint exoplanet atmospheres? This — slow cinematic push-in establishing hero.",
+                "visual_query": "JWST telescope mid-infrared"
+              },
+              "legacy_fields_present": true,
+              "canonical_owner": "C05-S DirectedVisualBeat → prompt_compiler",
+              "script_owns_provider_visual_prompts": false,
+              "ownership": "LEGACY_DEPRECATED",
+              "note": "visual_prompt/exact_ai_video_prompt are compatibility fields, not ScriptPlan authority"
+            },
+            "dialogue_id": "beat-1",
+            "scene_id": "scene-00"
+          },
+          "retention": {
+            "role": "pattern_interrupt",
+            "window_start_sec": 0,
+            "window_end_sec": 2,
+            "job": "Pattern Interrupt",
+            "open_loop": null,
+            "payoff_for": null
+          }
+        },
+        {
+          "schema_version": "1.0.0",
+          "id": "1425b109-40b9-4fbc-9f8e-271540fa6f86",
+          "created_at": "2026-09-10 16:36:23.075640+00:00",
+          "updated_at": null,
+          "beat_id": "beat-2",
+          "order": 1,
+          "section_role": "context",
+          "narration": "JWST's mid-infrared spectra allow us to detect the chemical fingerprints of gases in exoplanet atmospheres. But how does this technology work?",
+          "speaker": "Narrator",
+          "emotion": "",
+          "emotion_intensity": 0.5,
+          "action_intent": "",
+          "entity_refs": [],
+          "location_ref": "",
+          "temporal_context": "",
+          "continuity_deps": [],
+          "visual_implication": "JWST's mid-infrared spectra allow us to detect the chemical fingerprints of gases in exoplanet atmospheres. But how does",
+          "claim_ids": [],
+          "evidence_refs": [
+            "N01"
+          ],
+          "estimated_duration_sec": 8.75,
+          "retention_role": "curiosity_gap",
+          "open_loop": "",
+          "payoff_for": "",
+          "emotional_intent": "",
+          "metadata": {
+            "legacy_visual_prompt_ownership": {
+              "semantic_visual_intent": "",
+              "legacy_provider_prompts": {
+                "visual_prompt": "detailed view of JWST's spectrograph, continuous motion",
+                "exact_ai_video_prompt": "VERTICAL 9:16 portrait (1080x1920) close-up of JWST's mid-infrared spectrograph in action, niche color grade, continuous motion, no burned captions, no watermark, no talking-head REQUIRED on-screen anchors: How JWST mid-infrared spectra fingerprint exoplanet atmospheres, mid-infrared spectra, chemical fingerprints, exoplanet atmospheres, spectra, allow, detect, chemical. Visual slot: How JWST mid-infrared spectra fingerprint exoplanet atmospheres mid-infrared spectra chemical fingerprints: JWST's mid-infrared spectra allow us to detect the chemical fingerprints of gases — environmental wide into subject emphasis.",
+                "visual_query": "JWST spectrograph close-up"
+              },
+              "legacy_fields_present": true,
+              "canonical_owner": "C05-S DirectedVisualBeat → prompt_compiler",
+              "script_owns_provider_visual_prompts": false,
+              "ownership": "LEGACY_DEPRECATED",
+              "note": "visual_prompt/exact_ai_video_prompt are compatibility fields, not ScriptPlan authority"
+            },
+            "dialogue_id": "beat-2",
+            "scene_id": "scene-01"
+          },
+          "retention": {
+            "role": "curiosity_gap",
+            "window_start_sec": 2,
+            "window_end_sec": 5,
+            "job": "Curiosity Gap",
+            "open_loop": null,
+            "payoff_for": null
+          }
+        },
+        {
+          "schema_version": "1.0.0",
+          "id": "c3c51c04-7e5d-4148-a64e-2208291e1642",
+          "created_at": "2026-09-10 16:36:23.075640+00:00",
+          "updated_at": null,
+          "beat_id": "beat-3",
+          "order": 2,
+          "section_role": "development",
+          "narration": "JWST can identify gases like water vapor and carbon dioxide. This opens doors to understanding habitability on other planets. What gases can we find next?",
+          "speaker": "Narrator",
+          "emotion": "",
+          "emotion_intensity": 0.5,
+          "action_intent": "",
+          "entity_refs": [],
+          "location_ref": "",
+          "temporal_context": "",
+          "continuity_deps": [],
+          "visual_implication": "JWST can identify gases like water vapor and carbon dioxide. This opens doors to understanding habitability on other pla",
+          "claim_ids": [],
+          "evidence_refs": [
+            "N01"
+          ],
+          "estimated_duration_sec": 10.42,
+          "retention_role": "first_payoff",
+          "open_loop": "",
+          "payoff_for": "",
+          "emotional_intent": "",
+          "metadata": {
+            "legacy_visual_prompt_ownership": {
+              "semantic_visual_intent": "",
+              "legacy_provider_prompts": {
+                "visual_prompt": "animated simulation of exoplanet atmosphere with gases, continuous motion",
+                "exact_ai_video_prompt": "VERTICAL 9:16 portrait (1080x1920) cinematic view of exoplanet atmosphere simulation showing gases, niche color grade, continuous motion, no burned captions, no watermark, no talking-head REQUIRED on-screen anchors: How JWST mid-infrared spectra fingerprint exoplanet atmospheres, water vapor, carbon dioxide, habitability, JWST, identify, like, vapor. Visual slot: How JWST mid-infrared spectra fingerprint exoplanet atmospheres water vapor carbon dioxide: JWST can identify gases like water vapor and carbon dioxide. This opens — revealing detail with controlled camera move.",
+                "visual_query": "exoplanet atmosphere simulation"
+              },
+              "legacy_fields_present": true,
+              "canonical_owner": "C05-S DirectedVisualBeat → prompt_compiler",
+              "script_owns_provider_visual_prompts": false,
+              "ownership": "LEGACY_DEPRECATED",
+              "note": "visual_prompt/exact_ai_video_prompt are compatibility fields, not ScriptPlan authority"
+            },
+            "dialogue_id": "beat-3",
+            "scene_id": "scene-02"
+          },
+          "retention": {
+            "role": "first_payoff",
+            "window_start_sec": 5,
+            "window_end_sec": 10,
+            "job": "First Payoff",
+            "open_loop": null,
+            "payoff_for": null
+          }
+        },
+        {
+          "schema_version": "1.0.0",
+          "id": "b900f210-5900-485a-bcfb-11c64357b6ce",
+          "created_at": "2026-09-10 16:36:23.075640+00:00",
+          "updated_at": null,
+          "beat_id": "beat-4",
+          "order": 3,
+          "section_role": "reveal",
+          "narration": "These findings could reshape our search for extraterrestrial life. How does this affect our search for life beyond Earth?",
+          "speaker": "Narrator",
+          "emotion": "",
+          "emotion_intensity": 0.5,
+          "action_intent": "",
+          "entity_refs": [],
+          "location_ref": "",
+          "temporal_context": "",
+          "continuity_deps": [],
+          "visual_implication": "These findings could reshape our search for extraterrestrial life. How does this affect our search for life beyond Earth",
+          "claim_ids": [],
+          "evidence_refs": [
+            "N01"
+          ],
+          "estimated_duration_sec": 7.92,
+          "retention_role": "question",
+          "open_loop": "",
+          "payoff_for": "",
+          "emotional_intent": "",
+          "metadata": {
+            "legacy_visual_prompt_ownership": {
+              "semantic_visual_intent": "",
+              "legacy_provider_prompts": {
+                "visual_prompt": "scientists working with JWST data, continuous motion",
+                "exact_ai_video_prompt": "VERTICAL 9:16 portrait (1080x1920) cinematic montage of scientists analyzing data from JWST, niche color grade, continuous motion, no burned captions, no watermark, no talking-head REQUIRED on-screen anchors: How JWST mid-infrared spectra fingerprint exoplanet atmospheres, search for life, extraterrestrial, JWST findings, findings, reshape, search, life, does. Visual slot: How JWST mid-infrared spectra fingerprint exoplanet atmospheres search for life extraterrestrial: These findings could reshape our search for extraterrestrial life. How does this — macro process detail, continuous motion.",
+                "visual_query": "scientists analyzing JWST data"
+              },
+              "legacy_fields_present": true,
+              "canonical_owner": "C05-S DirectedVisualBeat → prompt_compiler",
+              "script_owns_provider_visual_prompts": false,
+              "ownership": "LEGACY_DEPRECATED",
+              "note": "visual_prompt/exact_ai_video_prompt are compatibility fields, not ScriptPlan authority"
+            },
+            "dialogue_id": "beat-4",
+            "scene_id": "scene-03"
+          },
+          "retention": {
+            "role": "question",
+            "window_start_sec": null,
+            "window_end_sec": null,
+            "job": "question",
+            "open_loop": null,
+            "payoff_for": null
+          }
+        },
+        {
+          "schema_version": "1.0.0",
+          "id": "666f9d96-063a-438a-b8b9-fd63990572ab",
+          "created_at": "2026-09-10 16:36:23.075640+00:00",
+          "updated_at": null,
+          "beat_id": "beat-5",
+          "order": 4,
+          "section_role": "payoff",
+          "narration": "The implications of JWST's discoveries extend to future missions. What does this mean for our next steps in space exploration?",
+          "speaker": "Narrator",
+          "emotion": "",
+          "emotion_intensity": 0.5,
+          "action_intent": "",
+          "entity_refs": [],
+          "location_ref": "",
+          "temporal_context": "",
+          "continuity_deps": [],
+          "visual_implication": "The implications of JWST's discoveries extend to future missions. What does this mean for our next steps in space explor",
+          "claim_ids": [],
+          "evidence_refs": [
+            "N01"
+          ],
+          "estimated_duration_sec": 8.33,
+          "retention_role": "evidence",
+          "open_loop": "",
+          "payoff_for": "",
+          "emotional_intent": "",
+          "metadata": {
+            "legacy_visual_prompt_ownership": {
+              "semantic_visual_intent": "",
+              "legacy_provider_prompts": {
+                "visual_prompt": "planning future space missions, continuous motion",
+                "exact_ai_video_prompt": "VERTICAL 9:16 portrait (1080x1920) cinematic view of future space missions planning, niche color grade, continuous motion, no burned captions, no watermark, no talking-head REQUIRED on-screen anchors: How JWST mid-infrared spectra fingerprint exoplanet atmospheres, space exploration, JWST implications, implications, JWST, discoveries, extend. Visual slot: How JWST mid-infrared spectra fingerprint exoplanet atmospheres future missions space exploration: The implications of JWST's discoveries extend to future missions. What does this — wide atmospheric hold then gentle drift.",
+                "visual_query": "future space missions planning"
+              },
+              "legacy_fields_present": true,
+              "canonical_owner": "C05-S DirectedVisualBeat → prompt_compiler",
+              "script_owns_provider_visual_prompts": false,
+              "ownership": "LEGACY_DEPRECATED",
+              "note": "visual_prompt/exact_ai_video_prompt are compatibility fields, not ScriptPlan authority"
+            },
+            "dialogue_id": "beat-5",
+            "scene_id": "scene-04"
+          },
+          "retention": {
+            "role": "evidence",
+            "window_start_sec": null,
+            "window_end_sec": null,
+            "job": "evidence",
+            "open_loop": null,
+            "payoff_for": null
+          }
+        },
+        {
+          "schema_version": "1.0.0",
+          "id": "4d87f020-3dc4-4739-889b-ffa6dabc98bf",
+          "created_at": "2026-09-10 16:36:23.075640+00:00",
+          "updated_at": null,
+          "beat_id": "beat-6",
+          "order": 5,
+          "section_role": "ending",
+          "narration": "JWST's mid-infrared spectra are not just data; they are a key to understanding our universe. What will we discover next. So the takeaway.",
+          "speaker": "Narrator",
+          "emotion": "",
+          "emotion_intensity": 0.5,
+          "action_intent": "",
+          "entity_refs": [],
+          "location_ref": "",
+          "temporal_context": "",
+          "continuity_deps": [],
+          "visual_implication": "JWST's mid-infrared spectra are not just data; they are a key to understanding our universe. What will we discover next.",
+          "claim_ids": [],
+          "evidence_refs": [
+            "N01"
+          ],
+          "estimated_duration_sec": 9.58,
+          "retention_role": "ending",
+          "open_loop": "",
+          "payoff_for": "main_open_loop",
+          "emotional_intent": "",
+          "metadata": {
+            "legacy_visual_prompt_ownership": {
+              "semantic_visual_intent": "",
+              "legacy_provider_prompts": {
+                "visual_prompt": "JWST in space with a slow zoom out, continuous motion",
+                "exact_ai_video_prompt": "VERTICAL 9:16 portrait (1080x1920) cinematic slow zoom out from JWST in space, niche color grade, continuous motion, no burned captions, no watermark, no talking-head REQUIRED on-screen anchors: How JWST mid-infrared spectra fingerprint exoplanet atmospheres, mid-infrared spectra, universe, infrared, spectra, data, understanding. Visual slot: How JWST mid-infrared spectra fingerprint exoplanet atmospheres JWST mid-infrared spectra: JWST's mid-infrared spectra are not just data; they are a key to — closing hero plate with subtle Ken Burns drift.",
+                "visual_query": "JWST in space"
+              },
+              "legacy_fields_present": true,
+              "canonical_owner": "C05-S DirectedVisualBeat → prompt_compiler",
+              "script_owns_provider_visual_prompts": false,
+              "ownership": "LEGACY_DEPRECATED",
+              "note": "visual_prompt/exact_ai_video_prompt are compatibility fields, not ScriptPlan authority"
+            },
+            "dialogue_id": "beat-6",
+            "scene_id": "scene-05"
+          },
+          "retention": {
+            "role": "ending",
+            "window_start_sec": null,
+            "window_end_sec": null,
+            "job": "close_main_loop",
+            "open_loop": null,
+            "payoff_for": "main_open_loop"
+          }
+        }
+      ],
+      "claims": [
+        {
+          "id": "N01",
+          "claim": "Research query: how jwst mid-infrared spectra fingerprint exoplanet atmospheres 32150a6c\nLanguage: en\nRegion:",
+          "evidence": "research_notes",
+          "source": "research_notes",
+          "confidence": 0.4,
+          "freshness": "UNVERIFIED"
+        },
+        {
+          "id": "L02",
+          "claim": "Additional context on How JWST mid-infrared spectra fingerprint exoplanet atmospheres (32150a6c) from configured research scope.",
+          "evidence": "secondary",
+          "source": "live_research",
+          "confidence": 0.6,
+          "freshness": "recent"
+        }
+      ],
+      "evidence_refs": [
+        "N01",
+        "L02"
+      ],
+      "fact_pack_id": "",
+      "ending": "JWST's mid-infrared spectra are not just data; they are a key to understanding our universe. What will we discover next. So the takeaway.",
+      "payoff": "The implications of JWST's discoveries extend to future missions. What does this mean for our next steps in space exploration?",
+      "cta": "",
+      "estimated_duration_sec": 60.0,
+      "legacy_visual_prompts": [
+        {
+          "scene_index": 0,
+          "fields": {
+            "visual_prompt": "cinematic hero of JWST in action, continuous motion",
+            "exact_ai_video_prompt": "VERTICAL 9:16 portrait (1080x1920) cinematic slow push-in of the JWST telescope capturing mid-infrared light, niche color grade, continuous motion, no burned captions, no watermark, no talking-head REQUIRED on-screen anchors: How JWST mid-infrared spectra fingerprint exoplanet atmospheres, mid-infrared spectra, fingerprint, told, exoplanet, atmospheres, power. Visual slot: How JWST mid-infrared spectra fingerprint exoplanet atmospheres JWST mid-infrared spectra: What if I told you we can now fingerprint exoplanet atmospheres? This — slow cinematic push-in establishing hero.",
+            "visual_query": "JWST telescope mid-infrared"
+          },
+          "ownership": "LEGACY_DEPRECATED"
+        },
+        {
+          "scene_index": 1,
+          "fields": {
+            "visual_prompt": "detailed view of JWST's spectrograph, continuous motion",
+            "exact_ai_video_prompt": "VERTICAL 9:16 portrait (1080x1920) close-up of JWST's mid-infrared spectrograph in action, niche color grade, continuous motion, no burned captions, no watermark, no talking-head REQUIRED on-screen anchors: How JWST mid-infrared spectra fingerprint exoplanet atmospheres, mid-infrared spectra, chemical fingerprints, exoplanet atmospheres, spectra, allow, detect, chemical. Visual slot: How JWST mid-infrared spectra fingerprint exoplanet atmospheres mid-infrared spectra chemical fingerprints: JWST's mid-infrared spectra allow us to detect the chemical fingerprints of gases — environmental wide into subject emphasis.",
+            "visual_query": "JWST spectrograph close-up"
+          },
+          "ownership": "LEGACY_DEPRECATED"
+        },
+        {
+          "scene_index": 2,
+          "fields": {
+            "visual_prompt": "animated simulation of exoplanet atmosphere with gases, continuous motion",
+            "exact_ai_video_prompt": "VERTICAL 9:16 portrait (1080x1920) cinematic view of exoplanet atmosphere simulation showing gases, niche color grade, continuous motion, no burned captions, no watermark, no talking-head REQUIRED on-screen anchors: How JWST mid-infrared spectra fingerprint exoplanet atmospheres, water vapor, carbon dioxide, habitability, JWST, identify, like, vapor. Visual slot: How JWST mid-infrared spectra fingerprint exoplanet atmospheres water vapor carbon dioxide: JWST can identify gases like water vapor and carbon dioxide. This opens — revealing detail with controlled camera move.",
+            "visual_query": "exoplanet atmosphere simulation"
+          },
+          "ownership": "LEGACY_DEPRECATED"
+        },
+        {
+          "scene_index": 3,
+          "fields": {
+            "visual_prompt": "scientists working with JWST data, continuous motion",
+            "exact_ai_video_prompt": "VERTICAL 9:16 portrait (1080x1920) cinematic montage of scientists analyzing data from JWST, niche color grade, continuous motion, no burned captions, no watermark, no talking-head REQUIRED on-screen anchors: How JWST mid-infrared spectra fingerprint exoplanet atmospheres, search for life, extraterrestrial, JWST findings, findings, reshape, search, life, does. Visual slot: How JWST mid-infrared spectra fingerprint exoplanet atmospheres search for life extraterrestrial: These findings could reshape our search for extraterrestrial life. How does this — macro process detail, continuous motion.",
+            "visual_query": "scientists analyzing JWST data"
+          },
+          "ownership": "LEGACY_DEPRECATED"
+        },
+        {
+          "scene_index": 4,
+          "fields": {
+            "visual_prompt": "planning future space missions, continuous motion",
+            "exact_ai_video_prompt": "VERTICAL 9:16 portrait (1080x1920) cinematic view of future space missions planning, niche color grade, continuous motion, no burned captions, no watermark, no talking-head REQUIRED on-screen anchors: How JWST mid-infrared spectra fingerprint exoplanet atmospheres, space exploration, JWST implications, implications, JWST, discoveries, extend. Visual slot: How JWST mid-infrared spectra fingerprint exoplanet atmospheres future missions space exploration: The implications of JWST's discoveries extend to future missions. What does this — wide atmospheric hold then gentle drift.",
+            "visual_query": "future space missions planning"
+          },
+          "ownership": "LEGACY_DEPRECATED"
+        },
+        {
+          "scene_index": 5,
+          "fields": {
+            "visual_prompt": "JWST in space with a slow zoom out, continuous motion",
+            "exact_ai_video_prompt": "VERTICAL 9:16 portrait (1080x1920) cinematic slow zoom out from JWST in space, niche color grade, continuous motion, no burned captions, no watermark, no talking-head REQUIRED on-screen anchors: How JWST mid-infrared spectra fingerprint exoplanet atmospheres, mid-infrared spectra, universe, infrared, spectra, data, understanding. Visual slot: How JWST mid-infrared spectra fingerprint exoplanet atmospheres JWST mid-infrared spectra: JWST's mid-infrared spectra are not just data; they are a key to — closing hero plate with subtle Ken Burns drift.",
+            "visual_query": "JWST in space"
+          },
+          "ownership": "LEGACY_DEPRECATED"
+        }
+      ],
+      "metadata": {
+        "source": "niche_director_normalized",
+        "visual_prompt_canonical_owner": "C05-S",
+        "script_owns_provider_visual_prompts": false,
+        "created_at": "2026-09-10T22:36:23.075640",
+        "dialogue_window_repairs": [],
+        "dialogue_window_enforced": true,
+        "retention_blueprint": {
+          "format": "short",
+          "windows": [
+            {
+              "id": "pattern_interrupt",
+              "start_sec": 0,
+              "end_sec": 2,
+              "job": "Pattern Interrupt"
+            },
+            {
+              "id": "curiosity_gap",
+              "start_sec": 2,
+              "end_sec": 5,
+              "job": "Curiosity Gap"
+            },
+            {
+              "id": "first_payoff",
+              "start_sec": 5,
+              "end_sec": 10,
+              "job": "First Payoff"
+            }
+          ],
+          "loop": [
+            "question",
+            "evidence",
+            "payoff",
+            "new_question"
+          ],
+          "min_open_loops": 2,
+          "min_loop_close_ratio": 0.7,
+          "forbid_flat_streak": 2,
+          "require_ending_close": true
+        }
+      },
+      "scenes": []
+    },
+    "preview": {
+      "topic": "How JWST mid-infrared spectra fingerprint exoplanet atmospheres",
+      "hook": "What if I told you we can now fingerprint exoplanet atmospheres? This is the power of JWST's mid-infrared spectra.",
+      "beat_count": 6,
+      "dialogue_count": 6,
+      "scene_count": 6,
+      "entities": [],
+      "locations": [],
+      "relationships": [],
+      "dialogue_ids": [
+        "beat-1",
+        "beat-2",
+        "beat-3",
+        "beat-4",
+        "beat-5",
+        "beat-6"
+      ],
+      "beat_ids": [
+        "beat-1",
+        "beat-2",
+        "beat-3",
+        "beat-4",
+        "beat-5",
+        "beat-6"
+      ],
+      "scene_ids": [
+        "scene-00",
+        "scene-01",
+        "scene-02",
+        "scene-03",
+        "scene-04",
+        "scene-05"
+      ],
+      "beats_summary": [
+        {
+          "beat_id": "beat-1",
+          "narration": "What if I told you we can now fingerprint exoplanet atmospheres? This is the power of JWST's mid-infrared spectra.",
+          "speaker": "Narrator",
+          "emotion": "",
+          "entity_refs": [],
+          "location_ref": "",
+          "estimated_duration_sec": 7.92
+        },
+        {
+          "beat_id": "beat-2",
+          "narration": "JWST's mid-infrared spectra allow us to detect the chemical fingerprints of gases in exoplanet atmospheres. But how does this technology work?",
+          "speaker": "Narrator",
+          "emotion": "",
+          "entity_refs": [],
+          "location_ref": "",
+          "estimated_duration_sec": 8.75
+        },
+        {
+          "beat_id": "beat-3",
+          "narration": "JWST can identify gases like water vapor and carbon dioxide. This opens doors to understanding habitability on other planets. What gases can we find next?",
+          "speaker": "Narrator",
+          "emotion": "",
+          "entity_refs": [],
+          "location_ref": "",
+          "estimated_duration_sec": 10.42
+        },
+        {
+          "beat_id": "beat-4",
+          "narration": "These findings could reshape our search for extraterrestrial life. How does this affect our search for life beyond Earth?",
+          "speaker": "Narrator",
+          "emotion": "",
+          "entity_refs": [],
+          "location_ref": "",
+          "estimated_duration_sec": 7.92
+        },
+        {
+          "beat_id": "beat-5",
+          "narration": "The implications of JWST's discoveries extend to future missions. What does this mean for our next steps in space exploration?",
+          "speaker": "Narrator",
+          "emotion": "",
+          "entity_refs": [],
+          "location_ref": "",
+          "estimated_duration_sec": 8.33
+        },
+        {
+          "beat_id": "beat-6",
+          "narration": "JWST's mid-infrared spectra are not just data; they are a key to understanding our universe. What will we discover next. So the takeaway.",
+          "speaker": "Narrator",
+          "emotion": "",
+          "entity_refs": [],
+          "location_ref": "",
+          "estimated_duration_sec": 9.58
+        }
+      ]
+    },
+    "scene_count": 6,
+    "beat_count": 6,
+    "dialogue_count": 6,
+    "quality": {
+      "status": "PASS",
+      "issues": [],
+      "actions": [],
+      "preflight": {
+        "status": "WARNING",
+        "ok": true,
+        "blocked": false,
+        "blocks": [],
+        "warnings": [
+          "missing_emotional_intent:0",
+          "missing_emotional_intent:1",
+          "missing_emotional_intent:2",
+          "missing_emotional_intent:3",
+          "missing_emotional_intent:4"
+        ],
+        "unknowns": [],
+        "confidence": "HEURISTIC",
+        "claims_human_written": false,
+        "claims_guaranteed_engagement": false,
+        "method": "DETERMINISTIC_PREFLIGHT",
+        "note": "stylistic judgments are HEURISTIC; naturalness not proven"
+      },
+      "authority": "BUILD-04F.evaluate_script_quality + TRS preflight"
+    },
+    "approval": {
+      "state": "READY_FOR_REVIEW",
+      "publishes": false,
+      "means_generated": false
+    },
+    "error_code": null,
+    "error_summary": null,
+    "script_action": "reuse",
+    "dialogue_segments_count": 6
+  },
+  "workflow": {
+    "contract": "C06-B",
+    "project_id": "trs-ch4",
+    "owner_login_id": "c11_marathon_customer",
+    "channel_id": 4,
+    "updated_at": "2026-09-10T22:36:23.078640",
+    "revision": 485,
+    "topic": {
+      "topic_id": "topic-4bebb4ac14bca2e0",
+      "project_id": "trs-ch4",
+      "owner_login_id": "c11_marathon_customer",
+      "topic_text": "How JWST mid-infrared spectra fingerprint exoplanet atmospheres (32150a6c)",
+      "topic_source": "MANUAL",
+      "topic_status": "COMPLETED",
+      "selected_at": "2026-09-10T22:35:52.298419",
+      "created_at": "2026-09-06T22:13:16.391863",
+      "updated_at": "2026-09-10T22:35:52.298419",
+      "duplicate": {
+        "blocked": false,
+        "verdict": "ALLOWED_DUP",
+        "matched": null,
+        "cert_bypass": true
+      },
+      "blocked_reason": null,
+      "error_code": null
+    },
+    "suggestions": [
+      {
+        "topic_id": "t-febb33289bd9d462",
+        "topic_text": "The 2026 space science detail most shorts skip (and why it matters)",
+        "canonical_topic": "The 2026 space science detail most shorts skip (and why it matters)",
+        "source": "SUGGESTED",
+        "authority": "BUILD-04G.discovery",
+        "external_api": false
+      },
+      {
+        "topic_id": "t-a1b5a4327f784c01",
+        "topic_text": "Why space science looks obvious — until you see this evidence",
+        "canonical_topic": "Why space science looks obvious — until you see this evidence",
+        "source": "SUGGESTED",
+        "authority": "BUILD-04G.discovery",
+        "external_api": false
+      },
+      {
+        "topic_id": "t-3b65d372264c01ca",
+        "topic_text": "Quick space science insight: the one mechanism viewers miss",
+        "canonical_topic": "Quick space science insight: the one mechanism viewers miss",
+        "source": "SUGGESTED",
+        "authority": "BUILD-04G.discovery",
+        "external_api": false
+      },
+      {
+        "topic_id": "t-cc0a2811b1e2f01a",
+        "topic_text": "One verified fact about space science that changes the next 60 seconds",
+        "canonical_topic": "One verified fact about space science that changes the next 60 seconds",
+        "source": "SUGGESTED",
+        "authority": "BUILD-04G.discovery",
+        "external_api": false
+      },
+      {
+        "topic_id": "t-fa78693c968bc7a0",
+        "topic_text": "60-second space science myth vs measurement — stay for the payoff",
+        "canonical_topic": "60-second space science myth vs measurement — stay for the payoff",
+        "source": "SUGGESTED",
+        "authority": "BUILD-04G.discovery",
+        "external_api": false
+      }
+    ],
+    "reserved": [
+      {
+        "topic_id": "t-71bf9f81dcbd29c3",
+        "topic_text": "One fact about space science you missed today",
+        "source": "RESERVED",
+        "authority": "BUILD-04G.reserve_queue"
+      },
+      {
+        "topic_id": "t-042828b9295d915b",
+        "topic_text": "Quick space science insight for general",
+        "source": "RESERVED",
+        "authority": "BUILD-04G.reserve_queue"
+      },
+      {
+        "topic_id": "t-87e7edb4fdfcde63",
+        "topic_text": "space science: 60-second breakdown",
+        "source": "RESERVED",
+        "authority": "BUILD-04G.reserve_queue"
+      }
+    ],
+    "research": {
+      "research_status": "COMPLETED",
+      "fact_count": 2,
+      "evidence_count": 2,
+      "source_count": 0,
+      "confidence": null,
+      "unresolved_items": [],
+      "capability": {
+        "provider_capability": "LOCAL_FACTPACK",
+        "provider_mode": "LIVE_LOCAL",
+        "external_live_research": "UNAVAILABLE",
+        "is_external_live": false,
+        "external_api": false,
+        "note": "LOCAL_FACTPACK must not be claimed as EXTERNAL_LIVE_RESEARCH"
+      },
+      "gate": {
+        "verdict": "PASS",
+        "reason": "sufficient_evidence",
+        "issues": [],
+        "claim_count": 2,
+        "supported_count": 2,
+        "verified_count": 0,
+        "unsupported_count": 0,
+        "classified": [
+          {
+            "claim": "Research query: how jwst mid-infrared spectra fingerprint exoplanet atmospheres 32150a6c\nLanguage: en\nRegion:",
+            "class": "SUPPORTED",
+            "source": "research_notes"
+          },
+          {
+            "claim": "Additional context on How JWST mid-infrared spectra fingerprint exoplanet atmospheres (32150a6c) from configured research scope.",
+            "class": "SUPPORTED",
+            "source": "live_research"
+          }
+        ]
+      },
+      "fingerprint": "9077c214dc265b3eed7e829b6cb3bb3ee2dc906fd1059836d16cd6102e4635ac",
+      "action": "execute",
+      "error_code": null,
+      "error_summary": null,
+      "live_research_complete": false,
+      "status_label": "Research complete (local FactPack)",
+      "has_fact_pack": true
+    },
+    "script": {
+      "script_status": "COMPLETED",
+      "preview": {
+        "topic": "How JWST mid-infrared spectra fingerprint exoplanet atmospheres",
+        "hook": "What if I told you we can now fingerprint exoplanet atmospheres? This is the power of JWST's mid-infrared spectra.",
+        "beat_count": 6,
+        "dialogue_count": 6,
+        "scene_count": 6,
+        "entities": [],
+        "locations": [],
+        "relationships": [],
+        "dialogue_ids": [
+          "beat-1",
+          "beat-2",
+          "beat-3",
+          "beat-4",
+          "beat-5",
+          "beat-6"
+        ],
+        "beat_ids": [
+          "beat-1",
+          "beat-2",
+          "beat-3",
+          "beat-4",
+          "beat-5",
+          "beat-6"
+        ],
+        "scene_ids": [
+          "scene-00",
+          "scene-01",
+          "scene-02",
+          "scene-03",
+          "scene-04",
+          "scene-05"
+        ],
+        "beats_summary": [
+          {
+            "beat_id": "beat-1",
+            "narration": "What if I told you we can now fingerprint exoplanet atmospheres? This is the power of JWST's mid-infrared spectra.",
+            "speaker": "Narrator",
+            "emotion": "",
+            "entity_refs": [],
+            "location_ref": "",
+            "estimated_duration_sec": 7.92
+          },
+          {
+            "beat_id": "beat-2",
+            "narration": "JWST's mid-infrared spectra allow us to detect the chemical fingerprints of gases in exoplanet atmospheres. But how does this technology work?",
+            "speaker": "Narrator",
+            "emotion": "",
+            "entity_refs": [],
+            "location_ref": "",
+            "estimated_duration_sec": 8.75
+          },
+          {
+            "beat_id": "beat-3",
+            "narration": "JWST can identify gases like water vapor and carbon dioxide. This opens doors to understanding habitability on other planets. What gases can we find next?",
+            "speaker": "Narrator",
+            "emotion": "",
+            "entity_refs": [],
+            "location_ref": "",
+            "estimated_duration_sec": 10.42
+          },
+          {
+            "beat_id": "beat-4",
+            "narration": "These findings could reshape our search for extraterrestrial life. How does this affect our search for life beyond Earth?",
+            "speaker": "Narrator",
+            "emotion": "",
+            "entity_refs": [],
+            "location_ref": "",
+            "estimated_duration_sec": 7.92
+          },
+          {
+            "beat_id": "beat-5",
+            "narration": "The implications of JWST's discoveries extend to future missions. What does this mean for our next steps in space exploration?",
+            "speaker": "Narrator",
+            "emotion": "",
+            "entity_refs": [],
+            "location_ref": "",
+            "estimated_duration_sec": 8.33
+          },
+          {
+            "beat_id": "beat-6",
+            "narration": "JWST's mid-infrared spectra are not just data; they are a key to understanding our universe. What will we discover next. So the takeaway.",
+            "speaker": "Narrator",
+            "emotion": "",
+            "entity_refs": [],
+            "location_ref": "",
+            "estimated_duration_sec": 9.58
+          }
+        ]
+      },
+      "scene_count": 6,
+      "beat_count": 6,
+      "dialogue_count": 6,
+      "quality": {
+        "status": "PASS",
+        "issues": [],
+        "actions": [],
+        "preflight": {
+          "status": "WARNING",
+          "ok": true,
+          "blocked": false,
+          "blocks": [],
+          "warnings": [
+            "missing_emotional_intent:0",
+            "missing_emotional_intent:1",
+            "missing_emotional_intent:2",
+            "missing_emotional_intent:3",
+            "missing_emotional_intent:4"
+          ],
+          "unknowns": [],
+          "confidence": "HEURISTIC",
+          "claims_human_written": false,
+          "claims_guaranteed_engagement": false,
+          "method": "DETERMINISTIC_PREFLIGHT",
+          "note": "stylistic judgments are HEURISTIC; naturalness not proven"
+        },
+        "authority": "BUILD-04F.evaluate_script_quality + TRS preflight"
+      },
+      "approval": {
+        "state": "READY_FOR_REVIEW",
+        "publishes": false,
+        "means_generated": false
+      },
+      "error_code": null,
+      "error_summary": null,
+      "script_action": "reuse",
+      "dialogue_segments_count": 6,
+      "has_script_plan": true
+    },
+    "script_plan": {
+      "schema_version": "1.0.0",
+      "id": "b6ddae16-7573-477c-97a1-b339584a47cb",
+      "created_at": "2026-09-10 16:36:23.075640+00:00",
+      "updated_at": null,
+      "topic_id": "topic-4bebb4ac14bca2e0",
+      "topic": "How JWST mid-infrared spectra fingerprint exoplanet atmospheres",
+      "format": "SHORT",
+      "language": "en",
+      "target_duration_sec": 60.0,
+      "hook": "What if I told you we can now fingerprint exoplanet atmospheres? This is the power of JWST's mid-infrared spectra.",
+      "narrative_structure": [
+        "hook",
+        "context",
+        "development",
+        "reveal",
+        "payoff",
+        "ending"
+      ],
+      "sections": [
+        "hook",
+        "context",
+        "development",
+        "reveal",
+        "payoff",
+        "ending"
+      ],
+      "beats": [
+        {
+          "schema_version": "1.0.0",
+          "id": "166fcff9-9567-4d72-ad81-cb2d2ea44ca7",
+          "created_at": "2026-09-10 16:36:23.075640+00:00",
+          "updated_at": null,
+          "beat_id": "beat-1",
+          "order": 0,
+          "section_role": "hook",
+          "narration": "What if I told you we can now fingerprint exoplanet atmospheres? This is the power of JWST's mid-infrared spectra.",
+          "speaker": "Narrator",
+          "emotion": "",
+          "emotion_intensity": 0.5,
+          "action_intent": "",
+          "entity_refs": [],
+          "location_ref": "",
+          "temporal_context": "",
+          "continuity_deps": [],
+          "visual_implication": "What if I told you we can now fingerprint exoplanet atmospheres? This is the power of JWST's mid-infrared spectra.",
+          "claim_ids": [],
+          "evidence_refs": [
+            "N01"
+          ],
+          "estimated_duration_sec": 7.92,
+          "retention_role": "pattern_interrupt",
+          "open_loop": "",
+          "payoff_for": "",
+          "emotional_intent": "",
+          "metadata": {
+            "legacy_visual_prompt_ownership": {
+              "semantic_visual_intent": "",
+              "legacy_provider_prompts": {
+                "visual_prompt": "cinematic hero of JWST in action, continuous motion",
+                "exact_ai_video_prompt": "VERTICAL 9:16 portrait (1080x1920) cinematic slow push-in of the JWST telescope capturing mid-infrared light, niche color grade, continuous motion, no burned captions, no watermark, no talking-head REQUIRED on-screen anchors: How JWST mid-infrared spectra fingerprint exoplanet atmospheres, mid-infrared spectra, fingerprint, told, exoplanet, atmospheres, power. Visual slot: How JWST mid-infrared spectra fingerprint exoplanet atmospheres JWST mid-infrared spectra: What if I told you we can now fingerprint exoplanet atmospheres? This — slow cinematic push-in establishing hero.",
+                "visual_query": "JWST telescope mid-infrared"
+              },
+              "legacy_fields_present": true,
+              "canonical_owner": "C05-S DirectedVisualBeat → prompt_compiler",
+              "script_owns_provider_visual_prompts": false,
+              "ownership": "LEGACY_DEPRECATED",
+              "note": "visual_prompt/exact_ai_video_prompt are compatibility fields, not ScriptPlan authority"
+            },
+            "dialogue_id": "beat-1",
+            "scene_id": "scene-00"
+          },
+          "retention": {
+            "role": "pattern_interrupt",
+            "window_start_sec": 0,
+            "window_end_sec": 2,
+            "job": "Pattern Interrupt",
+            "open_loop": null,
+            "payoff_for": null
+          }
+        },
+        {
+          "schema_version": "1.0.0",
+          "id": "1425b109-40b9-4fbc-9f8e-271540fa6f86",
+          "created_at": "2026-09-10 16:36:23.075640+00:00",
+          "updated_at": null,
+          "beat_id": "beat-2",
+          "order": 1,
+          "section_role": "context",
+          "narration": "JWST's mid-infrared spectra allow us to detect the chemical fingerprints of gases in exoplanet atmospheres. But how does this technology work?",
+          "speaker": "Narrator",
+          "emotion": "",
+          "emotion_intensity": 0.5,
+          "action_intent": "",
+          "entity_refs": [],
+          "location_ref": "",
+          "temporal_context": "",
+          "continuity_deps": [],
+          "visual_implication": "JWST's mid-infrared spectra allow us to detect the chemical fingerprints of gases in exoplanet atmospheres. But how does",
+          "claim_ids": [],
+          "evidence_refs": [
+            "N01"
+          ],
+          "estimated_duration_sec": 8.75,
+          "retention_role": "curiosity_gap",
+          "open_loop": "",
+          "payoff_for": "",
+          "emotional_intent": "",
+          "metadata": {
+            "legacy_visual_prompt_ownership": {
+              "semantic_visual_intent": "",
+              "legacy_provider_prompts": {
+                "visual_prompt": "detailed view of JWST's spectrograph, continuous motion",
+                "exact_ai_video_prompt": "VERTICAL 9:16 portrait (1080x1920) close-up of JWST's mid-infrared spectrograph in action, niche color grade, continuous motion, no burned captions, no watermark, no talking-head REQUIRED on-screen anchors: How JWST mid-infrared spectra fingerprint exoplanet atmospheres, mid-infrared spectra, chemical fingerprints, exoplanet atmospheres, spectra, allow, detect, chemical. Visual slot: How JWST mid-infrared spectra fingerprint exoplanet atmospheres mid-infrared spectra chemical fingerprints: JWST's mid-infrared spectra allow us to detect the chemical fingerprints of gases — environmental wide into subject emphasis.",
+                "visual_query": "JWST spectrograph close-up"
+              },
+              "legacy_fields_present": true,
+              "canonical_owner": "C05-S DirectedVisualBeat → prompt_compiler",
+              "script_owns_provider_visual_prompts": false,
+              "ownership": "LEGACY_DEPRECATED",
+              "note": "visual_prompt/exact_ai_video_prompt are compatibility fields, not ScriptPlan authority"
+            },
+            "dialogue_id": "beat-2",
+            "scene_id": "scene-01"
+          },
+          "retention": {
+            "role": "curiosity_gap",
+            "window_start_sec": 2,
+            "window_end_sec": 5,
+            "job": "Curiosity Gap",
+            "open_loop": null,
+            "payoff_for": null
+          }
+        },
+        {
+          "schema_version": "1.0.0",
+          "id": "c3c51c04-7e5d-4148-a64e-2208291e1642",
+          "created_at": "2026-09-10 16:36:23.075640+00:00",
+          "updated_at": null,
+          "beat_id": "beat-3",
+          "order": 2,
+          "section_role": "development",
+          "narration": "JWST can identify gases like water vapor and carbon dioxide. This opens doors to understanding habitability on other planets. What gases can we find next?",
+          "speaker": "Narrator",
+          "emotion": "",
+          "emotion_intensity": 0.5,
+          "action_intent": "",
+          "entity_refs": [],
+          "location_ref": "",
+          "temporal_context": "",
+          "continuity_deps": [],
+          "visual_implication": "JWST can identify gases like water vapor and carbon dioxide. This opens doors to understanding habitability on other pla",
+          "claim_ids": [],
+          "evidence_refs": [
+            "N01"
+          ],
+          "estimated_duration_sec": 10.42,
+          "retention_role": "first_payoff",
+          "open_loop": "",
+          "payoff_for": "",
+          "emotional_intent": "",
+          "metadata": {
+            "legacy_visual_prompt_ownership": {
+              "semantic_visual_intent": "",
+              "legacy_provider_prompts": {
+                "visual_prompt": "animated simulation of exoplanet atmosphere with gases, continuous motion",
+                "exact_ai_video_prompt": "VERTICAL 9:16 portrait (1080x1920) cinematic view of exoplanet atmosphere simulation showing gases, niche color grade, continuous motion, no burned captions, no watermark, no talking-head REQUIRED on-screen anchors: How JWST mid-infrared spectra fingerprint exoplanet atmospheres, water vapor, carbon dioxide, habitability, JWST, identify, like, vapor. Visual slot: How JWST mid-infrared spectra fingerprint exoplanet atmospheres water vapor carbon dioxide: JWST can identify gases like water vapor and carbon dioxide. This opens — revealing detail with controlled camera move.",
+                "visual_query": "exoplanet atmosphere simulation"
+              },
+              "legacy_fields_present": true,
+              "canonical_owner": "C05-S DirectedVisualBeat → prompt_compiler",
+              "script_owns_provider_visual_prompts": false,
+              "ownership": "LEGACY_DEPRECATED",
+              "note": "visual_prompt/exact_ai_video_prompt are compatibility fields, not ScriptPlan authority"
+            },
+            "dialogue_id": "beat-3",
+            "scene_id": "scene-02"
+          },
+          "retention": {
+            "role": "first_payoff",
+            "window_start_sec": 5,
+            "window_end_sec": 10,
+            "job": "First Payoff",
+            "open_loop": null,
+            "payoff_for": null
+          }
+        },
+        {
+          "schema_version": "1.0.0",
+          "id": "b900f210-5900-485a-bcfb-11c64357b6ce",
+          "created_at": "2026-09-10 16:36:23.075640+00:00",
+          "updated_at": null,
+          "beat_id": "beat-4",
+          "order": 3,
+          "section_role": "reveal",
+          "narration": "These findings could reshape our search for extraterrestrial life. How does this affect our search for life beyond Earth?",
+          "speaker": "Narrator",
+          "emotion": "",
+          "emotion_intensity": 0.5,
+          "action_intent": "",
+          "entity_refs": [],
+          "location_ref": "",
+          "temporal_context": "",
+          "continuity_deps": [],
+          "visual_implication": "These findings could reshape our search for extraterrestrial life. How does this affect our search for life beyond Earth",
+          "claim_ids": [],
+          "evidence_refs": [
+            "N01"
+          ],
+          "estimated_duration_sec": 7.92,
+          "retention_role": "question",
+          "open_loop": "",
+          "payoff_for": "",
+          "emotional_intent": "",
+          "metadata": {
+            "legacy_visual_prompt_ownership": {
+              "semantic_visual_intent": "",
+              "legacy_provider_prompts": {
+                "visual_prompt": "scientists working with JWST data, continuous motion",
+                "exact_ai_video_prompt": "VERTICAL 9:16 portrait (1080x1920) cinematic montage of scientists analyzing data from JWST, niche color grade, continuous motion, no burned captions, no watermark, no talking-head REQUIRED on-screen anchors: How JWST mid-infrared spectra fingerprint exoplanet atmospheres, search for life, extraterrestrial, JWST findings, findings, reshape, search, life, does. Visual slot: How JWST mid-infrared spectra fingerprint exoplanet atmospheres search for life extraterrestrial: These findings could reshape our search for extraterrestrial life. How does this — macro process detail, continuous motion.",
+                "visual_query": "scientists analyzing JWST data"
+              },
+              "legacy_fields_present": true,
+              "canonical_owner": "C05-S DirectedVisualBeat → prompt_compiler",
+              "script_owns_provider_visual_prompts": false,
+              "ownership": "LEGACY_DEPRECATED",
+              "note": "visual_prompt/exact_ai_video_prompt are compatibility fields, not ScriptPlan authority"
+            },
+            "dialogue_id": "beat-4",
+            "scene_id": "scene-03"
+          },
+          "retention": {
+            "role": "question",
+            "window_start_sec": null,
+            "window_end_sec": null,
+            "job": "question",
+            "open_loop": null,
+            "payoff_for": null
+          }
+        },
+        {
+          "schema_version": "1.0.0",
+          "id": "666f9d96-063a-438a-b8b9-fd63990572ab",
+          "created_at": "2026-09-10 16:36:23.075640+00:00",
+          "updated_at": null,
+          "beat_id": "beat-5",
+          "order": 4,
+          "section_role": "payoff",
+          "narration": "The implications of JWST's discoveries extend to future missions. What does this mean for our next steps in space exploration?",
+          "speaker": "Narrator",
+          "emotion": "",
+          "emotion_intensity": 0.5,
+          "action_intent": "",
+          "entity_refs": [],
+          "location_ref": "",
+          "temporal_context": "",
+          "continuity_deps": [],
+          "visual_implication": "The implications of JWST's discoveries extend to future missions. What does this mean for our next steps in space explor",
+          "claim_ids": [],
+          "evidence_refs": [
+            "N01"
+          ],
+          "estimated_duration_sec": 8.33,
+          "retention_role": "evidence",
+          "open_loop": "",
+          "payoff_for": "",
+          "emotional_intent": "",
+          "metadata": {
+            "legacy_visual_prompt_ownership": {
+              "semantic_visual_intent": "",
+              "legacy_provider_prompts": {
+                "visual_prompt": "planning future space missions, continuous motion",
+                "exact_ai_video_prompt": "VERTICAL 9:16 portrait (1080x1920) cinematic view of future space missions planning, niche color grade, continuous motion, no burned captions, no watermark, no talking-head REQUIRED on-screen anchors: How JWST mid-infrared spectra fingerprint exoplanet atmospheres, space exploration, JWST implications, implications, JWST, discoveries, extend. Visual slot: How JWST mid-infrared spectra fingerprint exoplanet atmospheres future missions space exploration: The implications of JWST's discoveries extend to future missions. What does this — wide atmospheric hold then gentle drift.",
+                "visual_query": "future space missions planning"
+              },
+              "legacy_fields_present": true,
+              "canonical_owner": "C05-S DirectedVisualBeat → prompt_compiler",
+              "script_owns_provider_visual_prompts": false,
+              "ownership": "LEGACY_DEPRECATED",
+              "note": "visual_prompt/exact_ai_video_prompt are compatibility fields, not ScriptPlan authority"
+            },
+            "dialogue_id": "beat-5",
+            "scene_id": "scene-04"
+          },
+          "retention": {
+            "role": "evidence",
+            "window_start_sec": null,
+            "window_end_sec": null,
+            "job": "evidence",
+            "open_loop": null,
+            "payoff_for": null
+          }
+        },
+        {
+          "schema_version": "1.0.0",
+          "id": "4d87f020-3dc4-4739-889b-ffa6dabc98bf",
+          "created_at": "2026-09-10 16:36:23.075640+00:00",
+          "updated_at": null,
+          "beat_id": "beat-6",
+          "order": 5,
+          "section_role": "ending",
+          "narration": "JWST's mid-infrared spectra are not just data; they are a key to understanding our universe. What will we discover next. So the takeaway.",
+          "speaker": "Narrator",
+          "emotion": "",
+          "emotion_intensity": 0.5,
+          "action_intent": "",
+          "entity_refs": [],
+          "location_ref": "",
+          "temporal_context": "",
+          "continuity_deps": [],
+          "visual_implication": "JWST's mid-infrared spectra are not just data; they are a key to understanding our universe. What will we discover next.",
+          "claim_ids": [],
+          "evidence_refs": [
+            "N01"
+          ],
+          "estimated_duration_sec": 9.58,
+          "retention_role": "ending",
+          "open_loop": "",
+          "payoff_for": "main_open_loop",
+          "emotional_intent": "",
+          "metadata": {
+            "legacy_visual_prompt_ownership": {
+              "semantic_visual_intent": "",
+              "legacy_provider_prompts": {
+                "visual_prompt": "JWST in space with a slow zoom out, continuous motion",
+                "exact_ai_video_prompt": "VERTICAL 9:16 portrait (1080x1920) cinematic slow zoom out from JWST in space, niche color grade, continuous motion, no burned captions, no watermark, no talking-head REQUIRED on-screen anchors: How JWST mid-infrared spectra fingerprint exoplanet atmospheres, mid-infrared spectra, universe, infrared, spectra, data, understanding. Visual slot: How JWST mid-infrared spectra fingerprint exoplanet atmospheres JWST mid-infrared spectra: JWST's mid-infrared spectra are not just data; they are a key to — closing hero plate with subtle Ken Burns drift.",
+                "visual_query": "JWST in space"
+              },
+              "legacy_fields_present": true,
+              "canonical_owner": "C05-S DirectedVisualBeat → prompt_compiler",
+              "script_owns_provider_visual_prompts": false,
+              "ownership": "LEGACY_DEPRECATED",
+              "note": "visual_prompt/exact_ai_video_prompt are compatibility fields, not ScriptPlan authority"
+            },
+            "dialogue_id": "beat-6",
+            "scene_id": "scene-05"
+          },
+          "retention": {
+            "role": "ending",
+            "window_start_sec": null,
+            "window_end_sec": null,
+            "job": "close_main_loop",
+            "open_loop": null,
+            "payoff_for": "main_open_loop"
+          }
+        }
+      ],
+      "claims": [
+        {
+          "id": "N01",
+          "claim": "Research query: how jwst mid-infrared spectra fingerprint exoplanet atmospheres 32150a6c\nLanguage: en\nRegion:",
+          "evidence": "research_notes",
+          "source": "research_notes",
+          "confidence": 0.4,
+          "freshness": "UNVERIFIED"
+        },
+        {
+          "id": "L02",
+          "claim": "Additional context on How JWST mid-infrared spectra fingerprint exoplanet atmospheres (32150a6c) from configured research scope.",
+          "evidence": "secondary",
+          "source": "live_research",
+          "confidence": 0.6,
+          "freshness": "recent"
+        }
+      ],
+      "evidence_refs": [
+        "N01",
+        "L02"
+      ],
+      "fact_pack_id": "",
+      "ending": "JWST's mid-infrared spectra are not just data; they are a key to understanding our universe. What will we discover next. So the takeaway.",
+      "payoff": "The implications of JWST's discoveries extend to future missions. What does this mean for our next steps in space exploration?",
+      "cta": "",
+      "estimated_duration_sec": 60.0,
+      "legacy_visual_prompts": [
+        {
+          "scene_index": 0,
+          "fields": {
+            "visual_prompt": "cinematic hero of JWST in action, continuous motion",
+            "exact_ai_video_prompt": "VERTICAL 9:16 portrait (1080x1920) cinematic slow push-in of the JWST telescope capturing mid-infrared light, niche color grade, continuous motion, no burned captions, no watermark, no talking-head REQUIRED on-screen anchors: How JWST mid-infrared spectra fingerprint exoplanet atmospheres, mid-infrared spectra, fingerprint, told, exoplanet, atmospheres, power. Visual slot: How JWST mid-infrared spectra fingerprint exoplanet atmospheres JWST mid-infrared spectra: What if I told you we can now fingerprint exoplanet atmospheres? This — slow cinematic push-in establishing hero.",
+            "visual_query": "JWST telescope mid-infrared"
+          },
+          "ownership": "LEGACY_DEPRECATED"
+        },
+        {
+          "scene_index": 1,
+          "fields": {
+            "visual_prompt": "detailed view of JWST's spectrograph, continuous motion",
+            "exact_ai_video_prompt": "VERTICAL 9:16 portrait (1080x1920) close-up of JWST's mid-infrared spectrograph in action, niche color grade, continuous motion, no burned captions, no watermark, no talking-head REQUIRED on-screen anchors: How JWST mid-infrared spectra fingerprint exoplanet atmospheres, mid-infrared spectra, chemical fingerprints, exoplanet atmospheres, spectra, allow, detect, chemical. Visual slot: How JWST mid-infrared spectra fingerprint exoplanet atmospheres mid-infrared spectra chemical fingerprints: JWST's mid-infrared spectra allow us to detect the chemical fingerprints of gases — environmental wide into subject emphasis.",
+            "visual_query": "JWST spectrograph close-up"
+          },
+          "ownership": "LEGACY_DEPRECATED"
+        },
+        {
+          "scene_index": 2,
+          "fields": {
+            "visual_prompt": "animated simulation of exoplanet atmosphere with gases, continuous motion",
+            "exact_ai_video_prompt": "VERTICAL 9:16 portrait (1080x1920) cinematic view of exoplanet atmosphere simulation showing gases, niche color grade, continuous motion, no burned captions, no watermark, no talking-head REQUIRED on-screen anchors: How JWST mid-infrared spectra fingerprint exoplanet atmospheres, water vapor, carbon dioxide, habitability, JWST, identify, like, vapor. Visual slot: How JWST mid-infrared spectra fingerprint exoplanet atmospheres water vapor carbon dioxide: JWST can identify gases like water vapor and carbon dioxide. This opens — revealing detail with controlled camera move.",
+            "visual_query": "exoplanet atmosphere simulation"
+          },
+          "ownership": "LEGACY_DEPRECATED"
+        },
+        {
+          "scene_index": 3,
+          "fields": {
+            "visual_prompt": "scientists working with JWST data, continuous motion",
+            "exact_ai_video_prompt": "VERTICAL 9:16 portrait (1080x1920) cinematic montage of scientists analyzing data from JWST, niche color grade, continuous motion, no burned captions, no watermark, no talking-head REQUIRED on-screen anchors: How JWST mid-infrared spectra fingerprint exoplanet atmospheres, search for life, extraterrestrial, JWST findings, findings, reshape, search, life, does. Visual slot: How JWST mid-infrared spectra fingerprint exoplanet atmospheres search for life extraterrestrial: These findings could reshape our search for extraterrestrial life. How does this — macro process detail, continuous motion.",
+            "visual_query": "scientists analyzing JWST data"
+          },
+          "ownership": "LEGACY_DEPRECATED"
+        },
+        {
+          "scene_index": 4,
+          "fields": {
+            "visual_prompt": "planning future space missions, continuous motion",
+            "exact_ai_video_prompt": "VERTICAL 9:16 portrait (1080x1920) cinematic view of future space missions planning, niche color grade, continuous motion, no burned captions, no watermark, no talking-head REQUIRED on-screen anchors: How JWST mid-infrared spectra fingerprint exoplanet atmospheres, space exploration, JWST implications, implications, JWST, discoveries, extend. Visual slot: How JWST mid-infrared spectra fingerprint exoplanet atmospheres future missions space exploration: The implications of JWST's discoveries extend to future missions. What does this — wide atmospheric hold then gentle drift.",
+            "visual_query": "future space missions planning"
+          },
+          "ownership": "LEGACY_DEPRECATED"
+        },
+        {
+          "scene_index": 5,
+          "fields": {
+            "visual_prompt": "JWST in space with a slow zoom out, continuous motion",
+            "exact_ai_video_prompt": "VERTICAL 9:16 portrait (1080x1920) cinematic slow zoom out from JWST in space, niche color grade, continuous motion, no burned captions, no watermark, no talking-head REQUIRED on-screen anchors: How JWST mid-infrared spectra fingerprint exoplanet atmospheres, mid-infrared spectra, universe, infrared, spectra, data, understanding. Visual slot: How JWST mid-infrared spectra fingerprint exoplanet atmospheres JWST mid-infrared spectra: JWST's mid-infrared spectra are not just data; they are a key to — closing hero plate with subtle Ken Burns drift.",
+            "visual_query": "JWST in space"
+          },
+          "ownership": "LEGACY_DEPRECATED"
+        }
+      ],
+      "metadata": {
+        "source": "niche_director_normalized",
+        "visual_prompt_canonical_owner": "C05-S",
+        "script_owns_provider_visual_prompts": false,
+        "created_at": "2026-09-10T22:36:23.075640",
+        "dialogue_window_repairs": [],
+        "dialogue_window_enforced": true,
+        "retention_blueprint": {
+          "format": "short",
+          "windows": [
+            {
+              "id": "pattern_interrupt",
+              "start_sec": 0,
+              "end_sec": 2,
+              "job": "Pattern Interrupt"
+            },
+            {
+              "id": "curiosity_gap",
+              "start_sec": 2,
+              "end_sec": 5,
+              "job": "Curiosity Gap"
+            },
+            {
+              "id": "first_payoff",
+              "start_sec": 5,
+              "end_sec": 10,
+              "job": "First Payoff"
+            }
+          ],
+          "loop": [
+            "question",
+            "evidence",
+            "payoff",
+            "new_question"
+          ],
+          "min_open_loops": 2,
+          "min_loop_close_ratio": 0.7,
+          "forbid_flat_streak": 2,
+          "require_ending_close": true
+        }
+      },
+      "scenes": []
+    },
+    "c05_handoff": {
+      "ready": false,
+      "status": "SCRIPT_READY_FOR_APPROVAL",
+      "path": "ScriptPlan → C05-TRS → C05-S → C05-GA → C05-GP → C05-GX → C05-MR",
+      "note": "Handoff ready — media generation is a later step",
+      "topic_id": "topic-12df9de5efac9621",
+      "topic_text": "How JWST mid-infrared spectra fingerprint exoplanet atmospheres (c9248812)",
+      "script_plan_topic": "JWST MIRI mid-infrared spectra fingerprinting exoplanet atmospheres"
+    },
+    "actions": {
+      "select_topic": true,
+      "research": true,
+      "generate_script": true,
+      "review_script": true,
+      "approve_script": true,
+      "c05_handoff_ready": false
+    }
+  },
+  "classification": "REAL"
+}

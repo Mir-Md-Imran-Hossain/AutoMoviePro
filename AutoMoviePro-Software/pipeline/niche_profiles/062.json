@@ -1,0 +1,83 @@
+{
+  "niche_id": 62,
+  "name": "Nomadic Tribes",
+  "slug": "nomadic-tribes",
+  "style_family": "history",
+  "status": "VERIFIED",
+  "topic_seeds": [
+    "What new evidence reframes the story of Nomadic Tribes The Mongols inside Nomadic Tribes",
+    "How Nomadic Tribes The Mongols still shapes public curiosity about Nomadic Tribes",
+    "What new evidence reframes the story of Bedouins inside Nomadic Tribes",
+    "How Bedouins still shapes public curiosity about Nomadic Tribes",
+    "What new evidence reframes the story of Samburu inside Nomadic Tribes",
+    "How Samburu still shapes public curiosity about Nomadic Tribes"
+  ],
+  "seo_angles": [
+    "What new evidence reframes the story of Nomadic Tribes The Mongols inside Nomadic Tribes",
+    "How Nomadic Tribes The Mongols still shapes public curiosity about Nomadic Tribes",
+    "What new evidence reframes the story of Bedouins inside Nomadic Tribes",
+    "How Bedouins still shapes public curiosity about Nomadic Tribes"
+  ],
+  "forbidden_visuals": [
+    "talking-head lip-sync avatar",
+    "burned-in captions",
+    "watermark",
+    "modern meme text",
+    "modern smartphones",
+    "cars",
+    "LED screens",
+    "sneakers",
+    "contemporary skyline"
+  ],
+  "preferred_subjects": [
+    "Nomadic Tribes documentary subject",
+    "period-accurate environment",
+    "evidence object close-up"
+  ],
+  "lighting_default": "warm desert sun / torchlit interiors, high-contrast documentary grade",
+  "face_policy": "period extras OK if consistent; prefer environment/object hero when possible",
+  "dialogue_tone": "human documentary narration; specific nouns; 7–9s beats",
+  "audio_ambience": "subtle documentary bed; do not overpower voice",
+  "research_hints": [
+    "Prefer primary evidence and concrete entities for Nomadic Tribes",
+    "Avoid generic niche-label topics; require specific place/person/event/mechanism",
+    "7–9 second spoken beats with story continuity across scenes"
+  ],
+  "topic_prompt_overlay": "NICHE LOCK (Nomadic Tribes): only propose topics that fit this niche's video type. Video type: The Mongols, Bedouins, Samburu — their traditions, survival skills, and how modernization threatens their way of life. Follow niche topic strategy: Follow anthropology news, new documentaries, or cultural preservation updates. Generate a topic about a nomadic community currently facing change.",
+  "video_prompt_overlay": "NICHE VISUAL LOCK (Nomadic Tribes / history): Generate a 7–9 second dialogue clip based on the topic `{topic}`. Each dialogue must be respectful and observing. For each dialogue, generate: - **Audio Generation Prompt:** Voice — calm, descriptive, with wind and animal sounds. - **Video Generation Prompt:** Detailed visual — a tent or vast landscape. Characters: tribal members in traditional attire. Lighting: harsh sun or warm firelight. Maintain same attire, landscape. Forbidden: talking-head lip-sync avatar, burned-in captions, watermark, modern meme text, modern smartphones, cars, LED screens, sneakers. Preferred subjects: Nomadic Tribes documentary subject, period-accurate environment, evidence object close-up. Lighting: warm desert sun / torchlit interiors, high-contrast documentary grade. Face policy: period extras OK if consistent; prefer environment/object hero when possible. Dialogue tone: human documentary narration; specific nouns; 7–9s beats. Ambience: subtle documentary bed; do not overpower voice.",
+  "i18n": {
+    "en": {
+      "name": "Nomadic Tribes",
+      "blurb": "The Mongols, Bedouins, Samburu — their traditions, survival skills, and how modernization threatens their way of life."
+    },
+    "bn": {
+      "name": "যাযাবর উপজাতি",
+      "blurb": "ভিডিও টাইপ: The Mongols, Bedouins, Samburu — their traditions, survival skills, and how modernization threatens their way of life."
+    },
+    "hi": {
+      "name": "खानाबदोश जनजातियाँ",
+      "blurb": "वीडियो प्रकार: The Mongols, Bedouins, Samburu — their traditions, survival skills, and how modernization threatens their way of life."
+    },
+    "ur": {
+      "name": "خانہ بدوش قبائل",
+      "blurb": "ویڈیو کی قسم: The Mongols, Bedouins, Samburu — their traditions, survival skills, and how modernization threatens their way of life."
+    },
+    "ta": {
+      "name": "நாடோடி பழங்குடிகள்",
+      "blurb": "வீடியோ வகை: The Mongols, Bedouins, Samburu — their traditions, survival skills, and how modernization threatens their way of life."
+    },
+    "ml": {
+      "name": "നാടോടി ഗോത്രങ്ങൾ",
+      "blurb": "വീഡിയോ തരം: The Mongols, Bedouins, Samburu — their traditions, survival skills, and how modernization threatens their way of life."
+    }
+  },
+  "source": "Nish.Md + deterministic research",
+  "research_notes": [
+    "Marathon researched at 2026-09-10T08:30:16Z",
+    "Video type length=118",
+    "Topic prompt length=146",
+    "Video prompt length=426",
+    "Seeds=6"
+  ],
+  "verified_at": "2026-09-10T08:30:16Z"
+}

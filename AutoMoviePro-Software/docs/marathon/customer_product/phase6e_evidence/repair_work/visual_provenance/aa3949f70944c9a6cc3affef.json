@@ -1,0 +1,53 @@
+{
+  "schema_version": "1.0.0",
+  "id": "0d874de6-b5d4-4091-a577-4f14fbaa5467",
+  "created_at": "2026-09-09T09:53:30.147987Z",
+  "updated_at": null,
+  "asset_type": "video",
+  "scene_id": "6",
+  "source": "generated",
+  "file_path": "docs\\marathon\\customer_product\\phase6e_evidence\\repair_work\\repair_vb6e_a1.mp4",
+  "file_hash": "17168dc081dd4597022c03a656d338d8b2a3ba3e817e22e726651e0b0ccace87",
+  "duration_sec": null,
+  "width": null,
+  "height": null,
+  "codec": null,
+  "language": null,
+  "provenance": {
+    "schema_version": "1.0.0",
+    "id": "195af92c-759a-4859-9ad9-7c2f9b0b1529",
+    "created_at": "2026-09-09T09:53:30.146984Z",
+    "updated_at": null,
+    "job_id": "phase6e-vb-6e-repair",
+    "contract_id": null,
+    "provider": "fallback_image_video",
+    "model": "default",
+    "prompt_hash": "8e42f6613e6f866f2a15ba81447ce80aa3b254a0553811b4ededafac96dbb86d",
+    "input_hash": "aa3949f70944c9a6cc3affef026b821dd76cc2106f86cdfcb03e4bfecfa27943",
+    "generation_id": "1788947610",
+    "seed": "",
+    "metadata": {
+      "scene_id": 6,
+      "canonical_scene_id": "",
+      "dialogue_id": "dlg-vb-6e-repair",
+      "script_id": "",
+      "segment_id": "vb-6e-repair",
+      "part_index": 0,
+      "revision_id": "",
+      "visual_plan_id": "vb-6e-repair",
+      "entity_id": "scene-06-dlg-vb-6e-repair-vb-6e-repair",
+      "generation_mode": "IMAGE_GENERATION",
+      "requested_seed": null,
+      "actual_seed": null,
+      "reference_asset_id": "",
+      "reference_asset_hash": "",
+      "saved_at": 1788947610.146984,
+      "asset_id": "visual-06-aa3949f70944c9a6",
+      "legacy_key": "7d820ddf6deec69f5cf1904698707b45"
+    }
+  },
+  "external_refs": [],
+  "metadata": {
+    "entity_id": "scene-06-dlg-vb-6e-repair-vb-6e-repair"
+  }
+}

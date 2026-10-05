@@ -1,0 +1,83 @@
+{
+  "niche_id": 101,
+  "name": "AI for Writing",
+  "slug": "ai-for-writing",
+  "style_family": "history",
+  "status": "VERIFIED",
+  "topic_seeds": [
+    "What new evidence reframes the story of Writing Free inside AI for Writing",
+    "How Writing Free still shapes public curiosity about AI for Writing",
+    "What new evidence reframes the story of Claude inside AI for Writing",
+    "How Claude still shapes public curiosity about AI for Writing",
+    "What new evidence reframes the story of Bard inside AI for Writing",
+    "How Bard still shapes public curiosity about AI for Writing"
+  ],
+  "seo_angles": [
+    "What new evidence reframes the story of Writing Free inside AI for Writing",
+    "How Writing Free still shapes public curiosity about AI for Writing",
+    "What new evidence reframes the story of Claude inside AI for Writing",
+    "How Claude still shapes public curiosity about AI for Writing"
+  ],
+  "forbidden_visuals": [
+    "talking-head lip-sync avatar",
+    "burned-in captions",
+    "watermark",
+    "modern meme text",
+    "modern smartphones",
+    "cars",
+    "LED screens",
+    "sneakers",
+    "contemporary skyline"
+  ],
+  "preferred_subjects": [
+    "AI for Writing documentary subject",
+    "period-accurate environment",
+    "evidence object close-up"
+  ],
+  "lighting_default": "warm desert sun / torchlit interiors, high-contrast documentary grade",
+  "face_policy": "period extras OK if consistent; prefer environment/object hero when possible",
+  "dialogue_tone": "human documentary narration; specific nouns; 7–9s beats",
+  "audio_ambience": "subtle documentary bed; do not overpower voice",
+  "research_hints": [
+    "Prefer primary evidence and concrete entities for AI for Writing",
+    "Avoid generic niche-label topics; require specific place/person/event/mechanism",
+    "7–9 second spoken beats with story continuity across scenes"
+  ],
+  "topic_prompt_overlay": "NICHE LOCK (AI for Writing): only propose topics that fit this niche's video type. Video type: Free AI tools like ChatGPT, Claude, or Bard — how to generate blogs, emails, essays, and scripts effectively. Follow niche topic strategy: Track AI news, new tool launches, or viral writing prompts. Generate a topic about an AI writing tool that saves time.",
+  "video_prompt_overlay": "NICHE VISUAL LOCK (AI for Writing / history): Generate a 7–9 second dialogue clip based on the topic `{topic}`. Each dialogue must be futuristic and helpful. For each dialogue, generate: - **Audio Generation Prompt:** Voice — clear, enthusiastic, with typing sounds. - **Video Generation Prompt:** Detailed visual — a screen with text appearing. No character — screen. Lighting: soft white. Maintain same text-appearing vibe. Forbidden: talking-head lip-sync avatar, burned-in captions, watermark, modern meme text, modern smartphones, cars, LED screens, sneakers. Preferred subjects: AI for Writing documentary subject, period-accurate environment, evidence object close-up. Lighting: warm desert sun / torchlit interiors, high-contrast documentary grade. Face policy: period extras OK if consistent; prefer environment/object hero when possible. Dialogue tone: human documentary narration; specific nouns; 7–9s beats. Ambience: subtle documentary bed; do not overpower voice.",
+  "i18n": {
+    "en": {
+      "name": "AI for Writing",
+      "blurb": "Free AI tools like ChatGPT, Claude, or Bard — how to generate blogs, emails, essays, and scripts effectively."
+    },
+    "bn": {
+      "name": "লেখার জন্য এআই",
+      "blurb": "ভিডিও টাইপ: Free AI tools like ChatGPT, Claude, or Bard — how to generate blogs, emails, essays, and scripts effectively."
+    },
+    "hi": {
+      "name": "लेखन के लिए एआई",
+      "blurb": "वीडियो प्रकार: Free AI tools like ChatGPT, Claude, or Bard — how to generate blogs, emails, essays, and scripts effectively."
+    },
+    "ur": {
+      "name": "لکھائی کے لیے اے آئی",
+      "blurb": "ویڈیو کی قسم: Free AI tools like ChatGPT, Claude, or Bard — how to generate blogs, emails, essays, and scripts effectively."
+    },
+    "ta": {
+      "name": "எழுத்துக்கான AI",
+      "blurb": "வீடியோ வகை: Free AI tools like ChatGPT, Claude, or Bard — how to generate blogs, emails, essays, and scripts effectively."
+    },
+    "ml": {
+      "name": "എഴുത്തിനുള്ള AI",
+      "blurb": "വീഡിയോ തരം: Free AI tools like ChatGPT, Claude, or Bard — how to generate blogs, emails, essays, and scripts effectively."
+    }
+  },
+  "source": "Nish.Md + deterministic research",
+  "research_notes": [
+    "Marathon researched at 2026-09-10T08:30:22Z",
+    "Video type length=109",
+    "Topic prompt length=118",
+    "Video prompt length=379",
+    "Seeds=6"
+  ],
+  "verified_at": "2026-09-10T08:30:23Z"
+}

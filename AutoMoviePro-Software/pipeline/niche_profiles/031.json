@@ -1,0 +1,79 @@
+{
+  "niche_id": 31,
+  "name": "Accidental Inventions",
+  "slug": "accidental-inventions",
+  "style_family": "science",
+  "status": "VERIFIED",
+  "topic_seeds": [
+    "What new evidence reframes the story of Accidental Inventions How inside Accidental Inventions",
+    "How Accidental Inventions How still shapes public curiosity about Accidental Inventions",
+    "What new evidence reframes the story of Post inside Accidental Inventions",
+    "How Post still shapes public curiosity about Accidental Inventions",
+    "What new evidence reframes the story of Search inside Accidental Inventions",
+    "How Search still shapes public curiosity about Accidental Inventions"
+  ],
+  "seo_angles": [
+    "What new evidence reframes the story of Accidental Inventions How inside Accidental Inventions",
+    "How Accidental Inventions How still shapes public curiosity about Accidental Inventions",
+    "What new evidence reframes the story of Post inside Accidental Inventions",
+    "How Post still shapes public curiosity about Accidental Inventions"
+  ],
+  "forbidden_visuals": [
+    "talking-head lip-sync avatar",
+    "burned-in captions",
+    "watermark",
+    "modern meme text",
+    "off-niche stock office B-roll"
+  ],
+  "preferred_subjects": [
+    "lab instrument close-up",
+    "diagrammatic mechanism metaphor",
+    "field measurement site"
+  ],
+  "lighting_default": "teal/cyan lab grade, high contrast, shallow DOF",
+  "face_policy": "no talking-head lip-sync avatar; cinematic B-roll preferred",
+  "dialogue_tone": "clear explainer; one mechanism per beat",
+  "audio_ambience": "clean room tone, soft electronic texture",
+  "research_hints": [
+    "Prefer primary evidence and concrete entities for Accidental Inventions",
+    "Avoid generic niche-label topics; require specific place/person/event/mechanism",
+    "7–9 second spoken beats with story continuity across scenes"
+  ],
+  "topic_prompt_overlay": "NICHE LOCK (Accidental Inventions): only propose topics that fit this niche's video type. Video type: How everyday items — penicillin, microwave ovens, X-rays, Post-it notes — were discovered by pure luck during other experiments. Follow niche topic strategy: Search for new accidental discoveries in recent news, or anniversary of famous inventions. Generate a topic that is both fun and educational.",
+  "video_prompt_overlay": "NICHE VISUAL LOCK (Accidental Inventions / science): Generate a 7–9 second dialogue clip based on the topic `{topic}`. Each dialogue must be light and amusing. For each dialogue, generate: - **Audio Generation Prompt:** Voice — cheerful, surprised, with lab clatter. - **Video Generation Prompt:** Detailed visual — laboratory, scientist in white coat dropping something. Character: scientist (excitable). Lighting: bright overhead lab light. Maintain same coat, same lab bench. Forbidden: talking-head lip-sync avatar, burned-in captions, watermark, modern meme text, off-niche stock office B-roll. Preferred subjects: lab instrument close-up, diagrammatic mechanism metaphor, field measurement site. Lighting: teal/cyan lab grade, high contrast, shallow DOF. Face policy: no talking-head lip-sync avatar; cinematic B-roll preferred. Dialogue tone: clear explainer; one mechanism per beat. Ambience: clean room tone, soft electronic texture.",
+  "i18n": {
+    "en": {
+      "name": "Accidental Inventions",
+      "blurb": "How everyday items — penicillin, microwave ovens, X-rays, Post-it notes — were discovered by pure luck during other experiments."
+    },
+    "bn": {
+      "name": "দৈবক্রমে আবিষ্কার",
+      "blurb": "ভিডিও টাইপ: How everyday items — penicillin, microwave ovens, X-rays, Post-it notes — were discovered by pure luck during other experiments."
+    },
+    "hi": {
+      "name": "आकस्मिक आविष्कार",
+      "blurb": "वीडियो प्रकार: How everyday items — penicillin, microwave ovens, X-rays, Post-it notes — were discovered by pure luck during other experiments."
+    },
+    "ur": {
+      "name": "اتفاقی ایجادات",
+      "blurb": "ویڈیو کی قسم: How everyday items — penicillin, microwave ovens, X-rays, Post-it notes — were discovered by pure luck during other experiments."
+    },
+    "ta": {
+      "name": "தற்செயல் கண்டுபிடிப்புகள்",
+      "blurb": "வீடியோ வகை: How everyday items — penicillin, microwave ovens, X-rays, Post-it notes — were discovered by pure luck during other experiments."
+    },
+    "ml": {
+      "name": "യാദൃച്ഛിക കണ്ടുപിടുത്തങ്ങൾ",
+      "blurb": "വീഡിയോ തരം: How everyday items — penicillin, microwave ovens, X-rays, Post-it notes — were discovered by pure luck during other experiments."
+    }
+  },
+  "source": "Nish.Md + deterministic research",
+  "research_notes": [
+    "Marathon researched at 2026-09-10T08:30:12Z",
+    "Video type length=128",
+    "Topic prompt length=141",
+    "Video prompt length=425",
+    "Seeds=6"
+  ],
+  "verified_at": "2026-09-10T08:30:12Z"
+}

@@ -1,0 +1,117 @@
+{
+  "marathon_id": "mr_core_engine_20260909T122455Z_8bce2770",
+  "started_at": "2026-09-09T12:24:55Z",
+  "customer": "c11_marathon_customer",
+  "channel_id": 4,
+  "cert_languages": [
+    "en",
+    "bn",
+    "hi",
+    "ur",
+    "ta",
+    "ml"
+  ],
+  "customer_entitlement_forged": false,
+  "youtube_publish": false,
+  "mock_production": false,
+  "ended_at": "2026-09-09T12:25:05Z",
+  "total_runtime_sec": 10.2,
+  "topic": "How JWST MIRI mid-infrared maps of the Pillars of Creation expose cool dust pillars that Hubble optical frames miss (202609091224 cert run)",
+  "job_id": 2299,
+  "work_dir": "E:\\All Updaye Project\\AutoMovie_Pro_SAAS_Final_Update\\AutoMoviePro-Software\\data\\customer_generation_work\\c11_marathon_customer\\job2299",
+  "verdict": "FAIL",
+  "checkpoints": [
+    {
+      "ts": "2026-09-09T12:24:55Z",
+      "elapsed_sec": 0.1,
+      "stage": "TOPIC",
+      "job_id": null,
+      "status": "HEALTHY",
+      "note": "CP-00 init complete",
+      "db_languages_unchanged": [
+        "en",
+        "bn"
+      ],
+      "cert_overlay_languages": [
+        "en",
+        "bn",
+        "hi",
+        "ur",
+        "ta",
+        "ml"
+      ],
+      "google_keys_env": 19,
+      "agnes_keys_env": 6
+    },
+    {
+      "ts": "2026-09-09T12:24:56Z",
+      "elapsed_sec": 0.3,
+      "stage": "TOPIC",
+      "job_id": null,
+      "status": "PROGRESSING",
+      "note": "topic=How JWST MIRI mid-infrared maps of the Pillars of Creation expose cool dust pill",
+      "source": "MANUAL_CONCRETE_NICHE_GROUNDED"
+    },
+    {
+      "ts": "2026-09-09T12:25:05Z",
+      "elapsed_sec": 10.1,
+      "stage": "PLAN",
+      "job_id": null,
+      "status": "PROGRESSING",
+      "note": "research_script_plan_ok",
+      "script_class": "REAL"
+    },
+    {
+      "ts": "2026-09-09T12:25:05Z",
+      "elapsed_sec": 10.2,
+      "stage": "FAILED",
+      "job_id": 2299,
+      "status": "FAILED",
+      "note": "generate_video:RuntimeError:INTELLIGENCE_GATE_BLOCKED: c05_trs stage=intelligence detail=DUPLICATE"
+    },
+    {
+      "ts": "2026-09-09T12:25:05Z",
+      "elapsed_sec": 10.2,
+      "stage": "OBSERVE",
+      "job_id": 2299,
+      "status": "PROGRESSING",
+      "note": "watchdog stage=OBSERVE",
+      "work_dir": "E:\\All Updaye Project\\AutoMovie_Pro_SAAS_Final_Update\\AutoMoviePro-Software\\data\\customer_generation_work\\c11_marathon_customer\\job2299"
+    }
+  ],
+  "interventions": [],
+  "failures": [
+    {
+      "stage": "TOPIC",
+      "error": "suggest_topics() got an unexpected keyword argument 'use_mock'"
+    },
+    {
+      "ok": false,
+      "error": "INTELLIGENCE_GATE_BLOCKED: c05_trs stage=intelligence detail=DUPLICATE",
+      "traceback": "Traceback (most recent call last):\n  File \"E:\\All Updaye Project\\AutoMovie_Pro_SAAS_Final_Update\\AutoMoviePro-Software\\scripts\\cert_core_engine_real_marathon.py\", line 362, in generate_real\n    result = generate_video(\n             ^^^^^^^^^^^^^^^\n  File \"E:\\All Updaye Project\\AutoMovie_Pro_SAAS_Final_Update\\AutoMoviePro-Software\\pipeline\\video_pipeline.py\", line 229, in generate_video\n    raise RuntimeError(f\"{GATE_BLOCKED_MARKER}: c05_trs stage={trs_handoff.get('stage')} detail={reason}\")\nRuntimeError: INTELLIGENCE_GATE_BLOCKED: c05_trs stage=intelligence detail=DUPLICATE\n"
+    }
+  ],
+  "unknowns": [
+    "TOPIC_SUGGEST_FALLBACK_TO_MANUAL_CONCRETE",
+    "UR_RTL_SHAPING_UNKNOWN_NO_DEDICATED_RENDER_SHAPING_PROOF"
+  ],
+  "db_languages_before_after_preserved": true,
+  "generation": {
+    "ok": false,
+    "latency_sec": null,
+    "upload_status": null,
+    "local_path": null,
+    "classification": null,
+    "error": "INTELLIGENCE_GATE_BLOCKED: c05_trs stage=intelligence detail=DUPLICATE"
+  },
+  "artifacts_summary": {
+    "localized_count": 0,
+    "entitlement_preserved": true,
+    "duration_status": null,
+    "publishable": null
+  },
+  "verdict_reasons": [
+    "generation_failed_or_no_local_path"
+  ],
+  "prep_script_class": "REAL"
+}

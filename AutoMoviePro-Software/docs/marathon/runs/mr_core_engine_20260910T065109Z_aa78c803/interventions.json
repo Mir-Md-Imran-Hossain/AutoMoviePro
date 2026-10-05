@@ -1,0 +1,11 @@
+[
+  {
+    "intervention_id": "INT-001",
+    "ts": "2026-09-10T06:51:19Z",
+    "reason": "use_customer_approved_plan_lock",
+    "detected_problem": "generate_video re-entry intelligence DUPLICATE on reused niche topics",
+    "action": "write_director_plan + c06e lock before generate_video",
+    "authority": "customer_plan_adapter + generate_video customer_approved_lock",
+    "result": "lock_written"
+  }
+]

@@ -1,0 +1,83 @@
+{
+  "niche_id": 3,
+  "name": "Epic Battles",
+  "slug": "epic-battles",
+  "style_family": "history",
+  "status": "VERIFIED",
+  "topic_seeds": [
+    "What new evidence reframes the story of Epic Battles Minute inside Epic Battles",
+    "How Epic Battles Minute still shapes public curiosity about Epic Battles",
+    "What new evidence reframes the story of Thermopylae inside Epic Battles",
+    "How Thermopylae still shapes public curiosity about Epic Battles",
+    "What new evidence reframes the story of Stalingrad inside Epic Battles",
+    "How Stalingrad still shapes public curiosity about Epic Battles"
+  ],
+  "seo_angles": [
+    "What new evidence reframes the story of Epic Battles Minute inside Epic Battles",
+    "How Epic Battles Minute still shapes public curiosity about Epic Battles",
+    "What new evidence reframes the story of Thermopylae inside Epic Battles",
+    "How Thermopylae still shapes public curiosity about Epic Battles"
+  ],
+  "forbidden_visuals": [
+    "talking-head lip-sync avatar",
+    "burned-in captions",
+    "watermark",
+    "modern meme text",
+    "modern smartphones",
+    "cars",
+    "LED screens",
+    "sneakers",
+    "contemporary skyline"
+  ],
+  "preferred_subjects": [
+    "Epic Battles documentary subject",
+    "period-accurate environment",
+    "evidence object close-up"
+  ],
+  "lighting_default": "warm desert sun / torchlit interiors, high-contrast documentary grade",
+  "face_policy": "period extras OK if consistent; prefer environment/object hero when possible",
+  "dialogue_tone": "human documentary narration; specific nouns; 7–9s beats",
+  "audio_ambience": "subtle documentary bed; do not overpower voice",
+  "research_hints": [
+    "Prefer primary evidence and concrete entities for Epic Battles",
+    "Avoid generic niche-label topics; require specific place/person/event/mechanism",
+    "7–9 second spoken beats with story continuity across scenes"
+  ],
+  "topic_prompt_overlay": "NICHE LOCK (Epic Battles): only propose topics that fit this niche's video type. Video type: Minute-by-minute reconstruction of history's greatest clashes — from Thermopylae to Stalingrad. Covers military strategy, human courage, and the political aftermath that changed the world. Follow niche topic strategy: Analyze historical anniversaries, upcoming war movie releases, or geopolitical tensions to find a battle that is currently trending. Look for stories with underdog victories, tactical genius, or personal heroism. Generate a topic that appeals to history buffs, gamers, and strategy lovers.",
+  "video_prompt_overlay": "NICHE VISUAL LOCK (Epic Battles / history): Generate a 7–9 second dialogue clip based on the topic `{topic}`. Each dialogue must feel like a war correspondent's dispatch. For each dialogue, generate: - **Audio Generation Prompt:** Voice — urgent, slightly breathless, with distant explosions and marching sounds in the background. - **Video Generation Prompt:** Detailed visual — smoky battlefield, soldiers in period uniforms, mud and fire. Consistent character: a young soldier (male, 20s, dusty uniform, determined eyes). Lighting is orange-tinted from fire, overcast sky. Camera moves sideways along the trench line. Ensure continuity: same uniform style, same mud color, same overcast lighting across clips. Forbidden: talking-head lip-sync avatar, burned-in captions, watermark, modern meme text, modern smartphones, cars, LED screens, sneakers. Preferred subjects: Epic Battles documentary subject, period-accurate environment, evidence object close-up. Lighting: warm desert sun / torchlit interiors, high-contrast documentary grade. Face policy: period extras OK if consistent; prefer environment/object hero when possible. Dialogue tone: human documentary narration; specific nouns; 7–9s beats. Ambience: subtle documentary bed; do not overpower voice.",
+  "i18n": {
+    "en": {
+      "name": "Epic Battles",
+      "blurb": "Minute-by-minute reconstruction of history's greatest clashes — from Thermopylae to Stalingrad. Covers military strategy, human courage, and the political…"
+    },
+    "bn": {
+      "name": "মহাকাব্যিক যুদ্ধ",
+      "blurb": "ভিডিও টাইপ: Minute-by-minute reconstruction of history's greatest clashes — from Thermopylae to Stalingrad. Covers military strategy, human courage, and the…"
+    },
+    "hi": {
+      "name": "महायुद्ध",
+      "blurb": "वीडियो प्रकार: Minute-by-minute reconstruction of history's greatest clashes — from Thermopylae to Stalingrad. Covers military strategy, human courage, and the…"
+    },
+    "ur": {
+      "name": "عظیم جنگیں",
+      "blurb": "ویڈیو کی قسم: Minute-by-minute reconstruction of history's greatest clashes — from Thermopylae to Stalingrad. Covers military strategy, human courage, and the…"
+    },
+    "ta": {
+      "name": "காவியப் போர்கள்",
+      "blurb": "வீடியோ வகை: Minute-by-minute reconstruction of history's greatest clashes — from Thermopylae to Stalingrad. Covers military strategy, human courage, and the…"
+    },
+    "ml": {
+      "name": "മഹായുദ്ധങ്ങൾ",
+      "blurb": "വീഡിയോ തരം: Minute-by-minute reconstruction of history's greatest clashes — from Thermopylae to Stalingrad. Covers military strategy, human courage, and the…"
+    }
+  },
+  "source": "Nish.Md + deterministic research",
+  "research_notes": [
+    "Marathon researched at 2026-09-10T08:30:08Z",
+    "Video type length=188",
+    "Topic prompt length=289",
+    "Video prompt length=668",
+    "Seeds=6"
+  ],
+  "verified_at": "2026-09-10T08:30:08Z"
+}

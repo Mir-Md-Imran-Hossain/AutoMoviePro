@@ -1,0 +1,614 @@
+{
+  "analysis": {
+    "niche_summary": "This video explores the unique properties of permanently shadowed craters on the Moon, focusing on how they maintain water ice at lower temperatures than dry ice.",
+    "why_this_topic": "retention spine: hook → open loop → payoff → re-hook",
+    "audience": "Space enthusiasts, students, and anyone interested in lunar science and planetary geology.",
+    "tone": "industrial documentary urgency without hype",
+    "product_category": "science",
+    "style_pack": "science",
+    "nish_id": 0,
+    "avoided_duplicates": [],
+    "retention_spine": "one-line: open loop → evidence → payoff → new question",
+    "master_lang": "en",
+    "master_lang_bcp47": "en-US"
+  },
+  "topic": "Why permanently shadowed craters keep water ice colder than dry ice on the Moon",
+  "product_key_hint": "permanently shadowed craters, water ice, Moon",
+  "title": "Why Permanently Shadowed Craters Keep Water Ice Colder Than Dry Ice on the Moon",
+  "description": "Discover the surprising science behind permanently shadowed craters on the Moon and their ability to keep water ice colder than dry ice. This video reveals what most people miss about lunar geology and its implications for future exploration. #MoonScience #LunarGeology #SpaceExploration",
+  "tags": [
+    "Moon",
+    "water ice",
+    "lunar craters",
+    "space science",
+    "planetary geology"
+  ],
+  "scenes": [
+    {
+      "element": "intro",
+      "start_hint_s": 0.0,
+      "end_hint_s": 8.0,
+      "narration": "Most people miss this about permanently shadowed craters — they keep water ice colder than dry ice. Why is that?",
+      "keyword_triggers": [
+        "Why permanently shadowed craters keep water ice colder than dry ice on the Moon",
+        "permanently shadowed craters",
+        "water ice",
+        "cold"
+      ],
+      "exact_ai_video_prompt": "VERTICAL 9:16 portrait (1080x1920) cinematic slow push-in of a permanently shadowed lunar crater, niche color grade, continuous motion, no burned captions, no watermark, no talking-head REQUIRED on-screen anchors: Why permanently shadowed craters keep water ice colder than dry ice on the Moon, water ice, cold, miss, colder. Visual slot: Why permanently shadowed craters keep water ice colder than dry ice on the Moon permanently shadowed craters water ice: Most people miss this about permanently shadowed craters — they keep water — slow cinematic push-in establishing hero.",
+      "visual_query": "lunar crater shadow ice",
+      "visual_prompt": "cinematic hero of a lunar crater, continuous motion",
+      "retention_role": "pattern_interrupt",
+      "open_loop": "Why do some craters on the Moon hold ice better than others?",
+      "payoff_for": "",
+      "quality_notes": "SKU on screen, continuity with next beat, retention role honored",
+      "estimated_duration_sec": 8.33,
+      "retention": {
+        "role": "pattern_interrupt",
+        "window_start_sec": 0,
+        "window_end_sec": 2,
+        "job": "Pattern Interrupt",
+        "open_loop": "Why do some craters on the Moon hold ice better than others?",
+        "payoff_for": null
+      },
+      "visual_mode": "VIDEO",
+      "media_mode_decision": {
+        "mode": "VIDEO",
+        "reason": "default_video_primary_agnes",
+        "ok": "true",
+        "image_authorized": false,
+        "agnes_required": true,
+        "engine_version": "media_mode_engine_v1"
+      },
+      "montage_slot": {
+        "slot_description": "Why permanently shadowed craters keep water ice colder than dry ice on the Moon permanently shadowed craters water ice: Most people miss this about permanently shadowed craters — they keep water — slow cinematic push-in establishing hero",
+        "search_queries": [
+          "Why permanently shadowed craters keep water ice colder than dry ice on the Moon permanently shadowed craters intro",
+          "Why permanently shadowed",
+          "Most people miss documentary footage"
+        ],
+        "hero": true,
+        "preferred_sources": "agnes,pexels",
+        "beat_index": 0
+      },
+      "search_queries": [
+        "Why permanently shadowed craters keep water ice colder than dry ice on the Moon permanently shadowed craters intro",
+        "Why permanently shadowed",
+        "Most people miss documentary footage"
+      ],
+      "hero": true,
+      "lang": "en",
+      "lang_bcp47": "en-US"
+    },
+    {
+      "element": "context",
+      "start_hint_s": 8.0,
+      "end_hint_s": 16.0,
+      "narration": "Why does that matter right now? these craters are in permanent shadow, meaning they never see sunlight. This keeps temperatures incredibly low.",
+      "keyword_triggers": [
+        "Why permanently shadowed craters keep water ice colder than dry ice on the Moon",
+        "permanent shadow",
+        "low temperatures",
+        "lunar surface"
+      ],
+      "exact_ai_video_prompt": "VERTICAL 9:16 portrait (1080x1920) cinematic view of a permanently shadowed lunar crater with temperature indicators, niche color grade, continuous motion, no burned captions, no watermark, no talking-head REQUIRED on-screen anchors: Why permanently shadowed craters keep water ice colder than dry ice on the Moon, low temperatures, lunar surface, meaning, never, sunlight. Visual slot: Why permanently shadowed craters keep water ice colder than dry ice on the Moon permanent shadow low temperatures: Why does that matter right now? these craters are in permanent shadow, — environmental wide into subject emphasis.",
+      "visual_query": "lunar crater temperature shadow",
+      "visual_prompt": "cinematic view of a lunar crater with temperature indicators, continuous motion",
+      "retention_role": "curiosity_gap",
+      "open_loop": "What makes these craters so special?",
+      "payoff_for": "",
+      "quality_notes": "Continuity with previous beat, retention role honored",
+      "estimated_duration_sec": 9.0,
+      "retention": {
+        "role": "curiosity_gap",
+        "window_start_sec": 2,
+        "window_end_sec": 5,
+        "job": "Curiosity Gap",
+        "open_loop": "What makes these craters so special?",
+        "payoff_for": null
+      },
+      "visual_mode": "VIDEO",
+      "media_mode_decision": {
+        "mode": "VIDEO",
+        "reason": "default_video_primary_agnes",
+        "ok": "true",
+        "image_authorized": false,
+        "agnes_required": true,
+        "engine_version": "media_mode_engine_v1"
+      },
+      "montage_slot": {
+        "slot_description": "Why permanently shadowed craters keep water ice colder than dry ice on the Moon permanent shadow low temperatures: Why does that matter right now? these craters are in permanent shadow, — environmental wide into subject emphasis",
+        "search_queries": [
+          "Why permanently shadowed craters keep water ice colder than dry ice on the Moon permanent shadow context",
+          "Why permanently shadowed",
+          "Why does matter documentary footage"
+        ],
+        "hero": false,
+        "preferred_sources": "agnes,pexels",
+        "beat_index": 1
+      },
+      "search_queries": [
+        "Why permanently shadowed craters keep water ice colder than dry ice on the Moon permanent shadow context",
+        "Why permanently shadowed",
+        "Why does matter documentary footage"
+      ],
+      "hero": false,
+      "lang": "en",
+      "lang_bcp47": "en-US"
+    },
+    {
+      "element": "discovery",
+      "start_hint_s": 16.0,
+      "end_hint_s": 24.0,
+      "narration": "Watch what this changes next — in these frigid conditions, water ice remains stable, while dry ice sublimates away.",
+      "keyword_triggers": [
+        "Why permanently shadowed craters keep water ice colder than dry ice on the Moon",
+        "stable water ice",
+        "dry ice",
+        "sublimation"
+      ],
+      "exact_ai_video_prompt": "VERTICAL 9:16 portrait (1080x1920) cinematic macro of water ice in a lunar crater, niche color grade, continuous motion, no burned captions, no watermark, no talking-head REQUIRED on-screen anchors: Why permanently shadowed craters keep water ice colder than dry ice on the Moon, stable water ice, dry ice, sublimation, frigid, conditions, remains, stable, sublimates. Visual slot: Why permanently shadowed craters keep water ice colder than dry ice on the Moon stable water ice dry ice: Watch what this changes next — in these frigid conditions, water ice — revealing detail with controlled camera move.",
+      "visual_query": "lunar water ice macro",
+      "visual_prompt": "cinematic macro of water ice in a lunar crater, continuous motion",
+      "retention_role": "first_payoff",
+      "open_loop": "How does this affect the ice's state?",
+      "payoff_for": "",
+      "quality_notes": "Continuity with previous beat, retention role honored",
+      "estimated_duration_sec": 7.92,
+      "retention": {
+        "role": "first_payoff",
+        "window_start_sec": 5,
+        "window_end_sec": 10,
+        "job": "First Payoff",
+        "open_loop": "How does this affect the ice's state?",
+        "payoff_for": null
+      },
+      "visual_mode": "VIDEO",
+      "media_mode_decision": {
+        "mode": "VIDEO",
+        "reason": "default_video_primary_agnes",
+        "ok": "true",
+        "image_authorized": false,
+        "agnes_required": true,
+        "engine_version": "media_mode_engine_v1"
+      },
+      "montage_slot": {
+        "slot_description": "Why permanently shadowed craters keep water ice colder than dry ice on the Moon stable water ice dry ice: Watch what this changes next — in these frigid conditions, water ice — revealing detail with controlled camera move",
+        "search_queries": [
+          "Why permanently shadowed craters keep water ice colder than dry ice on the Moon stable water ice discovery",
+          "Why permanently shadowed",
+          "Watch what changes documentary footage"
+        ],
+        "hero": true,
+        "preferred_sources": "agnes,pexels",
+        "beat_index": 2
+      },
+      "search_queries": [
+        "Why permanently shadowed craters keep water ice colder than dry ice on the Moon stable water ice discovery",
+        "Why permanently shadowed",
+        "Watch what changes documentary footage"
+      ],
+      "hero": true,
+      "lang": "en",
+      "lang_bcp47": "en-US"
+    },
+    {
+      "element": "technique",
+      "start_hint_s": 24.0,
+      "end_hint_s": 32.0,
+      "narration": "This discovery could change how we approach lunar exploration and resource utilization — without inventing unsupported claims beyond the evidence, focused on keep.",
+      "keyword_triggers": [
+        "Why permanently shadowed craters keep water ice colder than dry ice on the Moon",
+        "lunar missions",
+        "exploration",
+        "resource utilization"
+      ],
+      "exact_ai_video_prompt": "VERTICAL 9:16 portrait (1080x1920) cinematic view of lunar exploration equipment near a crater, niche color grade, continuous motion, no burned captions, no watermark, no talking-head REQUIRED on-screen anchors: Why permanently shadowed craters keep water ice colder than dry ice on the Moon, lunar missions, resource utilization, discovery, change, approach, resource. Visual slot: Why permanently shadowed craters keep water ice colder than dry ice on the Moon lunar missions exploration: This discovery could change how we approach lunar exploration and resource utilization — macro process detail, continuous motion.",
+      "visual_query": "lunar exploration equipment",
+      "visual_prompt": "cinematic view of lunar exploration equipment near a crater, continuous motion",
+      "retention_role": "question",
+      "open_loop": "What does this mean for future lunar missions?",
+      "payoff_for": "",
+      "quality_notes": "Continuity with previous beat, retention role honored",
+      "estimated_duration_sec": 9.0,
+      "retention": {
+        "role": "question",
+        "window_start_sec": null,
+        "window_end_sec": null,
+        "job": "question",
+        "open_loop": "What does this mean for future lunar missions?",
+        "payoff_for": null
+      },
+      "visual_mode": "VIDEO",
+      "media_mode_decision": {
+        "mode": "VIDEO",
+        "reason": "default_video_primary_agnes",
+        "ok": "true",
+        "image_authorized": false,
+        "agnes_required": true,
+        "engine_version": "media_mode_engine_v1"
+      },
+      "montage_slot": {
+        "slot_description": "Why permanently shadowed craters keep water ice colder than dry ice on the Moon lunar missions exploration: This discovery could change how we approach lunar exploration and resource utilization — macro process detail, continuous motion",
+        "search_queries": [
+          "Why permanently shadowed craters keep water ice colder than dry ice on the Moon lunar missions technique",
+          "Why permanently shadowed",
+          "discovery could change documentary footage"
+        ],
+        "hero": true,
+        "preferred_sources": "agnes,pexels",
+        "beat_index": 3
+      },
+      "search_queries": [
+        "Why permanently shadowed craters keep water ice colder than dry ice on the Moon lunar missions technique",
+        "Why permanently shadowed",
+        "discovery could change documentary footage"
+      ],
+      "hero": true,
+      "lang": "en",
+      "lang_bcp47": "en-US"
+    },
+    {
+      "element": "legacy",
+      "start_hint_s": 32.0,
+      "end_hint_s": 40.0,
+      "narration": "From that exploration, but here's the detail most explainers skip — other celestial bodies, like Mercury, experience extreme temperature fluctuations. The Moon's shadows.",
+      "keyword_triggers": [
+        "Why permanently shadowed craters keep water ice colder than dry ice on the Moon",
+        "Mercury",
+        "temperature fluctuations",
+        "lunar shadows"
+      ],
+      "exact_ai_video_prompt": "VERTICAL 9:16 portrait (1080x1920) cinematic comparison of lunar and Mercury landscapes, niche color grade, continuous motion, no burned captions, no watermark, no talking-head REQUIRED on-screen anchors: Why permanently shadowed craters keep water ice colder than dry ice on the Moon, temperature fluctuations, lunar shadows, celestial, bodies, like, experience, extreme. Visual slot: Why permanently shadowed craters keep water ice colder than dry ice on the Moon Mercury temperature fluctuations: From that exploration, but here's the detail most explainers skip — other — wide atmospheric hold then gentle drift.",
+      "visual_query": "lunar vs Mercury landscape",
+      "visual_prompt": "cinematic comparison of lunar and Mercury landscapes, continuous motion",
+      "retention_role": "evidence",
+      "open_loop": "How does this compare to other celestial bodies?",
+      "payoff_for": "",
+      "quality_notes": "Continuity with previous beat, retention role honored",
+      "estimated_duration_sec": 9.0,
+      "retention": {
+        "role": "evidence",
+        "window_start_sec": null,
+        "window_end_sec": null,
+        "job": "evidence",
+        "open_loop": "How does this compare to other celestial bodies?",
+        "payoff_for": null
+      },
+      "visual_mode": "VIDEO",
+      "media_mode_decision": {
+        "mode": "VIDEO",
+        "reason": "default_video_primary_agnes",
+        "ok": "true",
+        "image_authorized": false,
+        "agnes_required": true,
+        "engine_version": "media_mode_engine_v1"
+      },
+      "montage_slot": {
+        "slot_description": "Why permanently shadowed craters keep water ice colder than dry ice on the Moon Mercury temperature fluctuations: From that exploration, but here's the detail most explainers skip — other — wide atmospheric hold then gentle drift",
+        "search_queries": [
+          "Why permanently shadowed craters keep water ice colder than dry ice on the Moon Mercury legacy",
+          "Why permanently shadowed",
+          "exploration but here documentary footage"
+        ],
+        "hero": false,
+        "preferred_sources": "agnes,pexels",
+        "beat_index": 4
+      },
+      "search_queries": [
+        "Why permanently shadowed craters keep water ice colder than dry ice on the Moon Mercury legacy",
+        "Why permanently shadowed",
+        "exploration but here documentary footage"
+      ],
+      "hero": false,
+      "lang": "en",
+      "lang_bcp47": "en-US"
+    },
+    {
+      "element": "context",
+      "start_hint_s": 40.0,
+      "end_hint_s": 48.0,
+      "narration": "Why does that matter right now? understanding these craters can help us locate water for future lunar bases, essential for long-term habitation.",
+      "keyword_triggers": [
+        "Why permanently shadowed craters keep water ice colder than dry ice on the Moon",
+        "lunar bases",
+        "water location",
+        "habitation"
+      ],
+      "exact_ai_video_prompt": "VERTICAL 9:16 portrait (1080x1920) cinematic view of a proposed lunar base near a crater, niche color grade, continuous motion, no burned captions, no watermark, no talking-head REQUIRED on-screen anchors: Why permanently shadowed craters keep water ice colder than dry ice on the Moon, water location, habitation, Understanding, help, locate, future. Visual slot: Why permanently shadowed craters keep water ice colder than dry ice on the Moon lunar bases water location: Why does that matter right now? understanding these craters can help us — environmental wide into subject emphasis.",
+      "visual_query": "lunar base near crater",
+      "visual_prompt": "cinematic view of a proposed lunar base near a crater, continuous motion",
+      "retention_role": "payoff",
+      "open_loop": "What are the implications for human habitation?",
+      "payoff_for": "",
+      "quality_notes": "Continuity with previous beat, retention role honored",
+      "estimated_duration_sec": 9.0,
+      "retention": {
+        "role": "payoff",
+        "window_start_sec": null,
+        "window_end_sec": null,
+        "job": "payoff",
+        "open_loop": "What are the implications for human habitation?",
+        "payoff_for": null
+      },
+      "visual_mode": "VIDEO",
+      "media_mode_decision": {
+        "mode": "VIDEO",
+        "reason": "default_video_primary_agnes",
+        "ok": "true",
+        "image_authorized": false,
+        "agnes_required": true,
+        "engine_version": "media_mode_engine_v1"
+      },
+      "montage_slot": {
+        "slot_description": "Why permanently shadowed craters keep water ice colder than dry ice on the Moon lunar bases water location: Why does that matter right now? understanding these craters can help us — environmental wide into subject emphasis",
+        "search_queries": [
+          "Why permanently shadowed craters keep water ice colder than dry ice on the Moon lunar bases context",
+          "Why permanently shadowed",
+          "Why does matter documentary footage"
+        ],
+        "hero": false,
+        "preferred_sources": "agnes,pexels",
+        "beat_index": 5
+      },
+      "search_queries": [
+        "Why permanently shadowed craters keep water ice colder than dry ice on the Moon lunar bases context",
+        "Why permanently shadowed",
+        "Why does matter documentary footage"
+      ],
+      "hero": false,
+      "lang": "en",
+      "lang_bcp47": "en-US"
+    },
+    {
+      "element": "outro",
+      "start_hint_s": 48.0,
+      "end_hint_s": 56.0,
+      "narration": "Permanently shadowed craters are more than just cold holes; they are key to our future on the Moon. So the takeaway on Why.",
+      "keyword_triggers": [
+        "Why permanently shadowed craters keep water ice colder than dry ice on the Moon",
+        "permanently shadowed craters",
+        "future on the Moon",
+        "key"
+      ],
+      "exact_ai_video_prompt": "VERTICAL 9:16 portrait (1080x1920) cinematic view of a lunar crater with a bright horizon, niche color grade, continuous motion, no burned captions, no watermark, no talking-head REQUIRED on-screen anchors: Why permanently shadowed craters keep water ice colder than dry ice on the Moon, permanently shadowed craters, future on the Moon, key, Permanently, shadowed, cold, holes, future. Visual slot: Why permanently shadowed craters keep water ice colder than dry ice on the Moon permanently shadowed craters future on the Moon: Permanently shadowed craters are more than just cold holes; they are key — closing hero plate with subtle Ken Burns drift.",
+      "visual_query": "lunar crater bright horizon",
+      "visual_prompt": "cinematic view of a lunar crater with a bright horizon, continuous motion",
+      "retention_role": "ending",
+      "open_loop": "",
+      "payoff_for": "main_open_loop",
+      "quality_notes": "Final beat closes the main loop, continuity with previous beat",
+      "estimated_duration_sec": 9.0,
+      "retention": {
+        "role": "ending",
+        "window_start_sec": null,
+        "window_end_sec": null,
+        "job": "close_main_loop",
+        "open_loop": null,
+        "payoff_for": "main_open_loop"
+      },
+      "visual_mode": "VIDEO",
+      "media_mode_decision": {
+        "mode": "VIDEO",
+        "reason": "default_video_primary_agnes",
+        "ok": "true",
+        "image_authorized": false,
+        "agnes_required": true,
+        "engine_version": "media_mode_engine_v1"
+      },
+      "montage_slot": {
+        "slot_description": "Why permanently shadowed craters keep water ice colder than dry ice on the Moon permanently shadowed craters future on the Moon: Permanently shadowed craters are more than just cold holes; they are key — closing hero plate with subtle Ken Burns drift",
+        "search_queries": [
+          "Why permanently shadowed craters keep water ice colder than dry ice on the Moon permanently shadowed craters outro",
+          "Why permanently shadowed",
+          "Permanently shadowed craters documentary footage"
+        ],
+        "hero": false,
+        "preferred_sources": "agnes,pexels",
+        "beat_index": 6
+      },
+      "search_queries": [
+        "Why permanently shadowed craters keep water ice colder than dry ice on the Moon permanently shadowed craters outro",
+        "Why permanently shadowed",
+        "Permanently shadowed craters documentary footage"
+      ],
+      "hero": false,
+      "lang": "en",
+      "lang_bcp47": "en-US"
+    }
+  ],
+  "director_provider": "openrouter",
+  "nish_id": 0,
+  "nish_name": "space science",
+  "video_type": "short",
+  "max_seconds": 60,
+  "hook": "Most people miss this about permanently shadowed craters — they keep water ice colder than dry ice. Why is that?",
+  "metadata": {
+    "retention_cadence_enforced": true,
+    "retention_cadence_repairs": [
+      {
+        "index": 1,
+        "action": "mid_rehook",
+        "prior": "These craters are in permanent shadow, meaning they never see sunlight. This keeps temperatures incredibly low."
+      },
+      {
+        "index": 2,
+        "action": "mid_rehook",
+        "prior": "In these frigid conditions, water ice remains stable, while dry ice sublimates away."
+      },
+      {
+        "index": 4,
+        "action": "mid_rehook",
+        "prior": "Other celestial bodies, like Mercury, experience extreme temperature fluctuations. The Moon's shadows provide a unique e"
+      },
+      {
+        "index": 5,
+        "action": "mid_rehook",
+        "prior": "Understanding these craters can help us locate water for future lunar bases, essential for long-term habitation."
+      },
+      {
+        "index": 6,
+        "action": "ending_close",
+        "prior": "Permanently shadowed craters are more than just cold holes; they are key to our future on the Moon."
+      }
+    ],
+    "dialogue_window_repairs": [
+      {
+        "i": 3,
+        "action": "expand",
+        "est_sec": 9.58
+      },
+      {
+        "i": 4,
+        "action": "bridge",
+        "bridge": "exploration"
+      },
+      {
+        "i": 4,
+        "action": "trim",
+        "est_sec": 9.58
+      },
+      {
+        "i": 6,
+        "action": "trim",
+        "est_sec": 9.58
+      }
+    ],
+    "dialogue_window_enforced": true,
+    "media_mode_engine": {
+      "version": "media_mode_engine_v1",
+      "video_primary_enforced": true,
+      "modes_rewritten_to_video": 7
+    },
+    "montage_slots_enriched": true,
+    "montage_brain_version": "amp_montage_brain_v1",
+    "montage_brain": {
+      "version": "amp_montage_brain_v1",
+      "checklist_ok": true,
+      "openmontage_agpl_imported": false
+    }
+  },
+  "retention_blueprint": {
+    "format": "short",
+    "windows": [
+      {
+        "id": "pattern_interrupt",
+        "start_sec": 0,
+        "end_sec": 2,
+        "job": "Pattern Interrupt"
+      },
+      {
+        "id": "curiosity_gap",
+        "start_sec": 2,
+        "end_sec": 5,
+        "job": "Curiosity Gap"
+      },
+      {
+        "id": "first_payoff",
+        "start_sec": 5,
+        "end_sec": 10,
+        "job": "First Payoff"
+      }
+    ],
+    "loop": [
+      "question",
+      "evidence",
+      "payoff",
+      "new_question"
+    ],
+    "min_open_loops": 2,
+    "min_loop_close_ratio": 0.7,
+    "forbid_flat_streak": 2,
+    "require_ending_close": true
+  },
+  "montage_manifest": {
+    "name": "amp-documentary-montage",
+    "version": "amp_montage_brain_v1",
+    "video_type": "short",
+    "policy": "retrieval_aware_video_primary",
+    "stages": [
+      {
+        "id": "idea",
+        "job": "One thematic question + tone + duration + retention spine",
+        "success": [
+          "concrete_topic",
+          "curiosity_gap",
+          "seo_title_angle"
+        ]
+      },
+      {
+        "id": "scene_plan",
+        "job": "Concrete visual SLOTS (noun+adjective+action) with 2–3 search queries each",
+        "success": [
+          "slot_queries",
+          "hero_slots>=2",
+          "no_abstract_labels"
+        ]
+      },
+      {
+        "id": "assets",
+        "job": "Fill slots: Agnes VIDEO primary; stock retrieval when query-matched; Ken Burns only if authorized",
+        "success": [
+          "visual_mode_provenance",
+          "asset_or_generation_path"
+        ]
+      },
+      {
+        "id": "edit",
+        "job": "Arrange beats by narrative role; no flat encyclopedia chains; payoff cadence",
+        "success": [
+          "retention_roles",
+          "continuity_bridge"
+        ]
+      },
+      {
+        "id": "compose",
+        "job": "Mux audio+picture; aspect lock; no black tails; ship gates",
+        "success": [
+          "duration_contract",
+          "av_sync",
+          "publishability"
+        ]
+      },
+      {
+        "id": "review",
+        "job": "Prompt-compliance + semantic coverage + observation gates",
+        "success": [
+          "PROMPT_COMPLIANCE_AUDIT",
+          "no_silent_image_downgrade"
+        ]
+      }
+    ],
+    "openmontage_agpl_imported": false,
+    "note": "Methodology inspired by public OpenMontage docs; AMP-owned implementation only"
+  },
+  "montage_checklist": {
+    "ok": true,
+    "issues": [],
+    "hero_count": 3,
+    "slots_with_queries": 7,
+    "video_mode_count": 7,
+    "scene_count": 7,
+    "version": "amp_montage_brain_v1"
+  },
+  "master_lang": "en",
+  "master_lang_bcp47": "en-US",
+  "sourceLanguage": "en",
+  "master_lang_policy": "english_pivot_then_localize",
+  "narrator_voice": "Charon",
+  "master_lang_repairs": [
+    {
+      "field": "tags",
+      "repaired": true,
+      "via": "drop_non_english_tags"
+    }
+  ],
+  "prompt_compliance": {
+    "verdict": "PASS",
+    "overall_score": 0.9806,
+    "industrial_grade": true,
+    "artifact_path": "E:\\All Updaye Project\\AutoMovie_Pro_SAAS_Final_Update\\AutoMoviePro-Software\\docs\\marathon\\runs\\mr_core_engine_20260910T123957Z_7e916c7d\\script\\PROMPT_COMPLIANCE_AUDIT.json",
+    "llm_critic_verdict": "SKIPPED",
+    "repairs_applied": []
+  }
+}

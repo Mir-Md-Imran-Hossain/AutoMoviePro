@@ -1,0 +1,66 @@
+{
+  "research": {
+    "topic_id": "topic-a5b3126729882d83",
+    "query": "why lunar dust abrasion threatens artemis spacesuits in 2026",
+    "evidence": [
+      {
+        "id": "N01",
+        "claim": "Research query: why lunar dust abrasion threatens artemis spacesuits in 2026\nLanguage: en\nRegion:",
+        "evidence": "research_notes",
+        "source": "research_notes",
+        "confidence": 0.4,
+        "freshness": "UNVERIFIED"
+      },
+      {
+        "id": "L02",
+        "claim": "Additional context on Why lunar dust abrasion threatens Artemis spacesuits in 2026 from configured research scope.",
+        "evidence": "secondary",
+        "source": "live_research",
+        "confidence": 0.6,
+        "freshness": "recent"
+      }
+    ],
+    "status": "completed",
+    "provider": "live_local",
+    "provider_kind": "configured_local",
+    "provider_capability": "LOCAL_FACTPACK",
+    "provider_mode": "LIVE_LOCAL",
+    "external_api": false,
+    "is_external_live": false,
+    "note": "LOCAL_FACTPACK must not be claimed as EXTERNAL_LIVE_RESEARCH",
+    "timestamp": 1789043865.6886845,
+    "queried_at": 1789043865.6886845,
+    "canonical_topic": "Why lunar dust abrasion threatens Artemis spacesuits in 2026",
+    "sources": [
+      "live_research",
+      "research_notes"
+    ],
+    "fingerprint": "91984dca41ae1beaa8b0f6f61b80fdb4527485ce78b0e46f29bd397da7d18d5f"
+  },
+  "fact_pack": {
+    "topic": "Why lunar dust abrasion threatens Artemis spacesuits in 2026",
+    "version": "v0",
+    "claims": [
+      {
+        "id": "N01",
+        "claim": "Research query: why lunar dust abrasion threatens artemis spacesuits in 2026\nLanguage: en\nRegion:",
+        "evidence": "research_notes",
+        "source": "research_notes",
+        "confidence": 0.4,
+        "freshness": "UNVERIFIED"
+      },
+      {
+        "id": "L02",
+        "claim": "Additional context on Why lunar dust abrasion threatens Artemis spacesuits in 2026 from configured research scope.",
+        "evidence": "secondary",
+        "source": "live_research",
+        "confidence": 0.6,
+        "freshness": "recent"
+      }
+    ],
+    "unknowns": []
+  },
+  "research_fingerprint": "91984dca41ae1beaa8b0f6f61b80fdb4527485ce78b0e46f29bd397da7d18d5f",
+  "provider_mode": "LIVE",
+  "persisted_at": 1789043865.6886845
+}

@@ -1,0 +1,81 @@
+{
+  "niche_id": 99,
+  "name": "Interactive Learning Sites",
+  "slug": "interactive-learning-sites",
+  "style_family": "gadget",
+  "status": "VERIFIED",
+  "topic_seeds": [
+    "What new evidence reframes the story of Interactive Learning Sites Duolingo inside Interactive Learning Sites",
+    "How Interactive Learning Sites Duolingo still shapes public curiosity about Interactive Learning Sites",
+    "What new evidence reframes the story of Brilliant inside Interactive Learning Sites",
+    "How Brilliant still shapes public curiosity about Interactive Learning Sites",
+    "What new evidence reframes the story of Khan Academy inside Interactive Learning Sites",
+    "How Khan Academy still shapes public curiosity about Interactive Learning Sites"
+  ],
+  "seo_angles": [
+    "What new evidence reframes the story of Interactive Learning Sites Duolingo inside Interactive Learning Sites",
+    "How Interactive Learning Sites Duolingo still shapes public curiosity about Interactive Learning Sites",
+    "What new evidence reframes the story of Brilliant inside Interactive Learning Sites",
+    "How Brilliant still shapes public curiosity about Interactive Learning Sites"
+  ],
+  "forbidden_visuals": [
+    "talking-head lip-sync avatar",
+    "burned-in captions",
+    "watermark",
+    "modern meme text",
+    "wrong model phone",
+    "generic unbranded slab",
+    "stock office handshake"
+  ],
+  "preferred_subjects": [
+    "exact product hero",
+    "component close-up",
+    "hands with device only"
+  ],
+  "lighting_default": "natural directional key, documentary clarity",
+  "face_policy": "product-only hero; hands OK; no talking-head",
+  "dialogue_tone": "human documentary narration; specific nouns; 7–9s beats",
+  "audio_ambience": "subtle documentary bed; do not overpower voice",
+  "research_hints": [
+    "Prefer primary evidence and concrete entities for Interactive Learning Sites",
+    "Avoid generic niche-label topics; require specific place/person/event/mechanism",
+    "7–9 second spoken beats with story continuity across scenes"
+  ],
+  "topic_prompt_overlay": "NICHE LOCK (Interactive Learning Sites): only propose topics that fit this niche's video type. Video type: Duolingo, Brilliant, Khan Academy — gamified education that makes math, language, and coding fun. Follow niche topic strategy: Check ed-tech news, new gamification features, or viral learning challenges. Generate a topic about a learning platform that went viral.",
+  "video_prompt_overlay": "NICHE VISUAL LOCK (Interactive Learning Sites / gadget): Generate a 7–9 second dialogue clip based on the topic `{topic}`. Each dialogue must be energetic and playful. For each dialogue, generate: - **Audio Generation Prompt:** Voice — fun, with cheerful dings and applause. - **Video Generation Prompt:** Detailed visual — a tablet or phone screen. No character — screen with fun graphics. Lighting: vibrant. Maintain same vibrant screen. Forbidden: talking-head lip-sync avatar, burned-in captions, watermark, modern meme text, wrong model phone, generic unbranded slab, stock office handshake. Preferred subjects: exact product hero, component close-up, hands with device only. Lighting: natural directional key, documentary clarity. Face policy: product-only hero; hands OK; no talking-head. Dialogue tone: human documentary narration; specific nouns; 7–9s beats. Ambience: subtle documentary bed; do not overpower voice.",
+  "i18n": {
+    "en": {
+      "name": "Interactive Learning Sites",
+      "blurb": "Duolingo, Brilliant, Khan Academy — gamified education that makes math, language, and coding fun."
+    },
+    "bn": {
+      "name": "ইন্টারঅ্যাকটিভ শিক্ষা সাইট",
+      "blurb": "ভিডিও টাইপ: Duolingo, Brilliant, Khan Academy — gamified education that makes math, language, and coding fun."
+    },
+    "hi": {
+      "name": "इंटरैक्टिव लर्निंग साइटें",
+      "blurb": "वीडियो प्रकार: Duolingo, Brilliant, Khan Academy — gamified education that makes math, language, and coding fun."
+    },
+    "ur": {
+      "name": "انٹرایکٹو لرننگ سائٹس",
+      "blurb": "ویڈیو کی قسم: Duolingo, Brilliant, Khan Academy — gamified education that makes math, language, and coding fun."
+    },
+    "ta": {
+      "name": "ஊடாடும் கற்றல் தளங்கள்",
+      "blurb": "வீடியோ வகை: Duolingo, Brilliant, Khan Academy — gamified education that makes math, language, and coding fun."
+    },
+    "ml": {
+      "name": "ഇന്ററാക്ടീവ് ലേണിംഗ് സൈറ്റുകൾ",
+      "blurb": "വീഡിയോ തരം: Duolingo, Brilliant, Khan Academy — gamified education that makes math, language, and coding fun."
+    }
+  },
+  "source": "Nish.Md + deterministic research",
+  "research_notes": [
+    "Marathon researched at 2026-09-10T08:30:22Z",
+    "Video type length=97",
+    "Topic prompt length=136",
+    "Video prompt length=382",
+    "Seeds=6"
+  ],
+  "verified_at": "2026-09-10T08:30:22Z"
+}

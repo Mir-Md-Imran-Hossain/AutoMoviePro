@@ -1,0 +1,79 @@
+{
+  "niche_id": 114,
+  "name": "Hidden Learning Communities",
+  "slug": "hidden-learning-communities",
+  "style_family": "science",
+  "status": "VERIFIED",
+  "topic_seeds": [
+    "What new evidence reframes the story of Hidden Learning Communities Reddit inside Hidden Learning Communities",
+    "How Hidden Learning Communities Reddit still shapes public curiosity about Hidden Learning Communities",
+    "What new evidence reframes the story of Discord inside Hidden Learning Communities",
+    "How Discord still shapes public curiosity about Hidden Learning Communities",
+    "What new evidence reframes the story of Telegram inside Hidden Learning Communities",
+    "How Telegram still shapes public curiosity about Hidden Learning Communities"
+  ],
+  "seo_angles": [
+    "What new evidence reframes the story of Hidden Learning Communities Reddit inside Hidden Learning Communities",
+    "How Hidden Learning Communities Reddit still shapes public curiosity about Hidden Learning Communities",
+    "What new evidence reframes the story of Discord inside Hidden Learning Communities",
+    "How Discord still shapes public curiosity about Hidden Learning Communities"
+  ],
+  "forbidden_visuals": [
+    "talking-head lip-sync avatar",
+    "burned-in captions",
+    "watermark",
+    "modern meme text",
+    "off-niche stock office B-roll"
+  ],
+  "preferred_subjects": [
+    "lab instrument close-up",
+    "diagrammatic mechanism metaphor",
+    "field measurement site"
+  ],
+  "lighting_default": "teal/cyan lab grade, high contrast, shallow DOF",
+  "face_policy": "no talking-head lip-sync avatar; cinematic B-roll preferred",
+  "dialogue_tone": "clear explainer; one mechanism per beat",
+  "audio_ambience": "clean room tone, soft electronic texture",
+  "research_hints": [
+    "Prefer primary evidence and concrete entities for Hidden Learning Communities",
+    "Avoid generic niche-label topics; require specific place/person/event/mechanism",
+    "7–9 second spoken beats with story continuity across scenes"
+  ],
+  "topic_prompt_overlay": "NICHE LOCK (Hidden Learning Communities): only propose topics that fit this niche's video type. Video type: Reddit subs, Discord servers, and Telegram groups where professionals share knowledge in tech, art, and science. Follow niche topic strategy: Scan social media news, new community features, or viral learning threads. Generate a topic about a secretive but valuable online community.",
+  "video_prompt_overlay": "NICHE VISUAL LOCK (Hidden Learning Communities / science): Generate a 7–9 second dialogue clip based on the topic `{topic}`. Each dialogue must be community-driven and informative. For each dialogue, generate: - **Audio Generation Prompt:** Voice — conversational, with typing and notification sounds. - **Video Generation Prompt:** Detailed visual — a chat app or forum screen. No character — screen. Lighting: neutral. Maintain same chat screen. Forbidden: talking-head lip-sync avatar, burned-in captions, watermark, modern meme text, off-niche stock office B-roll. Preferred subjects: lab instrument close-up, diagrammatic mechanism metaphor, field measurement site. Lighting: teal/cyan lab grade, high contrast, shallow DOF. Face policy: no talking-head lip-sync avatar; cinematic B-roll preferred. Dialogue tone: clear explainer; one mechanism per beat. Ambience: clean room tone, soft electronic texture.",
+  "i18n": {
+    "en": {
+      "name": "Hidden Learning Communities",
+      "blurb": "Reddit subs, Discord servers, and Telegram groups where professionals share knowledge in tech, art, and science."
+    },
+    "bn": {
+      "name": "লুকানো শিক্ষা সম্প্রদায়",
+      "blurb": "ভিডিও টাইপ: Reddit subs, Discord servers, and Telegram groups where professionals share knowledge in tech, art, and science."
+    },
+    "hi": {
+      "name": "छिपे शिक्षण समुदाय",
+      "blurb": "वीडियो प्रकार: Reddit subs, Discord servers, and Telegram groups where professionals share knowledge in tech, art, and science."
+    },
+    "ur": {
+      "name": "پوشیدہ لرننگ کمیونٹیز",
+      "blurb": "ویڈیو کی قسم: Reddit subs, Discord servers, and Telegram groups where professionals share knowledge in tech, art, and science."
+    },
+    "ta": {
+      "name": "மறைந்த கற்றல் சமூகங்கள்",
+      "blurb": "வீடியோ வகை: Reddit subs, Discord servers, and Telegram groups where professionals share knowledge in tech, art, and science."
+    },
+    "ml": {
+      "name": "മറഞ്ഞ പഠന സമൂഹങ്ങൾ",
+      "blurb": "വീഡിയോ തരം: Reddit subs, Discord servers, and Telegram groups where professionals share knowledge in tech, art, and science."
+    }
+  },
+  "source": "Nish.Md + deterministic research",
+  "research_notes": [
+    "Marathon researched at 2026-09-10T08:30:25Z",
+    "Video type length=112",
+    "Topic prompt length=140",
+    "Video prompt length=388",
+    "Seeds=6"
+  ],
+  "verified_at": "2026-09-10T08:30:25Z"
+}

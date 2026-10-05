@@ -1,0 +1,11 @@
+{"ts": "2026-09-09T12:28:50Z", "elapsed_sec": 0.1, "stage": "TOPIC", "job_id": null, "status": "HEALTHY", "note": "CP-00 init complete", "db_languages_unchanged": ["en", "bn"], "cert_overlay_languages": ["en", "bn", "hi", "ur", "ta", "ml"], "google_keys_env": 19, "agnes_keys_env": 6}
+{"ts": "2026-09-09T12:28:50Z", "elapsed_sec": 0.3, "stage": "TOPIC", "job_id": null, "status": "PROGRESSING", "note": "topic=How lunar polar permanently shadowed craters preserve water ice that Artemis pro", "source": "MANUAL_CONCRETE_NICHE_GROUNDED"}
+{"ts": "2026-09-09T12:29:01Z", "elapsed_sec": 11.6, "stage": "PLAN", "job_id": null, "status": "PROGRESSING", "note": "research_script_plan_ok", "script_class": "REAL"}
+{"ts": "2026-09-09T12:35:21Z", "elapsed_sec": 391.3, "stage": "FAILED", "job_id": 2300, "status": "FAILED", "note": "generate_video:RuntimeError:scene_localize_failed:0:scene_localize_incomplete:0:ur,ta,ml"}
+{"ts": "2026-09-09T12:35:21Z", "elapsed_sec": 391.3, "stage": "OBSERVE", "job_id": 2300, "status": "PROGRESSING", "note": "watchdog stage=OBSERVE", "work_dir": "E:\\All Updaye Project\\AutoMovie_Pro_SAAS_Final_Update\\AutoMoviePro-Software\\data\\customer_generation_work\\c11_marathon_customer\\job2300"}
+{"ts": "2026-09-09T12:35:21Z", "elapsed_sec": 391.4, "stage": "FAIL", "job_id": 2300, "status": "COMPLETED", "note": "verdict=FAIL"}
+{"ts": "2026-09-09T12:37:13Z", "stage": "GENERATION_RESUME", "status": "PROGRESSING", "note": "resume after ur/ta/ml preflight fix", "job_id": 2300}
+{"ts": "2026-09-09T12:47:45Z", "stage": "GENERATION_RESUME", "status": "PROGRESSING", "note": "watchdog10m beats=3", "job_id": 2300, "source": "operator_external_watchdog"}
+{"ts": "2026-09-09T13:02:58Z", "stage": "GENERATION_RESUME2", "status": "PROGRESSING", "note": "after subject/sku fix", "job_id": 2300}
+{"ts": "2026-09-09T13:20:51Z", "stage": "GENERATION_RESUME3", "status": "PROGRESSING", "note": "docref lunar still fix + full scene regen", "job_id": 2300}
+{"ts": "2026-09-09T13:36:16Z", "stage": "GENERATION_RESUME3", "status": "PROGRESSING", "note": "watchdog beats=3", "job_id": 2300, "source": "operator_external_watchdog"}

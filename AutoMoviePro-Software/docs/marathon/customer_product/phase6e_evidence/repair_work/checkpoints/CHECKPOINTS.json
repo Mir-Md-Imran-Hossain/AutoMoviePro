@@ -1,0 +1,38 @@
+{
+  "checkpoints": [
+    {
+      "schema_version": "1.0.0",
+      "id": "8beffbfe-c6d7-4a90-971e-f393556274b0",
+      "created_at": "2026-09-09T09:53:30.164527Z",
+      "updated_at": null,
+      "job_id": "phase6e-vb-6e-repair",
+      "stage": "visual",
+      "state": "VERIFYING",
+      "input_hash": "aa3949f70944c9a6cc3affef026b821dd76cc2106f86cdfcb03e4bfecfa27943",
+      "output_hash": "17168dc081dd4597022c03a656d338d8b2a3ba3e817e22e726651e0b0ccace87",
+      "checkpoint_version": "1.0.0",
+      "timestamp": "2026-09-09T09:53:30.164527Z",
+      "metadata": {
+        "result_reference": "docs\\marathon\\customer_product\\phase6e_evidence\\repair_work\\repair_vb6e_a1.mp4"
+      }
+    }
+  ],
+  "by_stage": {
+    "visual": {
+      "schema_version": "1.0.0",
+      "id": "8beffbfe-c6d7-4a90-971e-f393556274b0",
+      "created_at": "2026-09-09T09:53:30.164527Z",
+      "updated_at": null,
+      "job_id": "phase6e-vb-6e-repair",
+      "stage": "visual",
+      "state": "VERIFYING",
+      "input_hash": "aa3949f70944c9a6cc3affef026b821dd76cc2106f86cdfcb03e4bfecfa27943",
+      "output_hash": "17168dc081dd4597022c03a656d338d8b2a3ba3e817e22e726651e0b0ccace87",
+      "checkpoint_version": "1.0.0",
+      "timestamp": "2026-09-09T09:53:30.164527Z",
+      "metadata": {
+        "result_reference": "docs\\marathon\\customer_product\\phase6e_evidence\\repair_work\\repair_vb6e_a1.mp4"
+      }
+    }
+  }
+}

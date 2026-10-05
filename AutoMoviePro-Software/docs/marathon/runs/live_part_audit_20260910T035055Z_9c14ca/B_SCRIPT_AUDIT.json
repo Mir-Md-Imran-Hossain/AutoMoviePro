@@ -1,0 +1,98 @@
+{
+  "part": "B_SCRIPT",
+  "verdict": "PASS",
+  "topic": "How Artemis crews use neutron spectrometers to map lunar polar water ice in 2026",
+  "checks": [
+    {
+      "id": "research_ok",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "id": "script_generate_ok",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "id": "script_preflight_ok",
+      "pass": true,
+      "detail": {
+        "blocks": [],
+        "warnings": []
+      }
+    },
+    {
+      "id": "script_quality_not_fail",
+      "pass": true,
+      "detail": "PASS"
+    },
+    {
+      "id": "dialogue_7_9s_majority",
+      "pass": true,
+      "detail": "out_of_window=0/7"
+    },
+    {
+      "id": "dialogue_continuity_majority",
+      "pass": true,
+      "detail": "weak_bridges=0"
+    },
+    {
+      "id": "story_beat_count",
+      "pass": true,
+      "detail": "solid_beats=7"
+    }
+  ],
+  "dialogue_duration_rows": [
+    {
+      "i": 0,
+      "est_sec": 8.33,
+      "words": 20,
+      "in_window": true,
+      "preview": "In 2026, Artemis crews will use neutron spectrometers to map lunar polar water ice, a crucial resour"
+    },
+    {
+      "i": 1,
+      "est_sec": 7.08,
+      "words": 17,
+      "in_window": true,
+      "preview": "These spectrometers are designed with advanced materials and sensors to detect hydrogen signatures i"
+    },
+    {
+      "i": 2,
+      "est_sec": 7.08,
+      "words": 17,
+      "in_window": true,
+      "preview": "When activated, the spectrometers display real-time data, highlighting areas rich in water ice benea"
+    },
+    {
+      "i": 3,
+      "est_sec": 7.5,
+      "words": 18,
+      "in_window": true,
+      "preview": "The camera module captures high-resolution images of the lunar terrain, aiding in precise mapping of"
+    },
+    {
+      "i": 4,
+      "est_sec": 7.92,
+      "words": 19,
+      "in_window": true,
+      "preview": "Building on resolution, using a technique called neutron activation analysis, these instruments can "
+    },
+    {
+      "i": 5,
+      "est_sec": 7.92,
+      "words": 19,
+      "in_window": true,
+      "preview": "The findings from these missions will lay the groundwork for sustainable human presence on the Moon,"
+    },
+    {
+      "i": 6,
+      "est_sec": 7.92,
+      "words": 19,
+      "in_window": true,
+      "preview": "As we prepare for Artemis, the quest for lunar water ice opens new horizons for humanity's future in"
+    }
+  ],
+  "preflight_warnings": [],
+  "ts": "2026-09-10T03:51:06Z"
+}

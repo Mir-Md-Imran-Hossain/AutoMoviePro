@@ -1,0 +1,79 @@
+{
+  "niche_id": 150,
+  "name": "Best of the Internet",
+  "slug": "best-of-the-internet",
+  "style_family": "news",
+  "status": "VERIFIED",
+  "topic_seeds": [
+    "What new evidence reframes the story of Best inside Best of the Internet",
+    "How Best still shapes public curiosity about Best of the Internet",
+    "What new evidence reframes the story of Internet Viral inside Best of the Internet",
+    "How Internet Viral still shapes public curiosity about Best of the Internet",
+    "What new evidence reframes the story of Scan inside Best of the Internet",
+    "How Scan still shapes public curiosity about Best of the Internet"
+  ],
+  "seo_angles": [
+    "What new evidence reframes the story of Best inside Best of the Internet",
+    "How Best still shapes public curiosity about Best of the Internet",
+    "What new evidence reframes the story of Internet Viral inside Best of the Internet",
+    "How Internet Viral still shapes public curiosity about Best of the Internet"
+  ],
+  "forbidden_visuals": [
+    "talking-head lip-sync avatar",
+    "burned-in captions",
+    "watermark",
+    "modern meme text",
+    "off-niche stock office B-roll"
+  ],
+  "preferred_subjects": [
+    "Best of the Internet documentary subject",
+    "period-accurate environment",
+    "evidence object close-up"
+  ],
+  "lighting_default": "natural directional key, documentary clarity",
+  "face_policy": "no talking-head lip-sync avatar; cinematic B-roll preferred",
+  "dialogue_tone": "human documentary narration; specific nouns; 7–9s beats",
+  "audio_ambience": "subtle documentary bed; do not overpower voice",
+  "research_hints": [
+    "Prefer primary evidence and concrete entities for Best of the Internet",
+    "Avoid generic niche-label topics; require specific place/person/event/mechanism",
+    "7–9 second spoken beats with story continuity across scenes"
+  ],
+  "topic_prompt_overlay": "NICHE LOCK (Best of the Internet): only propose topics that fit this niche's video type. Video type: Viral moments, wholesome memes, and internet challenges — explained culturally with global commentary. Follow niche topic strategy: Scan viral sites, trending hashtags, or new meme formats. Generate a topic about a viral phenomenon with cultural significance.",
+  "video_prompt_overlay": "NICHE VISUAL LOCK (Best of the Internet / news): Generate a 7–9 second dialogue clip based on the topic `{topic}`. Each dialogue must be current and fun. For each dialogue, generate: - **Audio Generation Prompt:** Voice — trending, with notification pings. - **Video Generation Prompt:** Detailed visual — a screen with memes or social media feed. No character — screen. Lighting: bright. Maintain same feed. Forbidden: talking-head lip-sync avatar, burned-in captions, watermark, modern meme text, off-niche stock office B-roll. Preferred subjects: Best of the Internet documentary subject, period-accurate environment, evidence object close-up. Lighting: natural directional key, documentary clarity. Face policy: no talking-head lip-sync avatar; cinematic B-roll preferred. Dialogue tone: human documentary narration; specific nouns; 7–9s beats. Ambience: subtle documentary bed; do not overpower voice.",
+  "i18n": {
+    "en": {
+      "name": "Best of the Internet",
+      "blurb": "Viral moments, wholesome memes, and internet challenges — explained culturally with global commentary."
+    },
+    "bn": {
+      "name": "ইন্টারনেটের সেরা",
+      "blurb": "ভিডিও টাইপ: Viral moments, wholesome memes, and internet challenges — explained culturally with global commentary."
+    },
+    "hi": {
+      "name": "इंटरनेट का सर्वश्रेष्ठ",
+      "blurb": "वीडियो प्रकार: Viral moments, wholesome memes, and internet challenges — explained culturally with global commentary."
+    },
+    "ur": {
+      "name": "انٹرنیٹ کا بہترین",
+      "blurb": "ویڈیو کی قسم: Viral moments, wholesome memes, and internet challenges — explained culturally with global commentary."
+    },
+    "ta": {
+      "name": "இணையத்தின் சிறந்தவை",
+      "blurb": "வீடியோ வகை: Viral moments, wholesome memes, and internet challenges — explained culturally with global commentary."
+    },
+    "ml": {
+      "name": "ഇന്റർനെറ്റിലെ മികച്ചവ",
+      "blurb": "വീഡിയോ തരം: Viral moments, wholesome memes, and internet challenges — explained culturally with global commentary."
+    }
+  },
+  "source": "Nish.Md + deterministic research",
+  "research_notes": [
+    "Marathon researched at 2026-09-10T08:30:34Z",
+    "Video type length=102",
+    "Topic prompt length=127",
+    "Video prompt length=359",
+    "Seeds=6"
+  ],
+  "verified_at": "2026-09-10T08:30:34Z"
+}

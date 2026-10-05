@@ -1,0 +1,81 @@
+{
+  "niche_id": 109,
+  "name": "AI in Health",
+  "slug": "ai-in-health",
+  "style_family": "gadget",
+  "status": "VERIFIED",
+  "topic_seeds": [
+    "What new evidence reframes the story of Health Ada inside AI in Health",
+    "How Health Ada still shapes public curiosity about AI in Health",
+    "What new evidence reframes the story of Babylon inside AI in Health",
+    "How Babylon still shapes public curiosity about AI in Health",
+    "What new evidence reframes the story of Check inside AI in Health",
+    "How Check still shapes public curiosity about AI in Health"
+  ],
+  "seo_angles": [
+    "What new evidence reframes the story of Health Ada inside AI in Health",
+    "How Health Ada still shapes public curiosity about AI in Health",
+    "What new evidence reframes the story of Babylon inside AI in Health",
+    "How Babylon still shapes public curiosity about AI in Health"
+  ],
+  "forbidden_visuals": [
+    "talking-head lip-sync avatar",
+    "burned-in captions",
+    "watermark",
+    "modern meme text",
+    "wrong model phone",
+    "generic unbranded slab",
+    "stock office handshake"
+  ],
+  "preferred_subjects": [
+    "exact product hero",
+    "component close-up",
+    "hands with device only"
+  ],
+  "lighting_default": "natural directional key, documentary clarity",
+  "face_policy": "product-only hero; hands OK; no talking-head",
+  "dialogue_tone": "human documentary narration; specific nouns; 7–9s beats",
+  "audio_ambience": "subtle documentary bed; do not overpower voice",
+  "research_hints": [
+    "Prefer primary evidence and concrete entities for AI in Health",
+    "Avoid generic niche-label topics; require specific place/person/event/mechanism",
+    "7–9 second spoken beats with story continuity across scenes"
+  ],
+  "topic_prompt_overlay": "NICHE LOCK (AI in Health): only propose topics that fit this niche's video type. Video type: Ada, Babylon — free symptom checkers, mental health chatbots, and their accuracy compared to doctors. Follow niche topic strategy: Check health tech news, new AI diagnostic studies, or viral telehealth stories. Generate a topic about an AI health tool with proven results.",
+  "video_prompt_overlay": "NICHE VISUAL LOCK (AI in Health / gadget): Generate a 7–9 second dialogue clip based on the topic `{topic}`. Each dialogue must be informative and caring. For each dialogue, generate: - **Audio Generation Prompt:** Voice — medical, with heartbeat and soft beeps. - **Video Generation Prompt:** Detailed visual — a phone app screen or clinic. Character: user (casual). Lighting: soft, medical. Maintain same app screen. Forbidden: talking-head lip-sync avatar, burned-in captions, watermark, modern meme text, wrong model phone, generic unbranded slab, stock office handshake. Preferred subjects: exact product hero, component close-up, hands with device only. Lighting: natural directional key, documentary clarity. Face policy: product-only hero; hands OK; no talking-head. Dialogue tone: human documentary narration; specific nouns; 7–9s beats. Ambience: subtle documentary bed; do not overpower voice.",
+  "i18n": {
+    "en": {
+      "name": "AI in Health",
+      "blurb": "Ada, Babylon — free symptom checkers, mental health chatbots, and their accuracy compared to doctors."
+    },
+    "bn": {
+      "name": "স্বাস্থ্যে এআই",
+      "blurb": "ভিডিও টাইপ: Ada, Babylon — free symptom checkers, mental health chatbots, and their accuracy compared to doctors."
+    },
+    "hi": {
+      "name": "स्वास्थ्य में एआई",
+      "blurb": "वीडियो प्रकार: Ada, Babylon — free symptom checkers, mental health chatbots, and their accuracy compared to doctors."
+    },
+    "ur": {
+      "name": "صحت میں اے آئی",
+      "blurb": "ویڈیو کی قسم: Ada, Babylon — free symptom checkers, mental health chatbots, and their accuracy compared to doctors."
+    },
+    "ta": {
+      "name": "சுகாதாரத்தில் AI",
+      "blurb": "வீடியோ வகை: Ada, Babylon — free symptom checkers, mental health chatbots, and their accuracy compared to doctors."
+    },
+    "ml": {
+      "name": "ആരോഗ്യത്തിലെ AI",
+      "blurb": "വീഡിയോ തരം: Ada, Babylon — free symptom checkers, mental health chatbots, and their accuracy compared to doctors."
+    }
+  },
+  "source": "Nish.Md + deterministic research",
+  "research_notes": [
+    "Marathon researched at 2026-09-10T08:30:24Z",
+    "Video type length=101",
+    "Topic prompt length=141",
+    "Video prompt length=375",
+    "Seeds=6"
+  ],
+  "verified_at": "2026-09-10T08:30:24Z"
+}

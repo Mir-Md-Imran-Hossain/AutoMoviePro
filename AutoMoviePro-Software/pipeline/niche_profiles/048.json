@@ -1,0 +1,79 @@
+{
+  "niche_id": 48,
+  "name": "Urban Legends",
+  "slug": "urban-legends",
+  "style_family": "finance",
+  "status": "VERIFIED",
+  "topic_seeds": [
+    "What new evidence reframes the story of Urban Legends Examining inside Urban Legends",
+    "How Urban Legends Examining still shapes public curiosity about Urban Legends",
+    "What new evidence reframes the story of Slender Man inside Urban Legends",
+    "How Slender Man still shapes public curiosity about Urban Legends",
+    "What new evidence reframes the story of Bloody Mary inside Urban Legends",
+    "How Bloody Mary still shapes public curiosity about Urban Legends"
+  ],
+  "seo_angles": [
+    "What new evidence reframes the story of Urban Legends Examining inside Urban Legends",
+    "How Urban Legends Examining still shapes public curiosity about Urban Legends",
+    "What new evidence reframes the story of Slender Man inside Urban Legends",
+    "How Slender Man still shapes public curiosity about Urban Legends"
+  ],
+  "forbidden_visuals": [
+    "talking-head lip-sync avatar",
+    "burned-in captions",
+    "watermark",
+    "modern meme text",
+    "off-niche stock office B-roll"
+  ],
+  "preferred_subjects": [
+    "Urban Legends documentary subject",
+    "period-accurate environment",
+    "evidence object close-up"
+  ],
+  "lighting_default": "natural directional key, documentary clarity",
+  "face_policy": "no talking-head lip-sync avatar; cinematic B-roll preferred",
+  "dialogue_tone": "human documentary narration; specific nouns; 7–9s beats",
+  "audio_ambience": "subtle documentary bed; do not overpower voice",
+  "research_hints": [
+    "Prefer primary evidence and concrete entities for Urban Legends",
+    "Avoid generic niche-label topics; require specific place/person/event/mechanism",
+    "7–9 second spoken beats with story continuity across scenes"
+  ],
+  "topic_prompt_overlay": "NICHE LOCK (Urban Legends): only propose topics that fit this niche's video type. Video type: Examining the origins of urban myths — Slender Man, Bloody Mary — and separating fact from community gossip. Follow niche topic strategy: Follow Reddit threads, viral creepypasta, or new documentary releases about urban legends. Identify a legend that has recently resurfaced in online discussions or has new investigative findings.",
+  "video_prompt_overlay": "NICHE VISUAL LOCK (Urban Legends / finance): Generate a 7–9 second dialogue clip based on the topic `{topic}`. Each dialogue must be creepy and investigative. For each dialogue, generate: - **Audio Generation Prompt:** Voice — hushed, suspenseful, with children's laughter or wind rattling windows. - **Video Generation Prompt:** Detailed visual — a suburban street at night or a school hallway. No clear character — a shadowy figure in the distance. Lighting: moonlight with flickering street lamp. Maintain same street layout, same shadow position, and same cool blue night tones. Forbidden: talking-head lip-sync avatar, burned-in captions, watermark, modern meme text, off-niche stock office B-roll. Preferred subjects: Urban Legends documentary subject, period-accurate environment, evidence object close-up. Lighting: natural directional key, documentary clarity. Face policy: no talking-head lip-sync avatar; cinematic B-roll preferred. Dialogue tone: human documentary narration; specific nouns; 7–9s beats. Ambience: subtle documentary bed; do not overpower voice.",
+  "i18n": {
+    "en": {
+      "name": "Urban Legends",
+      "blurb": "Examining the origins of urban myths — Slender Man, Bloody Mary — and separating fact from community gossip."
+    },
+    "bn": {
+      "name": "শহুরে কিংবদন্তি",
+      "blurb": "ভিডিও টাইপ: Examining the origins of urban myths — Slender Man, Bloody Mary — and separating fact from community gossip."
+    },
+    "hi": {
+      "name": "शहरी किंवदंतियाँ",
+      "blurb": "वीडियो प्रकार: Examining the origins of urban myths — Slender Man, Bloody Mary — and separating fact from community gossip."
+    },
+    "ur": {
+      "name": "شہری افسانے",
+      "blurb": "ویڈیو کی قسم: Examining the origins of urban myths — Slender Man, Bloody Mary — and separating fact from community gossip."
+    },
+    "ta": {
+      "name": "நகரப் புராணங்கள்",
+      "blurb": "வீடியோ வகை: Examining the origins of urban myths — Slender Man, Bloody Mary — and separating fact from community gossip."
+    },
+    "ml": {
+      "name": "നഗര ഇതിഹാസങ്ങൾ",
+      "blurb": "വീഡിയോ തരം: Examining the origins of urban myths — Slender Man, Bloody Mary — and separating fact from community gossip."
+    }
+  },
+  "source": "Nish.Md + deterministic research",
+  "research_notes": [
+    "Marathon researched at 2026-09-10T08:30:14Z",
+    "Video type length=108",
+    "Topic prompt length=194",
+    "Video prompt length=537",
+    "Seeds=6"
+  ],
+  "verified_at": "2026-09-10T08:30:14Z"
+}

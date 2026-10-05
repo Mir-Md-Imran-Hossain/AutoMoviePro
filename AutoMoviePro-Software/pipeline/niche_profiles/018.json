@@ -1,0 +1,83 @@
+{
+  "niche_id": 18,
+  "name": "Cults & Fanaticism",
+  "slug": "cults-fanaticism",
+  "style_family": "history",
+  "status": "VERIFIED",
+  "topic_seeds": [
+    "What new evidence reframes the story of Cults inside Cults & Fanaticism",
+    "How Cults still shapes public curiosity about Cults & Fanaticism",
+    "What new evidence reframes the story of Fanaticism Rise inside Cults & Fanaticism",
+    "How Fanaticism Rise still shapes public curiosity about Cults & Fanaticism",
+    "What new evidence reframes the story of Jonestown inside Cults & Fanaticism",
+    "How Jonestown still shapes public curiosity about Cults & Fanaticism"
+  ],
+  "seo_angles": [
+    "What new evidence reframes the story of Cults inside Cults & Fanaticism",
+    "How Cults still shapes public curiosity about Cults & Fanaticism",
+    "What new evidence reframes the story of Fanaticism Rise inside Cults & Fanaticism",
+    "How Fanaticism Rise still shapes public curiosity about Cults & Fanaticism"
+  ],
+  "forbidden_visuals": [
+    "talking-head lip-sync avatar",
+    "burned-in captions",
+    "watermark",
+    "modern meme text",
+    "modern smartphones",
+    "cars",
+    "LED screens",
+    "sneakers",
+    "contemporary skyline"
+  ],
+  "preferred_subjects": [
+    "Cults & Fanaticism documentary subject",
+    "period-accurate environment",
+    "evidence object close-up"
+  ],
+  "lighting_default": "warm desert sun / torchlit interiors, high-contrast documentary grade",
+  "face_policy": "period extras OK if consistent; prefer environment/object hero when possible",
+  "dialogue_tone": "human documentary narration; specific nouns; 7–9s beats",
+  "audio_ambience": "subtle documentary bed; do not overpower voice",
+  "research_hints": [
+    "Prefer primary evidence and concrete entities for Cults & Fanaticism",
+    "Avoid generic niche-label topics; require specific place/person/event/mechanism",
+    "7–9 second spoken beats with story continuity across scenes"
+  ],
+  "topic_prompt_overlay": "NICHE LOCK (Cults & Fanaticism): only propose topics that fit this niche's video type. Video type: Rise and fall of dangerous religious or political sects — Jonestown, Heaven's Gate, Branch Davidians — how leaders manipulated followers to tragic ends. Follow niche topic strategy: Scan documentaries, academic papers, or news about current cult-like movements. Generate a topic that warns and educates.",
+  "video_prompt_overlay": "NICHE VISUAL LOCK (Cults & Fanaticism / history): Generate a 7–9 second dialogue clip based on the topic `{topic}`. Each dialogue must be chilling and cautionary. For each dialogue, generate: - **Audio Generation Prompt:** Voice — charismatic yet eerie, with chanting or singing in the background. - **Video Generation Prompt:** Detailed visual — a cult meeting room or compound. Characters: followers in uniform clothing, leader on stage. Lighting: warm but unnatural (neon or candle). Maintain same uniform, same room, same lighting hue. Forbidden: talking-head lip-sync avatar, burned-in captions, watermark, modern meme text, modern smartphones, cars, LED screens, sneakers. Preferred subjects: Cults & Fanaticism documentary subject, period-accurate environment, evidence object close-up. Lighting: warm desert sun / torchlit interiors, high-contrast documentary grade. Face policy: period extras OK if consistent; prefer environment/object hero when possible. Dialogue tone: human documentary narration; specific nouns; 7–9s beats. Ambience: subtle documentary bed; do not overpower voice.",
+  "i18n": {
+    "en": {
+      "name": "Cults & Fanaticism",
+      "blurb": "Rise and fall of dangerous religious or political sects — Jonestown, Heaven's Gate, Branch Davidians — how leaders manipulated followers to tragic ends."
+    },
+    "bn": {
+      "name": "কাল্ট ও উগ্রতা",
+      "blurb": "ভিডিও টাইপ: Rise and fall of dangerous religious or political sects — Jonestown, Heaven's Gate, Branch Davidians — how leaders manipulated followers to tragic…"
+    },
+    "hi": {
+      "name": "पंथ और कट्टरता",
+      "blurb": "वीडियो प्रकार: Rise and fall of dangerous religious or political sects — Jonestown, Heaven's Gate, Branch Davidians — how leaders manipulated followers to tragic…"
+    },
+    "ur": {
+      "name": "فرقے اور انتہا پسندی",
+      "blurb": "ویڈیو کی قسم: Rise and fall of dangerous religious or political sects — Jonestown, Heaven's Gate, Branch Davidians — how leaders manipulated followers to tragic…"
+    },
+    "ta": {
+      "name": "வழிபாட்டுக் குழுக்கள் & தீவிரவாதம்",
+      "blurb": "வீடியோ வகை: Rise and fall of dangerous religious or political sects — Jonestown, Heaven's Gate, Branch Davidians — how leaders manipulated followers to tragic…"
+    },
+    "ml": {
+      "name": "കൾട്ടുകളും ഫാനറ്റിസവും",
+      "blurb": "വീഡിയോ തരം: Rise and fall of dangerous religious or political sects — Jonestown, Heaven's Gate, Branch Davidians — how leaders manipulated followers to tragic…"
+    }
+  },
+  "source": "Nish.Md + deterministic research",
+  "research_notes": [
+    "Marathon researched at 2026-09-10T08:30:10Z",
+    "Video type length=152",
+    "Topic prompt length=121",
+    "Video prompt length=489",
+    "Seeds=6"
+  ],
+  "verified_at": "2026-09-10T08:30:10Z"
+}

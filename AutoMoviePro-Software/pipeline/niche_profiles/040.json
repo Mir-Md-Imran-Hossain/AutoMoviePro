@@ -1,0 +1,83 @@
+{
+  "niche_id": 40,
+  "name": "Movie Making Secrets",
+  "slug": "movie-making-secrets",
+  "style_family": "mystery",
+  "status": "VERIFIED",
+  "topic_seeds": [
+    "What new evidence reframes the story of Movie Making Secrets Behind inside Movie Making Secrets",
+    "How Movie Making Secrets Behind still shapes public curiosity about Movie Making Secrets",
+    "What new evidence reframes the story of Hitchcock inside Movie Making Secrets",
+    "How Hitchcock still shapes public curiosity about Movie Making Secrets",
+    "What new evidence reframes the story of Nolan inside Movie Making Secrets",
+    "How Nolan still shapes public curiosity about Movie Making Secrets"
+  ],
+  "seo_angles": [
+    "What new evidence reframes the story of Movie Making Secrets Behind inside Movie Making Secrets",
+    "How Movie Making Secrets Behind still shapes public curiosity about Movie Making Secrets",
+    "What new evidence reframes the story of Hitchcock inside Movie Making Secrets",
+    "How Hitchcock still shapes public curiosity about Movie Making Secrets"
+  ],
+  "forbidden_visuals": [
+    "talking-head lip-sync avatar",
+    "burned-in captions",
+    "watermark",
+    "modern meme text",
+    "modern smartphones",
+    "cars",
+    "LED screens",
+    "sneakers",
+    "contemporary skyline"
+  ],
+  "preferred_subjects": [
+    "Movie Making Secrets documentary subject",
+    "period-accurate environment",
+    "evidence object close-up"
+  ],
+  "lighting_default": "dappled fog light, cool teal shadows, slow push-ins",
+  "face_policy": "no talking-head lip-sync avatar; cinematic B-roll preferred",
+  "dialogue_tone": "slow, ominous, evidence-first",
+  "audio_ambience": "low drone, subtle reverb, sparse percussion",
+  "research_hints": [
+    "Prefer primary evidence and concrete entities for Movie Making Secrets",
+    "Avoid generic niche-label topics; require specific place/person/event/mechanism",
+    "7–9 second spoken beats with story continuity across scenes"
+  ],
+  "topic_prompt_overlay": "NICHE LOCK (Movie Making Secrets): only propose topics that fit this niche's video type. Video type: Behind-the-camera stories — from Hitchcock to Nolan — how famous scenes were shot, actor mishaps, and production nightmares. Follow niche topic strategy: Check movie anniversaries, director interviews, or documentary releases. Generate a topic about a surprising film production challenge.",
+  "video_prompt_overlay": "NICHE VISUAL LOCK (Movie Making Secrets / mystery): Generate a 7–9 second dialogue clip based on the topic `{topic}`. Each dialogue must be glamorous and gritty. For each dialogue, generate: - **Audio Generation Prompt:** Voice — dramatic, with clapperboard and camera roll. - **Video Generation Prompt:** Detailed visual — movie set or soundstage. Characters: director and cameraman. Lighting: studio lights. Maintain same set design. Forbidden: talking-head lip-sync avatar, burned-in captions, watermark, modern meme text, modern smartphones, cars, LED screens, sneakers. Preferred subjects: Movie Making Secrets documentary subject, period-accurate environment, evidence object close-up. Lighting: dappled fog light, cool teal shadows, slow push-ins. Face policy: no talking-head lip-sync avatar; cinematic B-roll preferred. Dialogue tone: slow, ominous, evidence-first. Ambience: low drone, subtle reverb, sparse percussion.",
+  "i18n": {
+    "en": {
+      "name": "Movie Making Secrets",
+      "blurb": "Behind-the-camera stories — from Hitchcock to Nolan — how famous scenes were shot, actor mishaps, and production nightmares."
+    },
+    "bn": {
+      "name": "সিনেমা তৈরির রহস্য",
+      "blurb": "ভিডিও টাইপ: Behind-the-camera stories — from Hitchcock to Nolan — how famous scenes were shot, actor mishaps, and production nightmares."
+    },
+    "hi": {
+      "name": "फिल्म निर्माण के रहस्य",
+      "blurb": "वीडियो प्रकार: Behind-the-camera stories — from Hitchcock to Nolan — how famous scenes were shot, actor mishaps, and production nightmares."
+    },
+    "ur": {
+      "name": "فلم سازی کے راز",
+      "blurb": "ویڈیو کی قسم: Behind-the-camera stories — from Hitchcock to Nolan — how famous scenes were shot, actor mishaps, and production nightmares."
+    },
+    "ta": {
+      "name": "திரைப்பட உருவாக்க ரகசியங்கள்",
+      "blurb": "வீடியோ வகை: Behind-the-camera stories — from Hitchcock to Nolan — how famous scenes were shot, actor mishaps, and production nightmares."
+    },
+    "ml": {
+      "name": "സിനിമ നിർമാണ രഹസ്യങ്ങൾ",
+      "blurb": "വീഡിയോ തരം: Behind-the-camera stories — from Hitchcock to Nolan — how famous scenes were shot, actor mishaps, and production nightmares."
+    }
+  },
+  "source": "Nish.Md + deterministic research",
+  "research_notes": [
+    "Marathon researched at 2026-09-10T08:30:13Z",
+    "Video type length=124",
+    "Topic prompt length=135",
+    "Video prompt length=383",
+    "Seeds=6"
+  ],
+  "verified_at": "2026-09-10T08:30:13Z"
+}

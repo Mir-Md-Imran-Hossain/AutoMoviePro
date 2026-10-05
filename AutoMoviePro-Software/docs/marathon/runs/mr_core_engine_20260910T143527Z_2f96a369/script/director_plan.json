@@ -1,0 +1,486 @@
+{
+  "analysis": {
+    "niche_summary": "Space science documentary focusing on the operational impact of commercial crew vehicles on the International Space Station's scientific payload return schedule.",
+    "why_this_topic": "Retention spine: Hook (Starliner's failure delays science) -> Open Loop (Why does a failed launch matter for biology?) -> Evidence (Cargo vs Crew distinction) -> Payoff (Specific experiment delays) -> Re-hook (The 2026 recovery timeline) -> Close (New baseline for space research).",
+    "audience": "Space enthusiasts, STEM students, and tech investors interested in the commercialization of space access.",
+    "tone": "Industrial documentary urgency without hype",
+    "product_category": "science",
+    "style_pack": "science",
+    "nish_id": 0,
+    "avoided_duplicates": [
+      "JWST mirror mechanics",
+      "Mars rover landing",
+      "ISS construction history"
+    ],
+    "retention_spine": "Open loop: Why Starliner's delay hurts science -> Evidence: Cargo dependency -> Payoff: Specific biology delays -> New question: How fast is the fix? -> Ending: The new 2026 baseline.",
+    "master_lang": "en",
+    "master_lang_bcp47": "en-US"
+  },
+  "topic": "Starliner Failure and ISS Science Return Timelines",
+  "product_key_hint": "starliner iss science return timeline 2026",
+  "title": "Starliner Failure: Why ISS Science Returns Are Delayed (2026)",
+  "description": "The Boeing Starliner isn't just a crew vehicle; it's a critical cargo lifeline. When it stalls, experiments on the ISS wait. We break down exactly how the 2024-2025 delays are reshaping the return schedule for biological and materials science payloads.\n\nYou'll see the specific mechanism of cargo dependency and the 2026 recovery window that resets the timeline. No fluff, just the operational reality of space logistics.\n\n#Starliner #ISS #SpaceScience #Boeing #NASA #2026 #SpaceLogistics #CommercialSpace",
+  "tags": [
+    "Starliner failure",
+    "ISS science return",
+    "Boeing Starliner 2026",
+    "ISS cargo delay",
+    "space science timeline"
+  ],
+  "scenes": [
+    {
+      "element": "intro",
+      "start_hint_s": 0.0,
+      "end_hint_s": 8.5,
+      "narration": "Most people think Starliner is just a taxi. But its failure is actually freezing the return of critical science experiments on the ISS.",
+      "keyword_triggers": [
+        "Starliner Failure and ISS Science Return Timelines",
+        "Starliner",
+        "ISS",
+        "failure",
+        "science experiments"
+      ],
+      "exact_ai_video_prompt": "VERTICAL 9:16 portrait (1080x1920) cinematic slow push-in of the Boeing Starliner spacecraft docked to the ISS, teal/cyan cinematic lab grade, high contrast, shallow DOF, no burned captions, no watermark, no talking-head, continuous motion of the station rotating slowly against the black void REQUIRED on-screen anchors: Starliner Failure and ISS Science Return Timelines, failure, science experiments, taxi, actually, freezing, return. Visual slot: Starliner Failure and ISS Science Return Timelines Starliner ISS: Most people think Starliner is just a taxi. But its failure is — slow cinematic push-in establishing hero.",
+      "visual_query": "Starliner docked ISS cinematic",
+      "visual_prompt": "Starliner spacecraft attached to ISS, dark space background, teal grade",
+      "retention_role": "pattern_interrupt",
+      "open_loop": "Why does a crew vehicle failure stop science experiments?",
+      "payoff_for": "",
+      "quality_notes": "Hero shot establishes the subject. Teal grade matches niche. No text on screen.",
+      "estimated_duration_sec": 9.0,
+      "retention": {
+        "role": "pattern_interrupt",
+        "window_start_sec": 0,
+        "window_end_sec": 2,
+        "job": "Pattern Interrupt",
+        "open_loop": "Why does a crew vehicle failure stop science experiments?",
+        "payoff_for": null
+      },
+      "visual_mode": "VIDEO",
+      "media_mode_decision": {
+        "mode": "VIDEO",
+        "reason": "default_video_primary_agnes",
+        "ok": "true",
+        "image_authorized": false,
+        "agnes_required": true,
+        "engine_version": "media_mode_engine_v1"
+      },
+      "montage_slot": {
+        "slot_description": "Starliner Failure and ISS Science Return Timelines Starliner ISS: Most people think Starliner is just a taxi. But its failure is — slow cinematic push-in establishing hero",
+        "search_queries": [
+          "Starliner Failure and ISS Science Return Timelines Starliner intro",
+          "Starliner Failure ISS",
+          "Most people think documentary footage"
+        ],
+        "hero": true,
+        "preferred_sources": "agnes,pexels",
+        "beat_index": 0
+      },
+      "search_queries": [
+        "Starliner Failure and ISS Science Return Timelines Starliner intro",
+        "Starliner Failure ISS",
+        "Most people think documentary footage"
+      ],
+      "hero": true,
+      "lang": "en",
+      "lang_bcp47": "en-US"
+    },
+    {
+      "element": "context",
+      "start_hint_s": 8.5,
+      "end_hint_s": 17.0,
+      "narration": "Here is the detail experts watch: Starliner carries return cargo. When it stays grounded, those samples have nowhere to go but up.",
+      "keyword_triggers": [
+        "Starliner Failure and ISS Science Return Timelines",
+        "cargo",
+        "samples",
+        "grounded",
+        "dependency"
+      ],
+      "exact_ai_video_prompt": "VERTICAL 9:16 portrait (1080x1920) macro shot of sealed scientific sample containers inside a spacecraft cargo bay, teal/cyan cinematic lab grade, high contrast, shallow DOF, no burned captions, no watermark, no talking-head, slow pan across the containers showing labels and seals REQUIRED on-screen anchors: Starliner Failure and ISS Science Return Timelines, grounded, dependency, experts, watch, Starliner, carries, return. Visual slot: Starliner Failure and ISS Science Return Timelines cargo samples: Here is the detail experts watch: Starliner carries return cargo. When it — environmental wide into subject emphasis.",
+      "visual_query": "spacecraft cargo bay samples macro",
+      "visual_prompt": "Macro view of scientific containers in cargo bay, teal lighting",
+      "retention_role": "curiosity_gap",
+      "open_loop": "What is the specific cargo dependency?",
+      "payoff_for": "Why does a crew vehicle failure stop science experiments?",
+      "quality_notes": "Visualizes the 'cargo' claim. Macro detail adds texture. Continuity of teal grade.",
+      "estimated_duration_sec": 9.0,
+      "retention": {
+        "role": "curiosity_gap",
+        "window_start_sec": 2,
+        "window_end_sec": 5,
+        "job": "Curiosity Gap",
+        "open_loop": "What is the specific cargo dependency?",
+        "payoff_for": "Why does a crew vehicle failure stop science experiments?"
+      },
+      "visual_mode": "VIDEO",
+      "media_mode_decision": {
+        "mode": "VIDEO",
+        "reason": "default_video_primary_agnes",
+        "ok": "true",
+        "image_authorized": false,
+        "agnes_required": true,
+        "engine_version": "media_mode_engine_v1"
+      },
+      "montage_slot": {
+        "slot_description": "Starliner Failure and ISS Science Return Timelines cargo samples: Here is the detail experts watch: Starliner carries return cargo. When it — environmental wide into subject emphasis",
+        "search_queries": [
+          "Starliner Failure and ISS Science Return Timelines cargo context",
+          "Starliner Failure ISS",
+          "Here detail experts documentary footage"
+        ],
+        "hero": false,
+        "preferred_sources": "agnes,pexels",
+        "beat_index": 1
+      },
+      "search_queries": [
+        "Starliner Failure and ISS Science Return Timelines cargo context",
+        "Starliner Failure ISS",
+        "Here detail experts documentary footage"
+      ],
+      "hero": false,
+      "lang": "en",
+      "lang_bcp47": "en-US"
+    },
+    {
+      "element": "discovery",
+      "start_hint_s": 17.0,
+      "end_hint_s": 25.5,
+      "narration": "Watch what this changes next — biology experiments that need cold storage are now stuck in orbit. The timeline for their return to.",
+      "keyword_triggers": [
+        "Starliner Failure and ISS Science Return Timelines",
+        "biology",
+        "cold storage",
+        "orbit",
+        "timeline shift"
+      ],
+      "exact_ai_video_prompt": "VERTICAL 9:16 portrait (1080x1920) close-up of a cryogenic biological sample vial with frost forming, teal/cyan cinematic lab grade, high contrast, shallow DOF, no burned captions, no watermark, no talking-head, slow zoom into the frost pattern on the glass REQUIRED on-screen anchors: Starliner Failure and ISS Science Return Timelines, biology, cold storage, orbit, timeline shift, experiments, cold, storage, stuck. Visual slot: Starliner Failure and ISS Science Return Timelines biology cold storage: Watch what this changes next — biology experiments that need cold storage — revealing detail with controlled camera move.",
+      "visual_query": "cryogenic biology sample frost macro",
+      "visual_prompt": "Frost forming on a biological sample vial, teal grade",
+      "retention_role": "first_payoff",
+      "open_loop": "Which specific experiments are stuck?",
+      "payoff_for": "What is the specific cargo dependency?",
+      "quality_notes": "Concrete visual for 'cold storage'. Frost adds visual interest and urgency.",
+      "estimated_duration_sec": 9.0,
+      "retention": {
+        "role": "first_payoff",
+        "window_start_sec": 5,
+        "window_end_sec": 10,
+        "job": "First Payoff",
+        "open_loop": "Which specific experiments are stuck?",
+        "payoff_for": "What is the specific cargo dependency?"
+      },
+      "visual_mode": "VIDEO",
+      "media_mode_decision": {
+        "mode": "VIDEO",
+        "reason": "default_video_primary_agnes",
+        "ok": "true",
+        "image_authorized": false,
+        "agnes_required": true,
+        "engine_version": "media_mode_engine_v1"
+      },
+      "montage_slot": {
+        "slot_description": "Starliner Failure and ISS Science Return Timelines biology cold storage: Watch what this changes next — biology experiments that need cold storage — revealing detail with controlled camera move",
+        "search_queries": [
+          "Starliner Failure and ISS Science Return Timelines biology discovery",
+          "Starliner Failure ISS",
+          "Watch what changes documentary footage"
+        ],
+        "hero": true,
+        "preferred_sources": "agnes,pexels",
+        "beat_index": 2
+      },
+      "search_queries": [
+        "Starliner Failure and ISS Science Return Timelines biology discovery",
+        "Starliner Failure ISS",
+        "Watch what changes documentary footage"
+      ],
+      "hero": true,
+      "lang": "en",
+      "lang_bcp47": "en-US"
+    },
+    {
+      "element": "technique",
+      "start_hint_s": 25.5,
+      "end_hint_s": 34.0,
+      "narration": "So why not just use a cargo ship? Because the return window for these specific materials is tighter than the cargo schedule allows.",
+      "keyword_triggers": [
+        "Starliner Failure and ISS Science Return Timelines",
+        "cargo ship",
+        "return window",
+        "schedule",
+        "materials"
+      ],
+      "exact_ai_video_prompt": "VERTICAL 9:16 portrait (1080x1920) wide shot of a cargo spacecraft launching from a pad, plume of smoke rising, teal/cyan cinematic lab grade, high contrast, shallow DOF, no burned captions, no watermark, no talking-head, slow tilt up following the rocket trajectory REQUIRED on-screen anchors: Starliner Failure and ISS Science Return Timelines, cargo ship, return window, schedule, materials, ship, Because, return, window, specific. Visual slot: Starliner Failure and ISS Science Return Timelines cargo ship return window: So why not just use a cargo ship? Because the return window — macro process detail, continuous motion.",
+      "visual_query": "cargo spacecraft launch plume",
+      "visual_prompt": "Rocket launch with smoke plume, teal grade, vertical composition",
+      "retention_role": "question",
+      "open_loop": "How does the backup system work?",
+      "payoff_for": "Which specific experiments are stuck?",
+      "quality_notes": "Shows the 'cargo ship' alternative. Launch motion provides dynamic contrast to previous static shots.",
+      "estimated_duration_sec": 9.0,
+      "retention": {
+        "role": "question",
+        "window_start_sec": null,
+        "window_end_sec": null,
+        "job": "question",
+        "open_loop": "How does the backup system work?",
+        "payoff_for": "Which specific experiments are stuck?"
+      },
+      "visual_mode": "VIDEO",
+      "media_mode_decision": {
+        "mode": "VIDEO",
+        "reason": "default_video_primary_agnes",
+        "ok": "true",
+        "image_authorized": false,
+        "agnes_required": true,
+        "engine_version": "media_mode_engine_v1"
+      },
+      "montage_slot": {
+        "slot_description": "Starliner Failure and ISS Science Return Timelines cargo ship return window: So why not just use a cargo ship? Because the return window — macro process detail, continuous motion",
+        "search_queries": [
+          "Starliner Failure and ISS Science Return Timelines cargo ship technique",
+          "Starliner Failure ISS",
+          "why not just documentary footage"
+        ],
+        "hero": false,
+        "preferred_sources": "agnes,pexels",
+        "beat_index": 3
+      },
+      "search_queries": [
+        "Starliner Failure and ISS Science Return Timelines cargo ship technique",
+        "Starliner Failure ISS",
+        "why not just documentary footage"
+      ],
+      "hero": false,
+      "lang": "en",
+      "lang_bcp47": "en-US"
+    },
+    {
+      "element": "context",
+      "start_hint_s": 34.0,
+      "end_hint_s": 42.5,
+      "narration": "NASA is now re-routing these payloads to the next available crew vehicle. This changes the entire 2026 science return calendar. So the takeaway.",
+      "keyword_triggers": [
+        "Starliner Failure and ISS Science Return Timelines",
+        "NASA",
+        "re-routing",
+        "payloads",
+        "2026 calendar"
+      ],
+      "exact_ai_video_prompt": "VERTICAL 9:16 portrait (1080x1920) aerial view of a spaceport control room with screens showing orbital trajectories, teal/cyan cinematic lab grade, high contrast, shallow DOF, no burned captions, no watermark, no talking-head, slow pan across the screens showing data streams REQUIRED on-screen anchors: Starliner Failure and ISS Science Return Timelines, NASA, re-routing, payloads, 2026 calendar, routing, available, crew, vehicle, 2026. Visual slot: Starliner Failure and ISS Science Return Timelines NASA re-routing: NASA is now re-routing these payloads to the next available crew vehicle. — environmental wide into subject emphasis.",
+      "visual_query": "spaceport control room orbital screens",
+      "visual_prompt": "Control room screens with orbital data, teal grade, vertical",
+      "retention_role": "evidence",
+      "open_loop": "What is the 2026 recovery plan?",
+      "payoff_for": "How does the backup system work?",
+      "quality_notes": "Visualizes the 're-routing' and 'calendar' change. Data screens add technical credibility.",
+      "estimated_duration_sec": 9.0,
+      "retention": {
+        "role": "evidence",
+        "window_start_sec": null,
+        "window_end_sec": null,
+        "job": "close_main_loop",
+        "open_loop": "What is the 2026 recovery plan?",
+        "payoff_for": "How does the backup system work?"
+      },
+      "visual_mode": "VIDEO",
+      "media_mode_decision": {
+        "mode": "VIDEO",
+        "reason": "default_video_primary_agnes",
+        "ok": "true",
+        "image_authorized": false,
+        "agnes_required": true,
+        "engine_version": "media_mode_engine_v1"
+      },
+      "montage_slot": {
+        "slot_description": "Starliner Failure and ISS Science Return Timelines NASA re-routing: NASA is now re-routing these payloads to the next available crew vehicle. — environmental wide into subject emphasis",
+        "search_queries": [
+          "Starliner Failure and ISS Science Return Timelines NASA context",
+          "Starliner Failure ISS",
+          "NASA now routing documentary footage"
+        ],
+        "hero": false,
+        "preferred_sources": "agnes,pexels",
+        "beat_index": 4
+      },
+      "search_queries": [
+        "Starliner Failure and ISS Science Return Timelines NASA context",
+        "Starliner Failure ISS",
+        "NASA now routing documentary footage"
+      ],
+      "hero": false,
+      "lang": "en",
+      "lang_bcp47": "en-US"
+    }
+  ],
+  "director_provider": "groq",
+  "nish_id": 0,
+  "nish_name": "space science",
+  "video_type": "short",
+  "max_seconds": 60,
+  "hook": "Most people think Starliner is just a taxi. But its failure is actually freezing the return of critical science experiments on the ISS.",
+  "metadata": {
+    "retention_cadence_enforced": true,
+    "retention_cadence_repairs": [
+      {
+        "index": 2,
+        "action": "mid_rehook",
+        "prior": "Biology experiments that need cold storage are now stuck in orbit. The timeline for their return to Earth labs just shif"
+      },
+      {
+        "index": 4,
+        "action": "ending_close",
+        "prior": "NASA is now re-routing these payloads to the next available crew vehicle. This changes the entire 2026 science return ca"
+      }
+    ],
+    "dialogue_window_repairs": [
+      {
+        "i": 2,
+        "action": "trim",
+        "est_sec": 9.58
+      },
+      {
+        "i": 4,
+        "action": "trim",
+        "est_sec": 9.58
+      }
+    ],
+    "dialogue_window_enforced": true,
+    "media_mode_engine": {
+      "version": "media_mode_engine_v1",
+      "video_primary_enforced": true,
+      "modes_rewritten_to_video": 5
+    },
+    "montage_slots_enriched": true,
+    "montage_brain_version": "amp_montage_brain_v1",
+    "montage_brain": {
+      "version": "amp_montage_brain_v1",
+      "checklist_ok": true,
+      "openmontage_agpl_imported": false
+    }
+  },
+  "retention_blueprint": {
+    "format": "short",
+    "windows": [
+      {
+        "id": "pattern_interrupt",
+        "start_sec": 0,
+        "end_sec": 2,
+        "job": "Pattern Interrupt"
+      },
+      {
+        "id": "curiosity_gap",
+        "start_sec": 2,
+        "end_sec": 5,
+        "job": "Curiosity Gap"
+      },
+      {
+        "id": "first_payoff",
+        "start_sec": 5,
+        "end_sec": 10,
+        "job": "First Payoff"
+      }
+    ],
+    "loop": [
+      "question",
+      "evidence",
+      "payoff",
+      "new_question"
+    ],
+    "min_open_loops": 2,
+    "min_loop_close_ratio": 0.7,
+    "forbid_flat_streak": 2,
+    "require_ending_close": true
+  },
+  "montage_manifest": {
+    "name": "amp-documentary-montage",
+    "version": "amp_montage_brain_v1",
+    "video_type": "short",
+    "policy": "retrieval_aware_video_primary",
+    "stages": [
+      {
+        "id": "idea",
+        "job": "One thematic question + tone + duration + retention spine",
+        "success": [
+          "concrete_topic",
+          "curiosity_gap",
+          "seo_title_angle"
+        ]
+      },
+      {
+        "id": "scene_plan",
+        "job": "Concrete visual SLOTS (noun+adjective+action) with 2–3 search queries each",
+        "success": [
+          "slot_queries",
+          "hero_slots>=2",
+          "no_abstract_labels"
+        ]
+      },
+      {
+        "id": "assets",
+        "job": "Fill slots: Agnes VIDEO primary; stock retrieval when query-matched; Ken Burns only if authorized",
+        "success": [
+          "visual_mode_provenance",
+          "asset_or_generation_path"
+        ]
+      },
+      {
+        "id": "edit",
+        "job": "Arrange beats by narrative role; no flat encyclopedia chains; payoff cadence",
+        "success": [
+          "retention_roles",
+          "continuity_bridge"
+        ]
+      },
+      {
+        "id": "compose",
+        "job": "Mux audio+picture; aspect lock; no black tails; ship gates",
+        "success": [
+          "duration_contract",
+          "av_sync",
+          "publishability"
+        ]
+      },
+      {
+        "id": "review",
+        "job": "Prompt-compliance + semantic coverage + observation gates",
+        "success": [
+          "PROMPT_COMPLIANCE_AUDIT",
+          "no_silent_image_downgrade"
+        ]
+      }
+    ],
+    "openmontage_agpl_imported": false,
+    "note": "Methodology inspired by public OpenMontage docs; AMP-owned implementation only"
+  },
+  "montage_checklist": {
+    "ok": true,
+    "issues": [],
+    "hero_count": 2,
+    "slots_with_queries": 5,
+    "video_mode_count": 5,
+    "scene_count": 5,
+    "version": "amp_montage_brain_v1"
+  },
+  "master_lang": "en",
+  "master_lang_bcp47": "en-US",
+  "sourceLanguage": "en",
+  "master_lang_policy": "english_pivot_then_localize",
+  "narrator_voice": "Charon",
+  "master_lang_repairs": [
+    {
+      "field": "tags",
+      "repaired": true,
+      "via": "drop_non_english_tags"
+    }
+  ],
+  "prompt_compliance": {
+    "verdict": "PASS",
+    "overall_score": 0.9806,
+    "industrial_grade": true,
+    "artifact_path": "E:\\All Updaye Project\\AutoMovie_Pro_SAAS_Final_Update\\AutoMoviePro-Software\\docs\\marathon\\runs\\mr_core_engine_20260910T143527Z_2f96a369\\script\\PROMPT_COMPLIANCE_AUDIT.json",
+    "llm_critic_verdict": "SKIPPED",
+    "repairs_applied": []
+  }
+}

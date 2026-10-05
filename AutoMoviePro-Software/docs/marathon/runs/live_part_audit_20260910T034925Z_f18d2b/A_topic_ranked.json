@@ -1,0 +1,311 @@
+[
+  {
+    "topic": "space science",
+    "quality": {
+      "ok": false,
+      "error_code": "topic_placeholder_or_generic",
+      "issues": [
+        "too_few_content_tokens",
+        "overly_generic_short_topic",
+        "seo_weak"
+      ],
+      "specificity_score": 0.25,
+      "token_count": 2,
+      "niche_aligned": true,
+      "seo": {
+        "seo_score": 0.3,
+        "seo_friendly": false,
+        "notes": [
+          "length_suboptimal",
+          "niche_anchor"
+        ],
+        "method": "HEURISTIC",
+        "claims_google_rank": false
+      },
+      "authority": "pipeline.intelligence.topic_quality"
+    },
+    "duplicate": {
+      "verdict": "DUPLICATE",
+      "blocked": true,
+      "matched": "space science",
+      "detail": {
+        "verdict": "DUPLICATE",
+        "confidence": 1.0,
+        "evidence": {
+          "candidate_key": "space science"
+        },
+        "comparison_target": "space science",
+        "layer": "exact_canonical"
+      },
+      "authority": "BUILD-04G.duplicate + product_registry"
+    }
+  },
+  {
+    "topic": "How Artemis crews use neutron spectrometers to map lunar polar water ice in 2026",
+    "quality": {
+      "ok": true,
+      "error_code": "",
+      "issues": [],
+      "specificity_score": 1.0,
+      "token_count": 12,
+      "niche_aligned": true,
+      "seo": {
+        "seo_score": 0.9,
+        "seo_friendly": true,
+        "notes": [
+          "length_ok",
+          "intent_keyword",
+          "niche_anchor",
+          "has_specific_number_or_year"
+        ],
+        "method": "HEURISTIC",
+        "claims_google_rank": false
+      },
+      "authority": "pipeline.intelligence.topic_quality"
+    },
+    "duplicate": {
+      "verdict": "UNIQUE",
+      "blocked": false,
+      "matched": "",
+      "detail": {
+        "verdict": "UNIQUE",
+        "confidence": 0.88,
+        "evidence": {
+          "rule_version": "1.0.0"
+        },
+        "comparison_target": "",
+        "layer": "all_passed"
+      },
+      "authority": "BUILD-04G.duplicate + product_registry"
+    }
+  },
+  {
+    "topic": "Why permanently shadowed craters keep water ice colder than dry ice on the Moon",
+    "quality": {
+      "ok": true,
+      "error_code": "",
+      "issues": [],
+      "specificity_score": 1.0,
+      "token_count": 13,
+      "niche_aligned": true,
+      "seo": {
+        "seo_score": 0.85,
+        "seo_friendly": true,
+        "notes": [
+          "length_ok",
+          "intent_keyword",
+          "niche_anchor"
+        ],
+        "method": "HEURISTIC",
+        "claims_google_rank": false
+      },
+      "authority": "pipeline.intelligence.topic_quality"
+    },
+    "duplicate": {
+      "verdict": "UNIQUE",
+      "blocked": false,
+      "matched": "",
+      "detail": {
+        "verdict": "UNIQUE",
+        "confidence": 0.88,
+        "evidence": {
+          "rule_version": "1.0.0"
+        },
+        "comparison_target": "",
+        "layer": "all_passed"
+      },
+      "authority": "BUILD-04G.duplicate + product_registry"
+    }
+  },
+  {
+    "topic": "What JWST mid-infrared spectra reveal about exoplanet atmospheres this week",
+    "quality": {
+      "ok": true,
+      "error_code": "",
+      "issues": [],
+      "specificity_score": 1.0,
+      "token_count": 11,
+      "niche_aligned": true,
+      "seo": {
+        "seo_score": 0.85,
+        "seo_friendly": true,
+        "notes": [
+          "length_ok",
+          "intent_keyword",
+          "niche_anchor"
+        ],
+        "method": "HEURISTIC",
+        "claims_google_rank": false
+      },
+      "authority": "pipeline.intelligence.topic_quality"
+    },
+    "duplicate": {
+      "verdict": "UNIQUE",
+      "blocked": false,
+      "matched": "",
+      "detail": {
+        "verdict": "UNIQUE",
+        "confidence": 0.88,
+        "evidence": {
+          "rule_version": "1.0.0"
+        },
+        "comparison_target": "",
+        "layer": "all_passed"
+      },
+      "authority": "BUILD-04G.duplicate + product_registry"
+    }
+  },
+  {
+    "topic": "How solar wind strips Mars of atmosphere — the MAVEN evidence explained",
+    "quality": {
+      "ok": true,
+      "error_code": "",
+      "issues": [],
+      "specificity_score": 1.0,
+      "token_count": 10,
+      "niche_aligned": true,
+      "seo": {
+        "seo_score": 0.85,
+        "seo_friendly": true,
+        "notes": [
+          "length_ok",
+          "intent_keyword",
+          "niche_anchor"
+        ],
+        "method": "HEURISTIC",
+        "claims_google_rank": false
+      },
+      "authority": "pipeline.intelligence.topic_quality"
+    },
+    "duplicate": {
+      "verdict": "UNIQUE",
+      "blocked": false,
+      "matched": "",
+      "detail": {
+        "verdict": "UNIQUE",
+        "confidence": 0.88,
+        "evidence": {
+          "rule_version": "1.0.0"
+        },
+        "comparison_target": "",
+        "layer": "all_passed"
+      },
+      "authority": "BUILD-04G.duplicate + product_registry"
+    }
+  },
+  {
+    "topic": "Why lunar south pole ice matters for propellant and drinking water on Mars missions",
+    "quality": {
+      "ok": true,
+      "error_code": "",
+      "issues": [],
+      "specificity_score": 1.0,
+      "token_count": 13,
+      "niche_aligned": true,
+      "seo": {
+        "seo_score": 0.85,
+        "seo_friendly": true,
+        "notes": [
+          "length_ok",
+          "intent_keyword",
+          "niche_anchor"
+        ],
+        "method": "HEURISTIC",
+        "claims_google_rank": false
+      },
+      "authority": "pipeline.intelligence.topic_quality"
+    },
+    "duplicate": {
+      "verdict": "UNIQUE",
+      "blocked": false,
+      "matched": "",
+      "detail": {
+        "verdict": "UNIQUE",
+        "confidence": 0.88,
+        "evidence": {
+          "rule_version": "1.0.0"
+        },
+        "comparison_target": "",
+        "layer": "all_passed"
+      },
+      "authority": "BUILD-04G.duplicate + product_registry"
+    }
+  },
+  {
+    "topic": "How neutron albedo mapping finds hydrogen under the Moon's dark crater floors",
+    "quality": {
+      "ok": true,
+      "error_code": "",
+      "issues": [],
+      "specificity_score": 1.0,
+      "token_count": 12,
+      "niche_aligned": true,
+      "seo": {
+        "seo_score": 0.85,
+        "seo_friendly": true,
+        "notes": [
+          "length_ok",
+          "intent_keyword",
+          "niche_anchor"
+        ],
+        "method": "HEURISTIC",
+        "claims_google_rank": false
+      },
+      "authority": "pipeline.intelligence.topic_quality"
+    },
+    "duplicate": {
+      "verdict": "UNIQUE",
+      "blocked": false,
+      "matched": "",
+      "detail": {
+        "verdict": "UNIQUE",
+        "confidence": 0.88,
+        "evidence": {
+          "rule_version": "1.0.0"
+        },
+        "comparison_target": "",
+        "layer": "all_passed"
+      },
+      "authority": "BUILD-04G.duplicate + product_registry"
+    }
+  },
+  {
+    "topic": "What Parker Solar Probe discovered about the Sun's corona in 2026",
+    "quality": {
+      "ok": true,
+      "error_code": "",
+      "issues": [],
+      "specificity_score": 1.0,
+      "token_count": 10,
+      "niche_aligned": true,
+      "seo": {
+        "seo_score": 0.9,
+        "seo_friendly": true,
+        "notes": [
+          "length_ok",
+          "intent_keyword",
+          "niche_anchor",
+          "has_specific_number_or_year"
+        ],
+        "method": "HEURISTIC",
+        "claims_google_rank": false
+      },
+      "authority": "pipeline.intelligence.topic_quality"
+    },
+    "duplicate": {
+      "verdict": "UNIQUE",
+      "blocked": false,
+      "matched": "",
+      "detail": {
+        "verdict": "UNIQUE",
+        "confidence": 0.88,
+        "evidence": {
+          "rule_version": "1.0.0"
+        },
+        "comparison_target": "",
+        "layer": "all_passed"
+      },
+      "authority": "BUILD-04G.duplicate + product_registry"
+    }
+  }
+]

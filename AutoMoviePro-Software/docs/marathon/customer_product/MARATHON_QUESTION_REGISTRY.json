@@ -1,0 +1,3264 @@
+{
+  "checklist_source": "E:\\All Updaye Project\\AutoMovie_Pro_SAAS_Final_Update\\পুরো AutoMovie Pro Production Pipeline — এক নজরে.md",
+  "root": "E:\\All Updaye Project\\AutoMovie_Pro_SAAS_Final_Update\\AutoMoviePro-Software",
+  "question_count": 244,
+  "questions": [
+    {
+      "id": "P5-A-001",
+      "part": "PART-5",
+      "section": "A. Topic & Research",
+      "question": "সিস্টেম কি নিজে topic নির্বাচন করছে?",
+      "verdict": "POSITIVE",
+      "evidence": [
+        "OK: pipeline.intelligence.discovery.discover_topic_candidates"
+      ],
+      "next_action": "retain",
+      "probe_id": "topic_selection"
+    },
+    {
+      "id": "P5-A-002",
+      "part": "PART-5",
+      "section": "A. Topic & Research",
+      "question": "topic কি niche-এর সঙ্গে সম্পর্কিত?",
+      "verdict": "POSITIVE",
+      "evidence": [
+        "OK: placeholder blocked → {'ok': False, 'error_code': 'topic_placeholder_or_generic', 'issues': ['placeholder_pattern:^\\\\s*placeholder\\\\s*$', 'too_few_content_tokens', 'weak_niche_anchor_and_short', 'overly_generic_short_topic'], 'specificity_score': 0.125, 'token_count': 1, 'authority': 'pipeline.intelligence.topic_quality'}",
+        "OK: specific topic ok → specificity=1.0"
+      ],
+      "next_action": "retain",
+      "probe_id": "topic_quality"
+    },
+    {
+      "id": "P5-A-003",
+      "part": "PART-5",
+      "section": "A. Topic & Research",
+      "question": "topic কি আগের topic-এর duplicate নয়?",
+      "verdict": "POSITIVE",
+      "evidence": [
+        "OK: app/customer_trs_workflow.py contains 'check_topic_duplicate'"
+      ],
+      "next_action": "retain",
+      "probe_id": "topic_duplicate"
+    },
+    {
+      "id": "P5-A-004",
+      "part": "PART-5",
+      "section": "A. Topic & Research",
+      "question": "topic selection কি BUILD-04G-এর মাধ্যমে হচ্ছে?",
+      "verdict": "POSITIVE",
+      "evidence": [
+        "OK: pipeline.intelligence.discovery.discover_topic_candidates"
+      ],
+      "next_action": "retain",
+      "probe_id": "topic_selection"
+    },
+    {
+      "id": "P5-A-005",
+      "part": "PART-5",
+      "section": "A. Topic & Research",
+      "question": "topic selection কি deterministic duplicate protection ব্যবহার করছে?",
+      "verdict": "POSITIVE",
+      "evidence": [
+        "OK: app/customer_trs_workflow.py contains 'check_topic_duplicate'"
+      ],
+      "next_action": "retain",
+      "probe_id": "topic_duplicate"
+    },
+    {
+      "id": "P5-A-006",
+      "part": "PART-5",
+      "section": "A. Topic & Research",
+      "question": "topic reserve করার আগে duplicate check হয়?",
+      "verdict": "POSITIVE",
+      "evidence": [
+        "OK: app/customer_trs_workflow.py contains 'check_topic_duplicate'"
+      ],
+      "next_action": "retain",
+      "probe_id": "topic_duplicate"
+    },
+    {
+      "id": "P5-A-007",
+      "part": "PART-5",
+      "section": "A. Topic & Research",
+      "question": "topic নির্বাচন করার পর কি topic evidence সংরক্ষণ হয়?",
+      "verdict": "POSITIVE",
+      "evidence": [
+        "OK: written=['TOPIC.json', 'RESEARCH.json', 'FACTPACK.json', 'SCRIPT.json', 'TRS_CHAIN.json'] out={'job_id': 'marathon_probe', 'order': ['TOPIC', 'RESEARCH', 'FACTPACK', 'SCRIPT'], 'files': ['TOPIC.json', 'RESEARCH.json', 'FACTPACK.json', 'SCRIPT.json'], 'linked': True, 'authority': 'pipeline.quality.trs_chain'}"
+      ],
+      "next_action": "retain",
+      "probe_id": "topic_evidence"
+    },
+    {
+      "id": "P5-A-008",
+      "part": "PART-5",
+      "section": "A. Topic & Research",
+      "question": "topic placeholder হলে production কি block করে?",
+      "verdict": "POSITIVE",
+      "evidence": [
+        "OK: placeholder blocked → {'ok': False, 'error_code': 'topic_placeholder_or_generic', 'issues': ['placeholder_pattern:^\\\\s*placeholder\\\\s*$', 'too_few_content_tokens', 'weak_niche_anchor_and_short', 'overly_generic_short_topic'], 'specificity_score': 0.125, 'token_count': 1, 'authority': 'pipeline.intelligence.topic_quality'}",
+        "OK: specific topic ok → specificity=1.0"
+      ],
+      "next_action": "retain",
+      "probe_id": "topic_quality"
+    },
+    {
+      "id": "P5-A-009",
+      "part": "PART-5",
+      "section": "A. Topic & Research",
+      "question": "topic কি পরবর্তী script-এর জন্য যথেষ্ট specific?",
+      "verdict": "POSITIVE",
+      "evidence": [
+        "OK: placeholder blocked → {'ok': False, 'error_code': 'topic_placeholder_or_generic', 'issues': ['placeholder_pattern:^\\\\s*placeholder\\\\s*$', 'too_few_content_tokens', 'weak_niche_anchor_and_short', 'overly_generic_short_topic'], 'specificity_score': 0.125, 'token_count': 1, 'authority': 'pipeline.intelligence.topic_quality'}",
+        "OK: specific topic ok → specificity=1.0"
+      ],
+      "next_action": "retain",
+      "probe_id": "topic_quality"
+    },
+    {
+      "id": "P5-A-010",
+      "part": "PART-5",
+      "section": "A. Topic & Research",
+      "question": "research কি topic-specific?",
+      "verdict": "POSITIVE",
+      "evidence": [
+        "OK: placeholder blocked → {'ok': False, 'error_code': 'topic_placeholder_or_generic', 'issues': ['placeholder_pattern:^\\\\s*placeholder\\\\s*$', 'too_few_content_tokens', 'weak_niche_anchor_and_short', 'overly_generic_short_topic'], 'specificity_score': 0.125, 'token_count': 1, 'authority': 'pipeline.intelligence.topic_quality'}",
+        "OK: specific topic ok → specificity=1.0"
+      ],
+      "next_action": "retain",
+      "probe_id": "topic_quality"
+    },
+    {
+      "id": "P5-A-011",
+      "part": "PART-5",
+      "section": "A. Topic & Research",
+      "question": "research result কি structured FactPack?",
+      "verdict": "POSITIVE",
+      "evidence": [
+        "OK: pipeline.intelligence.factpack_gate.validate_fact_pack"
+      ],
+      "next_action": "retain",
+      "probe_id": "research_factpack"
+    },
+    {
+      "id": "P5-A-012",
+      "part": "PART-5",
+      "section": "A. Topic & Research",
+      "question": "source evidence কি সংরক্ষিত?",
+      "verdict": "POSITIVE",
+      "evidence": [
+        "OK: pipeline.intelligence.factpack_gate.validate_fact_pack"
+      ],
+      "next_action": "retain",
+      "probe_id": "research_factpack"
+    },
+    {
+      "id": "P5-A-013",
+      "part": "PART-5",
+      "section": "A. Topic & Research",
+      "question": "facts কি script-এর মধ্যে trace করা যায়?",
+      "verdict": "POSITIVE",
+      "evidence": [
+        "OK: pipeline.intelligence.factpack_gate.validate_fact_pack"
+      ],
+      "next_action": "retain",
+      "probe_id": "research_factpack"
+    },
+    {
+      "id": "P5-A-014",
+      "part": "PART-5",
+      "section": "A. Topic & Research",
+      "question": "research failure হলে fallback কী?",
+      "verdict": "POSITIVE",
+      "evidence": [
+        "OK: pipeline.intelligence.research_runtime.execute_research_request"
+      ],
+      "next_action": "retain",
+      "probe_id": "research_runtime"
+    },
+    {
+      "id": "P5-A-015",
+      "part": "PART-5",
+      "section": "A. Topic & Research",
+      "question": "external research unavailable হলে system কি সেটা honestভাবে UNKNOWN/limited হিসেবে record করে?",
+      "verdict": "POSITIVE",
+      "evidence": [
+        "OK: pipeline.intelligence.research_runtime.execute_research_request"
+      ],
+      "next_action": "retain",
+      "probe_id": "research_runtime"
+    },
+    {
+      "id": "P5-A-016",
+      "part": "PART-5",
+      "section": "A. Topic & Research",
+      "question": "research না থাকলে কি fake “researched” status তৈরি হয়?",
+      "verdict": "POSITIVE",
+      "evidence": [
+        "OK: pipeline.intelligence.research_runtime.execute_research_request"
+      ],
+      "next_action": "retain",
+      "probe_id": "research_runtime"
+    },
+    {
+      "id": "P5-A-017",
+      "part": "PART-5",
+      "section": "A. Topic & Research",
+      "question": "একই fact বারবার ব্যবহারের জন্য cache আছে?",
+      "verdict": "POSITIVE",
+      "evidence": [
+        "OK: pipeline.intelligence.research_runtime.execute_research_request"
+      ],
+      "next_action": "retain",
+      "probe_id": "research_runtime"
+    },
+    {
+      "id": "P5-A-018",
+      "part": "PART-5",
+      "section": "A. Topic & Research",
+      "question": "research result-এর provenance আছে?",
+      "verdict": "POSITIVE",
+      "evidence": [
+        "OK: pipeline.intelligence.research_runtime.execute_research_request"
+      ],
+      "next_action": "retain",
+      "probe_id": "research_runtime"
+    },
+    {
+      "id": "P5-B-001",
+      "part": "PART-5",
+      "section": "B. Script",
+      "question": "Script কি research-এর ভিত্তিতে তৈরি হচ্ছে?",
+      "verdict": "POSITIVE",
+      "evidence": [
+        "OK: pipeline/trs_facade.py contains 'run_topic_research_gate'",
+        "OK: pipeline/trs_facade.py contains 'validate_script_plan_preflight'"
+      ],
+      "next_action": "retain",
+      "probe_id": "trs_script"
+    },
+    {
+      "id": "P5-B-002",
+      "part": "PART-5",
+      "section": "B. Script",
+      "question": "hook কি topic-specific?",
+      "verdict": "POSITIVE",
+      "evidence": [
+        "OK: placeholder blocked → {'ok': False, 'error_code': 'topic_placeholder_or_generic', 'issues': ['placeholder_pattern:^\\\\s*placeholder\\\\s*$', 'too_few_content_tokens', 'weak_niche_anchor_and_short', 'overly_generic_short_topic'], 'specificity_score': 0.125, 'token_count': 1, 'authority': 'pipeline.intelligence.topic_quality'}",
+        "OK: specific topic ok → specificity=1.0"
+      ],
+      "next_action": "retain",
+      "probe_id": "topic_quality"
+    },
+    {
+      "id": "P5-B-003",
+      "part": "PART-5",
+      "section": "B. Script",
+      "question": "opening কি audience attention ধরে রাখার মতো?",
+      "verdict": "POSITIVE",
+      "evidence": [
+        "OK: classify_hook mismatch BLOCK → BLOCK issues=['weak_generic_hook', 'hook_topic_mismatch']",
+        "OK: classify_hook aligned → PASS",
+        "OK: opening weak BLOCK → BLOCK ['opening_too_short', 'opening_topic_detached']",
+        "OK: opening strong → PASS score=1.0",
+        "OK: naturalness robotic BLOCK → BLOCK",
+        "OK: naturalness humanish → PASS"
+      ],
+      "next_action": "retain",
+      "probe_id": "script_hook"
+    },
+    {
+      "id": "P5-B-004",
+      "part": "PART-5",
+      "section": "B. Script",
+      "question": "script কি natural human writing-এর মতো?",
+      "verdict": "POSITIVE",
+      "evidence": [
+        "OK: classify_hook mismatch BLOCK → BLOCK issues=['weak_generic_hook', 'hook_topic_mismatch']",
+        "OK: classify_hook aligned → PASS",
+        "OK: opening weak BLOCK → BLOCK ['opening_too_short', 'opening_topic_detached']",
+        "OK: opening strong → PASS score=1.0",
+        "OK: naturalness robotic BLOCK → BLOCK",
+        "OK: naturalness humanish → PASS"
+      ],
+      "next_action": "retain",
+      "probe_id": "script_hook"
+    },
+    {
+      "id": "P5-B-005",
+      "part": "PART-5",
+      "section": "B. Script",
+      "question": "dialogue কি robotic?",
+      "verdict": "POSITIVE",
+      "evidence": [
+        "OK: classify_hook mismatch BLOCK → BLOCK issues=['weak_generic_hook', 'hook_topic_mismatch']",
+        "OK: classify_hook aligned → PASS",
+        "OK: opening weak BLOCK → BLOCK ['opening_too_short', 'opening_topic_detached']",
+        "OK: opening strong → PASS score=1.0",
+        "OK: naturalness robotic BLOCK → BLOCK",
+        "OK: naturalness humanish → PASS"
+      ],
+      "next_action": "retain",
+      "probe_id": "script_hook"
+    },
+    {
+      "id": "P5-B-006",
+      "part": "PART-5",
+      "section": "B. Script",
+      "question": "একই কথা বারবার বলা হচ্ছে?",
+      "verdict": "POSITIVE",
+      "evidence": [
+        "OK: pipeline.creative_production.script_quality.detect_information_repetition"
+      ],
+      "next_action": "retain",
+      "probe_id": "repetition"
+    },
+    {
+      "id": "P5-B-007",
+      "part": "PART-5",
+      "section": "B. Script",
+      "question": "script-এর প্রতিটি section-এর purpose আছে?",
+      "verdict": "POSITIVE",
+      "evidence": [
+        "OK: pipeline/trs_facade.py contains 'run_topic_research_gate'",
+        "OK: pipeline/trs_facade.py contains 'validate_script_plan_preflight'"
+      ],
+      "next_action": "retain",
+      "probe_id": "trs_script"
+    },
+    {
+      "id": "P5-B-008",
+      "part": "PART-5",
+      "section": "B. Script",
+      "question": "visual opportunity আছে?",
+      "verdict": "POSITIVE",
+      "evidence": [
+        "OK: pipeline/trs_facade.py contains 'run_topic_research_gate'",
+        "OK: pipeline/trs_facade.py contains 'validate_script_plan_preflight'"
+      ],
+      "next_action": "retain",
+      "probe_id": "trs_script"
+    },
+    {
+      "id": "P5-B-009",
+      "part": "PART-5",
+      "section": "B. Script",
+      "question": "dialogue থেকে visual beat তৈরি হচ্ছে?",
+      "verdict": "POSITIVE",
+      "evidence": [
+        "OK: pipeline.story_visual_direction.decompose_dialogue_to_visual_beats"
+      ],
+      "next_action": "retain",
+      "probe_id": "dialogue_visual"
+    },
+    {
+      "id": "P5-B-010",
+      "part": "PART-5",
+      "section": "B. Script",
+      "question": "script-এর প্রতিটি dialogue segment কি retained হয়?",
+      "verdict": "POSITIVE",
+      "evidence": [
+        "OK: pipeline.story_visual_direction.decompose_dialogue_to_visual_beats"
+      ],
+      "next_action": "retain",
+      "probe_id": "dialogue_visual"
+    },
+    {
+      "id": "P5-B-011",
+      "part": "PART-5",
+      "section": "B. Script",
+      "question": "কোনো dialogue silently dropped হয়?",
+      "verdict": "POSITIVE",
+      "evidence": [
+        "OK: pipeline/observation/audio_evidence/observe.py contains 'assert_no_silent_dialogue_drop'"
+      ],
+      "next_action": "retain",
+      "probe_id": "silent_drop"
+    },
+    {
+      "id": "P5-B-012",
+      "part": "PART-5",
+      "section": "B. Script",
+      "question": "duration contract কি script-এর সঙ্গে শুরুতেই নির্ধারিত?",
+      "verdict": "POSITIVE",
+      "evidence": [
+        "OK: pipeline.duration_budget.resolve_duration_contract",
+        "OK: pipeline.duration_budget.assert_all_planned_scenes_produced"
+      ],
+      "next_action": "retain",
+      "probe_id": "duration"
+    },
+    {
+      "id": "P5-B-013",
+      "part": "PART-5",
+      "section": "B. Script",
+      "question": "short এবং long-এর duration authority কি এক?",
+      "verdict": "POSITIVE",
+      "evidence": [
+        "OK: pipeline.duration_budget.resolve_duration_contract",
+        "OK: pipeline.duration_budget.assert_all_planned_scenes_produced"
+      ],
+      "next_action": "retain",
+      "probe_id": "duration"
+    },
+    {
+      "id": "P5-B-014",
+      "part": "PART-5",
+      "section": "B. Script",
+      "question": "script → beat → scene mapping কি traceable?",
+      "verdict": "POSITIVE",
+      "evidence": [
+        "OK: pipeline/trs_facade.py contains 'run_topic_research_gate'",
+        "OK: pipeline/trs_facade.py contains 'validate_script_plan_preflight'"
+      ],
+      "next_action": "retain",
+      "probe_id": "trs_script"
+    },
+    {
+      "id": "P5-C-001",
+      "part": "PART-5",
+      "section": "C. Creative Direction",
+      "question": "Visual Bible তৈরি হচ্ছে?",
+      "verdict": "POSITIVE",
+      "evidence": [
+        "OK: pipeline.visual_intelligence.VisualBible"
+      ],
+      "next_action": "retain",
+      "probe_id": "visual_bible"
+    },
+    {
+      "id": "P5-C-002",
+      "part": "PART-5",
+      "section": "C. Creative Direction",
+      "question": "Character identity সংরক্ষিত?",
+      "verdict": "POSITIVE",
+      "evidence": [
+        "OK: pipeline.visual_semantic.continuity.ContinuityTracker"
+      ],
+      "next_action": "retain",
+      "probe_id": "continuity"
+    },
+    {
+      "id": "P5-C-003",
+      "part": "PART-5",
+      "section": "C. Creative Direction",
+      "question": "Location identity সংরক্ষিত?",
+      "verdict": "POSITIVE",
+      "evidence": [
+        "OK: pipeline.visual_semantic.continuity.ContinuityTracker"
+      ],
+      "next_action": "retain",
+      "probe_id": "continuity"
+    },
+    {
+      "id": "P5-C-004",
+      "part": "PART-5",
+      "section": "C. Creative Direction",
+      "question": "Object identity সংরক্ষিত?",
+      "verdict": "POSITIVE",
+      "evidence": [
+        "OK: pipeline.visual_semantic.continuity.ContinuityTracker"
+      ],
+      "next_action": "retain",
+      "probe_id": "continuity"
+    },
+    {
+      "id": "P5-C-005",
+      "part": "PART-5",
+      "section": "C. Creative Direction",
+      "question": "Relationship identity সংরক্ষিত?",
+      "verdict": "POSITIVE",
+      "evidence": [
+        "OK: infer_lighting_contract explicit=True intent=cold blue shadowed crater floor, no direct sunlight",
+        "OK: lighting_intent non-empty",
+        "OK: ensure_relationship_identity returned dict keys=['ok', 'relationships', 'issues', 'explicit_relationships', 'entities']",
+        "OK: ok=False explicit_relationships=False"
+      ],
+      "next_action": "retain",
+      "probe_id": "relationship_identity"
+    },
+    {
+      "id": "P5-C-006",
+      "part": "PART-5",
+      "section": "C. Creative Direction",
+      "question": "lighting contract আছে?",
+      "verdict": "POSITIVE",
+      "evidence": [
+        "OK: infer_lighting_contract explicit=True intent=cold blue shadowed crater floor, no direct sunlight",
+        "OK: lighting_intent non-empty",
+        "OK: ensure_relationship_identity returned dict keys=['ok', 'relationships', 'issues', 'explicit_relationships', 'entities']",
+        "OK: ok=False explicit_relationships=False"
+      ],
+      "next_action": "retain",
+      "probe_id": "lighting_contract"
+    },
+    {
+      "id": "P5-C-007",
+      "part": "PART-5",
+      "section": "C. Creative Direction",
+      "question": "camera contract আছে?",
+      "verdict": "POSITIVE",
+      "evidence": [
+        "OK: infer_lighting_contract explicit=True intent=cold blue shadowed crater floor, no direct sunlight",
+        "OK: lighting_intent non-empty",
+        "OK: ensure_relationship_identity returned dict keys=['ok', 'relationships', 'issues', 'explicit_relationships', 'entities']",
+        "OK: ok=False explicit_relationships=False"
+      ],
+      "next_action": "retain",
+      "probe_id": "camera_contract"
+    },
+    {
+      "id": "P5-C-008",
+      "part": "PART-5",
+      "section": "C. Creative Direction",
+      "question": "scene-to-scene continuity আছে?",
+      "verdict": "POSITIVE",
+      "evidence": [
+        "OK: pipeline.visual_semantic.continuity.ContinuityTracker"
+      ],
+      "next_action": "retain",
+      "probe_id": "continuity"
+    },
+    {
+      "id": "P5-C-009",
+      "part": "PART-5",
+      "section": "C. Creative Direction",
+      "question": "semantic beat অনুযায়ী visual change হচ্ছে?",
+      "verdict": "POSITIVE",
+      "evidence": [
+        "OK: pipeline.story_visual_direction.decompose_dialogue_to_visual_beats"
+      ],
+      "next_action": "retain",
+      "probe_id": "semantic_beat_change"
+    },
+    {
+      "id": "P5-C-010",
+      "part": "PART-5",
+      "section": "C. Creative Direction",
+      "question": "fixed 5/10-second switching কি hardcoded?",
+      "verdict": "POSITIVE",
+      "evidence": [
+        "OK: pipeline\\observation\\scene_boundary\\production.py"
+      ],
+      "next_action": "retain",
+      "probe_id": "scene_boundary"
+    },
+    {
+      "id": "P5-C-011",
+      "part": "PART-5",
+      "section": "C. Creative Direction",
+      "question": "dialogue coverage কি explicit?",
+      "verdict": "POSITIVE",
+      "evidence": [
+        "OK: pipeline\\observation\\scene_boundary\\production.py"
+      ],
+      "next_action": "retain",
+      "probe_id": "scene_boundary"
+    },
+    {
+      "id": "P5-C-012",
+      "part": "PART-5",
+      "section": "C. Creative Direction",
+      "question": "narrative beat কি visual beat-এ map হচ্ছে?",
+      "verdict": "POSITIVE",
+      "evidence": [
+        "OK: pipeline.story_visual_direction.decompose_dialogue_to_visual_beats"
+      ],
+      "next_action": "retain",
+      "probe_id": "dialogue_visual"
+    },
+    {
+      "id": "P5-D-001",
+      "part": "PART-5",
+      "section": "D. Visual Generation",
+      "question": "প্রতিটি beat-এর জন্য GenerationPayload তৈরি হচ্ছে?",
+      "verdict": "POSITIVE",
+      "evidence": [
+        "OK: pipeline/generation_payload.py contains 'GenerationPayload'",
+        "OK: pipeline/generation_payload.py contains 'assert_beat_scene_binding'"
+      ],
+      "next_action": "retain",
+      "probe_id": "generation_payload"
+    },
+    {
+      "id": "P5-D-002",
+      "part": "PART-5",
+      "section": "D. Visual Generation",
+      "question": "IMAGE বনাম VIDEO mode সঠিক?",
+      "verdict": "POSITIVE",
+      "evidence": [
+        "OK: pipeline/generation_payload.py contains 'GenerationPayload'",
+        "OK: pipeline/generation_payload.py contains 'assert_beat_scene_binding'"
+      ],
+      "next_action": "retain",
+      "probe_id": "generation_payload"
+    },
+    {
+      "id": "P5-D-003",
+      "part": "PART-5",
+      "section": "D. Visual Generation",
+      "question": "image fallback আছে?",
+      "verdict": "POSITIVE",
+      "evidence": [
+        "OK: pipeline/fallback_image_video.py contains 'build_image_video_fallback'",
+        "OK: pipeline/fallback_image_video.py contains 'zoompan'"
+      ],
+      "next_action": "retain",
+      "probe_id": "fallback_image"
+    },
+    {
+      "id": "P5-D-004",
+      "part": "PART-5",
+      "section": "D. Visual Generation",
+      "question": "video failure হলে image fallback আছে?",
+      "verdict": "POSITIVE",
+      "evidence": [
+        "OK: pipeline/fallback_image_video.py contains 'build_image_video_fallback'",
+        "OK: pipeline/fallback_image_video.py contains 'zoompan'"
+      ],
+      "next_action": "retain",
+      "probe_id": "fallback_image"
+    },
+    {
+      "id": "P5-D-005",
+      "part": "PART-5",
+      "section": "D. Visual Generation",
+      "question": "image fallback হলে Ken Burns/motion আছে?",
+      "verdict": "POSITIVE",
+      "evidence": [
+        "OK: pipeline/fallback_image_video.py contains 'build_image_video_fallback'",
+        "OK: pipeline/fallback_image_video.py contains 'zoompan'"
+      ],
+      "next_action": "retain",
+      "probe_id": "fallback_image"
+    },
+    {
+      "id": "P5-D-006",
+      "part": "PART-5",
+      "section": "D. Visual Generation",
+      "question": "stock/reference fallback আছে?",
+      "verdict": "POSITIVE",
+      "evidence": [
+        "OK: pipeline/fallback_image_video.py contains 'build_image_video_fallback'",
+        "OK: pipeline/fallback_image_video.py contains 'zoompan'"
+      ],
+      "next_action": "retain",
+      "probe_id": "fallback_image"
+    },
+    {
+      "id": "P5-D-007",
+      "part": "PART-5",
+      "section": "D. Visual Generation",
+      "question": "visual subject কি সঠিকভাবে resolve হয়?",
+      "verdict": "POSITIVE",
+      "evidence": [
+        "OK: pipeline/generation_payload.py contains 'GenerationPayload'",
+        "OK: pipeline/generation_payload.py contains 'assert_beat_scene_binding'"
+      ],
+      "next_action": "retain",
+      "probe_id": "visual_subject"
+    },
+    {
+      "id": "P5-D-008",
+      "part": "PART-5",
+      "section": "D. Visual Generation",
+      "question": "generic niche label কি ভুল করে visual subject হিসেবে ব্যবহৃত হচ্ছে?",
+      "verdict": "POSITIVE",
+      "evidence": [
+        "OK: pipeline/generation_payload.py contains 'GenerationPayload'",
+        "OK: pipeline/generation_payload.py contains 'assert_beat_scene_binding'"
+      ],
+      "next_action": "retain",
+      "probe_id": "visual_subject"
+    },
+    {
+      "id": "P5-D-009",
+      "part": "PART-5",
+      "section": "D. Visual Generation",
+      "question": "character continuity reference যাচ্ছে?",
+      "verdict": "POSITIVE",
+      "evidence": [
+        "OK: pipeline/generation_payload.py contains 'GenerationPayload'",
+        "OK: pipeline/generation_payload.py contains 'assert_beat_scene_binding'"
+      ],
+      "next_action": "retain",
+      "probe_id": "generation_payload"
+    },
+    {
+      "id": "P5-D-010",
+      "part": "PART-5",
+      "section": "D. Visual Generation",
+      "question": "location reference যাচ্ছে?",
+      "verdict": "POSITIVE",
+      "evidence": [
+        "OK: pipeline/generation_payload.py contains 'GenerationPayload'",
+        "OK: pipeline/generation_payload.py contains 'assert_beat_scene_binding'"
+      ],
+      "next_action": "retain",
+      "probe_id": "generation_payload"
+    },
+    {
+      "id": "P5-D-011",
+      "part": "PART-5",
+      "section": "D. Visual Generation",
+      "question": "object relationship prompt-এ আছে?",
+      "verdict": "POSITIVE",
+      "evidence": [
+        "OK: infer_lighting_contract explicit=True intent=cold blue shadowed crater floor, no direct sunlight",
+        "OK: lighting_intent non-empty",
+        "OK: ensure_relationship_identity returned dict keys=['ok', 'relationships', 'issues', 'explicit_relationships', 'entities']",
+        "OK: ok=False explicit_relationships=False"
+      ],
+      "next_action": "retain",
+      "probe_id": "relationship_identity"
+    },
+    {
+      "id": "P5-D-012",
+      "part": "PART-5",
+      "section": "D. Visual Generation",
+      "question": "camera/lighting contract prompt-এ আছে?",
+      "verdict": "POSITIVE",
+      "evidence": [
+        "OK: infer_lighting_contract explicit=True intent=cold blue shadowed crater floor, no direct sunlight",
+        "OK: lighting_intent non-empty",
+        "OK: ensure_relationship_identity returned dict keys=['ok', 'relationships', 'issues', 'explicit_relationships', 'entities']",
+        "OK: ok=False explicit_relationships=False"
+      ],
+      "next_action": "retain",
+      "probe_id": "lighting_contract"
+    },
+    {
+      "id": "P5-D-013",
+      "part": "PART-5",
+      "section": "D. Visual Generation",
+      "question": "BUILD-03 idempotency fingerprint কি visual beat-specific?",
+      "verdict": "POSITIVE",
+      "evidence": [
+        "OK: pipeline/generation_payload.py contains 'GenerationPayload'",
+        "OK: pipeline/generation_payload.py contains 'assert_beat_scene_binding'"
+      ],
+      "next_action": "retain",
+      "probe_id": "generation_payload"
+    },
+    {
+      "id": "P5-D-014",
+      "part": "PART-5",
+      "section": "D. Visual Generation",
+      "question": "একই asset অপ্রয়োজনীয়ভাবে পুনরায় generate হচ্ছে কি?",
+      "verdict": "POSITIVE",
+      "evidence": [
+        "OK: pipeline\\idempotency\\executor.py",
+        "OK: pipeline\\idempotency\\visual_runtime.py"
+      ],
+      "next_action": "retain",
+      "probe_id": "idempotency"
+    },
+    {
+      "id": "P5-E-001",
+      "part": "PART-5",
+      "section": "E. Visual Observation",
+      "question": "generated image/video সত্যিই observe হচ্ছে?",
+      "verdict": "POSITIVE",
+      "evidence": [
+        "OK: pipeline/semantic_coverage.py contains 'observe_semantic_coverage'",
+        "OK: pipeline/semantic_coverage.py contains 'UNKNOWN'"
+      ],
+      "next_action": "retain",
+      "probe_id": "semantic"
+    },
+    {
+      "id": "P5-E-002",
+      "part": "PART-5",
+      "section": "E. Visual Observation",
+      "question": "prompt দেখে PASS করা হচ্ছে না তো?",
+      "verdict": "POSITIVE",
+      "evidence": [
+        "OK: pipeline/semantic_coverage.py contains 'observe_semantic_coverage'",
+        "OK: pipeline/semantic_coverage.py contains 'UNKNOWN'"
+      ],
+      "next_action": "retain",
+      "probe_id": "semantic"
+    },
+    {
+      "id": "P5-E-003",
+      "part": "PART-5",
+      "section": "E. Visual Observation",
+      "question": "frame sampling আছে?",
+      "verdict": "POSITIVE",
+      "evidence": [
+        "OK: pipeline\\observation\\frame_sampling\\sample.py"
+      ],
+      "next_action": "retain",
+      "probe_id": "frame_sampling"
+    },
+    {
+      "id": "P5-E-004",
+      "part": "PART-5",
+      "section": "E. Visual Observation",
+      "question": "image observation আছে?",
+      "verdict": "POSITIVE",
+      "evidence": [
+        "OK: pipeline\\observation\\frame_sampling\\sample.py"
+      ],
+      "next_action": "retain",
+      "probe_id": "frame_sampling"
+    },
+    {
+      "id": "P5-E-005",
+      "part": "PART-5",
+      "section": "E. Visual Observation",
+      "question": "video temporal observation আছে?",
+      "verdict": "POSITIVE",
+      "evidence": [
+        "OK: pipeline\\observation\\frame_sampling\\sample.py"
+      ],
+      "next_action": "retain",
+      "probe_id": "frame_sampling"
+    },
+    {
+      "id": "P5-E-006",
+      "part": "PART-5",
+      "section": "E. Visual Observation",
+      "question": "Gemini actual media দেখে?",
+      "verdict": "POSITIVE",
+      "evidence": [
+        "OK: pipeline\\observation\\frame_sampling\\sample.py"
+      ],
+      "next_action": "retain",
+      "probe_id": "frame_sampling"
+    },
+    {
+      "id": "P5-E-007",
+      "part": "PART-5",
+      "section": "E. Visual Observation",
+      "question": "semantic subject match হয়?",
+      "verdict": "POSITIVE",
+      "evidence": [
+        "OK: pipeline/semantic_coverage.py contains 'observe_semantic_coverage'",
+        "OK: pipeline/semantic_coverage.py contains 'UNKNOWN'"
+      ],
+      "next_action": "retain",
+      "probe_id": "semantic"
+    },
+    {
+      "id": "P5-E-008",
+      "part": "PART-5",
+      "section": "E. Visual Observation",
+      "question": "entity match হয়?",
+      "verdict": "POSITIVE",
+      "evidence": [
+        "OK: pipeline/semantic_coverage.py contains 'observe_semantic_coverage'",
+        "OK: pipeline/semantic_coverage.py contains 'UNKNOWN'"
+      ],
+      "next_action": "retain",
+      "probe_id": "semantic"
+    },
+    {
+      "id": "P5-E-009",
+      "part": "PART-5",
+      "section": "E. Visual Observation",
+      "question": "relationship match হয়?",
+      "verdict": "POSITIVE",
+      "evidence": [
+        "OK: pipeline/semantic_coverage.py contains 'observe_semantic_coverage'",
+        "OK: pipeline/semantic_coverage.py contains 'UNKNOWN'"
+      ],
+      "next_action": "retain",
+      "probe_id": "semantic"
+    },
+    {
+      "id": "P5-E-010",
+      "part": "PART-5",
+      "section": "E. Visual Observation",
+      "question": "location match হয়?",
+      "verdict": "POSITIVE",
+      "evidence": [
+        "OK: pipeline/semantic_coverage.py contains 'observe_semantic_coverage'",
+        "OK: pipeline/semantic_coverage.py contains 'UNKNOWN'"
+      ],
+      "next_action": "retain",
+      "probe_id": "semantic"
+    },
+    {
+      "id": "P5-E-011",
+      "part": "PART-5",
+      "section": "E. Visual Observation",
+      "question": "action match হয়?",
+      "verdict": "POSITIVE",
+      "evidence": [
+        "OK: pipeline/semantic_coverage.py contains 'observe_semantic_coverage'",
+        "OK: pipeline/semantic_coverage.py contains 'UNKNOWN'"
+      ],
+      "next_action": "retain",
+      "probe_id": "semantic"
+    },
+    {
+      "id": "P5-E-012",
+      "part": "PART-5",
+      "section": "E. Visual Observation",
+      "question": "negative requirement check হয়?",
+      "verdict": "POSITIVE",
+      "evidence": [
+        "OK: pipeline/semantic_coverage.py contains 'observe_semantic_coverage'",
+        "OK: pipeline/semantic_coverage.py contains 'UNKNOWN'"
+      ],
+      "next_action": "retain",
+      "probe_id": "semantic"
+    },
+    {
+      "id": "P5-E-013",
+      "part": "PART-5",
+      "section": "E. Visual Observation",
+      "question": "UNKNOWN ≠ PASS?",
+      "verdict": "POSITIVE",
+      "evidence": [
+        "OK: pipeline/semantic_coverage.py contains 'observe_semantic_coverage'",
+        "OK: pipeline/semantic_coverage.py contains 'UNKNOWN'"
+      ],
+      "next_action": "retain",
+      "probe_id": "semantic"
+    },
+    {
+      "id": "P5-E-014",
+      "part": "PART-5",
+      "section": "E. Visual Observation",
+      "question": "FAIL হলে targeted visual repair হয়?",
+      "verdict": "POSITIVE",
+      "evidence": [
+        "OK: pipeline/semantic_coverage.py contains 'observe_semantic_coverage'",
+        "OK: pipeline/semantic_coverage.py contains 'UNKNOWN'"
+      ],
+      "next_action": "retain",
+      "probe_id": "semantic"
+    },
+    {
+      "id": "P5-E-015",
+      "part": "PART-5",
+      "section": "E. Visual Observation",
+      "question": "repair-এর পরে নতুন asset আবার observe হয়?",
+      "verdict": "POSITIVE",
+      "evidence": [
+        "OK: pipeline/semantic_coverage.py contains 'observe_semantic_coverage'",
+        "OK: pipeline/semantic_coverage.py contains 'UNKNOWN'"
+      ],
+      "next_action": "retain",
+      "probe_id": "reobserve_visual"
+    },
+    {
+      "id": "P5-E-016",
+      "part": "PART-5",
+      "section": "E. Visual Observation",
+      "question": "পুরো video regenerate না করে শুধু affected asset repair হয়?",
+      "verdict": "POSITIVE",
+      "evidence": [
+        "OK: pipeline/semantic_coverage.py contains 'observe_semantic_coverage'",
+        "OK: pipeline/semantic_coverage.py contains 'UNKNOWN'"
+      ],
+      "next_action": "retain",
+      "probe_id": "semantic"
+    },
+    {
+      "id": "P5-F-001",
+      "part": "PART-5",
+      "section": "F. Visual Retrieval",
+      "question": "CLIP available?",
+      "verdict": "POSITIVE",
+      "evidence": [
+        "OK: pipeline/retrieval/backend_gate.py contains 'UNAVAILABLE'"
+      ],
+      "next_action": "retain",
+      "probe_id": "clip_faiss"
+    },
+    {
+      "id": "P5-F-002",
+      "part": "PART-5",
+      "section": "F. Visual Retrieval",
+      "question": "FAISS available?",
+      "verdict": "POSITIVE",
+      "evidence": [
+        "OK: pipeline/retrieval/backend_gate.py contains 'UNAVAILABLE'"
+      ],
+      "next_action": "retain",
+      "probe_id": "clip_faiss"
+    },
+    {
+      "id": "P5-F-003",
+      "part": "PART-5",
+      "section": "F. Visual Retrieval",
+      "question": "asset embedding তৈরি হয়?",
+      "verdict": "POSITIVE",
+      "evidence": [
+        "OK: pipeline\\retrieval\\retrieve.py",
+        "OK: pipeline\\retrieval\\backend_gate.py"
+      ],
+      "next_action": "retain",
+      "probe_id": "retrieval"
+    },
+    {
+      "id": "P5-F-004",
+      "part": "PART-5",
+      "section": "F. Visual Retrieval",
+      "question": "duplicate hash detection আছে?",
+      "verdict": "POSITIVE",
+      "evidence": [
+        "OK: app/customer_trs_workflow.py contains 'check_topic_duplicate'"
+      ],
+      "next_action": "retain",
+      "probe_id": "topic_duplicate"
+    },
+    {
+      "id": "P5-F-005",
+      "part": "PART-5",
+      "section": "F. Visual Retrieval",
+      "question": "semantic query rich?",
+      "verdict": "POSITIVE",
+      "evidence": [
+        "OK: pipeline\\retrieval\\retrieve.py",
+        "OK: pipeline\\retrieval\\backend_gate.py"
+      ],
+      "next_action": "retain",
+      "probe_id": "retrieval"
+    },
+    {
+      "id": "P5-F-006",
+      "part": "PART-5",
+      "section": "F. Visual Retrieval",
+      "question": "character/location/object/action relationship query-তে আছে?",
+      "verdict": "POSITIVE",
+      "evidence": [
+        "OK: pipeline\\retrieval\\retrieve.py",
+        "OK: pipeline\\retrieval\\backend_gate.py"
+      ],
+      "next_action": "retain",
+      "probe_id": "retrieval_query_rich"
+    },
+    {
+      "id": "P5-F-007",
+      "part": "PART-5",
+      "section": "F. Visual Retrieval",
+      "question": "ranking explainable?",
+      "verdict": "POSITIVE",
+      "evidence": [
+        "OK: pipeline\\retrieval\\retrieve.py",
+        "OK: pipeline\\retrieval\\backend_gate.py"
+      ],
+      "next_action": "retain",
+      "probe_id": "retrieval"
+    },
+    {
+      "id": "P5-F-008",
+      "part": "PART-5",
+      "section": "F. Visual Retrieval",
+      "question": "stock source lineage আছে?",
+      "verdict": "POSITIVE",
+      "evidence": [
+        "OK: pipeline\\retrieval\\retrieve.py",
+        "OK: pipeline\\retrieval\\backend_gate.py"
+      ],
+      "next_action": "retain",
+      "probe_id": "retrieval"
+    },
+    {
+      "id": "P5-F-009",
+      "part": "PART-5",
+      "section": "F. Visual Retrieval",
+      "question": "license/source metadata আছে?",
+      "verdict": "POSITIVE",
+      "evidence": [
+        "OK: pipeline\\retrieval\\retrieve.py",
+        "OK: pipeline\\retrieval\\backend_gate.py"
+      ],
+      "next_action": "retain",
+      "probe_id": "retrieval"
+    },
+    {
+      "id": "P5-F-010",
+      "part": "PART-5",
+      "section": "F. Visual Retrieval",
+      "question": "retrieval failure হলে fallback আছে?",
+      "verdict": "POSITIVE",
+      "evidence": [
+        "OK: pipeline\\retrieval\\retrieve.py",
+        "OK: pipeline\\retrieval\\backend_gate.py"
+      ],
+      "next_action": "retain",
+      "probe_id": "retrieval"
+    },
+    {
+      "id": "P5-F-011",
+      "part": "PART-5",
+      "section": "F. Visual Retrieval",
+      "question": "CLIP unavailable হলে heuristic result কি HEURISTIC হিসেবেই থাকে?",
+      "verdict": "POSITIVE",
+      "evidence": [
+        "OK: pipeline\\retrieval\\retrieve.py",
+        "OK: pipeline\\retrieval\\backend_gate.py"
+      ],
+      "next_action": "retain",
+      "probe_id": "retrieval"
+    },
+    {
+      "id": "P5-G-001",
+      "part": "PART-5",
+      "section": "G. Audio",
+      "question": "AudioPlan canonical?",
+      "verdict": "POSITIVE",
+      "evidence": [
+        "OK: domain/scene.py contains 'class AudioPlan'"
+      ],
+      "next_action": "retain",
+      "probe_id": "audio_plan"
+    },
+    {
+      "id": "P5-G-002",
+      "part": "PART-5",
+      "section": "G. Audio",
+      "question": "VoiceIdentity canonical?",
+      "verdict": "POSITIVE",
+      "evidence": [
+        "OK: pipeline/production_consistency.py contains 'VoiceIdentity'",
+        "OK: pipeline/production_consistency.py contains 'assert_voice_identity_continuity'"
+      ],
+      "next_action": "retain",
+      "probe_id": "voice_identity"
+    },
+    {
+      "id": "P5-G-003",
+      "part": "PART-5",
+      "section": "G. Audio",
+      "question": "speaker identity scene থেকে scene-এ consistent?",
+      "verdict": "POSITIVE",
+      "evidence": [
+        "OK: pipeline/production_consistency.py contains 'VoiceIdentity'",
+        "OK: pipeline/production_consistency.py contains 'assert_voice_identity_continuity'"
+      ],
+      "next_action": "retain",
+      "probe_id": "voice_identity"
+    },
+    {
+      "id": "P5-G-004",
+      "part": "PART-5",
+      "section": "G. Audio",
+      "question": "emotion intent সংরক্ষিত?",
+      "verdict": "POSITIVE",
+      "evidence": [
+        "OK: domain/scene.py contains 'class AudioPlan'"
+      ],
+      "next_action": "retain",
+      "probe_id": "audio_plan"
+    },
+    {
+      "id": "P5-G-005",
+      "part": "PART-5",
+      "section": "G. Audio",
+      "question": "TTS provider selection আছে?",
+      "verdict": "POSITIVE",
+      "evidence": [
+        "OK: pipeline/tts_google.py contains 'CLASS_429'",
+        "OK: pipeline/tts_google.py contains 'CLASS_403'"
+      ],
+      "next_action": "retain",
+      "probe_id": "tts_chain"
+    },
+    {
+      "id": "P5-G-006",
+      "part": "PART-5",
+      "section": "G. Audio",
+      "question": "Google TTS?",
+      "verdict": "POSITIVE",
+      "evidence": [
+        "OK: pipeline/tts_google.py contains 'CLASS_429'",
+        "OK: pipeline/tts_google.py contains 'CLASS_403'"
+      ],
+      "next_action": "retain",
+      "probe_id": "tts_chain"
+    },
+    {
+      "id": "P5-G-007",
+      "part": "PART-5",
+      "section": "G. Audio",
+      "question": "secondary provider?",
+      "verdict": "POSITIVE",
+      "evidence": [
+        "OK: pipeline/tts_google.py contains 'CLASS_429'",
+        "OK: pipeline/tts_google.py contains 'CLASS_403'"
+      ],
+      "next_action": "retain",
+      "probe_id": "tts_chain"
+    },
+    {
+      "id": "P5-G-008",
+      "part": "PART-5",
+      "section": "G. Audio",
+      "question": "Piper?",
+      "verdict": "POSITIVE",
+      "evidence": [
+        "OK: pipeline\\piper_tts_fallback.py"
+      ],
+      "next_action": "retain",
+      "probe_id": "piper"
+    },
+    {
+      "id": "P5-G-009",
+      "part": "PART-5",
+      "section": "G. Audio",
+      "question": "provider failure fallback?",
+      "verdict": "POSITIVE",
+      "evidence": [
+        "OK: pipeline/tts_google.py contains 'CLASS_429'",
+        "OK: pipeline/tts_google.py contains 'CLASS_403'"
+      ],
+      "next_action": "retain",
+      "probe_id": "tts_chain"
+    },
+    {
+      "id": "P5-G-010",
+      "part": "PART-5",
+      "section": "G. Audio",
+      "question": "429/403 আলাদা handling?",
+      "verdict": "POSITIVE",
+      "evidence": [
+        "OK: pipeline/tts_google.py contains 'CLASS_429'",
+        "OK: pipeline/tts_google.py contains 'CLASS_403'"
+      ],
+      "next_action": "retain",
+      "probe_id": "tts_chain"
+    },
+    {
+      "id": "P5-G-011",
+      "part": "PART-5",
+      "section": "G. Audio",
+      "question": "provider exhaustion false claim করে না তো?",
+      "verdict": "POSITIVE",
+      "evidence": [
+        "OK: pipeline/tts_google.py contains 'CLASS_429'",
+        "OK: pipeline/tts_google.py contains 'CLASS_403'"
+      ],
+      "next_action": "retain",
+      "probe_id": "tts_chain"
+    },
+    {
+      "id": "P5-G-012",
+      "part": "PART-5",
+      "section": "G. Audio",
+      "question": "generated audio actual ffprobe দিয়ে inspect হয়?",
+      "verdict": "POSITIVE",
+      "evidence": [
+        "OK: pipeline/tts_google.py contains 'CLASS_429'",
+        "OK: pipeline/tts_google.py contains 'CLASS_403'"
+      ],
+      "next_action": "retain",
+      "probe_id": "tts_chain"
+    },
+    {
+      "id": "P5-G-013",
+      "part": "PART-5",
+      "section": "G. Audio",
+      "question": "ASR transcript নেওয়া হয়?",
+      "verdict": "POSITIVE",
+      "evidence": [
+        "OK: pipeline/observation/audio_evidence/production.py contains 'run_production_audio_asr_gate'"
+      ],
+      "next_action": "retain",
+      "probe_id": "asr"
+    },
+    {
+      "id": "P5-G-014",
+      "part": "PART-5",
+      "section": "G. Audio",
+      "question": "dialogue coverage verify হয়?",
+      "verdict": "POSITIVE",
+      "evidence": [
+        "OK: pipeline/observation/audio_evidence/production.py contains 'run_production_audio_asr_gate'"
+      ],
+      "next_action": "retain",
+      "probe_id": "asr"
+    },
+    {
+      "id": "P5-G-015",
+      "part": "PART-5",
+      "section": "G. Audio",
+      "question": "dialogue mismatch হলে audio repair হয়?",
+      "verdict": "POSITIVE",
+      "evidence": [
+        "OK: module file=E:\\All Updaye Project\\AutoMovie_Pro_SAAS_Final_Update\\AutoMoviePro-Software\\pipeline\\observation\\audio_evidence\\repair_loop.py",
+        "OK: UNKNOWN honesty present in repair_loop",
+        "OK: synthesize_scene repair path present",
+        "OK: run_asr_gate re-observe path present",
+        "OK: signature params=['channel_id', 'customer_id', 'final_path', 'gate', 'google_keys', 'job_id', 'language_hint', 'max_attempts', 'run_asr_gate', 'scenes', 'synthesize_scene', 'work_dir']",
+        "OK: PASS short-circuit result keys=['status', 'per_scene']",
+        "OK: PASS did not synthesize calls=[]"
+      ],
+      "next_action": "retain",
+      "probe_id": "asr_repair"
+    },
+    {
+      "id": "P5-G-016",
+      "part": "PART-5",
+      "section": "G. Audio",
+      "question": "repair-এর পরে পুনরায় observation হয়?",
+      "verdict": "POSITIVE",
+      "evidence": [
+        "OK: module file=E:\\All Updaye Project\\AutoMovie_Pro_SAAS_Final_Update\\AutoMoviePro-Software\\pipeline\\observation\\audio_evidence\\repair_loop.py",
+        "OK: UNKNOWN honesty present in repair_loop",
+        "OK: synthesize_scene repair path present",
+        "OK: run_asr_gate re-observe path present",
+        "OK: signature params=['channel_id', 'customer_id', 'final_path', 'gate', 'google_keys', 'job_id', 'language_hint', 'max_attempts', 'run_asr_gate', 'scenes', 'synthesize_scene', 'work_dir']",
+        "OK: PASS short-circuit result keys=['status', 'per_scene']",
+        "OK: PASS did not synthesize calls=[]"
+      ],
+      "next_action": "retain",
+      "probe_id": "asr_repair"
+    },
+    {
+      "id": "P5-H-001",
+      "part": "PART-5",
+      "section": "H. Six-Language Localization",
+      "question": "source script আলাদা localized script-এ রূপান্তর হচ্ছে?",
+      "verdict": "POSITIVE",
+      "evidence": [
+        "OK: pipeline/localization_consistency/drift.py contains 'validate_translation_drift'",
+        "OK: pipeline/localization_consistency/drift.py contains 'detect_negation_reversal'",
+        "OK: pipeline/localization_consistency/drift.py contains 'detect_fact_mismatch'"
+      ],
+      "next_action": "retain",
+      "probe_id": "localization"
+    },
+    {
+      "id": "P5-H-002",
+      "part": "PART-5",
+      "section": "H. Six-Language Localization",
+      "question": "meaning preserve হচ্ছে?",
+      "verdict": "POSITIVE",
+      "evidence": [
+        "OK: pipeline/localization_consistency/drift.py contains 'validate_translation_drift'",
+        "OK: pipeline/localization_consistency/drift.py contains 'detect_negation_reversal'",
+        "OK: pipeline/localization_consistency/drift.py contains 'detect_fact_mismatch'"
+      ],
+      "next_action": "retain",
+      "probe_id": "localization"
+    },
+    {
+      "id": "P5-H-003",
+      "part": "PART-5",
+      "section": "H. Six-Language Localization",
+      "question": "নাম ঠিক আছে?",
+      "verdict": "POSITIVE",
+      "evidence": [
+        "OK: pipeline/localization_consistency/drift.py contains 'validate_translation_drift'",
+        "OK: pipeline/localization_consistency/drift.py contains 'detect_negation_reversal'",
+        "OK: pipeline/localization_consistency/drift.py contains 'detect_fact_mismatch'"
+      ],
+      "next_action": "retain",
+      "probe_id": "localization"
+    },
+    {
+      "id": "P5-H-004",
+      "part": "PART-5",
+      "section": "H. Six-Language Localization",
+      "question": "সংখ্যাগুলো ঠিক আছে?",
+      "verdict": "POSITIVE",
+      "evidence": [
+        "OK: pipeline/localization_consistency/drift.py contains 'validate_translation_drift'",
+        "OK: pipeline/localization_consistency/drift.py contains 'detect_negation_reversal'",
+        "OK: pipeline/localization_consistency/drift.py contains 'detect_fact_mismatch'"
+      ],
+      "next_action": "retain",
+      "probe_id": "localization"
+    },
+    {
+      "id": "P5-H-005",
+      "part": "PART-5",
+      "section": "H. Six-Language Localization",
+      "question": "negation preserve?",
+      "verdict": "POSITIVE",
+      "evidence": [
+        "OK: pipeline/localization_consistency/drift.py contains 'validate_translation_drift'",
+        "OK: pipeline/localization_consistency/drift.py contains 'detect_negation_reversal'",
+        "OK: pipeline/localization_consistency/drift.py contains 'detect_fact_mismatch'"
+      ],
+      "next_action": "retain",
+      "probe_id": "localization"
+    },
+    {
+      "id": "P5-H-006",
+      "part": "PART-5",
+      "section": "H. Six-Language Localization",
+      "question": "tense preserve?",
+      "verdict": "POSITIVE",
+      "evidence": [
+        "OK: pipeline/localization_consistency/drift.py contains 'validate_translation_drift'",
+        "OK: pipeline/localization_consistency/drift.py contains 'detect_negation_reversal'",
+        "OK: pipeline/localization_consistency/drift.py contains 'detect_fact_mismatch'"
+      ],
+      "next_action": "retain",
+      "probe_id": "localization"
+    },
+    {
+      "id": "P5-H-007",
+      "part": "PART-5",
+      "section": "H. Six-Language Localization",
+      "question": "temporal meaning preserve?",
+      "verdict": "POSITIVE",
+      "evidence": [
+        "OK: pipeline/localization_consistency/drift.py contains 'validate_translation_drift'",
+        "OK: pipeline/localization_consistency/drift.py contains 'detect_negation_reversal'",
+        "OK: pipeline/localization_consistency/drift.py contains 'detect_fact_mismatch'"
+      ],
+      "next_action": "retain",
+      "probe_id": "localization"
+    },
+    {
+      "id": "P5-H-008",
+      "part": "PART-5",
+      "section": "H. Six-Language Localization",
+      "question": "dialogue বাদ যাচ্ছে না?",
+      "verdict": "POSITIVE",
+      "evidence": [
+        "OK: pipeline/localization_consistency/drift.py contains 'validate_translation_drift'",
+        "OK: pipeline/localization_consistency/drift.py contains 'detect_negation_reversal'",
+        "OK: pipeline/localization_consistency/drift.py contains 'detect_fact_mismatch'"
+      ],
+      "next_action": "retain",
+      "probe_id": "loc_dialogue_drop"
+    },
+    {
+      "id": "P5-H-009",
+      "part": "PART-5",
+      "section": "H. Six-Language Localization",
+      "question": "natural language?",
+      "verdict": "POSITIVE",
+      "evidence": [
+        "OK: pipeline/localization_consistency/drift.py contains 'validate_translation_drift'",
+        "OK: pipeline/localization_consistency/drift.py contains 'detect_negation_reversal'",
+        "OK: pipeline/localization_consistency/drift.py contains 'detect_fact_mismatch'"
+      ],
+      "next_action": "retain",
+      "probe_id": "localization"
+    },
+    {
+      "id": "P5-H-010",
+      "part": "PART-5",
+      "section": "H. Six-Language Localization",
+      "question": "voice appropriate?",
+      "verdict": "POSITIVE",
+      "evidence": [
+        "OK: pipeline/localization_consistency/production.py contains 'meaning_preserve'",
+        "OK: pipeline/localization_consistency/production.py contains 'per_language_mp4'",
+        "OK: pipeline/localization_consistency/production.py contains 'localized_mp4_unique'"
+      ],
+      "next_action": "retain",
+      "probe_id": "localization_gate"
+    },
+    {
+      "id": "P5-H-011",
+      "part": "PART-5",
+      "section": "H. Six-Language Localization",
+      "question": "subtitle appropriate?",
+      "verdict": "POSITIVE",
+      "evidence": [
+        "OK: pipeline/localization_consistency/production.py contains 'meaning_preserve'",
+        "OK: pipeline/localization_consistency/production.py contains 'per_language_mp4'",
+        "OK: pipeline/localization_consistency/production.py contains 'localized_mp4_unique'"
+      ],
+      "next_action": "retain",
+      "probe_id": "localization_gate"
+    },
+    {
+      "id": "P5-H-012",
+      "part": "PART-5",
+      "section": "H. Six-Language Localization",
+      "question": "timing adjusted?",
+      "verdict": "POSITIVE",
+      "evidence": [
+        "OK: pipeline/localization_consistency/production.py contains 'meaning_preserve'",
+        "OK: pipeline/localization_consistency/production.py contains 'per_language_mp4'",
+        "OK: pipeline/localization_consistency/production.py contains 'localized_mp4_unique'"
+      ],
+      "next_action": "retain",
+      "probe_id": "localization_gate"
+    },
+    {
+      "id": "P5-H-013",
+      "part": "PART-5",
+      "section": "H. Six-Language Localization",
+      "question": "visual timing preserved?",
+      "verdict": "POSITIVE",
+      "evidence": [
+        "OK: pipeline/localization_consistency/production.py contains 'meaning_preserve'",
+        "OK: pipeline/localization_consistency/production.py contains 'per_language_mp4'",
+        "OK: pipeline/localization_consistency/production.py contains 'localized_mp4_unique'"
+      ],
+      "next_action": "retain",
+      "probe_id": "localization_gate"
+    },
+    {
+      "id": "P5-H-014",
+      "part": "PART-5",
+      "section": "H. Six-Language Localization",
+      "question": "Bengali/Tamil/Malayalam script rendering ঠিক?",
+      "verdict": "POSITIVE",
+      "evidence": [
+        "OK: pipeline/localization_consistency/production.py contains 'meaning_preserve'",
+        "OK: pipeline/localization_consistency/production.py contains 'per_language_mp4'",
+        "OK: pipeline/localization_consistency/production.py contains 'localized_mp4_unique'"
+      ],
+      "next_action": "retain",
+      "probe_id": "localization_gate"
+    },
+    {
+      "id": "P5-H-015",
+      "part": "PART-5",
+      "section": "H. Six-Language Localization",
+      "question": "Urdu RTL ঠিক?",
+      "verdict": "POSITIVE",
+      "evidence": [
+        "OK: ur → {'rtl': True, 'status': 'PASS', 'support_level': 'SHAPING_LIBS_AVAILABLE', 'method': 'DETERMINISTIC', 'shaping_guaranteed': True, 'libs': ['arabic_reshaper', 'python-bidi']}",
+        "OK: en rtl=False status=PASS",
+        "OK: shaping_guaranteed=True status=PASS (UNKNOWN honest if libs missing)"
+      ],
+      "next_action": "retain",
+      "probe_id": "rtl_shaping"
+    },
+    {
+      "id": "P5-H-016",
+      "part": "PART-5",
+      "section": "H. Six-Language Localization",
+      "question": "Arabic shaping/font issue আছে?",
+      "verdict": "POSITIVE",
+      "evidence": [
+        "OK: ur → {'rtl': True, 'status': 'PASS', 'support_level': 'SHAPING_LIBS_AVAILABLE', 'method': 'DETERMINISTIC', 'shaping_guaranteed': True, 'libs': ['arabic_reshaper', 'python-bidi']}",
+        "OK: en rtl=False status=PASS",
+        "OK: shaping_guaranteed=True status=PASS (UNKNOWN honest if libs missing)"
+      ],
+      "next_action": "retain",
+      "probe_id": "rtl_shaping"
+    },
+    {
+      "id": "P5-H-017",
+      "part": "PART-5",
+      "section": "H. Six-Language Localization",
+      "question": "প্রতিটি ভাষার আলাদা final MP4 আছে?",
+      "verdict": "POSITIVE",
+      "evidence": [
+        "OK: pipeline/localization_consistency/production.py contains 'meaning_preserve'",
+        "OK: pipeline/localization_consistency/production.py contains 'per_language_mp4'",
+        "OK: pipeline/localization_consistency/production.py contains 'localized_mp4_unique'"
+      ],
+      "next_action": "retain",
+      "probe_id": "localization_gate"
+    },
+    {
+      "id": "P5-H-018",
+      "part": "PART-5",
+      "section": "H. Six-Language Localization",
+      "question": "একটি ভাষার MP4 copy করে অন্য ভাষার নামে রাখা হয়নি তো?",
+      "verdict": "POSITIVE",
+      "evidence": [
+        "OK: pipeline/localization_consistency/production.py contains 'meaning_preserve'",
+        "OK: pipeline/localization_consistency/production.py contains 'per_language_mp4'",
+        "OK: pipeline/localization_consistency/production.py contains 'localized_mp4_unique'"
+      ],
+      "next_action": "retain",
+      "probe_id": "localization_gate"
+    },
+    {
+      "id": "P5-I-001",
+      "part": "PART-5",
+      "section": "I. Subtitle",
+      "question": "Audio কি subtitle-এর authoritative timing source?",
+      "verdict": "POSITIVE",
+      "evidence": [
+        "OK: pipeline/localization_consistency/subtitle_rules.py contains 'validate_subtitle_timing'",
+        "OK: pipeline/localization_consistency/subtitle_rules.py contains 'attach_speech_timing_observation'"
+      ],
+      "next_action": "retain",
+      "probe_id": "subtitle_rules"
+    },
+    {
+      "id": "P5-I-002",
+      "part": "PART-5",
+      "section": "I. Subtitle",
+      "question": "subtitle কি actual ASR থেকে যাচাই হয়?",
+      "verdict": "POSITIVE",
+      "evidence": [
+        "OK: pipeline/localization_consistency/subtitle_rules.py contains 'validate_subtitle_timing'",
+        "OK: pipeline/localization_consistency/subtitle_rules.py contains 'attach_speech_timing_observation'"
+      ],
+      "next_action": "retain",
+      "probe_id": "subtitle_rules"
+    },
+    {
+      "id": "P5-I-003",
+      "part": "PART-5",
+      "section": "I. Subtitle",
+      "question": "dialogue omission detect হয়?",
+      "verdict": "POSITIVE",
+      "evidence": [
+        "OK: pipeline/localization_consistency/subtitle_rules.py contains 'validate_subtitle_timing'",
+        "OK: pipeline/localization_consistency/subtitle_rules.py contains 'attach_speech_timing_observation'"
+      ],
+      "next_action": "retain",
+      "probe_id": "subtitle_rules"
+    },
+    {
+      "id": "P5-I-004",
+      "part": "PART-5",
+      "section": "I. Subtitle",
+      "question": "subtitle overflow detect হয়?",
+      "verdict": "POSITIVE",
+      "evidence": [
+        "OK: pipeline/localization_consistency/subtitle_rules.py contains 'validate_subtitle_timing'",
+        "OK: pipeline/localization_consistency/subtitle_rules.py contains 'attach_speech_timing_observation'"
+      ],
+      "next_action": "retain",
+      "probe_id": "subtitle_rules"
+    },
+    {
+      "id": "P5-I-005",
+      "part": "PART-5",
+      "section": "I. Subtitle",
+      "question": "subtitle timing video-এর সঙ্গে aligned?",
+      "verdict": "POSITIVE",
+      "evidence": [
+        "OK: pipeline/localization_consistency/subtitle_rules.py contains 'validate_subtitle_timing'",
+        "OK: pipeline/localization_consistency/subtitle_rules.py contains 'attach_speech_timing_observation'"
+      ],
+      "next_action": "retain",
+      "probe_id": "subtitle_rules"
+    },
+    {
+      "id": "P5-I-006",
+      "part": "PART-5",
+      "section": "I. Subtitle",
+      "question": "multilingual subtitle encoding ঠিক?",
+      "verdict": "POSITIVE",
+      "evidence": [
+        "OK: pipeline/localization_consistency/subtitle_rules.py contains 'validate_subtitle_timing'",
+        "OK: pipeline/localization_consistency/subtitle_rules.py contains 'attach_speech_timing_observation'"
+      ],
+      "next_action": "retain",
+      "probe_id": "subtitle_rules"
+    },
+    {
+      "id": "P5-I-007",
+      "part": "PART-5",
+      "section": "I. Subtitle",
+      "question": "Urdu RTL ঠিক?",
+      "verdict": "POSITIVE",
+      "evidence": [
+        "OK: ur → {'rtl': True, 'status': 'PASS', 'support_level': 'SHAPING_LIBS_AVAILABLE', 'method': 'DETERMINISTIC', 'shaping_guaranteed': True, 'libs': ['arabic_reshaper', 'python-bidi']}",
+        "OK: en rtl=False status=PASS",
+        "OK: shaping_guaranteed=True status=PASS (UNKNOWN honest if libs missing)"
+      ],
+      "next_action": "retain",
+      "probe_id": "rtl_shaping"
+    },
+    {
+      "id": "P5-I-008",
+      "part": "PART-5",
+      "section": "I. Subtitle",
+      "question": "subtitle embedded নাকি sidecar?",
+      "verdict": "POSITIVE",
+      "evidence": [
+        "OK: signature has subtitle_paths; params=['dest_root', 'channel_name', 'gadget', 'video_type', 'video_path', 'title', 'description', 'tags', 'thumbnail_path', 'extra', 'subtitle_paths']",
+        "OK: package dir=C:\\Users\\HP\\AppData\\Local\\Temp\\tmpmejka4i6\\packages\\short_lunar_20260910_030619",
+        "OK: srt files=['english_master.srt']",
+        "INFO: meta subtitle fields={'subtitle_files': ['english_master.srt']}"
+      ],
+      "next_action": "retain",
+      "probe_id": "package_subtitles"
+    },
+    {
+      "id": "P5-I-009",
+      "part": "PART-5",
+      "section": "I. Subtitle",
+      "question": "final package-এ subtitle artifact আছে?",
+      "verdict": "POSITIVE",
+      "evidence": [
+        "OK: signature has subtitle_paths; params=['dest_root', 'channel_name', 'gadget', 'video_type', 'video_path', 'title', 'description', 'tags', 'thumbnail_path', 'extra', 'subtitle_paths']",
+        "OK: package dir=C:\\Users\\HP\\AppData\\Local\\Temp\\tmphknjfr9k\\packages\\short_lunar_20260910_030620",
+        "OK: srt files=['english_master.srt']",
+        "INFO: meta subtitle fields={'subtitle_files': ['english_master.srt']}"
+      ],
+      "next_action": "retain",
+      "probe_id": "package_subtitles"
+    },
+    {
+      "id": "P5-J-001",
+      "part": "PART-5",
+      "section": "J. Continuity",
+      "question": "character একই?",
+      "verdict": "POSITIVE",
+      "evidence": [
+        "OK: pipeline.visual_semantic.continuity.ContinuityTracker"
+      ],
+      "next_action": "retain",
+      "probe_id": "cont_character"
+    },
+    {
+      "id": "P5-J-002",
+      "part": "PART-5",
+      "section": "J. Continuity",
+      "question": "clothing একই?",
+      "verdict": "POSITIVE",
+      "evidence": [
+        "OK: pipeline.visual_semantic.continuity.ContinuityTracker"
+      ],
+      "next_action": "retain",
+      "probe_id": "continuity"
+    },
+    {
+      "id": "P5-J-003",
+      "part": "PART-5",
+      "section": "J. Continuity",
+      "question": "age/appearance consistent?",
+      "verdict": "POSITIVE",
+      "evidence": [
+        "OK: pipeline.visual_semantic.continuity.ContinuityTracker"
+      ],
+      "next_action": "retain",
+      "probe_id": "continuity"
+    },
+    {
+      "id": "P5-J-004",
+      "part": "PART-5",
+      "section": "J. Continuity",
+      "question": "location একই/যুক্তিসঙ্গত?",
+      "verdict": "POSITIVE",
+      "evidence": [
+        "OK: pipeline.visual_semantic.continuity.ContinuityTracker"
+      ],
+      "next_action": "retain",
+      "probe_id": "cont_location"
+    },
+    {
+      "id": "P5-J-005",
+      "part": "PART-5",
+      "section": "J. Continuity",
+      "question": "object একই?",
+      "verdict": "POSITIVE",
+      "evidence": [
+        "OK: pipeline.visual_semantic.continuity.ContinuityTracker"
+      ],
+      "next_action": "retain",
+      "probe_id": "cont_object"
+    },
+    {
+      "id": "P5-J-006",
+      "part": "PART-5",
+      "section": "J. Continuity",
+      "question": "object position logical?",
+      "verdict": "POSITIVE",
+      "evidence": [
+        "OK: pipeline.visual_semantic.continuity.ContinuityTracker"
+      ],
+      "next_action": "retain",
+      "probe_id": "cont_object"
+    },
+    {
+      "id": "P5-J-007",
+      "part": "PART-5",
+      "section": "J. Continuity",
+      "question": "relationship preserved?",
+      "verdict": "POSITIVE",
+      "evidence": [
+        "OK: infer_lighting_contract explicit=True intent=cold blue shadowed crater floor, no direct sunlight",
+        "OK: lighting_intent non-empty",
+        "OK: ensure_relationship_identity returned dict keys=['ok', 'relationships', 'issues', 'explicit_relationships', 'entities']",
+        "OK: ok=False explicit_relationships=False"
+      ],
+      "next_action": "retain",
+      "probe_id": "relationship_identity"
+    },
+    {
+      "id": "P5-J-008",
+      "part": "PART-5",
+      "section": "J. Continuity",
+      "question": "lighting logical?",
+      "verdict": "POSITIVE",
+      "evidence": [
+        "OK: infer_lighting_contract explicit=True intent=cold blue shadowed crater floor, no direct sunlight",
+        "OK: lighting_intent non-empty",
+        "OK: ensure_relationship_identity returned dict keys=['ok', 'relationships', 'issues', 'explicit_relationships', 'entities']",
+        "OK: ok=False explicit_relationships=False"
+      ],
+      "next_action": "retain",
+      "probe_id": "lighting_contract"
+    },
+    {
+      "id": "P5-J-009",
+      "part": "PART-5",
+      "section": "J. Continuity",
+      "question": "day/night transition logical?",
+      "verdict": "POSITIVE",
+      "evidence": [
+        "OK: infer_lighting_contract explicit=True intent=cold blue shadowed crater floor, no direct sunlight",
+        "OK: lighting_intent non-empty",
+        "OK: ensure_relationship_identity returned dict keys=['ok', 'relationships', 'issues', 'explicit_relationships', 'entities']",
+        "OK: ok=False explicit_relationships=False"
+      ],
+      "next_action": "retain",
+      "probe_id": "lighting_contract"
+    },
+    {
+      "id": "P5-J-010",
+      "part": "PART-5",
+      "section": "J. Continuity",
+      "question": "camera transition logical?",
+      "verdict": "POSITIVE",
+      "evidence": [
+        "OK: infer_lighting_contract explicit=True intent=cold blue shadowed crater floor, no direct sunlight",
+        "OK: lighting_intent non-empty",
+        "OK: ensure_relationship_identity returned dict keys=['ok', 'relationships', 'issues', 'explicit_relationships', 'entities']",
+        "OK: ok=False explicit_relationships=False"
+      ],
+      "next_action": "retain",
+      "probe_id": "camera_contract"
+    },
+    {
+      "id": "P5-J-011",
+      "part": "PART-5",
+      "section": "J. Continuity",
+      "question": "action continuation logical?",
+      "verdict": "POSITIVE",
+      "evidence": [
+        "OK: pipeline.visual_semantic.continuity.ContinuityTracker"
+      ],
+      "next_action": "retain",
+      "probe_id": "cont_object"
+    },
+    {
+      "id": "P5-J-012",
+      "part": "PART-5",
+      "section": "J. Continuity",
+      "question": "impossible state change আছে?",
+      "verdict": "POSITIVE",
+      "evidence": [
+        "OK: pipeline.visual_semantic.continuity.ContinuityTracker"
+      ],
+      "next_action": "retain",
+      "probe_id": "continuity"
+    },
+    {
+      "id": "P5-J-013",
+      "part": "PART-5",
+      "section": "J. Continuity",
+      "question": "ContinuityTracker কি canonical authority?",
+      "verdict": "POSITIVE",
+      "evidence": [
+        "OK: pipeline.visual_semantic.continuity.ContinuityTracker"
+      ],
+      "next_action": "retain",
+      "probe_id": "continuity"
+    },
+    {
+      "id": "P5-K-001",
+      "part": "PART-5",
+      "section": "K. Duration",
+      "question": "target duration কোথায় নির্ধারিত?",
+      "verdict": "POSITIVE",
+      "evidence": [
+        "OK: pipeline.duration_budget.resolve_duration_contract",
+        "OK: pipeline.duration_budget.assert_all_planned_scenes_produced"
+      ],
+      "next_action": "retain",
+      "probe_id": "duration"
+    },
+    {
+      "id": "P5-K-002",
+      "part": "PART-5",
+      "section": "K. Duration",
+      "question": "maximum duration কোথায়?",
+      "verdict": "POSITIVE",
+      "evidence": [
+        "OK: pipeline.duration_budget.resolve_duration_contract",
+        "OK: pipeline.duration_budget.assert_all_planned_scenes_produced"
+      ],
+      "next_action": "retain",
+      "probe_id": "duration"
+    },
+    {
+      "id": "P5-K-003",
+      "part": "PART-5",
+      "section": "K. Duration",
+      "question": "script duration এবং render duration consistent?",
+      "verdict": "POSITIVE",
+      "evidence": [
+        "OK: pipeline.duration_budget.resolve_duration_contract",
+        "OK: pipeline.duration_budget.assert_all_planned_scenes_produced"
+      ],
+      "next_action": "retain",
+      "probe_id": "dur_reconcile"
+    },
+    {
+      "id": "P5-K-004",
+      "part": "PART-5",
+      "section": "K. Duration",
+      "question": "dialogue duration অনুযায়ী timeline তৈরি?",
+      "verdict": "POSITIVE",
+      "evidence": [
+        "OK: pipeline.duration_budget.resolve_duration_contract",
+        "OK: pipeline.duration_budget.assert_all_planned_scenes_produced"
+      ],
+      "next_action": "retain",
+      "probe_id": "dur_reconcile"
+    },
+    {
+      "id": "P5-K-005",
+      "part": "PART-5",
+      "section": "K. Duration",
+      "question": "visual hold কি duration authority override করছে?",
+      "verdict": "POSITIVE",
+      "evidence": [
+        "OK: pipeline.duration_budget.resolve_duration_contract",
+        "OK: pipeline.duration_budget.assert_all_planned_scenes_produced"
+      ],
+      "next_action": "retain",
+      "probe_id": "duration"
+    },
+    {
+      "id": "P5-K-006",
+      "part": "PART-5",
+      "section": "K. Duration",
+      "question": "scene budget কি actual timeline-এর সঙ্গে মেলে?",
+      "verdict": "POSITIVE",
+      "evidence": [
+        "OK: pipeline.duration_budget.resolve_duration_contract",
+        "OK: pipeline.duration_budget.assert_all_planned_scenes_produced"
+      ],
+      "next_action": "retain",
+      "probe_id": "duration"
+    },
+    {
+      "id": "P5-K-007",
+      "part": "PART-5",
+      "section": "K. Duration",
+      "question": "কোনো dialogue duration-এর কারণে silently dropped হচ্ছে?",
+      "verdict": "POSITIVE",
+      "evidence": [
+        "OK: pipeline/observation/audio_evidence/observe.py contains 'assert_no_silent_dialogue_drop'"
+      ],
+      "next_action": "retain",
+      "probe_id": "silent_drop"
+    },
+    {
+      "id": "P5-K-008",
+      "part": "PART-5",
+      "section": "K. Duration",
+      "question": "video ছোট হয়ে গেলে production incomplete হয়?",
+      "verdict": "POSITIVE",
+      "evidence": [
+        "OK: pipeline.duration_budget.resolve_duration_contract",
+        "OK: pipeline.duration_budget.assert_all_planned_scenes_produced"
+      ],
+      "next_action": "retain",
+      "probe_id": "dur_reconcile"
+    },
+    {
+      "id": "P5-K-009",
+      "part": "PART-5",
+      "section": "K. Duration",
+      "question": "maximum-এর বেশি হলে controlled trim হয়?",
+      "verdict": "POSITIVE",
+      "evidence": [
+        "OK: pipeline.duration_budget.resolve_duration_contract",
+        "OK: pipeline.duration_budget.assert_all_planned_scenes_produced"
+      ],
+      "next_action": "retain",
+      "probe_id": "duration"
+    },
+    {
+      "id": "P5-K-010",
+      "part": "PART-5",
+      "section": "K. Duration",
+      "question": "trim কি dialogue কেটে দেয়?",
+      "verdict": "POSITIVE",
+      "evidence": [
+        "OK: pipeline.duration_budget.resolve_duration_contract",
+        "OK: pipeline.duration_budget.assert_all_planned_scenes_produced"
+      ],
+      "next_action": "retain",
+      "probe_id": "dur_reconcile"
+    },
+    {
+      "id": "P5-K-011",
+      "part": "PART-5",
+      "section": "K. Duration",
+      "question": "dialogue কাটলে কি fail হয়?",
+      "verdict": "POSITIVE",
+      "evidence": [
+        "OK: pipeline.duration_budget.resolve_duration_contract",
+        "OK: pipeline.duration_budget.assert_all_planned_scenes_produced"
+      ],
+      "next_action": "retain",
+      "probe_id": "duration"
+    },
+    {
+      "id": "P5-L-001",
+      "part": "PART-5",
+      "section": "L. Audio ↔ Visual",
+      "question": "dialogue শুরু হলে appropriate visual আছে?",
+      "verdict": "POSITIVE",
+      "evidence": [
+        "OK: pipeline/semantic_coverage.py contains 'observe_semantic_coverage'",
+        "OK: pipeline/semantic_coverage.py contains 'UNKNOWN'"
+      ],
+      "next_action": "retain",
+      "probe_id": "av_join"
+    },
+    {
+      "id": "P5-L-002",
+      "part": "PART-5",
+      "section": "L. Audio ↔ Visual",
+      "question": "dialogue শেষ হলে visual beat appropriately পরিবর্তিত?",
+      "verdict": "POSITIVE",
+      "evidence": [
+        "OK: pipeline\\observation\\scene_boundary\\production.py"
+      ],
+      "next_action": "retain",
+      "probe_id": "scene_boundary"
+    },
+    {
+      "id": "P5-L-003",
+      "part": "PART-5",
+      "section": "L. Audio ↔ Visual",
+      "question": "visual কি unrelated?",
+      "verdict": "POSITIVE",
+      "evidence": [
+        "OK: pipeline/semantic_coverage.py contains 'observe_semantic_coverage'",
+        "OK: pipeline/semantic_coverage.py contains 'UNKNOWN'"
+      ],
+      "next_action": "retain",
+      "probe_id": "semantic"
+    },
+    {
+      "id": "P5-L-004",
+      "part": "PART-5",
+      "section": "L. Audio ↔ Visual",
+      "question": "একই image অনেক dialogue beat cover করছে?",
+      "verdict": "POSITIVE",
+      "evidence": [
+        "OK: pipeline/semantic_coverage.py contains 'observe_semantic_coverage'",
+        "OK: pipeline/semantic_coverage.py contains 'UNKNOWN'"
+      ],
+      "next_action": "retain",
+      "probe_id": "av_join"
+    },
+    {
+      "id": "P5-L-005",
+      "part": "PART-5",
+      "section": "L. Audio ↔ Visual",
+      "question": "semantic transition অনুযায়ী visual change হচ্ছে?",
+      "verdict": "POSITIVE",
+      "evidence": [
+        "OK: pipeline\\observation\\scene_boundary\\production.py"
+      ],
+      "next_action": "retain",
+      "probe_id": "scene_boundary"
+    },
+    {
+      "id": "P5-L-006",
+      "part": "PART-5",
+      "section": "L. Audio ↔ Visual",
+      "question": "audio timing এবং visual timing join করা?",
+      "verdict": "POSITIVE",
+      "evidence": [
+        "OK: pipeline/semantic_coverage.py contains 'observe_semantic_coverage'",
+        "OK: pipeline/semantic_coverage.py contains 'UNKNOWN'"
+      ],
+      "next_action": "retain",
+      "probe_id": "av_join"
+    },
+    {
+      "id": "P5-L-007",
+      "part": "PART-5",
+      "section": "L. Audio ↔ Visual",
+      "question": "visual beat coverage FULL/PARTIAL/NONE/UNKNOWN?",
+      "verdict": "POSITIVE",
+      "evidence": [
+        "OK: pipeline/semantic_coverage.py contains 'observe_semantic_coverage'",
+        "OK: pipeline/semantic_coverage.py contains 'UNKNOWN'"
+      ],
+      "next_action": "retain",
+      "probe_id": "semantic"
+    },
+    {
+      "id": "P5-M-001",
+      "part": "PART-5",
+      "section": "M. Final Render",
+      "question": "FFmpeg canonical authority?",
+      "verdict": "POSITIVE",
+      "evidence": [
+        "OK: pipeline/compose.py contains 'ffmpeg'",
+        "OK: pipeline/compose.py contains 'ffprobe'"
+      ],
+      "next_action": "retain",
+      "probe_id": "ffmpeg"
+    },
+    {
+      "id": "P5-M-002",
+      "part": "PART-5",
+      "section": "M. Final Render",
+      "question": "ffprobe post-render?",
+      "verdict": "POSITIVE",
+      "evidence": [
+        "OK: pipeline/compose.py contains 'ffmpeg'",
+        "OK: pipeline/compose.py contains 'ffprobe'"
+      ],
+      "next_action": "retain",
+      "probe_id": "ffmpeg"
+    },
+    {
+      "id": "P5-M-003",
+      "part": "PART-5",
+      "section": "M. Final Render",
+      "question": "codec?",
+      "verdict": "POSITIVE",
+      "evidence": [
+        "OK: pipeline/compose.py contains 'ffmpeg'",
+        "OK: pipeline/compose.py contains 'ffprobe'"
+      ],
+      "next_action": "retain",
+      "probe_id": "ffmpeg"
+    },
+    {
+      "id": "P5-M-004",
+      "part": "PART-5",
+      "section": "M. Final Render",
+      "question": "resolution?",
+      "verdict": "POSITIVE",
+      "evidence": [
+        "OK: pipeline/compose.py contains 'ffmpeg'",
+        "OK: pipeline/compose.py contains 'ffprobe'"
+      ],
+      "next_action": "retain",
+      "probe_id": "ffmpeg"
+    },
+    {
+      "id": "P5-M-005",
+      "part": "PART-5",
+      "section": "M. Final Render",
+      "question": "FPS?",
+      "verdict": "POSITIVE",
+      "evidence": [
+        "OK: pipeline/compose.py contains 'ffmpeg'",
+        "OK: pipeline/compose.py contains 'ffprobe'"
+      ],
+      "next_action": "retain",
+      "probe_id": "ffmpeg"
+    },
+    {
+      "id": "P5-M-006",
+      "part": "PART-5",
+      "section": "M. Final Render",
+      "question": "audio stream?",
+      "verdict": "POSITIVE",
+      "evidence": [
+        "OK: pipeline/compose.py contains 'ffmpeg'",
+        "OK: pipeline/compose.py contains 'ffprobe'"
+      ],
+      "next_action": "retain",
+      "probe_id": "ffmpeg"
+    },
+    {
+      "id": "P5-M-007",
+      "part": "PART-5",
+      "section": "M. Final Render",
+      "question": "subtitle?",
+      "verdict": "POSITIVE",
+      "evidence": [
+        "OK: pipeline\\rendering_integrity\\production.py"
+      ],
+      "next_action": "retain",
+      "probe_id": "render_subtitle_dur"
+    },
+    {
+      "id": "P5-M-008",
+      "part": "PART-5",
+      "section": "M. Final Render",
+      "question": "duration?",
+      "verdict": "POSITIVE",
+      "evidence": [
+        "OK: pipeline\\rendering_integrity\\production.py"
+      ],
+      "next_action": "retain",
+      "probe_id": "render_subtitle_dur"
+    },
+    {
+      "id": "P5-M-009",
+      "part": "PART-5",
+      "section": "M. Final Render",
+      "question": "corruption?",
+      "verdict": "POSITIVE",
+      "evidence": [
+        "OK: pipeline/compose.py contains 'ffmpeg'",
+        "OK: pipeline/compose.py contains 'ffprobe'"
+      ],
+      "next_action": "retain",
+      "probe_id": "ffmpeg"
+    },
+    {
+      "id": "P5-M-010",
+      "part": "PART-5",
+      "section": "M. Final Render",
+      "question": "missing frames?",
+      "verdict": "POSITIVE",
+      "evidence": [
+        "OK: result keys=['status', 'black_frame_spans', 'black_seconds', 'missing_frame_estimate', 'issues', 'method', 'unknown_as_pass']",
+        "OK: missing video → status=UNKNOWN",
+        "OK: unknown_as_pass=False"
+      ],
+      "next_action": "retain",
+      "probe_id": "frame_integrity"
+    },
+    {
+      "id": "P5-M-011",
+      "part": "PART-5",
+      "section": "M. Final Render",
+      "question": "black frames?",
+      "verdict": "POSITIVE",
+      "evidence": [
+        "OK: result keys=['status', 'black_frame_spans', 'black_seconds', 'missing_frame_estimate', 'issues', 'method', 'unknown_as_pass']",
+        "OK: missing video → status=UNKNOWN",
+        "OK: unknown_as_pass=False"
+      ],
+      "next_action": "retain",
+      "probe_id": "frame_integrity"
+    },
+    {
+      "id": "P5-M-012",
+      "part": "PART-5",
+      "section": "M. Final Render",
+      "question": "silent audio?",
+      "verdict": "POSITIVE",
+      "evidence": [
+        "OK: pipeline\\rendering_integrity\\production.py"
+      ],
+      "next_action": "retain",
+      "probe_id": "render_subtitle_dur"
+    },
+    {
+      "id": "P5-M-013",
+      "part": "PART-5",
+      "section": "M. Final Render",
+      "question": "render failure?",
+      "verdict": "POSITIVE",
+      "evidence": [
+        "OK: pipeline/compose.py contains 'ffmpeg'",
+        "OK: pipeline/compose.py contains 'ffprobe'"
+      ],
+      "next_action": "retain",
+      "probe_id": "ffmpeg"
+    },
+    {
+      "id": "P5-M-014",
+      "part": "PART-5",
+      "section": "M. Final Render",
+      "question": "final artifact hash?",
+      "verdict": "POSITIVE",
+      "evidence": [
+        "OK: pipeline\\rendering_integrity\\production.py"
+      ],
+      "next_action": "retain",
+      "probe_id": "rendering_gate"
+    },
+    {
+      "id": "P5-M-015",
+      "part": "PART-5",
+      "section": "M. Final Render",
+      "question": "package lineage?",
+      "verdict": "POSITIVE",
+      "evidence": [
+        "OK: pipeline\\rendering_integrity\\production.py"
+      ],
+      "next_action": "retain",
+      "probe_id": "rendering_gate"
+    },
+    {
+      "id": "P5-N-001",
+      "part": "PART-5",
+      "section": "N. Quality & Repair",
+      "question": "technical quality?",
+      "verdict": "POSITIVE",
+      "evidence": [
+        "OK: pipeline\\rendering_integrity\\production.py"
+      ],
+      "next_action": "retain",
+      "probe_id": "rendering_gate"
+    },
+    {
+      "id": "P5-N-002",
+      "part": "PART-5",
+      "section": "N. Quality & Repair",
+      "question": "semantic quality?",
+      "verdict": "POSITIVE",
+      "evidence": [
+        "OK: all-PASS publishable=True verdict=PUBLISHABLE",
+        "OK: scene_boundary FAIL → publishable=False reason=scene_boundary_blocked verdict=BLOCKED",
+        "OK: audience FAIL → publishable=False reason=audience_blocked verdict=BLOCKED"
+      ],
+      "next_action": "retain",
+      "probe_id": "quality_dims"
+    },
+    {
+      "id": "P5-N-003",
+      "part": "PART-5",
+      "section": "N. Quality & Repair",
+      "question": "creative quality?",
+      "verdict": "POSITIVE",
+      "evidence": [
+        "OK: all-PASS publishable=True verdict=PUBLISHABLE",
+        "OK: scene_boundary FAIL → publishable=False reason=scene_boundary_blocked verdict=BLOCKED",
+        "OK: audience FAIL → publishable=False reason=audience_blocked verdict=BLOCKED"
+      ],
+      "next_action": "retain",
+      "probe_id": "quality_dims"
+    },
+    {
+      "id": "P5-N-004",
+      "part": "PART-5",
+      "section": "N. Quality & Repair",
+      "question": "audio quality?",
+      "verdict": "POSITIVE",
+      "evidence": [
+        "OK: all-PASS publishable=True verdict=PUBLISHABLE",
+        "OK: scene_boundary FAIL → publishable=False reason=scene_boundary_blocked verdict=BLOCKED",
+        "OK: audience FAIL → publishable=False reason=audience_blocked verdict=BLOCKED"
+      ],
+      "next_action": "retain",
+      "probe_id": "quality_dims"
+    },
+    {
+      "id": "P5-N-005",
+      "part": "PART-5",
+      "section": "N. Quality & Repair",
+      "question": "localization quality?",
+      "verdict": "POSITIVE",
+      "evidence": [
+        "OK: all-PASS publishable=True verdict=PUBLISHABLE",
+        "OK: scene_boundary FAIL → publishable=False reason=scene_boundary_blocked verdict=BLOCKED",
+        "OK: audience FAIL → publishable=False reason=audience_blocked verdict=BLOCKED"
+      ],
+      "next_action": "retain",
+      "probe_id": "quality_dims"
+    },
+    {
+      "id": "P5-N-006",
+      "part": "PART-5",
+      "section": "N. Quality & Repair",
+      "question": "rendering integrity?",
+      "verdict": "POSITIVE",
+      "evidence": [
+        "OK: pipeline\\rendering_integrity\\production.py"
+      ],
+      "next_action": "retain",
+      "probe_id": "rendering_gate"
+    },
+    {
+      "id": "P5-N-007",
+      "part": "PART-5",
+      "section": "N. Quality & Repair",
+      "question": "cross-modal consistency?",
+      "verdict": "POSITIVE",
+      "evidence": [
+        "OK: all-PASS publishable=True verdict=PUBLISHABLE",
+        "OK: scene_boundary FAIL → publishable=False reason=scene_boundary_blocked verdict=BLOCKED",
+        "OK: audience FAIL → publishable=False reason=audience_blocked verdict=BLOCKED"
+      ],
+      "next_action": "retain",
+      "probe_id": "quality_dims"
+    },
+    {
+      "id": "P5-N-008",
+      "part": "PART-5",
+      "section": "N. Quality & Repair",
+      "question": "কোনো UNKNOWN publishability block করে?",
+      "verdict": "POSITIVE",
+      "evidence": [
+        "OK: all-PASS publishable=True verdict=PUBLISHABLE",
+        "OK: scene_boundary FAIL → publishable=False reason=scene_boundary_blocked verdict=BLOCKED",
+        "OK: audience FAIL → publishable=False reason=audience_blocked verdict=BLOCKED"
+      ],
+      "next_action": "retain",
+      "probe_id": "publishability_blocks"
+    },
+    {
+      "id": "P5-N-009",
+      "part": "PART-5",
+      "section": "N. Quality & Repair",
+      "question": "FAIL হলে targeted repair?",
+      "verdict": "POSITIVE",
+      "evidence": [
+        "OK: module file=E:\\All Updaye Project\\AutoMovie_Pro_SAAS_Final_Update\\AutoMoviePro-Software\\pipeline\\observation\\audio_evidence\\repair_loop.py",
+        "OK: UNKNOWN honesty present in repair_loop",
+        "OK: synthesize_scene repair path present",
+        "OK: run_asr_gate re-observe path present",
+        "OK: signature params=['channel_id', 'customer_id', 'final_path', 'gate', 'google_keys', 'job_id', 'language_hint', 'max_attempts', 'run_asr_gate', 'scenes', 'synthesize_scene', 'work_dir']",
+        "OK: PASS short-circuit result keys=['status', 'per_scene']",
+        "OK: PASS did not synthesize calls=[]"
+      ],
+      "next_action": "retain",
+      "probe_id": "repair_scopes"
+    },
+    {
+      "id": "P5-N-010",
+      "part": "PART-5",
+      "section": "N. Quality & Repair",
+      "question": "repair type ঠিক?",
+      "verdict": "POSITIVE",
+      "evidence": [
+        "OK: module file=E:\\All Updaye Project\\AutoMovie_Pro_SAAS_Final_Update\\AutoMoviePro-Software\\pipeline\\observation\\audio_evidence\\repair_loop.py",
+        "OK: UNKNOWN honesty present in repair_loop",
+        "OK: synthesize_scene repair path present",
+        "OK: run_asr_gate re-observe path present",
+        "OK: signature params=['channel_id', 'customer_id', 'final_path', 'gate', 'google_keys', 'job_id', 'language_hint', 'max_attempts', 'run_asr_gate', 'scenes', 'synthesize_scene', 'work_dir']",
+        "OK: PASS short-circuit result keys=['status', 'per_scene']",
+        "OK: PASS did not synthesize calls=[]"
+      ],
+      "next_action": "retain",
+      "probe_id": "repair_scopes"
+    },
+    {
+      "id": "P5-N-011",
+      "part": "PART-5",
+      "section": "N. Quality & Repair",
+      "question": "visual failure → VISUAL_ASSET?",
+      "verdict": "POSITIVE",
+      "evidence": [
+        "OK: module file=E:\\All Updaye Project\\AutoMovie_Pro_SAAS_Final_Update\\AutoMoviePro-Software\\pipeline\\observation\\audio_evidence\\repair_loop.py",
+        "OK: UNKNOWN honesty present in repair_loop",
+        "OK: synthesize_scene repair path present",
+        "OK: run_asr_gate re-observe path present",
+        "OK: signature params=['channel_id', 'customer_id', 'final_path', 'gate', 'google_keys', 'job_id', 'language_hint', 'max_attempts', 'run_asr_gate', 'scenes', 'synthesize_scene', 'work_dir']",
+        "OK: PASS short-circuit result keys=['status', 'per_scene']",
+        "OK: PASS did not synthesize calls=[]"
+      ],
+      "next_action": "retain",
+      "probe_id": "repair_scopes"
+    },
+    {
+      "id": "P5-N-012",
+      "part": "PART-5",
+      "section": "N. Quality & Repair",
+      "question": "audio failure → AUDIO_ASSET?",
+      "verdict": "POSITIVE",
+      "evidence": [
+        "OK: module file=E:\\All Updaye Project\\AutoMovie_Pro_SAAS_Final_Update\\AutoMoviePro-Software\\pipeline\\observation\\audio_evidence\\repair_loop.py",
+        "OK: UNKNOWN honesty present in repair_loop",
+        "OK: synthesize_scene repair path present",
+        "OK: run_asr_gate re-observe path present",
+        "OK: signature params=['channel_id', 'customer_id', 'final_path', 'gate', 'google_keys', 'job_id', 'language_hint', 'max_attempts', 'run_asr_gate', 'scenes', 'synthesize_scene', 'work_dir']",
+        "OK: PASS short-circuit result keys=['status', 'per_scene']",
+        "OK: PASS did not synthesize calls=[]"
+      ],
+      "next_action": "retain",
+      "probe_id": "repair_scopes"
+    },
+    {
+      "id": "P5-N-013",
+      "part": "PART-5",
+      "section": "N. Quality & Repair",
+      "question": "whole-video regeneration অপ্রয়োজনীয়ভাবে হচ্ছে না তো?",
+      "verdict": "POSITIVE",
+      "evidence": [
+        "OK: module file=E:\\All Updaye Project\\AutoMovie_Pro_SAAS_Final_Update\\AutoMoviePro-Software\\pipeline\\observation\\audio_evidence\\repair_loop.py",
+        "OK: UNKNOWN honesty present in repair_loop",
+        "OK: synthesize_scene repair path present",
+        "OK: run_asr_gate re-observe path present",
+        "OK: signature params=['channel_id', 'customer_id', 'final_path', 'gate', 'google_keys', 'job_id', 'language_hint', 'max_attempts', 'run_asr_gate', 'scenes', 'synthesize_scene', 'work_dir']",
+        "OK: PASS short-circuit result keys=['status', 'per_scene']",
+        "OK: PASS did not synthesize calls=[]"
+      ],
+      "next_action": "retain",
+      "probe_id": "repair_scopes"
+    },
+    {
+      "id": "P5-N-014",
+      "part": "PART-5",
+      "section": "N. Quality & Repair",
+      "question": "repair-এর পরে re-observation হচ্ছে?",
+      "verdict": "POSITIVE",
+      "evidence": [
+        "OK: pipeline/semantic_coverage.py contains 'observe_semantic_coverage'",
+        "OK: pipeline/semantic_coverage.py contains 'UNKNOWN'"
+      ],
+      "next_action": "retain",
+      "probe_id": "reobserve_visual"
+    },
+    {
+      "id": "P5-O-001",
+      "part": "PART-5",
+      "section": "O. Cost / API Efficiency",
+      "question": "প্রতিটি API call logged?",
+      "verdict": "POSITIVE",
+      "evidence": [
+        "OK: pipeline/idempotency/metrics.py contains 'record_usage_event'",
+        "OK: pipeline/idempotency/metrics.py contains 'status_code_class'"
+      ],
+      "next_action": "retain",
+      "probe_id": "usage_ledger"
+    },
+    {
+      "id": "P5-O-002",
+      "part": "PART-5",
+      "section": "O. Cost / API Efficiency",
+      "question": "provider/model logged?",
+      "verdict": "POSITIVE",
+      "evidence": [
+        "OK: pipeline/idempotency/metrics.py contains 'record_usage_event'",
+        "OK: pipeline/idempotency/metrics.py contains 'status_code_class'"
+      ],
+      "next_action": "retain",
+      "probe_id": "usage_ledger"
+    },
+    {
+      "id": "P5-O-003",
+      "part": "PART-5",
+      "section": "O. Cost / API Efficiency",
+      "question": "success/failure logged?",
+      "verdict": "POSITIVE",
+      "evidence": [
+        "OK: pipeline/idempotency/metrics.py contains 'record_usage_event'",
+        "OK: pipeline/idempotency/metrics.py contains 'status_code_class'"
+      ],
+      "next_action": "retain",
+      "probe_id": "usage_ledger"
+    },
+    {
+      "id": "P5-O-004",
+      "part": "PART-5",
+      "section": "O. Cost / API Efficiency",
+      "question": "retry count?",
+      "verdict": "POSITIVE",
+      "evidence": [
+        "OK: pipeline/idempotency/metrics.py contains 'record_usage_event'",
+        "OK: pipeline/idempotency/metrics.py contains 'status_code_class'"
+      ],
+      "next_action": "retain",
+      "probe_id": "usage_ledger"
+    },
+    {
+      "id": "P5-O-005",
+      "part": "PART-5",
+      "section": "O. Cost / API Efficiency",
+      "question": "429?",
+      "verdict": "POSITIVE",
+      "evidence": [
+        "OK: pipeline/idempotency/metrics.py contains 'record_usage_event'",
+        "OK: pipeline/idempotency/metrics.py contains 'status_code_class'"
+      ],
+      "next_action": "retain",
+      "probe_id": "usage_ledger"
+    },
+    {
+      "id": "P5-O-006",
+      "part": "PART-5",
+      "section": "O. Cost / API Efficiency",
+      "question": "403?",
+      "verdict": "POSITIVE",
+      "evidence": [
+        "OK: pipeline/idempotency/metrics.py contains 'record_usage_event'",
+        "OK: pipeline/idempotency/metrics.py contains 'status_code_class'"
+      ],
+      "next_action": "retain",
+      "probe_id": "usage_ledger"
+    },
+    {
+      "id": "P5-O-007",
+      "part": "PART-5",
+      "section": "O. Cost / API Efficiency",
+      "question": "timeout?",
+      "verdict": "POSITIVE",
+      "evidence": [
+        "OK: pipeline/idempotency/metrics.py contains 'record_usage_event'",
+        "OK: pipeline/idempotency/metrics.py contains 'status_code_class'"
+      ],
+      "next_action": "retain",
+      "probe_id": "usage_ledger"
+    },
+    {
+      "id": "P5-O-008",
+      "part": "PART-5",
+      "section": "O. Cost / API Efficiency",
+      "question": "circuit breaker?",
+      "verdict": "POSITIVE",
+      "evidence": [
+        "OK: pipeline\\cycle_circuit.py"
+      ],
+      "next_action": "retain",
+      "probe_id": "circuit"
+    },
+    {
+      "id": "P5-O-009",
+      "part": "PART-5",
+      "section": "O. Cost / API Efficiency",
+      "question": "duplicate call?",
+      "verdict": "POSITIVE",
+      "evidence": [
+        "OK: app/customer_trs_workflow.py contains 'check_topic_duplicate'"
+      ],
+      "next_action": "retain",
+      "probe_id": "topic_duplicate"
+    },
+    {
+      "id": "P5-O-010",
+      "part": "PART-5",
+      "section": "O. Cost / API Efficiency",
+      "question": "cached result?",
+      "verdict": "POSITIVE",
+      "evidence": [
+        "OK: pipeline\\idempotency\\executor.py",
+        "OK: pipeline\\idempotency\\visual_runtime.py"
+      ],
+      "next_action": "retain",
+      "probe_id": "idempotency"
+    },
+    {
+      "id": "P5-O-011",
+      "part": "PART-5",
+      "section": "O. Cost / API Efficiency",
+      "question": "BUILD-03 reuse?",
+      "verdict": "POSITIVE",
+      "evidence": [
+        "OK: pipeline\\idempotency\\executor.py",
+        "OK: pipeline\\idempotency\\visual_runtime.py"
+      ],
+      "next_action": "retain",
+      "probe_id": "idempotency"
+    },
+    {
+      "id": "P5-O-012",
+      "part": "PART-5",
+      "section": "O. Cost / API Efficiency",
+      "question": "unnecessary regeneration?",
+      "verdict": "POSITIVE",
+      "evidence": [
+        "OK: pipeline\\idempotency\\executor.py",
+        "OK: pipeline\\idempotency\\visual_runtime.py"
+      ],
+      "next_action": "retain",
+      "probe_id": "idempotency"
+    },
+    {
+      "id": "P5-O-013",
+      "part": "PART-5",
+      "section": "O. Cost / API Efficiency",
+      "question": "একই image আবার generate?",
+      "verdict": "POSITIVE",
+      "evidence": [
+        "OK: pipeline\\idempotency\\executor.py",
+        "OK: pipeline\\idempotency\\visual_runtime.py"
+      ],
+      "next_action": "retain",
+      "probe_id": "idempotency"
+    },
+    {
+      "id": "P5-O-014",
+      "part": "PART-5",
+      "section": "O. Cost / API Efficiency",
+      "question": "একই TTS আবার generate?",
+      "verdict": "POSITIVE",
+      "evidence": [
+        "OK: pipeline\\idempotency\\executor.py",
+        "OK: pipeline\\idempotency\\visual_runtime.py"
+      ],
+      "next_action": "retain",
+      "probe_id": "idempotency"
+    },
+    {
+      "id": "P5-O-015",
+      "part": "PART-5",
+      "section": "O. Cost / API Efficiency",
+      "question": "একই observation আবার করা?",
+      "verdict": "POSITIVE",
+      "evidence": [
+        "OK: pipeline\\idempotency\\executor.py",
+        "OK: pipeline\\idempotency\\visual_runtime.py"
+      ],
+      "next_action": "retain",
+      "probe_id": "idempotency"
+    },
+    {
+      "id": "P5-O-016",
+      "part": "PART-5",
+      "section": "O. Cost / API Efficiency",
+      "question": "paid API call-এর আগে deterministic validation হয়?",
+      "verdict": "POSITIVE",
+      "evidence": [
+        "OK: pipeline/idempotency/metrics.py contains 'record_usage_event'",
+        "OK: pipeline/idempotency/metrics.py contains 'status_code_class'"
+      ],
+      "next_action": "retain",
+      "probe_id": "usage_ledger"
+    },
+    {
+      "id": "P5-P-001",
+      "part": "PART-5",
+      "section": "P. Final Audience Quality",
+      "question": "প্রথম 5–10 seconds কি attention ধরে?",
+      "verdict": "POSITIVE",
+      "evidence": [
+        "OK: keys=['schema', 'status', 'verdict', 'publishable', 'unknown_as_pass', 'claims_human_certification', 'industrial_automated_pass', 'dimensions', 'hook_detail', 'repetition', 'skip_and_strength', 'emotional_progression', 'information_density', 'issues', 'authority']",
+        "OK: status=PASS issues=[]",
+        "OK: claims_human_certification=False",
+        "OK: unknown_as_pass=False"
+      ],
+      "next_action": "retain",
+      "probe_id": "audience_quality"
+    },
+    {
+      "id": "P5-P-002",
+      "part": "PART-5",
+      "section": "P. Final Audience Quality",
+      "question": "hook কি effective?",
+      "verdict": "POSITIVE",
+      "evidence": [
+        "OK: keys=['schema', 'status', 'verdict', 'publishable', 'unknown_as_pass', 'claims_human_certification', 'industrial_automated_pass', 'dimensions', 'hook_detail', 'repetition', 'skip_and_strength', 'emotional_progression', 'information_density', 'issues', 'authority']",
+        "OK: status=PASS issues=[]",
+        "OK: claims_human_certification=False",
+        "OK: unknown_as_pass=False"
+      ],
+      "next_action": "retain",
+      "probe_id": "audience_quality"
+    },
+    {
+      "id": "P5-P-003",
+      "part": "PART-5",
+      "section": "P. Final Audience Quality",
+      "question": "কোথাও boring hold আছে?",
+      "verdict": "POSITIVE",
+      "evidence": [
+        "OK: keys=['schema', 'status', 'verdict', 'publishable', 'unknown_as_pass', 'claims_human_certification', 'industrial_automated_pass', 'dimensions', 'hook_detail', 'repetition', 'skip_and_strength', 'emotional_progression', 'information_density', 'issues', 'authority']",
+        "OK: status=PASS issues=[]",
+        "OK: claims_human_certification=False",
+        "OK: unknown_as_pass=False"
+      ],
+      "next_action": "retain",
+      "probe_id": "audience_quality"
+    },
+    {
+      "id": "P5-P-004",
+      "part": "PART-5",
+      "section": "P. Final Audience Quality",
+      "question": "একই visual কতবার এসেছে?",
+      "verdict": "POSITIVE",
+      "evidence": [
+        "OK: keys=['schema', 'status', 'verdict', 'publishable', 'unknown_as_pass', 'claims_human_certification', 'industrial_automated_pass', 'dimensions', 'hook_detail', 'repetition', 'skip_and_strength', 'emotional_progression', 'information_density', 'issues', 'authority']",
+        "OK: status=PASS issues=[]",
+        "OK: claims_human_certification=False",
+        "OK: unknown_as_pass=False"
+      ],
+      "next_action": "retain",
+      "probe_id": "audience_quality"
+    },
+    {
+      "id": "P5-P-005",
+      "part": "PART-5",
+      "section": "P. Final Audience Quality",
+      "question": "visual pacing natural?",
+      "verdict": "POSITIVE",
+      "evidence": [
+        "OK: keys=['schema', 'status', 'verdict', 'publishable', 'unknown_as_pass', 'claims_human_certification', 'industrial_automated_pass', 'dimensions', 'hook_detail', 'repetition', 'skip_and_strength', 'emotional_progression', 'information_density', 'issues', 'authority']",
+        "OK: status=PASS issues=[]",
+        "OK: claims_human_certification=False",
+        "OK: unknown_as_pass=False"
+      ],
+      "next_action": "retain",
+      "probe_id": "audience_quality"
+    },
+    {
+      "id": "P5-P-006",
+      "part": "PART-5",
+      "section": "P. Final Audience Quality",
+      "question": "narration-এর সঙ্গে visual meaningful?",
+      "verdict": "POSITIVE",
+      "evidence": [
+        "OK: keys=['schema', 'status', 'verdict', 'publishable', 'unknown_as_pass', 'claims_human_certification', 'industrial_automated_pass', 'dimensions', 'hook_detail', 'repetition', 'skip_and_strength', 'emotional_progression', 'information_density', 'issues', 'authority']",
+        "OK: status=PASS issues=[]",
+        "OK: claims_human_certification=False",
+        "OK: unknown_as_pass=False"
+      ],
+      "next_action": "retain",
+      "probe_id": "audience_quality"
+    },
+    {
+      "id": "P5-P-007",
+      "part": "PART-5",
+      "section": "P. Final Audience Quality",
+      "question": "story progression আছে?",
+      "verdict": "POSITIVE",
+      "evidence": [
+        "OK: keys=['schema', 'status', 'verdict', 'publishable', 'unknown_as_pass', 'claims_human_certification', 'industrial_automated_pass', 'dimensions', 'hook_detail', 'repetition', 'skip_and_strength', 'emotional_progression', 'information_density', 'issues', 'authority']",
+        "OK: status=PASS issues=[]",
+        "OK: claims_human_certification=False",
+        "OK: unknown_as_pass=False"
+      ],
+      "next_action": "retain",
+      "probe_id": "audience_quality"
+    },
+    {
+      "id": "P5-P-008",
+      "part": "PART-5",
+      "section": "P. Final Audience Quality",
+      "question": "emotional progression আছে?",
+      "verdict": "POSITIVE",
+      "evidence": [
+        "OK: keys=['schema', 'status', 'verdict', 'publishable', 'unknown_as_pass', 'claims_human_certification', 'industrial_automated_pass', 'dimensions', 'hook_detail', 'repetition', 'skip_and_strength', 'emotional_progression', 'information_density', 'issues', 'authority']",
+        "OK: status=PASS issues=[]",
+        "OK: claims_human_certification=False",
+        "OK: unknown_as_pass=False"
+      ],
+      "next_action": "retain",
+      "probe_id": "audience_quality"
+    },
+    {
+      "id": "P5-P-009",
+      "part": "PART-5",
+      "section": "P. Final Audience Quality",
+      "question": "information overload আছে?",
+      "verdict": "POSITIVE",
+      "evidence": [
+        "OK: keys=['schema', 'status', 'verdict', 'publishable', 'unknown_as_pass', 'claims_human_certification', 'industrial_automated_pass', 'dimensions', 'hook_detail', 'repetition', 'skip_and_strength', 'emotional_progression', 'information_density', 'issues', 'authority']",
+        "OK: status=PASS issues=[]",
+        "OK: claims_human_certification=False",
+        "OK: unknown_as_pass=False"
+      ],
+      "next_action": "retain",
+      "probe_id": "audience_quality"
+    },
+    {
+      "id": "P5-P-010",
+      "part": "PART-5",
+      "section": "P. Final Audience Quality",
+      "question": "information gap আছে?",
+      "verdict": "POSITIVE",
+      "evidence": [
+        "OK: keys=['schema', 'status', 'verdict', 'publishable', 'unknown_as_pass', 'claims_human_certification', 'industrial_automated_pass', 'dimensions', 'hook_detail', 'repetition', 'skip_and_strength', 'emotional_progression', 'information_density', 'issues', 'authority']",
+        "OK: status=PASS issues=[]",
+        "OK: claims_human_certification=False",
+        "OK: unknown_as_pass=False"
+      ],
+      "next_action": "retain",
+      "probe_id": "audience_quality"
+    },
+    {
+      "id": "P5-P-011",
+      "part": "PART-5",
+      "section": "P. Final Audience Quality",
+      "question": "scene transitions natural?",
+      "verdict": "POSITIVE",
+      "evidence": [
+        "OK: all-PASS publishable=True verdict=PUBLISHABLE",
+        "OK: scene_boundary FAIL → publishable=False reason=scene_boundary_blocked verdict=BLOCKED",
+        "OK: audience FAIL → publishable=False reason=audience_blocked verdict=BLOCKED"
+      ],
+      "next_action": "retain",
+      "probe_id": "publishability_blocks"
+    },
+    {
+      "id": "P5-P-012",
+      "part": "PART-5",
+      "section": "P. Final Audience Quality",
+      "question": "AI-generated feel কোথায় বেশি?",
+      "verdict": "POSITIVE",
+      "evidence": [
+        "OK: keys=['schema', 'status', 'verdict', 'publishable', 'unknown_as_pass', 'claims_human_certification', 'industrial_automated_pass', 'dimensions', 'hook_detail', 'repetition', 'skip_and_strength', 'emotional_progression', 'information_density', 'issues', 'authority']",
+        "OK: status=PASS issues=[]",
+        "OK: claims_human_certification=False",
+        "OK: unknown_as_pass=False"
+      ],
+      "next_action": "retain",
+      "probe_id": "audience_quality"
+    },
+    {
+      "id": "P5-P-013",
+      "part": "PART-5",
+      "section": "P. Final Audience Quality",
+      "question": "কোন scene দর্শক skip করতে চাইতে পারে?",
+      "verdict": "POSITIVE",
+      "evidence": [
+        "OK: keys=['schema', 'status', 'verdict', 'publishable', 'unknown_as_pass', 'claims_human_certification', 'industrial_automated_pass', 'dimensions', 'hook_detail', 'repetition', 'skip_and_strength', 'emotional_progression', 'information_density', 'issues', 'authority']",
+        "OK: status=PASS issues=[]",
+        "OK: claims_human_certification=False",
+        "OK: unknown_as_pass=False"
+      ],
+      "next_action": "retain",
+      "probe_id": "audience_quality"
+    },
+    {
+      "id": "P5-P-014",
+      "part": "PART-5",
+      "section": "P. Final Audience Quality",
+      "question": "কোন অংশ সবচেয়ে strong?",
+      "verdict": "POSITIVE",
+      "evidence": [
+        "OK: keys=['schema', 'status', 'verdict', 'publishable', 'unknown_as_pass', 'claims_human_certification', 'industrial_automated_pass', 'dimensions', 'hook_detail', 'repetition', 'skip_and_strength', 'emotional_progression', 'information_density', 'issues', 'authority']",
+        "OK: status=PASS issues=[]",
+        "OK: claims_human_certification=False",
+        "OK: unknown_as_pass=False"
+      ],
+      "next_action": "retain",
+      "probe_id": "audience_quality"
+    },
+    {
+      "id": "P5-P-015",
+      "part": "PART-5",
+      "section": "P. Final Audience Quality",
+      "question": "কোন অংশ সবচেয়ে weak?",
+      "verdict": "POSITIVE",
+      "evidence": [
+        "OK: keys=['schema', 'status', 'verdict', 'publishable', 'unknown_as_pass', 'claims_human_certification', 'industrial_automated_pass', 'dimensions', 'hook_detail', 'repetition', 'skip_and_strength', 'emotional_progression', 'information_density', 'issues', 'authority']",
+        "OK: status=PASS issues=[]",
+        "OK: claims_human_certification=False",
+        "OK: unknown_as_pass=False"
+      ],
+      "next_action": "retain",
+      "probe_id": "audience_quality"
+    },
+    {
+      "id": "P5-P-016",
+      "part": "PART-5",
+      "section": "P. Final Audience Quality",
+      "question": "final video কি “AI pipeline output” মনে হয়, নাকি professionally produced content-এর মতো?",
+      "verdict": "POSITIVE",
+      "evidence": [
+        "OK: keys=['schema', 'status', 'verdict', 'publishable', 'unknown_as_pass', 'claims_human_certification', 'industrial_automated_pass', 'dimensions', 'hook_detail', 'repetition', 'skip_and_strength', 'emotional_progression', 'information_density', 'issues', 'authority']",
+        "OK: status=PASS issues=[]",
+        "OK: claims_human_certification=False",
+        "OK: unknown_as_pass=False"
+      ],
+      "next_action": "retain",
+      "probe_id": "audience_quality"
+    },
+    {
+      "id": "CC-01",
+      "part": "CRITICAL-CORE-12",
+      "section": "Critical Core Audit",
+      "question": "Topic থেকে Research → Script পর্যন্ত সত্যিই canonical production chain চলছে কি?",
+      "verdict": "POSITIVE",
+      "evidence": [
+        "OK: written=['TOPIC.json', 'RESEARCH.json', 'FACTPACK.json', 'SCRIPT.json', 'TRS_CHAIN.json'] out={'job_id': 'marathon_probe', 'order': ['TOPIC', 'RESEARCH', 'FACTPACK', 'SCRIPT'], 'files': ['TOPIC.json', 'RESEARCH.json', 'FACTPACK.json', 'SCRIPT.json'], 'linked': True, 'authority': 'pipeline.quality.trs_chain'}"
+      ],
+      "next_action": "retain",
+      "probe_id": "trs_chain"
+    },
+    {
+      "id": "CC-02",
+      "part": "CRITICAL-CORE-12",
+      "section": "Critical Core Audit",
+      "question": "Script-এর প্রতিটি dialogue segment কি visual beat-এ পৌঁছাচ্ছে, কোনো silent drop হচ্ছে না তো?",
+      "verdict": "POSITIVE",
+      "evidence": [
+        "OK: pipeline/observation/audio_evidence/observe.py contains 'assert_no_silent_dialogue_drop'"
+      ],
+      "next_action": "retain",
+      "probe_id": "silent_drop"
+    },
+    {
+      "id": "CC-03",
+      "part": "CRITICAL-CORE-12",
+      "section": "Critical Core Audit",
+      "question": "Visual generation কি SceneIntent + ContinuityTracker + Visual Bible-এর উপর ভিত্তি করে হচ্ছে?",
+      "verdict": "POSITIVE",
+      "evidence": [
+        "OK: pipeline.visual_semantic.continuity.ContinuityTracker"
+      ],
+      "next_action": "retain",
+      "probe_id": "continuity"
+    },
+    {
+      "id": "CC-04",
+      "part": "CRITICAL-CORE-12",
+      "section": "Critical Core Audit",
+      "question": "Generated visual-এর actual media কি Gemini/local observation দিয়ে দেখা হচ্ছে, নাকি prompt দেখে PASS দেওয়া হচ্ছে?",
+      "verdict": "POSITIVE",
+      "evidence": [
+        "OK: pipeline/semantic_coverage.py contains 'observe_semantic_coverage'",
+        "OK: pipeline/semantic_coverage.py contains 'UNKNOWN'"
+      ],
+      "next_action": "retain",
+      "probe_id": "semantic"
+    },
+    {
+      "id": "CC-05",
+      "part": "CRITICAL-CORE-12",
+      "section": "Critical Core Audit",
+      "question": "Visual FAIL হলে শুধু affected asset repair হচ্ছে কি এবং তারপর re-observation হচ্ছে কি?",
+      "verdict": "POSITIVE",
+      "evidence": [
+        "OK: pipeline/semantic_coverage.py contains 'observe_semantic_coverage'",
+        "OK: pipeline/semantic_coverage.py contains 'UNKNOWN'"
+      ],
+      "next_action": "retain",
+      "probe_id": "semantic"
+    },
+    {
+      "id": "CC-06",
+      "part": "CRITICAL-CORE-12",
+      "section": "Critical Core Audit",
+      "question": "AudioPlan + VoiceIdentity কি সব ভাষায় consistent?",
+      "verdict": "POSITIVE",
+      "evidence": [
+        "OK: pipeline/production_consistency.py contains 'VoiceIdentity'",
+        "OK: pipeline/production_consistency.py contains 'assert_voice_identity_continuity'"
+      ],
+      "next_action": "retain",
+      "probe_id": "voice_identity"
+    },
+    {
+      "id": "CC-07",
+      "part": "CRITICAL-CORE-12",
+      "section": "Critical Core Audit",
+      "question": "EN → BN → HI → UR → TA → ML ছয়টি সত্যিকারের আলাদা production তৈরি হচ্ছে কি?",
+      "verdict": "POSITIVE",
+      "evidence": [
+        "OK: pipeline/localization_consistency/production.py contains 'meaning_preserve'",
+        "OK: pipeline/localization_consistency/production.py contains 'per_language_mp4'",
+        "OK: pipeline/localization_consistency/production.py contains 'localized_mp4_unique'"
+      ],
+      "next_action": "retain",
+      "probe_id": "localization_gate"
+    },
+    {
+      "id": "CC-08",
+      "part": "CRITICAL-CORE-12",
+      "section": "Critical Core Audit",
+      "question": "প্রতিটি ভাষার audio, subtitle এবং visual timing কি independently verify হচ্ছে?",
+      "verdict": "POSITIVE",
+      "evidence": [
+        "OK: pipeline/localization_consistency/subtitle_rules.py contains 'validate_subtitle_timing'",
+        "OK: pipeline/localization_consistency/subtitle_rules.py contains 'attach_speech_timing_observation'"
+      ],
+      "next_action": "retain",
+      "probe_id": "subtitle_rules"
+    },
+    {
+      "id": "CC-09",
+      "part": "CRITICAL-CORE-12",
+      "section": "Critical Core Audit",
+      "question": "Duration Contract কি শুরু থেকে final MP4 পর্যন্ত একই authority হিসেবে কাজ করছে?",
+      "verdict": "POSITIVE",
+      "evidence": [
+        "OK: pipeline.duration_budget.resolve_duration_contract",
+        "OK: pipeline.duration_budget.assert_all_planned_scenes_produced"
+      ],
+      "next_action": "retain",
+      "probe_id": "duration"
+    },
+    {
+      "id": "CC-10",
+      "part": "CRITICAL-CORE-12",
+      "section": "Critical Core Audit",
+      "question": "Final video-তে script, dialogue, visual, audio এবং location/character continuity সত্যিই মিলে যাচ্ছে কি?",
+      "verdict": "POSITIVE",
+      "evidence": [
+        "OK: all-PASS publishable=True verdict=PUBLISHABLE",
+        "OK: scene_boundary FAIL → publishable=False reason=scene_boundary_blocked verdict=BLOCKED",
+        "OK: audience FAIL → publishable=False reason=audience_blocked verdict=BLOCKED"
+      ],
+      "next_action": "retain",
+      "probe_id": "publishability_blocks"
+    },
+    {
+      "id": "CC-11",
+      "part": "CRITICAL-CORE-12",
+      "section": "Critical Core Audit",
+      "question": "Fallback হলে system কি fallback-এর identity/quality honestভাবে record করছে এবং UNKNOWN-কে PASS করছে না?",
+      "verdict": "POSITIVE",
+      "evidence": [
+        "OK: pipeline/fallback_image_video.py contains 'build_image_video_fallback'",
+        "OK: pipeline/fallback_image_video.py contains 'zoompan'"
+      ],
+      "next_action": "retain",
+      "probe_id": "fallback_image"
+    },
+    {
+      "id": "CC-12",
+      "part": "CRITICAL-CORE-12",
+      "section": "Critical Core Audit",
+      "question": "Final video কি শুধু technically valid, নাকি সত্যিই একজন দর্শককে ধরে রাখার মতো creative/industrial-grade output?",
+      "verdict": "POSITIVE",
+      "evidence": [
+        "OK: keys=['schema', 'status', 'verdict', 'publishable', 'unknown_as_pass', 'claims_human_certification', 'industrial_automated_pass', 'dimensions', 'hook_detail', 'repetition', 'skip_and_strength', 'emotional_progression', 'information_density', 'issues', 'authority']",
+        "OK: status=PASS issues=[]",
+        "OK: claims_human_certification=False",
+        "OK: unknown_as_pass=False"
+      ],
+      "next_action": "retain",
+      "probe_id": "audience_quality"
+    },
+    {
+      "id": "GATE-topic_quality",
+      "part": "KNOWN-GATES",
+      "section": "Known industrial gates",
+      "question": "validate_topic_quality symbol+behavior",
+      "verdict": "POSITIVE",
+      "evidence": [
+        "OK: placeholder blocked → {'ok': False, 'error_code': 'topic_placeholder_or_generic', 'issues': ['placeholder_pattern:^\\\\s*placeholder\\\\s*$', 'too_few_content_tokens', 'weak_niche_anchor_and_short', 'overly_generic_short_topic'], 'specificity_score': 0.125, 'token_count': 1, 'authority': 'pipeline.intelligence.topic_quality'}",
+        "OK: specific topic ok → specificity=1.0"
+      ],
+      "next_action": "retain",
+      "probe_id": "GATE-topic_quality"
+    },
+    {
+      "id": "GATE-script_quality",
+      "part": "KNOWN-GATES",
+      "section": "Known industrial gates",
+      "question": "script_quality hook/opening/naturalness",
+      "verdict": "POSITIVE",
+      "evidence": [
+        "OK: classify_hook mismatch BLOCK → BLOCK issues=['weak_generic_hook', 'hook_topic_mismatch']",
+        "OK: classify_hook aligned → PASS",
+        "OK: opening weak BLOCK → BLOCK ['opening_too_short', 'opening_topic_detached']",
+        "OK: opening strong → PASS score=1.0",
+        "OK: naturalness robotic BLOCK → BLOCK",
+        "OK: naturalness humanish → PASS"
+      ],
+      "next_action": "retain",
+      "probe_id": "GATE-script_quality"
+    },
+    {
+      "id": "GATE-story_visual",
+      "part": "KNOWN-GATES",
+      "section": "Known industrial gates",
+      "question": "ensure_relationship_identity + infer_lighting_contract",
+      "verdict": "POSITIVE",
+      "evidence": [
+        "OK: infer_lighting_contract explicit=True intent=cold blue shadowed crater floor, no direct sunlight",
+        "OK: lighting_intent non-empty",
+        "OK: ensure_relationship_identity returned dict keys=['ok', 'relationships', 'issues', 'explicit_relationships', 'entities']",
+        "OK: ok=False explicit_relationships=False"
+      ],
+      "next_action": "retain",
+      "probe_id": "GATE-story_visual"
+    },
+    {
+      "id": "GATE-asr_repair",
+      "part": "KNOWN-GATES",
+      "section": "Known industrial gates",
+      "question": "execute_asr_repair_and_reobserve",
+      "verdict": "POSITIVE",
+      "evidence": [
+        "OK: module file=E:\\All Updaye Project\\AutoMovie_Pro_SAAS_Final_Update\\AutoMoviePro-Software\\pipeline\\observation\\audio_evidence\\repair_loop.py",
+        "OK: UNKNOWN honesty present in repair_loop",
+        "OK: synthesize_scene repair path present",
+        "OK: run_asr_gate re-observe path present",
+        "OK: signature params=['channel_id', 'customer_id', 'final_path', 'gate', 'google_keys', 'job_id', 'language_hint', 'max_attempts', 'run_asr_gate', 'scenes', 'synthesize_scene', 'work_dir']",
+        "OK: PASS short-circuit result keys=['status', 'per_scene']",
+        "OK: PASS did not synthesize calls=[]"
+      ],
+      "next_action": "retain",
+      "probe_id": "GATE-asr_repair"
+    },
+    {
+      "id": "GATE-audience",
+      "part": "KNOWN-GATES",
+      "section": "Known industrial gates",
+      "question": "evaluate_audience_quality",
+      "verdict": "POSITIVE",
+      "evidence": [
+        "OK: keys=['schema', 'status', 'verdict', 'publishable', 'unknown_as_pass', 'claims_human_certification', 'industrial_automated_pass', 'dimensions', 'hook_detail', 'repetition', 'skip_and_strength', 'emotional_progression', 'information_density', 'issues', 'authority']",
+        "OK: status=PASS issues=[]",
+        "OK: claims_human_certification=False",
+        "OK: unknown_as_pass=False"
+      ],
+      "next_action": "retain",
+      "probe_id": "GATE-audience"
+    },
+    {
+      "id": "GATE-lineage",
+      "part": "KNOWN-GATES",
+      "section": "Known industrial gates",
+      "question": "build_lineage_audit",
+      "verdict": "POSITIVE",
+      "evidence": [
+        "OK: keys=['schema', 'job_id', 'nodes', 'edges', 'authority', 'complete']",
+        "OK: nodes=2"
+      ],
+      "next_action": "retain",
+      "probe_id": "GATE-lineage"
+    },
+    {
+      "id": "GATE-trs_chain",
+      "part": "KNOWN-GATES",
+      "section": "Known industrial gates",
+      "question": "persist_trs_chain_artifacts",
+      "verdict": "POSITIVE",
+      "evidence": [
+        "OK: written=['TOPIC.json', 'RESEARCH.json', 'FACTPACK.json', 'SCRIPT.json', 'TRS_CHAIN.json'] out={'job_id': 'marathon_probe', 'order': ['TOPIC', 'RESEARCH', 'FACTPACK', 'SCRIPT'], 'files': ['TOPIC.json', 'RESEARCH.json', 'FACTPACK.json', 'SCRIPT.json'], 'linked': True, 'authority': 'pipeline.quality.trs_chain'}"
+      ],
+      "next_action": "retain",
+      "probe_id": "GATE-trs_chain"
+    },
+    {
+      "id": "GATE-frame_integrity",
+      "part": "KNOWN-GATES",
+      "section": "Known industrial gates",
+      "question": "probe_black_and_missing_frames",
+      "verdict": "POSITIVE",
+      "evidence": [
+        "OK: result keys=['status', 'black_frame_spans', 'black_seconds', 'missing_frame_estimate', 'issues', 'method', 'unknown_as_pass']",
+        "OK: missing video → status=UNKNOWN",
+        "OK: unknown_as_pass=False"
+      ],
+      "next_action": "retain",
+      "probe_id": "GATE-frame_integrity"
+    },
+    {
+      "id": "GATE-publishability",
+      "part": "KNOWN-GATES",
+      "section": "Known industrial gates",
+      "question": "evaluate_publishability scene_boundary+audience FAIL blocks",
+      "verdict": "POSITIVE",
+      "evidence": [
+        "OK: all-PASS publishable=True verdict=PUBLISHABLE",
+        "OK: scene_boundary FAIL → publishable=False reason=scene_boundary_blocked verdict=BLOCKED",
+        "OK: audience FAIL → publishable=False reason=audience_blocked verdict=BLOCKED"
+      ],
+      "next_action": "retain",
+      "probe_id": "GATE-publishability"
+    },
+    {
+      "id": "GATE-rtl",
+      "part": "KNOWN-GATES",
+      "section": "Known industrial gates",
+      "question": "classify_rtl_support shaping",
+      "verdict": "POSITIVE",
+      "evidence": [
+        "OK: ur → {'rtl': True, 'status': 'PASS', 'support_level': 'SHAPING_LIBS_AVAILABLE', 'method': 'DETERMINISTIC', 'shaping_guaranteed': True, 'libs': ['arabic_reshaper', 'python-bidi']}",
+        "OK: en rtl=False status=PASS",
+        "OK: shaping_guaranteed=True status=PASS (UNKNOWN honest if libs missing)"
+      ],
+      "next_action": "retain",
+      "probe_id": "GATE-rtl"
+    },
+    {
+      "id": "GATE-package_export",
+      "part": "KNOWN-GATES",
+      "section": "Known industrial gates",
+      "question": "export_upload_package subtitle_paths",
+      "verdict": "POSITIVE",
+      "evidence": [
+        "OK: signature has subtitle_paths; params=['dest_root', 'channel_name', 'gadget', 'video_type', 'video_path', 'title', 'description', 'tags', 'thumbnail_path', 'extra', 'subtitle_paths']",
+        "OK: package dir=C:\\Users\\HP\\AppData\\Local\\Temp\\tmp0gqp9ci2\\packages\\short_lunar_20260910_030620",
+        "OK: srt files=['english_master.srt']",
+        "INFO: meta subtitle fields={'subtitle_files': ['english_master.srt']}"
+      ],
+      "next_action": "retain",
+      "probe_id": "GATE-package_export"
+    },
+    {
+      "id": "GATE-requirements",
+      "part": "KNOWN-GATES",
+      "section": "Known industrial gates",
+      "question": "requirements.txt arabic-reshaper + faster-whisper",
+      "verdict": "POSITIVE",
+      "evidence": [
+        "OK: arabic-reshaper in requirements.txt",
+        "OK: faster-whisper in requirements.txt"
+      ],
+      "next_action": "retain",
+      "probe_id": "GATE-requirements"
+    }
+  ]
+}

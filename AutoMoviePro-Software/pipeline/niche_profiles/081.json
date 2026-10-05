@@ -1,0 +1,83 @@
+{
+  "niche_id": 81,
+  "name": "Popular Superstitions",
+  "slug": "popular-superstitions",
+  "style_family": "history",
+  "status": "VERIFIED",
+  "topic_seeds": [
+    "What new evidence reframes the story of Popular Superstitions Why inside Popular Superstitions",
+    "How Popular Superstitions Why still shapes public curiosity about Popular Superstitions",
+    "What new evidence reframes the story of Friday inside Popular Superstitions",
+    "How Friday still shapes public curiosity about Popular Superstitions",
+    "What new evidence reframes the story of Check inside Popular Superstitions",
+    "How Check still shapes public curiosity about Popular Superstitions"
+  ],
+  "seo_angles": [
+    "What new evidence reframes the story of Popular Superstitions Why inside Popular Superstitions",
+    "How Popular Superstitions Why still shapes public curiosity about Popular Superstitions",
+    "What new evidence reframes the story of Friday inside Popular Superstitions",
+    "How Friday still shapes public curiosity about Popular Superstitions"
+  ],
+  "forbidden_visuals": [
+    "talking-head lip-sync avatar",
+    "burned-in captions",
+    "watermark",
+    "modern meme text",
+    "modern smartphones",
+    "cars",
+    "LED screens",
+    "sneakers",
+    "contemporary skyline"
+  ],
+  "preferred_subjects": [
+    "Popular Superstitions documentary subject",
+    "period-accurate environment",
+    "evidence object close-up"
+  ],
+  "lighting_default": "warm desert sun / torchlit interiors, high-contrast documentary grade",
+  "face_policy": "period extras OK if consistent; prefer environment/object hero when possible",
+  "dialogue_tone": "human documentary narration; specific nouns; 7–9s beats",
+  "audio_ambience": "subtle documentary bed; do not overpower voice",
+  "research_hints": [
+    "Prefer primary evidence and concrete entities for Popular Superstitions",
+    "Avoid generic niche-label topics; require specific place/person/event/mechanism",
+    "7–9 second spoken beats with story continuity across scenes"
+  ],
+  "topic_prompt_overlay": "NICHE LOCK (Popular Superstitions): only propose topics that fit this niche's video type. Video type: Why black cats, broken mirrors, and Friday the 13th are feared — and their historical origins. Follow niche topic strategy: Check psychology articles, viral superstition discussions, or new folklore books. Generate a topic about a common superstition's surprising origin.",
+  "video_prompt_overlay": "NICHE VISUAL LOCK (Popular Superstitions / history): Generate a 7–9 second dialogue clip based on the topic `{topic}`. Each dialogue must be playful and informative. For each dialogue, generate: - **Audio Generation Prompt:** Voice — witty, with crashing mirror and cat meow. - **Video Generation Prompt:** Detailed visual — a cosy room with objects (mirror, cat). No characters — objects. Lighting: warm, cosy. Maintain same room. Forbidden: talking-head lip-sync avatar, burned-in captions, watermark, modern meme text, modern smartphones, cars, LED screens, sneakers. Preferred subjects: Popular Superstitions documentary subject, period-accurate environment, evidence object close-up. Lighting: warm desert sun / torchlit interiors, high-contrast documentary grade. Face policy: period extras OK if consistent; prefer environment/object hero when possible. Dialogue tone: human documentary narration; specific nouns; 7–9s beats. Ambience: subtle documentary bed; do not overpower voice.",
+  "i18n": {
+    "en": {
+      "name": "Popular Superstitions",
+      "blurb": "Why black cats, broken mirrors, and Friday the 13th are feared — and their historical origins."
+    },
+    "bn": {
+      "name": "জনপ্রিয় কুসংস্কার",
+      "blurb": "ভিডিও টাইপ: Why black cats, broken mirrors, and Friday the 13th are feared — and their historical origins."
+    },
+    "hi": {
+      "name": "लोकप्रिय अंधविश्वास",
+      "blurb": "वीडियो प्रकार: Why black cats, broken mirrors, and Friday the 13th are feared — and their historical origins."
+    },
+    "ur": {
+      "name": "مقبول توہمات",
+      "blurb": "ویڈیو کی قسم: Why black cats, broken mirrors, and Friday the 13th are feared — and their historical origins."
+    },
+    "ta": {
+      "name": "பிரபல மூடநம்பிக்கைகள்",
+      "blurb": "வீடியோ வகை: Why black cats, broken mirrors, and Friday the 13th are feared — and their historical origins."
+    },
+    "ml": {
+      "name": "ജനപ്രിയ അന്ധവിശ്വാസങ്ങൾ",
+      "blurb": "വീഡിയോ തരം: Why black cats, broken mirrors, and Friday the 13th are feared — and their historical origins."
+    }
+  },
+  "source": "Nish.Md + deterministic research",
+  "research_notes": [
+    "Marathon researched at 2026-09-10T08:30:19Z",
+    "Video type length=94",
+    "Topic prompt length=147",
+    "Video prompt length=378",
+    "Seeds=6"
+  ],
+  "verified_at": "2026-09-10T08:30:19Z"
+}

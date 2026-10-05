@@ -1,0 +1,5 @@
+{
+  "ok": false,
+  "error": "publishability_blocked:creative_repair_required",
+  "traceback": "Traceback (most recent call last):\n  File \"E:\\All Updaye Project\\AutoMovie_Pro_SAAS_Final_Update\\AutoMoviePro-Software\\scripts\\cert_core_engine_real_marathon.py\", line 500, in generate_real\n    try:\n         \n  File \"E:\\All Updaye Project\\AutoMovie_Pro_SAAS_Final_Update\\AutoMoviePro-Software\\pipeline\\video_pipeline.py\", line 1785, in generate_video\n    require_creative_production_gate=True,\nRuntimeError: publishability_blocked:creative_repair_required\n"
+}

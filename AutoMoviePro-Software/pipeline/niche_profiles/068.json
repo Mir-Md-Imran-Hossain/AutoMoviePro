@@ -1,0 +1,80 @@
+{
+  "niche_id": 68,
+  "name": "Wild Animal Encounters",
+  "slug": "wild-animal-encounters",
+  "style_family": "nature",
+  "status": "VERIFIED",
+  "topic_seeds": [
+    "What new evidence reframes the story of Wild Animal Encounters True inside Wild Animal Encounters",
+    "How Wild Animal Encounters True still shapes public curiosity about Wild Animal Encounters",
+    "What new evidence reframes the story of Search inside Wild Animal Encounters",
+    "How Search still shapes public curiosity about Wild Animal Encounters",
+    "What new evidence reframes the story of Generate inside Wild Animal Encounters",
+    "How Generate still shapes public curiosity about Wild Animal Encounters"
+  ],
+  "seo_angles": [
+    "What new evidence reframes the story of Wild Animal Encounters True inside Wild Animal Encounters",
+    "How Wild Animal Encounters True still shapes public curiosity about Wild Animal Encounters",
+    "What new evidence reframes the story of Search inside Wild Animal Encounters",
+    "How Search still shapes public curiosity about Wild Animal Encounters"
+  ],
+  "forbidden_visuals": [
+    "talking-head lip-sync avatar",
+    "burned-in captions",
+    "watermark",
+    "modern meme text",
+    "CGI cartoon animals",
+    "studio green-screen obvious seams"
+  ],
+  "preferred_subjects": [
+    "biome wide establishing shot",
+    "species macro detail",
+    "weather system overhead"
+  ],
+  "lighting_default": "natural directional key, documentary clarity",
+  "face_policy": "no talking-head lip-sync avatar; cinematic B-roll preferred",
+  "dialogue_tone": "human documentary narration; specific nouns; 7–9s beats",
+  "audio_ambience": "subtle documentary bed; do not overpower voice",
+  "research_hints": [
+    "Prefer primary evidence and concrete entities for Wild Animal Encounters",
+    "Avoid generic niche-label topics; require specific place/person/event/mechanism",
+    "7–9 second spoken beats with story continuity across scenes"
+  ],
+  "topic_prompt_overlay": "NICHE LOCK (Wild Animal Encounters): only propose topics that fit this niche's video type. Video type: True stories of shark, bear, lion, or crocodile attacks — and the survival tactics that saved lives. Follow niche topic strategy: Search wildlife attack news, survival interviews, or documentary releases. Generate a topic about a surprising animal encounter.",
+  "video_prompt_overlay": "NICHE VISUAL LOCK (Wild Animal Encounters / nature): Generate a 7–9 second dialogue clip based on the topic `{topic}`. Each dialogue must be shocking and survival-driven. For each dialogue, generate: - **Audio Generation Prompt:** Voice — urgent, with growls or splashing. - **Video Generation Prompt:** Detailed visual — jungle or ocean. Character: survivor (torn clothes). Lighting: dramatic, shadowy. Maintain same environment and tone. Forbidden: talking-head lip-sync avatar, burned-in captions, watermark, modern meme text, CGI cartoon animals, studio green-screen obvious seams. Preferred subjects: biome wide establishing shot, species macro detail, weather system overhead. Lighting: natural directional key, documentary clarity. Face policy: no talking-head lip-sync avatar; cinematic B-roll preferred. Dialogue tone: human documentary narration; specific nouns; 7–9s beats. Ambience: subtle documentary bed; do not overpower voice.",
+  "i18n": {
+    "en": {
+      "name": "Wild Animal Encounters",
+      "blurb": "True stories of shark, bear, lion, or crocodile attacks — and the survival tactics that saved lives."
+    },
+    "bn": {
+      "name": "বন্য প্রাণীর মুখোমুখি",
+      "blurb": "ভিডিও টাইপ: True stories of shark, bear, lion, or crocodile attacks — and the survival tactics that saved lives."
+    },
+    "hi": {
+      "name": "जंगली जानवरों से मुठभेड़",
+      "blurb": "वीडियो प्रकार: True stories of shark, bear, lion, or crocodile attacks — and the survival tactics that saved lives."
+    },
+    "ur": {
+      "name": "جنگلی جانوروں سے ملاقات",
+      "blurb": "ویڈیو کی قسم: True stories of shark, bear, lion, or crocodile attacks — and the survival tactics that saved lives."
+    },
+    "ta": {
+      "name": "காட்டு விலங்கு சந்திப்புகள்",
+      "blurb": "வீடியோ வகை: True stories of shark, bear, lion, or crocodile attacks — and the survival tactics that saved lives."
+    },
+    "ml": {
+      "name": "കാട്ടുമൃഗ കണ്ടുമുട്ടലുകൾ",
+      "blurb": "വീഡിയോ തരം: True stories of shark, bear, lion, or crocodile attacks — and the survival tactics that saved lives."
+    }
+  },
+  "source": "Nish.Md + deterministic research",
+  "research_notes": [
+    "Marathon researched at 2026-09-10T08:30:17Z",
+    "Video type length=100",
+    "Topic prompt length=128",
+    "Video prompt length=386",
+    "Seeds=6"
+  ],
+  "verified_at": "2026-09-10T08:30:17Z"
+}

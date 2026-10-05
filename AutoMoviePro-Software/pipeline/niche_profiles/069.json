@@ -1,0 +1,83 @@
+{
+  "niche_id": 69,
+  "name": "Unlikely Animal Friendships",
+  "slug": "unlikely-animal-friendships",
+  "style_family": "history",
+  "status": "VERIFIED",
+  "topic_seeds": [
+    "What new evidence reframes the story of Unlikely Animal Friendships Heartwarming inside Unlikely Animal Friendships",
+    "How Unlikely Animal Friendships Heartwarming still shapes public curiosity about Unlikely Animal Friendships",
+    "What new evidence reframes the story of Track inside Unlikely Animal Friendships",
+    "How Track still shapes public curiosity about Unlikely Animal Friendships",
+    "What new evidence reframes the story of Generate inside Unlikely Animal Friendships",
+    "How Generate still shapes public curiosity about Unlikely Animal Friendships"
+  ],
+  "seo_angles": [
+    "What new evidence reframes the story of Unlikely Animal Friendships Heartwarming inside Unlikely Animal Friendships",
+    "How Unlikely Animal Friendships Heartwarming still shapes public curiosity about Unlikely Animal Friendships",
+    "What new evidence reframes the story of Track inside Unlikely Animal Friendships",
+    "How Track still shapes public curiosity about Unlikely Animal Friendships"
+  ],
+  "forbidden_visuals": [
+    "talking-head lip-sync avatar",
+    "burned-in captions",
+    "watermark",
+    "modern meme text",
+    "modern smartphones",
+    "cars",
+    "LED screens",
+    "sneakers",
+    "contemporary skyline"
+  ],
+  "preferred_subjects": [
+    "Unlikely Animal Friendships documentary subject",
+    "period-accurate environment",
+    "evidence object close-up"
+  ],
+  "lighting_default": "warm desert sun / torchlit interiors, high-contrast documentary grade",
+  "face_policy": "period extras OK if consistent; prefer environment/object hero when possible",
+  "dialogue_tone": "human documentary narration; specific nouns; 7–9s beats",
+  "audio_ambience": "subtle documentary bed; do not overpower voice",
+  "research_hints": [
+    "Prefer primary evidence and concrete entities for Unlikely Animal Friendships",
+    "Avoid generic niche-label topics; require specific place/person/event/mechanism",
+    "7–9 second spoken beats with story continuity across scenes"
+  ],
+  "topic_prompt_overlay": "NICHE LOCK (Unlikely Animal Friendships): only propose topics that fit this niche's video type. Video type: Heartwarming bonds between species — a cat and dolphin, a dog and elephant — proven by videos and behavioral studies. Follow niche topic strategy: Track viral animal friendship videos, zoology studies, or nature documentaries. Generate a topic that melts hearts.",
+  "video_prompt_overlay": "NICHE VISUAL LOCK (Unlikely Animal Friendships / history): Generate a 7–9 second dialogue clip based on the topic `{topic}`. Each dialogue must be joyful and tender. For each dialogue, generate: - **Audio Generation Prompt:** Voice — warm, amused, with playful animal sounds. - **Video Generation Prompt:** Detailed visual — animals interacting gently. No human characters — focus on the animals. Lighting: natural, bright. Maintain same animals and playful mood. Forbidden: talking-head lip-sync avatar, burned-in captions, watermark, modern meme text, modern smartphones, cars, LED screens, sneakers. Preferred subjects: Unlikely Animal Friendships documentary subject, period-accurate environment, evidence object close-up. Lighting: warm desert sun / torchlit interiors, high-contrast documentary grade. Face policy: period extras OK if consistent; prefer environment/object hero when possible. Dialogue tone: human documentary narration; specific nouns; 7–9s beats. Ambience: subtle documentary bed; do not overpower voice.",
+  "i18n": {
+    "en": {
+      "name": "Unlikely Animal Friendships",
+      "blurb": "Heartwarming bonds between species — a cat and dolphin, a dog and elephant — proven by videos and behavioral studies."
+    },
+    "bn": {
+      "name": "অভাবনীয় প্রাণী বন্ধুত্ব",
+      "blurb": "ভিডিও টাইপ: Heartwarming bonds between species — a cat and dolphin, a dog and elephant — proven by videos and behavioral studies."
+    },
+    "hi": {
+      "name": "अनहोखी जानवर मित्रताएँ",
+      "blurb": "वीडियो प्रकार: Heartwarming bonds between species — a cat and dolphin, a dog and elephant — proven by videos and behavioral studies."
+    },
+    "ur": {
+      "name": "غیر متوقع جانور دوستی",
+      "blurb": "ویڈیو کی قسم: Heartwarming bonds between species — a cat and dolphin, a dog and elephant — proven by videos and behavioral studies."
+    },
+    "ta": {
+      "name": "எதிர்பாராத விலங்கு நட்புகள்",
+      "blurb": "வீடியோ வகை: Heartwarming bonds between species — a cat and dolphin, a dog and elephant — proven by videos and behavioral studies."
+    },
+    "ml": {
+      "name": "അപ്രതീക്ഷിത മൃഗ സൗഹൃദങ്ങൾ",
+      "blurb": "വീഡിയോ തരം: Heartwarming bonds between species — a cat and dolphin, a dog and elephant — proven by videos and behavioral studies."
+    }
+  },
+  "source": "Nish.Md + deterministic research",
+  "research_notes": [
+    "Marathon researched at 2026-09-10T08:30:17Z",
+    "Video type length=117",
+    "Topic prompt length=115",
+    "Video prompt length=404",
+    "Seeds=6"
+  ],
+  "verified_at": "2026-09-10T08:30:17Z"
+}

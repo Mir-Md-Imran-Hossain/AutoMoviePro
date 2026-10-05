@@ -1,0 +1,41 @@
+{
+  "repair_triggered": true,
+  "status": "FAIL",
+  "repair_scope": "VISUAL_ASSET",
+  "repair_scope_forced": "VISUAL_ASSET",
+  "whole_video_regeneration": false,
+  "plan": {
+    "ok": true,
+    "affected_scene_id": "sc-6f",
+    "preserved_scene_ids": [
+      "vb-6f-repair"
+    ],
+    "targeted_only": true,
+    "repair_engine": "pipeline.quality.repair_planner.plan_repair",
+    "duplicate_repair_engine": false,
+    "plan": {
+      "repair_scope": "VISUAL_ASSET",
+      "subject_id": "sc-6f",
+      "issue_ids": [
+        "c05q_visual_sc-6f"
+      ],
+      "attempt": 1,
+      "max_attempts": 3,
+      "old_fingerprint": "",
+      "revision_id": "r002",
+      "evidence": {
+        "c05q_visual_sc-6f": {}
+      },
+      "recommended_action": "targeted_repair",
+      "escalate": false
+    },
+    "affected_beat_id": "vb-6f-repair",
+    "visual_repair_engine": false,
+    "old_fingerprint": "",
+    "repair_scope_forced": "VISUAL_ASSET",
+    "whole_video_regeneration": false,
+    "observation_overall": "FAIL"
+  },
+  "authority": "BUILD-04F plan_repair / plan_semantic_beat_repair",
+  "second_repair_engine": false
+}

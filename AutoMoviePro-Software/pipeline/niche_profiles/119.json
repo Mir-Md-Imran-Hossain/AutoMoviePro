@@ -1,0 +1,81 @@
+{
+  "niche_id": 119,
+  "name": "E-Waste & Recycling",
+  "slug": "e-waste-recycling",
+  "style_family": "gadget",
+  "status": "VERIFIED",
+  "topic_seeds": [
+    "What new evidence reframes the story of Waste inside E-Waste & Recycling",
+    "How Waste still shapes public curiosity about E-Waste & Recycling",
+    "What new evidence reframes the story of Recycling The inside E-Waste & Recycling",
+    "How Recycling The still shapes public curiosity about E-Waste & Recycling",
+    "What new evidence reframes the story of Check inside E-Waste & Recycling",
+    "How Check still shapes public curiosity about E-Waste & Recycling"
+  ],
+  "seo_angles": [
+    "What new evidence reframes the story of Waste inside E-Waste & Recycling",
+    "How Waste still shapes public curiosity about E-Waste & Recycling",
+    "What new evidence reframes the story of Recycling The inside E-Waste & Recycling",
+    "How Recycling The still shapes public curiosity about E-Waste & Recycling"
+  ],
+  "forbidden_visuals": [
+    "talking-head lip-sync avatar",
+    "burned-in captions",
+    "watermark",
+    "modern meme text",
+    "wrong model phone",
+    "generic unbranded slab",
+    "stock office handshake"
+  ],
+  "preferred_subjects": [
+    "exact product hero",
+    "component close-up",
+    "hands with device only"
+  ],
+  "lighting_default": "natural directional key, documentary clarity",
+  "face_policy": "product-only hero; hands OK; no talking-head",
+  "dialogue_tone": "human documentary narration; specific nouns; 7–9s beats",
+  "audio_ambience": "subtle documentary bed; do not overpower voice",
+  "research_hints": [
+    "Prefer primary evidence and concrete entities for E-Waste & Recycling",
+    "Avoid generic niche-label topics; require specific place/person/event/mechanism",
+    "7–9 second spoken beats with story continuity across scenes"
+  ],
+  "topic_prompt_overlay": "NICHE LOCK (E-Waste & Recycling): only propose topics that fit this niche's video type. Video type: The toxic afterlife of phones and laptops — how to responsibly recycle and why it matters for the planet. Follow niche topic strategy: Check environmental news, new recycling tech, or viral e-waste documentaries. Generate a topic about a new way to recycle electronics.",
+  "video_prompt_overlay": "NICHE VISUAL LOCK (E-Waste & Recycling / gadget): Generate a 7–9 second dialogue clip based on the topic `{topic}`. Each dialogue must be responsible and urgent. For each dialogue, generate: - **Audio Generation Prompt:** Voice — concerned, with crushing and sorting sounds. - **Video Generation Prompt:** Detailed visual — a recycling plant or pile of electronics. Character: worker (safety gear). Lighting: grey, industrial. Maintain same plant. Forbidden: talking-head lip-sync avatar, burned-in captions, watermark, modern meme text, wrong model phone, generic unbranded slab, stock office handshake. Preferred subjects: exact product hero, component close-up, hands with device only. Lighting: natural directional key, documentary clarity. Face policy: product-only hero; hands OK; no talking-head. Dialogue tone: human documentary narration; specific nouns; 7–9s beats. Ambience: subtle documentary bed; do not overpower voice.",
+  "i18n": {
+    "en": {
+      "name": "E-Waste & Recycling",
+      "blurb": "The toxic afterlife of phones and laptops — how to responsibly recycle and why it matters for the planet."
+    },
+    "bn": {
+      "name": "ই-বর্জ্য ও পুনর্ব্যবহার",
+      "blurb": "ভিডিও টাইপ: The toxic afterlife of phones and laptops — how to responsibly recycle and why it matters for the planet."
+    },
+    "hi": {
+      "name": "ई-कचरा और रीसाइक्लिंग",
+      "blurb": "वीडियो प्रकार: The toxic afterlife of phones and laptops — how to responsibly recycle and why it matters for the planet."
+    },
+    "ur": {
+      "name": "ای ویسٹ اور ری سائیکلنگ",
+      "blurb": "ویڈیو کی قسم: The toxic afterlife of phones and laptops — how to responsibly recycle and why it matters for the planet."
+    },
+    "ta": {
+      "name": "மின் கழிவு & மறுசுழற்சி",
+      "blurb": "வீடியோ வகை: The toxic afterlife of phones and laptops — how to responsibly recycle and why it matters for the planet."
+    },
+    "ml": {
+      "name": "ഇ-മാലിന്യവും റീസൈക്ലിംഗും",
+      "blurb": "വീഡിയോ തരം: The toxic afterlife of phones and laptops — how to responsibly recycle and why it matters for the planet."
+    }
+  },
+  "source": "Nish.Md + deterministic research",
+  "research_notes": [
+    "Marathon researched at 2026-09-10T08:30:25Z",
+    "Video type length=105",
+    "Topic prompt length=134",
+    "Video prompt length=397",
+    "Seeds=6"
+  ],
+  "verified_at": "2026-09-10T08:30:26Z"
+}

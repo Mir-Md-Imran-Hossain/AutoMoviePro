@@ -1,0 +1,30 @@
+{
+  "checkpoint": "CP-00",
+  "run_id": "mr_core_engine_20260910T133655Z_5059b307",
+  "ownership_ok": true,
+  "db_languages_unchanged": [
+    "en",
+    "bn"
+  ],
+  "cert_overlay_languages": [
+    "en",
+    "bn",
+    "hi",
+    "ur",
+    "ta",
+    "ml"
+  ],
+  "entitlement_forged": false,
+  "google_keys_env": 19,
+  "agnes_keys_env": 6,
+  "media": {
+    "FFMPEG_AVAILABLE": true,
+    "FFPROBE_AVAILABLE": true,
+    "ffmpeg_path": "E:\\All Updaye Project\\AutoMovie_Pro_SAAS_Final_Update\\AutoMoviePro-Software\\ffmpeg-8.1.1-full_build\\ffmpeg-8.1.1-full_build\\bin\\ffmpeg.exe",
+    "ffprobe_path": "E:\\All Updaye Project\\AutoMovie_Pro_SAAS_Final_Update\\AutoMoviePro-Software\\ffmpeg-8.1.1-full_build\\ffmpeg-8.1.1-full_build\\bin\\ffprobe.exe",
+    "ffmpeg_source": "bundled",
+    "ffprobe_source": "bundled",
+    "method": "DETERMINISTIC"
+  },
+  "note": "Six-language production via in-memory cert overlay; customer C04 entitlement not modified"
+}

@@ -1,0 +1,26 @@
+{
+  "job_id": "c06b-script-4-topic-55e8189ed9a01330",
+  "fingerprint": "b041722f4ab74dec439c2aa89f51008ce4e2c26f4be426ad5d61462cfd02e478",
+  "entity_id": "script-0000-b0bcdd1ee23ab6d8",
+  "topic": "How lunar polar permanently shadowed craters preserve water ice that Artemis prospectors can map with neutron spectrometers — angle 202609091347",
+  "topic_identity": "b0bcdd1ee23ab6d8de21a7a2",
+  "niche": "space science",
+  "niche_id": 0,
+  "fact_pack_id": "",
+  "fact_pack_hash": "",
+  "prompt_version": "v12",
+  "prompt_template_hash": "e344dfbfe39453248f95c06bace9e3d1",
+  "provider": "llm_router",
+  "model": "purpose-script",
+  "generation_id": "",
+  "plan_path": "E:\\All Updaye Project\\AutoMovie_Pro_SAAS_Final_Update\\AutoMoviePro-Software\\docs\\marathon\\runs\\mr_core_engine_20260909T134730Z_52e02228\\script\\director_plan.json",
+  "plan_hash": "e4f16bdff74de05a2d21238a6eed45d6d325a3451707ba3c8539a5680c4946d2",
+  "saved_at": 1788961660.800728,
+  "metadata": {
+    "video_type": "short",
+    "max_seconds": 60,
+    "language": "en",
+    "revision_id": "",
+    "legacy_key": "script:b041722f4ab74dec439c2aa89f51008c"
+  }
+}

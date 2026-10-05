@@ -1,0 +1,727 @@
+{
+  "ok": true,
+  "research": {
+    "research_status": "COMPLETED",
+    "fact_count": 2,
+    "evidence_count": 2,
+    "source_count": 0,
+    "confidence": null,
+    "unresolved_items": [],
+    "capability": {
+      "provider_capability": "LOCAL_FACTPACK",
+      "provider_mode": "LIVE_LOCAL",
+      "external_live_research": "UNAVAILABLE",
+      "is_external_live": false,
+      "external_api": false,
+      "note": "LOCAL_FACTPACK must not be claimed as EXTERNAL_LIVE_RESEARCH"
+    },
+    "fact_pack": {
+      "topic": "How gravitational-wave detectors hear black-hole mergers across the universe",
+      "version": "v0",
+      "claims": [
+        {
+          "id": "N01",
+          "claim": "Research query: how gravitational-wave detectors hear black-hole mergers across the universe\nLanguage: en\nRegion:",
+          "evidence": "research_notes",
+          "source": "research_notes",
+          "confidence": 0.4,
+          "freshness": "UNVERIFIED"
+        },
+        {
+          "id": "L02",
+          "claim": "Additional context on How gravitational-wave detectors hear black-hole mergers across the universe from configured research scope.",
+          "evidence": "secondary",
+          "source": "live_research",
+          "confidence": 0.6,
+          "freshness": "recent"
+        }
+      ],
+      "unknowns": []
+    },
+    "gate": {
+      "verdict": "PASS",
+      "reason": "sufficient_evidence",
+      "issues": [],
+      "claim_count": 2,
+      "supported_count": 2,
+      "verified_count": 0,
+      "unsupported_count": 0,
+      "classified": [
+        {
+          "claim": "Research query: how gravitational-wave detectors hear black-hole mergers across the universe\nLanguage: en\nRegion:",
+          "class": "SUPPORTED",
+          "source": "research_notes"
+        },
+        {
+          "claim": "Additional context on How gravitational-wave detectors hear black-hole mergers across the universe from configured research scope.",
+          "class": "SUPPORTED",
+          "source": "live_research"
+        }
+      ]
+    },
+    "fingerprint": "b11759a0713bca7b2ba241da89093e7e81ad060c343d9510599047c18ff5cd2b",
+    "action": "execute",
+    "error_code": null,
+    "error_summary": null,
+    "live_research_complete": false
+  },
+  "workflow": {
+    "contract": "C06-B",
+    "project_id": "trs-ch4",
+    "owner_login_id": "c11_marathon_customer",
+    "channel_id": 4,
+    "updated_at": "2026-09-10T20:38:27.396446",
+    "revision": 410,
+    "topic": {
+      "topic_id": "topic-968a7a7457dfec1c",
+      "project_id": "trs-ch4",
+      "owner_login_id": "c11_marathon_customer",
+      "topic_text": "How gravitational-wave detectors hear black-hole mergers across the universe",
+      "topic_source": "MANUAL",
+      "topic_status": "COMPLETED",
+      "selected_at": "2026-09-10T20:38:27.345978",
+      "created_at": "2026-09-06T22:13:16.391863",
+      "updated_at": "2026-09-10T20:38:27.345978",
+      "duplicate": {
+        "verdict": "UNIQUE",
+        "blocked": false,
+        "matched": "",
+        "detail": {
+          "verdict": "UNIQUE",
+          "confidence": 0.88,
+          "evidence": {
+            "rule_version": "1.0.0"
+          },
+          "comparison_target": "",
+          "layer": "all_passed"
+        },
+        "authority": "BUILD-04G.duplicate + product_registry"
+      },
+      "blocked_reason": null,
+      "error_code": null
+    },
+    "suggestions": [
+      {
+        "topic_id": "t-61bde167336b015b",
+        "topic_text": "How gravitational-wave detectors hear black-hole mergers across the universe",
+        "canonical_topic": "How gravitational-wave detectors hear black-hole mergers across the universe",
+        "source": "SUGGESTED",
+        "authority": "BUILD-04G.discovery",
+        "external_api": false
+      },
+      {
+        "topic_id": "t-0702bd364ab658b9",
+        "topic_text": "What dark energy surveys measure when galaxies stretch apart",
+        "canonical_topic": "What dark energy surveys measure when galaxies stretch apart",
+        "source": "SUGGESTED",
+        "authority": "BUILD-04G.discovery",
+        "external_api": false
+      }
+    ],
+    "reserved": [
+      {
+        "topic_id": "t-71bf9f81dcbd29c3",
+        "topic_text": "One fact about space science you missed today",
+        "source": "RESERVED",
+        "authority": "BUILD-04G.reserve_queue"
+      },
+      {
+        "topic_id": "t-042828b9295d915b",
+        "topic_text": "Quick space science insight for general",
+        "source": "RESERVED",
+        "authority": "BUILD-04G.reserve_queue"
+      },
+      {
+        "topic_id": "t-87e7edb4fdfcde63",
+        "topic_text": "space science: 60-second breakdown",
+        "source": "RESERVED",
+        "authority": "BUILD-04G.reserve_queue"
+      }
+    ],
+    "research": {
+      "research_status": "COMPLETED",
+      "fact_count": 2,
+      "evidence_count": 2,
+      "source_count": 0,
+      "confidence": null,
+      "unresolved_items": [],
+      "capability": {
+        "provider_capability": "LOCAL_FACTPACK",
+        "provider_mode": "LIVE_LOCAL",
+        "external_live_research": "UNAVAILABLE",
+        "is_external_live": false,
+        "external_api": false,
+        "note": "LOCAL_FACTPACK must not be claimed as EXTERNAL_LIVE_RESEARCH"
+      },
+      "gate": {
+        "verdict": "PASS",
+        "reason": "sufficient_evidence",
+        "issues": [],
+        "claim_count": 2,
+        "supported_count": 2,
+        "verified_count": 0,
+        "unsupported_count": 0,
+        "classified": [
+          {
+            "claim": "Research query: how gravitational-wave detectors hear black-hole mergers across the universe\nLanguage: en\nRegion:",
+            "class": "SUPPORTED",
+            "source": "research_notes"
+          },
+          {
+            "claim": "Additional context on How gravitational-wave detectors hear black-hole mergers across the universe from configured research scope.",
+            "class": "SUPPORTED",
+            "source": "live_research"
+          }
+        ]
+      },
+      "fingerprint": "b11759a0713bca7b2ba241da89093e7e81ad060c343d9510599047c18ff5cd2b",
+      "action": "execute",
+      "error_code": null,
+      "error_summary": null,
+      "live_research_complete": false,
+      "status_label": "Research complete (local FactPack)",
+      "has_fact_pack": true
+    },
+    "script": {
+      "script_status": "READY",
+      "preview": {
+        "topic": "Starliner Failure and ISS Science Return Timelines",
+        "hook": "Most people think Starliner is just a taxi. But its failure is actually freezing the return of critical science experiments on the ISS.",
+        "beat_count": 5,
+        "dialogue_count": 5,
+        "scene_count": 5,
+        "entities": [],
+        "locations": [],
+        "relationships": [],
+        "dialogue_ids": [
+          "beat-1",
+          "beat-2",
+          "beat-3",
+          "beat-4",
+          "beat-5"
+        ],
+        "beat_ids": [
+          "beat-1",
+          "beat-2",
+          "beat-3",
+          "beat-4",
+          "beat-5"
+        ],
+        "scene_ids": [
+          "scene-00",
+          "scene-01",
+          "scene-02",
+          "scene-03",
+          "scene-04"
+        ],
+        "beats_summary": [
+          {
+            "beat_id": "beat-1",
+            "narration": "Most people think Starliner is just a taxi. But its failure is actually freezing the return of critical science experiments on the ISS.",
+            "speaker": "Narrator",
+            "emotion": "",
+            "entity_refs": [],
+            "location_ref": "",
+            "estimated_duration_sec": 9.0
+          },
+          {
+            "beat_id": "beat-2",
+            "narration": "Here is the detail experts watch: Starliner carries return cargo. When it stays grounded, those samples have nowhere to go but up.",
+            "speaker": "Narrator",
+            "emotion": "",
+            "entity_refs": [],
+            "location_ref": "",
+            "estimated_duration_sec": 9.0
+          },
+          {
+            "beat_id": "beat-3",
+            "narration": "Watch what this changes next — biology experiments that need cold storage are now stuck in orbit. The timeline for their return to.",
+            "speaker": "Narrator",
+            "emotion": "",
+            "entity_refs": [],
+            "location_ref": "",
+            "estimated_duration_sec": 9.0
+          },
+          {
+            "beat_id": "beat-4",
+            "narration": "So why not just use a cargo ship? Because the return window for these specific materials is tighter than the cargo schedule allows.",
+            "speaker": "Narrator",
+            "emotion": "",
+            "entity_refs": [],
+            "location_ref": "",
+            "estimated_duration_sec": 9.0
+          },
+          {
+            "beat_id": "beat-5",
+            "narration": "NASA is now re-routing these payloads to the next available crew vehicle. This changes the entire 2026 science return calendar. So the takeaway.",
+            "speaker": "Narrator",
+            "emotion": "",
+            "entity_refs": [],
+            "location_ref": "",
+            "estimated_duration_sec": 9.0
+          }
+        ]
+      },
+      "scene_count": 5,
+      "beat_count": 5,
+      "dialogue_count": 5,
+      "quality": {
+        "status": "PASS",
+        "issues": [],
+        "actions": [],
+        "preflight": {
+          "status": "WARNING",
+          "ok": true,
+          "blocked": false,
+          "blocks": [],
+          "warnings": [
+            "missing_emotional_intent:3"
+          ],
+          "unknowns": [],
+          "confidence": "HEURISTIC",
+          "claims_human_written": false,
+          "claims_guaranteed_engagement": false,
+          "method": "DETERMINISTIC_PREFLIGHT",
+          "note": "stylistic judgments are HEURISTIC; naturalness not proven"
+        },
+        "authority": "BUILD-04F.evaluate_script_quality + TRS preflight"
+      },
+      "approval": {
+        "state": "NOT_READY",
+        "publishes": false,
+        "means_generated": false
+      },
+      "error_code": "script_generation_failure",
+      "error_summary": "prompt_compliance_blocked:C03_information_density",
+      "script_action": "reuse",
+      "dialogue_segments_count": 5,
+      "has_script_plan": true
+    },
+    "script_plan": {
+      "schema_version": "1.0.0",
+      "id": "34bfa3f7-0572-4069-917c-46708f4477ef",
+      "created_at": "2026-09-10 14:35:37.895722+00:00",
+      "updated_at": null,
+      "topic_id": "topic-1aeefbbf9aa0784e",
+      "topic": "Starliner Failure and ISS Science Return Timelines",
+      "format": "SHORT",
+      "language": "en",
+      "target_duration_sec": 60.0,
+      "hook": "Most people think Starliner is just a taxi. But its failure is actually freezing the return of critical science experiments on the ISS.",
+      "narrative_structure": [
+        "hook",
+        "context",
+        "development",
+        "payoff",
+        "ending"
+      ],
+      "sections": [
+        "hook",
+        "context",
+        "development",
+        "payoff",
+        "ending"
+      ],
+      "beats": [
+        {
+          "schema_version": "1.0.0",
+          "id": "801f403c-6d41-45ed-878e-76e71863c627",
+          "created_at": "2026-09-10 14:35:37.895722+00:00",
+          "updated_at": null,
+          "beat_id": "beat-1",
+          "order": 0,
+          "section_role": "hook",
+          "narration": "Most people think Starliner is just a taxi. But its failure is actually freezing the return of critical science experiments on the ISS.",
+          "speaker": "Narrator",
+          "emotion": "",
+          "emotion_intensity": 0.5,
+          "action_intent": "",
+          "entity_refs": [],
+          "location_ref": "",
+          "temporal_context": "",
+          "continuity_deps": [],
+          "visual_implication": "Most people think Starliner is just a taxi. But its failure is actually freezing the return of critical science experime",
+          "claim_ids": [],
+          "evidence_refs": [
+            "N01"
+          ],
+          "estimated_duration_sec": 9.0,
+          "retention_role": "pattern_interrupt",
+          "open_loop": "",
+          "payoff_for": "",
+          "emotional_intent": "",
+          "metadata": {
+            "legacy_visual_prompt_ownership": {
+              "semantic_visual_intent": "",
+              "legacy_provider_prompts": {
+                "visual_query": "Starliner docked ISS cinematic",
+                "exact_ai_video_prompt": "VERTICAL 9:16 portrait (1080x1920) cinematic slow push-in of the Boeing Starliner spacecraft docked to the ISS, teal/cyan cinematic lab grade, high contrast, shallow DOF, no burned captions, no watermark, no talking-head, continuous motion of the station rotating slowly against the black void REQUIRED on-screen anchors: Starliner Failure and ISS Science Return Timelines, failure, science experiments, taxi, actually, freezing, return. Visual slot: Starliner Failure and ISS Science Return Timelines Starliner ISS: Most people think Starliner is just a taxi. But its failure is — slow cinematic push-in establishing hero.",
+                "visual_prompt": "Starliner spacecraft attached to ISS, dark space background, teal grade"
+              },
+              "legacy_fields_present": true,
+              "canonical_owner": "C05-S DirectedVisualBeat → prompt_compiler",
+              "script_owns_provider_visual_prompts": false,
+              "ownership": "LEGACY_DEPRECATED",
+              "note": "visual_prompt/exact_ai_video_prompt are compatibility fields, not ScriptPlan authority"
+            },
+            "dialogue_id": "beat-1",
+            "scene_id": "scene-00"
+          },
+          "retention": {
+            "role": "pattern_interrupt",
+            "window_start_sec": 0,
+            "window_end_sec": 2,
+            "job": "Pattern Interrupt",
+            "open_loop": null,
+            "payoff_for": null
+          }
+        },
+        {
+          "schema_version": "1.0.0",
+          "id": "f876d8cf-051c-4b4a-beaa-dff46c9c6b0d",
+          "created_at": "2026-09-10 14:35:37.895722+00:00",
+          "updated_at": null,
+          "beat_id": "beat-2",
+          "order": 1,
+          "section_role": "context",
+          "narration": "Here is the detail experts watch: Starliner carries return cargo. When it stays grounded, those samples have nowhere to go but up.",
+          "speaker": "Narrator",
+          "emotion": "",
+          "emotion_intensity": 0.5,
+          "action_intent": "",
+          "entity_refs": [],
+          "location_ref": "",
+          "temporal_context": "",
+          "continuity_deps": [],
+          "visual_implication": "Here is the detail experts watch: Starliner carries return cargo. When it stays grounded, those samples have nowhere to",
+          "claim_ids": [],
+          "evidence_refs": [
+            "N01"
+          ],
+          "estimated_duration_sec": 9.0,
+          "retention_role": "curiosity_gap",
+          "open_loop": "",
+          "payoff_for": "",
+          "emotional_intent": "",
+          "metadata": {
+            "legacy_visual_prompt_ownership": {
+              "semantic_visual_intent": "",
+              "legacy_provider_prompts": {
+                "visual_query": "spacecraft cargo bay samples macro",
+                "exact_ai_video_prompt": "VERTICAL 9:16 portrait (1080x1920) macro shot of sealed scientific sample containers inside a spacecraft cargo bay, teal/cyan cinematic lab grade, high contrast, shallow DOF, no burned captions, no watermark, no talking-head, slow pan across the containers showing labels and seals REQUIRED on-screen anchors: Starliner Failure and ISS Science Return Timelines, grounded, dependency, experts, watch, Starliner, carries, return. Visual slot: Starliner Failure and ISS Science Return Timelines cargo samples: Here is the detail experts watch: Starliner carries return cargo. When it — environmental wide into subject emphasis.",
+                "visual_prompt": "Macro view of scientific containers in cargo bay, teal lighting"
+              },
+              "legacy_fields_present": true,
+              "canonical_owner": "C05-S DirectedVisualBeat → prompt_compiler",
+              "script_owns_provider_visual_prompts": false,
+              "ownership": "LEGACY_DEPRECATED",
+              "note": "visual_prompt/exact_ai_video_prompt are compatibility fields, not ScriptPlan authority"
+            },
+            "dialogue_id": "beat-2",
+            "scene_id": "scene-01"
+          },
+          "retention": {
+            "role": "curiosity_gap",
+            "window_start_sec": 2,
+            "window_end_sec": 5,
+            "job": "Curiosity Gap",
+            "open_loop": null,
+            "payoff_for": null
+          }
+        },
+        {
+          "schema_version": "1.0.0",
+          "id": "cdc879b7-2ba3-4083-9c72-c2ae74064537",
+          "created_at": "2026-09-10 14:35:37.895722+00:00",
+          "updated_at": null,
+          "beat_id": "beat-3",
+          "order": 2,
+          "section_role": "development",
+          "narration": "Watch what this changes next — biology experiments that need cold storage are now stuck in orbit. The timeline for their return to.",
+          "speaker": "Narrator",
+          "emotion": "",
+          "emotion_intensity": 0.5,
+          "action_intent": "",
+          "entity_refs": [],
+          "location_ref": "",
+          "temporal_context": "",
+          "continuity_deps": [],
+          "visual_implication": "Watch what this changes next — biology experiments that need cold storage are now stuck in orbit. The timeline for their",
+          "claim_ids": [],
+          "evidence_refs": [
+            "N01"
+          ],
+          "estimated_duration_sec": 9.0,
+          "retention_role": "first_payoff",
+          "open_loop": "",
+          "payoff_for": "",
+          "emotional_intent": "",
+          "metadata": {
+            "legacy_visual_prompt_ownership": {
+              "semantic_visual_intent": "",
+              "legacy_provider_prompts": {
+                "visual_query": "cryogenic biology sample frost macro",
+                "exact_ai_video_prompt": "VERTICAL 9:16 portrait (1080x1920) close-up of a cryogenic biological sample vial with frost forming, teal/cyan cinematic lab grade, high contrast, shallow DOF, no burned captions, no watermark, no talking-head, slow zoom into the frost pattern on the glass REQUIRED on-screen anchors: Starliner Failure and ISS Science Return Timelines, biology, cold storage, orbit, timeline shift, experiments, cold, storage, stuck. Visual slot: Starliner Failure and ISS Science Return Timelines biology cold storage: Watch what this changes next — biology experiments that need cold storage — revealing detail with controlled camera move.",
+                "visual_prompt": "Frost forming on a biological sample vial, teal grade"
+              },
+              "legacy_fields_present": true,
+              "canonical_owner": "C05-S DirectedVisualBeat → prompt_compiler",
+              "script_owns_provider_visual_prompts": false,
+              "ownership": "LEGACY_DEPRECATED",
+              "note": "visual_prompt/exact_ai_video_prompt are compatibility fields, not ScriptPlan authority"
+            },
+            "dialogue_id": "beat-3",
+            "scene_id": "scene-02"
+          },
+          "retention": {
+            "role": "first_payoff",
+            "window_start_sec": 5,
+            "window_end_sec": 10,
+            "job": "First Payoff",
+            "open_loop": null,
+            "payoff_for": null
+          }
+        },
+        {
+          "schema_version": "1.0.0",
+          "id": "4ff37878-9d66-4b7d-b5c8-15474d72d9f3",
+          "created_at": "2026-09-10 14:35:37.895722+00:00",
+          "updated_at": null,
+          "beat_id": "beat-4",
+          "order": 3,
+          "section_role": "payoff",
+          "narration": "So why not just use a cargo ship? Because the return window for these specific materials is tighter than the cargo schedule allows.",
+          "speaker": "Narrator",
+          "emotion": "",
+          "emotion_intensity": 0.5,
+          "action_intent": "",
+          "entity_refs": [],
+          "location_ref": "",
+          "temporal_context": "",
+          "continuity_deps": [],
+          "visual_implication": "So why not just use a cargo ship? Because the return window for these specific materials is tighter than the cargo sched",
+          "claim_ids": [],
+          "evidence_refs": [
+            "N01"
+          ],
+          "estimated_duration_sec": 9.0,
+          "retention_role": "question",
+          "open_loop": "",
+          "payoff_for": "",
+          "emotional_intent": "",
+          "metadata": {
+            "legacy_visual_prompt_ownership": {
+              "semantic_visual_intent": "",
+              "legacy_provider_prompts": {
+                "visual_query": "cargo spacecraft launch plume",
+                "exact_ai_video_prompt": "VERTICAL 9:16 portrait (1080x1920) wide shot of a cargo spacecraft launching from a pad, plume of smoke rising, teal/cyan cinematic lab grade, high contrast, shallow DOF, no burned captions, no watermark, no talking-head, slow tilt up following the rocket trajectory REQUIRED on-screen anchors: Starliner Failure and ISS Science Return Timelines, cargo ship, return window, schedule, materials, ship, Because, return, window, specific. Visual slot: Starliner Failure and ISS Science Return Timelines cargo ship return window: So why not just use a cargo ship? Because the return window — macro process detail, continuous motion.",
+                "visual_prompt": "Rocket launch with smoke plume, teal grade, vertical composition"
+              },
+              "legacy_fields_present": true,
+              "canonical_owner": "C05-S DirectedVisualBeat → prompt_compiler",
+              "script_owns_provider_visual_prompts": false,
+              "ownership": "LEGACY_DEPRECATED",
+              "note": "visual_prompt/exact_ai_video_prompt are compatibility fields, not ScriptPlan authority"
+            },
+            "dialogue_id": "beat-4",
+            "scene_id": "scene-03"
+          },
+          "retention": {
+            "role": "question",
+            "window_start_sec": null,
+            "window_end_sec": null,
+            "job": "question",
+            "open_loop": null,
+            "payoff_for": null
+          }
+        },
+        {
+          "schema_version": "1.0.0",
+          "id": "7e449f21-8f9f-4567-8155-6374bb7be954",
+          "created_at": "2026-09-10 14:35:37.895722+00:00",
+          "updated_at": null,
+          "beat_id": "beat-5",
+          "order": 4,
+          "section_role": "ending",
+          "narration": "NASA is now re-routing these payloads to the next available crew vehicle. This changes the entire 2026 science return calendar. So the takeaway.",
+          "speaker": "Narrator",
+          "emotion": "",
+          "emotion_intensity": 0.5,
+          "action_intent": "",
+          "entity_refs": [],
+          "location_ref": "",
+          "temporal_context": "",
+          "continuity_deps": [],
+          "visual_implication": "NASA is now re-routing these payloads to the next available crew vehicle. This changes the entire 2026 science return ca",
+          "claim_ids": [],
+          "evidence_refs": [
+            "N01"
+          ],
+          "estimated_duration_sec": 9.0,
+          "retention_role": "ending",
+          "open_loop": "",
+          "payoff_for": "main_open_loop",
+          "emotional_intent": "",
+          "metadata": {
+            "legacy_visual_prompt_ownership": {
+              "semantic_visual_intent": "",
+              "legacy_provider_prompts": {
+                "visual_query": "spaceport control room orbital screens",
+                "exact_ai_video_prompt": "VERTICAL 9:16 portrait (1080x1920) aerial view of a spaceport control room with screens showing orbital trajectories, teal/cyan cinematic lab grade, high contrast, shallow DOF, no burned captions, no watermark, no talking-head, slow pan across the screens showing data streams REQUIRED on-screen anchors: Starliner Failure and ISS Science Return Timelines, NASA, re-routing, payloads, 2026 calendar, routing, available, crew, vehicle, 2026. Visual slot: Starliner Failure and ISS Science Return Timelines NASA re-routing: NASA is now re-routing these payloads to the next available crew vehicle. — environmental wide into subject emphasis.",
+                "visual_prompt": "Control room screens with orbital data, teal grade, vertical"
+              },
+              "legacy_fields_present": true,
+              "canonical_owner": "C05-S DirectedVisualBeat → prompt_compiler",
+              "script_owns_provider_visual_prompts": false,
+              "ownership": "LEGACY_DEPRECATED",
+              "note": "visual_prompt/exact_ai_video_prompt are compatibility fields, not ScriptPlan authority"
+            },
+            "dialogue_id": "beat-5",
+            "scene_id": "scene-04"
+          },
+          "retention": {
+            "role": "ending",
+            "window_start_sec": null,
+            "window_end_sec": null,
+            "job": "close_main_loop",
+            "open_loop": null,
+            "payoff_for": "main_open_loop"
+          }
+        }
+      ],
+      "claims": [
+        {
+          "id": "N01",
+          "claim": "Research query: how starliner and commercial crew change iss science return timelines\nLanguage: en\nRegion:",
+          "evidence": "research_notes",
+          "source": "research_notes",
+          "confidence": 0.4,
+          "freshness": "UNVERIFIED"
+        },
+        {
+          "id": "L02",
+          "claim": "Additional context on How Starliner and commercial crew change ISS science return timelines from configured research scope.",
+          "evidence": "secondary",
+          "source": "live_research",
+          "confidence": 0.6,
+          "freshness": "recent"
+        }
+      ],
+      "evidence_refs": [
+        "N01",
+        "L02"
+      ],
+      "fact_pack_id": "",
+      "ending": "NASA is now re-routing these payloads to the next available crew vehicle. This changes the entire 2026 science return calendar. So the takeaway.",
+      "payoff": "So why not just use a cargo ship? Because the return window for these specific materials is tighter than the cargo schedule allows.",
+      "cta": "",
+      "estimated_duration_sec": 60.0,
+      "legacy_visual_prompts": [
+        {
+          "scene_index": 0,
+          "fields": {
+            "visual_query": "Starliner docked ISS cinematic",
+            "exact_ai_video_prompt": "VERTICAL 9:16 portrait (1080x1920) cinematic slow push-in of the Boeing Starliner spacecraft docked to the ISS, teal/cyan cinematic lab grade, high contrast, shallow DOF, no burned captions, no watermark, no talking-head, continuous motion of the station rotating slowly against the black void REQUIRED on-screen anchors: Starliner Failure and ISS Science Return Timelines, failure, science experiments, taxi, actually, freezing, return. Visual slot: Starliner Failure and ISS Science Return Timelines Starliner ISS: Most people think Starliner is just a taxi. But its failure is — slow cinematic push-in establishing hero.",
+            "visual_prompt": "Starliner spacecraft attached to ISS, dark space background, teal grade"
+          },
+          "ownership": "LEGACY_DEPRECATED"
+        },
+        {
+          "scene_index": 1,
+          "fields": {
+            "visual_query": "spacecraft cargo bay samples macro",
+            "exact_ai_video_prompt": "VERTICAL 9:16 portrait (1080x1920) macro shot of sealed scientific sample containers inside a spacecraft cargo bay, teal/cyan cinematic lab grade, high contrast, shallow DOF, no burned captions, no watermark, no talking-head, slow pan across the containers showing labels and seals REQUIRED on-screen anchors: Starliner Failure and ISS Science Return Timelines, grounded, dependency, experts, watch, Starliner, carries, return. Visual slot: Starliner Failure and ISS Science Return Timelines cargo samples: Here is the detail experts watch: Starliner carries return cargo. When it — environmental wide into subject emphasis.",
+            "visual_prompt": "Macro view of scientific containers in cargo bay, teal lighting"
+          },
+          "ownership": "LEGACY_DEPRECATED"
+        },
+        {
+          "scene_index": 2,
+          "fields": {
+            "visual_query": "cryogenic biology sample frost macro",
+            "exact_ai_video_prompt": "VERTICAL 9:16 portrait (1080x1920) close-up of a cryogenic biological sample vial with frost forming, teal/cyan cinematic lab grade, high contrast, shallow DOF, no burned captions, no watermark, no talking-head, slow zoom into the frost pattern on the glass REQUIRED on-screen anchors: Starliner Failure and ISS Science Return Timelines, biology, cold storage, orbit, timeline shift, experiments, cold, storage, stuck. Visual slot: Starliner Failure and ISS Science Return Timelines biology cold storage: Watch what this changes next — biology experiments that need cold storage — revealing detail with controlled camera move.",
+            "visual_prompt": "Frost forming on a biological sample vial, teal grade"
+          },
+          "ownership": "LEGACY_DEPRECATED"
+        },
+        {
+          "scene_index": 3,
+          "fields": {
+            "visual_query": "cargo spacecraft launch plume",
+            "exact_ai_video_prompt": "VERTICAL 9:16 portrait (1080x1920) wide shot of a cargo spacecraft launching from a pad, plume of smoke rising, teal/cyan cinematic lab grade, high contrast, shallow DOF, no burned captions, no watermark, no talking-head, slow tilt up following the rocket trajectory REQUIRED on-screen anchors: Starliner Failure and ISS Science Return Timelines, cargo ship, return window, schedule, materials, ship, Because, return, window, specific. Visual slot: Starliner Failure and ISS Science Return Timelines cargo ship return window: So why not just use a cargo ship? Because the return window — macro process detail, continuous motion.",
+            "visual_prompt": "Rocket launch with smoke plume, teal grade, vertical composition"
+          },
+          "ownership": "LEGACY_DEPRECATED"
+        },
+        {
+          "scene_index": 4,
+          "fields": {
+            "visual_query": "spaceport control room orbital screens",
+            "exact_ai_video_prompt": "VERTICAL 9:16 portrait (1080x1920) aerial view of a spaceport control room with screens showing orbital trajectories, teal/cyan cinematic lab grade, high contrast, shallow DOF, no burned captions, no watermark, no talking-head, slow pan across the screens showing data streams REQUIRED on-screen anchors: Starliner Failure and ISS Science Return Timelines, NASA, re-routing, payloads, 2026 calendar, routing, available, crew, vehicle, 2026. Visual slot: Starliner Failure and ISS Science Return Timelines NASA re-routing: NASA is now re-routing these payloads to the next available crew vehicle. — environmental wide into subject emphasis.",
+            "visual_prompt": "Control room screens with orbital data, teal grade, vertical"
+          },
+          "ownership": "LEGACY_DEPRECATED"
+        }
+      ],
+      "metadata": {
+        "source": "niche_director_normalized",
+        "visual_prompt_canonical_owner": "C05-S",
+        "script_owns_provider_visual_prompts": false,
+        "created_at": "2026-09-10T20:35:37.895722",
+        "dialogue_window_repairs": [],
+        "dialogue_window_enforced": true
+      },
+      "retention_blueprint": {
+        "format": "short",
+        "windows": [
+          {
+            "id": "pattern_interrupt",
+            "start_sec": 0,
+            "end_sec": 2,
+            "job": "Pattern Interrupt"
+          },
+          {
+            "id": "curiosity_gap",
+            "start_sec": 2,
+            "end_sec": 5,
+            "job": "Curiosity Gap"
+          },
+          {
+            "id": "first_payoff",
+            "start_sec": 5,
+            "end_sec": 10,
+            "job": "First Payoff"
+          }
+        ],
+        "loop": [
+          "question",
+          "evidence",
+          "payoff",
+          "new_question"
+        ],
+        "min_open_loops": 2,
+        "min_loop_close_ratio": 0.7,
+        "forbid_flat_streak": 2,
+        "require_ending_close": true
+      },
+      "scenes": []
+    },
+    "c05_handoff": {
+      "ready": false,
+      "status": "APPROVED_SCRIPT",
+      "path": "ScriptPlan → C05-TRS → C05-S → C05-GA → C05-GP → C05-GX → C05-MR",
+      "note": "Handoff ready — media generation is a later step",
+      "topic_id": "topic-1aeefbbf9aa0784e",
+      "topic_text": "How Starliner and commercial crew change ISS science return timelines",
+      "script_plan_topic": "Starliner Failure and ISS Science Return Timelines"
+    },
+    "actions": {
+      "select_topic": true,
+      "research": true,
+      "generate_script": true,
+      "review_script": false,
+      "approve_script": false,
+      "c05_handoff_ready": false
+    }
+  }
+}

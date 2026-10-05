@@ -1,0 +1,124 @@
+{
+  "marathon_id": "mr_core_engine_20260910T061151Z_ac46015c",
+  "started_at": "2026-09-10T06:11:51Z",
+  "customer": "c11_marathon_customer",
+  "channel_id": 4,
+  "cert_languages": [
+    "en",
+    "bn",
+    "hi",
+    "ur",
+    "ta",
+    "ml"
+  ],
+  "customer_entitlement_forged": false,
+  "youtube_publish": false,
+  "mock_production": false,
+  "ended_at": "2026-09-10T06:48:53Z",
+  "total_runtime_sec": 2221.9,
+  "topic": "How Artemis crews use neutron spectrometers to map lunar polar water ice in 2026",
+  "job_id": 2317,
+  "work_dir": "E:\\All Updaye Project\\AutoMovie_Pro_SAAS_Final_Update\\AutoMoviePro-Software\\data\\customer_generation_work\\c11_marathon_customer\\job2317",
+  "verdict": "FAIL",
+  "checkpoints": [
+    {
+      "ts": "2026-09-10T06:11:51Z",
+      "elapsed_sec": 0.1,
+      "stage": "TOPIC",
+      "job_id": null,
+      "status": "HEALTHY",
+      "note": "CP-00 init complete",
+      "db_languages_unchanged": [
+        "en",
+        "bn"
+      ],
+      "cert_overlay_languages": [
+        "en",
+        "bn",
+        "hi",
+        "ur",
+        "ta",
+        "ml"
+      ],
+      "google_keys_env": 19,
+      "agnes_keys_env": 6
+    },
+    {
+      "ts": "2026-09-10T06:11:51Z",
+      "elapsed_sec": 0.3,
+      "stage": "TOPIC",
+      "job_id": null,
+      "status": "PROGRESSING",
+      "note": "topic=How Artemis crews use neutron spectrometers to map lunar polar water ice in 2026",
+      "source": "BUILD-04G_suggest_quality_ranked",
+      "seo": 0.9,
+      "niche_aligned": true
+    },
+    {
+      "ts": "2026-09-10T06:12:01Z",
+      "elapsed_sec": 9.9,
+      "stage": "PLAN",
+      "job_id": null,
+      "status": "PROGRESSING",
+      "note": "research_script_plan_ok",
+      "script_class": "REAL"
+    },
+    {
+      "ts": "2026-09-10T06:48:53Z",
+      "elapsed_sec": 2221.9,
+      "stage": "FAILED",
+      "job_id": 2317,
+      "status": "FAILED",
+      "note": "generate_video:RuntimeError:SEMANTIC_COVERAGE_BLOCKED:semantic_fail"
+    },
+    {
+      "ts": "2026-09-10T06:48:53Z",
+      "elapsed_sec": 2221.9,
+      "stage": "OBSERVE",
+      "job_id": 2317,
+      "status": "PROGRESSING",
+      "note": "watchdog stage=OBSERVE",
+      "work_dir": "E:\\All Updaye Project\\AutoMovie_Pro_SAAS_Final_Update\\AutoMoviePro-Software\\data\\customer_generation_work\\c11_marathon_customer\\job2317"
+    }
+  ],
+  "interventions": [
+    {
+      "intervention_id": "INT-001",
+      "ts": "2026-09-10T06:12:01Z",
+      "reason": "use_customer_approved_plan_lock",
+      "detected_problem": "generate_video re-entry intelligence DUPLICATE on reused niche topics",
+      "action": "write_director_plan + c06e lock before generate_video",
+      "authority": "customer_plan_adapter + generate_video customer_approved_lock",
+      "result": "lock_written"
+    }
+  ],
+  "failures": [
+    {
+      "ok": false,
+      "error": "SEMANTIC_COVERAGE_BLOCKED:semantic_fail",
+      "traceback": "Traceback (most recent call last):\n  File \"E:\\All Updaye Project\\AutoMovie_Pro_SAAS_Final_Update\\AutoMoviePro-Software\\scripts\\cert_core_engine_real_marathon.py\", line 495, in generate_real\n    result = generate_video(\n             ^^^^^^^^^^^^^^^\n  File \"E:\\All Updaye Project\\AutoMovie_Pro_SAAS_Final_Update\\AutoMoviePro-Software\\pipeline\\video_pipeline.py\", line 1207, in generate_video\n    raise RuntimeError(f\"SEMANTIC_COVERAGE_BLOCKED:{sem_gate.get('reason')}\")\nRuntimeError: SEMANTIC_COVERAGE_BLOCKED:semantic_fail\n"
+    }
+  ],
+  "unknowns": [
+    "UR_RTL_SHAPING_UNKNOWN_NO_DEDICATED_RENDER_SHAPING_PROOF"
+  ],
+  "db_languages_before_after_preserved": true,
+  "generation": {
+    "ok": false,
+    "latency_sec": null,
+    "upload_status": null,
+    "local_path": null,
+    "classification": null,
+    "error": "SEMANTIC_COVERAGE_BLOCKED:semantic_fail"
+  },
+  "artifacts_summary": {
+    "localized_count": 0,
+    "entitlement_preserved": true,
+    "duration_status": null,
+    "publishable": null
+  },
+  "verdict_reasons": [
+    "generation_failed_or_no_local_path"
+  ],
+  "prep_script_class": "REAL"
+}

@@ -1,0 +1,83 @@
+{
+  "niche_id": 60,
+  "name": "The Power of Kindness",
+  "slug": "the-power-of-kindness",
+  "style_family": "history",
+  "status": "VERIFIED",
+  "topic_seeds": [
+    "What new evidence reframes the story of The Power inside The Power of Kindness",
+    "How The Power still shapes public curiosity about The Power of Kindness",
+    "What new evidence reframes the story of Kindness Small inside The Power of Kindness",
+    "How Kindness Small still shapes public curiosity about The Power of Kindness",
+    "What new evidence reframes the story of Follow inside The Power of Kindness",
+    "How Follow still shapes public curiosity about The Power of Kindness"
+  ],
+  "seo_angles": [
+    "What new evidence reframes the story of The Power inside The Power of Kindness",
+    "How The Power still shapes public curiosity about The Power of Kindness",
+    "What new evidence reframes the story of Kindness Small inside The Power of Kindness",
+    "How Kindness Small still shapes public curiosity about The Power of Kindness"
+  ],
+  "forbidden_visuals": [
+    "talking-head lip-sync avatar",
+    "burned-in captions",
+    "watermark",
+    "modern meme text",
+    "modern smartphones",
+    "cars",
+    "LED screens",
+    "sneakers",
+    "contemporary skyline"
+  ],
+  "preferred_subjects": [
+    "The Power of Kindness documentary subject",
+    "period-accurate environment",
+    "evidence object close-up"
+  ],
+  "lighting_default": "warm desert sun / torchlit interiors, high-contrast documentary grade",
+  "face_policy": "period extras OK if consistent; prefer environment/object hero when possible",
+  "dialogue_tone": "human documentary narration; specific nouns; 7–9s beats",
+  "audio_ambience": "subtle documentary bed; do not overpower voice",
+  "research_hints": [
+    "Prefer primary evidence and concrete entities for The Power of Kindness",
+    "Avoid generic niche-label topics; require specific place/person/event/mechanism",
+    "7–9 second spoken beats with story continuity across scenes"
+  ],
+  "topic_prompt_overlay": "NICHE LOCK (The Power of Kindness): only propose topics that fit this niche's video type. Video type: Small, random acts of kindness that snowballed into global movements — restoring faith in humanity. Follow niche topic strategy: Follow viral kindness videos, charity news, or social experiments. Generate a topic about a simple act that had a huge impact.",
+  "video_prompt_overlay": "NICHE VISUAL LOCK (The Power of Kindness / history): Generate a 7–9 second dialogue clip based on the topic `{topic}`. Each dialogue must be heartwarming and hopeful. For each dialogue, generate: - **Audio Generation Prompt:** Voice — warm, uplifting, with soft guitar and laughter. - **Video Generation Prompt:** Detailed visual — a street or community scene. Characters: diverse people helping each other. Lighting: golden hour. Maintain same street and warmth. Forbidden: talking-head lip-sync avatar, burned-in captions, watermark, modern meme text, modern smartphones, cars, LED screens, sneakers. Preferred subjects: The Power of Kindness documentary subject, period-accurate environment, evidence object close-up. Lighting: warm desert sun / torchlit interiors, high-contrast documentary grade. Face policy: period extras OK if consistent; prefer environment/object hero when possible. Dialogue tone: human documentary narration; specific nouns; 7–9s beats. Ambience: subtle documentary bed; do not overpower voice.",
+  "i18n": {
+    "en": {
+      "name": "The Power of Kindness",
+      "blurb": "Small, random acts of kindness that snowballed into global movements — restoring faith in humanity."
+    },
+    "bn": {
+      "name": "দয়ার শক্তি",
+      "blurb": "ভিডিও টাইপ: Small, random acts of kindness that snowballed into global movements — restoring faith in humanity."
+    },
+    "hi": {
+      "name": "दया की शक्ति",
+      "blurb": "वीडियो प्रकार: Small, random acts of kindness that snowballed into global movements — restoring faith in humanity."
+    },
+    "ur": {
+      "name": "مہربانی کی طاقت",
+      "blurb": "ویڈیو کی قسم: Small, random acts of kindness that snowballed into global movements — restoring faith in humanity."
+    },
+    "ta": {
+      "name": "கருணையின் சக்தி",
+      "blurb": "வீடியோ வகை: Small, random acts of kindness that snowballed into global movements — restoring faith in humanity."
+    },
+    "ml": {
+      "name": "ദയയുടെ ശക്തി",
+      "blurb": "വീഡിയോ തരം: Small, random acts of kindness that snowballed into global movements — restoring faith in humanity."
+    }
+  },
+  "source": "Nish.Md + deterministic research",
+  "research_notes": [
+    "Marathon researched at 2026-09-10T08:30:16Z",
+    "Video type length=99",
+    "Topic prompt length=126",
+    "Video prompt length=410",
+    "Seeds=6"
+  ],
+  "verified_at": "2026-09-10T08:30:16Z"
+}

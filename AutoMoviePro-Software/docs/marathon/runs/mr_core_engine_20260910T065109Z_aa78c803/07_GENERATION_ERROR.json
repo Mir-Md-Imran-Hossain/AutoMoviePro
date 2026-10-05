@@ -1,0 +1,5 @@
+{
+  "ok": false,
+  "error": "Scene 4 (beat) AV sync failed hard (best_score=25). Issues: ['missing_spectrometer_counts', 'static_photo_broll', 'missing_sku_2026'] critical=['visual_anchors_missing']",
+  "traceback": "Traceback (most recent call last):\n  File \"E:\\All Updaye Project\\AutoMovie_Pro_SAAS_Final_Update\\AutoMoviePro-Software\\scripts\\cert_core_engine_real_marathon.py\", line 495, in generate_real\n    result = generate_video(\n             ^^^^^^^^^^^^^^^\n  File \"E:\\All Updaye Project\\AutoMovie_Pro_SAAS_Final_Update\\AutoMoviePro-Software\\pipeline\\video_pipeline.py\", line 1063, in generate_video\n    clip = build_dialogue_clip(\n           ^^^^^^^^^^^^^^^^^^^^\n  File \"E:\\All Updaye Project\\AutoMovie_Pro_SAAS_Final_Update\\AutoMoviePro-Software\\pipeline\\scene_builder.py\", line 1877, in build_dialogue_clip\n    raise RuntimeError(\nRuntimeError: Scene 4 (beat) AV sync failed hard (best_score=25). Issues: ['missing_spectrometer_counts', 'static_photo_broll', 'missing_sku_2026'] critical=['visual_anchors_missing']\n"
+}

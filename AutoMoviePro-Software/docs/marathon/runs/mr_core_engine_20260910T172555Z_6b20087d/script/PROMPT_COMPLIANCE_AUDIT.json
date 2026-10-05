@@ -1,0 +1,120 @@
+{
+  "auditor_version": "prompt_compliance_auditor_v1",
+  "contract_version": "industrial_prompt_contract_v1",
+  "job_id": "c06b-script-4-topic-891fe7ac3a689e2a",
+  "organized_at": "2026-09-10T17:26:03.097541+00:00",
+  "plan_fingerprint": "c134203a04e2f053a12010e4",
+  "verdict": "PASS",
+  "industrial_grade": true,
+  "overall_score": 0.9806,
+  "deterministic": {
+    "verdict": "PASS",
+    "overall_score": 0.9806,
+    "scores": {
+      "C01_opening_pattern_interrupt": 1.0,
+      "C02_mid_retention_rehooks": 1.0,
+      "C03_information_density": 1.0,
+      "C04_seo_ctr_package": 1.0,
+      "C05_topic_specificity": 1.0,
+      "C06_ending_loop_close": 0.8,
+      "C07_no_encyclopedia_flatness": 1.0
+    },
+    "clauses": {
+      "C01_opening_pattern_interrupt": {
+        "pass": true,
+        "score": 1.0,
+        "detail": {
+          "hook": {
+            "status": "PASS",
+            "generic": false,
+            "clickbait": false,
+            "unsupported_claim": false,
+            "topic_aligned": true,
+            "overlap": 1.0,
+            "issues": [],
+            "method": "DETERMINISTIC"
+          },
+          "opening": {
+            "status": "PASS",
+            "score": 1.0,
+            "overlap": 1.0,
+            "issues": [],
+            "claims_guaranteed_engagement": false,
+            "method": "DETERMINISTIC"
+          }
+        }
+      },
+      "C02_mid_retention_rehooks": {
+        "pass": true,
+        "score": 1.0,
+        "detail": {
+          "hook_signals": 4,
+          "payoff_signals": 4,
+          "warnings": []
+        }
+      },
+      "C03_information_density": {
+        "pass": true,
+        "score": 1.0,
+        "detail": {
+          "blocked": false,
+          "warnings": [
+            "legacy_visual_prompt_present:0",
+            "legacy_visual_prompt_present:1",
+            "legacy_visual_prompt_present:2",
+            "legacy_visual_prompt_present:3",
+            "legacy_visual_prompt_present:4"
+          ]
+        }
+      },
+      "C04_seo_ctr_package": {
+        "pass": true,
+        "score": 1.0,
+        "detail": {
+          "issues": [],
+          "tag_count": 5
+        }
+      },
+      "C05_topic_specificity": {
+        "pass": true,
+        "score": 1.0,
+        "detail": {
+          "topic": "JWST Mid-Infrared Spectra Exoplanet Atmospheres"
+        }
+      },
+      "C06_ending_loop_close": {
+        "pass": true,
+        "score": 0.8,
+        "detail": {}
+      },
+      "C07_no_encyclopedia_flatness": {
+        "pass": true,
+        "score": 1.0,
+        "detail": {
+          "flat_related": []
+        }
+      }
+    },
+    "violations": [],
+    "method": "DETERMINISTIC",
+    "contract_version": "industrial_prompt_contract_v1"
+  },
+  "llm_critic": {
+    "verdict": "SKIPPED",
+    "method": "LLM_CRITIC"
+  },
+  "repairs_applied": [],
+  "decision_reason": "Output matches industrial prompt contracts (retention + SEO + hook).",
+  "proof": {
+    "what_we_checked": [
+      "opening pattern interrupt / curiosity gap",
+      "mid-script re-hooks and information density",
+      "SEO/CTR title-description-tags honesty",
+      "topic specificity",
+      "ending loop close",
+      "optional LLM industrial judge"
+    ],
+    "authoritative_layer": "deterministic",
+    "corroboration_layer": "none"
+  }
+}

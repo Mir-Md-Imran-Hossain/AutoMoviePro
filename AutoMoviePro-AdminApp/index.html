@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>AutoMovie Pro — Mobile Admin Control</title>
+  <meta name="theme-color" content="#ef4444">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <link rel="manifest" href="manifest.json">
+
+  <style>
+    :root {
+      --bg: #090d16;
+      --card: #111827;
+      --border: #1f2937;
+      --danger: #ef4444;
+      --success: #10b981;
+      --accent: #38bdf8;
+      --text: #f9fafb;
+      --muted: #9ca3af;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; font-family: system-ui, -apple-system, sans-serif; }
+    body { background: var(--bg); color: var(--text); padding: 1rem; padding-bottom: 5rem; }
+    header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 1.25rem; }
+    .card { background: var(--card); border: 1px solid var(--border); border-radius: 14px; padding: 1.25rem; margin-bottom: 1rem; }
+    .rev-val { font-size: 2rem; font-weight: 800; color: var(--success); }
+    .btn { background: var(--accent); color: #000; border: none; padding: 0.75rem 1rem; border-radius: 8px; font-weight: bold; cursor: pointer; }
+    .btn-danger { background: var(--danger); color: #fff; }
+    .btn-success { background: var(--success); color: #fff; }
+    .cust-row { display: flex; justify-content: space-between; align-items: center; padding: 0.75rem 0; border-bottom: 1px solid var(--border); }
+    input { width: 100%; padding: 0.75rem; border-radius: 8px; background: #1e293b; border: 1px solid #334155; color: #fff; margin-bottom: 0.75rem; font-size: 0.9rem; }
+  </style>
+</head>
+<body>
+  <header>
+    <div>
+      <h2>AutoMovie Pro</h2>
+      <span style="font-size: 0.85rem; color: var(--muted);">মাস্টার অ্যাডমিন মোবাইল প্যানেল</span>
+    </div>
+    <span style="background: #1e293b; padding: 4px 10px; border-radius: 12px; font-size: 0.75rem; color: var(--accent);">Admin: Imran</span>
+  </header>
+
+  <!-- Server Endpoint setting -->
+  <div class="card" style="padding: 0.75rem 1rem; font-size: 0.85rem; display: flex; gap: 0.5rem; align-items: center;">
+    <span style="color: var(--muted); white-space: nowrap;">ওয়েবসাইট:</span>
+    <input type="text" id="siteUrl" value="http://127.0.0.1:8080" style="flex: 1; background: #1e293b; border: 1px solid #334155; color: #fff; padding: 4px 8px; border-radius: 6px; font-size: 0.8rem; margin: 0;">
+    <button style="background: var(--accent); color: #000; border: none; padding: 4px 10px; border-radius: 6px; font-weight: bold; cursor: pointer;" onclick="loadMetrics()">সিঙ্ক</button>
+  </div>
+
+  <div class="card">
+    <div style="font-size: 0.9rem; color: var(--muted);">মোট লাইফটাইম অনুমোদিত সেলস</div>
+    <div class="rev-val" id="totalRev">৳ ০.০০</div>
+    <div style="font-size: 0.85rem; color: #34d399; margin-top: 4px;" id="todayRev">আজকের সংগ্রহ: ৳ ০</div>
+    <div style="font-size: 0.8rem; color: var(--muted); margin-top: 2px;" id="custStats">মোট গ্রাহক: ০ | পেন্ডিং অর্ডার: ০</div>
+  </div>
+
+  <!-- Kill switch -->
+  <div class="card">
+    <h3 style="margin-bottom: 0.75rem; font-size: 1.05rem;">⚡ ১-ক্লিক রিমোট কিল-সুইচ (গ্রাহক নিয়ন্ত্রণ)</h3>
+    <div id="customerListContainer">
+      <p style="color: var(--muted); font-size: 0.85rem;">গ্রাহক তালিকা লোড হচ্ছে...</p>
+    </div>
+  </div>
+
+  <!-- Broadcast Notice -->
+  <div class="card">
+    <h3 style="margin-bottom: 0.75rem; font-size: 1.05rem;">📢 লাইভ স্ক্রোলিং নোটিশ ব্রডকাস্ট</h3>
+    <p style="font-size: 0.8rem; color: var(--muted); margin-bottom: 0.5rem;">এটি লিখলে তাৎক্ষণিকভাবে সকল সক্রিয় গ্রাহকের পিসি ড্যাশবোর্ডে লাল/নীল স্ক্রোলিং বারে প্রদর্শিত হবে।</p>
+    <input type="text" id="noticeInput" placeholder="সকল ইউজারের পিসিতে যা স্ক্রোল হবে...">
+    <button class="btn" style="width: 100%;" onclick="broadcastNotice()">
+      সরাসরি প্রচার করুন (Broadcast to All PCs)
+    </button>
+  </div>
+
+  <div id="pwaInstallBanner" style="display:none; position:fixed; bottom:15px; left:15px; right:15px; background:#1e293b; border:1px solid #ef4444; padding:12px; border-radius:12px; z-index:999; text-align:center;">
+    <div style="font-size:0.9rem; font-weight:bold; margin-bottom:6px;">📲 হোম স্ক্রিনে অ্যাপ ইনস্টল করুন</div>
+    <button class="btn" id="pwaInstallBtn" style="padding:6px 12px; font-size:0.85rem; background:#ef4444; color:#fff;">ইনস্টল করুন (Add to Home)</button>
+  </div>
+
+  <script>
+    function getEndpoint() {
+      const v = document.getElementById('siteUrl').value.trim();
+      return v.replace(/\/+$/, '');
+    }
+
+    async function loadMetrics() {
+      const base = getEndpoint();
+      try {
+        const res = await fetch(`${base}/api/admin_mobile.php?action=metrics`);
+        const data = await res.json();
+        if (data.ok) {
+          const m = data.metrics;
+          document.getElementById('totalRev').innerText = '৳ ' + Number(m.total_revenue).toLocaleString('en-IN');
+          document.getElementById('todayRev').innerText = 'আজকের সংগ্রহ: ৳ ' + Number(m.today_revenue).toLocaleString('en-IN');
+          document.getElementById('custStats').innerText = `মোট গ্রাহক: ${m.customer_count} জন | পেন্ডিং অর্ডার: ${m.pending_orders}টি`;
+          
+          if (m.broadcast_notice && !document.getElementById('noticeInput').value) {
+            document.getElementById('noticeInput').value = m.broadcast_notice;
+          }
+
+          renderCustomers(data.customers);
+        }
+      } catch (e) {
+        console.log('Admin offline load');
+      }
+    }
+
+    function renderCustomers(custs) {
+      const cont = document.getElementById('customerListContainer');
+      if (!custs || custs.length === 0) {
+        cont.innerHTML = '<p style="color: var(--muted); font-size:0.85rem;">কোনো গ্রাহক পাওয়া যায়নি।</p>';
+        return;
+      }
+      cont.innerHTML = custs.map(c => `
+        <div class="cust-row">
+          <div>
+            <div style="font-weight: 600;">${c.name} (${c.whatsapp || c.email || 'N/A'})</div>
+            <div style="font-size: 0.8rem; color: var(--muted);">প্ল্যান: ${c.plan || 'Standard'} | আইডি: #${c.id} | স্ট্যাটাস: <b style="color:${c.status === 'banned' ? '#ef4444' : '#34d399'}">${c.status}</b></div>
+          </div>
+          <button class="btn ${c.status === 'banned' ? 'btn-success' : 'btn-danger'}" style="padding: 6px 12px; font-size: 0.8rem;" onclick="toggleKillswitch(${c.id}, '${c.status === 'banned' ? 'active' : 'banned'}')">
+            ${c.status === 'banned' ? 'আনব্লক করুন' : 'রিমোট ব্লক'}
+          </button>
+        </div>
+      `).join('');
+    }
+
+    async function toggleKillswitch(cid, newStatus) {
+      const base = getEndpoint();
+      try {
+        const res = await fetch(`${base}/api/admin_mobile.php?action=killswitch`, {
+          method: 'POST',
+          headers: {'Content-Type': 'application/json'},
+          body: JSON.stringify({ customer_id: cid, status: newStatus })
+        });
+        const d = await res.json();
+        alert(d.message || 'স্ট্যাটাস আপডেট সম্পন্ন হয়েছে।');
+        loadMetrics();
+      } catch (e) {
+        alert('সার্ভার রিকোয়েস্ট ব্যর্থ: ' + e.message);
+      }
+    }
+
+    async function broadcastNotice() {
+      const base = getEndpoint();
+      const txt = document.getElementById('noticeInput').value.trim();
+      if (!txt) {
+        alert('অনুগ্রহ করে নোটিশ লিখুন।');
+        return;
+      }
+      try {
+        const res = await fetch(`${base}/api/admin_mobile.php?action=broadcast`, {
+          method: 'POST',
+          headers: {'Content-Type': 'application/json'},
+          body: JSON.stringify({ notice: txt })
+        });
+        const d = await res.json();
+        alert(d.message || 'নোটিশ প্রচার সফল হয়েছে!');
+        loadMetrics();
+      } catch (e) {
+        alert('ব্রডকাস্ট ব্যর্থ: ' + e.message);
+      }
+    }
+
+    // Initial load
+    loadMetrics();
+
+    // PWA Service Worker
+    if ('serviceWorker' in navigator) {
+      window.addEventListener('load', () => {
+        navigator.serviceWorker.register('./sw.js').catch(err => console.log('SW fail', err));
+      });
+    }
+    let deferredPrompt;
+    window.addEventListener('beforeinstallprompt', (e) => {
+      e.preventDefault();
+      deferredPrompt = e;
+      const banner = document.getElementById('pwaInstallBanner');
+      if (banner) banner.style.display = 'block';
+    });
+    const installBtn = document.getElementById('pwaInstallBtn');
+    if (installBtn) {
+      installBtn.addEventListener('click', async () => {
+        if (deferredPrompt) {
+          deferredPrompt.prompt();
+          const { outcome } = await deferredPrompt.userChoice;
+          if (outcome === 'accepted') {
+            document.getElementById('pwaInstallBanner').style.display = 'none';
+          }
+          deferredPrompt = null;
+        }
+      });
+    }
+  </script>
+</body>
+</html>

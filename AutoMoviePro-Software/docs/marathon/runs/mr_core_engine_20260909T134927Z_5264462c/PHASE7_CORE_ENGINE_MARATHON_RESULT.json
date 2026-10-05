@@ -1,0 +1,127 @@
+{
+  "marathon_id": "mr_core_engine_20260909T134927Z_5264462c",
+  "started_at": "2026-09-09T13:49:27Z",
+  "customer": "c11_marathon_customer",
+  "channel_id": 4,
+  "cert_languages": [
+    "en",
+    "bn",
+    "hi",
+    "ur",
+    "ta",
+    "ml"
+  ],
+  "customer_entitlement_forged": false,
+  "youtube_publish": false,
+  "mock_production": false,
+  "ended_at": "2026-09-09T15:33:22Z",
+  "total_runtime_sec": 6233.7,
+  "topic": "How lunar polar permanently shadowed craters preserve water ice that Artemis prospectors can map with neutron spectrometers — angle 202609091349",
+  "job_id": 2302,
+  "work_dir": "E:\\All Updaye Project\\AutoMovie_Pro_SAAS_Final_Update\\AutoMoviePro-Software\\data\\customer_generation_work\\c11_marathon_customer\\job2302",
+  "verdict": "FAIL",
+  "checkpoints": [
+    {
+      "ts": "2026-09-09T13:49:27Z",
+      "elapsed_sec": 0.1,
+      "stage": "TOPIC",
+      "job_id": null,
+      "status": "HEALTHY",
+      "note": "CP-00 init complete",
+      "db_languages_unchanged": [
+        "en",
+        "bn"
+      ],
+      "cert_overlay_languages": [
+        "en",
+        "bn",
+        "hi",
+        "ur",
+        "ta",
+        "ml"
+      ],
+      "google_keys_env": 19,
+      "agnes_keys_env": 6
+    },
+    {
+      "ts": "2026-09-09T13:49:28Z",
+      "elapsed_sec": 0.3,
+      "stage": "TOPIC",
+      "job_id": null,
+      "status": "PROGRESSING",
+      "note": "topic=How lunar polar permanently shadowed craters preserve water ice that Artemis pro",
+      "source": "MANUAL_CONCRETE_NICHE_GROUNDED"
+    },
+    {
+      "ts": "2026-09-09T13:49:39Z",
+      "elapsed_sec": 11.7,
+      "stage": "PLAN",
+      "job_id": null,
+      "status": "PROGRESSING",
+      "note": "research_script_plan_ok",
+      "script_class": "REAL"
+    },
+    {
+      "ts": "2026-09-09T15:33:22Z",
+      "elapsed_sec": 6233.7,
+      "stage": "FAILED",
+      "job_id": 2302,
+      "status": "FAILED",
+      "note": "generate_video:RuntimeError:SEMANTIC_COVERAGE_BLOCKED:semantic_fail"
+    },
+    {
+      "ts": "2026-09-09T15:33:22Z",
+      "elapsed_sec": 6233.7,
+      "stage": "OBSERVE",
+      "job_id": 2302,
+      "status": "PROGRESSING",
+      "note": "watchdog stage=OBSERVE",
+      "work_dir": "E:\\All Updaye Project\\AutoMovie_Pro_SAAS_Final_Update\\AutoMoviePro-Software\\data\\customer_generation_work\\c11_marathon_customer\\job2302"
+    }
+  ],
+  "interventions": [
+    {
+      "intervention_id": "INT-001",
+      "ts": "2026-09-09T13:49:39Z",
+      "reason": "use_customer_approved_plan_lock",
+      "detected_problem": "generate_video re-entry intelligence DUPLICATE on reused niche topics",
+      "action": "write_director_plan + c06e lock before generate_video",
+      "authority": "customer_plan_adapter + generate_video customer_approved_lock",
+      "result": "lock_written"
+    }
+  ],
+  "failures": [
+    {
+      "stage": "TOPIC",
+      "error": "suggest_topics() got an unexpected keyword argument 'use_mock'"
+    },
+    {
+      "ok": false,
+      "error": "SEMANTIC_COVERAGE_BLOCKED:semantic_fail",
+      "traceback": "Traceback (most recent call last):\n  File \"E:\\All Updaye Project\\AutoMovie_Pro_SAAS_Final_Update\\AutoMoviePro-Software\\scripts\\cert_core_engine_real_marathon.py\", line 402, in generate_real\n    result = generate_video(\n             ^^^^^^^^^^^^^^^\n  File \"E:\\All Updaye Project\\AutoMovie_Pro_SAAS_Final_Update\\AutoMoviePro-Software\\pipeline\\video_pipeline.py\", line 1194, in generate_video\n    raise RuntimeError(f\"SEMANTIC_COVERAGE_BLOCKED:{sem_gate.get('reason')}\")\nRuntimeError: SEMANTIC_COVERAGE_BLOCKED:semantic_fail\n"
+    }
+  ],
+  "unknowns": [
+    "TOPIC_SUGGEST_FALLBACK_TO_MANUAL_CONCRETE",
+    "UR_RTL_SHAPING_UNKNOWN_NO_DEDICATED_RENDER_SHAPING_PROOF"
+  ],
+  "db_languages_before_after_preserved": true,
+  "generation": {
+    "ok": false,
+    "latency_sec": null,
+    "upload_status": null,
+    "local_path": null,
+    "classification": null,
+    "error": "SEMANTIC_COVERAGE_BLOCKED:semantic_fail"
+  },
+  "artifacts_summary": {
+    "localized_count": 0,
+    "entitlement_preserved": true,
+    "duration_status": null,
+    "publishable": null
+  },
+  "verdict_reasons": [
+    "generation_failed_or_no_local_path"
+  ],
+  "prep_script_class": "REAL"
+}

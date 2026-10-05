@@ -1,0 +1,5 @@
+{
+  "ok": false,
+  "error": "Scene 5 (beat) AV sync failed hard (best_score=55). Issues: ['wrong_subject', 'visual_anchors_missing'] critical=['wrong_subject', 'visual_anchors_missing']",
+  "traceback": "Traceback (most recent call last):\n  File \"E:\\All Updaye Project\\AutoMovie_Pro_SAAS_Final_Update\\AutoMoviePro-Software\\scripts\\cert_core_engine_real_marathon.py\", line 402, in generate_real\n    result = generate_video(\n             ^^^^^^^^^^^^^^^\n  File \"E:\\All Updaye Project\\AutoMovie_Pro_SAAS_Final_Update\\AutoMoviePro-Software\\pipeline\\video_pipeline.py\", line 1050, in generate_video\n    clip = build_dialogue_clip(\n           ^^^^^^^^^^^^^^^^^^^^\n  File \"E:\\All Updaye Project\\AutoMovie_Pro_SAAS_Final_Update\\AutoMoviePro-Software\\pipeline\\scene_builder.py\", line 1835, in build_dialogue_clip\n    raise RuntimeError(\nRuntimeError: Scene 5 (beat) AV sync failed hard (best_score=55). Issues: ['wrong_subject', 'visual_anchors_missing'] critical=['wrong_subject', 'visual_anchors_missing']\n"
+}

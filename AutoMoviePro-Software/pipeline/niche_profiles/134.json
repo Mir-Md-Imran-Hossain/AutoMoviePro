@@ -1,0 +1,83 @@
+{
+  "niche_id": 134,
+  "name": "Bizarre World Records",
+  "slug": "bizarre-world-records",
+  "style_family": "history",
+  "status": "VERIFIED",
+  "topic_seeds": [
+    "What new evidence reframes the story of Bizarre World Records Guinness inside Bizarre World Records",
+    "How Bizarre World Records Guinness still shapes public curiosity about Bizarre World Records",
+    "What new evidence reframes the story of Check Guinness inside Bizarre World Records",
+    "How Check Guinness still shapes public curiosity about Bizarre World Records",
+    "What new evidence reframes the story of Generate inside Bizarre World Records",
+    "How Generate still shapes public curiosity about Bizarre World Records"
+  ],
+  "seo_angles": [
+    "What new evidence reframes the story of Bizarre World Records Guinness inside Bizarre World Records",
+    "How Bizarre World Records Guinness still shapes public curiosity about Bizarre World Records",
+    "What new evidence reframes the story of Check Guinness inside Bizarre World Records",
+    "How Check Guinness still shapes public curiosity about Bizarre World Records"
+  ],
+  "forbidden_visuals": [
+    "talking-head lip-sync avatar",
+    "burned-in captions",
+    "watermark",
+    "modern meme text",
+    "modern smartphones",
+    "cars",
+    "LED screens",
+    "sneakers",
+    "contemporary skyline"
+  ],
+  "preferred_subjects": [
+    "Bizarre World Records documentary subject",
+    "period-accurate environment",
+    "evidence object close-up"
+  ],
+  "lighting_default": "warm desert sun / torchlit interiors, high-contrast documentary grade",
+  "face_policy": "period extras OK if consistent; prefer environment/object hero when possible",
+  "dialogue_tone": "human documentary narration; specific nouns; 7–9s beats",
+  "audio_ambience": "subtle documentary bed; do not overpower voice",
+  "research_hints": [
+    "Prefer primary evidence and concrete entities for Bizarre World Records",
+    "Avoid generic niche-label topics; require specific place/person/event/mechanism",
+    "7–9 second spoken beats with story continuity across scenes"
+  ],
+  "topic_prompt_overlay": "NICHE LOCK (Bizarre World Records): only propose topics that fit this niche's video type. Video type: Guinness entries — longest fingernails, fastest speed eating — presented with fun commentary. Follow niche topic strategy: Check Guinness news, viral record attempts, or new challenge videos. Generate a topic about a record that recently went viral.",
+  "video_prompt_overlay": "NICHE VISUAL LOCK (Bizarre World Records / history): Generate a 7–9 second dialogue clip based on the topic `{topic}`. Each dialogue must be entertaining. For each dialogue, generate: - **Audio Generation Prompt:** Voice — amused, with crowd cheers and clock. - **Video Generation Prompt:** Detailed visual — a contest stage or measuring station. Character: record holder (varied). Lighting: bright stage. Maintain same stage. Forbidden: talking-head lip-sync avatar, burned-in captions, watermark, modern meme text, modern smartphones, cars, LED screens, sneakers. Preferred subjects: Bizarre World Records documentary subject, period-accurate environment, evidence object close-up. Lighting: warm desert sun / torchlit interiors, high-contrast documentary grade. Face policy: period extras OK if consistent; prefer environment/object hero when possible. Dialogue tone: human documentary narration; specific nouns; 7–9s beats. Ambience: subtle documentary bed; do not overpower voice.",
+  "i18n": {
+    "en": {
+      "name": "Bizarre World Records",
+      "blurb": "Guinness entries — longest fingernails, fastest speed eating — presented with fun commentary."
+    },
+    "bn": {
+      "name": "অদ্ভুত বিশ্ব রেকর্ড",
+      "blurb": "ভিডিও টাইপ: Guinness entries — longest fingernails, fastest speed eating — presented with fun commentary."
+    },
+    "hi": {
+      "name": "विचित्र विश्व रिकॉर्ड",
+      "blurb": "वीडियो प्रकार: Guinness entries — longest fingernails, fastest speed eating — presented with fun commentary."
+    },
+    "ur": {
+      "name": "عجیب عالمی ریکارڈز",
+      "blurb": "ویڈیو کی قسم: Guinness entries — longest fingernails, fastest speed eating — presented with fun commentary."
+    },
+    "ta": {
+      "name": "விசித்திர உலக சாதனைகள்",
+      "blurb": "வீடியோ வகை: Guinness entries — longest fingernails, fastest speed eating — presented with fun commentary."
+    },
+    "ml": {
+      "name": "വിചിത്ര ലോക റെക്കോർഡുകൾ",
+      "blurb": "വീഡിയോ തരം: Guinness entries — longest fingernails, fastest speed eating — presented with fun commentary."
+    }
+  },
+  "source": "Nish.Md + deterministic research",
+  "research_notes": [
+    "Marathon researched at 2026-09-10T08:30:28Z",
+    "Video type length=93",
+    "Topic prompt length=126",
+    "Video prompt length=373",
+    "Seeds=6"
+  ],
+  "verified_at": "2026-09-10T08:30:28Z"
+}

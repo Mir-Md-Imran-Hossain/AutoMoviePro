@@ -1,0 +1,26 @@
+{
+  "job_id": "c06b-script-4-topic-666f3e2f0d9f29a7",
+  "fingerprint": "f8c2fd58d2d408b7f7f5c08d48f424fe6ab077419b7f79ff1ad01fd144d04867",
+  "entity_id": "script-0000-8f2145af4e1b81d3",
+  "topic": "How James Webb Space Telescope mid-infrared images reveal dust-hidden star nurseries that optical telescopes cannot map",
+  "topic_identity": "8f2145af4e1b81d34043b5af",
+  "niche": "space science",
+  "niche_id": 0,
+  "fact_pack_id": "",
+  "fact_pack_hash": "",
+  "prompt_version": "v12",
+  "prompt_template_hash": "e344dfbfe39453248f95c06bace9e3d1",
+  "provider": "llm_router",
+  "model": "purpose-script",
+  "generation_id": "",
+  "plan_path": "E:\\All Updaye Project\\AutoMovie_Pro_SAAS_Final_Update\\AutoMoviePro-Software\\docs\\marathon\\runs\\mr_core_engine_20260909T122336Z_47f1a019\\script\\director_plan.json",
+  "plan_hash": "33f4b23c07aff656567620890e094889617bca2292cfe10ae97016dc7aa2ada2",
+  "saved_at": 1788956633.1733587,
+  "metadata": {
+    "video_type": "short",
+    "max_seconds": 60,
+    "language": "en",
+    "revision_id": "",
+    "legacy_key": "script:f8c2fd58d2d408b7f7f5c08d48f424fe"
+  }
+}

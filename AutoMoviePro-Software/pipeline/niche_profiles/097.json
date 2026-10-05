@@ -1,0 +1,83 @@
+{
+  "niche_id": 97,
+  "name": "Forgotten Search Engines",
+  "slug": "forgotten-search-engines",
+  "style_family": "history",
+  "status": "VERIFIED",
+  "topic_seeds": [
+    "What new evidence reframes the story of Forgotten Search Engines inside Forgotten Search Engines",
+    "How Forgotten Search Engines still shapes public curiosity about Forgotten Search Engines",
+    "What new evidence reframes the story of Ecosia inside Forgotten Search Engines",
+    "How Ecosia still shapes public curiosity about Forgotten Search Engines",
+    "What new evidence reframes the story of Startpage inside Forgotten Search Engines",
+    "How Startpage still shapes public curiosity about Forgotten Search Engines"
+  ],
+  "seo_angles": [
+    "What new evidence reframes the story of Forgotten Search Engines inside Forgotten Search Engines",
+    "How Forgotten Search Engines still shapes public curiosity about Forgotten Search Engines",
+    "What new evidence reframes the story of Ecosia inside Forgotten Search Engines",
+    "How Ecosia still shapes public curiosity about Forgotten Search Engines"
+  ],
+  "forbidden_visuals": [
+    "talking-head lip-sync avatar",
+    "burned-in captions",
+    "watermark",
+    "modern meme text",
+    "modern smartphones",
+    "cars",
+    "LED screens",
+    "sneakers",
+    "contemporary skyline"
+  ],
+  "preferred_subjects": [
+    "Forgotten Search Engines documentary subject",
+    "period-accurate environment",
+    "evidence object close-up"
+  ],
+  "lighting_default": "warm desert sun / torchlit interiors, high-contrast documentary grade",
+  "face_policy": "period extras OK if consistent; prefer environment/object hero when possible",
+  "dialogue_tone": "human documentary narration; specific nouns; 7–9s beats",
+  "audio_ambience": "subtle documentary bed; do not overpower voice",
+  "research_hints": [
+    "Prefer primary evidence and concrete entities for Forgotten Search Engines",
+    "Avoid generic niche-label topics; require specific place/person/event/mechanism",
+    "7–9 second spoken beats with story continuity across scenes"
+  ],
+  "topic_prompt_overlay": "NICHE LOCK (Forgotten Search Engines): only propose topics that fit this niche's video type. Video type: DuckDuckGo, Ecosia, Startpage — their privacy policies, eco-initiatives, and why people switch from Google. Follow niche topic strategy: Check tech news, new search engine features, or viral privacy debates. Generate a topic about a search engine with a unique mission.",
+  "video_prompt_overlay": "NICHE VISUAL LOCK (Forgotten Search Engines / history): Generate a 7–9 second dialogue clip based on the topic `{topic}`. Each dialogue must be curious and introspective. For each dialogue, generate: - **Audio Generation Prompt:** Voice — conversational, with clicking and birdsong. - **Video Generation Prompt:** Detailed visual — a clean search page. No character — screen. Lighting: bright, neutral. Maintain same neutral screen. Forbidden: talking-head lip-sync avatar, burned-in captions, watermark, modern meme text, modern smartphones, cars, LED screens, sneakers. Preferred subjects: Forgotten Search Engines documentary subject, period-accurate environment, evidence object close-up. Lighting: warm desert sun / torchlit interiors, high-contrast documentary grade. Face policy: period extras OK if consistent; prefer environment/object hero when possible. Dialogue tone: human documentary narration; specific nouns; 7–9s beats. Ambience: subtle documentary bed; do not overpower voice.",
+  "i18n": {
+    "en": {
+      "name": "Forgotten Search Engines",
+      "blurb": "DuckDuckGo, Ecosia, Startpage — their privacy policies, eco-initiatives, and why people switch from Google."
+    },
+    "bn": {
+      "name": "বিস্মৃত সার্চ ইঞ্জিন",
+      "blurb": "ভিডিও টাইপ: DuckDuckGo, Ecosia, Startpage — their privacy policies, eco-initiatives, and why people switch from Google."
+    },
+    "hi": {
+      "name": "भूले हुए सर्च इंजन",
+      "blurb": "वीडियो प्रकार: DuckDuckGo, Ecosia, Startpage — their privacy policies, eco-initiatives, and why people switch from Google."
+    },
+    "ur": {
+      "name": "بھولے ہوئے سرچ انجن",
+      "blurb": "ویڈیو کی قسم: DuckDuckGo, Ecosia, Startpage — their privacy policies, eco-initiatives, and why people switch from Google."
+    },
+    "ta": {
+      "name": "மறக்கப்பட்ட தேடுபொறிகள்",
+      "blurb": "வீடியோ வகை: DuckDuckGo, Ecosia, Startpage — their privacy policies, eco-initiatives, and why people switch from Google."
+    },
+    "ml": {
+      "name": "മറക്കപ്പെട്ട സെർച്ച് എഞ്ചിനുകൾ",
+      "blurb": "വീഡിയോ തരം: DuckDuckGo, Ecosia, Startpage — their privacy policies, eco-initiatives, and why people switch from Google."
+    }
+  },
+  "source": "Nish.Md + deterministic research",
+  "research_notes": [
+    "Marathon researched at 2026-09-10T08:30:22Z",
+    "Video type length=107",
+    "Topic prompt length=132",
+    "Video prompt length=376",
+    "Seeds=6"
+  ],
+  "verified_at": "2026-09-10T08:30:22Z"
+}

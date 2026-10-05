@@ -1,0 +1,83 @@
+{
+  "niche_id": 89,
+  "name": "Underground Cities",
+  "slug": "underground-cities",
+  "style_family": "mystery",
+  "status": "VERIFIED",
+  "topic_seeds": [
+    "What new evidence reframes the story of Underground Cities Derinkuyu inside Underground Cities",
+    "How Underground Cities Derinkuyu still shapes public curiosity about Underground Cities",
+    "What new evidence reframes the story of Check inside Underground Cities",
+    "How Check still shapes public curiosity about Underground Cities",
+    "What new evidence reframes the story of Generate inside Underground Cities",
+    "How Generate still shapes public curiosity about Underground Cities"
+  ],
+  "seo_angles": [
+    "What new evidence reframes the story of Underground Cities Derinkuyu inside Underground Cities",
+    "How Underground Cities Derinkuyu still shapes public curiosity about Underground Cities",
+    "What new evidence reframes the story of Check inside Underground Cities",
+    "How Check still shapes public curiosity about Underground Cities"
+  ],
+  "forbidden_visuals": [
+    "talking-head lip-sync avatar",
+    "burned-in captions",
+    "watermark",
+    "modern meme text",
+    "modern smartphones",
+    "cars",
+    "LED screens",
+    "sneakers",
+    "contemporary skyline"
+  ],
+  "preferred_subjects": [
+    "Underground Cities documentary subject",
+    "period-accurate environment",
+    "evidence object close-up"
+  ],
+  "lighting_default": "dappled fog light, cool teal shadows, slow push-ins",
+  "face_policy": "no talking-head lip-sync avatar; cinematic B-roll preferred",
+  "dialogue_tone": "slow, ominous, evidence-first",
+  "audio_ambience": "low drone, subtle reverb, sparse percussion",
+  "research_hints": [
+    "Prefer primary evidence and concrete entities for Underground Cities",
+    "Avoid generic niche-label topics; require specific place/person/event/mechanism",
+    "7–9 second spoken beats with story continuity across scenes"
+  ],
+  "topic_prompt_overlay": "NICHE LOCK (Underground Cities): only propose topics that fit this niche's video type. Video type: Derinkuyu and other subterranean metropolises — how they were carved, used during wars, and rediscovered. Follow niche topic strategy: Check archaeology news, new cave discoveries, or travel features. Generate a topic about an underground city with new findings.",
+  "video_prompt_overlay": "NICHE VISUAL LOCK (Underground Cities / mystery): Generate a 7–9 second dialogue clip based on the topic `{topic}`. Each dialogue must be mysterious and earthy. For each dialogue, generate: - **Audio Generation Prompt:** Voice — echoing, with dripping water and footsteps. - **Video Generation Prompt:** Detailed visual — stone tunnels and low ceilings. Character: explorer (headlamp, backpack). Lighting: dim, torches or headlamps. Maintain same tunnel and lighting. Forbidden: talking-head lip-sync avatar, burned-in captions, watermark, modern meme text, modern smartphones, cars, LED screens, sneakers. Preferred subjects: Underground Cities documentary subject, period-accurate environment, evidence object close-up. Lighting: dappled fog light, cool teal shadows, slow push-ins. Face policy: no talking-head lip-sync avatar; cinematic B-roll preferred. Dialogue tone: slow, ominous, evidence-first. Ambience: low drone, subtle reverb, sparse percussion.",
+  "i18n": {
+    "en": {
+      "name": "Underground Cities",
+      "blurb": "Derinkuyu and other subterranean metropolises — how they were carved, used during wars, and rediscovered."
+    },
+    "bn": {
+      "name": "ভূগর্ভস্থ শহর",
+      "blurb": "ভিডিও টাইপ: Derinkuyu and other subterranean metropolises — how they were carved, used during wars, and rediscovered."
+    },
+    "hi": {
+      "name": "भूमिगत शहर",
+      "blurb": "वीडियो प्रकार: Derinkuyu and other subterranean metropolises — how they were carved, used during wars, and rediscovered."
+    },
+    "ur": {
+      "name": "زیر زمین شہر",
+      "blurb": "ویڈیو کی قسم: Derinkuyu and other subterranean metropolises — how they were carved, used during wars, and rediscovered."
+    },
+    "ta": {
+      "name": "நிலத்தடி நகரங்கள்",
+      "blurb": "வீடியோ வகை: Derinkuyu and other subterranean metropolises — how they were carved, used during wars, and rediscovered."
+    },
+    "ml": {
+      "name": "ഭൂഗർഭ നഗരങ്ങൾ",
+      "blurb": "വീഡിയോ തരം: Derinkuyu and other subterranean metropolises — how they were carved, used during wars, and rediscovered."
+    }
+  },
+  "source": "Nish.Md + deterministic research",
+  "research_notes": [
+    "Marathon researched at 2026-09-10T08:30:20Z",
+    "Video type length=105",
+    "Topic prompt length=127",
+    "Video prompt length=417",
+    "Seeds=6"
+  ],
+  "verified_at": "2026-09-10T08:30:21Z"
+}

@@ -1,0 +1,79 @@
+{
+  "niche_id": 72,
+  "name": "Grassroot Environmentalism",
+  "slug": "grassroot-environmentalism",
+  "style_family": "health",
+  "status": "VERIFIED",
+  "topic_seeds": [
+    "What new evidence reframes the story of Grassroot Environmentalism Ordinary inside Grassroot Environmentalism",
+    "How Grassroot Environmentalism Ordinary still shapes public curiosity about Grassroot Environmentalism",
+    "What new evidence reframes the story of Scan inside Grassroot Environmentalism",
+    "How Scan still shapes public curiosity about Grassroot Environmentalism",
+    "What new evidence reframes the story of Generate inside Grassroot Environmentalism",
+    "How Generate still shapes public curiosity about Grassroot Environmentalism"
+  ],
+  "seo_angles": [
+    "What new evidence reframes the story of Grassroot Environmentalism Ordinary inside Grassroot Environmentalism",
+    "How Grassroot Environmentalism Ordinary still shapes public curiosity about Grassroot Environmentalism",
+    "What new evidence reframes the story of Scan inside Grassroot Environmentalism",
+    "How Scan still shapes public curiosity about Grassroot Environmentalism"
+  ],
+  "forbidden_visuals": [
+    "talking-head lip-sync avatar",
+    "burned-in captions",
+    "watermark",
+    "modern meme text",
+    "off-niche stock office B-roll"
+  ],
+  "preferred_subjects": [
+    "Grassroot Environmentalism documentary subject",
+    "period-accurate environment",
+    "evidence object close-up"
+  ],
+  "lighting_default": "natural directional key, documentary clarity",
+  "face_policy": "no talking-head lip-sync avatar; cinematic B-roll preferred",
+  "dialogue_tone": "human documentary narration; specific nouns; 7–9s beats",
+  "audio_ambience": "subtle documentary bed; do not overpower voice",
+  "research_hints": [
+    "Prefer primary evidence and concrete entities for Grassroot Environmentalism",
+    "Avoid generic niche-label topics; require specific place/person/event/mechanism",
+    "7–9 second spoken beats with story continuity across scenes"
+  ],
+  "topic_prompt_overlay": "NICHE LOCK (Grassroot Environmentalism): only propose topics that fit this niche's video type. Video type: Ordinary people who started tree-planting, river-cleaning, or solar-energy campaigns that became global movements. Follow niche topic strategy: Scan environmental activist news, green startup stories, or viral social media campaigns. Generate a topic about a grassroots movement that grew big.",
+  "video_prompt_overlay": "NICHE VISUAL LOCK (Grassroot Environmentalism / health): Generate a 7–9 second dialogue clip based on the topic `{topic}`. Each dialogue must be inspiring and active. For each dialogue, generate: - **Audio Generation Prompt:** Voice — energetic, with shovels or applause. - **Video Generation Prompt:** Detailed visual — a park or community project. Characters: volunteers (varied). Lighting: bright daylight. Maintain same location and energetic mood. Forbidden: talking-head lip-sync avatar, burned-in captions, watermark, modern meme text, off-niche stock office B-roll. Preferred subjects: Grassroot Environmentalism documentary subject, period-accurate environment, evidence object close-up. Lighting: natural directional key, documentary clarity. Face policy: no talking-head lip-sync avatar; cinematic B-roll preferred. Dialogue tone: human documentary narration; specific nouns; 7–9s beats. Ambience: subtle documentary bed; do not overpower voice.",
+  "i18n": {
+    "en": {
+      "name": "Grassroot Environmentalism",
+      "blurb": "Ordinary people who started tree-planting, river-cleaning, or solar-energy campaigns that became global movements."
+    },
+    "bn": {
+      "name": "তৃণমূল পরিবেশবাদ",
+      "blurb": "ভিডিও টাইপ: Ordinary people who started tree-planting, river-cleaning, or solar-energy campaigns that became global movements."
+    },
+    "hi": {
+      "name": "जमीनी पर्यावरणवाद",
+      "blurb": "वीडियो प्रकार: Ordinary people who started tree-planting, river-cleaning, or solar-energy campaigns that became global movements."
+    },
+    "ur": {
+      "name": "زمینی سطح کا ماحولیات پسندی",
+      "blurb": "ویڈیو کی قسم: Ordinary people who started tree-planting, river-cleaning, or solar-energy campaigns that became global movements."
+    },
+    "ta": {
+      "name": "அடிமட்ட சுற்றுச்சூழலியல்",
+      "blurb": "வீடியோ வகை: Ordinary people who started tree-planting, river-cleaning, or solar-energy campaigns that became global movements."
+    },
+    "ml": {
+      "name": "തദ്ദേശ പരിസ്ഥിതി പ്രസ്ഥാനം",
+      "blurb": "വീഡിയോ തരം: Ordinary people who started tree-planting, river-cleaning, or solar-energy campaigns that became global movements."
+    }
+  },
+  "source": "Nish.Md + deterministic research",
+  "research_notes": [
+    "Marathon researched at 2026-09-10T08:30:18Z",
+    "Video type length=114",
+    "Topic prompt length=149",
+    "Video prompt length=395",
+    "Seeds=6"
+  ],
+  "verified_at": "2026-09-10T08:30:18Z"
+}

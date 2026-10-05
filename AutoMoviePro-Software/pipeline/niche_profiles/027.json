@@ -1,0 +1,83 @@
+{
+  "niche_id": 27,
+  "name": "Paranormal Encounters",
+  "slug": "paranormal-encounters",
+  "style_family": "mystery",
+  "status": "VERIFIED",
+  "topic_seeds": [
+    "What new evidence reframes the story of Paranormal Encounters First inside Paranormal Encounters",
+    "How Paranormal Encounters First still shapes public curiosity about Paranormal Encounters",
+    "What new evidence reframes the story of Check inside Paranormal Encounters",
+    "How Check still shapes public curiosity about Paranormal Encounters",
+    "What new evidence reframes the story of Generate inside Paranormal Encounters",
+    "How Generate still shapes public curiosity about Paranormal Encounters"
+  ],
+  "seo_angles": [
+    "What new evidence reframes the story of Paranormal Encounters First inside Paranormal Encounters",
+    "How Paranormal Encounters First still shapes public curiosity about Paranormal Encounters",
+    "What new evidence reframes the story of Check inside Paranormal Encounters",
+    "How Check still shapes public curiosity about Paranormal Encounters"
+  ],
+  "forbidden_visuals": [
+    "talking-head lip-sync avatar",
+    "burned-in captions",
+    "watermark",
+    "modern meme text",
+    "modern smartphones",
+    "cars",
+    "LED screens",
+    "sneakers",
+    "contemporary skyline"
+  ],
+  "preferred_subjects": [
+    "Paranormal Encounters documentary subject",
+    "period-accurate environment",
+    "evidence object close-up"
+  ],
+  "lighting_default": "dappled fog light, cool teal shadows, slow push-ins",
+  "face_policy": "no talking-head lip-sync avatar; cinematic B-roll preferred",
+  "dialogue_tone": "slow, ominous, evidence-first",
+  "audio_ambience": "low drone, subtle reverb, sparse percussion",
+  "research_hints": [
+    "Prefer primary evidence and concrete entities for Paranormal Encounters",
+    "Avoid generic niche-label topics; require specific place/person/event/mechanism",
+    "7–9 second spoken beats with story continuity across scenes"
+  ],
+  "topic_prompt_overlay": "NICHE LOCK (Paranormal Encounters): only propose topics that fit this niche's video type. Video type: First-hand accounts of haunted houses, poltergeists, and demonic possessions — presented with a neutral, investigative tone. Follow niche topic strategy: Check paranormal investigation groups, viral ghost videos, or new psychic research. Generate a topic that leaves viewers uneasy but curious.",
+  "video_prompt_overlay": "NICHE VISUAL LOCK (Paranormal Encounters / mystery): Generate a 7–9 second dialogue clip based on the topic `{topic}`. Each dialogue must be eerie and suspenseful. For each dialogue, generate: - **Audio Generation Prompt:** Voice — shaky, whispered, with creaking floorboards and wind. - **Video Generation Prompt:** Detailed visual — dark corridor or old bedroom. Character: ghost hunter (casual wear). Lighting: flashlight or candle. Maintain same corridor, same flashlight beam. Forbidden: talking-head lip-sync avatar, burned-in captions, watermark, modern meme text, modern smartphones, cars, LED screens, sneakers. Preferred subjects: Paranormal Encounters documentary subject, period-accurate environment, evidence object close-up. Lighting: dappled fog light, cool teal shadows, slow push-ins. Face policy: no talking-head lip-sync avatar; cinematic B-roll preferred. Dialogue tone: slow, ominous, evidence-first. Ambience: low drone, subtle reverb, sparse percussion.",
+  "i18n": {
+    "en": {
+      "name": "Paranormal Encounters",
+      "blurb": "First-hand accounts of haunted houses, poltergeists, and demonic possessions — presented with a neutral, investigative tone."
+    },
+    "bn": {
+      "name": "অতিপ্রাকৃত সাক্ষাৎ",
+      "blurb": "ভিডিও টাইপ: First-hand accounts of haunted houses, poltergeists, and demonic possessions — presented with a neutral, investigative tone."
+    },
+    "hi": {
+      "name": "अलौकिक मुठभेड़",
+      "blurb": "वीडियो प्रकार: First-hand accounts of haunted houses, poltergeists, and demonic possessions — presented with a neutral, investigative tone."
+    },
+    "ur": {
+      "name": "ماورائی ملاقاتیں",
+      "blurb": "ویڈیو کی قسم: First-hand accounts of haunted houses, poltergeists, and demonic possessions — presented with a neutral, investigative tone."
+    },
+    "ta": {
+      "name": "அமானுஷ்ய சந்திப்புகள்",
+      "blurb": "வீடியோ வகை: First-hand accounts of haunted houses, poltergeists, and demonic possessions — presented with a neutral, investigative tone."
+    },
+    "ml": {
+      "name": "അമാനുഷിക കണ്ടുമുട്ടലുകൾ",
+      "blurb": "വീഡിയോ തരം: First-hand accounts of haunted houses, poltergeists, and demonic possessions — presented with a neutral, investigative tone."
+    }
+  },
+  "source": "Nish.Md + deterministic research",
+  "research_notes": [
+    "Marathon researched at 2026-09-10T08:30:11Z",
+    "Video type length=124",
+    "Topic prompt length=140",
+    "Video prompt length=428",
+    "Seeds=6"
+  ],
+  "verified_at": "2026-09-10T08:30:11Z"
+}

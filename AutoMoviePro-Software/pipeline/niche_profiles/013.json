@@ -1,0 +1,79 @@
+{
+  "niche_id": 13,
+  "name": "Impossible Survival",
+  "slug": "impossible-survival",
+  "style_family": "health",
+  "status": "VERIFIED",
+  "topic_seeds": [
+    "What new evidence reframes the story of Impossible Survival True inside Impossible Survival",
+    "How Impossible Survival True still shapes public curiosity about Impossible Survival",
+    "What new evidence reframes the story of Search inside Impossible Survival",
+    "How Search still shapes public curiosity about Impossible Survival",
+    "What new evidence reframes the story of Generate inside Impossible Survival",
+    "How Generate still shapes public curiosity about Impossible Survival"
+  ],
+  "seo_angles": [
+    "What new evidence reframes the story of Impossible Survival True inside Impossible Survival",
+    "How Impossible Survival True still shapes public curiosity about Impossible Survival",
+    "What new evidence reframes the story of Search inside Impossible Survival",
+    "How Search still shapes public curiosity about Impossible Survival"
+  ],
+  "forbidden_visuals": [
+    "talking-head lip-sync avatar",
+    "burned-in captions",
+    "watermark",
+    "modern meme text",
+    "off-niche stock office B-roll"
+  ],
+  "preferred_subjects": [
+    "Impossible Survival documentary subject",
+    "period-accurate environment",
+    "evidence object close-up"
+  ],
+  "lighting_default": "natural directional key, documentary clarity",
+  "face_policy": "no talking-head lip-sync avatar; cinematic B-roll preferred",
+  "dialogue_tone": "human documentary narration; specific nouns; 7–9s beats",
+  "audio_ambience": "subtle documentary bed; do not overpower voice",
+  "research_hints": [
+    "Prefer primary evidence and concrete entities for Impossible Survival",
+    "Avoid generic niche-label topics; require specific place/person/event/mechanism",
+    "7–9 second spoken beats with story continuity across scenes"
+  ],
+  "topic_prompt_overlay": "NICHE LOCK (Impossible Survival): only propose topics that fit this niche's video type. Video type: True stories of people who cheated death — lost at sea, trapped in caves, or stranded in deserts — focusing on their mental strength and clever decisions. Follow niche topic strategy: Search for survival stories that went viral recently — new book releases, interviews, or documentary premieres. Generate a topic that inspires and amazes.",
+  "video_prompt_overlay": "NICHE VISUAL LOCK (Impossible Survival / health): Generate a 7–9 second dialogue clip based on the topic `{topic}`. Each dialogue must be intense and uplifting. For each dialogue, generate: - **Audio Generation Prompt:** Voice — exhausted but determined, with wind, water, or silence in the background. - **Video Generation Prompt:** Detailed visual — a lone survivor in a desolate landscape. Character: survivor (gender variable, appropriate clothing). Lighting: harsh desert sun or cold arctic twilight. Maintain same clothing, same landscape type, same light angle. Forbidden: talking-head lip-sync avatar, burned-in captions, watermark, modern meme text, off-niche stock office B-roll. Preferred subjects: Impossible Survival documentary subject, period-accurate environment, evidence object close-up. Lighting: natural directional key, documentary clarity. Face policy: no talking-head lip-sync avatar; cinematic B-roll preferred. Dialogue tone: human documentary narration; specific nouns; 7–9s beats. Ambience: subtle documentary bed; do not overpower voice.",
+  "i18n": {
+    "en": {
+      "name": "Impossible Survival",
+      "blurb": "True stories of people who cheated death — lost at sea, trapped in caves, or stranded in deserts — focusing on their mental strength and clever decisions."
+    },
+    "bn": {
+      "name": "অসম্ভব বেঁচে থাকা",
+      "blurb": "ভিডিও টাইপ: True stories of people who cheated death — lost at sea, trapped in caves, or stranded in deserts — focusing on their mental strength and clever…"
+    },
+    "hi": {
+      "name": "असंभव उत्तरजीविता",
+      "blurb": "वीडियो प्रकार: True stories of people who cheated death — lost at sea, trapped in caves, or stranded in deserts — focusing on their mental strength and clever…"
+    },
+    "ur": {
+      "name": "ناممکن بقا",
+      "blurb": "ویڈیو کی قسم: True stories of people who cheated death — lost at sea, trapped in caves, or stranded in deserts — focusing on their mental strength and clever…"
+    },
+    "ta": {
+      "name": "சாத்தியமற்ற உயிர்வாழ்வு",
+      "blurb": "வீடியோ வகை: True stories of people who cheated death — lost at sea, trapped in caves, or stranded in deserts — focusing on their mental strength and clever…"
+    },
+    "ml": {
+      "name": "അസാധ്യമായ അതിജീവനം",
+      "blurb": "വീഡിയോ തരം: True stories of people who cheated death — lost at sea, trapped in caves, or stranded in deserts — focusing on their mental strength and clever…"
+    }
+  },
+  "source": "Nish.Md + deterministic research",
+  "research_notes": [
+    "Marathon researched at 2026-09-10T08:30:09Z",
+    "Video type length=154",
+    "Topic prompt length=154",
+    "Video prompt length=518",
+    "Seeds=6"
+  ],
+  "verified_at": "2026-09-10T08:30:09Z"
+}

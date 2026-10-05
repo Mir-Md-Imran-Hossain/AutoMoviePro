@@ -1,0 +1,147 @@
+{
+  "label": "T1B_GOLDEN_DATASET",
+  "job": "job2333",
+  "asset_count": 12,
+  "query_count": 5,
+  "assets": [
+    {
+      "asset_id": "final_short_t010",
+      "local_path": "E:\\All Updaye Project\\AutoMovie_Pro_SAAS_Final_Update\\AutoMoviePro-Software\\docs\\marathon\\evidence\\t1b\\golden_dataset\\assets\\final_short_t010.jpg",
+      "source_video": "final_short.mp4",
+      "time_sec": 1.0,
+      "media_type": "image",
+      "source": "job2333_real_media"
+    },
+    {
+      "asset_id": "final_short_t080",
+      "local_path": "E:\\All Updaye Project\\AutoMovie_Pro_SAAS_Final_Update\\AutoMoviePro-Software\\docs\\marathon\\evidence\\t1b\\golden_dataset\\assets\\final_short_t080.jpg",
+      "source_video": "final_short.mp4",
+      "time_sec": 8.0,
+      "media_type": "image",
+      "source": "job2333_real_media"
+    },
+    {
+      "asset_id": "final_short_t160",
+      "local_path": "E:\\All Updaye Project\\AutoMovie_Pro_SAAS_Final_Update\\AutoMoviePro-Software\\docs\\marathon\\evidence\\t1b\\golden_dataset\\assets\\final_short_t160.jpg",
+      "source_video": "final_short.mp4",
+      "time_sec": 16.0,
+      "media_type": "image",
+      "source": "job2333_real_media"
+    },
+    {
+      "asset_id": "final_short_t280",
+      "local_path": "E:\\All Updaye Project\\AutoMovie_Pro_SAAS_Final_Update\\AutoMoviePro-Software\\docs\\marathon\\evidence\\t1b\\golden_dataset\\assets\\final_short_t280.jpg",
+      "source_video": "final_short.mp4",
+      "time_sec": 28.0,
+      "media_type": "image",
+      "source": "job2333_real_media"
+    },
+    {
+      "asset_id": "final_short_t400",
+      "local_path": "E:\\All Updaye Project\\AutoMovie_Pro_SAAS_Final_Update\\AutoMoviePro-Software\\docs\\marathon\\evidence\\t1b\\golden_dataset\\assets\\final_short_t400.jpg",
+      "source_video": "final_short.mp4",
+      "time_sec": 40.0,
+      "media_type": "image",
+      "source": "job2333_real_media"
+    },
+    {
+      "asset_id": "scene_00_beat_t015",
+      "local_path": "E:\\All Updaye Project\\AutoMovie_Pro_SAAS_Final_Update\\AutoMoviePro-Software\\docs\\marathon\\evidence\\t1b\\golden_dataset\\assets\\scene_00_beat_t015.jpg",
+      "source_video": "scene_00_beat.mp4",
+      "time_sec": 1.5,
+      "media_type": "image",
+      "source": "job2333_real_media"
+    },
+    {
+      "asset_id": "scene_01_beat_t010",
+      "local_path": "E:\\All Updaye Project\\AutoMovie_Pro_SAAS_Final_Update\\AutoMoviePro-Software\\docs\\marathon\\evidence\\t1b\\golden_dataset\\assets\\scene_01_beat_t010.jpg",
+      "source_video": "scene_01_beat.mp4",
+      "time_sec": 1.0,
+      "media_type": "image",
+      "source": "job2333_real_media"
+    },
+    {
+      "asset_id": "scene_02_beat_t020",
+      "local_path": "E:\\All Updaye Project\\AutoMovie_Pro_SAAS_Final_Update\\AutoMoviePro-Software\\docs\\marathon\\evidence\\t1b\\golden_dataset\\assets\\scene_02_beat_t020.jpg",
+      "source_video": "scene_02_beat.mp4",
+      "time_sec": 2.0,
+      "media_type": "image",
+      "source": "job2333_real_media"
+    },
+    {
+      "asset_id": "scene_03_beat_t010",
+      "local_path": "E:\\All Updaye Project\\AutoMovie_Pro_SAAS_Final_Update\\AutoMoviePro-Software\\docs\\marathon\\evidence\\t1b\\golden_dataset\\assets\\scene_03_beat_t010.jpg",
+      "source_video": "scene_03_beat.mp4",
+      "time_sec": 1.0,
+      "media_type": "image",
+      "source": "job2333_real_media"
+    },
+    {
+      "asset_id": "scene_04_beat_t015",
+      "local_path": "E:\\All Updaye Project\\AutoMovie_Pro_SAAS_Final_Update\\AutoMoviePro-Software\\docs\\marathon\\evidence\\t1b\\golden_dataset\\assets\\scene_04_beat_t015.jpg",
+      "source_video": "scene_04_beat.mp4",
+      "time_sec": 1.5,
+      "media_type": "image",
+      "source": "job2333_real_media"
+    },
+    {
+      "asset_id": "agnes_00_beat_i2v_a1_t008",
+      "local_path": "E:\\All Updaye Project\\AutoMovie_Pro_SAAS_Final_Update\\AutoMoviePro-Software\\docs\\marathon\\evidence\\t1b\\golden_dataset\\assets\\agnes_00_beat_i2v_a1_t008.jpg",
+      "source_video": "agnes_00_beat_i2v_a1.mp4",
+      "time_sec": 0.8,
+      "media_type": "image",
+      "source": "job2333_real_media"
+    },
+    {
+      "asset_id": "agnes_03_beat_i2v_a1_t008",
+      "local_path": "E:\\All Updaye Project\\AutoMovie_Pro_SAAS_Final_Update\\AutoMoviePro-Software\\docs\\marathon\\evidence\\t1b\\golden_dataset\\assets\\agnes_03_beat_i2v_a1_t008.jpg",
+      "source_video": "agnes_03_beat_i2v_a1.mp4",
+      "time_sec": 0.8,
+      "media_type": "image",
+      "source": "job2333_real_media"
+    }
+  ],
+  "queries": [
+    {
+      "query_id": "q0",
+      "query_text": "cinematic documentary shot of Most viewers Most JWST Mid-Infrared Spectra Exoplanet Atmospheres: Most viewers miss this about JWST Mid-Infrared Spectra Exoplanet Atmospheres — most",
+      "expected_concept": "JWST / telescope / exoplanet atmospheres documentary",
+      "scene_id": "scene-00",
+      "visual_purpose": "hook",
+      "beat_id": "vb-seg-beat-1"
+    },
+    {
+      "query_id": "q1",
+      "query_text": "cinematic documentary shot of Visible light Visible Mid-infrared: Visible light bounces off clouds. Mid-infrared penetrates dust. That's why we use — cinematic continuous motion ma",
+      "expected_concept": "visible vs mid-infrared light / dust / space science",
+      "scene_id": "scene-01",
+      "visual_purpose": "context",
+      "beat_id": "vb-seg-beat-2"
+    },
+    {
+      "query_id": "q2",
+      "query_text": "cinematic documentary shot of penetrates watch Methane: From that penetrates, watch what this changes next — carbon dioxide leaves — cinematic continuous motion matching spoken cla",
+      "expected_concept": "spectral fingerprint / methane / carbon dioxide absorption",
+      "scene_id": "scene-02",
+      "visual_purpose": "development",
+      "beat_id": "vb-seg-beat-3"
+    },
+    {
+      "query_id": "q3",
+      "query_text": "cinematic documentary shot of star million We: But the star is a million times brighter. We subtract its light. — cinematic continuous motion matching spoken claim, continuous moti",
+      "expected_concept": "bright star light subtraction / exoplanet signal",
+      "scene_id": "scene-03",
+      "visual_purpose": "payoff",
+      "beat_id": "vb-seg-beat-4"
+    },
+    {
+      "query_id": "q4",
+      "query_text": "cinematic documentary shot of brighter water It: From that brighter, water vapor is tricky. It can hide behind clouds — cinematic continuous motion matching spoken claim, continuou",
+      "expected_concept": "water vapor / clouds / atmospheric spectroscopy",
+      "scene_id": "scene-04",
+      "visual_purpose": "ending",
+      "beat_id": "vb-seg-beat-5"
+    }
+  ],
+  "note": "Frames extracted under evidence/; job2333 originals untouched"
+}

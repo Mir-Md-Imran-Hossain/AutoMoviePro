@@ -1,0 +1,170 @@
+{
+  "analysis": {
+    "niche_summary": "Custom niche documentary storytelling focusing on space science discoveries and lunar exploration missions.",
+    "why_this_topic": "How Artemis crews use neutron spectrometers to map lunar polar water ice in 2026 is an urgent, highly specific 2026 milestone combining cutting-edge instrumentation with planetary survival resources.",
+    "audience": "Science enthusiasts, space exploration followers, and curious minds interested in Artemis missions.",
+    "tone": "Authoritative, cinematic, scientific, and grounded in real mission engineering.",
+    "product_category": "science",
+    "style_pack": "science",
+    "nish_id": 0,
+    "avoided_duplicates": [],
+    "master_lang": "en",
+    "master_lang_bcp47": "en-US"
+  },
+  "topic": "How Artemis crews use neutron spectrometers to map lunar polar water ice in 2026",
+  "product_key_hint": "artemis neutron spectrometer lunar water ice 2026",
+  "title": "How Artemis Crews Map Lunar Ice With Neutron Spectrometers in 2026",
+  "description": "Inside the 2026 Artemis lunar surface missions where astronauts deploy advanced neutron spectrometers to detect hidden water ice beneath the lunar regolith. Essential science for permanent lunar habitation.\n\n#Artemis #SpaceScience #LunarWater #Astronauts #SpaceExploration",
+  "tags": [
+    "Artemis 2026",
+    "neutron spectrometer",
+    "lunar water ice",
+    "moon exploration",
+    "space science"
+  ],
+  "scenes": [
+    {
+      "element": "intro",
+      "start_hint_s": 0.0,
+      "end_hint_s": 8.0,
+      "narration": "In twenty twenty six, Artemis astronauts on the lunar surface are chasing a vital resource hiding beneath grey dust.",
+      "keyword_triggers": [
+        "How Artemis crews use neutron spectrometers to map lunar polar water ice in 2026",
+        "Artemis",
+        "lunar surface",
+        "astronauts"
+      ],
+      "exact_ai_video_prompt": "vertical 9:16 cinematic slow push-in of an astronaut on the lunar surface, teal/cyan cinematic lab grade, high contrast, shallow DOF, continuous motion, no burned captions, no watermark, no talking-head REQUIRED on-screen anchors: How Artemis crews use neutron spectrometers to map lunar polar water ice in 2026, 2026, Artemis, twenty, chasing.",
+      "visual_query": "astronaut lunar surface exploration 2026",
+      "visual_prompt": "Cinematic vertical shot of an astronaut surveying the lunar surface, high contrast lab grade.",
+      "quality_notes": "Establish tone and setting with teal cyan science grading.",
+      "lang": "en",
+      "lang_bcp47": "en-US"
+    },
+    {
+      "element": "context",
+      "start_hint_s": 8.0,
+      "end_hint_s": 16.0,
+      "narration": "Permanently shadowed craters at the lunar poles trap ancient hydrogen molecules frozen solid inside molecular glass matrices.",
+      "keyword_triggers": [
+        "How Artemis crews use neutron spectrometers to map lunar polar water ice in 2026",
+        "shadowed craters",
+        "hydrogen",
+        "molecular glass"
+      ],
+      "exact_ai_video_prompt": "vertical 9:16 macro pans of dark lunar regolith under harsh polarized sunlight, teal/cyan cinematic lab grade, high contrast, shallow DOF, continuous motion, no burned captions, no watermark, no talking-head REQUIRED on-screen anchors: How Artemis crews use neutron spectrometers to map lunar polar water ice in 2026, 2026, shadowed craters, hydrogen, molecular glass, Permanently, shadowed, craters, poles, trap.",
+      "visual_query": "shadowed lunar crater regolith macro",
+      "visual_prompt": "Macro view of dark lunar soil particles, high contrast science grade.",
+      "quality_notes": "Maintain visual continuity from lunar surface to soil detail.",
+      "lang": "en",
+      "lang_bcp47": "en-US"
+    },
+    {
+      "element": "discovery",
+      "start_hint_s": 16.0,
+      "end_hint_s": 25.0,
+      "narration": "To find it without digging blindly, crews rely on compact handheld neutron spectrometers running continuous active scans.",
+      "keyword_triggers": [
+        "How Artemis crews use neutron spectrometers to map lunar polar water ice in 2026",
+        "neutron spectrometer",
+        "handheld",
+        "active scans"
+      ],
+      "exact_ai_video_prompt": "vertical 9:16 macro pans of a high-tech handheld neutron spectrometer device with glowing teal UI indicators, teal/cyan cinematic lab grade, high contrast, shallow DOF, continuous motion, no burned captions, no watermark, no talking-head REQUIRED on-screen anchors: How Artemis crews use neutron spectrometers to map lunar polar water ice in 2026, 2026, active scans, find, digging, blindly, crews, rely, compact.",
+      "visual_query": "neutron spectrometer handheld device close up",
+      "visual_prompt": "Detailed macro shot of a scientific handheld spectrometer with glowing instrument readouts.",
+      "quality_notes": "Highlight instrumentation hardware with sharp focus.",
+      "lang": "en",
+      "lang_bcp47": "en-US"
+    },
+    {
+      "element": "technique",
+      "start_hint_s": 25.0,
+      "end_hint_s": 33.0,
+      "narration": "Cosmic rays constantly bombard the moon, causing subsurface hydrogen atoms to scatter neutrons with distinct energy loss signatures.",
+      "keyword_triggers": [
+        "How Artemis crews use neutron spectrometers to map lunar polar water ice in 2026",
+        "cosmic rays",
+        "subsurface hydrogen",
+        "scatter neutrons"
+      ],
+      "exact_ai_video_prompt": "vertical 9:16 cinematic laboratory simulation of cosmic ray particles striking a mineral sample, teal/cyan cinematic lab grade, high contrast, shallow DOF, continuous motion, no burned captions, no watermark, no talking-head REQUIRED on-screen anchors: How Artemis crews use neutron spectrometers to map lunar polar water ice in 2026, 2026, subsurface hydrogen, scatter neutrons, constantly, bombard, moon, causing.",
+      "visual_query": "cosmic ray particle simulation laboratory",
+      "visual_prompt": "Scientific animation style B-roll showing particle scattering inside a lab setting.",
+      "quality_notes": "Illustrate the underlying physics clearly without cartoonish elements.",
+      "lang": "en",
+      "lang_bcp47": "en-US"
+    },
+    {
+      "element": "technique",
+      "start_hint_s": 33.0,
+      "end_hint_s": 42.0,
+      "narration": "The spectrometer measures this slowed neutron flux, instantly converting thermal neutron depletion into accurate water ice concentration maps.",
+      "keyword_triggers": [
+        "How Artemis crews use neutron spectrometers to map lunar polar water ice in 2026",
+        "neutron flux",
+        "thermal depletion",
+        "ice concentration maps"
+      ],
+      "exact_ai_video_prompt": "vertical 9:16 macro pan across lab glassware and sensor arrays reacting to thermal gradients, teal/cyan cinematic lab grade, high contrast, shallow DOF, continuous motion, no burned captions, no watermark, no talking-head REQUIRED on-screen anchors: How Artemis crews use neutron spectrometers to map lunar polar water ice in 2026, 2026, neutron flux, thermal depletion, ice concentration maps, spectrometer, measures, slowed, neutron, flux.",
+      "visual_query": "spectrometer sensor thermal reaction lab glassware",
+      "visual_prompt": "Lab glassware and electronic sensors under cyan lighting showing thermal data.",
+      "quality_notes": "Use lab glassware metaphor from the style pack.",
+      "lang": "en",
+      "lang_bcp47": "en-US"
+    },
+    {
+      "element": "legacy",
+      "start_hint_s": 42.0,
+      "end_hint_s": 51.0,
+      "narration": "Field testing proves these sensors detect buried ice reserves down to one meter deep within seconds of surface contact.",
+      "keyword_triggers": [
+        "How Artemis crews use neutron spectrometers to map lunar polar water ice in 2026",
+        "field testing",
+        "buried ice reserves",
+        "surface contact"
+      ],
+      "exact_ai_video_prompt": "vertical 9:16 close-up of a rover instrument probe touching barren rocky ground in a simulated lunar testbed, teal/cyan cinematic lab grade, high contrast, shallow DOF, continuous motion, no burned captions, no watermark, no talking-head REQUIRED on-screen anchors: How Artemis crews use neutron spectrometers to map lunar polar water ice in 2026, 2026, field testing, buried ice reserves, surface contact, Field, testing, proves, sensors, detect.",
+      "visual_query": "rover instrument probe lunar testbed",
+      "visual_prompt": "Instrument probe interacting with stony soil in a testing facility.",
+      "quality_notes": "Bridge hardware testing with practical field application.",
+      "lang": "en",
+      "lang_bcp47": "en-US"
+    },
+    {
+      "element": "outro",
+      "start_hint_s": 51.0,
+      "end_hint_s": 60.0,
+      "narration": "Mapping this frozen treasure ensures future lunar bases have infinite water for life support and rocket fuel production.",
+      "keyword_triggers": [
+        "How Artemis crews use neutron spectrometers to map lunar polar water ice in 2026",
+        "frozen treasure",
+        "lunar bases",
+        "rocket fuel"
+      ],
+      "exact_ai_video_prompt": "vertical 9:16 cinematic slow push-in of a futuristic lunar habitat dome glowing softly against deep space, teal/cyan cinematic lab grade, high contrast, shallow DOF, continuous motion, no burned captions, no watermark, no talking-head REQUIRED on-screen anchors: How Artemis crews use neutron spectrometers to map lunar polar water ice in 2026, 2026, frozen treasure, lunar bases, rocket fuel, Mapping, frozen, treasure, ensures, future.",
+      "visual_query": "futuristic lunar habitat dome space view",
+      "visual_prompt": "Cinematic shot of a lunar base installation under high contrast lighting.",
+      "quality_notes": "Deliver a compelling, high-impact concluding visual.",
+      "lang": "en",
+      "lang_bcp47": "en-US"
+    }
+  ],
+  "director_provider": "google",
+  "nish_id": 0,
+  "nish_name": "space science",
+  "video_type": "short",
+  "max_seconds": 60,
+  "master_lang": "en",
+  "master_lang_bcp47": "en-US",
+  "sourceLanguage": "en",
+  "master_lang_policy": "english_pivot_then_localize",
+  "narrator_voice": "Charon",
+  "master_lang_repairs": [
+    {
+      "field": "tags",
+      "repaired": true,
+      "via": "drop_non_english_tags"
+    }
+  ]
+}

@@ -1,0 +1,26 @@
+{
+  "run_id": "mr_phase7_20260909T114119Z_636d9e6d",
+  "login": "c11_marathon_customer",
+  "channel_id": 4,
+  "owner": "c11_marathon_customer",
+  "channel_name": "C11 Marathon Channel",
+  "languages_json_raw": "[\"en\", \"bn\"]",
+  "channel_languages": [
+    "en",
+    "bn"
+  ],
+  "language_count": 2,
+  "product_max": 6,
+  "target_lang_codes": [
+    "en",
+    "bn",
+    "hi",
+    "ur",
+    "ta",
+    "ml"
+  ],
+  "six_configured": false,
+  "six_exact": false,
+  "timestamp": "2026-09-09T11:41:19.976256+00:00",
+  "block": "LANGUAGE_CONFIGURATION_BLOCKED"
+}

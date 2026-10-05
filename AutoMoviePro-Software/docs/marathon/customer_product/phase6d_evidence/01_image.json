@@ -1,0 +1,64 @@
+{
+  "step": "REAL_IMAGE",
+  "media": "data\\customer_generation_work\\c11_marathon_customer\\job2108\\_fallback_i2v\\fb_beat_00.png",
+  "content_hash": "b790e53eca50ef7aaee0fdbc079a825f9369402ff7c64bc08f30989430d34473",
+  "sampling": {
+    "status": "PASS",
+    "strategy": "image_single_frame",
+    "frame_count": 1,
+    "content_hash": "b790e53eca50ef7aaee0fdbc079a825f9369402ff7c64bc08f30989430d34473",
+    "semantic_pass": false,
+    "reuses_compose_ffmpeg": true
+  },
+  "observation": {
+    "schema_version": "amp_frame_evidence_v1",
+    "asset_id": "c11-img-2108",
+    "beat_id": "vb-6d-1",
+    "scene_id": "sc-6d-1",
+    "timestamp": 0.0,
+    "frame_path": "docs\\marathon\\customer_product\\phase6d_evidence\\work\\img_frames\\frames_b790e53eca50ef7a_eb4079f58c08c02d387b3a7f\\frame_00_image.png",
+    "observation_status": "FAIL",
+    "provider": "PROVIDER_FRAME:gemini-flash-latest",
+    "observed_subjects": [
+      "woman",
+      "astronaut"
+    ],
+    "observed_entities": [
+      "woman",
+      "spacesuit"
+    ],
+    "observed_relationships": [
+      "woman wearing spacesuit"
+    ],
+    "observed_location": "spacecraft interior",
+    "observed_actions": [
+      "looking forward",
+      "staring"
+    ],
+    "provider_verified": true,
+    "heuristic": false,
+    "evidence_source": "PROVIDER_VERIFIED",
+    "reason": ""
+  },
+  "coverage": {
+    "schema": "amp_observation_beat_frame_coverage_v1",
+    "beat_id": "vb-6d-1",
+    "scene_id": "sc-6d-1",
+    "dimensions": {
+      "subject": "NONE",
+      "entity": "NONE",
+      "relationship": "NONE",
+      "action": "NONE",
+      "location": "NONE",
+      "environment": "FULL",
+      "camera": "NONE",
+      "lighting": "NONE"
+    },
+    "overall": "PARTIAL",
+    "retrieval_score_is_not_coverage": true,
+    "provider_verified_any": true,
+    "vocabulary": "C05-S VisualCoverage",
+    "unknown_as_pass": false
+  },
+  "live_status": "LIVE"
+}

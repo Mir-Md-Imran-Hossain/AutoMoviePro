@@ -1,0 +1,7 @@
+{
+  "ok": false,
+  "error": "malformed_script_plan",
+  "error_code": "malformed_script",
+  "status": "BLOCKED",
+  "message": "2 validation errors for ScriptPlan retention_blueprint Extra inputs are not permitted [type=extra_forbidden, input_value={'format': 'short', 'wind...ire_ending_close': True}, input_type=dict] For further information visit https://errors.py…"
+}

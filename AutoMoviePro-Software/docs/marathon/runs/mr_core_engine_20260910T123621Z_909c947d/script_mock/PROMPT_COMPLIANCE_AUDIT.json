@@ -1,0 +1,201 @@
+{
+  "auditor_version": "prompt_compliance_auditor_v1",
+  "contract_version": "industrial_prompt_contract_v1",
+  "job_id": "c06b-script-4-topic-4850dae345ff3055",
+  "organized_at": "2026-09-10T12:36:35.008366+00:00",
+  "plan_fingerprint": "d3561309be8b0c243a96f062",
+  "verdict": "BLOCK",
+  "industrial_grade": false,
+  "overall_score": 0.9389,
+  "deterministic": {
+    "verdict": "PASS",
+    "overall_score": 0.9389,
+    "scores": {
+      "C01_opening_pattern_interrupt": 1.0,
+      "C02_mid_retention_rehooks": 1.0,
+      "C03_information_density": 1.0,
+      "C04_seo_ctr_package": 0.7,
+      "C05_topic_specificity": 1.0,
+      "C06_ending_loop_close": 0.8,
+      "C07_no_encyclopedia_flatness": 1.0
+    },
+    "clauses": {
+      "C01_opening_pattern_interrupt": {
+        "pass": true,
+        "score": 1.0,
+        "detail": {
+          "hook": {
+            "status": "PASS",
+            "generic": false,
+            "clickbait": false,
+            "unsupported_claim": false,
+            "topic_aligned": true,
+            "overlap": 0.75,
+            "issues": [],
+            "method": "DETERMINISTIC"
+          },
+          "opening": {
+            "status": "PASS",
+            "score": 1.0,
+            "overlap": 0.75,
+            "issues": [],
+            "claims_guaranteed_engagement": false,
+            "method": "DETERMINISTIC"
+          }
+        }
+      },
+      "C02_mid_retention_rehooks": {
+        "pass": true,
+        "score": 1.0,
+        "detail": {
+          "hook_signals": 3,
+          "payoff_signals": 2,
+          "warnings": []
+        }
+      },
+      "C03_information_density": {
+        "pass": true,
+        "score": 1.0,
+        "detail": {
+          "blocked": false,
+          "warnings": [
+            "missing_emotional_intent:0",
+            "legacy_visual_prompt_present:0",
+            "legacy_visual_prompt_present:1",
+            "legacy_visual_prompt_present:2"
+          ]
+        }
+      },
+      "C04_seo_ctr_package": {
+        "pass": true,
+        "score": 0.7,
+        "detail": {
+          "issues": [
+            "description_missing_hashtags"
+          ],
+          "tag_count": 11
+        }
+      },
+      "C05_topic_specificity": {
+        "pass": true,
+        "score": 1.0,
+        "detail": {
+          "topic": "What Parker Solar Probe discovered about the Sun's corona in 2026"
+        }
+      },
+      "C06_ending_loop_close": {
+        "pass": true,
+        "score": 0.8,
+        "detail": {}
+      },
+      "C07_no_encyclopedia_flatness": {
+        "pass": true,
+        "score": 1.0,
+        "detail": {
+          "flat_related": []
+        }
+      }
+    },
+    "violations": [
+      {
+        "clause": "C04_seo_ctr_package",
+        "severity": "warning",
+        "evidence": "What Parker Solar Probe discovered about the Sun's corona in 2026 — Documentary",
+        "issues": [
+          "description_missing_hashtags"
+        ]
+      }
+    ],
+    "method": "DETERMINISTIC",
+    "contract_version": "industrial_prompt_contract_v1",
+    "pre_repair": {
+      "verdict": "BLOCK",
+      "overall_score": 0.6561,
+      "violations": [
+        {
+          "clause": "C01_opening_pattern_interrupt",
+          "severity": "critical",
+          "evidence": "Welcome to the story of What Parker Solar Probe discovered about the Sun's corona in 2026.",
+          "issues": [
+            "opening_no_curiosity_hook"
+          ]
+        },
+        {
+          "clause": "C03_information_density",
+          "severity": "critical",
+          "evidence": "opening_no_curiosity_hook",
+          "issues": [
+            "opening_no_curiosity_hook"
+          ]
+        },
+        {
+          "clause": "C04_seo_ctr_package",
+          "severity": "warning",
+          "evidence": "What Parker Solar Probe discovered about the Sun's corona in 2026 — Documentary",
+          "issues": [
+            "tags_below_industrial_minimum",
+            "description_missing_hashtags"
+          ]
+        },
+        {
+          "clause": "C06_ending_loop_close",
+          "severity": "warning",
+          "evidence": "This is why What Parker Solar Probe discovered about the Sun's corona in 2026 still matters today.",
+          "issues": [
+            "ending_missing_loop_close_language"
+          ]
+        }
+      ]
+    }
+  },
+  "llm_critic": {
+    "verdict": "BLOCK",
+    "overall_score": 2.0,
+    "clause_results": [
+      {
+        "clause_id": "C01_opening_pattern_interrupt",
+        "pass": false,
+        "evidence": "The opening beat is a cold mid-paragraph statement without a strong hook or curiosity gap.",
+        "note": "Starts with a vague question and lacks engagement."
+      },
+      {
+        "clause_id": "C02_curiosity_gap",
+        "pass": false,
+        "evidence": "The second beat fails to introduce new information or a question that re-hooks the audience.",
+        "note": "It simply states a fact without engaging curiosity."
+      },
+      {
+        "clause_id": "C06_ending",
+        "pass": false,
+        "evidence": "The ending does not resolve the main promise and lacks a memorable closing noun.",
+        "note": "Ends abruptly without a clear takeaway."
+      }
+    ],
+    "must_fix": [
+      "Revise the opening to include a strong hook that creates curiosity.",
+      "Ensure each beat introduces new information or questions to maintain engagement.",
+      "Close the narrative loop in the final beat with a concrete takeaway."
+    ],
+    "industrial_grade": false,
+    "reason": "The script lacks effective hooks, fails to maintain viewer engagement, and does not close the narrative loop.",
+    "provider": "openrouter",
+    "method": "LLM_CRITIC",
+    "clause": "C08_llm_industrial_judge"
+  },
+  "repairs_applied": [
+    "deterministic_industrial_repair_v1"
+  ],
+  "decision_reason": "Output failed industrial prompt-compliance proof — quality would degrade if shipped.",
+  "proof": {
+    "what_we_checked": [
+      "opening pattern interrupt / curiosity gap",
+      "mid-script re-hooks and information density",
+      "SEO/CTR title-description-tags honesty",
+      "topic specificity",
+      "ending loop close",
+      "optional LLM industrial judge"
+    ],
+    "authoritative_layer": "deterministic",
+    "corroboration_layer": "llm_critic"
+  }
+}

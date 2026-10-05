@@ -1,0 +1,188 @@
+{
+  "started_at": "2026-09-08T08:20:23Z",
+  "ok": true,
+  "dialogue_count": 6,
+  "narrative_beat_count": 6,
+  "visual_beat_count": 6,
+  "script_duration_sec": 30.0,
+  "planned_visual_duration_sec": 30.0,
+  "plan_ready": true,
+  "plan_status": "READY_FOR_GENERATION",
+  "plan_blocks": [],
+  "submit": {
+    "ok": true,
+    "job_id": 2281,
+    "error": null,
+    "error_code": null,
+    "queued": true
+  },
+  "execute": {
+    "ok": true,
+    "error": null,
+    "error_code": null,
+    "latency_ms": 188561.99999999988,
+    "local_path": null
+  },
+  "job_id": 2281,
+  "work_dir": "E:\\All Updaye Project\\AutoMovie_Pro_SAAS_Final_Update\\AutoMoviePro-Software\\data\\customer_generation_work\\c11_marathon_customer\\job2281",
+  "director_scene_count": 6,
+  "director_scene_durations": [
+    5.0,
+    5.0,
+    5.0,
+    5.0,
+    5.0,
+    5.0
+  ],
+  "materialization_units": [
+    {
+      "beat_id": "vb-seg-beat-1",
+      "dialogue_id": "beat-1",
+      "reuse_previous": false,
+      "reason": "first_beat",
+      "duration": 5.0
+    },
+    {
+      "beat_id": "vb-seg-beat-2",
+      "dialogue_id": "beat-2",
+      "reuse_previous": false,
+      "reason": "first_beat",
+      "duration": 5.0
+    },
+    {
+      "beat_id": "vb-seg-beat-3",
+      "dialogue_id": "beat-3",
+      "reuse_previous": false,
+      "reason": "first_beat",
+      "duration": 5.0
+    },
+    {
+      "beat_id": "vb-seg-beat-4",
+      "dialogue_id": "beat-4",
+      "reuse_previous": false,
+      "reason": "first_beat",
+      "duration": 5.0
+    },
+    {
+      "beat_id": "vb-seg-beat-5",
+      "dialogue_id": "beat-5",
+      "reuse_previous": false,
+      "reason": "first_beat",
+      "duration": 5.0
+    },
+    {
+      "beat_id": "vb-seg-beat-6",
+      "dialogue_id": "beat-6",
+      "reuse_previous": false,
+      "reason": "first_beat",
+      "duration": 5.0
+    }
+  ],
+  "unique_assets_materialized": 6,
+  "generation_cache": {
+    "create_count": 8,
+    "reuse_count": 0
+  },
+  "final_exists": true,
+  "final_path": "E:\\All Updaye Project\\AutoMovie_Pro_SAAS_Final_Update\\AutoMoviePro-Software\\data\\customer_generation_work\\c11_marathon_customer\\job2281\\final_short.mp4",
+  "final_size": 13711000,
+  "final_duration_sec": 40.401995,
+  "final_probe": {
+    "duration_sec": 40.401995,
+    "width": 1080,
+    "height": 1920,
+    "fps": 25.0,
+    "video_codec": "h264",
+    "audio_codec": "aac",
+    "has_audio": true
+  },
+  "audio_files": [
+    {
+      "path": "narration_00.wav",
+      "duration": 8.68
+    },
+    {
+      "path": "narration_01.wav",
+      "duration": 7.48
+    }
+  ],
+  "subtitle_exists": true,
+  "subtitle_text": "1\n00:00:00,000 --> 00:00:05,050\nThe James Webb Space Telescope floats in deep space, its golden mirrors\n\n2\n00:00:05,050 --> 00:00:10,100\nfacing the cosmic dark. Infrared deep-field images reveal galaxies that formed more\n\n3\n00:00:10,100 --> 00:00:15,151\nthan thirteen billion years ago. These images show how early galaxies assembled\n\n4\n00:00:15,151 --> 00:00:20,201\nfrom gas and dark matter after the Big Bang. Infrared light pierces\n\n5\n00:00:20,201 --> 00:00:25,251\ncosmic dust, unveiling hidden star-forming nurseries inside a glowing nebula. The findings\n\n6\n00:00:25,251 --> 00:00:30,301\nchallenge older models of how spiral galaxies grew so quickly in the\n\n7\n00:00:30,301 --> 00:00:35,352\nearly cosmos. This evolving universe still hides secrets that new observatories are\n\n8\n00:00:35,352 --> 00:00:40,402\nonly beginning to unlock.\n",
+  "gates": {
+    "ARTIFACT_GATE.json": {
+      "verdict": "PASS",
+      "publishable": null
+    },
+    "AUDIO_DESIGN_GATE.json": {
+      "verdict": "PASS",
+      "publishable": null
+    },
+    "CREATIVE_QUALITY_GATE.json": {
+      "verdict": "PASS",
+      "publishable": true
+    },
+    "PUBLISHABILITY_GATE.json": {
+      "verdict": "PUBLISHABLE",
+      "publishable": true
+    },
+    "RENDERING_INTEGRITY_GATE.json": {
+      "verdict": "PASS",
+      "publishable": null
+    },
+    "LOCALIZATION_GATE.json": {
+      "verdict": "ABSENT",
+      "publishable": null
+    }
+  },
+  "lineage": [
+    {
+      "dialogue_id": "beat-1",
+      "beat_id": "vb-seg-beat-1",
+      "scene_id": "scene-00",
+      "duration_sec": 5.0,
+      "narration": "The James Webb Space Telescope floats in deep space, its golden mirrors facing the cosmic dark.",
+      "visual_mode": "IMAGE"
+    },
+    {
+      "dialogue_id": "beat-2",
+      "beat_id": "vb-seg-beat-2",
+      "scene_id": "scene-01",
+      "duration_sec": 5.0,
+      "narration": "Infrared deep-field images reveal galaxies that formed more than thirteen billion years ago.",
+      "visual_mode": "IMAGE"
+    },
+    {
+      "dialogue_id": "beat-3",
+      "beat_id": "vb-seg-beat-3",
+      "scene_id": "scene-02",
+      "duration_sec": 5.0,
+      "narration": "These images show how early galaxies assembled from gas and dark matter after the Big Bang.",
+      "visual_mode": "IMAGE"
+    },
+    {
+      "dialogue_id": "beat-4",
+      "beat_id": "vb-seg-beat-4",
+      "scene_id": "scene-03",
+      "duration_sec": 5.0,
+      "narration": "Infrared light pierces cosmic dust, unveiling hidden star-forming nurseries inside a glowing nebula.",
+      "visual_mode": "IMAGE"
+    },
+    {
+      "dialogue_id": "beat-5",
+      "beat_id": "vb-seg-beat-5",
+      "scene_id": "scene-04",
+      "duration_sec": 5.0,
+      "narration": "The findings challenge older models of how spiral galaxies grew so quickly in the early cosmos.",
+      "visual_mode": "IMAGE"
+    },
+    {
+      "dialogue_id": "beat-6",
+      "beat_id": "vb-seg-beat-6",
+      "scene_id": "scene-05",
+      "duration_sec": 5.0,
+      "narration": "This evolving universe still hides secrets that new observatories are only beginning to unlock.",
+      "visual_mode": "IMAGE"
+    }
+  ],
+  "ended_at": "2026-09-08T08:23:32Z"
+}

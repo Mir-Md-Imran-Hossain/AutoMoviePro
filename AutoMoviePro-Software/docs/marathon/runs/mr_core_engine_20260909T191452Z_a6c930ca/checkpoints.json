@@ -1,0 +1,68 @@
+[
+  {
+    "ts": "2026-09-09T19:14:53Z",
+    "elapsed_sec": 0.3,
+    "stage": "TOPIC",
+    "job_id": null,
+    "status": "HEALTHY",
+    "note": "CP-00 init complete",
+    "db_languages_unchanged": [
+      "en",
+      "bn"
+    ],
+    "cert_overlay_languages": [
+      "en",
+      "bn",
+      "hi",
+      "ur",
+      "ta",
+      "ml"
+    ],
+    "google_keys_env": 19,
+    "agnes_keys_env": 6
+  },
+  {
+    "ts": "2026-09-09T19:14:53Z",
+    "elapsed_sec": 1.0,
+    "stage": "TOPIC",
+    "job_id": null,
+    "status": "PROGRESSING",
+    "note": "topic=How lunar polar permanently shadowed craters preserve water ice that Artemis pro",
+    "source": "MANUAL_CONCRETE_NICHE_GROUNDED"
+  },
+  {
+    "ts": "2026-09-09T19:15:12Z",
+    "elapsed_sec": 19.6,
+    "stage": "PLAN",
+    "job_id": null,
+    "status": "PROGRESSING",
+    "note": "research_script_plan_ok",
+    "script_class": "REAL"
+  },
+  {
+    "ts": "2026-09-09T19:59:15Z",
+    "elapsed_sec": 2662.6,
+    "stage": "GENERATION",
+    "job_id": 2307,
+    "status": "PROGRESSING",
+    "note": "generation latency=2642.8s",
+    "upload_status": "ready_to_upload"
+  },
+  {
+    "ts": "2026-09-09T19:59:15Z",
+    "elapsed_sec": 2662.6,
+    "stage": "OBSERVE",
+    "job_id": 2307,
+    "status": "PROGRESSING",
+    "note": "watchdog stage=OBSERVE",
+    "work_dir": "E:\\All Updaye Project\\AutoMovie_Pro_SAAS_Final_Update\\AutoMoviePro-Software\\data\\customer_generation_work\\c11_marathon_customer\\job2307"
+  },
+  {
+    "ts": "2026-09-09T19:59:16Z",
+    "elapsed_sec": 2663.2,
+    "stage": "COMPLETED",
+    "job_id": 2307,
+    "status": "COMPLETED",
+    "note": "verdict=PASS_WITH_LIMITATION"
+  }
+]

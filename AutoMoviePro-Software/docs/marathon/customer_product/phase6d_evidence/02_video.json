@@ -1,0 +1,106 @@
+{
+  "step": "REAL_VIDEO",
+  "media": "data\\customer_generation_work\\c11_marathon_customer\\job2108\\scene_00_beat.mp4",
+  "content_hash": "cbf9d0dfc1e03eb801bac2edb6675bb7d7dbf500937dd3962e1f1a24a79af0cf",
+  "duration_sec": 7.24,
+  "sampling": {
+    "status": "PASS",
+    "strategy": "long_uniform_bounded",
+    "frame_count": 5,
+    "timestamps": [
+      0.724,
+      2.172,
+      3.62,
+      5.068,
+      6.516
+    ],
+    "bounded": true,
+    "reuses_compose_ffmpeg": true
+  },
+  "observations": [
+    {
+      "observation_status": "FAIL",
+      "provider": "PROVIDER_FRAME:gemini-3.6-flash",
+      "provider_verified": true,
+      "heuristic": false,
+      "evidence_source": "PROVIDER_VERIFIED",
+      "observed_subjects": [
+        "woman"
+      ],
+      "observed_entities": [
+        "woman"
+      ],
+      "observed_relationships": [],
+      "observed_location": "interior setting",
+      "timestamp": 0.724,
+      "beat_id": "vb-6d-vid",
+      "asset_id": "c11-vid-2108"
+    },
+    {
+      "observation_status": "FAIL",
+      "provider": "PROVIDER_FRAME:gemini-flash-latest",
+      "provider_verified": true,
+      "heuristic": false,
+      "evidence_source": "PROVIDER_VERIFIED",
+      "observed_subjects": [
+        "woman"
+      ],
+      "observed_entities": [
+        "woman",
+        "suit collar"
+      ],
+      "observed_relationships": [
+        "woman looking directly forward"
+      ],
+      "observed_location": "unspecified interior",
+      "timestamp": 6.516,
+      "beat_id": "vb-6d-vid",
+      "asset_id": "c11-vid-2108"
+    }
+  ],
+  "temporal": {
+    "schema": "amp_observation_temporal_evidence_v1",
+    "status": "FAIL",
+    "comparisons": [
+      {
+        "from_index": 0,
+        "to_index": 1,
+        "from_ts": 0.724,
+        "to_ts": 6.516,
+        "dims": {
+          "relationship": "UNKNOWN",
+          "location": "FAIL"
+        }
+      }
+    ],
+    "issues": [
+      "location_change:interior setting->unspecified interior"
+    ],
+    "continuity_tracker_authority": "pipeline.visual_semantic.continuity.ContinuityTracker",
+    "second_continuity_engine": false,
+    "invents_unspecified_rules": false,
+    "unknown_as_pass": false,
+    "creates_final_gate": false
+  },
+  "coverage": {
+    "schema": "amp_observation_beat_frame_coverage_v1",
+    "beat_id": "vb-6d-vid",
+    "scene_id": "sc-6d-1",
+    "dimensions": {
+      "subject": "NONE",
+      "entity": "NONE",
+      "relationship": "NONE",
+      "action": "NONE",
+      "location": "NONE",
+      "environment": "NONE",
+      "camera": "NONE",
+      "lighting": "NONE"
+    },
+    "overall": "NONE",
+    "retrieval_score_is_not_coverage": true,
+    "provider_verified_any": true,
+    "vocabulary": "C05-S VisualCoverage",
+    "unknown_as_pass": false
+  },
+  "live_status": "LIVE"
+}

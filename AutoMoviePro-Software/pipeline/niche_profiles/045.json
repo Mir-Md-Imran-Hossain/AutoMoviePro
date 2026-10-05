@@ -1,0 +1,83 @@
+{
+  "niche_id": 45,
+  "name": "Zero & Mathematics",
+  "slug": "zero-mathematics",
+  "style_family": "history",
+  "status": "VERIFIED",
+  "topic_seeds": [
+    "What new evidence reframes the story of Zero inside Zero & Mathematics",
+    "How Zero still shapes public curiosity about Zero & Mathematics",
+    "What new evidence reframes the story of Mathematics The inside Zero & Mathematics",
+    "How Mathematics The still shapes public curiosity about Zero & Mathematics",
+    "What new evidence reframes the story of Follow inside Zero & Mathematics",
+    "How Follow still shapes public curiosity about Zero & Mathematics"
+  ],
+  "seo_angles": [
+    "What new evidence reframes the story of Zero inside Zero & Mathematics",
+    "How Zero still shapes public curiosity about Zero & Mathematics",
+    "What new evidence reframes the story of Mathematics The inside Zero & Mathematics",
+    "How Mathematics The still shapes public curiosity about Zero & Mathematics"
+  ],
+  "forbidden_visuals": [
+    "talking-head lip-sync avatar",
+    "burned-in captions",
+    "watermark",
+    "modern meme text",
+    "modern smartphones",
+    "cars",
+    "LED screens",
+    "sneakers",
+    "contemporary skyline"
+  ],
+  "preferred_subjects": [
+    "Zero & Mathematics documentary subject",
+    "period-accurate environment",
+    "evidence object close-up"
+  ],
+  "lighting_default": "warm desert sun / torchlit interiors, high-contrast documentary grade",
+  "face_policy": "period extras OK if consistent; prefer environment/object hero when possible",
+  "dialogue_tone": "human documentary narration; specific nouns; 7–9s beats",
+  "audio_ambience": "subtle documentary bed; do not overpower voice",
+  "research_hints": [
+    "Prefer primary evidence and concrete entities for Zero & Mathematics",
+    "Avoid generic niche-label topics; require specific place/person/event/mechanism",
+    "7–9 second spoken beats with story continuity across scenes"
+  ],
+  "topic_prompt_overlay": "NICHE LOCK (Zero & Mathematics): only propose topics that fit this niche's video type. Video type: The origin of numbers, especially zero — how mathematics evolved from counting stones to calculus and modern cryptography. Follow niche topic strategy: Follow math history anniversaries, new mathematical discoveries, or viral math puzzles. Generate a topic that makes math storytelling.",
+  "video_prompt_overlay": "NICHE VISUAL LOCK (Zero & Mathematics / history): Generate a 7–9 second dialogue clip based on the topic `{topic}`. Each dialogue must be logical and wondrous. For each dialogue, generate: - **Audio Generation Prompt:** Voice — clear, precise, with chalkboard scratches. - **Video Generation Prompt:** Detailed visual — math scholar's desk. Character: mathematician (historical robe). Lighting: natural daylight. Maintain same desk and paper. Got it! Here's the **complete continuation from 46 to 150** — all in English, in your requested format with **Topic Generation Prompt** and **Video Generation Prompt** for each niche. The `{topic}` placeholder is kept empty for dynamic generation. Forbidden: talking-head lip-sync avatar, burned-in captions, watermark, modern meme text, modern smartphones, cars, LED screens, sneakers. Preferred subjects: Zero & Mathematics documentary subject, period-accurate environment, evidence object close-up. Lighting: warm desert sun / torchlit interiors, high-contrast documentary grade. Face policy: period extras OK if consistent; prefer environment/object hero when possible. Dialogue tone: human documentary narration; specific nouns; 7–9s beats. Ambience: subtle documentary bed; do not overpower voice.",
+  "i18n": {
+    "en": {
+      "name": "Zero & Mathematics",
+      "blurb": "The origin of numbers, especially zero — how mathematics evolved from counting stones to calculus and modern cryptography."
+    },
+    "bn": {
+      "name": "শূন্য ও গণিত",
+      "blurb": "ভিডিও টাইপ: The origin of numbers, especially zero — how mathematics evolved from counting stones to calculus and modern cryptography."
+    },
+    "hi": {
+      "name": "शून्य और गणित",
+      "blurb": "वीडियो प्रकार: The origin of numbers, especially zero — how mathematics evolved from counting stones to calculus and modern cryptography."
+    },
+    "ur": {
+      "name": "صفر اور ریاضی",
+      "blurb": "ویڈیو کی قسم: The origin of numbers, especially zero — how mathematics evolved from counting stones to calculus and modern cryptography."
+    },
+    "ta": {
+      "name": "பூஜ்யம் & கணிதம்",
+      "blurb": "வீடியோ வகை: The origin of numbers, especially zero — how mathematics evolved from counting stones to calculus and modern cryptography."
+    },
+    "ml": {
+      "name": "പൂജ്യവും ഗണിതവും",
+      "blurb": "വീഡിയോ തരം: The origin of numbers, especially zero — how mathematics evolved from counting stones to calculus and modern cryptography."
+    }
+  },
+  "source": "Nish.Md + deterministic research",
+  "research_notes": [
+    "Marathon researched at 2026-09-10T08:30:13Z",
+    "Video type length=122",
+    "Topic prompt length=134",
+    "Video prompt length=640",
+    "Seeds=6"
+  ],
+  "verified_at": "2026-09-10T08:30:14Z"
+}

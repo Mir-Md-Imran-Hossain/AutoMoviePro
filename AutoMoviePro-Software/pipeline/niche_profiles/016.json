@@ -1,0 +1,83 @@
+{
+  "niche_id": 16,
+  "name": "Ordinary Heroes",
+  "slug": "ordinary-heroes",
+  "style_family": "history",
+  "status": "VERIFIED",
+  "topic_seeds": [
+    "What new evidence reframes the story of Ordinary Heroes Unsung inside Ordinary Heroes",
+    "How Ordinary Heroes Unsung still shapes public curiosity about Ordinary Heroes",
+    "What new evidence reframes the story of Search inside Ordinary Heroes",
+    "How Search still shapes public curiosity about Ordinary Heroes",
+    "What new evidence reframes the story of Generate inside Ordinary Heroes",
+    "How Generate still shapes public curiosity about Ordinary Heroes"
+  ],
+  "seo_angles": [
+    "What new evidence reframes the story of Ordinary Heroes Unsung inside Ordinary Heroes",
+    "How Ordinary Heroes Unsung still shapes public curiosity about Ordinary Heroes",
+    "What new evidence reframes the story of Search inside Ordinary Heroes",
+    "How Search still shapes public curiosity about Ordinary Heroes"
+  ],
+  "forbidden_visuals": [
+    "talking-head lip-sync avatar",
+    "burned-in captions",
+    "watermark",
+    "modern meme text",
+    "modern smartphones",
+    "cars",
+    "LED screens",
+    "sneakers",
+    "contemporary skyline"
+  ],
+  "preferred_subjects": [
+    "Ordinary Heroes documentary subject",
+    "period-accurate environment",
+    "evidence object close-up"
+  ],
+  "lighting_default": "warm desert sun / torchlit interiors, high-contrast documentary grade",
+  "face_policy": "period extras OK if consistent; prefer environment/object hero when possible",
+  "dialogue_tone": "human documentary narration; specific nouns; 7–9s beats",
+  "audio_ambience": "subtle documentary bed; do not overpower voice",
+  "research_hints": [
+    "Prefer primary evidence and concrete entities for Ordinary Heroes",
+    "Avoid generic niche-label topics; require specific place/person/event/mechanism",
+    "7–9 second spoken beats with story continuity across scenes"
+  ],
+  "topic_prompt_overlay": "NICHE LOCK (Ordinary Heroes): only propose topics that fit this niche's video type. Video type: Unsung individuals who saved lives during wars, fires, or terror attacks — their split-second decisions, personal sacrifices, and why they never sought fame. Follow niche topic strategy: Search for recent bravery awards, local news features, or viral social media posts about everyday heroism. Generate a topic that brings tears and gratitude.",
+  "video_prompt_overlay": "NICHE VISUAL LOCK (Ordinary Heroes / history): Generate a 7–9 second dialogue clip based on the topic `{topic}`. Each dialogue must be heartfelt and noble. For each dialogue, generate: - **Audio Generation Prompt:** Voice — gentle, respectful, with soft orchestral swell. - **Video Generation Prompt:** Detailed visual — a quiet neighbourhood or rescue scene. Character: hero (neutral appearance). Lighting: warm sunset or soft morning light. Maintain same location and lighting. Forbidden: talking-head lip-sync avatar, burned-in captions, watermark, modern meme text, modern smartphones, cars, LED screens, sneakers. Preferred subjects: Ordinary Heroes documentary subject, period-accurate environment, evidence object close-up. Lighting: warm desert sun / torchlit interiors, high-contrast documentary grade. Face policy: period extras OK if consistent; prefer environment/object hero when possible. Dialogue tone: human documentary narration; specific nouns; 7–9s beats. Ambience: subtle documentary bed; do not overpower voice.",
+  "i18n": {
+    "en": {
+      "name": "Ordinary Heroes",
+      "blurb": "Unsung individuals who saved lives during wars, fires, or terror attacks — their split-second decisions, personal sacrifices, and why they never sought fame."
+    },
+    "bn": {
+      "name": "সাধারণ নায়ক",
+      "blurb": "ভিডিও টাইপ: Unsung individuals who saved lives during wars, fires, or terror attacks — their split-second decisions, personal sacrifices, and why they never…"
+    },
+    "hi": {
+      "name": "साधारण नायक",
+      "blurb": "वीडियो प्रकार: Unsung individuals who saved lives during wars, fires, or terror attacks — their split-second decisions, personal sacrifices, and why they never…"
+    },
+    "ur": {
+      "name": "عام ہیرو",
+      "blurb": "ویڈیو کی قسم: Unsung individuals who saved lives during wars, fires, or terror attacks — their split-second decisions, personal sacrifices, and why they never…"
+    },
+    "ta": {
+      "name": "சாதாரண வீரர்கள்",
+      "blurb": "வீடியோ வகை: Unsung individuals who saved lives during wars, fires, or terror attacks — their split-second decisions, personal sacrifices, and why they never…"
+    },
+    "ml": {
+      "name": "സാധാരണ നായകന്മാർ",
+      "blurb": "വീഡിയോ തരം: Unsung individuals who saved lives during wars, fires, or terror attacks — their split-second decisions, personal sacrifices, and why they never…"
+    }
+  },
+  "source": "Nish.Md + deterministic research",
+  "research_notes": [
+    "Marathon researched at 2026-09-10T08:30:09Z",
+    "Video type length=157",
+    "Topic prompt length=156",
+    "Video prompt length=432",
+    "Seeds=6"
+  ],
+  "verified_at": "2026-09-10T08:30:10Z"
+}

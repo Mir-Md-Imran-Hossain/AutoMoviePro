@@ -1,0 +1,362 @@
+{
+  "label": "T1B_HASH_VS_CLIP",
+  "job": "job2333",
+  "performance": {
+    "os": "win32",
+    "clip_available": false,
+    "clip_meta": {
+      "status": "RETRIEVAL_UNAVAILABLE",
+      "reason": "EMBEDDING_BACKEND_UNAVAILABLE",
+      "clip_probe": {
+        "available": false,
+        "backend": "",
+        "model_id": "open_clip:ViT-B-32:openai",
+        "version": "v1",
+        "kind": "CLIP",
+        "device": "cpu",
+        "dtype": "float32",
+        "embedding_dim": 512,
+        "normalized": true,
+        "impl": "",
+        "error": "EMBEDDING_BACKEND_UNAVAILABLE:No module named 'torch'",
+        "gpu_mandatory": false,
+        "load_sec": null,
+        "from_cache": false,
+        "cache_root": "E:\\All Updaye Project\\AutoMovie_Pro_SAAS_Final_Update\\AutoMoviePro-Software\\data\\models\\open-clip",
+        "claims_semantic_truth": false
+      },
+      "observation_status": "OBSERVATION_UNAVAILABLE",
+      "claims_semantic_truth": false,
+      "semantic_pass": false,
+      "unknown_as_pass": false
+    },
+    "faiss": {
+      "available": true,
+      "version": "1.15.0"
+    }
+  },
+  "rows": [
+    {
+      "query": "cinematic documentary shot of Most viewers Most JWST Mid-Infrared Spectra Exoplanet Atmospheres: Most viewers miss this ",
+      "expected_semantic_concept": "JWST / telescope / exoplanet atmospheres documentary",
+      "hash_top1": "scene_01_beat_t010",
+      "clip_top1": null,
+      "hash_top3": [
+        "scene_01_beat_t010",
+        "scene_03_beat_t010",
+        "agnes_03_beat_i2v_a1_t008"
+      ],
+      "clip_top3": [],
+      "hash_scores": [
+        0.05059930309653282,
+        0.046568673104047775,
+        0.03003520332276821
+      ],
+      "clip_scores": [],
+      "hash_kind": "HEURISTIC_NON_SEMANTIC",
+      "clip_kind": "CLIP",
+      "clip_run_status": "UNAVAILABLE",
+      "relevant_result": "UNKNOWN",
+      "notes": "CLIP unavailable — cannot claim semantic quality; hash is HEURISTIC_NON_SEMANTIC only",
+      "hash_result": {
+        "backend": "amp_hash_embed_v1",
+        "kind": "HEURISTIC_NON_SEMANTIC",
+        "status": "PASS",
+        "index_namespace": "heuristic_non_semantic__amp_hash_embed_v1__d512__v1",
+        "build_sec": 0.017,
+        "query_sec": 0.002,
+        "persist": {
+          "status": "PASS",
+          "count": 12,
+          "path": "C:\\Users\\HP\\AppData\\Local\\Temp\\tmpvjxd4cvi\\hash_idx\\heuristic_non_semantic__amp_hash_embed_v1__d512__v1"
+        },
+        "top_k": [
+          {
+            "asset_id": "scene_01_beat_t010",
+            "score": 0.05059930309653282,
+            "source_video": "scene_01_beat.mp4",
+            "local_path": "E:\\All Updaye Project\\AutoMovie_Pro_SAAS_Final_Update\\AutoMoviePro-Software\\docs\\marathon\\evidence\\t1b\\golden_dataset\\assets\\scene_01_beat_t010.jpg"
+          },
+          {
+            "asset_id": "scene_03_beat_t010",
+            "score": 0.046568673104047775,
+            "source_video": "scene_03_beat.mp4",
+            "local_path": "E:\\All Updaye Project\\AutoMovie_Pro_SAAS_Final_Update\\AutoMoviePro-Software\\docs\\marathon\\evidence\\t1b\\golden_dataset\\assets\\scene_03_beat_t010.jpg"
+          },
+          {
+            "asset_id": "agnes_03_beat_i2v_a1_t008",
+            "score": 0.03003520332276821,
+            "source_video": "agnes_03_beat_i2v_a1.mp4",
+            "local_path": "E:\\All Updaye Project\\AutoMovie_Pro_SAAS_Final_Update\\AutoMoviePro-Software\\docs\\marathon\\evidence\\t1b\\golden_dataset\\assets\\agnes_03_beat_i2v_a1_t008.jpg"
+          }
+        ],
+        "claims_semantic_truth": false
+      },
+      "clip_result": {
+        "status": "RETRIEVAL_UNAVAILABLE",
+        "reason": "EMBEDDING_BACKEND_UNAVAILABLE",
+        "kind": "CLIP",
+        "top_k": [],
+        "claims_semantic_truth": false
+      }
+    },
+    {
+      "query": "cinematic documentary shot of Visible light Visible Mid-infrared: Visible light bounces off clouds. Mid-infrared penetra",
+      "expected_semantic_concept": "visible vs mid-infrared light / dust / space science",
+      "hash_top1": "scene_04_beat_t015",
+      "clip_top1": null,
+      "hash_top3": [
+        "scene_04_beat_t015",
+        "final_short_t010",
+        "agnes_00_beat_i2v_a1_t008"
+      ],
+      "clip_top3": [],
+      "hash_scores": [
+        0.1038178950548172,
+        0.06524177640676498,
+        0.06022023409605026
+      ],
+      "clip_scores": [],
+      "hash_kind": "HEURISTIC_NON_SEMANTIC",
+      "clip_kind": "CLIP",
+      "clip_run_status": "UNAVAILABLE",
+      "relevant_result": "UNKNOWN",
+      "notes": "CLIP unavailable — cannot claim semantic quality; hash is HEURISTIC_NON_SEMANTIC only",
+      "hash_result": {
+        "backend": "amp_hash_embed_v1",
+        "kind": "HEURISTIC_NON_SEMANTIC",
+        "status": "PASS",
+        "index_namespace": "heuristic_non_semantic__amp_hash_embed_v1__d512__v1",
+        "build_sec": 0.033,
+        "query_sec": 0.001,
+        "persist": {
+          "status": "PASS",
+          "count": 12,
+          "path": "C:\\Users\\HP\\AppData\\Local\\Temp\\tmpvjxd4cvi\\hash_idx\\heuristic_non_semantic__amp_hash_embed_v1__d512__v1"
+        },
+        "top_k": [
+          {
+            "asset_id": "scene_04_beat_t015",
+            "score": 0.1038178950548172,
+            "source_video": "scene_04_beat.mp4",
+            "local_path": "E:\\All Updaye Project\\AutoMovie_Pro_SAAS_Final_Update\\AutoMoviePro-Software\\docs\\marathon\\evidence\\t1b\\golden_dataset\\assets\\scene_04_beat_t015.jpg"
+          },
+          {
+            "asset_id": "final_short_t010",
+            "score": 0.06524177640676498,
+            "source_video": "final_short.mp4",
+            "local_path": "E:\\All Updaye Project\\AutoMovie_Pro_SAAS_Final_Update\\AutoMoviePro-Software\\docs\\marathon\\evidence\\t1b\\golden_dataset\\assets\\final_short_t010.jpg"
+          },
+          {
+            "asset_id": "agnes_00_beat_i2v_a1_t008",
+            "score": 0.06022023409605026,
+            "source_video": "agnes_00_beat_i2v_a1.mp4",
+            "local_path": "E:\\All Updaye Project\\AutoMovie_Pro_SAAS_Final_Update\\AutoMoviePro-Software\\docs\\marathon\\evidence\\t1b\\golden_dataset\\assets\\agnes_00_beat_i2v_a1_t008.jpg"
+          }
+        ],
+        "claims_semantic_truth": false
+      },
+      "clip_result": {
+        "status": "RETRIEVAL_UNAVAILABLE",
+        "reason": "EMBEDDING_BACKEND_UNAVAILABLE",
+        "kind": "CLIP",
+        "top_k": [],
+        "claims_semantic_truth": false
+      }
+    },
+    {
+      "query": "cinematic documentary shot of penetrates watch Methane: From that penetrates, watch what this changes next — carbon diox",
+      "expected_semantic_concept": "spectral fingerprint / methane / carbon dioxide absorption",
+      "hash_top1": "scene_02_beat_t020",
+      "clip_top1": null,
+      "hash_top3": [
+        "scene_02_beat_t020",
+        "agnes_03_beat_i2v_a1_t008",
+        "final_short_t160"
+      ],
+      "clip_top3": [],
+      "hash_scores": [
+        0.13502264022827148,
+        0.05843251943588257,
+        0.04085450619459152
+      ],
+      "clip_scores": [],
+      "hash_kind": "HEURISTIC_NON_SEMANTIC",
+      "clip_kind": "CLIP",
+      "clip_run_status": "UNAVAILABLE",
+      "relevant_result": "UNKNOWN",
+      "notes": "CLIP unavailable — cannot claim semantic quality; hash is HEURISTIC_NON_SEMANTIC only",
+      "hash_result": {
+        "backend": "amp_hash_embed_v1",
+        "kind": "HEURISTIC_NON_SEMANTIC",
+        "status": "PASS",
+        "index_namespace": "heuristic_non_semantic__amp_hash_embed_v1__d512__v1",
+        "build_sec": 0.031,
+        "query_sec": 0.001,
+        "persist": {
+          "status": "PASS",
+          "count": 12,
+          "path": "C:\\Users\\HP\\AppData\\Local\\Temp\\tmpvjxd4cvi\\hash_idx\\heuristic_non_semantic__amp_hash_embed_v1__d512__v1"
+        },
+        "top_k": [
+          {
+            "asset_id": "scene_02_beat_t020",
+            "score": 0.13502264022827148,
+            "source_video": "scene_02_beat.mp4",
+            "local_path": "E:\\All Updaye Project\\AutoMovie_Pro_SAAS_Final_Update\\AutoMoviePro-Software\\docs\\marathon\\evidence\\t1b\\golden_dataset\\assets\\scene_02_beat_t020.jpg"
+          },
+          {
+            "asset_id": "agnes_03_beat_i2v_a1_t008",
+            "score": 0.05843251943588257,
+            "source_video": "agnes_03_beat_i2v_a1.mp4",
+            "local_path": "E:\\All Updaye Project\\AutoMovie_Pro_SAAS_Final_Update\\AutoMoviePro-Software\\docs\\marathon\\evidence\\t1b\\golden_dataset\\assets\\agnes_03_beat_i2v_a1_t008.jpg"
+          },
+          {
+            "asset_id": "final_short_t160",
+            "score": 0.04085450619459152,
+            "source_video": "final_short.mp4",
+            "local_path": "E:\\All Updaye Project\\AutoMovie_Pro_SAAS_Final_Update\\AutoMoviePro-Software\\docs\\marathon\\evidence\\t1b\\golden_dataset\\assets\\final_short_t160.jpg"
+          }
+        ],
+        "claims_semantic_truth": false
+      },
+      "clip_result": {
+        "status": "RETRIEVAL_UNAVAILABLE",
+        "reason": "EMBEDDING_BACKEND_UNAVAILABLE",
+        "kind": "CLIP",
+        "top_k": [],
+        "claims_semantic_truth": false
+      }
+    },
+    {
+      "query": "cinematic documentary shot of star million We: But the star is a million times brighter. We subtract its light. — cinema",
+      "expected_semantic_concept": "bright star light subtraction / exoplanet signal",
+      "hash_top1": "agnes_00_beat_i2v_a1_t008",
+      "clip_top1": null,
+      "hash_top3": [
+        "agnes_00_beat_i2v_a1_t008",
+        "scene_01_beat_t010",
+        "agnes_03_beat_i2v_a1_t008"
+      ],
+      "clip_top3": [],
+      "hash_scores": [
+        0.044528309255838394,
+        0.030841391533613205,
+        0.013793308287858963
+      ],
+      "clip_scores": [],
+      "hash_kind": "HEURISTIC_NON_SEMANTIC",
+      "clip_kind": "CLIP",
+      "clip_run_status": "UNAVAILABLE",
+      "relevant_result": "UNKNOWN",
+      "notes": "CLIP unavailable — cannot claim semantic quality; hash is HEURISTIC_NON_SEMANTIC only",
+      "hash_result": {
+        "backend": "amp_hash_embed_v1",
+        "kind": "HEURISTIC_NON_SEMANTIC",
+        "status": "PASS",
+        "index_namespace": "heuristic_non_semantic__amp_hash_embed_v1__d512__v1",
+        "build_sec": 0.034,
+        "query_sec": 0.001,
+        "persist": {
+          "status": "PASS",
+          "count": 12,
+          "path": "C:\\Users\\HP\\AppData\\Local\\Temp\\tmpvjxd4cvi\\hash_idx\\heuristic_non_semantic__amp_hash_embed_v1__d512__v1"
+        },
+        "top_k": [
+          {
+            "asset_id": "agnes_00_beat_i2v_a1_t008",
+            "score": 0.044528309255838394,
+            "source_video": "agnes_00_beat_i2v_a1.mp4",
+            "local_path": "E:\\All Updaye Project\\AutoMovie_Pro_SAAS_Final_Update\\AutoMoviePro-Software\\docs\\marathon\\evidence\\t1b\\golden_dataset\\assets\\agnes_00_beat_i2v_a1_t008.jpg"
+          },
+          {
+            "asset_id": "scene_01_beat_t010",
+            "score": 0.030841391533613205,
+            "source_video": "scene_01_beat.mp4",
+            "local_path": "E:\\All Updaye Project\\AutoMovie_Pro_SAAS_Final_Update\\AutoMoviePro-Software\\docs\\marathon\\evidence\\t1b\\golden_dataset\\assets\\scene_01_beat_t010.jpg"
+          },
+          {
+            "asset_id": "agnes_03_beat_i2v_a1_t008",
+            "score": 0.013793308287858963,
+            "source_video": "agnes_03_beat_i2v_a1.mp4",
+            "local_path": "E:\\All Updaye Project\\AutoMovie_Pro_SAAS_Final_Update\\AutoMoviePro-Software\\docs\\marathon\\evidence\\t1b\\golden_dataset\\assets\\agnes_03_beat_i2v_a1_t008.jpg"
+          }
+        ],
+        "claims_semantic_truth": false
+      },
+      "clip_result": {
+        "status": "RETRIEVAL_UNAVAILABLE",
+        "reason": "EMBEDDING_BACKEND_UNAVAILABLE",
+        "kind": "CLIP",
+        "top_k": [],
+        "claims_semantic_truth": false
+      }
+    },
+    {
+      "query": "cinematic documentary shot of brighter water It: From that brighter, water vapor is tricky. It can hide behind clouds — ",
+      "expected_semantic_concept": "water vapor / clouds / atmospheric spectroscopy",
+      "hash_top1": "final_short_t010",
+      "clip_top1": null,
+      "hash_top3": [
+        "final_short_t010",
+        "scene_02_beat_t020",
+        "final_short_t280"
+      ],
+      "clip_top3": [],
+      "hash_scores": [
+        0.06631708890199661,
+        0.0328880250453949,
+        0.02815796248614788
+      ],
+      "clip_scores": [],
+      "hash_kind": "HEURISTIC_NON_SEMANTIC",
+      "clip_kind": "CLIP",
+      "clip_run_status": "UNAVAILABLE",
+      "relevant_result": "UNKNOWN",
+      "notes": "CLIP unavailable — cannot claim semantic quality; hash is HEURISTIC_NON_SEMANTIC only",
+      "hash_result": {
+        "backend": "amp_hash_embed_v1",
+        "kind": "HEURISTIC_NON_SEMANTIC",
+        "status": "PASS",
+        "index_namespace": "heuristic_non_semantic__amp_hash_embed_v1__d512__v1",
+        "build_sec": 0.031,
+        "query_sec": 0.0,
+        "persist": {
+          "status": "PASS",
+          "count": 12,
+          "path": "C:\\Users\\HP\\AppData\\Local\\Temp\\tmpvjxd4cvi\\hash_idx\\heuristic_non_semantic__amp_hash_embed_v1__d512__v1"
+        },
+        "top_k": [
+          {
+            "asset_id": "final_short_t010",
+            "score": 0.06631708890199661,
+            "source_video": "final_short.mp4",
+            "local_path": "E:\\All Updaye Project\\AutoMovie_Pro_SAAS_Final_Update\\AutoMoviePro-Software\\docs\\marathon\\evidence\\t1b\\golden_dataset\\assets\\final_short_t010.jpg"
+          },
+          {
+            "asset_id": "scene_02_beat_t020",
+            "score": 0.0328880250453949,
+            "source_video": "scene_02_beat.mp4",
+            "local_path": "E:\\All Updaye Project\\AutoMovie_Pro_SAAS_Final_Update\\AutoMoviePro-Software\\docs\\marathon\\evidence\\t1b\\golden_dataset\\assets\\scene_02_beat_t020.jpg"
+          },
+          {
+            "asset_id": "final_short_t280",
+            "score": 0.02815796248614788,
+            "source_video": "final_short.mp4",
+            "local_path": "E:\\All Updaye Project\\AutoMovie_Pro_SAAS_Final_Update\\AutoMoviePro-Software\\docs\\marathon\\evidence\\t1b\\golden_dataset\\assets\\final_short_t280.jpg"
+          }
+        ],
+        "claims_semantic_truth": false
+      },
+      "clip_result": {
+        "status": "RETRIEVAL_UNAVAILABLE",
+        "reason": "EMBEDDING_BACKEND_UNAVAILABLE",
+        "kind": "CLIP",
+        "top_k": [],
+        "claims_semantic_truth": false
+      }
+    }
+  ],
+  "claims_semantic_truth": false,
+  "hash_policy": "HEURISTIC_NON_SEMANTIC"
+}

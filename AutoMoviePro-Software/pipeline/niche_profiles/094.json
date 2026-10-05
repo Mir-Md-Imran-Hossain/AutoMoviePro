@@ -1,0 +1,79 @@
+{
+  "niche_id": 94,
+  "name": "Archival Treasures",
+  "slug": "archival-treasures",
+  "style_family": "science",
+  "status": "VERIFIED",
+  "topic_seeds": [
+    "What new evidence reframes the story of Archival Treasures Library inside Archival Treasures",
+    "How Archival Treasures Library still shapes public curiosity about Archival Treasures",
+    "What new evidence reframes the story of Congress inside Archival Treasures",
+    "How Congress still shapes public curiosity about Archival Treasures",
+    "What new evidence reframes the story of Europeana inside Archival Treasures",
+    "How Europeana still shapes public curiosity about Archival Treasures"
+  ],
+  "seo_angles": [
+    "What new evidence reframes the story of Archival Treasures Library inside Archival Treasures",
+    "How Archival Treasures Library still shapes public curiosity about Archival Treasures",
+    "What new evidence reframes the story of Congress inside Archival Treasures",
+    "How Congress still shapes public curiosity about Archival Treasures"
+  ],
+  "forbidden_visuals": [
+    "talking-head lip-sync avatar",
+    "burned-in captions",
+    "watermark",
+    "modern meme text",
+    "off-niche stock office B-roll"
+  ],
+  "preferred_subjects": [
+    "lab instrument close-up",
+    "diagrammatic mechanism metaphor",
+    "field measurement site"
+  ],
+  "lighting_default": "teal/cyan lab grade, high contrast, shallow DOF",
+  "face_policy": "no talking-head lip-sync avatar; cinematic B-roll preferred",
+  "dialogue_tone": "clear explainer; one mechanism per beat",
+  "audio_ambience": "clean room tone, soft electronic texture",
+  "research_hints": [
+    "Prefer primary evidence and concrete entities for Archival Treasures",
+    "Avoid generic niche-label topics; require specific place/person/event/mechanism",
+    "7–9 second spoken beats with story continuity across scenes"
+  ],
+  "topic_prompt_overlay": "NICHE LOCK (Archival Treasures): only propose topics that fit this niche's video type. Video type: Library of Congress, Europeana — exploring their digitized rare books, maps, and photographs with historical commentary. Follow niche topic strategy: Check new archival digitizations, museum news, or viral historical images. Generate a topic about a newly digitized rare find.",
+  "video_prompt_overlay": "NICHE VISUAL LOCK (Archival Treasures / science): Generate a 7–9 second dialogue clip based on the topic `{topic}`. Each dialogue must be scholarly and exciting. For each dialogue, generate: - **Audio Generation Prompt:** Voice — learned, with paper rustling and camera clicks. - **Video Generation Prompt:** Detailed visual — a reading room or digitisation lab. Character: archivist (glasses). Lighting: soft, respectful. Maintain same room. Forbidden: talking-head lip-sync avatar, burned-in captions, watermark, modern meme text, off-niche stock office B-roll. Preferred subjects: lab instrument close-up, diagrammatic mechanism metaphor, field measurement site. Lighting: teal/cyan lab grade, high contrast, shallow DOF. Face policy: no talking-head lip-sync avatar; cinematic B-roll preferred. Dialogue tone: clear explainer; one mechanism per beat. Ambience: clean room tone, soft electronic texture.",
+  "i18n": {
+    "en": {
+      "name": "Archival Treasures",
+      "blurb": "Library of Congress, Europeana — exploring their digitized rare books, maps, and photographs with historical commentary."
+    },
+    "bn": {
+      "name": "আর্কাইভের ধন",
+      "blurb": "ভিডিও টাইপ: Library of Congress, Europeana — exploring their digitized rare books, maps, and photographs with historical commentary."
+    },
+    "hi": {
+      "name": "अभिलेखीय खज़ाने",
+      "blurb": "वीडियो प्रकार: Library of Congress, Europeana — exploring their digitized rare books, maps, and photographs with historical commentary."
+    },
+    "ur": {
+      "name": "آرکائیو خزانے",
+      "blurb": "ویڈیو کی قسم: Library of Congress, Europeana — exploring their digitized rare books, maps, and photographs with historical commentary."
+    },
+    "ta": {
+      "name": "காப்பகப் பொக்கிஷங்கள்",
+      "blurb": "வீடியோ வகை: Library of Congress, Europeana — exploring their digitized rare books, maps, and photographs with historical commentary."
+    },
+    "ml": {
+      "name": "ആർക്കൈവൽ നിധികൾ",
+      "blurb": "വീഡിയോ തരം: Library of Congress, Europeana — exploring their digitized rare books, maps, and photographs with historical commentary."
+    }
+  },
+  "source": "Nish.Md + deterministic research",
+  "research_notes": [
+    "Marathon researched at 2026-09-10T08:30:21Z",
+    "Video type length=120",
+    "Topic prompt length=126",
+    "Video prompt length=392",
+    "Seeds=6"
+  ],
+  "verified_at": "2026-09-10T08:30:21Z"
+}

@@ -1,0 +1,10 @@
+[
+  {
+    "intervention_id": "INT-001",
+    "ts": "2026-09-10T14:37:03Z",
+    "reason": "script_live_failed",
+    "detected_problem": "script_generation_failure",
+    "action": "retry_script_mock_labeled",
+    "authority": "customer_trs_workflow.generate_script"
+  }
+]

@@ -1,0 +1,83 @@
+{
+  "niche_id": 116,
+  "name": "Smart Home Gadgets",
+  "slug": "smart-home-gadgets",
+  "style_family": "history",
+  "status": "VERIFIED",
+  "topic_seeds": [
+    "What new evidence reframes the story of Smart Home Gadgets Alexa inside Smart Home Gadgets",
+    "How Smart Home Gadgets Alexa still shapes public curiosity about Smart Home Gadgets",
+    "What new evidence reframes the story of Philips Hue inside Smart Home Gadgets",
+    "How Philips Hue still shapes public curiosity about Smart Home Gadgets",
+    "What new evidence reframes the story of Check inside Smart Home Gadgets",
+    "How Check still shapes public curiosity about Smart Home Gadgets"
+  ],
+  "seo_angles": [
+    "What new evidence reframes the story of Smart Home Gadgets Alexa inside Smart Home Gadgets",
+    "How Smart Home Gadgets Alexa still shapes public curiosity about Smart Home Gadgets",
+    "What new evidence reframes the story of Philips Hue inside Smart Home Gadgets",
+    "How Philips Hue still shapes public curiosity about Smart Home Gadgets"
+  ],
+  "forbidden_visuals": [
+    "talking-head lip-sync avatar",
+    "burned-in captions",
+    "watermark",
+    "modern meme text",
+    "modern smartphones",
+    "cars",
+    "LED screens",
+    "sneakers",
+    "contemporary skyline"
+  ],
+  "preferred_subjects": [
+    "Smart Home Gadgets documentary subject",
+    "period-accurate environment",
+    "evidence object close-up"
+  ],
+  "lighting_default": "warm desert sun / torchlit interiors, high-contrast documentary grade",
+  "face_policy": "period extras OK if consistent; prefer environment/object hero when possible",
+  "dialogue_tone": "human documentary narration; specific nouns; 7–9s beats",
+  "audio_ambience": "subtle documentary bed; do not overpower voice",
+  "research_hints": [
+    "Prefer primary evidence and concrete entities for Smart Home Gadgets",
+    "Avoid generic niche-label topics; require specific place/person/event/mechanism",
+    "7–9 second spoken beats with story continuity across scenes"
+  ],
+  "topic_prompt_overlay": "NICHE LOCK (Smart Home Gadgets): only propose topics that fit this niche's video type. Video type: Alexa, Philips Hue, smart locks — how to automate your home, save energy, and boost security. Follow niche topic strategy: Check smart home news, new gadget releases, or viral home automation videos. Generate a topic about a gadget that simplifies daily life.",
+  "video_prompt_overlay": "NICHE VISUAL LOCK (Smart Home Gadgets / history): Generate a 7–9 second dialogue clip based on the topic `{topic}`. Each dialogue must be modern and helpful. For each dialogue, generate: - **Audio Generation Prompt:** Voice — friendly, with device beeps and soft music. - **Video Generation Prompt:** Detailed visual — a smart home scene (lights, locks). No character — room. Lighting: warm, automated. Maintain same room. Forbidden: talking-head lip-sync avatar, burned-in captions, watermark, modern meme text, modern smartphones, cars, LED screens, sneakers. Preferred subjects: Smart Home Gadgets documentary subject, period-accurate environment, evidence object close-up. Lighting: warm desert sun / torchlit interiors, high-contrast documentary grade. Face policy: period extras OK if consistent; prefer environment/object hero when possible. Dialogue tone: human documentary narration; specific nouns; 7–9s beats. Ambience: subtle documentary bed; do not overpower voice.",
+  "i18n": {
+    "en": {
+      "name": "Smart Home Gadgets",
+      "blurb": "Alexa, Philips Hue, smart locks — how to automate your home, save energy, and boost security."
+    },
+    "bn": {
+      "name": "স্মার্ট হোম গ্যাজেট",
+      "blurb": "ভিডিও টাইপ: Alexa, Philips Hue, smart locks — how to automate your home, save energy, and boost security."
+    },
+    "hi": {
+      "name": "स्मार्ट होम गैजेट",
+      "blurb": "वीडियो प्रकार: Alexa, Philips Hue, smart locks — how to automate your home, save energy, and boost security."
+    },
+    "ur": {
+      "name": "سمارٹ ہوم گیجٹس",
+      "blurb": "ویڈیو کی قسم: Alexa, Philips Hue, smart locks — how to automate your home, save energy, and boost security."
+    },
+    "ta": {
+      "name": "ஸ்மார்ட் ஹோம் கேஜெட்கள்",
+      "blurb": "வீடியோ வகை: Alexa, Philips Hue, smart locks — how to automate your home, save energy, and boost security."
+    },
+    "ml": {
+      "name": "സ്മാർട്ട് ഹോം ഗാഡ്‌ജെറ്റുകൾ",
+      "blurb": "വീഡിയോ തരം: Alexa, Philips Hue, smart locks — how to automate your home, save energy, and boost security."
+    }
+  },
+  "source": "Nish.Md + deterministic research",
+  "research_notes": [
+    "Marathon researched at 2026-09-10T08:30:25Z",
+    "Video type length=93",
+    "Topic prompt length=136",
+    "Video prompt length=372",
+    "Seeds=6"
+  ],
+  "verified_at": "2026-09-10T08:30:25Z"
+}

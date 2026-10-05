@@ -1,0 +1,83 @@
+{
+  "niche_id": 56,
+  "name": "Parental Sacrifice",
+  "slug": "parental-sacrifice",
+  "style_family": "history",
+  "status": "VERIFIED",
+  "topic_seeds": [
+    "What new evidence reframes the story of Parental Sacrifice Heartwarming inside Parental Sacrifice",
+    "How Parental Sacrifice Heartwarming still shapes public curiosity about Parental Sacrifice",
+    "What new evidence reframes the story of Scan inside Parental Sacrifice",
+    "How Scan still shapes public curiosity about Parental Sacrifice",
+    "What new evidence reframes the story of Generate inside Parental Sacrifice",
+    "How Generate still shapes public curiosity about Parental Sacrifice"
+  ],
+  "seo_angles": [
+    "What new evidence reframes the story of Parental Sacrifice Heartwarming inside Parental Sacrifice",
+    "How Parental Sacrifice Heartwarming still shapes public curiosity about Parental Sacrifice",
+    "What new evidence reframes the story of Scan inside Parental Sacrifice",
+    "How Scan still shapes public curiosity about Parental Sacrifice"
+  ],
+  "forbidden_visuals": [
+    "talking-head lip-sync avatar",
+    "burned-in captions",
+    "watermark",
+    "modern meme text",
+    "modern smartphones",
+    "cars",
+    "LED screens",
+    "sneakers",
+    "contemporary skyline"
+  ],
+  "preferred_subjects": [
+    "Parental Sacrifice documentary subject",
+    "period-accurate environment",
+    "evidence object close-up"
+  ],
+  "lighting_default": "warm desert sun / torchlit interiors, high-contrast documentary grade",
+  "face_policy": "period extras OK if consistent; prefer environment/object hero when possible",
+  "dialogue_tone": "human documentary narration; specific nouns; 7–9s beats",
+  "audio_ambience": "subtle documentary bed; do not overpower voice",
+  "research_hints": [
+    "Prefer primary evidence and concrete entities for Parental Sacrifice",
+    "Avoid generic niche-label topics; require specific place/person/event/mechanism",
+    "7–9 second spoken beats with story continuity across scenes"
+  ],
+  "topic_prompt_overlay": "NICHE LOCK (Parental Sacrifice): only propose topics that fit this niche's video type. Video type: Heartwarming stories of parents who gave up everything — health, wealth, dreams — for their children's future. Follow niche topic strategy: Scan human-interest news, viral social media posts, or documentary recommendations. Generate a topic about a parent's extraordinary act of love.",
+  "video_prompt_overlay": "NICHE VISUAL LOCK (Parental Sacrifice / history): Generate a 7–9 second dialogue clip based on the topic `{topic}`. Each dialogue must be tender and tearful. For each dialogue, generate: - **Audio Generation Prompt:** Voice — gentle, emotional, with soft piano and a baby's coo. - **Video Generation Prompt:** Detailed visual — a humble home or hospital. Character: a parent (humble clothes) looking at a child. Lighting: warm, soft. Maintain same parent and child. Forbidden: talking-head lip-sync avatar, burned-in captions, watermark, modern meme text, modern smartphones, cars, LED screens, sneakers. Preferred subjects: Parental Sacrifice documentary subject, period-accurate environment, evidence object close-up. Lighting: warm desert sun / torchlit interiors, high-contrast documentary grade. Face policy: period extras OK if consistent; prefer environment/object hero when possible. Dialogue tone: human documentary narration; specific nouns; 7–9s beats. Ambience: subtle documentary bed; do not overpower voice.",
+  "i18n": {
+    "en": {
+      "name": "Parental Sacrifice",
+      "blurb": "Heartwarming stories of parents who gave up everything — health, wealth, dreams — for their children's future."
+    },
+    "bn": {
+      "name": "পিতামাতার ত্যাগ",
+      "blurb": "ভিডিও টাইপ: Heartwarming stories of parents who gave up everything — health, wealth, dreams — for their children's future."
+    },
+    "hi": {
+      "name": "माता-पिता का बलिदान",
+      "blurb": "वीडियो प्रकार: Heartwarming stories of parents who gave up everything — health, wealth, dreams — for their children's future."
+    },
+    "ur": {
+      "name": "والدین کی قربانی",
+      "blurb": "ویڈیو کی قسم: Heartwarming stories of parents who gave up everything — health, wealth, dreams — for their children's future."
+    },
+    "ta": {
+      "name": "பெற்றோர் தியாகம்",
+      "blurb": "வீடியோ வகை: Heartwarming stories of parents who gave up everything — health, wealth, dreams — for their children's future."
+    },
+    "ml": {
+      "name": "മാതാപിതാക്കളുടെ ത്യാഗം",
+      "blurb": "വീഡിയോ തരം: Heartwarming stories of parents who gave up everything — health, wealth, dreams — for their children's future."
+    }
+  },
+  "source": "Nish.Md + deterministic research",
+  "research_notes": [
+    "Marathon researched at 2026-09-10T08:30:15Z",
+    "Video type length=110",
+    "Topic prompt length=144",
+    "Video prompt length=415",
+    "Seeds=6"
+  ],
+  "verified_at": "2026-09-10T08:30:15Z"
+}

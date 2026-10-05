@@ -1,0 +1,85 @@
+{
+  "niche_id": 1,
+  "name": "Ancient Civilizations",
+  "slug": "ancient-civilizations",
+  "style_family": "mystery",
+  "status": "VERIFIED",
+  "topic_seeds": [
+    "How Egyptian Nile flood calendars organized temple labor and harvest taxes",
+    "Why Indus Valley drainage grids still outclass early Mesopotamian streets",
+    "What Roman concrete chemistry explains about marine harbor longevity",
+    "How Greek city-state rivalries funded naval innovation before empire",
+    "Why Mesopotamian clay tablets preserved contracts better than papyrus"
+  ],
+  "seo_angles": [
+    "How Egyptian Nile flood calendars organized temple labor and harvest taxes",
+    "Why Indus Valley drainage grids still outclass early Mesopotamian streets",
+    "What Roman concrete chemistry explains about marine harbor longevity",
+    "How Greek city-state rivalries funded naval innovation before empire"
+  ],
+  "forbidden_visuals": [
+    "talking-head lip-sync avatar",
+    "burned-in captions",
+    "watermark",
+    "modern meme text",
+    "modern smartphones",
+    "cars",
+    "LED screens",
+    "sneakers",
+    "contemporary skyline"
+  ],
+  "preferred_subjects": [
+    "Nile riverbank temple pylons",
+    "Indus brick drainage channel",
+    "Roman concrete harbor pier",
+    "Greek trireme hull detail",
+    "Mesopotamian cuneiform tablet",
+    "desert excavation trench at dawn"
+  ],
+  "lighting_default": "warm desert sun / torchlit interiors, high-contrast documentary grade",
+  "face_policy": "period extras OK if consistent; prefer environment/object hero when possible",
+  "dialogue_tone": "curious documentary narrator; wonder + concrete fact; no campy adventure slang",
+  "audio_ambience": "distant wind over sand/stone, soft temple-room reverb, sparse strings",
+  "research_hints": [
+    "Prefer primary evidence and concrete entities for Ancient Civilizations",
+    "Avoid generic niche-label topics; require specific place/person/event/mechanism",
+    "7–9 second spoken beats with story continuity across scenes"
+  ],
+  "topic_prompt_overlay": "NICHE LOCK (Ancient Civilizations): only propose topics that fit this niche's video type. Video type: Documentary-style storytelling about daily life, culture, and mysteries of ancient Egypt, Greece, Rome, Indus Valley, and Mesopotamia. Each episode explores how these societies rose, thrived, and eventually crumbled. Follow niche topic strategy: Analyze current Google Trends and YouTube search data to find the most viral and SEO-friendly topic related to ancient civilizations. Consider current archaeological discoveries, anniversary dates of famous findings, or recent museum exhibitions. Generate a topic that has high search volume, low competition, and strong viewer curiosity. The topic should be emotionally engaging — focusing on myster",
+  "video_prompt_overlay": "NICHE VISUAL LOCK (Ancient Civilizations / mystery): Generate a 7–9 second dialogue clip based on the topic `{topic}`. Each dialogue must be self-contained yet flow naturally into the next. For each dialogue, generate: - **Audio Generation Prompt:** A detailed audio prompt describing voice tone, emotion, pacing, background ambience, and sound effects. - **Video Generation Prompt:** An extremely detailed prompt covering: - Character consistency — if a character appears, describe their gender, age, ethnicity, clothing, facial features, hair, and posture in full detail. - Environment — precise lighting (warm/cold, natural/artificial), time of day, weather, location type (indoor/outdoor), architectural style, and props. - Camera movement — angle,  Forbidden: talking-head lip-sync avatar, burned-in captions, watermark, modern meme text, modern smartphones, cars, LED screens, sneakers. Preferred subjects: Nile riverbank temple pylons, Indus brick drainage channel, Roman concrete harbor pier, Greek trireme hull detail, Mesopotamian cuneiform tablet, desert excavation trench at dawn. Lighting: warm desert sun / torchlit interiors, high-contrast documentary grade. Face policy: period extras OK if consistent; prefer environment/object hero when possible. Dialogue tone: curious documentary narrator; wonder + concrete fact; no campy adventure slang. Ambience: distant wind over sand/stone, soft temple-room reverb, sparse strings.",
+  "i18n": {
+    "en": {
+      "name": "Ancient Civilizations",
+      "blurb": "Documentary-style storytelling about daily life, culture, and mysteries of ancient Egypt, Greece, Rome, Indus Valley, and Mesopotamia. Each episode explores…"
+    },
+    "bn": {
+      "name": "প্রাচীন সভ্যতা",
+      "blurb": "ভিডিও টাইপ: Documentary-style storytelling about daily life, culture, and mysteries of ancient Egypt, Greece, Rome, Indus Valley, and Mesopotamia. Each episode…"
+    },
+    "hi": {
+      "name": "प्राचीन सभ्यताएँ",
+      "blurb": "वीडियो प्रकार: Documentary-style storytelling about daily life, culture, and mysteries of ancient Egypt, Greece, Rome, Indus Valley, and Mesopotamia. Each episode…"
+    },
+    "ur": {
+      "name": "قدیم تہذیبیں",
+      "blurb": "ویڈیو کی قسم: Documentary-style storytelling about daily life, culture, and mysteries of ancient Egypt, Greece, Rome, Indus Valley, and Mesopotamia. Each episode…"
+    },
+    "ta": {
+      "name": "பண்டைய நாகரிகங்கள்",
+      "blurb": "வீடியோ வகை: Documentary-style storytelling about daily life, culture, and mysteries of ancient Egypt, Greece, Rome, Indus Valley, and Mesopotamia. Each episode…"
+    },
+    "ml": {
+      "name": "പുരാതന നാഗരികതകൾ",
+      "blurb": "വീഡിയോ തരം: Documentary-style storytelling about daily life, culture, and mysteries of ancient Egypt, Greece, Rome, Indus Valley, and Mesopotamia. Each episode…"
+    }
+  },
+  "source": "Nish.Md + deterministic research",
+  "research_notes": [
+    "Marathon researched at 2026-09-10T08:26:39Z",
+    "Video type length=216",
+    "Topic prompt length=477",
+    "Video prompt length=1021",
+    "Seeds=5"
+  ],
+  "verified_at": "2026-09-10T08:26:39Z"
+}

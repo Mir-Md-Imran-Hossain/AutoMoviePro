@@ -1,0 +1,21 @@
+{
+  "status": "WARNING",
+  "ok": true,
+  "blocked": false,
+  "blocks": [],
+  "warnings": [
+    "dialogue_too_short:1:5.4s",
+    "dialogue_too_short:2:5.0s",
+    "dialogue_too_short:3:4.6s",
+    "dialogue_bridge_weak:3",
+    "dialogue_too_short:4:5.0s",
+    "dialogue_bridge_weak:4",
+    "dialogue_too_short:5:5.8s"
+  ],
+  "unknowns": [],
+  "confidence": "HEURISTIC",
+  "claims_human_written": false,
+  "claims_guaranteed_engagement": false,
+  "method": "DETERMINISTIC_PREFLIGHT",
+  "note": "stylistic judgments are HEURISTIC; naturalness not proven"
+}

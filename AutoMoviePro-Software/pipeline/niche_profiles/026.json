@@ -1,0 +1,83 @@
+{
+  "niche_id": 26,
+  "name": "Unsolved Ciphers",
+  "slug": "unsolved-ciphers",
+  "style_family": "mystery",
+  "status": "VERIFIED",
+  "topic_seeds": [
+    "What new evidence reframes the story of Unsolved Ciphers Cryptography inside Unsolved Ciphers",
+    "How Unsolved Ciphers Cryptography still shapes public curiosity about Unsolved Ciphers",
+    "What new evidence reframes the story of Voynich Manuscript inside Unsolved Ciphers",
+    "How Voynich Manuscript still shapes public curiosity about Unsolved Ciphers",
+    "What new evidence reframes the story of Zodiac Killer inside Unsolved Ciphers",
+    "How Zodiac Killer still shapes public curiosity about Unsolved Ciphers"
+  ],
+  "seo_angles": [
+    "What new evidence reframes the story of Unsolved Ciphers Cryptography inside Unsolved Ciphers",
+    "How Unsolved Ciphers Cryptography still shapes public curiosity about Unsolved Ciphers",
+    "What new evidence reframes the story of Voynich Manuscript inside Unsolved Ciphers",
+    "How Voynich Manuscript still shapes public curiosity about Unsolved Ciphers"
+  ],
+  "forbidden_visuals": [
+    "talking-head lip-sync avatar",
+    "burned-in captions",
+    "watermark",
+    "modern meme text",
+    "modern smartphones",
+    "cars",
+    "LED screens",
+    "sneakers",
+    "contemporary skyline"
+  ],
+  "preferred_subjects": [
+    "Unsolved Ciphers documentary subject",
+    "period-accurate environment",
+    "evidence object close-up"
+  ],
+  "lighting_default": "dappled fog light, cool teal shadows, slow push-ins",
+  "face_policy": "no talking-head lip-sync avatar; cinematic B-roll preferred",
+  "dialogue_tone": "slow, ominous, evidence-first",
+  "audio_ambience": "low drone, subtle reverb, sparse percussion",
+  "research_hints": [
+    "Prefer primary evidence and concrete entities for Unsolved Ciphers",
+    "Avoid generic niche-label topics; require specific place/person/event/mechanism",
+    "7–9 second spoken beats with story continuity across scenes"
+  ],
+  "topic_prompt_overlay": "NICHE LOCK (Unsolved Ciphers): only propose topics that fit this niche's video type. Video type: Cryptography mysteries — the Voynich Manuscript, the Zodiac Killer's letters, Kryptos — that have stumped codebreakers for decades. Follow niche topic strategy: Scan cryptography forums, new book releases, or code-breaking anniversaries. Generate a topic that sparks puzzle-solving enthusiasm.",
+  "video_prompt_overlay": "NICHE VISUAL LOCK (Unsolved Ciphers / mystery): Generate a 7–9 second dialogue clip based on the topic `{topic}`. Each dialogue must be puzzling and intriguing. For each dialogue, generate: - **Audio Generation Prompt:** Voice — slow, thoughtful, with paper scratching sounds. - **Video Generation Prompt:** Detailed visual — old manuscript or cipher wall. No human character — camera slowly zooming into a symbol. Lighting: soft warm light. Maintain consistent symbol detail and light. Forbidden: talking-head lip-sync avatar, burned-in captions, watermark, modern meme text, modern smartphones, cars, LED screens, sneakers. Preferred subjects: Unsolved Ciphers documentary subject, period-accurate environment, evidence object close-up. Lighting: dappled fog light, cool teal shadows, slow push-ins. Face policy: no talking-head lip-sync avatar; cinematic B-roll preferred. Dialogue tone: slow, ominous, evidence-first. Ambience: low drone, subtle reverb, sparse percussion.",
+  "i18n": {
+    "en": {
+      "name": "Unsolved Ciphers",
+      "blurb": "Cryptography mysteries — the Voynich Manuscript, the Zodiac Killer's letters, Kryptos — that have stumped codebreakers for decades."
+    },
+    "bn": {
+      "name": "অমীমাংসিত সাইফার",
+      "blurb": "ভিডিও টাইপ: Cryptography mysteries — the Voynich Manuscript, the Zodiac Killer's letters, Kryptos — that have stumped codebreakers for decades."
+    },
+    "hi": {
+      "name": "अनसुलझे साइफर",
+      "blurb": "वीडियो प्रकार: Cryptography mysteries — the Voynich Manuscript, the Zodiac Killer's letters, Kryptos — that have stumped codebreakers for decades."
+    },
+    "ur": {
+      "name": "حل نہ ہونے والے رموز",
+      "blurb": "ویڈیو کی قسم: Cryptography mysteries — the Voynich Manuscript, the Zodiac Killer's letters, Kryptos — that have stumped codebreakers for decades."
+    },
+    "ta": {
+      "name": "விடுபடாத குறியீடுகள்",
+      "blurb": "வீடியோ வகை: Cryptography mysteries — the Voynich Manuscript, the Zodiac Killer's letters, Kryptos — that have stumped codebreakers for decades."
+    },
+    "ml": {
+      "name": "പരിഹരിക്കപ്പെടാത്ത സൈഫറുകൾ",
+      "blurb": "വീഡിയോ തരം: Cryptography mysteries — the Voynich Manuscript, the Zodiac Killer's letters, Kryptos — that have stumped codebreakers for decades."
+    }
+  },
+  "source": "Nish.Md + deterministic research",
+  "research_notes": [
+    "Marathon researched at 2026-09-10T08:30:11Z",
+    "Video type length=131",
+    "Topic prompt length=132",
+    "Video prompt length=438",
+    "Seeds=6"
+  ],
+  "verified_at": "2026-09-10T08:30:11Z"
+}

@@ -1,0 +1,5 @@
+{
+  "ok": false,
+  "error": "INTELLIGENCE_GATE_BLOCKED: c05_trs stage=intelligence detail=DUPLICATE",
+  "traceback": "Traceback (most recent call last):\n  File \"E:\\All Updaye Project\\AutoMovie_Pro_SAAS_Final_Update\\AutoMoviePro-Software\\scripts\\cert_core_engine_real_marathon.py\", line 338, in generate_real\n    result = generate_video(\n             ^^^^^^^^^^^^^^^\n  File \"E:\\All Updaye Project\\AutoMovie_Pro_SAAS_Final_Update\\AutoMoviePro-Software\\pipeline\\video_pipeline.py\", line 229, in generate_video\n    raise RuntimeError(f\"{GATE_BLOCKED_MARKER}: c05_trs stage={trs_handoff.get('stage')} detail={reason}\")\nRuntimeError: INTELLIGENCE_GATE_BLOCKED: c05_trs stage=intelligence detail=DUPLICATE\n"
+}

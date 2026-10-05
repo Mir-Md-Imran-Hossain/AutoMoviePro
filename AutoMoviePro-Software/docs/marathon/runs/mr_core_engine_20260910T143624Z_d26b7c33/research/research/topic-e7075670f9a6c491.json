@@ -1,0 +1,66 @@
+{
+  "research": {
+    "topic_id": "topic-e7075670f9a6c491",
+    "query": "how radio telescopes catch fast radio bursts from distant magnetars",
+    "evidence": [
+      {
+        "id": "N01",
+        "claim": "Research query: how radio telescopes catch fast radio bursts from distant magnetars\nLanguage: en\nRegion:",
+        "evidence": "research_notes",
+        "source": "research_notes",
+        "confidence": 0.4,
+        "freshness": "UNVERIFIED"
+      },
+      {
+        "id": "L02",
+        "claim": "Additional context on How radio telescopes catch fast radio bursts from distant magnetars from configured research scope.",
+        "evidence": "secondary",
+        "source": "live_research",
+        "confidence": 0.6,
+        "freshness": "recent"
+      }
+    ],
+    "status": "completed",
+    "provider": "live_local",
+    "provider_kind": "configured_local",
+    "provider_capability": "LOCAL_FACTPACK",
+    "provider_mode": "LIVE_LOCAL",
+    "external_api": false,
+    "is_external_live": false,
+    "note": "LOCAL_FACTPACK must not be claimed as EXTERNAL_LIVE_RESEARCH",
+    "timestamp": 1789050984.7359273,
+    "queried_at": 1789050984.7359273,
+    "canonical_topic": "How radio telescopes catch fast radio bursts from distant magnetars",
+    "sources": [
+      "live_research",
+      "research_notes"
+    ],
+    "fingerprint": "f217a11f6cda1ddbb380851e76e696261aff8c37b63f92c7f7ec1d9f8b4151f8"
+  },
+  "fact_pack": {
+    "topic": "How radio telescopes catch fast radio bursts from distant magnetars",
+    "version": "v0",
+    "claims": [
+      {
+        "id": "N01",
+        "claim": "Research query: how radio telescopes catch fast radio bursts from distant magnetars\nLanguage: en\nRegion:",
+        "evidence": "research_notes",
+        "source": "research_notes",
+        "confidence": 0.4,
+        "freshness": "UNVERIFIED"
+      },
+      {
+        "id": "L02",
+        "claim": "Additional context on How radio telescopes catch fast radio bursts from distant magnetars from configured research scope.",
+        "evidence": "secondary",
+        "source": "live_research",
+        "confidence": 0.6,
+        "freshness": "recent"
+      }
+    ],
+    "unknowns": []
+  },
+  "research_fingerprint": "f217a11f6cda1ddbb380851e76e696261aff8c37b63f92c7f7ec1d9f8b4151f8",
+  "provider_mode": "LIVE",
+  "persisted_at": 1789050984.7359273
+}

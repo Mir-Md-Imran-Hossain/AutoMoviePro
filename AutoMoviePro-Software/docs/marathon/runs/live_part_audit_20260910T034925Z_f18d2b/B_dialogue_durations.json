@@ -1,0 +1,48 @@
+{
+  "min": 7.0,
+  "max": 9.0,
+  "rows": [
+    {
+      "i": 0,
+      "est_sec": 6.67,
+      "words": 16,
+      "in_window": true,
+      "preview": "In 2026, Artemis crews will use neutron spectrometers to map water ice at the lunar poles."
+    },
+    {
+      "i": 1,
+      "est_sec": 5.42,
+      "words": 13,
+      "in_window": false,
+      "preview": "These advanced instruments help scientists detect hydrogen, indicating water ice beneath the surface"
+    },
+    {
+      "i": 2,
+      "est_sec": 5.0,
+      "words": 12,
+      "in_window": false,
+      "preview": "Mapping these resources is crucial for future lunar missions and potential colonization."
+    },
+    {
+      "i": 3,
+      "est_sec": 4.58,
+      "words": 11,
+      "in_window": false,
+      "preview": "Neutron spectrometers operate by emitting neutrons and analyzing the resulting interactions."
+    },
+    {
+      "i": 4,
+      "est_sec": 5.0,
+      "words": 12,
+      "in_window": false,
+      "preview": "This technology could redefine our understanding of lunar geology and resource availability."
+    },
+    {
+      "i": 5,
+      "est_sec": 5.83,
+      "words": 14,
+      "in_window": true,
+      "preview": "As we prepare for Artemis, the quest for lunar water ice is just beginning."
+    }
+  ]
+}

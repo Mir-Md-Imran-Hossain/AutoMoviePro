@@ -1,0 +1,557 @@
+{
+  "analysis": {
+    "niche_summary": "Space science documentary focusing on the physical hazards of lunar exploration.",
+    "why_this_topic": "Retention spine: Hook (dust is a weapon) -> Evidence (glass-like particles) -> Payoff (suit failure) -> Re-hook (2026 deadline).",
+    "audience": "Space enthusiasts, engineering students, Artemis program followers.",
+    "tone": "Industrial documentary urgency, concrete, high-stakes.",
+    "product_category": "science",
+    "style_pack": "science",
+    "nish_id": 0,
+    "avoided_duplicates": [
+      "JWST mirror mechanics",
+      "Mars rover dust",
+      "ISS debris"
+    ],
+    "retention_spine": "Open loop: Why is dust dangerous? -> Evidence: Sharpness/charge -> Payoff: Suit breach risk -> New question: Can we fix it by 2026?",
+    "master_lang": "en",
+    "master_lang_bcp47": "en-US"
+  },
+  "topic": "Lunar dust abrasion on Artemis spacesuits",
+  "product_key_hint": "lunar dust abrasion artemis spacesuits 2026",
+  "title": "Why Lunar Dust Will Cut Artemis Suits in 2026",
+  "description": "NASA's Artemis program faces a silent killer: regolith. It's not just dirt; it's microscopic glass shrapnel that charges up in the vacuum. We break down the physics of why this threatens the 2026 crewed missions and what engineers are doing to stop it.\n\nWatch to the end to see the specific material failure point.\n\n#Artemis #LunarDust #SpaceScience #NASA #2026",
+  "tags": [
+    "Artemis spacesuit",
+    "lunar dust hazard",
+    "regolith abrasion",
+    "NASA 2026",
+    "space suit failure"
+  ],
+  "scenes": [
+    {
+      "element": "intro",
+      "start_hint_s": 0.0,
+      "end_hint_s": 8.5,
+      "narration": "Most people think lunar dust is just gray powder. It is actually microscopic glass shrapnel that can slice through your suit.",
+      "keyword_triggers": [
+        "Lunar dust abrasion on Artemis spacesuits",
+        "lunar regolith",
+        "microscopic glass",
+        "sharp particles"
+      ],
+      "exact_ai_video_prompt": "VERTICAL 9:16 portrait (1080x1920) extreme macro shot of sharp, jagged lunar regolith particles under high-contrast teal/cyan lab lighting, slow push-in revealing their glass-like edges, no burned captions, no watermark, no talking-head REQUIRED on-screen anchors: Lunar dust abrasion on Artemis spacesuits, microscopic glass, dust, gray, powder, actually, microscopic. Visual slot: Lunar dust abrasion on Artemis spacesuits lunar regolith microscopic glass: Most people think lunar dust is just gray powder. It is actually — slow cinematic push-in establishing hero.",
+      "visual_query": "macro lunar dust sharp edges",
+      "visual_prompt": "cinematic macro of sharp dust particles",
+      "retention_role": "pattern_interrupt",
+      "open_loop": "What exactly makes this dust dangerous?",
+      "payoff_for": "",
+      "quality_notes": "Hero shot: establishes the 'shrapnel' claim visually. High contrast to emphasize sharpness.",
+      "estimated_duration_sec": 8.75,
+      "retention": {
+        "role": "pattern_interrupt",
+        "window_start_sec": 0,
+        "window_end_sec": 2,
+        "job": "Pattern Interrupt",
+        "open_loop": "What exactly makes this dust dangerous?",
+        "payoff_for": null
+      },
+      "visual_mode": "VIDEO",
+      "media_mode_decision": {
+        "mode": "VIDEO",
+        "reason": "default_video_primary_agnes",
+        "ok": "true",
+        "image_authorized": false,
+        "agnes_required": true,
+        "engine_version": "media_mode_engine_v1"
+      },
+      "montage_slot": {
+        "slot_description": "Lunar dust abrasion on Artemis spacesuits lunar regolith microscopic glass: Most people think lunar dust is just gray powder. It is actually — slow cinematic push-in establishing hero",
+        "search_queries": [
+          "Lunar dust abrasion on Artemis spacesuits lunar regolith intro",
+          "Lunar dust abrasion",
+          "Most people think documentary footage"
+        ],
+        "hero": true,
+        "preferred_sources": "agnes,pexels",
+        "beat_index": 0
+      },
+      "search_queries": [
+        "Lunar dust abrasion on Artemis spacesuits lunar regolith intro",
+        "Lunar dust abrasion",
+        "Most people think documentary footage"
+      ],
+      "hero": true,
+      "lang": "en",
+      "lang_bcp47": "en-US"
+    },
+    {
+      "element": "context",
+      "start_hint_s": 8.5,
+      "end_hint_s": 17.0,
+      "narration": "Why does that matter right now? in the vacuum, these particles carry a static charge. They stick to everything, including the outer layers.",
+      "keyword_triggers": [
+        "Lunar dust abrasion on Artemis spacesuits",
+        "static charge",
+        "adhesion",
+        "spacesuit exterior"
+      ],
+      "exact_ai_video_prompt": "VERTICAL 9:16 portrait (1080x1920) cinematic close-up of gray dust particles clinging to a white fabric surface, subtle electric blue glow indicating static charge, shallow depth of field, teal grade, no burned captions, no watermark, no talking-head REQUIRED on-screen anchors: Lunar dust abrasion on Artemis spacesuits, adhesion, spacesuit exterior, vacuum, carry, stick. Visual slot: Lunar dust abrasion on Artemis spacesuits static charge adhesion: Why does that matter right now? in the vacuum, these particles carry — environmental wide into subject emphasis.",
+      "visual_query": "dust sticking to fabric static",
+      "visual_prompt": "dust adhering to suit material",
+      "retention_role": "curiosity_gap",
+      "open_loop": "How does it get into the suit?",
+      "payoff_for": "What exactly makes this dust dangerous?",
+      "quality_notes": "Visualizes the 'sticking' mechanism. Blue glow hints at the electrical nature without being cartoonish.",
+      "estimated_duration_sec": 9.0,
+      "retention": {
+        "role": "curiosity_gap",
+        "window_start_sec": 2,
+        "window_end_sec": 5,
+        "job": "Curiosity Gap",
+        "open_loop": "How does it get into the suit?",
+        "payoff_for": "What exactly makes this dust dangerous?"
+      },
+      "visual_mode": "VIDEO",
+      "media_mode_decision": {
+        "mode": "VIDEO",
+        "reason": "default_video_primary_agnes",
+        "ok": "true",
+        "image_authorized": false,
+        "agnes_required": true,
+        "engine_version": "media_mode_engine_v1"
+      },
+      "montage_slot": {
+        "slot_description": "Lunar dust abrasion on Artemis spacesuits static charge adhesion: Why does that matter right now? in the vacuum, these particles carry — environmental wide into subject emphasis",
+        "search_queries": [
+          "Lunar dust abrasion on Artemis spacesuits static charge context",
+          "Lunar dust abrasion",
+          "Why does matter documentary footage"
+        ],
+        "hero": false,
+        "preferred_sources": "agnes,pexels",
+        "beat_index": 1
+      },
+      "search_queries": [
+        "Lunar dust abrasion on Artemis spacesuits static charge context",
+        "Lunar dust abrasion",
+        "Why does matter documentary footage"
+      ],
+      "hero": false,
+      "lang": "en",
+      "lang_bcp47": "en-US"
+    },
+    {
+      "element": "discovery",
+      "start_hint_s": 17.0,
+      "end_hint_s": 25.5,
+      "narration": "Watch what this changes next — when an astronaut moves, that dust rubs against the suit. It acts like sandpaper, wearing down the.",
+      "keyword_triggers": [
+        "Lunar dust abrasion on Artemis spacesuits",
+        "abrasion",
+        "sandpaper effect",
+        "suit wear"
+      ],
+      "exact_ai_video_prompt": "VERTICAL 9:16 portrait (1080x1920) slow-motion macro of rough particles scraping across a white composite material, showing visible micro-scratches forming, high contrast, teal/cyan grade, no burned captions, no watermark, no talking-head REQUIRED on-screen anchors: Lunar dust abrasion on Artemis spacesuits, abrasion, sandpaper effect, suit wear, astronaut, moves, dust, rubs, against, suit. Visual slot: Lunar dust abrasion on Artemis spacesuits abrasion sandpaper effect: Watch what this changes next — when an astronaut moves, that dust — revealing detail with controlled camera move.",
+      "visual_query": "material abrasion macro scratch",
+      "visual_prompt": "dust scratching suit surface",
+      "retention_role": "first_payoff",
+      "open_loop": "What happens when the astronaut moves?",
+      "payoff_for": "How does it get into the suit?",
+      "quality_notes": "Direct visual proof of the 'sandpaper' claim. Focus on the scratch formation.",
+      "estimated_duration_sec": 9.0,
+      "retention": {
+        "role": "first_payoff",
+        "window_start_sec": 5,
+        "window_end_sec": 10,
+        "job": "First Payoff",
+        "open_loop": "What happens when the astronaut moves?",
+        "payoff_for": "How does it get into the suit?"
+      },
+      "visual_mode": "VIDEO",
+      "media_mode_decision": {
+        "mode": "VIDEO",
+        "reason": "default_video_primary_agnes",
+        "ok": "true",
+        "image_authorized": false,
+        "agnes_required": true,
+        "engine_version": "media_mode_engine_v1"
+      },
+      "montage_slot": {
+        "slot_description": "Lunar dust abrasion on Artemis spacesuits abrasion sandpaper effect: Watch what this changes next — when an astronaut moves, that dust — revealing detail with controlled camera move",
+        "search_queries": [
+          "Lunar dust abrasion on Artemis spacesuits abrasion discovery",
+          "Lunar dust abrasion",
+          "Watch what changes documentary footage"
+        ],
+        "hero": true,
+        "preferred_sources": "agnes,pexels",
+        "beat_index": 2
+      },
+      "search_queries": [
+        "Lunar dust abrasion on Artemis spacesuits abrasion discovery",
+        "Lunar dust abrasion",
+        "Watch what changes documentary footage"
+      ],
+      "hero": true,
+      "lang": "en",
+      "lang_bcp47": "en-US"
+    },
+    {
+      "element": "technique",
+      "start_hint_s": 25.5,
+      "end_hint_s": 34.0,
+      "narration": "What most viewers overlook next is this: after just one lunar walk, the outer layer thins. The dust penetrates the fabric, reaching the.",
+      "keyword_triggers": [
+        "Lunar dust abrasion on Artemis spacesuits",
+        "layer thinning",
+        "pressure bladder",
+        "penetration"
+      ],
+      "exact_ai_video_prompt": "VERTICAL 9:16 portrait (1080x1920) cross-section view of a multi-layer suit material, showing the outer layer worn thin and dust particles embedded in the inner layer, clinical lab lighting, teal grade, no burned captions, no watermark, no talking-head REQUIRED on-screen anchors: Lunar dust abrasion on Artemis spacesuits, layer thinning, pressure bladder, penetration, lunar, walk. Visual slot: Lunar dust abrasion on Artemis spacesuits layer thinning pressure bladder: What most viewers overlook next is this: after just one lunar walk, — macro process detail, continuous motion.",
+      "visual_query": "suit layer cross section damage",
+      "visual_prompt": "internal suit damage visualization",
+      "retention_role": "evidence",
+      "open_loop": "How deep does the damage go?",
+      "payoff_for": "What happens when the astronaut moves?",
+      "quality_notes": "Reveals the internal consequence. Cross-section style for clarity.",
+      "estimated_duration_sec": 9.0,
+      "retention": {
+        "role": "evidence",
+        "window_start_sec": null,
+        "window_end_sec": null,
+        "job": "evidence",
+        "open_loop": "How deep does the damage go?",
+        "payoff_for": "What happens when the astronaut moves?"
+      },
+      "visual_mode": "VIDEO",
+      "media_mode_decision": {
+        "mode": "VIDEO",
+        "reason": "default_video_primary_agnes",
+        "ok": "true",
+        "image_authorized": false,
+        "agnes_required": true,
+        "engine_version": "media_mode_engine_v1"
+      },
+      "montage_slot": {
+        "slot_description": "Lunar dust abrasion on Artemis spacesuits layer thinning pressure bladder: What most viewers overlook next is this: after just one lunar walk, — macro process detail, continuous motion",
+        "search_queries": [
+          "Lunar dust abrasion on Artemis spacesuits layer thinning technique",
+          "Lunar dust abrasion",
+          "What most viewers documentary footage"
+        ],
+        "hero": true,
+        "preferred_sources": "agnes,pexels",
+        "beat_index": 3
+      },
+      "search_queries": [
+        "Lunar dust abrasion on Artemis spacesuits layer thinning technique",
+        "Lunar dust abrasion",
+        "What most viewers documentary footage"
+      ],
+      "hero": true,
+      "lang": "en",
+      "lang_bcp47": "en-US"
+    },
+    {
+      "element": "context",
+      "start_hint_s": 34.0,
+      "end_hint_s": 42.5,
+      "narration": "The Artemis suits are designed for short stays. But if the outer shell fails, the vacuum of space enters the suit instantly.",
+      "keyword_triggers": [
+        "Lunar dust abrasion on Artemis spacesuits",
+        "vacuum breach",
+        "suit failure",
+        "Artemis timeline"
+      ],
+      "exact_ai_video_prompt": "VERTICAL 9:16 portrait (1080x1920) dramatic close-up of a suit seam or joint, showing a tiny tear with a subtle vacuum effect (particles pulling out), high tension lighting, teal/cyan grade, no burned captions, no watermark, no talking-head REQUIRED on-screen anchors: Lunar dust abrasion on Artemis spacesuits, vacuum breach, suit failure, Artemis timeline, Artemis, designed, short, stays, outer. Visual slot: Lunar dust abrasion on Artemis spacesuits vacuum breach suit failure: The Artemis suits are designed for short stays. But if the outer — environmental wide into subject emphasis.",
+      "visual_query": "suit tear vacuum leak",
+      "visual_prompt": "critical suit breach point",
+      "retention_role": "question",
+      "open_loop": "Why is this a 2026 crisis?",
+      "payoff_for": "How deep does the damage go?",
+      "quality_notes": "Raises the stakes. Visualizes the 'instant' danger.",
+      "estimated_duration_sec": 9.0,
+      "retention": {
+        "role": "question",
+        "window_start_sec": null,
+        "window_end_sec": null,
+        "job": "question",
+        "open_loop": "Why is this a 2026 crisis?",
+        "payoff_for": "How deep does the damage go?"
+      },
+      "visual_mode": "VIDEO",
+      "media_mode_decision": {
+        "mode": "VIDEO",
+        "reason": "default_video_primary_agnes",
+        "ok": "true",
+        "image_authorized": false,
+        "agnes_required": true,
+        "engine_version": "media_mode_engine_v1"
+      },
+      "montage_slot": {
+        "slot_description": "Lunar dust abrasion on Artemis spacesuits vacuum breach suit failure: The Artemis suits are designed for short stays. But if the outer — environmental wide into subject emphasis",
+        "search_queries": [
+          "Lunar dust abrasion on Artemis spacesuits vacuum breach context",
+          "Lunar dust abrasion",
+          "Artemis suits are documentary footage"
+        ],
+        "hero": false,
+        "preferred_sources": "agnes,pexels",
+        "beat_index": 4
+      },
+      "search_queries": [
+        "Lunar dust abrasion on Artemis spacesuits vacuum breach context",
+        "Lunar dust abrasion",
+        "Artemis suits are documentary footage"
+      ],
+      "hero": false,
+      "lang": "en",
+      "lang_bcp47": "en-US"
+    },
+    {
+      "element": "discovery",
+      "start_hint_s": 42.5,
+      "end_hint_s": 51.0,
+      "narration": "Engineers are testing new coatings that repel static. But until that works, every step on the moon is a gamble. So the takeaway.",
+      "keyword_triggers": [
+        "Lunar dust abrasion on Artemis spacesuits",
+        "static repel coating",
+        "engineering solution",
+        "lab testing"
+      ],
+      "exact_ai_video_prompt": "VERTICAL 9:16 portrait (1080x1920) laboratory setting, a robotic arm applying a clear coating to a suit sample, dust particles bouncing off the surface, clean bright lighting with teal accents, no burned captions, no watermark, no talking-head REQUIRED on-screen anchors: Lunar dust abrasion on Artemis spacesuits, static repel coating, engineering solution, lab testing, Engineers, testing, repel, static, until. Visual slot: Lunar dust abrasion on Artemis spacesuits static repel coating engineering solution: Engineers are testing new coatings that repel static. But until that works, — revealing detail with controlled camera move.",
+      "visual_query": "suit coating lab test",
+      "visual_prompt": "repellent coating application",
+      "retention_role": "payoff",
+      "open_loop": "Is there a fix?",
+      "payoff_for": "Why is this a 2026 crisis?",
+      "quality_notes": "Shows the solution attempt. 'Bouncing off' visualizes the repel claim.",
+      "estimated_duration_sec": 9.0,
+      "retention": {
+        "role": "payoff",
+        "window_start_sec": null,
+        "window_end_sec": null,
+        "job": "close_main_loop",
+        "open_loop": "Is there a fix?",
+        "payoff_for": "Why is this a 2026 crisis?"
+      },
+      "visual_mode": "VIDEO",
+      "media_mode_decision": {
+        "mode": "VIDEO",
+        "reason": "default_video_primary_agnes",
+        "ok": "true",
+        "image_authorized": false,
+        "agnes_required": true,
+        "engine_version": "media_mode_engine_v1"
+      },
+      "montage_slot": {
+        "slot_description": "Lunar dust abrasion on Artemis spacesuits static repel coating engineering solution: Engineers are testing new coatings that repel static. But until that works, — revealing detail with controlled camera move",
+        "search_queries": [
+          "Lunar dust abrasion on Artemis spacesuits static repel coating discovery",
+          "Lunar dust abrasion",
+          "Engineers are testing documentary footage"
+        ],
+        "hero": false,
+        "preferred_sources": "agnes,pexels",
+        "beat_index": 5
+      },
+      "search_queries": [
+        "Lunar dust abrasion on Artemis spacesuits static repel coating discovery",
+        "Lunar dust abrasion",
+        "Engineers are testing documentary footage"
+      ],
+      "hero": false,
+      "lang": "en",
+      "lang_bcp47": "en-US"
+    }
+  ],
+  "director_provider": "groq",
+  "nish_id": 0,
+  "nish_name": "space science",
+  "video_type": "short",
+  "max_seconds": 60,
+  "hook": "Most people think lunar dust is just gray powder. It is actually microscopic glass shrapnel that can slice through your suit.",
+  "metadata": {
+    "retention_cadence_enforced": true,
+    "retention_cadence_repairs": [
+      {
+        "index": 1,
+        "action": "mid_rehook",
+        "prior": "In the vacuum, these particles carry a static charge. They stick to everything, including the outer layers of the Artemi"
+      },
+      {
+        "index": 2,
+        "action": "mid_rehook",
+        "prior": "When an astronaut moves, that dust rubs against the suit. It acts like sandpaper, wearing down the protective outer shel"
+      },
+      {
+        "index": 3,
+        "action": "mid_rehook",
+        "prior": "After just one lunar walk, the outer layer thins. The dust penetrates the fabric, reaching the inner pressure bladder."
+      },
+      {
+        "index": 5,
+        "action": "ending_close",
+        "prior": "Engineers are testing new coatings that repel static. But until that works, every step on the moon is a gamble."
+      }
+    ],
+    "dialogue_window_repairs": [
+      {
+        "i": 1,
+        "action": "trim",
+        "est_sec": 9.58
+      },
+      {
+        "i": 2,
+        "action": "trim",
+        "est_sec": 9.58
+      },
+      {
+        "i": 3,
+        "action": "trim",
+        "est_sec": 9.58
+      },
+      {
+        "i": 5,
+        "action": "trim",
+        "est_sec": 9.58
+      }
+    ],
+    "dialogue_window_enforced": true,
+    "media_mode_engine": {
+      "version": "media_mode_engine_v1",
+      "video_primary_enforced": true,
+      "modes_rewritten_to_video": 6
+    },
+    "montage_slots_enriched": true,
+    "montage_brain_version": "amp_montage_brain_v1",
+    "montage_brain": {
+      "version": "amp_montage_brain_v1",
+      "checklist_ok": true,
+      "openmontage_agpl_imported": false
+    }
+  },
+  "retention_blueprint": {
+    "format": "short",
+    "windows": [
+      {
+        "id": "pattern_interrupt",
+        "start_sec": 0,
+        "end_sec": 2,
+        "job": "Pattern Interrupt"
+      },
+      {
+        "id": "curiosity_gap",
+        "start_sec": 2,
+        "end_sec": 5,
+        "job": "Curiosity Gap"
+      },
+      {
+        "id": "first_payoff",
+        "start_sec": 5,
+        "end_sec": 10,
+        "job": "First Payoff"
+      }
+    ],
+    "loop": [
+      "question",
+      "evidence",
+      "payoff",
+      "new_question"
+    ],
+    "min_open_loops": 2,
+    "min_loop_close_ratio": 0.7,
+    "forbid_flat_streak": 2,
+    "require_ending_close": true
+  },
+  "montage_manifest": {
+    "name": "amp-documentary-montage",
+    "version": "amp_montage_brain_v1",
+    "video_type": "short",
+    "policy": "retrieval_aware_video_primary",
+    "stages": [
+      {
+        "id": "idea",
+        "job": "One thematic question + tone + duration + retention spine",
+        "success": [
+          "concrete_topic",
+          "curiosity_gap",
+          "seo_title_angle"
+        ]
+      },
+      {
+        "id": "scene_plan",
+        "job": "Concrete visual SLOTS (noun+adjective+action) with 2–3 search queries each",
+        "success": [
+          "slot_queries",
+          "hero_slots>=2",
+          "no_abstract_labels"
+        ]
+      },
+      {
+        "id": "assets",
+        "job": "Fill slots: Agnes VIDEO primary; stock retrieval when query-matched; Ken Burns only if authorized",
+        "success": [
+          "visual_mode_provenance",
+          "asset_or_generation_path"
+        ]
+      },
+      {
+        "id": "edit",
+        "job": "Arrange beats by narrative role; no flat encyclopedia chains; payoff cadence",
+        "success": [
+          "retention_roles",
+          "continuity_bridge"
+        ]
+      },
+      {
+        "id": "compose",
+        "job": "Mux audio+picture; aspect lock; no black tails; ship gates",
+        "success": [
+          "duration_contract",
+          "av_sync",
+          "publishability"
+        ]
+      },
+      {
+        "id": "review",
+        "job": "Prompt-compliance + semantic coverage + observation gates",
+        "success": [
+          "PROMPT_COMPLIANCE_AUDIT",
+          "no_silent_image_downgrade"
+        ]
+      }
+    ],
+    "openmontage_agpl_imported": false,
+    "note": "Methodology inspired by public OpenMontage docs; AMP-owned implementation only"
+  },
+  "montage_checklist": {
+    "ok": true,
+    "issues": [],
+    "hero_count": 3,
+    "slots_with_queries": 6,
+    "video_mode_count": 6,
+    "scene_count": 6,
+    "version": "amp_montage_brain_v1"
+  },
+  "master_lang": "en",
+  "master_lang_bcp47": "en-US",
+  "sourceLanguage": "en",
+  "master_lang_policy": "english_pivot_then_localize",
+  "narrator_voice": "Charon",
+  "master_lang_repairs": [
+    {
+      "field": "tags",
+      "repaired": true,
+      "via": "drop_non_english_tags"
+    }
+  ],
+  "prompt_compliance": {
+    "verdict": "PASS",
+    "overall_score": 0.9806,
+    "industrial_grade": true,
+    "artifact_path": "E:\\All Updaye Project\\AutoMovie_Pro_SAAS_Final_Update\\AutoMoviePro-Software\\docs\\marathon\\runs\\mr_core_engine_20260910T123745Z_3b44782e\\script\\PROMPT_COMPLIANCE_AUDIT.json",
+    "llm_critic_verdict": "SKIPPED",
+    "repairs_applied": []
+  }
+}

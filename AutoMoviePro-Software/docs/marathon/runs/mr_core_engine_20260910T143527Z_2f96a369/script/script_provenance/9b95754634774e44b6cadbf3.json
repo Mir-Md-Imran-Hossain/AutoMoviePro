@@ -1,0 +1,26 @@
+{
+  "job_id": "c06b-script-4-topic-1aeefbbf9aa0784e",
+  "fingerprint": "9b95754634774e44b6cadbf3a8036a4ee0c1a0985738343d97371b473378d1c7",
+  "entity_id": "script-0000-f84d835e96cf1ad3",
+  "topic": "How Starliner and commercial crew change ISS science return timelines",
+  "topic_identity": "f84d835e96cf1ad30722eccc",
+  "niche": "space science",
+  "niche_id": 0,
+  "fact_pack_id": "",
+  "fact_pack_hash": "",
+  "prompt_version": "v12",
+  "prompt_template_hash": "0eb19ea36a22cf406694f6e7dea91b9f",
+  "provider": "llm_router",
+  "model": "purpose-script",
+  "generation_id": "",
+  "plan_path": "E:\\All Updaye Project\\AutoMovie_Pro_SAAS_Final_Update\\AutoMoviePro-Software\\docs\\marathon\\runs\\mr_core_engine_20260910T143527Z_2f96a369\\script\\director_plan.json",
+  "plan_hash": "60c34475c833484c9a7bbcd67266a2f1ad62b012d20ff6a8def965ca743a3ee8",
+  "saved_at": 1789050937.8547118,
+  "metadata": {
+    "video_type": "short",
+    "max_seconds": 60,
+    "language": "en",
+    "revision_id": "",
+    "legacy_key": "script:9b95754634774e44b6cadbf3a8036a4e"
+  }
+}
