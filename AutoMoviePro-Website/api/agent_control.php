@@ -280,42 +280,148 @@ try {
                 send_json(['ok' => false, 'error' => 'invalid_order_id'], 400);
             }
 
-            $stmt = $pdo->prepare('SELECT * FROM orders WHERE id = ? LIMIT 1');
-            $stmt->execute([$orderId]);
-            $order = $stmt->fetch();
-            if (!$order) {
-                send_json(['ok' => false, 'error' => 'order_not_found'], 404);
+            if (function_exists('amp_approve_order')) {
+                $res = amp_approve_order($pdo, $config, $orderId, true);
+                if (empty($res['ok'])) {
+                    send_json($res, 400);
+                }
+                send_json([
+                    'ok' => true,
+                    'order_id' => $orderId,
+                    'customer_id' => $res['customer_id'] ?? null,
+                    'login_id' => $res['login_id'] ?? '',
+                    'password' => $res['password'] ?? '',
+                    'tier' => $res['tier'] ?? 'video_studio',
+                    'plan' => $res['plan'] ?? 'video_studio',
+                    'download_url' => $res['download_url'] ?? '',
+                    'download_token' => $res['download_token'] ?? '',
+                    'message' => "Order #{$orderId} approved! License token issued, credentials generated, and WhatsApp notification dispatched."
+                ]);
             }
 
-            // Update order status
+            // Fallback manual approve
             $up = $pdo->prepare("UPDATE orders SET status = 'approved', approved_at = CURRENT_TIMESTAMP WHERE id = ?");
             $up->execute([$orderId]);
+            send_json(['ok' => true, 'order_id' => $orderId, 'status' => 'approved', 'message' => "Order #{$orderId} approved."]);
+            break;
 
-            // Ensure customer active and set accurate package tier
-            $custId = (int) ($order['customer_id'] ?? 0);
-            $tier = function_exists('amp_determine_order_tier') ? amp_determine_order_tier($order) : 'video_studio';
-            if ($custId > 0) {
-                $cUp = $pdo->prepare("UPDATE customers SET status = 'active', tier = ?, plan = ?, activated_at = CURRENT_TIMESTAMP WHERE id = ?");
-                $cUp->execute([$tier, $tier, $custId]);
+        case 'add_customer':
+            $name = trim((string) ($payload['name'] ?? ''));
+            $whatsapp = preg_replace('/\D+/', '', (string) ($payload['whatsapp'] ?? '')) ?: '';
+            $email = trim((string) ($payload['email'] ?? ''));
+            $tier = strtolower(trim((string) ($payload['tier'] ?? 'video_studio')));
+            if (!in_array($tier, ['video_studio', 'fb_business', 'profile_page'], true)) {
+                $tier = 'video_studio';
+            }
+            if (empty($name) || empty($whatsapp)) {
+                send_json(['ok' => false, 'error' => 'missing_name_or_whatsapp'], 400);
+            }
 
-                // Create or un-revoke license
-                $lCheck = $pdo->prepare("SELECT id FROM licenses WHERE customer_id = ? AND revoked = 0 LIMIT 1");
-                $lCheck->execute([$custId]);
-                if (!$lCheck->fetch()) {
-                    $token = bin2hex(random_bytes(16));
-                    $insLic = $pdo->prepare("INSERT INTO licenses (customer_id, token, expires_at, revoked) VALUES (?, ?, NULL, 0)");
-                    $insLic->execute([$custId, $token]);
+            $loginId = generate_login_id();
+            $plainPass = random_password(10);
+            $hash = password_hash($plainPass, PASSWORD_DEFAULT);
+            $now = amp_sql_now($pdo);
+
+            $ins = $pdo->prepare(
+                "INSERT INTO customers (name, whatsapp, email, login_id, password_hash, status, tier, plan, activated_at, created_at)
+                 VALUES (?, ?, ?, ?, ?, 'active', ?, ?, {$now}, {$now})"
+            );
+            $ins->execute([$name, $whatsapp, $email ?: null, $loginId, $hash, $tier, $tier]);
+            $newCustId = (int) $pdo->lastInsertId();
+
+            // Issue license
+            $token = amp_issue_license($pdo, $newCustId, 36500);
+            amp_unlock_customer_lang($pdo, $newCustId, 'en', 'admin_create');
+            amp_unlock_customer_lang($pdo, $newCustId, 'bn', 'admin_create');
+
+            // Generate download token
+            $dlToken = amp_create_download_token($pdo, null, $newCustId, 'software', 72);
+            $siteUrl = rtrim((string) ($config['site_url'] ?? 'https://automoviepro.com'), '/');
+            $dlUrl = $siteUrl . '/download.php?token=' . $dlToken;
+
+            // WhatsApp message
+            $tierLabel = ($tier === 'video_studio') ? 'Omni Video Studio (৳৩,৯৯৯)' : (($tier === 'fb_business') ? 'Omni FB Business Manager (৳২,৯৯৯)' : 'Omni FB Profile & Page (৳১,৯৯৯)');
+            $msg = "অভিনন্দন {$name}! AutoMovie Pro-তে আপনার অ্যাকাউন্ট সক্রিয় করা হয়েছে।\n"
+                 . "প্যাকেজ: {$tierLabel}\n"
+                 . "Login ID: {$loginId}\n"
+                 . "Password: {$plainPass}\n"
+                 . "ডাউনলোড লিংক (৭২ ঘণ্টা মেয়াদী): {$dlUrl}\n"
+                 . "সফটওয়্যার ওপেন করে এই Login ID ও Password দিয়ে লগইন করুন।";
+            whatsapp_queue($pdo, $config, $whatsapp, $msg, $newCustId);
+
+            send_json([
+                'ok' => true,
+                'customer_id' => $newCustId,
+                'name' => $name,
+                'whatsapp' => $whatsapp,
+                'login_id' => $loginId,
+                'password' => $plainPass,
+                'tier' => $tier,
+                'download_url' => $dlUrl,
+                'message' => "গ্রাহক {$name} সফলভাবে যুক্ত হয়েছেন এবং হোয়াটসঅ্যাপে লগইন তথ্য পাঠানো হয়েছে।"
+            ]);
+            break;
+
+        case 'reset_hwid':
+            $customerId = (int) ($payload['customer_id'] ?? 0);
+            if ($customerId <= 0) {
+                send_json(['ok' => false, 'error' => 'invalid_customer_id'], 400);
+            }
+            $pdo->prepare("UPDATE customers SET hardware_id = NULL, hardware_locked_at = NULL WHERE id = ?")->execute([$customerId]);
+            send_json([
+                'ok' => true,
+                'customer_id' => $customerId,
+                'message' => "গ্রাহক #{$customerId} এর হার্ডওয়্যার আইডি রিসেট হয়েছে। এখন যেকোনো নতুন পিসি থেকে লগইন করতে পারবেন।"
+            ]);
+            break;
+
+        case 'reconcile_sms':
+            // Match agent_sms_inbox with pending orders
+            $unmatched = $pdo->query("SELECT * FROM agent_sms_inbox WHERE is_matched = 0 ORDER BY id DESC LIMIT 50")->fetchAll(PDO::FETCH_ASSOC);
+            $pendingOrders = $pdo->query("SELECT * FROM orders WHERE status = 'pending_payment' ORDER BY id DESC LIMIT 50")->fetchAll(PDO::FETCH_ASSOC);
+            $matchedCount = 0;
+            $matches = [];
+
+            foreach ($unmatched as $sms) {
+                $smsTxn = strtoupper(trim((string) $sms['txn_id']));
+                $smsAmount = (float) $sms['amount'];
+                $smsDigits = trim((string) ($sms['sender_last_digits'] ?? ''));
+
+                foreach ($pendingOrders as $order) {
+                    $orderTxn = strtoupper(trim((string) ($order['txn_id'] ?? '')));
+                    $orderAmount = (float) ($order['amount'] ?? 0);
+                    $orderDigits = trim((string) ($order['sender_last_digits'] ?? ''));
+
+                    $isMatch = false;
+                    if ($smsTxn !== '' && $orderTxn !== '' && ($smsTxn === $orderTxn || str_contains($smsTxn, $orderTxn) || str_contains($orderTxn, $smsTxn))) {
+                        $isMatch = true;
+                    } elseif ($smsAmount > 0 && abs($smsAmount - $orderAmount) < 5.0 && $smsDigits !== '' && $orderDigits !== '' && $smsDigits === $orderDigits) {
+                        $isMatch = true;
+                    }
+
+                    if ($isMatch) {
+                        $appRes = amp_approve_order($pdo, $config, (int) $order['id'], true);
+                        if (!empty($appRes['ok'])) {
+                            $pdo->prepare("UPDATE agent_sms_inbox SET is_matched = 1, matched_order_id = ? WHERE id = ?")
+                                ->execute([(int) $order['id'], (int) $sms['id']]);
+                            $matchedCount++;
+                            $matches[] = [
+                                'order_id' => (int) $order['id'],
+                                'customer_name' => $order['name'],
+                                'amount' => $orderAmount,
+                                'txn_id' => $smsTxn
+                            ];
+                        }
+                        break;
+                    }
                 }
             }
 
             send_json([
                 'ok' => true,
-                'order_id' => $orderId,
-                'customer_id' => $custId,
-                'tier' => $tier,
-                'plan' => $tier,
-                'status' => 'approved',
-                'message' => "Order #{$orderId} approved and license active!"
+                'matched_count' => $matchedCount,
+                'matches' => $matches,
+                'message' => "Reconciliation complete: {$matchedCount} pending orders auto-approved and notified."
             ]);
             break;
 
