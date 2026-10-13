@@ -127,6 +127,22 @@ function ensure_amp_migrations(PDO $pdo): void
         ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4"
     );
 
+    try {
+        $pdo->exec(
+            "CREATE TABLE IF NOT EXISTS language_orders (
+              id INT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
+              customer_id INT UNSIGNED NOT NULL,
+              lang_code VARCHAR(16) NOT NULL,
+              amount DECIMAL(10,2) NOT NULL DEFAULT 0.00,
+              status VARCHAR(32) NOT NULL DEFAULT 'pending_payment',
+              created_at DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
+              approved_at DATETIME NULL,
+              INDEX idx_customer (customer_id),
+              INDEX idx_status (status)
+            ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4"
+        );
+    } catch (\Throwable $e) {}
+
     $pdo->exec(
         "CREATE TABLE IF NOT EXISTS google_pro_subscriptions (
           id INT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
