@@ -260,6 +260,8 @@ class AudioLocalizationEngine:
         rules = self.DIALECT_RULES.get(lang, self.DIALECT_RULES["en"])
 
         if hook_type == "greeting_hook":
+            if rules.get("greeting", "") in source_text or "assalamu" in source_text.lower() or "আসসালামু" in source_text:
+                return source_text
             return f"{rules['greeting']}! {source_text}"
         elif hook_type == "cta":
             return rules["cta"]

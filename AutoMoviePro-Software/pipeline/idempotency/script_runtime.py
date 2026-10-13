@@ -47,6 +47,9 @@ def execute_script_request(
     skip_reference: str = "",
 ) -> ScriptGenerationResult:
     """fingerprint → idempotency → script gen → validate → provenance → checkpoint"""
+    from pipeline.idempotency.mock_guard import assert_no_mock_in_production
+    assert_no_mock_in_production(use_mock=use_mock, stage="script")
+
     work_dir = Path(work_dir)
     out_path = Path(out_path)
     fingerprint = compute_script_fingerprint(spec)

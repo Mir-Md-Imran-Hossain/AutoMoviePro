@@ -25,9 +25,9 @@ def upscale_still_to_canvas(image: Path, out: Path, *, w: int, h: int) -> Option
     vf = (
         f"scale={w}:{h}:force_original_aspect_ratio=increase:flags=lanczos,"
         f"crop={w}:{h},"
-        f"unsharp=5:5:0.6:5:5:0.0,"
-        f"eq=contrast=1.05:saturation=1.05,"
-        f"format=yuv420p"
+        f"unsharp=5:5:0.5:5:5:0.0,"
+        f"eq=gamma=1.04:contrast=1.02:saturation=1.06,"
+        f"format=rgb24"
     )
     cmd = [
         ffmpeg_bin(),

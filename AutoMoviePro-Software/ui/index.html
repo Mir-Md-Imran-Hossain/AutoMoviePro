@@ -91,6 +91,14 @@
     </section>
 
     <section id="dashView" class="panel hidden">
+      <!-- TIER STATUS & LOCK BANNER -->
+      <div id="tierStatusBanner" style="display:none; margin-bottom: 1rem; padding: 10px 14px; border-radius: 8px; font-size: 0.9rem; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 8px;">
+        <div id="tierStatusMessage" style="display:flex; align-items:center; gap:8px;"></div>
+        <a id="tierUpgradeBtn" href="https://automoviepro.com/#pricing" target="_blank" class="btn btn-sm" style="background: linear-gradient(135deg, #0284c7, #2563eb); color: #fff; font-weight: bold; text-decoration: none; padding: 4px 12px; border-radius: 6px; font-size: 0.82rem;">
+          🚀 প্যাকেজ আপগ্রেড করুন
+        </a>
+      </div>
+
       <nav class="tabs">
         <button data-tab="home" class="active" data-i18n="tab_home">ড্যাশবোর্ড</button>
         <button data-tab="live" data-i18n="tab_live">লাইভ কার্যক্রম</button>
@@ -500,6 +508,26 @@
           <label><span data-i18n="video_special">ভিডিও স্পেশাল</span> <textarea name="video_special"></textarea></label>
           <label><span data-i18n="long_upload">লং আপলোড টাইম</span> <input name="long_upload_time" type="time" value="18:00"></label>
           <label><span data-i18n="short_upload">শর্ট আপলোড টাইম</span> <input name="short_upload_time" type="time" value="12:00"></label>
+
+          <div class="reel-schedule-box" style="background:#0f172a; border:1px solid #334155; border-radius:8px; padding:12px; margin:8px 0;">
+            <div style="font-weight:600; color:#38bdf8; margin-bottom:8px; display:flex; align-items:center; gap:6px;">
+              <span>🎬</span> <span>রিল / শর্টস শিডিউল ও টপিক সেটিংস (OmniReel / Shorts Publisher)</span>
+            </div>
+            <div class="grid" style="grid-template-columns: 1fr 2fr; gap:10px;">
+              <label>
+                <span style="font-size:0.85rem;">দৈনিক রিল আপলোড সংখ্যা</span>
+                <input name="reels_per_day" type="number" min="1" max="10" value="2" placeholder="2 বা 3" style="font-size:0.9rem;">
+              </label>
+              <label>
+                <span style="font-size:0.85rem;">রিল আপলোড সময়সূচি (কমা দিয়ে লিখুন)</span>
+                <input name="reel_schedule_times" type="text" value="11:00, 16:00, 20:30" placeholder="যেমন: 11:00, 16:00, 20:30" style="font-size:0.9rem;">
+              </label>
+            </div>
+            <label style="margin-top:8px;">
+              <span style="font-size:0.85rem;">রিল তৈরির টপিক ও বিষয়বস্তু (প্রতি লাইনে ১টি বিষয়)</span>
+              <textarea name="reel_topics" rows="3" placeholder="১-ক্লিকে ১০০% স্বয়ংক্রিয় এআই ভিডিও&#10;ঘরে বসে প্যাসিভ ইনকাম মাস্টারক্লাস&#10;মাল্টি-ল্যাঙ্গুয়েজ গ্লোবাল ডাবিং সাম্রাজ্য" style="font-size:0.85rem;"></textarea>
+            </label>
+          </div>
           <label><span data-i18n="example_script">উদাহরণ স্ক্রিপ্ট</span> <textarea name="example_script"></textarea></label>
           <label><span data-i18n="gen_special">জেনারেশন স্পেশাল</span> <textarea name="generation_special"></textarea></label>
           <label><span data-i18n="title_special">টাইটেল/ডেসক্রিপশন</span> <textarea name="title_desc_special"></textarea></label>

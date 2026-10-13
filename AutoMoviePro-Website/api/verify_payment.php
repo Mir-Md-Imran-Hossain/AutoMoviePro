@@ -36,7 +36,8 @@ require_once __DIR__ . '/../includes/billing.php';
 
 // Check if already approved/active
 if ($order['status'] === 'active' || $order['status'] === 'approved') {
-    $dlLink = '/downloads/AutoMoviePro_Installer_Latest.exe';
+    $dlToken = amp_create_download_token($pdo, $orderId, (int) ($order['customer_id'] ?? 0));
+    $dlLink = '/download.php?token=' . $dlToken;
     echo json_encode([
         'ok' => true,
         'status' => 'already_active',
@@ -45,6 +46,63 @@ if ($order['status'] === 'active' || $order['status'] === 'approved') {
         'login_id' => $order['whatsapp'] ?? 'User_' . $order['id']
     ], JSON_UNESCAPED_UNICODE);
     exit;
+}
+
+// 1. Regex Validation for MFS Transaction IDs (bKash, Nagad, Rocket)
+if ($txnId !== '') {
+    $methodKey = strtolower($method);
+    if (str_contains($methodKey, 'bkash')) {
+        if (!preg_match('/^[A-Z0-9]{8,12}$/', $txnId)) {
+            echo json_encode([
+                'ok' => false,
+                'error' => 'বিকাশ ট্রানজেকশন আইডি (TrxID) সাধারণত ৮-১০ ডিজিটের অক্ষর ও সংখ্যার হয়ে থাকে (যেমন: BL92KA871X)। সঠিক TrxID দিন।'
+            ], JSON_UNESCAPED_UNICODE);
+            exit;
+        }
+    } elseif (str_contains($methodKey, 'nagad')) {
+        if (!preg_match('/^[A-Z0-9]{8,12}$/', $txnId)) {
+            echo json_encode([
+                'ok' => false,
+                'error' => 'নগদ ট্রানজেকশন আইডি (TrxID) সাধারণত ৮-১০ ডিজিটের হয়ে থাকে (যেমন: 71A3BC45)। সঠিক TrxID দিন।'
+            ], JSON_UNESCAPED_UNICODE);
+            exit;
+        }
+    } elseif (str_contains($methodKey, 'rocket')) {
+        if (!preg_match('/^[A-Z0-9]{8,14}$/', $txnId)) {
+            echo json_encode([
+                'ok' => false,
+                'error' => 'রকেট ট্রানজেকশন আইডি সঠিক ফরম্যাটে দিন (যেমন: 1029384756)।'
+            ], JSON_UNESCAPED_UNICODE);
+            exit;
+        }
+    } else {
+        if (!preg_match('/^[A-Z0-9_-]{6,24}$/', $txnId)) {
+            echo json_encode([
+                'ok' => false,
+                'error' => 'ট্রানজেকশন আইডিতে অবৈধ চিহ্ন রয়েছে। সঠিক TrxID প্রদান করুন।'
+            ], JSON_UNESCAPED_UNICODE);
+            exit;
+        }
+    }
+
+    // 2. Duplicate TrxID Guard: Prevent reuse of previously approved or under-review TrxIDs
+    $dupStmt = $pdo->prepare("
+        SELECT id, status, name, amount 
+        FROM orders 
+        WHERE UPPER(txn_id) = ? AND id != ? AND status IN ('approved', 'active', 'under_review')
+        LIMIT 1
+    ");
+    $dupStmt->execute([$txnId, $orderId]);
+    $dupOrder = $dupStmt->fetch();
+
+    if ($dupOrder) {
+        echo json_encode([
+            'ok' => false,
+            'code' => 'DUPLICATE_TRX_ID',
+            'error' => 'এই ট্রানজেকশন আইডিটি (TrxID: ' . $txnId . ') ইতিমধ্যে অর্ডার #' . $dupOrder['id'] . '-এ ব্যবহৃত বা যাচাইাধীন রয়েছে। প্রতিটি অর্ডারের জন্য ইউনিক TrxID আবশ্যক।'
+        ], JSON_UNESCAPED_UNICODE);
+        exit;
+    }
 }
 
 // Automated Reconciliation against agent_sms_inbox
@@ -119,7 +177,8 @@ try {
         }
     }
 
-    $dlLink = '/downloads/AutoMoviePro_Installer_Latest.exe';
+    $dlToken = amp_create_download_token($pdo, $orderId, (int) ($order['customer_id'] ?? 0));
+    $dlLink = '/download.php?token=' . $dlToken;
     $waHandoffMsg = "আমার Google AI Pro অর্ডার আইডি: #{$orderId}, নাম: " . ($order['name'] ?? '') . "। আমার জিমেইল আইডি হলো: [এখানে আপনার জিমেইল লিখুন]। অনুগ্রহ করে আমার ১৫০ জিবি ক্লাউড স্টোরেজ ও এপিআই এক্সেস কনফিগার করে দিন।";
     $waHandoffUrl = "https://wa.me/8801684355055?text=" . urlencode($waHandoffMsg);
 

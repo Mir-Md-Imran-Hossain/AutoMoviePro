@@ -349,7 +349,7 @@ def idempotent_generate_agnes_beat_result(
         def _agnes():
             from pipeline.media_assets import generate_agnes_dialogue_clip
 
-            return generate_agnes_dialogue_clip(
+            res = generate_agnes_dialogue_clip(
                 product_name=product_name,
                 element=element,
                 visual_prompt=visual_prompt,
@@ -362,6 +362,60 @@ def idempotent_generate_agnes_beat_result(
                 niche=niche,
                 use_catalog_image=use_catalog_image,
             )
+            if res and res.exists() and res.stat().st_size > 5000:
+                return res
+
+            import logging, os
+            logger = logging.getLogger(__name__)
+            logger.warning("Agnes exhausted/failed. Trying Seedance, Kling, Luma fallbacks...")
+
+            try:
+                from pipeline.custom_pipeline.media_providers import video_kling, video_luma, video_seedance
+                from pipeline.custom_pipeline.session_keys import _env_map, _collect_numbered
+                w, h = (int(x) for x in size.split("x"))
+                dur = duration_hint or 5.0
+                env = _env_map()
+                
+                # 1. Seedance
+                if _collect_numbered(env, ["SEEDANCE_API_KEY", "REPLICATE_API_TOKEN"], max_n=5):
+                    try:
+                        logger.warning("Attempting Seedance fallback...")
+                        p = video_seedance(override_prompt or visual_prompt, out_path, w=w, h=h, duration=dur)
+                        if p and p.exists() and p.stat().st_size > 5000:
+                            return p
+                        else:
+                            logger.warning("Seedance returned None or invalid file")
+                    except Exception as e:
+                        logger.warning("seedance fallback failed: %s", e)
+
+                # 2. Kling
+                if _collect_numbered(env, ["KLING_API_KEY"], max_n=5):
+                    try:
+                        logger.warning("Attempting Kling fallback...")
+                        p = video_kling(override_prompt or visual_prompt, out_path, w=w, h=h, duration=dur)
+                        if p and p.exists() and p.stat().st_size > 5000:
+                            return p
+                        else:
+                            logger.warning("Kling returned None or invalid file")
+                    except Exception as e:
+                        logger.warning("kling fallback failed: %s", e)
+
+                # 3. Luma
+                if _collect_numbered(env, ["LUMA_API_KEY"], max_n=5):
+                    try:
+                        logger.warning("Attempting Luma fallback...")
+                        p = video_luma(override_prompt or visual_prompt, out_path, w=w, h=h, duration=dur)
+                        if p and p.exists() and p.stat().st_size > 5000:
+                            return p
+                        else:
+                            logger.warning("Luma returned None or invalid file")
+                    except Exception as e:
+                        logger.warning("luma fallback failed: %s", e)
+            except Exception as outer_e:
+                logger.error("Outer exception in fallback chain: %s", outer_e)
+
+            logger.warning("All fallbacks exhausted. Returning None.")
+            return None
 
         provider_fn = _agnes
 

@@ -60,6 +60,8 @@ IDENTITY_FIELDS = frozenset(
         "display_name",
         "login_id",
         "plan_label",
+        "plan",
+        "tier",
         "session_updated_at",
         "session_expires_at",
         "mode",
@@ -309,6 +311,10 @@ def evaluate_session(session: Optional[Dict[str, Any]] = None) -> Dict[str, Any]
     except Exception:
         rel = None
 
+    from app.customer_tiers import normalize_tier_id
+    raw_tier = customer.get("tier") or customer.get("plan") or customer.get("plan_name")
+    resolved_tier = normalize_tier_id(raw_tier) if (raw_tier or auth_mode != "local_dev") else "dev"
+
     return to_identity_projection(
         {
             "auth_state": auth_state,
@@ -321,7 +327,9 @@ def evaluate_session(session: Optional[Dict[str, Any]] = None) -> Dict[str, Any]
             "customer_id": customer.get("id"),
             "display_name": customer.get("name") or customer.get("display_name") or session.get("login_id"),
             "login_id": session.get("login_id") or customer.get("login_id"),
-            "plan_label": customer.get("plan") or customer.get("plan_name"),
+            "plan_label": customer.get("plan") or customer.get("tier") or customer.get("plan_name") or resolved_tier,
+            "plan": resolved_tier,
+            "tier": resolved_tier,
             "session_updated_at": session.get("updated_at"),
             "session_expires_at": session.get("expires_at")
             or compute_expires_at(session.get("updated_at"), customer),
@@ -381,6 +389,7 @@ def authenticate(login_id: str, password: str, api_base: str) -> Dict[str, Any]:
             "name": "Local Admin",
             "login_id": login_id,
             "status": "active",
+            "tier": "dev",
             "plan": "dev",
             "entitlement": "active",
         }
@@ -475,7 +484,7 @@ def authenticate(login_id: str, password: str, api_base: str) -> Dict[str, Any]:
 
 
 def _public_customer(customer: Dict[str, Any]) -> Dict[str, Any]:
-    allowed = {"id", "name", "login_id", "status", "plan", "plan_name", "unlocked"}
+    allowed = {"id", "name", "login_id", "status", "plan", "plan_name", "tier", "unlocked"}
     return {k: customer.get(k) for k in allowed if k in customer}
 
 
@@ -547,6 +556,18 @@ def can_customer_produce(
             "block_reason": identity.get("block_reason") or "production_access_denied",
             "foundation": foundation,
             **customer_message(ENTITLEMENT_REQUIRED),
+        }
+
+    from app.customer_tiers import can_produce_video_studio, TIER_UPGRADE_MESSAGE_VIDEO_STUDIO
+
+    if not can_produce_video_studio(identity):
+        return {
+            "allowed": False,
+            "identity": {**identity, "production_allowed": False},
+            "block_reason": "tier_upgrade_required",
+            "foundation": foundation,
+            "message_key": "tier_upgrade_required",
+            "message": TIER_UPGRADE_MESSAGE_VIDEO_STUDIO,
         }
 
     # C01 readiness — do not recalculate; build snapshot from existing authorities

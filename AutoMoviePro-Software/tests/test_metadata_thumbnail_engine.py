@@ -232,6 +232,45 @@ class TestMetadataThumbnailEngine(unittest.TestCase):
         self.assertFalse(info["valid"])
         self.assertTrue("decode" in info["error"].lower() or "verification" in info["error"].lower() or "error" in info["error"].lower())
 
+    def test_ab_thumbnail_variants_and_chapters(self):
+        """Validates generation of 3 distinct A/B thumbnail variants, 3 title candidates, chapters and SEO breakdown."""
+        pkg = self.engine.generate_package(
+            topic_title="Top 10 Quantum Computing Breakthroughs",
+            niche="Future Technology & Science",
+            video_format="long",
+            language="en",
+        )
+        # Check title candidates
+        self.assertEqual(len(pkg.title_candidates), 3)
+        styles = [c["style"] for c in pkg.title_candidates]
+        self.assertIn("viral_hook", styles)
+        self.assertIn("curiosity_gap", styles)
+        self.assertIn("authority_investigation", styles)
+
+        # Check video chapters
+        self.assertGreaterEqual(len(pkg.video_chapters), 4)
+        self.assertEqual(pkg.video_chapters[0]["timestamp"], "00:00")
+
+        # Check thumbnail variants
+        self.assertEqual(len(pkg.thumbnail_variants), 3)
+        for var in pkg.thumbnail_variants:
+            v_path = Path(var["path"])
+            self.assertTrue(v_path.exists())
+            self.assertGreater(v_path.stat().st_size, 1000)
+            self.assertEqual(var["details"]["aspect_ratio"], "16:9")
+            self.assertEqual(var["details"]["width"], 1280)
+            self.assertEqual(var["details"]["height"], 720)
+
+        # Check SEO breakdown
+        self.assertIn("title_length", pkg.seo_breakdown)
+        self.assertIn("ctr_curiosity_score", pkg.seo_breakdown)
+        self.assertTrue(pkg.seo_breakdown["has_chapters"])
+        self.assertTrue(pkg.seo_breakdown["variants_verified"])
+        self.assertEqual(pkg.seo_breakdown["variant_count"], 3)
+        self.assertTrue(pkg.passed_qa)
+        self.assertGreaterEqual(pkg.seo_score, 80.0)
+
 
 if __name__ == "__main__":
     unittest.main()
+

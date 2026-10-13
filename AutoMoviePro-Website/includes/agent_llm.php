@@ -267,10 +267,12 @@ PRODUCT FACTS (accurate):
 - It automates everything: niche research, scriptwriting, voiceover generation (TTS), image & video generation, subtitle burning, and scheduled automated uploading to YouTube, Facebook Reels/Pages, and TikTok.
 - Supports up to 6 YouTube + 6 Facebook + 6 TikTok channels/pages simultaneously.
 - Supported languages: 6 languages — বাংলা (Bangla), English, हिन्दी (Hindi), اردو (Urdu), தமிழ் (Tamil), മലയാളം (Malayalam).
-- Pricing:
-  • মূল লাইফটাইম প্যাকেজ (Core Lifetime): ৳{$price} (ইংরেজি + আপনার পছন্দের ১টি দেশীয় ভাষা)।
-  • প্রতিটি অতিরিক্ত আনলক ভাষা: মাত্র ৳{$addon}।
-  • সুপার কমপ্লিট প্যাকেজ (সব ৬টি ভাষা আনলিমিটেড): ৳৪৯৯৯।
+- Official 3-Tier Commercial Products & Pricing:
+  1. ৳৩,৯৯৯ -> Omni Video Content Studio (video_studio): ফুল ভিডিও স্টুডিও, লং ও শর্ট ভিডিও অটোমেশন, সাবটাইটেল বার্নিং, ইউটিউব ও ফেসবুক রিলস অটো-পাবলিশ।
+  2. ৳২,৯৯৯ -> Omni FB Business Manager & Ad Content (fb_business): মেটা বিজনেস স্যুট, অ্যাড ক্যাম্পেইন ও প্রোমোশনাল ব্যানার জেনারেটর, কমেন্ট এজেন্ট। (ফুল ভিডিও স্টুডিও অন্তর্ভুক্ত নয়)।
+  3. ৳১,৯৯৯ -> Omni FB Profile & Page Post (profile_page): প্রোফাইল ও পেজ কোটস, লাইফস্টাইল ব্যানার, হিউম্যান-লাইক স্ক্রলিং ও টাইমলাইন পোস্ট অটো পাইলট। (ভিডিও স্টুডিও অন্তর্ভুক্ত নয়)।
+  • অতিরিক্ত ভাষা আনলক: মাত্র ৳{$addon}।
+  • সুপার কমপ্লিট প্যাকেজ: ৳৪৯৯৯।
 - Payment methods:
   • বিকাশ এজেন্ট ক্যাশ আউট: 01756160993 (Zahid Pharmacy)
   • নগদ এজেন্ট ক্যাশ আউট: 01611-824811 (Simi Drug House)

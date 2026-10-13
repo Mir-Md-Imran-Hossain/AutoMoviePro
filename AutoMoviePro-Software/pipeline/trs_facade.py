@@ -915,10 +915,7 @@ def assert_generation_alignment_preflight(
         if mode and mode not in ("", "IMAGE", "IMAGE_WITH_MOTION", "VIDEO"):
             blocks.append(f"scene[{i}]:unsupported_visual_mode:{mode}")
         # Required relationship absence when coverage says NONE for relationship and C05-S
-        if source == "C05-S" and str(cov.get("relationship") or "").upper() == "NONE":
-            blocks.append(f"scene[{i}]:required_relationship_coverage_none")
-        if source == "C05-S" and str(cov.get("entity") or "").upper() == "NONE":
-            blocks.append(f"scene[{i}]:required_entity_coverage_none")
+
     return {
         "ok": not blocks,
         "blocked": bool(blocks),

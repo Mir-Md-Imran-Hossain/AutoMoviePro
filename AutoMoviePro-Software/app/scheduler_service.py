@@ -355,14 +355,29 @@ class SchedulerService:
         now = datetime.now().strftime("%H:%M")
         channels = [c for c in store.list_channels() if c.get("enabled")]
         for channel in channels:
-            self._maybe_upload(channel, "short", channel.get("short_upload_time") or "12:00", now)
+            # Multi-slot Reel/Short handling
+            reels_limit = int(channel.get("reels_per_day") or 2)
+            raw_slots = channel.get("reel_schedule_times")
+            slots = []
+            if raw_slots:
+                try:
+                    import json as _json
+                    slots = _json.loads(raw_slots) if isinstance(raw_slots, str) and raw_slots.startswith("[") else [s.strip() for s in raw_slots.split(",") if s.strip()]
+                except Exception:
+                    pass
+            if not slots:
+                slots = [channel.get("short_upload_time") or "12:00"]
+
+            for slot_time in slots[:reels_limit]:
+                self._maybe_upload_reel_slot(channel, slot_time, now)
+
             self._maybe_upload(channel, "long", channel.get("long_upload_time") or "18:00", now)
 
     @staticmethod
     def _is_time_or_overdue(now_hhmm: str, target_hhmm: str) -> bool:
         """
         True if target upload time has arrived or passed today.
-        Guarantees 1 Short + 1 Long per day even if computer was asleep or off at exact minute.
+        Guarantees Shorts & Long videos are published even if computer was asleep or off at exact minute.
         """
         try:
             nh, nm = [int(x) for x in (now_hhmm or "00:00")[:5].split(":")]
@@ -372,6 +387,56 @@ class SchedulerService:
             return now_m >= tgt_m
         except Exception:
             return False
+
+    def _maybe_upload_reel_slot(
+        self,
+        channel: Dict[str, Any],
+        target_time: str,
+        now: str,
+    ) -> None:
+        if not self._is_time_or_overdue(now, target_time):
+            return
+        clean_slot = str(target_time).replace(":", "")
+        today_date = datetime.now().date().isoformat()
+        slot_key = f"upload_{channel['id']}_reel_{clean_slot}_{today_date}"
+        if store.get_meta(slot_key) == "1":
+            return
+
+        count_key = f"upload_count_{channel['id']}_reels_{today_date}"
+        try:
+            curr_count = int(store.get_meta(count_key) or "0")
+        except Exception:
+            curr_count = 0
+        max_daily = int(channel.get("reels_per_day") or 2)
+        if curr_count >= max_daily:
+            return
+
+        try:
+            from publishers.upload_service import upload_job
+
+            job_id = self._claim_or_generate(channel, "short")
+            if not job_id:
+                return
+            result = upload_job(int(job_id), channel) or {}
+            if result.get("ok"):
+                store.set_meta(slot_key, "1")
+                store.set_meta(count_key, str(curr_count + 1))
+                logger.info(
+                    "Reel slot %s published successfully for channel %s (%d/%d)",
+                    target_time,
+                    channel.get("id"),
+                    curr_count + 1,
+                    max_daily,
+                )
+            else:
+                logger.warning(
+                    "Reel slot upload not marked done (ch=%s slot=%s): %s",
+                    channel.get("id"),
+                    target_time,
+                    result.get("error") or result.get("status") or "failed",
+                )
+        except Exception as exc:
+            logger.exception("Reel slot upload failed: %s", exc)
 
     def _maybe_upload(
         self,

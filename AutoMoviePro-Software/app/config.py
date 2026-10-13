@@ -2,10 +2,28 @@ from __future__ import annotations
 
 import logging
 import os
+import shutil
 from pathlib import Path
-from typing import Optional, Sequence
+from typing import Any, Dict, Optional, Sequence
 
+from pydantic import Field
 from pydantic_settings import BaseSettings, SettingsConfigDict
+
+
+def _resolve_default_dry_run() -> bool:
+    """Resolve dynamic dry_run_publish flag.
+
+    Production runtime defaults to False so real publishing triggers as soon as
+    user configures channel credentials.
+    Explicit test override is supported via AMP_DRY_RUN=1 (or AMP_DRY_RUN=0).
+    """
+    amp_dry = os.environ.get("AMP_DRY_RUN")
+    if amp_dry is not None:
+        return amp_dry.strip().lower() in ("1", "true", "yes", "on")
+    dry_env = os.environ.get("DRY_RUN_PUBLISH")
+    if dry_env is not None:
+        return dry_env.strip().lower() in ("1", "true", "yes", "on")
+    return False
 
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -48,8 +66,9 @@ class Settings(BaseSettings):
     intelligence_research_mode: str = "LIVE"
     intelligence_mode: str = "PRODUCTION"
 
-    # Publish safety — default dry-run (fail-closed for live upload)
-    dry_run_publish: bool = True
+    # Publish safety — dynamic: defaults to False in production runtime so real publishing
+    # triggers as soon as user configures channel credentials; overridden via AMP_DRY_RUN=1.
+    dry_run_publish: bool = Field(default_factory=_resolve_default_dry_run)
 
     # Local/dev login — production fail-closed (default deny)
     amp_allow_local_login: bool = False
@@ -57,6 +76,12 @@ class Settings(BaseSettings):
     amp_dev_login_password: str = ""
     # Comma-separated; empty string means use built-in local defaults only
     amp_local_login_bases: str = ""
+
+    def __init__(self, **values: Any):
+        # Allow explicit process-level AMP_DRY_RUN override unless explicitly passed in constructor kwargs
+        if "AMP_DRY_RUN" in os.environ and "dry_run_publish" not in values:
+            values["dry_run_publish"] = os.environ["AMP_DRY_RUN"].strip().lower() in ("1", "true", "yes", "on")
+        super().__init__(**values)
 
 
 settings = Settings()
@@ -231,3 +256,41 @@ def software_env_paths(extra: Optional[Sequence[Path]] = None) -> list[Path]:
     if extra:
         paths.extend(Path(p) for p in extra)
     return paths
+
+
+def ensure_portable_ffmpeg() -> dict[str, Any]:
+    """Ensure portable bundled FFmpeg (ffmpeg-8.1.1-full_build or local bin) is detected and in PATH.
+
+    Non-tech customer friendly: automatically injects bundled build directory into PATH
+    so subsequent ffmpeg/ffprobe subprocess commands succeed even on bare machines.
+    """
+    try:
+        from pipeline.compose import ensure_portable_ffmpeg_in_path, ffmpeg_bin, ffprobe_bin
+
+        injected = ensure_portable_ffmpeg_in_path()
+        ff = ffmpeg_bin()
+        pr = ffprobe_bin()
+        return {
+            "ok": bool(ff and pr),
+            "injected_bin_dir": injected,
+            "ffmpeg": ff,
+            "ffprobe": pr,
+            "in_path": bool(shutil.which("ffmpeg")),
+        }
+    except Exception as exc:
+        logger.warning("ensure_portable_ffmpeg exception: %s", exc)
+        return {
+            "ok": False,
+            "error": str(exc),
+            "ffmpeg": shutil.which("ffmpeg") or "ffmpeg",
+            "ffprobe": shutil.which("ffprobe") or "ffprobe",
+            "in_path": bool(shutil.which("ffmpeg")),
+        }
+
+
+# Auto-configure portable FFmpeg on configuration load
+try:
+    ensure_portable_ffmpeg()
+except Exception:
+    pass
+

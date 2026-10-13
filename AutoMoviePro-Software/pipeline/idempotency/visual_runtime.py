@@ -72,6 +72,9 @@ def execute_visual_request(
     BUILD-04A runtime entry:
     fingerprint → idempotency → provider → validate → provenance → checkpoint
     """
+    from pipeline.idempotency.mock_guard import assert_no_mock_in_production
+    assert_no_mock_in_production(use_mock=use_mock, stage="visual")
+
     work_dir = Path(work_dir)
     out_path = Path(out_path)
     fingerprint = compute_visual_fingerprint(spec)

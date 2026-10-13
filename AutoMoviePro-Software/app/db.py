@@ -14,6 +14,7 @@ DB_PATH = DATA_DIR / "local.db"
 
 
 def _connect() -> sqlite3.Connection:
+    DB_PATH.parent.mkdir(parents=True, exist_ok=True)
     conn = sqlite3.connect(DB_PATH)
     conn.row_factory = sqlite3.Row
     return conn
@@ -161,6 +162,14 @@ def init_db() -> None:
             conn.execute("ALTER TABLE channels ADD COLUMN tiktok_name TEXT")
         if "tiktok_session" not in cols:
             conn.execute("ALTER TABLE channels ADD COLUMN tiktok_session TEXT")
+        if "reels_per_day" not in cols:
+            conn.execute("ALTER TABLE channels ADD COLUMN reels_per_day INTEGER DEFAULT 2")
+        if "reel_schedule_times" not in cols:
+            conn.execute("ALTER TABLE channels ADD COLUMN reel_schedule_times TEXT DEFAULT '[\"11:00\", \"16:00\", \"20:30\"]'")
+        if "reel_topics" not in cols:
+            conn.execute("ALTER TABLE channels ADD COLUMN reel_topics TEXT")
+        if "reel_strategy_json" not in cols:
+            conn.execute("ALTER TABLE channels ADD COLUMN reel_strategy_json TEXT")
 
         job_cols = {r[1] for r in conn.execute("PRAGMA table_info(jobs)").fetchall()}
         if "lang_code" not in job_cols:
@@ -273,6 +282,34 @@ def init_db() -> None:
               key TEXT PRIMARY KEY,
               value TEXT,
               updated_at TEXT
+            );
+
+            CREATE TABLE IF NOT EXISTS products (
+              id TEXT PRIMARY KEY,
+              name TEXT NOT NULL,
+              category TEXT,
+              description TEXT,
+              features_json TEXT,
+              regular_price TEXT,
+              offer_price TEXT,
+              contact_info_json TEXT,
+              image_path TEXT,
+              enabled INTEGER DEFAULT 1,
+              created_at TEXT,
+              updated_at TEXT
+            );
+
+            CREATE TABLE IF NOT EXISTS product_ad_campaigns (
+              id TEXT PRIMARY KEY,
+              product_id TEXT,
+              ad_type TEXT,
+              duration_seconds INTEGER,
+              talking_points TEXT,
+              video_path TEXT,
+              status TEXT DEFAULT 'draft',
+              scheduled_at TEXT,
+              created_at TEXT,
+              FOREIGN KEY(product_id) REFERENCES products(id)
             );
             """
         )
@@ -416,6 +453,8 @@ def _encrypt_fields(data: Dict[str, Any]) -> Dict[str, Any]:
         "tiktok_session",
         "youtube_session",
         "facebook_session",
+        "youtube_access_token",
+        "youtube_refresh_token",
     ):
         if key in out and out[key]:
             out[key] = encrypt_text(str(out[key]))
@@ -434,6 +473,8 @@ def _decrypt_channel(row: sqlite3.Row) -> Dict[str, Any]:
         "tiktok_session",
         "youtube_session",
         "facebook_session",
+        "youtube_access_token",
+        "youtube_refresh_token",
     ):
         if d.get(key):
             try:
@@ -446,11 +487,15 @@ def _decrypt_channel(row: sqlite3.Row) -> Dict[str, Any]:
 def upsert_channel(payload: Dict[str, Any], channel_id: Optional[int] = None) -> int:
     data = _encrypt_fields(payload)
     now = datetime.now().isoformat()
-    # Soft-ensure owner column (C04)
+    # Soft-ensure owner column (C04) and YouTube OAuth columns
     try:
         from app.customer_config import ensure_channel_owner_column
-
         ensure_channel_owner_column()
+    except Exception:
+        pass
+    try:
+        from publishers.youtube_oauth_service import ensure_youtube_oauth_columns
+        ensure_youtube_oauth_columns()
     except Exception:
         pass
     fields = [
@@ -459,6 +504,9 @@ def upsert_channel(payload: Dict[str, Any], channel_id: Optional[int] = None) ->
         "logo_path", "intro_path", "google_api_1", "google_api_2", "agnes_api", "pexels_api",
         "pollinations_api", "api_keys_json", "languages_json", "lang_destinations_json",
         "youtube_session", "facebook_session", "tiktok_session", "enabled", "owner_login_id",
+        "youtube_oauth_connected", "youtube_channel_id", "youtube_channel_title",
+        "youtube_access_token", "youtube_refresh_token", "youtube_token_expires_at", "product_tier",
+        "reels_per_day", "reel_schedule_times", "reel_topics", "reel_strategy_json",
     ]
     with db() as conn:
         cols_present = {r[1] for r in conn.execute("PRAGMA table_info(channels)").fetchall()}
@@ -476,6 +524,64 @@ def upsert_channel(payload: Dict[str, Any], channel_id: Optional[int] = None) ->
             values,
         )
         return int(cur.lastrowid)
+
+
+def get_channel_reel_settings(channel_id: int) -> Dict[str, Any]:
+    ch = get_channel(channel_id)
+    if not ch:
+        return {}
+    raw_times = ch.get("reel_schedule_times") or '["11:00", "16:00", "20:30"]'
+    if isinstance(raw_times, str):
+        try:
+            schedule_slots = json.loads(raw_times)
+        except Exception:
+            schedule_slots = [t.strip() for t in raw_times.split(",") if t.strip()]
+    else:
+        schedule_slots = raw_times or ["11:00", "16:00", "20:30"]
+
+    raw_topics = ch.get("reel_topics") or ""
+    if isinstance(raw_topics, str):
+        if raw_topics.startswith("["):
+            try:
+                topics_pool = json.loads(raw_topics)
+            except Exception:
+                topics_pool = [t.strip() for t in raw_topics.split("\n") if t.strip()]
+        else:
+            topics_pool = [t.strip() for t in raw_topics.split("\n") if t.strip()]
+    else:
+        topics_pool = raw_topics or []
+
+    return {
+        "channel_id": channel_id,
+        "reels_per_day": int(ch.get("reels_per_day") or 2),
+        "schedule_slots": schedule_slots,
+        "topics_pool": topics_pool,
+        "reel_strategy_json": ch.get("reel_strategy_json") or "{}",
+    }
+
+
+def update_channel_reel_settings(
+    channel_id: int,
+    *,
+    reels_per_day: Optional[int] = None,
+    schedule_slots: Optional[List[str]] = None,
+    topics_pool: Optional[List[str]] = None,
+    strategy_json: Optional[str] = None,
+) -> bool:
+    ch = get_channel(channel_id)
+    if not ch:
+        return False
+    payload = dict(ch)
+    if reels_per_day is not None:
+        payload["reels_per_day"] = int(reels_per_day)
+    if schedule_slots is not None:
+        payload["reel_schedule_times"] = json.dumps(schedule_slots)
+    if topics_pool is not None:
+        payload["reel_topics"] = json.dumps(topics_pool)
+    if strategy_json is not None:
+        payload["reel_strategy_json"] = strategy_json
+    upsert_channel(payload, channel_id)
+    return True
 
 
 def list_channels() -> List[Dict[str, Any]]:

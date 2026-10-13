@@ -283,8 +283,8 @@ class FuturisticVoiceEngine:
             },
             "published": {
                 "stage_name_bn": "পাবলিশিং প্রস্তুত (Upload Ready)",
-                "bn": "ভিডিওটি সকল ভাষায় আপলোড এবং পাবলিশের জন্য সম্পূর্ণ প্রস্তুত।",
-                "en": "Video package is fully prepared for multi-platform publishing across all languages.",
+                "bn": "ভিডিওটি সকল ভাষায় ইউটিউব এবং সোশ্যাল প্ল্যাটফর্মে আপলোড ও পাবলিশের জন্য সম্পূর্ণ প্রস্তুত।",
+                "en": "Video package is fully prepared for YouTube and multi-platform publishing across all languages.",
                 "hi": "वीडियो सभी भाषाओं में अपलोड और प्रकाशन के लिए पूरी तरह तैयार है।",
                 "ur": "ویڈیو تمام زبانوں میں اپ لوڈ اور پبلش کے لیے مکمل تیار ہے۔",
                 "ta": "அனைத்து மொழிகளிலும் பதிவேற்றம் செய்ய வீடியோ முழுமையாக தயாராக உள்ளது.",

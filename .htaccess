@@ -1,0 +1,53 @@
+RewriteEngine On
+
+# 1. Canonical host: https://automoviepro.com (no www)
+RewriteCond %{HTTP_HOST} ^www\.automoviepro\.com$ [NC]
+RewriteRule ^ https://automoviepro.com%{REQUEST_URI} [L,R=301]
+
+# Force HTTPS
+RewriteCond %{HTTPS} !=on
+RewriteCond %{HTTP:X-Forwarded-Proto} !https
+RewriteCond %{HTTP_HOST} ^(www\.)?automoviepro\.com$ [NC]
+RewriteRule ^ https://automoviepro.com%{REQUEST_URI} [L,R=301]
+
+# 2. Strict Security: Block sensitive directories & files
+RewriteRule ^\.git - [F,L,NC]
+RewriteRule ^\.env - [F,L,NC]
+RewriteRule ^AutoMoviePro-Software(/.*)?$ - [F,L,NC]
+RewriteRule ^AutoMoviePro-AdminApp(/.*)?$ - [F,L,NC]
+RewriteRule ^AutoMoviePro-UserApp(/.*)?$ - [F,L,NC]
+RewriteRule ^AutoMoviePro-PaymentApp(/.*)?$ - [F,L,NC]
+RewriteRule ^AutoMoviePro-Website/config\.php$ - [F,L,NC]
+RewriteRule ^AutoMoviePro-Website/includes(/.*)?$ - [F,L,NC]
+RewriteRule ^AutoMoviePro-Website/storage(/.*)?$ - [F,L,NC]
+RewriteRule ^config\.php$ - [F,L,NC]
+RewriteRule ^includes(/.*)?$ - [F,L,NC]
+RewriteRule ^storage(/.*)?$ - [F,L,NC]
+
+# Disable directory browsing
+Options -Indexes
+
+# Security headers
+<IfModule mod_headers.c>
+  Header set X-Content-Type-Options "nosniff"
+  Header set X-Frame-Options "SAMEORIGIN"
+  Header set Referrer-Policy "strict-origin-when-cross-origin"
+</IfModule>
+
+# 3. Transparent Routing to AutoMoviePro-Website
+# Don't loop if already prefixed with AutoMoviePro-Website
+RewriteCond %{REQUEST_URI} ^/AutoMoviePro-Website/ [NC]
+RewriteRule ^ - [L]
+
+# Route all existing files/folders inside AutoMoviePro-Website
+RewriteCond %{DOCUMENT_ROOT}/AutoMoviePro-Website/$1 -f [OR]
+RewriteCond %{DOCUMENT_ROOT}/AutoMoviePro-Website/$1 -d
+RewriteRule ^(.*)$ AutoMoviePro-Website/$1 [L,QSA]
+
+# Route root requests to AutoMoviePro-Website/index.php
+RewriteRule ^$ AutoMoviePro-Website/index.php [L,QSA]
+
+# Fallback for dynamic routes
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^(.*)$ AutoMoviePro-Website/$1 [L,QSA]

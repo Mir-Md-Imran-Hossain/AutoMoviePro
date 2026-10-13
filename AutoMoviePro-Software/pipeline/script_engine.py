@@ -92,6 +92,184 @@ class ProductionScript:
     quality_score: float = 100.0
 
 
+class PatternInterruptEngine:
+    """
+    High-Retention Pattern Interrupt Hook Framework (First 3-5 Seconds).
+    Generates visceral, curiosity-inducing openings designed to disrupt viewer scrolling
+    and shatter baseline complacency across all niche domains.
+    """
+
+    HOOK_ARCHETYPES: Dict[str, Dict[str, List[str]]] = {
+        "health": {
+            "bn": [
+                "আপনি কি জানেন {topic} নিয়ে এতদিনের প্রচলিত ধারণা কেন আসলে মারাত্মক ভুল ছিল? এই নতুন বৈজ্ঞানিক তথ্যটি শুনলে আপনি স্তব্ধ হয়ে যাবেন!",
+                "মাত্র ৩ দিন {topic} প্রয়োগ করলে মানবদেহে কী চরম পরিবর্তন ঘটে, তা জানলে আপনি আজই নিজের অভ্যাস বদলে ফেলবেন!",
+            ],
+            "en": [
+                "Everything you've been told about {topic} is completely backwards. What researchers just discovered will leave you speechless!",
+                "Why are top longevity scientists secretly testing {topic} right now? The cellular reality defies everything we knew!",
+            ],
+        },
+        "finance": {
+            "bn": [
+                "৯৯% মানুষ {topic} নিয়ে যে মারাত্মক ভুলটি করে, তার কারণেই তাদের সঞ্চয় নীরবে শেষ হয়ে যায়! আসল সত্যটি কি আপনি জানেন?",
+                "বড় বড় প্রাতিষ্ঠানিক বিনিয়োগকারীরা {topic} নিয়ে সাধারণ মানুষকে যে গোপন তথ্যটি কখনো বলে না—তা শুনলে আপনি চমকে উঠবেন!",
+            ],
+            "en": [
+                "99% of investors misunderstand {topic}, and it quietly drains their wealth without them ever noticing. Here is the hidden truth!",
+                "The biggest financial institutions never talk about this one rule in {topic}. Once you see it, you can't unsee it!",
+            ],
+        },
+        "cooking": {
+            "bn": [
+                "শেফদের গোপন কৌশল: {topic} তৈরিতে কেন সাধারণ মানুষ বারবার ব্যর্থ হয়? এই একটি গোপন উপাদানেই লুকিয়ে আসল স্বাদ!",
+                "আপনি কি জানেন {topic} বানানোর চিরাচরিত নিয়ম কেন আসল স্বাদ নষ্ট করে দেয়? এই পদ্ধতিটি আপনার রান্নার ধরনই বদলে দেবে!",
+            ],
+            "en": [
+                "The secret restaurant trick for {topic} that professional chefs refuse to share online. This changes everything you cook!",
+                "Stop making {topic} the old way! This single molecular timing trick guarantees absolute perfection!",
+            ],
+        },
+        "motivation": {
+            "bn": [
+                "আপনার মস্তিষ্ক কেন বারবার অলসতায় আটকে যায়? {topic} এর পেছনের নিউরোসায়েন্সের এই চরম সত্যটি শুনলে আপনি স্তব্ধ হয়ে যাবেন!",
+                "ইচ্ছাশক্তি নয়, বরং {topic} কীভাবে নীরবে আপনার অভ্যাস নিয়ন্ত্রণ করছে—তা জানলে আপনি নিজের পুরো রুটিন পাল্টে ফেলবেন!",
+            ],
+            "en": [
+                "Willpower is a myth. The reason you struggle with {topic} is hardwired into your neurochemistry—and the fix takes 30 seconds!",
+                "What high performers do with {topic} before 8 AM that completely rewires their focus. The secret is shockingly simple!",
+            ],
+        },
+        "islamic": {
+            "bn": [
+                "আপনি কি জানেন {topic} কেন হাজার বছর ধরে সমগ্র মানবজাতির হৃদয়ে চরম আলোড়ন ও গভীর পথনির্দেশ তৈরি করেছে? এর পেছনের ঐশ্বরিক সত্যটি শুনলে আপনি স্তব্ধ হয়ে যাবেন!",
+                "ইতিহাসের পাতায় হারিয়ে যাওয়া {topic} এর বিস্ময়কর ঘটনাটি শুনলে আপনার ঈমান ও দৃষ্টিভঙ্গি সম্পূর্ণ বদলে যাবে!",
+            ],
+            "en": [
+                "Did you know why {topic} has moved millions of hearts across history? The timeless divine wisdom behind this will leave you speechless!",
+                "The untold historical event surrounding {topic} that most people have never heard. It completely reshapes how we view faith!",
+            ],
+        },
+        "history": {
+            "bn": [
+                "ইতিহাসবিদরা কেন শতাব্দীর পর শতাব্দী ধরে {topic} এর এই চরম গোপন নথিটি লুকিয়ে রেখেছিলেন? এর অবিশ্বাস্য রহস্যটি উন্মোচিত হয়েছে!",
+                "খননকাজে পাওয়া অদ্ভুত একটি প্রমাণ {topic} সম্পর্কে আমাদের পুরো ধারণাই পাল্টে দিয়েছে! এর পেছনের আসল রহস্যটি কি আপনি জানেন?",
+            ],
+            "en": [
+                "Why did ancient chronicles deliberately omit this shocking detail about {topic}? The buried evidence changes historical timelines forever!",
+                "A single artifact found beneath the ruins completely dismantles what textbooks taught us about {topic}!",
+            ],
+        },
+        "gadget": {
+            "bn": [
+                "আপনি কি জানেন {topic} কেন সারা বিশ্বে চরম তোলপাড় ও টেক মহলে আলোড়ন সৃষ্টি করেছে? এর পেছনের অবিশ্বাস্য সত্যটি শুনলে আপনি স্তব্ধ হয়ে যাবেন!",
+                "কোম্পানিগুলো {topic} সম্পর্কে যে ফিচারটি সবার আড়ালে রেখেছিল—তা জানলে আপনি এখনই আপনার ডিভাইস পরীক্ষা করবেন!",
+            ],
+            "en": [
+                "Did you know why {topic} is shocking experts worldwide? The unbelievable truth behind this will leave you speechless!",
+                "The hidden engineering decision behind {topic} that tech manufacturers hoped you would never discover!",
+            ],
+        },
+    }
+
+    @classmethod
+    def get_pattern_interrupt_hook(
+        cls,
+        topic: str,
+        niche: str,
+        language: str = "en",
+        index: int = 0,
+    ) -> str:
+        nl = (niche or "").lower()
+        key = "gadget"
+        for k in ("islam", "deen", "quran", "moral"):
+            if k in nl:
+                key = "islamic"
+                break
+        else:
+            for k in ("cook", "food", "recipe"):
+                if k in nl:
+                    key = "cooking"
+                    break
+            else:
+                for k in ("financ", "money", "invest", "stock", "crypto"):
+                    if k in nl:
+                        key = "finance"
+                        break
+                else:
+                    for k in ("health", "fit", "diet", "sleep", "workout", "longevity"):
+                        if k in nl:
+                            key = "health"
+                            break
+                    else:
+                        for k in ("motivat", "habit", "mindset", "productiv", "discipline"):
+                            if k in nl:
+                                key = "motivation"
+                                break
+                        else:
+                            for k in ("histor", "ancient", "civiliz", "archaeolog"):
+                                if k in nl:
+                                    key = "history"
+                                    break
+
+        pool = cls.HOOK_ARCHETYPES.get(key, cls.HOOK_ARCHETYPES["gadget"])
+        templates = pool.get(language, pool.get("en", []))
+        tmpl = templates[index % len(templates)]
+        return tmpl.format(topic=topic)
+
+
+class DialoguePacingEngine:
+    """
+    Dialogue Pacing Engine with Semantic Redundancy Curation Gate.
+    Regulates verbal velocity, sentence breath distribution, and prunes
+    semantic clones across consecutive scenes.
+    """
+
+    TARGET_WPS_SHORT = 2.5   # 150 words per minute
+    TARGET_WPS_LONG = 2.1    # 126 words per minute
+
+    SEMANTIC_CLICHE_STEMS = [
+        "অবিশ্বাস্য সত্য", "গোপন রহস্য", "স্তব্ধ হয়ে যাবেন", "চরম তোলপাড়",
+        "unbelievable truth", "hidden secret", "leave you speechless", "shocking reality",
+    ]
+
+    @classmethod
+    def optimize_scene_duration(cls, text: str, video_format: str = "short") -> float:
+        words = len((text or "").split())
+        target_wps = cls.TARGET_WPS_SHORT if video_format == "short" else cls.TARGET_WPS_LONG
+        base = words / max(1.0, target_wps)
+        if video_format == "short":
+            return round(min(14.0, max(4.0, base + 0.5)), 1)
+        return round(min(30.0, max(18.0, base + 1.0)), 1)
+
+    @classmethod
+    def curate_semantic_redundancy(cls, scenes: List[ScriptScene], language: str = "en") -> List[ScriptScene]:
+        """
+        Scans scenes for semantic redundancy and thematic duplication across consecutive beats.
+        Curates and purges repetitive clichés, preserving narrative freshness.
+        """
+        seen_stems: Dict[str, int] = {}
+        for idx, sc in enumerate(scenes):
+            narr = sc.narration
+            nl = narr.lower()
+            curated = False
+            for stem in cls.SEMANTIC_CLICHE_STEMS:
+                if stem in nl:
+                    seen_stems[stem] = seen_stems.get(stem, 0) + 1
+                    if seen_stems[stem] > 1 and idx > 0:
+                        curated = True
+                        if language == "bn":
+                            narr = narr.replace(stem, "বাস্তব ফলাফল")
+                        else:
+                            narr = narr.replace(stem, "proven reality")
+                        nl = narr.lower()
+            if curated:
+                sc.narration = narr
+                sc.agent_notes = (sc.agent_notes + " | Curated semantic redundancy.").strip(" |")
+                sc.highlighted_subtitle = highlight_retention_keywords(narr, language)
+        return scenes
+
+
 class ScriptEngine:
     """Enterprise-grade script generator with local self-healing agent inspection."""
 
@@ -120,6 +298,7 @@ class ScriptEngine:
                 f"CRITICAL RETENTION RULES:\n"
                 f"1. Scene 1 (0-3s): Must start IMMEDIATELY with an extreme curiosity hook, high-stakes suspense, or provocative burning question. ZERO robotic preamble, NO slow intro.\n"
                 f"2. Every scene must be punchy, high-retention, and natural.\n"
+                f"3. INJECT DEEP EMOTION AND LIFE: Use engaging storytelling. Avoid robotic info-dumps at all costs. Make the script feel alive, relatable, and emotionally resonant.\n"
                 f"Return valid JSON strictly in this schema:\n"
                 "{\n"
                 '  "scenes": [\n'
@@ -158,20 +337,19 @@ class ScriptEngine:
 
         llm_scenes = self._try_llm_generation(topic_title, niche, fmt, language, apply_islamic) if use_llm else None
 
-        # Scene 1: 0-3 Second Psychological Suspense Hook
+        # Scene 1: 0-3 Second Psychological Pattern Interrupt Hook
         idx = 1
+        pattern_hook = PatternInterruptEngine.get_pattern_interrupt_hook(topic_title, niche, language)
         if language == "bn":
-            suspense_hook = f"আপনি কি জানেন {topic_title} কেন সারা বিশ্বে চরম তোলপাড় ও রহস্য সৃষ্টি করেছে? এর পেছনের অবিশ্বাস্য সত্যটি শুনলে আপনি স্তব্ধ হয়ে যাবেন!"
             if apply_islamic:
-                hook_text = f"{self.ISLAMIC_GREETINGS} {suspense_hook}"
+                hook_text = f"{self.ISLAMIC_GREETINGS} {pattern_hook}"
             else:
-                hook_text = suspense_hook
+                hook_text = pattern_hook
         else:
-            suspense_hook = f"Did you know why {topic_title} is shocking experts worldwide? The unbelievable truth behind this will leave you speechless!"
             if apply_islamic:
-                hook_text = f"Peace be upon you. {suspense_hook}"
+                hook_text = f"Peace be upon you. {pattern_hook}"
             else:
-                hook_text = suspense_hook
+                hook_text = pattern_hook
 
         scenes.append(
             ScriptScene(
@@ -284,10 +462,14 @@ class ScriptEngine:
         return script
 
     def inspect_and_repair_script(self, script: ProductionScript) -> ProductionScript:
-        """Local agent frame-by-frame & scene-by-scene critic. Auto-repairs flaws and enforces 0-3s hook."""
+        """Local agent frame-by-frame & scene-by-scene critic. Auto-repairs flaws, curates redundancy, and enforces 0-3s hook."""
         total_penalty = 0.0
+
+        # Run Semantic Redundancy Curation across narrative scenes
+        DialoguePacingEngine.curate_semantic_redundancy(script.scenes, script.language)
+
         for i, sc in enumerate(script.scenes):
-            # 0. High-Retention 0-3 Second Hook Enforcement on Scene 1
+            # 0. High-Retention 0-3 Second Pattern Interrupt Hook Enforcement on Scene 1
             if i == 0 or sc.hook_type == "greeting_hook":
                 slow_starters = ["welcome to", "in today's video", "today we will talk about", "আজকের ভিডিওতে", "আমরা কথা বলব"]
                 for ss in slow_starters:

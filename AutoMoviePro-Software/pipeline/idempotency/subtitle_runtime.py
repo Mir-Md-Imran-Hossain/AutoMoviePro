@@ -50,6 +50,9 @@ def execute_subtitle_request(
     skip_generation: bool = False,
     skip_reference: str = "",
 ) -> SubtitleGenerationResult:
+    from pipeline.idempotency.mock_guard import assert_no_mock_in_production
+    assert_no_mock_in_production(use_mock=use_mock, stage="subtitle")
+
     work_dir = Path(work_dir)
     out_path = Path(out_path)
     meta_path = out_path.with_suffix(out_path.suffix + ".meta.json")

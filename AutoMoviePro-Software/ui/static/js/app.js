@@ -22,12 +22,51 @@ const TERMINAL_STATES = new Set([
   "READY_FOR_REVIEW", "FAILED", "INTERRUPTED", "CANCELLED", "COMPLETED",
 ]);
 
+function getTierBadgeHtml(tier) {
+  const t = String(tier || "").toLowerCase();
+  if (t.includes("video_studio") || t.includes("omni_video") || t.includes("3999")) {
+    return `<span class="tier-badge" style="background: linear-gradient(135deg, #0284c7, #2563eb); color: #fff; padding: 2px 8px; border-radius: 12px; font-size: 0.75rem; font-weight: 700; margin-left: 6px;">🎬 ভিডিও স্টুডিও (৳৩,৯৯৯)</span>`;
+  }
+  if (t.includes("fb_business") || t.includes("business") || t.includes("2999")) {
+    return `<span class="tier-badge" style="background: linear-gradient(135deg, #7c3aed, #9333ea); color: #fff; padding: 2px 8px; border-radius: 12px; font-size: 0.75rem; font-weight: 700; margin-left: 6px;">💼 FB বিজনেস ম্যানেজার (৳২,৯৯৯)</span>`;
+  }
+  if (t.includes("profile_page") || t.includes("autopilot") || t.includes("1999")) {
+    return `<span class="tier-badge" style="background: linear-gradient(135deg, #d97706, #f59e0b); color: #fff; padding: 2px 8px; border-radius: 12px; font-size: 0.75rem; font-weight: 700; margin-left: 6px;">📱 FB প্রোফাইল ও পেজ (৳১,৯৯৯)</span>`;
+  }
+  return `<span class="tier-badge" style="background: #334155; color: #38bdf8; padding: 2px 8px; border-radius: 12px; font-size: 0.75rem; font-weight: 700; margin-left: 6px;">💻 ডেভ / অল-এক্সেস</span>`;
+}
+
+function renderTierInfo(customer) {
+  const banner = document.getElementById("tierStatusBanner");
+  const msgEl = document.getElementById("tierStatusMessage");
+  if (!banner || !msgEl) return;
+  const t = String(customer?.tier || customer?.plan || "").toLowerCase();
+  
+  if (t === "profile_page" || t === "fb_profile_autopilot" || t === "1999") {
+    banner.style.display = "flex";
+    banner.style.background = "rgba(217, 119, 6, 0.15)";
+    banner.style.border = "1px solid #d97706";
+    msgEl.innerHTML = `<span>🔒 আপনার বর্তমান প্যাকেজ: <strong>ফেসবুক প্রোফাইল ও পেজ (৳১,৯৯৯)</strong>। ফুল ভিডিও স্টুডিও তৈরি করতে ৳৩,৯৯৯ ভিডিও স্টুডিও প্যাকেজে আপগ্রেড করুন।</span>`;
+  } else if (t === "fb_business" || t === "fb_business_ad" || t === "2999") {
+    banner.style.display = "flex";
+    banner.style.background = "rgba(147, 51, 234, 0.15)";
+    banner.style.border = "1px solid #9333ea";
+    msgEl.innerHTML = `<span>🔒 আপনার বর্তমান প্যাকেজ: <strong>ফেসবুক বিজনেস ম্যানেজার (৳২,৯৯৯)</strong>। ফুল ভিডিও স্টুডিও তৈরি করতে ৳৩,৯৯৯ ভিডিও স্টুডিও প্যাকেজে আপগ্রেড করুন।</span>`;
+  } else {
+    banner.style.display = "none";
+  }
+}
+
 function showDash(loggedIn, customer) {
   loginView.classList.toggle("hidden", loggedIn);
   dashView.classList.toggle("hidden", !loggedIn);
-  userBox.textContent = loggedIn
-    ? `${customer?.name || ""} (${customer?.login_id || ""})`
-    : "লগইন হয়নি";
+  if (loggedIn) {
+    const tier = customer?.tier || customer?.plan || "video_studio";
+    userBox.innerHTML = `${escapeHtml(customer?.name || "")} (${escapeHtml(customer?.login_id || "")}) ${getTierBadgeHtml(tier)}`;
+    renderTierInfo(customer);
+  } else {
+    userBox.textContent = "লগইন হয়নি";
+  }
 }
 
 function escapeAttr(s) {
@@ -1833,6 +1872,23 @@ async function refreshChannelAndLanguageSection(channels) {
     if (fYt && !fYt.value) fYt.value = c0.youtube_name || "";
     if (fFb && !fFb.value) fFb.value = c0.facebook_name || "";
     if (fTt && !fTt.value) fTt.value = c0.tiktok_name || "";
+
+    const inpReelsDay = document.querySelector("#channelForm [name='reels_per_day']");
+    const inpReelSlots = document.querySelector("#channelForm [name='reel_schedule_times']");
+    const inpReelTopics = document.querySelector("#channelForm [name='reel_topics']");
+    if (inpReelsDay && c0.reels_per_day) inpReelsDay.value = c0.reels_per_day;
+    if (inpReelSlots && c0.reel_schedule_times) {
+      try {
+        const parsed = JSON.parse(c0.reel_schedule_times);
+        inpReelSlots.value = Array.isArray(parsed) ? parsed.join(", ") : c0.reel_schedule_times;
+      } catch(e) { inpReelSlots.value = c0.reel_schedule_times; }
+    }
+    if (inpReelTopics && c0.reel_topics) {
+      try {
+        const parsed = JSON.parse(c0.reel_topics);
+        inpReelTopics.value = Array.isArray(parsed) ? parsed.join("\n") : c0.reel_topics;
+      } catch(e) { inpReelTopics.value = c0.reel_topics; }
+    }
 
     if (langSection) {
       langSection.classList.remove("hidden");

@@ -626,11 +626,14 @@ def verify_prompt_dual_clearance(
         if ctx.face_policy == "strictly_forbidden":
             forbidden_faces = [
                 "young man looking at camera", "presenter portrait", "male presenter",
-                "female presenter", "looking directly at camera", "talking head", "selfie"
+                "female presenter", "looking directly at camera", "talking head", "selfie",
+                "female robot face", "woman robot face", "gynoid", "female android",
+                "doll face", "mannequin face", "robot face close-up", "robot headshot",
+                "sexy robot", "feminine robot", "breasts", "cleavage", "cyborg woman"
             ]
             for ff in forbidden_faces:
                 if ff in p.lower():
-                    pass_issues.append(f"Forbidden presenter face pattern: '{ff}'")
+                    pass_issues.append(f"Forbidden face pattern: '{ff}'")
                     p = re.sub(rf"(?i)\b{re.escape(ff)}\b[^\.,;]*", " ", p)
                     pass_repairs.append(f"Removed '{ff}'")
 
@@ -650,6 +653,15 @@ def verify_prompt_dual_clearance(
                 pass_issues.append("Missing cosmic space environment anchor")
                 p += f". Environment: {ctx.primary_setting}."
                 pass_repairs.append("Injected cosmic space environment anchor")
+
+        # 1.4 Historical Anachronism and Consistency
+        if not re.search(r"anachronism|consistent.*lighting", p.lower()):
+            pass_issues.append("Missing explicit anti-anachronism and consistency constraints")
+            p += (
+                " Ensure strictly NO historical anachronisms (e.g., no ancient swords in 1971 wars, "
+                "no modern elements in ancient settings). Maintain consistent cinematic camera angles and stable lighting."
+            )
+            pass_repairs.append("Injected anti-anachronism and camera/lighting consistency constraints")
 
         test_1_passed = (len(pass_issues) == 0)
 

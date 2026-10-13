@@ -876,15 +876,8 @@ def _agnes_video(
             )
 
             if is_in_cooldown():
-                try:
-                    from pipeline.live_activity import is_cancel_requested
-
-                    cancel = is_cancel_requested
-                except Exception:
-                    cancel = None
-                ok_wait = wait_out_cooldown_or_abort(cancel_check=cancel)
-                if not ok_wait:
-                    return None
+                logger.warning("Agnes in cooldown - failing fast to allow fallbacks")
+                return None
         except Exception:
             looks_like_rate_limit = lambda _e: False  # type: ignore
             arm_cooldown = None  # type: ignore
@@ -1188,13 +1181,24 @@ def render_high_aesthetic_thumbnail(
         draw.text((82, ty + 25), sub_text, fill=(0, 0, 0, 200), font=font_sub)
         draw.text((80, ty + 23), sub_text, fill=accent, font=font_sub)
 
-    # 8. Logo placement in bottom-right corner
+    # 8. Logo placement in bottom-right corner with background removal and clean alpha
     if logo_path and Path(logo_path).is_file():
         try:
-            logo = Image.open(logo_path).convert("RGBA").resize((130, 130))
+            from pipeline.compose import preprocess_logo_for_branding
+            clean_logo_p = preprocess_logo_for_branding(Path(logo_path), opacity=0.92, remove_bg=True)
+            logo = Image.open(clean_logo_p).convert("RGBA").resize((130, 130))
             base.paste(logo, (w - 190, h - 190), logo)
+            if clean_logo_p != Path(logo_path) and clean_logo_p.exists():
+                try:
+                    clean_logo_p.unlink()
+                except Exception:
+                    pass
         except Exception:
-            pass
+            try:
+                logo = Image.open(logo_path).convert("RGBA").resize((130, 130))
+                base.paste(logo, (w - 190, h - 190), logo)
+            except Exception:
+                pass
 
     final_rgb = base.convert("RGB")
     final_rgb.save(out_path, quality=92)
@@ -1233,11 +1237,18 @@ def generate_thumbnail(
             if logo_path and logo_path.exists():
                 try:
                     from PIL import Image
+                    from pipeline.compose import preprocess_logo_for_branding
 
+                    clean_p = preprocess_logo_for_branding(Path(logo_path), opacity=0.92, remove_bg=True)
                     base = Image.open(out_path).convert("RGBA")
-                    logo = Image.open(logo_path).convert("RGBA").resize((140, 140))
+                    logo = Image.open(clean_p).convert("RGBA").resize((140, 140))
                     base.paste(logo, (base.width - 160, base.height - 160), logo)
                     base.convert("RGB").save(out_path)
+                    if clean_p != Path(logo_path) and clean_p.exists():
+                        try:
+                            clean_p.unlink()
+                        except Exception:
+                            pass
                 except Exception:
                     pass
     except Exception:

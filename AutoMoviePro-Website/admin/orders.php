@@ -71,14 +71,15 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && csrf_verify($_POST['csrf'] ?? null)
                     $cleanWa = '88' . $cleanWa;
                 }
                 $siteUrl = rtrim((string)($config['site_url'] ?? 'https://automoviepro.com'), '/');
-                $dlLink = $siteUrl . '/downloads/AutoMoviePro_Installer_Latest.exe';
+                $dlToken = $res['download_token'] ?? amp_create_download_token($pdo, $orderId, (int)($order['customer_id'] ?? 0));
+                $dlLink = $res['download_url'] ?? ($siteUrl . '/download.php?token=' . $dlToken);
                 $waMsg = "আসসালামু আলাইকুম {$order['name']},\n\n"
                        . "আপনার AutoMovie Pro অর্ডার #{$orderId} সফলভাবে অ্যাপ্রুভ করা হয়েছে এবং আজীবন মেয়াদের (Lifetime) লাইসেন্স সক্রিয় করা হয়েছে! 🎉\n\n"
                        . "আপনার লগইন তথ্য:\n"
                        . "👤 Login ID: {$res['login_id']}\n"
                        . "🔑 Password: {$res['password']}\n"
                        . "🎫 License Token: {$res['token']}\n\n"
-                       . "ডেস্কটপ ইনস্টলার ডাউনলোড লিংক:\n"
+                       . "🔒 সিকিউর ওয়ান-টাইম ডাউনলোড লিংক (৭২ ঘণ্টা মেয়াদ):\n"
                        . "📥 {$dlLink}\n\n"
                        . "সফটওয়্যারটি ডাউনলোড করে রান করুন এবং উপরোক্ত Login ID ও Password দিয়ে লগইন করুন। কোনো সমস্যায় এই হোয়াটসঅ্যাপে যোগাযোগ করুন। ধন্যবাদ!";
                 $waShareUrl = "https://wa.me/{$cleanWa}?text=" . rawurlencode($waMsg);
@@ -112,12 +113,91 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && csrf_verify($_POST['csrf'] ?? null)
 $approvedCard = $approvedCard ?? null;
 $autoDispatchUrl = $autoDispatchUrl ?? null;
 
-$pending = $pdo->query(
-    "SELECT * FROM orders WHERE status IN ('pending_payment', 'under_review') ORDER BY id DESC"
-)->fetchAll();
-$recent = $pdo->query(
-    "SELECT * FROM orders WHERE status NOT IN ('pending_payment', 'under_review') ORDER BY id DESC LIMIT 50"
-)->fetchAll();
+// Helper to classify order package tier
+function amp_classify_order_tier(array $order): string
+{
+    $amt = (float) ($order['amount'] ?? 0);
+    $plan = strtolower((string) ($order['plan_name'] ?? ''));
+
+    if (abs($amt - 3999.0) < 50 || str_contains($plan, 'omni social') || str_contains($plan, 'video')) {
+        return '3999';
+    }
+    if (abs($amt - 2999.0) < 50 || str_contains($plan, 'fb business') || str_contains($plan, 'business manager')) {
+        return '2999';
+    }
+    if (abs($amt - 1999.0) < 50 && (str_contains($plan, 'profile') || str_contains($plan, 'page') || !str_contains($plan, 'gemini'))) {
+        return '1999';
+    }
+    if (str_contains($plan, 'gemini') || str_contains($plan, 'google')) {
+        return 'google_pro';
+    }
+    return 'other';
+}
+
+// Compute package-based revenue analytics across all orders
+$allOrders = $pdo->query("SELECT * FROM orders ORDER BY id DESC")->fetchAll();
+$analytics = [
+    'total_approved_revenue' => 0.0,
+    'total_approved_count' => 0,
+    'total_pending_revenue' => 0.0,
+    'total_pending_count' => 0,
+    'tier_3999' => ['revenue' => 0.0, 'count' => 0, 'label' => 'Omni Social Video Studio (৳৩,৯৯৯)'],
+    'tier_2999' => ['revenue' => 0.0, 'count' => 0, 'label' => 'FB Business Manager (৳২,৯৯৯)'],
+    'tier_1999' => ['revenue' => 0.0, 'count' => 0, 'label' => 'FB Profile & Page (৳১,৯৯৯)'],
+    'tier_google_pro' => ['revenue' => 0.0, 'count' => 0, 'label' => 'Google AI Pro / অন্যান্য'],
+];
+
+foreach ($allOrders as $ord) {
+    $tier = amp_classify_order_tier($ord);
+    $amt = (float) ($ord['amount'] ?? 0);
+    $st = (string) ($ord['status'] ?? '');
+
+    if (in_array($st, ['approved', 'active'], true)) {
+        $analytics['total_approved_revenue'] += $amt;
+        $analytics['total_approved_count']++;
+        if ($tier === '3999') {
+            $analytics['tier_3999']['revenue'] += $amt;
+            $analytics['tier_3999']['count']++;
+        } elseif ($tier === '2999') {
+            $analytics['tier_2999']['revenue'] += $amt;
+            $analytics['tier_2999']['count']++;
+        } elseif ($tier === '1999') {
+            $analytics['tier_1999']['revenue'] += $amt;
+            $analytics['tier_1999']['count']++;
+        } else {
+            $analytics['tier_google_pro']['revenue'] += $amt;
+            $analytics['tier_google_pro']['count']++;
+        }
+    } elseif (in_array($st, ['pending_payment', 'under_review'], true)) {
+        $analytics['total_pending_revenue'] += $amt;
+        $analytics['total_pending_count']++;
+    }
+}
+
+// Filtering
+$selectedTier = trim((string) ($_GET['tier'] ?? 'all'));
+$selectedStatus = trim((string) ($_GET['status'] ?? 'all'));
+
+$filteredOrders = array_filter($allOrders, function ($o) use ($selectedTier, $selectedStatus) {
+    if ($selectedTier !== 'all' && amp_classify_order_tier($o) !== $selectedTier) {
+        return false;
+    }
+    if ($selectedStatus !== 'all') {
+        if ($selectedStatus === 'pending' && !in_array($o['status'], ['pending_payment', 'under_review'], true)) {
+            return false;
+        }
+        if ($selectedStatus === 'approved' && !in_array($o['status'], ['approved', 'active'], true)) {
+            return false;
+        }
+        if ($selectedStatus === 'rejected' && $o['status'] !== 'rejected') {
+            return false;
+        }
+    }
+    return true;
+});
+
+$pending = array_values(array_filter($filteredOrders, fn($o) => in_array($o['status'], ['pending_payment', 'under_review'], true)));
+$recent = array_values(array_filter($filteredOrders, fn($o) => !in_array($o['status'], ['pending_payment', 'under_review'], true)));
 
 $googleSubs = [];
 try {
@@ -129,8 +209,70 @@ try {
     )->fetchAll();
 } catch (\Throwable) {}
 
-admin_header('পেমেন্ট কিউ ও ম্যানুয়াল অ্যাপ্রুভাল', 'orders');
+admin_header('পেমেন্ট কিউ ও প্যাকেজ রেভিনিউ অ্যানালিটিক্স', 'orders');
 if ($message): ?><p class="ok"><?= e($message) ?></p><?php endif; ?>
+
+<!-- PACKAGE-BASED REVENUE ANALYTICS -->
+<div style="margin-bottom: 2rem;">
+  <h3 style="margin-top:0; margin-bottom: 0.75rem; color:#f8fafc; font-size:1.15rem; display:flex; align-items:center; gap:8px;">
+    📊 প্যাকেজ-ভিত্তিক রেভিনিউ অ্যানালিটিক্স (Package Revenue Analytics)
+  </h3>
+  <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(210px, 1fr)); gap: 1rem;">
+    <!-- Card 1: Total Approved Revenue -->
+    <div style="background: linear-gradient(135deg, rgba(16,185,129,0.15), rgba(6,78,59,0.4)); border: 1px solid rgba(16,185,129,0.4); border-radius: 12px; padding: 1.15rem;">
+      <span style="color: #6ee7b7; font-size: 0.8rem; text-transform: uppercase; font-weight: 600; letter-spacing: 0.5px;">সর্বমোট অ্যাপ্রুভড রেভিনিউ</span>
+      <div style="font-size: 1.6rem; font-weight: 800; color: #10b981; margin: 4px 0;">৳<?= number_format($analytics['total_approved_revenue'], 0) ?></div>
+      <small style="color: #a7f3d0;"><?= (int) $analytics['total_approved_count'] ?> টি পেইড অর্ডার অনুমোদিত</small>
+    </div>
+
+    <!-- Card 2: ৳3,999 Tier -->
+    <div style="background: linear-gradient(135deg, rgba(56,189,248,0.12), rgba(15,23,42,0.6)); border: 1px solid rgba(56,189,248,0.3); border-radius: 12px; padding: 1.15rem;">
+      <span style="color: #38bdf8; font-size: 0.8rem; text-transform: uppercase; font-weight: 600; letter-spacing: 0.5px;">৳৩,৯৯৯ প্যাকেজ (Omni Social)</span>
+      <div style="font-size: 1.6rem; font-weight: 800; color: #38bdf8; margin: 4px 0;">৳<?= number_format($analytics['tier_3999']['revenue'], 0) ?></div>
+      <small style="color: #94a3b8;"><?= (int) $analytics['tier_3999']['count'] ?> টি লাইসেন্স বিক্রি</small>
+    </div>
+
+    <!-- Card 3: ৳2,999 Tier -->
+    <div style="background: linear-gradient(135deg, rgba(168,85,247,0.12), rgba(15,23,42,0.6)); border: 1px solid rgba(168,85,247,0.3); border-radius: 12px; padding: 1.15rem;">
+      <span style="color: #c084fc; font-size: 0.8rem; text-transform: uppercase; font-weight: 600; letter-spacing: 0.5px;">৳২,৯৯৯ প্যাকেজ (FB Business)</span>
+      <div style="font-size: 1.6rem; font-weight: 800; color: #c084fc; margin: 4px 0;">৳<?= number_format($analytics['tier_2999']['revenue'], 0) ?></div>
+      <small style="color: #94a3b8;"><?= (int) $analytics['tier_2999']['count'] ?> টি লাইসেন্স বিক্রি</small>
+    </div>
+
+    <!-- Card 4: ৳1,999 Tier -->
+    <div style="background: linear-gradient(135deg, rgba(245,158,11,0.12), rgba(15,23,42,0.6)); border: 1px solid rgba(245,158,11,0.3); border-radius: 12px; padding: 1.15rem;">
+      <span style="color: #fbbf24; font-size: 0.8rem; text-transform: uppercase; font-weight: 600; letter-spacing: 0.5px;">৳১,৯৯৯ প্যাকেজ (Profile & Page)</span>
+      <div style="font-size: 1.6rem; font-weight: 800; color: #fbbf24; margin: 4px 0;">৳<?= number_format($analytics['tier_1999']['revenue'], 0) ?></div>
+      <small style="color: #94a3b8;"><?= (int) $analytics['tier_1999']['count'] ?> টি লাইসেন্স বিক্রি</small>
+    </div>
+
+    <!-- Card 5: Google Pro / Other -->
+    <div style="background: linear-gradient(135deg, rgba(148,163,184,0.1), rgba(15,23,42,0.6)); border: 1px solid rgba(148,163,184,0.25); border-radius: 12px; padding: 1.15rem;">
+      <span style="color: #cbd5e1; font-size: 0.8rem; text-transform: uppercase; font-weight: 600; letter-spacing: 0.5px;">Google Pro ও অন্যান্য</span>
+      <div style="font-size: 1.6rem; font-weight: 800; color: #cbd5e1; margin: 4px 0;">৳<?= number_format($analytics['tier_google_pro']['revenue'], 0) ?></div>
+      <small style="color: #94a3b8;"><?= (int) $analytics['tier_google_pro']['count'] ?> টি অর্ডার</small>
+    </div>
+  </div>
+</div>
+
+<!-- TIER & STATUS FILTERING TOOLBAR -->
+<div style="background: rgba(15, 23, 42, 0.7); border: 1px solid rgba(255,255,255,0.08); border-radius: 12px; padding: 1rem 1.25rem; margin-bottom: 2rem; display: flex; flex-wrap: wrap; gap: 1rem; align-items: center; justify-content: space-between;">
+  <div style="display: flex; flex-wrap: wrap; gap: 8px; align-items: center;">
+    <span style="font-size: 0.85rem; color: #94a3b8; font-weight: 600;">প্যাকেজ ফিল্টার:</span>
+    <a href="?tier=all&status=<?= e($selectedStatus) ?>" class="btn btn-sm <?= $selectedTier === 'all' ? '' : 'btn-ghost' ?>" style="border-radius: 20px; font-size: 0.82rem; padding: 4px 12px;">সকল (All)</a>
+    <a href="?tier=3999&status=<?= e($selectedStatus) ?>" class="btn btn-sm <?= $selectedTier === '3999' ? '' : 'btn-ghost' ?>" style="border-radius: 20px; font-size: 0.82rem; padding: 4px 12px; border-color:#38bdf8; <?= $selectedTier === '3999' ? 'background:#0284c7;' : 'color:#38bdf8;' ?>">🎬 ৳৩,৯৯৯ (Omni Social)</a>
+    <a href="?tier=2999&status=<?= e($selectedStatus) ?>" class="btn btn-sm <?= $selectedTier === '2999' ? '' : 'btn-ghost' ?>" style="border-radius: 20px; font-size: 0.82rem; padding: 4px 12px; border-color:#c084fc; <?= $selectedTier === '2999' ? 'background:#9333ea;' : 'color:#c084fc;' ?>">💼 ৳২,৯৯৯ (FB Business)</a>
+    <a href="?tier=1999&status=<?= e($selectedStatus) ?>" class="btn btn-sm <?= $selectedTier === '1999' ? '' : 'btn-ghost' ?>" style="border-radius: 20px; font-size: 0.82rem; padding: 4px 12px; border-color:#fbbf24; <?= $selectedTier === '1999' ? 'background:#d97706;' : 'color:#fbbf24;' ?>">📱 ৳১,৯৯৯ (Profile & Page)</a>
+    <a href="?tier=google_pro&status=<?= e($selectedStatus) ?>" class="btn btn-sm <?= $selectedTier === 'google_pro' ? '' : 'btn-ghost' ?>" style="border-radius: 20px; font-size: 0.82rem; padding: 4px 12px;">🤖 Google Pro / অন্যান্য</a>
+  </div>
+
+  <div style="display: flex; gap: 8px; align-items: center;">
+    <span style="font-size: 0.85rem; color: #94a3b8; font-weight: 600;">স্ট্যাটাস:</span>
+    <a href="?tier=<?= e($selectedTier) ?>&status=all" class="btn btn-sm <?= $selectedStatus === 'all' ? '' : 'btn-ghost' ?>" style="border-radius: 6px; font-size: 0.8rem; padding: 4px 8px;">সব</a>
+    <a href="?tier=<?= e($selectedTier) ?>&status=pending" class="btn btn-sm <?= $selectedStatus === 'pending' ? '' : 'btn-ghost' ?>" style="border-radius: 6px; font-size: 0.8rem; padding: 4px 8px; color:#f59e0b;">পেন্ডিং (<?= count($pending) ?>)</a>
+    <a href="?tier=<?= e($selectedTier) ?>&status=approved" class="btn btn-sm <?= $selectedStatus === 'approved' ? '' : 'btn-ghost' ?>" style="border-radius: 6px; font-size: 0.8rem; padding: 4px 8px; color:#10b981;">অনুমোদিত</a>
+  </div>
+</div>
 
 <?php if ($approvedCard): ?>
   <div style="background: linear-gradient(135deg, #064e3b, #022c22); border: 2px solid #10b981; border-radius: 14px; padding: 1.5rem; margin-bottom: 2rem; color: #fff; box-shadow:0 8px 24px rgba(16,185,129,0.25);">

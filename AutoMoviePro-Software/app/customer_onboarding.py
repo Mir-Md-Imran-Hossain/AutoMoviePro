@@ -250,6 +250,25 @@ def build_checklist(
             )
         )
 
+    try:
+        from app.customer_tiers import validate_license_for_customer
+
+        tier_info = validate_license_for_customer(identity)
+        t_label = tier_info["display_name_en"]
+        items.append(
+            _item(
+                id="tier.validated",
+                label="Product License Tier",
+                source="customer_tiers.validate_license_for_customer",
+                state=ITEM_COMPLETE if tier_info["valid"] else ITEM_INCOMPLETE,
+                blocking=False,
+                message=f"Licensed Tier: {t_label} (৳{tier_info['price_bdt']})",
+                resume_tab="account",
+            )
+        )
+    except Exception:
+        pass
+
     app_st = str(f.get("application") or "UNKNOWN")
     if app_st == "READY":
         items.append(
@@ -369,6 +388,19 @@ def build_checklist(
                 resume_tab="channel",
             )
         )
+        if ch.get("youtube_oauth_connected"):
+            ch_title = ch.get("youtube_channel_title") or ch.get("youtube_name") or "Connected Channel"
+            items.append(
+                _item(
+                    id="youtube_oauth.connected",
+                    label="YouTube 1-Click OAuth",
+                    source="publishers.youtube_oauth_service",
+                    state=ITEM_COMPLETE,
+                    blocking=False,
+                    message=f"1-Click YouTube Connected: {ch_title}",
+                    resume_tab="channel",
+                )
+            )
     else:
         items.append(
             _item(

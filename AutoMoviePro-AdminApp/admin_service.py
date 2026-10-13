@@ -10,8 +10,11 @@ import time
 import json
 import sqlite3
 import urllib.request
+import logging
 from pathlib import Path
 from typing import Dict, Any, List, Optional
+
+logger = logging.getLogger(__name__)
 
 
 class AdminAppService:
@@ -148,8 +151,8 @@ class AdminAppService:
                 cur.execute("UPDATE licenses SET revoked = ? WHERE customer_id = ?", (revoked_val, cid))
                 conn.commit()
                 conn.close()
-            except Exception:
-                pass
+            except Exception as exc:
+                return {"ok": False, "error": "db_update_failed", "message": f"ডেটাবেস আপডেট ব্যর্থ হয়েছে: {exc}"}
 
         # 2. If status is banned/suspended, trigger instant 1-click PC software shutdown/lock
         pc_locked = False

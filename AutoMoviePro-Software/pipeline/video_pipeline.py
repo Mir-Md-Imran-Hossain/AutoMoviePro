@@ -292,6 +292,7 @@ def generate_video(
     work_dir: Optional[Path] = None,
     allow_duplicate: bool = False,
     existing_job_id: Optional[int] = None,
+    use_mock: bool = False,
 ) -> Dict[str, Any]:
     """
     Full pipeline:
@@ -470,9 +471,9 @@ def generate_video(
         )
 
         _live("trs", f"C05-TRS planning — {niche}", api="llm", action="run_trs_pipeline")
-        mock_research = True if get_research_mode().value == "MOCK" else None
+        mock_research = True if (get_research_mode().value == "MOCK" or use_mock) else None
         # Production uses real script bridge unless AMP skip / explicit mock env
-        use_mock_script = bool(amp_skip_active("AMP_SKIP_SCRIPT_LLM"))
+        use_mock_script = bool(use_mock or amp_skip_active("AMP_SKIP_SCRIPT_LLM"))
         trs_handoff = run_trs_pipeline(
             work,
             channel=channel,

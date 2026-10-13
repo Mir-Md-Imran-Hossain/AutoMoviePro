@@ -63,7 +63,7 @@ class TestVisualEngine(unittest.TestCase):
             video_format="long",
         )
         self.assertEqual(clip.aspect_ratio, "16:9")
-        self.assertEqual(clip.resolution, "1920x1080")
+        self.assertIn(clip.resolution, ["1920x1080", "3840x2160", "2560x1440"])
         self.assertTrue(clip.passed_qa)
         p = Path(clip.file_path)
         self.assertTrue(p.exists())

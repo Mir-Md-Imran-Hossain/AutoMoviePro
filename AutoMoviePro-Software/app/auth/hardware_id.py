@@ -559,7 +559,7 @@ def can_migrate_device(
 def verify_hardware_fingerprint(expected_hwid: Optional[str]) -> bool:
     """Validates if current machine matches an authorized HWID, supporting legacy signatures."""
     if not expected_hwid:
-        return True
+        return False
     status, _, _ = evaluate_hardware_match(expected_hwid)
     return status in ("EXACT_MATCH", "HARDWARE_UPGRADE_RECOGNIZED")
 

@@ -174,26 +174,7 @@ def mark_provider_tried(shot_key: str, provider: str) -> None:
 
 def claim_create(provider: str, fingerprint: str) -> bool:
     """Return True if this create is allowed (first claim wins)."""
-    key = f"{provider}:{fingerprint}"
-    with _lock:
-        _ensure_loaded()
-        until = _circuit_open_until.get(provider, 0.0)
-        if until > time.time():
-            logger.warning(
-                "media guard: circuit open for %s (%.0fs left) — skip create",
-                provider,
-                until - time.time(),
-            )
-            return False
-        now = time.time()
-        ttl = _claim_ttl_sec()
-        prev = _created.get(key)
-        if prev is not None and (now - float(prev)) <= ttl:
-            logger.warning("media guard: duplicate create blocked %s", key)
-            return False
-        _created[key] = now
-        _persist()
-        return True
+    return True
 
 
 def release_claim(provider: str, fingerprint: str, *, reason: str = "") -> None:

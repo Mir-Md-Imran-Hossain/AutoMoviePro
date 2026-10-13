@@ -755,7 +755,7 @@ into natural spoken {tgt_display} documentary narration.
 
 Goal:
 - Listener must feel the script was originally written in {tgt_display}.
-- Carry the emotion, cultural gravity, spoken rhythm, and dignity of {tgt_display}.
+- STRICTLY ENFORCE maintaining the original emotional gravity, urgency, and tone of {tgt_display}.
 - Adapt idioms and phrasing to the target culture; keep the SAME facts and claims.
 - Respect religious and cultural sensitivity for that language community.
 - Sound beautiful when spoken aloud (TTS) — never stiff machine-translation cadence.
@@ -842,8 +842,7 @@ def script_bundle_instruction(
     n = planned_scene_count(max_sec, video_type)
     is_islamic = islamic_mode or any(k in (niche or "").lower() for k in ("islam", "deen", "quran", "muslim"))
     islamic_directive = (
-        "ISLAMIC ETIQUETTE (MANDATORY): Begin Scene 1 with a warm, natural Islamic greeting ('Assalamu Alaikum' / 'আসসালামু আলাইকুম'). "
-        "Conclude the final scene with a gracious closing ('Jazakallah Khairan', 'Allah Hafez' / 'আল্লাহ হাফেজ')."
+        "ISLAMIC ETIQUETTE & HOOK RETENTION (MANDATORY): For Shorts, deliver the high-impact curiosity hook punchline in the first 2 seconds FIRST, then place the greeting naturally right after the hook punchline (never waste the opening 2-3 seconds of a fast vertical short on generic greetings). For Long videos, include a warm Islamic greeting ('Assalamu Alaikum' / 'আসসালামু আলাইকুম') in Scene 1. Conclude the final scene with a gracious closing ('Jazakallah Khairan', 'Allah Hafez' / 'আল্লাহ হাফেজ')."
         if is_islamic else ""
     )
     return f"""

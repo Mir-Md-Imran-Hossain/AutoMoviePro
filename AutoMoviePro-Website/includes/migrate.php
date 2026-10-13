@@ -25,6 +25,12 @@ function ensure_amp_migrations(PDO $pdo): void
     try {
         $pdo->exec("ALTER TABLE customers ADD COLUMN otp_expires_at DATETIME NULL");
     } catch (\Throwable $e) {}
+    try {
+        $pdo->exec("ALTER TABLE customers ADD COLUMN tier VARCHAR(64) NULL DEFAULT 'video_studio'");
+    } catch (\Throwable $e) {}
+    try {
+        $pdo->exec("ALTER TABLE customers ADD COLUMN plan VARCHAR(64) NULL DEFAULT 'video_studio'");
+    } catch (\Throwable $e) {}
 
     // Ensure payment verification and status columns on orders table
     try {
@@ -138,6 +144,28 @@ function ensure_amp_migrations(PDO $pdo): void
           INDEX idx_status (status)
         ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4"
     );
+
+    // Ensure download_tokens table exists for 72-hour one-time cryptographic tokens
+    try {
+        $pdo->exec(
+            "CREATE TABLE IF NOT EXISTS download_tokens (
+              id INT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
+              token VARCHAR(64) NOT NULL UNIQUE,
+              order_id INT UNSIGNED NULL,
+              customer_id INT UNSIGNED NULL,
+              product VARCHAR(64) NOT NULL DEFAULT 'software',
+              expires_at DATETIME NOT NULL,
+              is_used TINYINT(1) NOT NULL DEFAULT 0,
+              used_at DATETIME NULL,
+              download_count INT NOT NULL DEFAULT 0,
+              max_downloads INT NOT NULL DEFAULT 1,
+              created_at DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
+              INDEX idx_token (token),
+              INDEX idx_order (order_id),
+              INDEX idx_expires (expires_at)
+            ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4"
+        );
+    } catch (\Throwable $e) {}
 
     // Seed default coupons if missing
     try {

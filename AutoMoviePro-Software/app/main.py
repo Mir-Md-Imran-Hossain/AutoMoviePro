@@ -11,6 +11,7 @@ if str(ROOT) not in sys.path:
     sys.path.insert(0, str(ROOT))
 
 from fastapi import Body, FastAPI, File, Form, Request, UploadFile
+from fastapi.middleware.cors import CORSMiddleware
 from fastapi.responses import HTMLResponse, JSONResponse
 from fastapi.staticfiles import StaticFiles
 
@@ -20,6 +21,15 @@ from app import db as store
 from app.scheduler_service import SchedulerService
 
 app = FastAPI(title="AutoMovie Pro")
+
+# Cross-Origin Resource Sharing (CORS) for Mobile Solver / PWA Wi-Fi interconnect
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=["*"],
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
 scheduler = SchedulerService()
 
 if UI_DIR.exists():
@@ -136,6 +146,35 @@ def _require_production_access(channel: Optional[Dict[str, Any]] = None) -> Dict
     return can_customer_produce(channel=channel)
 
 
+def _require_video_studio_access() -> tuple[bool, Optional[JSONResponse]]:
+    """Enforce strict video studio tier access (video_studio, dev, enterprise).
+    ৳1,999 (profile_page) and ৳2,999 (fb_business) are strictly blocked with 403.
+    """
+    session = _require_session()
+    if not session:
+        return False, JSONResponse(
+            status_code=401,
+            content={"ok": False, "error": "login_required", "message": "অনুগ্রহ করে লগইন করুন।"},
+        )
+    customer = session.get("customer") or {}
+    plan = customer.get("tier") or customer.get("plan") or session.get("plan")
+    from app.customer_tiers import can_produce_video_studio, TIER_UPGRADE_MESSAGE_VIDEO_STUDIO
+
+    if not can_produce_video_studio(plan):
+        return False, JSONResponse(
+            status_code=403,
+            content={
+                "ok": False,
+                "error": "tier_upgrade_required",
+                "message": TIER_UPGRADE_MESSAGE_VIDEO_STUDIO,
+                "required_tier": "video_studio",
+                "current_tier": str(plan),
+                "upgrade_url": "https://automoviepro.com/#pricing",
+            },
+        )
+    return True, None
+
+
 def _session_login_id() -> str:
     from app.customer_config import resolve_session_login_id
 
@@ -197,6 +236,17 @@ def operational_readiness() -> Dict[str, Any]:
     report = validate_production_operational()
     report["release"] = get_release_identity(include_media=False)
     return report
+
+
+@app.get("/api/diagnostics/run")
+@app.post("/api/diagnostics/run")
+def api_diagnostics_run() -> Dict[str, Any]:
+    """1-Click Automated Customer Self-Diagnostics (Sector 6).
+    Checks: Internet, AI Keys, Hardware/FFmpeg, Disk Space, Browser Sessions.
+    """
+    from app.diagnostics import run_full_diagnostics
+
+    return run_full_diagnostics()
 
 
 @app.get("/api/subscription/google-paid-status")
@@ -474,6 +524,14 @@ def dashboard(customer_id: str = "", login_id: str = "") -> Dict[str, Any]:
 
     from app.legal.consent_manager import ConsentManager
     cm = ConsentManager()
+    is_local_dev = (
+        session.get("auth_mode") == "local_dev"
+        or str(session.get("token") or "").startswith("local-")
+        or identity.get("auth_mode") == "local_dev"
+    )
+    if is_local_dev and session_login and not cm.has_user_consented(session_login):
+        cm.record_consent(session_login, ip_address="127.0.0.1")
+
     if not cm.has_user_consented(session_login):
         return {
             "ok": False,
@@ -1062,6 +1120,9 @@ def workspace_generate(payload: Dict[str, Any] = Body(...)) -> Dict[str, Any]:
     Default remains synchronous C06-D start_customer_generation (compat).
     Pass queue=true for C06-G enqueue + optional process_now tick.
     """
+    allowed, err_resp = _require_video_studio_access()
+    if not allowed and err_resp is not None:
+        return err_resp
     if not _require_session():
         return {"ok": False, "error": "login_required"}
     channel_id = int(payload.get("channel_id") or 0)
@@ -2155,6 +2216,10 @@ async def create_channel(
         "youtube_session": (existing or {}).get("youtube_session"),
         "facebook_session": (existing or {}).get("facebook_session"),
         "tiktok_session": (existing or {}).get("tiktok_session"),
+        "reels_per_day": int(form.get("reels_per_day") or (existing or {}).get("reels_per_day") or 2),
+        "reel_schedule_times": str(form.get("reel_schedule_times") or (existing or {}).get("reel_schedule_times") or '["11:00", "16:00", "20:30"]').strip(),
+        "reel_topics": str(form.get("reel_topics") or (existing or {}).get("reel_topics") or "").strip(),
+        "reel_strategy_json": str(form.get("reel_strategy_json") or (existing or {}).get("reel_strategy_json") or "{}").strip(),
         "enabled": 1,
     }
     payload = set_channel_owner_on_payload(payload, login_id)
@@ -2194,6 +2259,74 @@ def json_loads_safe(raw: Any) -> Any:
         return _json.loads(raw or "[]")
     except Exception:
         return []
+
+
+@app.get("/api/reels/schedule")
+def get_reels_schedule(channel_id: Optional[int] = None) -> Dict[str, Any]:
+    """Exposes reel daily limits, schedule slots, and topic pool for a channel."""
+    if not _require_session():
+        return {"ok": False, "error": "login_required"}
+    channels = _owned_channels_or_empty()
+    if not channels:
+        channels = store.list_channels()
+    if not channels:
+        return {"ok": False, "error": "no_channels_found"}
+    cid = int(channel_id) if channel_id else int(channels[0]["id"])
+    settings_dict = store.get_channel_reel_settings(cid)
+
+    from publishers.omni_reel_publisher import OmniReelPublisher
+    pub = OmniReelPublisher(channel_id=cid)
+    today_posts = pub.get_today_reels_published()
+    can_pub, reason = pub.can_publish_reel_today()
+    due_slot = pub.get_due_schedule_slot()
+
+    return {
+        "ok": True,
+        "channel_id": cid,
+        "settings": settings_dict,
+        "status": {
+            "published_today": len(today_posts),
+            "limit": settings_dict.get("reels_per_day", 2),
+            "can_publish_today": can_pub,
+            "quota_reason": reason,
+            "due_slot": due_slot,
+            "today_posts": today_posts
+        }
+    }
+
+
+@app.post("/api/reels/schedule")
+def update_reels_schedule(payload: Dict[str, Any] = Body(...)) -> Dict[str, Any]:
+    """Updates daily limits, schedule slots, and topics for video reels."""
+    if not _require_session():
+        return {"ok": False, "error": "login_required"}
+    channels = _owned_channels_or_empty()
+    if not channels:
+        channels = store.list_channels()
+    if not channels:
+        return {"ok": False, "error": "no_channels_found"}
+    cid = int(payload.get("channel_id") or channels[0]["id"])
+    _ch, err = _owned_channel_or_err(cid)
+    if err and err.get("error") != "channel_unowned":
+        return err
+
+    reels_per_day = payload.get("reels_per_day")
+    schedule_slots = payload.get("schedule_slots")
+    topics_pool = payload.get("topics_pool")
+    strategy_json = payload.get("reel_strategy_json")
+
+    success = store.update_channel_reel_settings(
+        cid,
+        reels_per_day=int(reels_per_day) if reels_per_day is not None else None,
+        schedule_slots=schedule_slots if isinstance(schedule_slots, list) else None,
+        topics_pool=topics_pool if isinstance(topics_pool, list) else None,
+        strategy_json=str(strategy_json) if strategy_json else None
+    )
+    return {
+        "ok": success,
+        "channel_id": cid,
+        "settings": store.get_channel_reel_settings(cid)
+    }
 
 
 @app.get("/api/config/summary")
@@ -3214,11 +3347,15 @@ def live_lab_stop() -> Dict[str, Any]:
 
 
 @app.post("/api/generate")
-def generate(payload: Dict[str, Any] = Body(...)) -> Dict[str, Any]:
+def generate(payload: Dict[str, Any] = Body(...)) -> Any:
     """C01-A: create persisted job → existing live worker → generate_video (no false success).
 
     C02: production requires auth ∧ account ∧ entitlement ∧ C01 readiness.
+    Strict tier gating prevents ৳1,999 and ৳2,999 packages from leaking video studio.
     """
+    allowed, err_resp = _require_video_studio_access()
+    if not allowed and err_resp is not None:
+        return err_resp
     if not _require_session():
         from app.customer_auth import evaluate_session
 
@@ -3262,6 +3399,17 @@ def generate(payload: Dict[str, Any] = Body(...)) -> Dict[str, Any]:
     )
     access = can_customer_produce(channel=channel, foundation=foundation)
     if not access.get("allowed"):
+        if access.get("block_reason") == "tier_upgrade_required":
+            return JSONResponse(
+                status_code=403,
+                content={
+                    "ok": False,
+                    "error": "tier_upgrade_required",
+                    "message": access.get("message"),
+                    "required_tier": "video_studio",
+                    "upgrade_url": "https://automoviepro.com/#pricing",
+                },
+            )
         return {
             "ok": False,
             "error": access.get("block_reason") or "production_access_denied",
@@ -3275,6 +3423,64 @@ def generate(payload: Dict[str, Any] = Body(...)) -> Dict[str, Any]:
             "generate_block_reasons": access.get("generate_block_reasons")
             or foundation.get("generate_block_reasons"),
         }
+
+
+@app.post("/api/generate/short")
+def api_generate_short(payload: Dict[str, Any] = Body(default_factory=dict)) -> Any:
+    """Enforces strict tier gating for short video generation."""
+    allowed, err_resp = _require_video_studio_access()
+    if not allowed and err_resp is not None:
+        return err_resp
+    p = dict(payload or {})
+    p["video_type"] = "short"
+    if not p.get("channel_id"):
+        channels = _owned_channels_or_empty()
+        if channels:
+            p["channel_id"] = channels[0]["id"]
+    return generate(p)
+
+
+@app.post("/api/generate/long")
+def api_generate_long(payload: Dict[str, Any] = Body(default_factory=dict)) -> Any:
+    """Enforces strict tier gating for long video generation."""
+    allowed, err_resp = _require_video_studio_access()
+    if not allowed and err_resp is not None:
+        return err_resp
+    p = dict(payload or {})
+    p["video_type"] = "long"
+    if not p.get("channel_id"):
+        channels = _owned_channels_or_empty()
+        if channels:
+            p["channel_id"] = channels[0]["id"]
+    return generate(p)
+
+
+@app.post("/api/job/start")
+def api_job_start(payload: Dict[str, Any] = Body(default_factory=dict)) -> Any:
+    """Enforces strict tier gating for starting video production jobs."""
+    allowed, err_resp = _require_video_studio_access()
+    if not allowed and err_resp is not None:
+        return err_resp
+    p = dict(payload or {})
+    if not p.get("channel_id"):
+        channels = _owned_channels_or_empty()
+        if channels:
+            p["channel_id"] = channels[0]["id"]
+    return generate(p)
+
+
+@app.post("/api/jobs/create")
+def api_jobs_create(payload: Dict[str, Any] = Body(default_factory=dict)) -> Any:
+    """Enforces strict tier gating for creating video production jobs."""
+    allowed, err_resp = _require_video_studio_access()
+    if not allowed and err_resp is not None:
+        return err_resp
+    p = dict(payload or {})
+    if not p.get("channel_id"):
+        channels = _owned_channels_or_empty()
+        if channels:
+            p["channel_id"] = channels[0]["id"]
+    return generate(p)
 
     # C06-D: when a production plan exists, it MUST be READY_FOR_GENERATION (fail closed).
     # Legacy path (no plan yet) remains for pre-C06-D compatibility; workspace UI requires plan.
@@ -3732,9 +3938,26 @@ def api_mobile_captcha_simulate(payload: Dict[str, Any]) -> Any:
 
     from app.mobile_bridge import bridge
     sim_payload = dict(payload)
+    # Real Mobile Telemetry Integration: bind genuine system telemetry to mobile push payload
+    live_telemetry = bridge.get_live_metrics()
+    sim_payload["telemetry"] = {
+        "connected": live_telemetry.get("connected", True),
+        "system_state": live_telemetry.get("system_state", "active"),
+        "server_time": live_telemetry.get("server_time"),
+        "videos_generated_today": live_telemetry.get("videos_generated_today", 0),
+        "videos_published_today": live_telemetry.get("videos_published_today", 0),
+        "last_video_title": live_telemetry.get("last_video_title", ""),
+        "last_published_url": live_telemetry.get("last_published_url"),
+    }
     sim_payload["is_simulation"] = True
     bridge.set_captcha_challenge(sim_payload)
-    return {"ok": True, "simulated": True, "message": "ক্যাপচা চ্যালেঞ্জ সফলভাবে ব্রডকাস্ট করা হয়েছে (Simulation Mode)।"}
+    return {
+        "ok": True,
+        "simulated": True,
+        "telemetry_synced": True,
+        "telemetry": sim_payload["telemetry"],
+        "message": "ক্যাপচা চ্যালেঞ্জ ও রিয়েল মোবাইল টেলিমেট্রি সফলভাবে ব্রডকাস্ট করা হয়েছে।"
+    }
 
 
 @app.post("/api/mobile/upload/resume")
@@ -4037,6 +4260,94 @@ def api_marketing_leads(status: Optional[str] = None) -> Any:
         "leads": leads,
         "total": len(leads),
     }
+
+
+# =============================================================================
+# PRODUCT CATALOG & AD CAMPAIGN ENDPOINTS
+# =============================================================================
+
+@app.get("/api/products")
+def api_list_products() -> Any:
+    """Lists all products registered in the system."""
+    from app.product_service import ProductService
+    products = ProductService.list_products()
+    return {"ok": True, "products": products, "total": len(products)}
+
+
+@app.post("/api/products")
+def api_create_product(payload: Dict[str, Any] = Body(...)) -> Any:
+    """Creates a new product with full details."""
+    from app.product_service import ProductService
+    try:
+        created = ProductService.create_product(payload)
+        return {"ok": True, "product": created}
+    except Exception as e:
+        return JSONResponse(status_code=400, content={"ok": False, "error": str(e)})
+
+
+@app.get("/api/products/ads")
+def api_list_product_ads(product_id: Optional[str] = None) -> Any:
+    """Lists all product ad campaigns."""
+    from app.product_service import ProductService
+    ads = ProductService.list_ad_campaigns(product_id=product_id)
+    return {"ok": True, "ads": ads, "total": len(ads)}
+
+
+@app.get("/api/products/{product_id}")
+def api_get_product(product_id: str) -> Any:
+    """Gets a single product by ID."""
+    from app.product_service import ProductService
+    product = ProductService.get_product(product_id)
+    if not product:
+        return JSONResponse(status_code=404, content={"ok": False, "error": "Product not found"})
+    return {"ok": True, "product": product}
+
+
+@app.delete("/api/products/{product_id}")
+def api_delete_product(product_id: str) -> Any:
+    """Deletes a product by ID."""
+    from app.product_service import ProductService
+    deleted = ProductService.delete_product(product_id)
+    return {"ok": deleted}
+
+
+@app.post("/api/products/{product_id}/generate-ad")
+def api_generate_product_ad(product_id: str, payload: Dict[str, Any] = Body(...)) -> Any:
+    """Triggers generation of promotional storyboard, banner, and ad record."""
+    session = _require_session()
+    customer = session.get("customer") if session else {}
+    plan = customer.get("tier") or customer.get("plan") or (session.get("plan") if session else None)
+    from app.customer_tiers import can_access_fb_business, TIER_UPGRADE_MESSAGE_FB_BUSINESS
+    if not can_access_fb_business(plan):
+        return JSONResponse(
+            status_code=403,
+            content={
+                "ok": False,
+                "error": "tier_upgrade_required",
+                "message": TIER_UPGRADE_MESSAGE_FB_BUSINESS,
+                "required_tier": "fb_business",
+                "current_tier": str(plan),
+                "upgrade_url": "https://automoviepro.com/#pricing",
+            },
+        )
+    from app.product_service import ProductService
+    ad_type = payload.get("ad_type", "reel_9_16")
+    duration = int(payload.get("duration_seconds", 30))
+    talking_points = payload.get("talking_points", "")
+    scheduled_at = payload.get("scheduled_at")
+
+    try:
+        res = ProductService.create_ad_campaign(
+            product_id=product_id,
+            ad_type=ad_type,
+            duration_seconds=duration,
+            talking_points=talking_points,
+            scheduled_at=scheduled_at
+        )
+        return {"ok": True, "campaign": res}
+    except Exception as e:
+        return JSONResponse(status_code=500, content={"ok": False, "error": str(e)})
+
 
 
 def main() -> None:

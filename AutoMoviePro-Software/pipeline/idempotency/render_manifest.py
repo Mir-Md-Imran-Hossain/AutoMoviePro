@@ -140,3 +140,7 @@ def load_script_fingerprint(work_dir: Path) -> str:
     if plan.is_file():
         return hash_artifact(str(plan))[:32]
     return ""
+
+
+# Backward-compatible alias
+RenderManifest = RenderAssemblyManifest

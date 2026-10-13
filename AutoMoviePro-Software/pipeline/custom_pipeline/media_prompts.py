@@ -181,8 +181,11 @@ def narration_to_visual_cues(
         text,
         flags=re.I,
     )
-    # Drop "face"/"portrait" — they biased every stock search toward random people
-    words = [w for w in text.replace(",", " ").split() if len(w) > 3]
+    # Filter words to only English/Latin words (length > 3) - NEVER pass raw Bengali script
+    words = [
+        w for w in text.replace(",", " ").split()
+        if len(w) > 3 and not re.search(r"[^\x00-\x7F]", w)
+    ]
     # Merge unique (UI cues first when product shot)
     seen = set()
     cues: List[str] = []
@@ -195,14 +198,18 @@ def narration_to_visual_cues(
         k = w.lower().strip(".,!?;:\"'")
         if k in seen or len(k) < 3:
             continue
-        if prefer_ui and k in ("face", "portrait", "selfie", "man", "woman", "male", "female"):
+        if k in (
+            "face", "portrait", "selfie", "man", "woman", "male", "female",
+            "gynoid", "doll", "mannequin", "girl", "lady", "guy", "breasts"
+        ):
             continue
         seen.add(k)
         cues.append(w.strip(".,!?;:\""))
         if len(cues) >= max_cues:
             break
     if not cues:
-        return text[:160]
+        # Never return raw non-ASCII / Bengali text to diffusion models
+        return ""
     return ", ".join(cues)
 
 
@@ -326,7 +333,16 @@ def build_detailed_media_prompt(
     if cam:
         parts.append(f"CAMERA ANGLE: {cam}")
     if light:
-        parts.append(f"LIGHTING: {light}")
+        clean_light = re.sub(r"(?i)\b(?:moody|dark|dim|pitch-black|murky|underexposed)\b", "bright crystal-clear", light)
+        parts.append(
+            f"LIGHTING: {clean_light}, vibrant clean commercial illumination, 5600K daylight balanced fill, "
+            f"sharp highlight definition, perfectly exposed scene with zero dark underexposed shadows"
+        )
+    else:
+        parts.append(
+            "LIGHTING: bright high-key commercial illumination, clean 5600K daylight balanced fill, "
+            "crystal-clear optics, sharp highlights, zero dark underexposed shadows"
+        )
     if bg:
         parts.append(f"BACKGROUND / ENVIRONMENT: {bg}")
     else:
@@ -350,21 +366,24 @@ def build_detailed_media_prompt(
             parts.append(f"WARDROBE CUFF ONLY (no face): {char}")
     elif subject == SUBJECT_BROLL:
         parts.append(
-            "SUBJECT LOCK (B-ROLL): environment / abstract tech mood — "
-            "NO human face, NO portrait, NO talking head"
+            "SUBJECT LOCK (B-ROLL & OBJECT FIRST): full wide scene, mechanical robot body or environment machinery — "
+            "STRICTLY NO human face, NO female face, NO female robot face, NO gynoid, NO mannequin face, NO doll face, "
+            "NO robot face close-up, NO portrait headshot, NO talking head, NO erotic robot, NO breasts, NO cleavage"
         )
     elif char:
         parts.append(f"CHARACTER LOCK (identical every frame): {char}")
 
-    # 5. SCENE INTENT & NARRATION SYNC
+    # 5. SCENE INTENT & NARRATION SYNC (NEVER inject raw Bengali script into diffusion models)
     if spoken and not for_video:
-        beat = spoken if len(spoken) <= 180 else spoken[:177].rsplit(" ", 1)[0] + "…"
-        parts.append(f"SCENE INTENT (illustrate this idea — do not render text): {beat}")
+        if not re.search(r"[^\x00-\x7F]", spoken):
+            beat = spoken if len(spoken) <= 180 else spoken[:177].rsplit(" ", 1)[0] + "…"
+            parts.append(f"SCENE INTENT (illustrate this idea — do not render text): {beat}")
     elif spoken and for_video:
-        beat = spoken if len(spoken) <= 140 else spoken[:137].rsplit(" ", 1)[0] + "…"
-        parts.append(
-            f"SCENE INTENT (show this idea visually; DO NOT speak or mouth these words): {beat}"
-        )
+        if not re.search(r"[^\x00-\x7F]", spoken):
+            beat = spoken if len(spoken) <= 140 else spoken[:137].rsplit(" ", 1)[0] + "…"
+            parts.append(
+                f"SCENE INTENT (show this idea visually; DO NOT speak or mouth these words): {beat}"
+            )
 
     if emotion and allow_char:
         parts.append(f"PERFORMANCE / EMOTION (face/body only, no speech): {emotion}")
@@ -373,11 +392,16 @@ def build_detailed_media_prompt(
     if neg:
         parts.append(f"NEGATIVE: {neg}")
 
-    # --- FORMAT / MOTION ---
+    # --- FORMAT / MOTION / RESOLUTION ---
+    if not for_video:
+        parts.append(
+            "IMAGE QUALITY: ultra-sharp 8k UHD textures, photorealistic commercial broadcast quality, "
+            "crystal-clear details, high dynamic range, vibrant true-to-life colors, zero noise"
+        )
     if "9:16" in str(aspect_ratio):
         parts.append(f"FORMAT: aspect ratio {aspect_ratio}, vertical framing locked, 9:16 portrait")
     else:
-        parts.append(f"FORMAT: aspect ratio {aspect_ratio}")
+        parts.append(f"FORMAT: aspect ratio {aspect_ratio}, 16:9 widescreen composition")
 
     if for_video:
         cam_m = _clean(motion.get("camera_movement"))

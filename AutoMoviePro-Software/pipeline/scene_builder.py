@@ -2815,10 +2815,9 @@ def master_mux_vf(
         return vf
     if srt_path and Path(srt_path).exists():
         try:
-            from pipeline.subtitle_burn import burn_subtitles_filter
+            from pipeline.subtitle_burn import apply_subtitles_to_vf
 
-            vf += "," + burn_subtitles_filter(Path(srt_path), size=size, lang=lang)
-            return vf
+            return apply_subtitles_to_vf(vf, Path(srt_path), size=size, lang=lang)
         except Exception:
             sp = str(Path(srt_path).resolve()).replace("\\", "/").replace(":", "\\:")
             from pipeline.subtitle_burn import ass_force_style
@@ -3239,7 +3238,7 @@ def _resolve_footage(
                 except Exception as veo_exc:
                     logger.warning("Google Veo generation attempt failed scene=%s: %s", idx, veo_exc)
 
-    if (mode == MODE_VIDEO or (not mode and generation_payload is None)) and agnes_keys:
+    if (mode == MODE_VIDEO or (not mode and generation_payload is None)):
         agnes_out = work / f"agnes_{idx:02d}_{element}{suffix}.mp4"
         # Remove stale file so regenerate is forced
         if agnes_out.exists() and attempt > 1:

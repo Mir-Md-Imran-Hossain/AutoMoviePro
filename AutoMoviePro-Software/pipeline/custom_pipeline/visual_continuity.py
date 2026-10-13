@@ -122,13 +122,14 @@ def beat_visual_prompt(
     if subject == SUBJECT_BROLL:
         continuity = (
             f"FRAME {frame_index + 1}/{total_frames} of the SAME continuous scene. "
-            f"SEED LOCK {package_seed_val}: consistent environment, lighting, color grade — NO human face, NO portrait. "
-            f"Only camera angle / subject action may change slightly to match THIS dialogue beat."
+            f"SEED LOCK {package_seed_val}: consistent environment, bright 5600K high-key lighting, clean white-balanced grade — "
+            f"STRICTLY NO human face, NO female face, NO female robot face, NO gynoid, NO mannequin face, NO doll face, "
+            f"NO robot face close-up, NO talking head portrait. Only camera angle / mechanical action changes slightly."
         )
     elif prefer_ui:
         continuity = (
             f"FRAME {frame_index + 1}/{total_frames} of the SAME continuous UI shot. "
-            f"SEED LOCK {package_seed_val}: identical UI chrome, environment, color grade — NO human face. "
+            f"SEED LOCK {package_seed_val}: identical UI chrome, environment, color grade — NO human face, NO portrait. "
             f"Only camera angle / panel focus may change slightly to match THIS dialogue beat."
         )
     else:
@@ -137,7 +138,7 @@ def beat_visual_prompt(
             f"SEED LOCK {package_seed_val}: identical appearance, wardrobe, room, color grade. "
             f"Only camera angle / prop focus may change slightly to match THIS dialogue beat."
         )
-    if prev_beat:
+    if prev_beat and not re.search(r"[^\x00-\x7F]", prev_beat):
         continuity += f" Continues visually from previous beat ({prev_beat[:80]})."
     if cues:
         continuity += f" MUST SHOW for this beat: {cues}."

@@ -132,6 +132,7 @@ def main() -> int:
                     topic=gadget["name"],
                     research_notes=notes,
                     work_dir=work / f"attempt_{attempt}",
+                    use_mock=False,
                 )
                 dur = float(result.get("duration") or 0)
                 if dur <= 0 or dur > 122:

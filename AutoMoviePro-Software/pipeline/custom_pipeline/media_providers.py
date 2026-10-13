@@ -78,11 +78,18 @@ def image_pollinations(
     prompt: str, out: Path, *, w: int, h: int, seed: Optional[int] = None
 ) -> Optional[Path]:
     wait_media_gap(reason="pollinations_image")
+    safe_p = (prompt or "").strip()
+    if "NO female robot" not in safe_p and "NO human face" not in safe_p:
+        safe_p = (
+            f"{safe_p}, bright 5600K high-bay illumination, photoreal 8k, "
+            f"STRICT: NO human face, NO female face, NO female robot face, NO gynoid, NO doll face, "
+            f"NO mannequin face, NO portrait headshot, NO talking head, NO erotic robot, NO breasts, NO watermark, NO logo"
+        )
     keys = _env_keys("POLLINATIONS_API_KEY")
     # Shorter ASCII prompt first (stability); detail kept at START via fit_prompt
     variants = [
-        _sanitize_pollinations_prompt(prompt, 1400),
-        _sanitize_pollinations_prompt(prompt, 900),
+        _sanitize_pollinations_prompt(safe_p, 1400),
+        _sanitize_pollinations_prompt(safe_p, 900),
     ]
     seed_q = f"&seed={int(seed)}" if seed is not None else ""
     free = (os.environ.get("POLLINATIONS_FREE_URL") or "").strip()
@@ -122,6 +129,11 @@ def image_pollinations(
                         continue
                     out.parent.mkdir(parents=True, exist_ok=True)
                     out.write_bytes(r.content)
+                    try:
+                        from pipeline.custom_pipeline.multi_still_clip import upscale_still_to_canvas
+                        upscale_still_to_canvas(out, out, w=w, h=h)
+                    except Exception as _e:
+                        pass
                     return out
             except Exception as exc:
                 logger.warning("pollinations image: %s", str(exc)[:160])
@@ -352,6 +364,12 @@ def image_workers_ai(prompt: str, out: Path, *, w: int, h: int, seed: Optional[i
     ).strip()
     # Keep prompt modest for Flux schnell
     short = (prompt or "").strip()
+    if "NO female robot" not in short and "NO human face" not in short:
+        short = (
+            f"{short}. Bright commercial high-bay illumination, clean balanced 5600K daylight, razor-sharp 8k textures. "
+            f"STRICT NEGATIVE: NO human face, NO female face, NO female robot face, NO gynoid, NO doll face, "
+            f"NO mannequin face, NO robot face close-up, NO portrait headshot, NO talking head, NO erotic robot, NO breasts, NO dark underexposed shadows"
+        )
     if len(short) > 1800:
         short = short[:1800]
     # Prefer prompt-only first (Flux schema); optional num_steps as second try
@@ -433,12 +451,19 @@ def image_workers_ai(prompt: str, out: Path, *, w: int, h: int, seed: Optional[i
                     continue
                 out.parent.mkdir(parents=True, exist_ok=True)
                 out.write_bytes(raw)
+                try:
+                    from pipeline.custom_pipeline.multi_still_clip import upscale_still_to_canvas
+                    upscale_still_to_canvas(out, out, w=w, h=h)
+                except Exception as _e:
+                    logger.warning("workers_ai upscale: %s", _e)
                 release_claim("workers_ai_image", fp, reason="ok")
                 logger.info(
-                    "Image OK provider=workers_ai acct=…%s → %s (%s bytes)",
+                    "Image OK provider=workers_ai acct=…%s → %s (%s bytes, canvas %sx%s)",
                     account_id[-4:],
                     out.name,
-                    len(raw),
+                    out.stat().st_size,
+                    w,
+                    h,
                 )
                 return out
             except Exception as exc:
@@ -872,11 +897,11 @@ def image_freetheai(prompt: str, out: Path, *, w: int, h: int) -> Optional[Path]
 
 
 IMAGE_CHAIN = (
-    ("google", image_google),
-    ("agnes", image_agnes),
     # Cloudflare Workers AI FLUX: fast, photoreal, 100% watermark-free
     ("workers_ai", image_workers_ai),
-    # Pollinations: free fallback when keys unavailable
+    ("google", image_google),
+    ("agnes", image_agnes),
+    # Pollinations: fallback when keys unavailable
     ("pollinations", image_pollinations),
     ("openrouter", image_openrouter),
     ("huggingface", image_huggingface),
@@ -1371,18 +1396,20 @@ def video_kling(prompt: str, out: Path, *, w: int, h: int, duration: float) -> O
     )
 
     keys = _env_keys("KLING_API_KEY")
-    if not keys or is_circuit_open("kling"):
+    if not keys:
+        logger.warning("Kling failed: no keys found")
         return None
     fp = prompt_fingerprint(prompt, aspect=f"{w}x{h}", duration=duration)
     if not claim_create("kling", fp):
+        logger.warning("Kling failed: claim_create rejected")
         return None
     wait_media_gap(reason="kling_video")
     raw_base = _env_val("KLING_API_BASE_URL", default="https://api.klingai.com")
     if raw_base.endswith("/v1"):
         raw_base = raw_base[:-3]
     base = raw_base.rstrip("/")
-    model_name = _env_val("KLING_VIDEO_MODEL", default="kling-v1")
     key = keys[0]
+    model_name = "kling-v1"
     try:
         with httpx.Client(timeout=60.0) as client:
             r = client.post(
@@ -1466,10 +1493,12 @@ def video_luma(prompt: str, out: Path, *, w: int, h: int, duration: float) -> Op
     )
 
     keys = _env_keys("LUMA_API_KEY")
-    if not keys or is_circuit_open("luma"):
+    if not keys:
+        logger.warning("Luma failed: no keys found")
         return None
     fp = prompt_fingerprint(prompt, aspect=f"{w}x{h}", duration=duration)
     if not claim_create("luma", fp):
+        logger.warning("Luma failed: claim_create rejected")
         return None
     wait_media_gap(reason="luma_video")
     # .env may wrongly set .../v1 — Dream Machine path is /dream-machine/v1/...

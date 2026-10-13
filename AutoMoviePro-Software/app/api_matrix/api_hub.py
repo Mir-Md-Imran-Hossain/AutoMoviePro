@@ -16,6 +16,8 @@ from __future__ import annotations
 
 import json
 import logging
+import os
+import sys
 import time
 import urllib.parse
 from dataclasses import asdict, dataclass, field
@@ -84,9 +86,6 @@ class KeyQuotaGuard:
         return f"{provider}:{prefix}:{suffix}"
 
     def is_available(self, provider: str, key: str) -> bool:
-        if str(provider).startswith("google_pro"):
-            # Google AI Pro bypasses regular free rate limits and quota limitations
-            return True
         kid = self._key_id(provider, key)
         rec = self._key_records.get(kid)
         if not rec:
@@ -473,86 +472,100 @@ class ApiHub:
     def execute_with_failover(
         self,
         chain_name: str,
-        chain: List[Tuple[str, str]],
-        action_fn: Callable[[str, str], Any],
+        chain: Optional[List[Tuple[str, str]]] = None,
+        action_fn: Callable[[str, str], Any] = None,
         cooldown_seconds: int = 300,
+        chain_resolver: Optional[Callable[[], List[Tuple[str, str]]]] = None,
+        pause_on_exhaustion: bool = True,
     ) -> Dict[str, Any]:
         """Executes action_fn(provider, api_key) across an ordered fallback chain.
         100% Error-handled:
         - Automatically detects rate limits / HTTP 429 / 403 / ResourceExhausted.
         - Puts exhausted keys on cooldown and logs warning without halting customer pipeline.
         - Automatically advances to the next provider/key in the chain.
-        - Returns a structured status dict; NEVER raises unhandled exceptions.
+        - Pauses and waits for user to update keys if all are exhausted.
         """
-        if not chain:
-            return {
-                "ok": False,
-                "provider": None,
-                "key_masked": "",
-                "error": "empty_chain",
-                "message": f"No providers or keys configured for {chain_name}.",
-                "failover_history": [],
-            }
-
-        # Filter candidates not currently on cooldown
-        available_candidates = [
-            (p, k) for p, k in chain if self.quota_guard.is_available(p, k)
-        ]
-        # If all candidates are on cooldown, reset cooldowns to allow an immediate fresh retry
-        if not available_candidates:
-            logger.warning(
-                "[API Failover] All candidates in '%s' are on cooldown. Resetting cooldowns for immediate retry.",
-                chain_name,
-            )
-            for p, k in chain:
-                self.quota_guard.mark_success(p, k)
-            available_candidates = list(chain)
-
         history: List[Dict[str, Any]] = []
 
-        for provider, key in available_candidates:
-            masked = KeyQuotaGuard.mask_key(key)
-            try:
-                logger.info("[API Matrix] Attempting %s via %s (key: %s)...", chain_name, provider, masked)
-                res = action_fn(provider, key)
-                # Successful execution!
-                self.quota_guard.mark_success(provider, key)
+        while True:
+            current_chain = chain_resolver() if chain_resolver else chain
+            if not current_chain:
+                # If no chain is configured at all, we still pause to let the user add one
+                pass
+
+            available_candidates = [
+                (p, k) for p, k in (current_chain or []) if self.quota_guard.is_available(p, k)
+            ]
+
+            if available_candidates:
+                for provider, key in available_candidates:
+                    masked = KeyQuotaGuard.mask_key(key)
+                    try:
+                        logger.info("[API Matrix] Attempting %s via %s (key: %s)...", chain_name, provider, masked)
+                        res = action_fn(provider, key)
+                        # Successful execution!
+                        self.quota_guard.mark_success(provider, key)
+                        return {
+                            "ok": True,
+                            "provider": provider,
+                            "key_masked": masked,
+                            "data": res,
+                            "failover_history": history,
+                        }
+                    except Exception as exc:
+                        err_text = str(exc)
+                        logger.warning(
+                            "[API Matrix Failover] %s provider '%s' (key: %s) failed: %s. Auto-failing over to next in chain...",
+                            chain_name, provider, masked, err_text
+                        )
+                        self.quota_guard.mark_exhausted(
+                            provider, key, err_text, cooldown_seconds=cooldown_seconds
+                        )
+                        history.append({
+                            "provider": provider,
+                            "key_masked": masked,
+                            "status": "failed",
+                            "error": err_text,
+                        })
+                        # Proceed to next provider/key in chain
+
+            # If in unittest, test mode, or pause_on_exhaustion is False, do not block in infinite loop
+            if not pause_on_exhaustion or "unittest" in sys.modules or os.environ.get("AUTOMOVIE_TESTING") == "1":
                 return {
-                    "ok": True,
-                    "provider": provider,
-                    "key_masked": masked,
-                    "data": res,
+                    "ok": False,
+                    "provider": None,
+                    "key_masked": "",
+                    "error": "all_providers_exhausted",
+                    "message": f"All providers in {chain_name} failed or exhausted quota.",
                     "failover_history": history,
                 }
-            except Exception as exc:
-                err_text = str(exc)
-                logger.warning(
-                    "[API Matrix Failover] %s provider '%s' (key: %s) failed: %s. Auto-failing over to next in chain...",
-                    chain_name, provider, masked, err_text
-                )
-                self.quota_guard.mark_exhausted(
-                    provider, key, err_text, cooldown_seconds=cooldown_seconds
-                )
-                history.append({
-                    "provider": provider,
-                    "key_masked": masked,
-                    "status": "failed",
-                    "error": err_text,
-                })
-                # Proceed to next provider/key in chain
 
-        logger.error(
-            "[API Matrix Failover] All %d providers in chain '%s' exhausted or failed.",
-            len(available_candidates), chain_name
-        )
-        return {
-            "ok": False,
-            "provider": None,
-            "key_masked": "",
-            "error": "all_providers_exhausted",
-            "message": f"All {len(available_candidates)} providers in {chain_name} chain failed or exhausted quota.",
-            "failover_history": history,
-        }
+            # If we reach here, all providers are exhausted/failed or chain is empty
+            try:
+                from pipeline.live_activity import is_cancel_requested, log as live_log
+                if is_cancel_requested():
+                    return {
+                        "ok": False,
+                        "provider": None,
+                        "key_masked": "",
+                        "error": "cancelled",
+                        "message": "Cancelled by user while waiting for API quota.",
+                        "failover_history": history,
+                    }
+                live_log("error", f"All APIs exhausted for {chain_name}. Pausing pipeline until new API key is set.", force_new=True)
+            except ImportError:
+                pass
+            
+            logger.error(
+                "[API Matrix Failover] All providers in chain '%s' exhausted or failed. Pausing...",
+                chain_name
+            )
+            time.sleep(15)
+            # Re-read config for next loop iteration
+            try:
+                self.config = self._load()
+            except Exception:
+                pass
 
     # --- High-Level Chain Executors ---
 
@@ -567,7 +580,8 @@ class ApiHub:
         """Executes Agent LLM / Script Generation across:
         Google AI Pro -> Grok Primary -> Grok Fallback -> Google AI Studio -> OpenRouter
         """
-        chain = self.resolve_agent_llm_chain(lang_code)
+        def _resolver() -> List[Tuple[str, str]]:
+            return self.resolve_agent_llm_chain(lang_code)
 
         def _default_caller(provider: str, key: str) -> Any:
             if caller_override:
@@ -621,7 +635,7 @@ class ApiHub:
 
             raise ValueError(f"Unknown LLM provider: {provider}")
 
-        return self.execute_with_failover("Agent_LLM_Chain", chain, _default_caller)
+        return self.execute_with_failover("Agent_LLM_Chain", None, _default_caller, chain_resolver=_resolver)
 
     def execute_tts(
         self,
@@ -633,7 +647,8 @@ class ApiHub:
         """Executes Text-to-Speech using dedicated language keys with automated rotation
         and fallback to Google Media Pro and cross-language keys when quota is exhausted.
         """
-        chain = self.resolve_tts_chain_for_language(lang_code)
+        def _resolver() -> List[Tuple[str, str]]:
+            return self.resolve_tts_chain_for_language(lang_code)
 
         def _default_caller(provider: str, key: str) -> Any:
             if caller_override:
@@ -669,7 +684,7 @@ class ApiHub:
                 resp.raise_for_status()
                 return resp.json()
 
-        return self.execute_with_failover(f"TTS_Chain_{lang_code}", chain, _default_caller)
+        return self.execute_with_failover(f"TTS_Chain_{lang_code}", None, _default_caller, chain_resolver=_resolver)
 
     def execute_video(
         self,
@@ -681,7 +696,8 @@ class ApiHub:
         """Executes Video Generation across:
         Google AI Pro (Veo-3) -> Google Veo 2 -> Agnes Video -> Pexels Stock Video
         """
-        chain = self.resolve_video_generation_chain(lang_code)
+        def _resolver() -> List[Tuple[str, str]]:
+            return self.resolve_video_generation_chain(lang_code)
 
         def _default_caller(provider: str, key: str) -> Any:
             if caller_override:
@@ -718,7 +734,7 @@ class ApiHub:
 
             raise ValueError(f"Unknown video provider: {provider}")
 
-        return self.execute_with_failover("Video_Generation_Chain", chain, _default_caller)
+        return self.execute_with_failover("Video_Generation_Chain", None, _default_caller, chain_resolver=_resolver)
 
     def execute_image(
         self,
@@ -730,7 +746,8 @@ class ApiHub:
         """Executes Visual Image / Thumbnail Generation across:
         Google AI Pro (Nano Banana Pro) -> Google Image -> Agnes Image -> Pollinations Image -> Pexels
         """
-        chain = self.resolve_image_generation_chain(lang_code)
+        def _resolver() -> List[Tuple[str, str]]:
+            return self.resolve_image_generation_chain(lang_code)
 
         def _default_caller(provider: str, key: str) -> Any:
             if caller_override:
@@ -778,7 +795,7 @@ class ApiHub:
 
             raise ValueError(f"Unknown image provider: {provider}")
 
-        return self.execute_with_failover("Image_Generation_Chain", chain, _default_caller)
+        return self.execute_with_failover("Image_Generation_Chain", None, _default_caller, chain_resolver=_resolver)
 
 
 _api_hub_instance: Optional[ApiHub] = None

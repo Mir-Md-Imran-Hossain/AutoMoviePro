@@ -63,14 +63,25 @@ $waLink = amp_whatsapp_sales_link($prefill);
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title><?= e($brand) ?> — <?= $isApproved ? 'Account Activated' : 'Pending Verification' ?></title>
+  <link rel="icon" type="image/png" href="/assets/img/favicon.png">
   <link rel="stylesheet" href="/assets/css/site.css">
   <meta name="robots" content="noindex">
 </head>
 <body>
   <header class="site-header">
-    <div class="logo"><?= e($brand) ?></div>
+    <a class="logo-link" href="/?lang=<?= e($uiLang) ?>">
+      <img class="logo-img" src="/assets/img/logo.png" alt="<?= e($brand) ?>" width="40" height="40">
+      <div class="logo"><?= e($brand) ?> <span>SAAS</span></div>
+    </a>
     <div class="header-actions">
-      <select id="siteLangSelect" aria-label="Language"></select>
+       <div class="mech-switch-container">
+          <span class="lang-label" id="lang-en">EN</span>
+          <div class="mech-switch" id="siteLangSwitch" onclick="this.classList.toggle('active'); document.dispatchEvent(new CustomEvent('langToggle'));">
+              <div class="mech-toggle"></div>
+          </div>
+          <span class="lang-label" id="lang-bn">BN</span>
+      </div>
+      <a class="btn btn-sm btn-ghost" href="/?lang=<?= e($uiLang) ?>" data-i18n="home">হোমে ফিরুন</a>
       <a class="btn btn-sm btn-wa" href="<?= e($waLink) ?>" target="_blank" rel="noopener" data-i18n="wa_send">WhatsApp</a>
     </div>
   </header>
@@ -160,8 +171,9 @@ $waLink = amp_whatsapp_sales_link($prefill);
           </div>
 
           <div style="grid-column:1 / -1;">
-            <label style="display:block; color:#cbd5e1; font-size:0.85rem; margin-bottom:0.25rem;">ট্রানজেকশন আইডি (Txn ID - যদি থাকে)</label>
-            <input type="text" name="txn_id" value="<?= e($order['txn_id'] ?? '') ?>" placeholder="যেমন: BL92KA871" style="width:100%; padding:0.75rem; border-radius:8px; background:#1e293b; color:#fff; border:1px solid #334155;">
+            <label style="display:block; color:#cbd5e1; font-size:0.85rem; margin-bottom:0.25rem;">ট্রানজেকশন আইডি (Txn ID - বিকাশ/নগদ/রকেট)</label>
+            <input type="text" name="txn_id" id="txnIdInput" value="<?= e($order['txn_id'] ?? '') ?>" placeholder="যেমন: BL92KA871X (বিকাশ) অথবা 71A3BC45 (নগদ)" pattern="[A-Za-z0-9]{8,16}" title="৮ থেকে ১৬ অক্ষরের আলফানিউমেরিক TrxID দিন" style="width:100%; padding:0.75rem; border-radius:8px; background:#1e293b; color:#fff; border:1px solid #334155; text-transform:uppercase; font-family:monospace; font-weight:600; letter-spacing:1px;" oninput="this.value = this.value.toUpperCase().replace(/[^A-Z0-9]/g, '');">
+            <small style="color:#94a3b8; font-size:0.78rem; display:block; margin-top:4px;">💡 বিকাশ/নগদ এসএমএস-এর TrxID টি নির্ভুলভাবে লিখুন। প্রতিটি TrxID শুধুমাত্র একবার গ্রহণযোগ্য।</small>
           </div>
 
           <div style="grid-column:1 / -1;">

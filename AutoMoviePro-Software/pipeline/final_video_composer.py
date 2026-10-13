@@ -31,6 +31,7 @@ from pathlib import Path
 from typing import Any, Dict, List, Optional, Tuple, Union
 
 from pipeline.compose import (
+    detect_hardware_acceleration,
     ffmpeg_bin,
     ffprobe_bin,
     get_h264_encoder,
@@ -52,9 +53,10 @@ class VideoCompositionConfig:
     intro_video_path: str = ""
     logo_watermark_path: str = ""
     enable_bgm_ducking: bool = True
-    hardware_acceleration: str = "qsv"  # 'qsv', 'nvenc', or 'cpu'
+    hardware_acceleration: str = "qsv"  # 'auto', 'nvenc', 'qsv', 'amf', or 'cpu'
     bgm_path: str = ""
     niche: str = ""
+    enable_kinetic_graphics: bool = False
     simulate: bool = False
     mode: str = "auto"  # 'auto', 'production', 'simulation'
 
@@ -275,8 +277,19 @@ class ProductionVideoComposer:
         hw = (hw_accel or "").lower().strip()
         if hw == "cpu":
             return "libx264"
-        if hw == "qsv":
-            fb = ffmpeg_bin()
+        fb = ffmpeg_bin()
+        if hw in ("nvenc", "h264_nvenc"):
+            try:
+                r = subprocess.run(
+                    [fb, "-y", "-f", "lavfi", "-i", "color=c=black:s=64x64:d=0.1", "-c:v", "h264_nvenc", "-f", "null", "-"],
+                    capture_output=True,
+                    timeout=3,
+                )
+                if r.returncode == 0:
+                    return "h264_nvenc"
+            except Exception:
+                pass
+        if hw in ("qsv", "h264_qsv"):
             try:
                 r = subprocess.run(
                     [
@@ -297,6 +310,17 @@ class ProductionVideoComposer:
                 )
                 if r.returncode == 0:
                     return "h264_qsv"
+            except Exception:
+                pass
+        if hw in ("amf", "h264_amf"):
+            try:
+                r = subprocess.run(
+                    [fb, "-y", "-f", "lavfi", "-i", "color=c=black:s=64x64:d=0.1", "-c:v", "h264_amf", "-f", "null", "-"],
+                    capture_output=True,
+                    timeout=3,
+                )
+                if r.returncode == 0:
+                    return "h264_amf"
             except Exception:
                 pass
         return get_h264_encoder()
@@ -490,6 +514,27 @@ class ProductionVideoComposer:
             a_p = audio_paths[i] if i < len(audio_paths) else None
             seg_out = self.temp_dir / f"{vid_id}_seg_{i}.mp4"
             self._build_segment(v_p, a_p, seg_out, aspect, encoder)
+
+            # Apply Kinetic Typography / Smart Motion Cards if requested
+            if config.enable_kinetic_graphics:
+                try:
+                    from pipeline.kinetic_typography_engine import KineticCardEngine
+                    kinetic_seg = self.temp_dir / f"{vid_id}_seg_{i}_kinetic.mp4"
+                    k_applied = KineticCardEngine.apply_kinetic_overlays_to_segment(
+                        video_segment_path=seg_out,
+                        spoken_text=subtitle_text or config.title,
+                        scene_badge=config.niche.upper() if config.niche else "HIGHLIGHT",
+                        lang=config.language,
+                        out_segment_path=kinetic_seg,
+                        temp_dir=self.temp_dir,
+                        is_short=(fmt == "short"),
+                    )
+                    if k_applied and Path(k_applied).exists() and Path(k_applied).stat().st_size > 1000:
+                        seg_out = Path(k_applied)
+                        temp_files.append(seg_out)
+                except Exception as k_err:
+                    logger.warning("Kinetic typography overlay skipped for segment %s: %s", i, k_err)
+
             segment_clips.append(seg_out)
             temp_files.append(seg_out)
 
@@ -516,7 +561,14 @@ class ProductionVideoComposer:
         if logo_path and logo_path.is_file():
             branded_out = self.temp_dir / f"{vid_id}_branded.mp4"
             temp_files.append(branded_out)
-            overlay_logo(current_video, logo_path, branded_out)
+            overlay_logo(
+                current_video,
+                logo_path,
+                branded_out,
+                position="top_left" if fmt == "short" else "top_right",
+                encoder=encoder,
+                opacity=0.82,
+            )
             if branded_out.exists() and branded_out.stat().st_size > 1000:
                 current_video = branded_out
 

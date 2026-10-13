@@ -39,7 +39,7 @@ $response = [
 
 if ($isApproved) {
     $customerId = (int) ($order['customer_id'] ?? 0);
-    $custStmt = $pdo->prepare('SELECT id, name, login_id, status FROM customers WHERE id = ? LIMIT 1');
+    $custStmt = $pdo->prepare('SELECT id, name, login_id, status, tier, plan FROM customers WHERE id = ? LIMIT 1');
     $custStmt->execute([$customerId]);
     $customer = $custStmt->fetch();
 
@@ -49,11 +49,14 @@ if ($isApproved) {
 
     $unlocked = $customerId > 0 ? amp_customer_unlocked_langs($pdo, $customerId) : [];
     $isGooglePro = str_contains((string)($order['plan_name'] ?? ''), 'Google AI Pro');
+    $tier = $customer['tier'] ?? $customer['plan'] ?? amp_determine_order_tier($order);
 
     $response['customer'] = [
         'name' => $customer['name'] ?? $order['name'],
         'login_id' => $customer['login_id'] ?? null,
         'status' => $customer['status'] ?? 'active',
+        'tier' => $tier,
+        'plan' => $tier,
     ];
     $response['license_token'] = $license['token'] ?? null;
     $response['expires_at'] = $license['expires_at'] ?? null;

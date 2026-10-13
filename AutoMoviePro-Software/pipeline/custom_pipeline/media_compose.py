@@ -18,6 +18,7 @@ from pipeline.custom_pipeline.package_layout import (
 )
 from pipeline.output_layout import write_json
 from pipeline.subtitle_burn import (
+    apply_subtitles_to_vf,
     ass_force_style,
     burn_subtitles_filter,
     font_size_for_canvas,
@@ -322,13 +323,11 @@ def fit_shot_for_language(
         preset = presets[(shot_num - 1) % len(presets)]
 
         motion_vf = build_cinematic_motion_filter(w=w, h=h, duration=adur_total, preset=preset)
-        vf_parts = [motion_vf]
         cues = _phrase_cues(subtitle_text, adur, lead_in=lead_in, is_short=is_short) if subtitle_text else []
         if cues:
-            _write_simple_ass(cues, ass_path, size=size, lang=iso)
-            burn = burn_subtitles_filter(ass_path, size=size, lang=iso)
-            vf_parts.append(burn)
-        vf = ",".join(vf_parts)
+            vf = apply_subtitles_to_vf([motion_vf], cues, size=size, lang=iso, is_short=is_short)
+        else:
+            vf = motion_vf
         pts = 1.0
         pad_sec = 0.0
     else:
@@ -344,12 +343,11 @@ def fit_shot_for_language(
         if pad_sec > 0.05:
             vf_parts.append(f"tpad=stop_mode=clone:stop_duration={pad_sec:.3f}")
         cues = _phrase_cues(subtitle_text, adur, lead_in=lead_in, is_short=is_short) if subtitle_text else []
-        if cues:
-            _write_simple_ass(cues, ass_path, size=size, lang=iso)
-            burn = burn_subtitles_filter(ass_path, size=size, lang=iso)
-            vf_parts.append(burn)
         vf_parts.extend(["fps=25", "format=yuv420p"])
-        vf = ",".join(vf_parts)
+        if cues:
+            vf = apply_subtitles_to_vf(vf_parts, cues, size=size, lang=iso, is_short=is_short)
+        else:
+            vf = ",".join(vf_parts)
 
     ff = ffmpeg_bin()
     # CRITICAL: map video from master + audio ONLY from TTS input.

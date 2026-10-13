@@ -1,8 +1,14 @@
 (function () {
   const site = window.AMP_SITE || { price: 2998, addon: 499, features: [], waLink: "" };
-  const draft = { name: "", whatsapp: "", personal_lang: "", extras: [], step: "chat" };
   const history = [];
   let activeCoupon = null;
+
+  function t(key, vars) {
+    if (typeof window.ampSiteT === "function") {
+      return window.ampSiteT(key, vars);
+    }
+    return key;
+  }
 
   function uiLang() {
     return localStorage.getItem("amp_ui_lang") || site.uiLang || "bn";
@@ -24,6 +30,41 @@
       if (detail && pack.detail) detail.textContent = pack.detail;
       if (img && pack.title) img.alt = pack.title;
     });
+  }
+
+  function refreshChatWidgetText() {
+    const toggle = document.getElementById("ampChatToggle");
+    if (toggle) {
+      const dot = toggle.querySelector(".online-dot");
+      toggle.innerHTML = "";
+      if (dot) toggle.appendChild(dot);
+      const span = document.createElement("span");
+      span.textContent = " " + t("agent_toggle_btn");
+      toggle.appendChild(span);
+    }
+
+    const nameEl = document.querySelector(".amp-chat-name strong");
+    if (nameEl) nameEl.textContent = t("agent_name");
+
+    const statusEl = document.querySelector(".amp-chat-name span");
+    if (statusEl) {
+      statusEl.innerHTML = '<span class="online-dot" style="width:6px; height:6px;"></span> ' + t("agent_status");
+    }
+
+    const input = document.getElementById("ampChatInput");
+    if (input) input.placeholder = t("agent_placeholder");
+
+    const sendBtn = document.querySelector("#ampChatForm button");
+    if (sendBtn) sendBtn.textContent = t("agent_send");
+
+    const waLink = document.getElementById("ampChatWa");
+    if (waLink) waLink.textContent = t("agent_wa_link");
+
+    const tabSoft = document.getElementById("tabSoftwareBtn");
+    if (tabSoft) tabSoft.textContent = t("tab_software");
+
+    const tabGpro = document.getElementById("tabGoogleProBtn");
+    if (tabGpro) tabGpro.textContent = t("tab_google_pro");
   }
 
   function calcTotal() {
@@ -116,7 +157,12 @@
       if (data.suggestions && data.suggestions.length) {
         addSuggestions(data.suggestions);
       } else {
-        addSuggestions(["প্যাকেজের দাম কত?", "পেমেন্ট কিভাবে করব?", "কুপন কোড দিন", "কিভাবে ভিডিও বানায়?"]);
+        addSuggestions([
+          t("agent_suggestion_1"),
+          t("agent_suggestion_2"),
+          t("agent_suggestion_3"),
+          t("agent_suggestion_4"),
+        ]);
       }
       if (data.open_whatsapp && data.whatsapp_url) {
         setTimeout(() => {
@@ -125,7 +171,7 @@
       }
     } catch (e) {
       if (thinking.parentNode) thinking.remove();
-      appendChat("bot", "নেটওয়ার্ক সমস্যা। সরাসরি আমাদের WhatsApp নম্বরে নক করুন।");
+      appendChat("bot", t("or_whatsapp"));
     }
   }
 
@@ -136,47 +182,52 @@
     const code = input.value.trim().toUpperCase();
     if (!code) {
       msgEl.className = "coupon-msg error";
-      msgEl.textContent = "অনুগ্রহ করে একটি কুপন কোড লিখুন।";
+      msgEl.textContent = t("coupon_empty_err");
       return;
     }
     msgEl.className = "coupon-msg";
-    msgEl.textContent = "যাচাই করা হচ্ছে...";
+    msgEl.textContent = t("coupon_checking");
 
     try {
       const amount = Number(document.getElementById("orderAmount")?.value || site.price);
       const res = await fetch("/api/validate_coupon.php", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ code: code, amount: amount })
+        body: JSON.stringify({ code: code, amount: amount }),
       });
       const data = await res.json();
       if (data.ok) {
         activeCoupon = data;
         msgEl.className = "coupon-msg success";
-        msgEl.textContent = `✓ ${data.message} (ছাড়: ৳${data.discount})`;
+        msgEl.textContent = `✓ ${data.message} (৳${data.discount})`;
         calcTotal();
       } else {
         activeCoupon = null;
         msgEl.className = "coupon-msg error";
-        msgEl.textContent = `✗ ${data.error || 'ভুল কুপন কোড'}`;
+        msgEl.textContent = data.message || "Invalid coupon code";
         calcTotal();
       }
-    } catch (err) {
+    } catch (e) {
       msgEl.className = "coupon-msg error";
-      msgEl.textContent = "কুপন সার্ভারে কানেক্ট করা যায়নি।";
+      msgEl.textContent = "Coupon validation failed.";
     }
   }
 
   document.addEventListener("DOMContentLoaded", () => {
-    if (site.uiLang) {
-      localStorage.setItem("amp_ui_lang", site.uiLang);
-    }
-    document.querySelectorAll('input[name="personal_lang"], input[name="extra_langs[]"]').forEach((el) => {
+    document.querySelectorAll('input[name="personal_lang"]').forEach((el) => {
+      el.addEventListener("change", calcTotal);
+    });
+    document.querySelectorAll('input[name="extra_langs[]"]').forEach((el) => {
       el.addEventListener("change", calcTotal);
     });
     calcTotal();
     refreshFeatures();
-    document.addEventListener("amp-lang-change", refreshFeatures);
+    refreshChatWidgetText();
+
+    document.addEventListener("amp-lang-change", () => {
+      refreshFeatures();
+      refreshChatWidgetText();
+    });
 
     const toggle = document.getElementById("ampChatToggle");
     const panel = document.getElementById("ampChatPanel");
@@ -191,7 +242,11 @@
         }
       };
     }
-    if (close && panel) close.onclick = () => { panel.hidden = true; };
+    if (close && panel) {
+      close.onclick = () => {
+        panel.hidden = true;
+      };
+    }
     if (form) {
       form.onsubmit = (e) => {
         e.preventDefault();

@@ -10,6 +10,8 @@ from typing import List, Optional
 
 logger = logging.getLogger(__name__)
 
+_WIN_NO_WINDOW = subprocess.CREATE_NO_WINDOW if sys.platform == "win32" else 0
+
 # H3 DEF-H3-004: process-local ffprobe duration cache (path+mtime+size)
 _FFPROBE_DURATION_CACHE: dict[str, float] = {}
 
@@ -87,8 +89,75 @@ def _bundled_bin(exe_name: str) -> Optional[str]:
     return None
 
 
+def ensure_portable_ffmpeg_in_path() -> Optional[str]:
+    """Auto-detect bundled portable builds (ffmpeg-8.1.1-full_build or local bin).
+
+    If PATH is missing ffmpeg, injects the bundled bin directory into os.environ['PATH'],
+    and sets AMP_FFMPEG_BIN, AMP_FFPROBE_BIN, FFMPEG_BINARY so external libraries work seamlessly.
+    """
+    exe_name = "ffmpeg.exe" if os.name == "nt" else "ffmpeg"
+    probe_name = "ffprobe.exe" if os.name == "nt" else "ffprobe"
+
+    bin_dir: Optional[Path] = None
+    for root in _project_roots():
+        # Check explicit bin folders
+        for cand in (
+            root / "bin",
+            root / "tools" / "ffmpeg" / "bin",
+            root / "tools" / "ffmpeg",
+        ):
+            if (cand / exe_name).is_file():
+                bin_dir = cand
+                break
+        if bin_dir:
+            break
+
+        # Check ffmpeg-* distributions (e.g. ffmpeg-8.1.1-full_build)
+        for dist in sorted(root.glob("ffmpeg-*")):
+            if not dist.is_dir():
+                continue
+            for cand in (dist / "bin",):
+                if (cand / exe_name).is_file():
+                    bin_dir = cand
+                    break
+            if bin_dir:
+                break
+            for nested in sorted(dist.rglob("bin")):
+                if (nested / exe_name).is_file():
+                    bin_dir = nested
+                    break
+            if bin_dir:
+                break
+            if (dist / exe_name).is_file():
+                bin_dir = dist
+                break
+        if bin_dir:
+            break
+
+    if bin_dir and bin_dir.is_dir():
+        bin_dir_str = str(bin_dir.resolve())
+        current_path = os.environ.get("PATH", "")
+        path_parts = [p.strip() for p in current_path.split(os.pathsep) if p.strip()]
+        if bin_dir_str not in path_parts:
+            os.environ["PATH"] = bin_dir_str + os.pathsep + current_path
+            logger.info("Auto-injected portable FFmpeg to PATH: %s", bin_dir_str)
+
+        ff_exe = bin_dir / exe_name
+        ff_probe = bin_dir / probe_name
+        if ff_exe.is_file():
+            os.environ.setdefault("AMP_FFMPEG_BIN", str(ff_exe.resolve()))
+            os.environ.setdefault("FFMPEG_BINARY", str(ff_exe.resolve()))
+        if ff_probe.is_file():
+            os.environ.setdefault("AMP_FFPROBE_BIN", str(ff_probe.resolve()))
+        os.environ.setdefault("AMP_FFMPEG_ROOT", str(bin_dir.parent.resolve()))
+        return bin_dir_str
+
+    return None
+
+
 def ffmpeg_bin() -> str:
     """Prefer AMP_FFMPEG_BIN / AMP_FFMPEG_ROOT/bin, then bundled distributions, then PATH."""
+    ensure_portable_ffmpeg_in_path()
     env = _env_bin(("AMP_FFMPEG_BIN", "FFMPEG_BINARY", "FFMPEG_PATH"))
     if env:
         return env
@@ -135,6 +204,7 @@ def _bin_actually_runs(path: str, *, kind: str) -> bool:
             capture_output=True,
             text=True,
             timeout=8,
+            creationflags=_WIN_NO_WINDOW,
         )
         return r.returncode == 0
     except Exception:
@@ -165,6 +235,7 @@ def _tool_version_line(path: str) -> str:
             capture_output=True,
             text=True,
             timeout=8,
+            creationflags=_WIN_NO_WINDOW,
         )
         if r.returncode != 0:
             return "UNKNOWN"
@@ -227,6 +298,7 @@ def ffprobe_duration(path: Path) -> float:
             ],
             stderr=subprocess.STDOUT,
             text=True,
+            creationflags=_WIN_NO_WINDOW,
         )
         dur = float(out.strip() or 0)
     except Exception:
@@ -260,47 +332,81 @@ def download_file(url: str, dest: Path) -> Path:
 
 
 _BEST_H264_ENCODER: Optional[str] = None
+_HW_ACCEL_INFO: Optional[dict] = None
 
 
-def get_h264_encoder() -> str:
-    """Auto-detect hardware accelerated video encoder (NVENC -> QSV -> libx264)."""
-    global _BEST_H264_ENCODER
-    if _BEST_H264_ENCODER is not None:
-        return _BEST_H264_ENCODER
+def detect_hardware_acceleration(force_refresh: bool = False) -> dict:
+    """
+    Auto-detect hardware accelerated video encoder across all major GPU vendors:
+    1. h264_nvenc (NVIDIA)
+    2. h264_qsv (Intel Quick Sync)
+    3. h264_amf (AMD AMF)
+    Fallback: optimized libx264 with multi-core CPU thread allocation.
+    """
+    global _BEST_H264_ENCODER, _HW_ACCEL_INFO
+    if _HW_ACCEL_INFO is not None and not force_refresh:
+        return _HW_ACCEL_INFO
+
+    cpu_count = os.cpu_count() or 4
+    cpu_threads = max(2, min(16, cpu_count))
 
     forced = (os.environ.get("AMP_VIDEO_ENCODER") or "").strip()
     if forced:
         _BEST_H264_ENCODER = forced
-        return _BEST_H264_ENCODER
+        _HW_ACCEL_INFO = {
+            "encoder": forced,
+            "hw_type": "forced",
+            "is_hw_accelerated": forced != "libx264",
+            "cpu_threads": cpu_threads,
+            "extra_args": [] if forced != "libx264" else ["-threads", str(cpu_threads), "-preset", "faster"],
+        }
+        return _HW_ACCEL_INFO
 
-    try:
-        fb = ffmpeg_bin()
-        # Test NVENC first (NVIDIA)
-        r_nvenc = subprocess.run(
-            [fb, "-y", "-f", "lavfi", "-i", "color=c=black:s=64x64:d=0.1", "-c:v", "h264_nvenc", "-f", "null", "-"],
-            capture_output=True,
-            timeout=3,
-        )
-        if r_nvenc.returncode == 0:
-            logger.info("Hardware GPU acceleration active: using h264_nvenc encoder")
-            _BEST_H264_ENCODER = "h264_nvenc"
-            return _BEST_H264_ENCODER
+    fb = ffmpeg_bin()
+    candidates = [
+        ("h264_nvenc", "nvenc", ["-preset", "p4"]),
+        ("h264_qsv", "qsv", ["-preset", "faster"]),
+        ("h264_amf", "amf", ["-quality", "speed"]),
+    ]
 
-        # Test QSV second (Intel)
-        r_qsv = subprocess.run(
-            [fb, "-y", "-f", "lavfi", "-i", "color=c=black:s=64x64:d=0.1", "-c:v", "h264_qsv", "-f", "null", "-"],
-            capture_output=True,
-            timeout=3,
-        )
-        if r_qsv.returncode == 0:
-            logger.info("Hardware GPU acceleration active: using h264_qsv encoder")
-            _BEST_H264_ENCODER = "h264_qsv"
-            return _BEST_H264_ENCODER
-    except Exception as exc:
-        logger.debug("Hardware encoder detection skipped: %s", exc)
+    for enc_name, hw_type, extra_args in candidates:
+        try:
+            r = subprocess.run(
+                [fb, "-y", "-f", "lavfi", "-i", "color=c=black:s=64x64:d=0.1", "-c:v", enc_name, "-f", "null", "-"],
+                capture_output=True,
+                timeout=3,
+                creationflags=_WIN_NO_WINDOW,
+            )
+            if r.returncode == 0:
+                logger.info("Hardware GPU acceleration active: using %s encoder (%s)", enc_name, hw_type)
+                _BEST_H264_ENCODER = enc_name
+                _HW_ACCEL_INFO = {
+                    "encoder": enc_name,
+                    "hw_type": hw_type,
+                    "is_hw_accelerated": True,
+                    "cpu_threads": cpu_threads,
+                    "extra_args": extra_args,
+                }
+                return _HW_ACCEL_INFO
+        except Exception as exc:
+            logger.debug("Hardware encoder detection skipped for %s: %s", enc_name, exc)
 
+    logger.info("Hardware acceleration not available; falling back to optimized libx264 with %d threads", cpu_threads)
     _BEST_H264_ENCODER = "libx264"
-    return _BEST_H264_ENCODER
+    _HW_ACCEL_INFO = {
+        "encoder": "libx264",
+        "hw_type": "cpu",
+        "is_hw_accelerated": False,
+        "cpu_threads": cpu_threads,
+        "extra_args": ["-threads", str(cpu_threads), "-preset", "faster"],
+    }
+    return _HW_ACCEL_INFO
+
+
+def get_h264_encoder() -> str:
+    """Auto-detect hardware accelerated video encoder (NVENC -> QSV -> AMF -> libx264)."""
+    info = detect_hardware_acceleration()
+    return info["encoder"]
 
 
 def make_color_clip(dest: Path, seconds: float, size: str = "1920x1080") -> Path:
@@ -327,7 +433,7 @@ def make_color_clip(dest: Path, seconds: float, size: str = "1920x1080") -> Path
         "aac",
         str(dest),
     ]
-    subprocess.run(cmd, check=False, capture_output=True)
+    subprocess.run(cmd, check=False, capture_output=True, creationflags=_WIN_NO_WINDOW)
     return dest
 
 
@@ -348,7 +454,7 @@ def concat_clips(clips: List[Path], dest: Path) -> Path:
         "copy",
         str(dest),
     ]
-    result = subprocess.run(cmd, capture_output=True, text=True)
+    result = subprocess.run(cmd, capture_output=True, text=True, creationflags=_WIN_NO_WINDOW)
     if result.returncode != 0:
         # re-encode fallback
         cmd = [
@@ -368,7 +474,7 @@ def concat_clips(clips: List[Path], dest: Path) -> Path:
             "aac",
             str(dest),
         ]
-        subprocess.run(cmd, check=False, capture_output=True)
+        subprocess.run(cmd, check=False, capture_output=True, creationflags=_WIN_NO_WINDOW)
     return dest
 
 
@@ -379,26 +485,258 @@ def prepend_intro(intro: Optional[Path], main: Path, dest: Path) -> Path:
     return dest
 
 
-def overlay_logo(video: Path, logo: Optional[Path], dest: Path) -> Path:
-    if not logo or not logo.exists():
+def ffprobe_dimensions(path: Path) -> tuple[int, int]:
+    """Retrieve video dimensions (width, height) via ffprobe. Defaults to (1920, 1080)."""
+    p = Path(path)
+    if not p.is_file():
+        return 1920, 1080
+    fb = ffprobe_bin()
+    cmd = [
+        fb,
+        "-v",
+        "error",
+        "-select_streams",
+        "v:0",
+        "-show_entries",
+        "stream=width,height",
+        "-of",
+        "csv=p=0:s=x",
+        str(p),
+    ]
+    try:
+        out = subprocess.check_output(cmd, text=True, timeout=8, creationflags=_WIN_NO_WINDOW).strip()
+        if "x" in out:
+            parts = out.split("x")
+            return max(1, int(parts[0])), max(1, int(parts[1]))
+    except Exception:
+        pass
+    return 1920, 1080
+
+
+def preprocess_logo_for_branding(
+    logo_path: Path,
+    out_path: Optional[Path] = None,
+    *,
+    opacity: float = 0.82,
+    remove_bg: bool = True,
+    autocrop: bool = True,
+) -> Path:
+    """Preprocess a logo image for cinematic broadcast branding.
+
+    Key capabilities:
+    1. Removes flat/solid backgrounds (white, black, or uniform corner canvas)
+       so only the core emblem remains.
+    2. Isolates the core emblem with smooth, anti-aliased alpha edge feathering.
+    3. Auto-crops extraneous padding so the emblem scales accurately.
+    4. Applies cinematic broadcast opacity (default 0.82) so the watermark
+       harmonizes with the video and never degrades visual aesthetics.
+    5. Graceful fallback to original logo_path if PIL processing fails.
+    """
+    if not logo_path or not Path(logo_path).is_file():
+        return logo_path
+
+    try:
+        from PIL import Image
+        import numpy as np
+
+        src = Path(logo_path)
+        img = Image.open(src).convert("RGBA")
+        arr = np.array(img, dtype=np.float32)
+        h, w = arr.shape[:2]
+        if h <= 2 or w <= 2:
+            return logo_path
+
+        alpha_channel = arr[:, :, 3]
+        has_transparency = bool(np.any(alpha_channel < 250))
+
+        if remove_bg and not has_transparency:
+            # Sample 4 corners to detect solid background canvas
+            corners = np.array([
+                arr[0, 0, :3],
+                arr[0, -1, :3],
+                arr[-1, 0, :3],
+                arr[-1, -1, :3],
+            ])
+            corner_mean = np.mean(corners, axis=0)
+            corner_std = np.std(corners, axis=0)
+
+            # If corners have low color variance (< 30) or are near pure white/black
+            is_uniform_corners = bool(np.max(corner_std) < 30.0)
+            is_near_white = bool(np.all(corner_mean > 225.0))
+            is_near_black = bool(np.all(corner_mean < 30.0))
+
+            if is_uniform_corners or is_near_white or is_near_black:
+                # Euclidean color distance from detected background
+                diff = np.linalg.norm(arr[:, :, :3] - corner_mean, axis=2)
+                # Soft feathering between inner and outer threshold
+                inner_thresh = 18.0
+                outer_thresh = 52.0
+                ramp = np.clip((diff - inner_thresh) / (outer_thresh - inner_thresh), 0.0, 1.0)
+                arr[:, :, 3] = ramp * 255.0
+
+        # Apply target opacity
+        clamped_opacity = max(0.1, min(1.0, float(opacity)))
+        arr[:, :, 3] = arr[:, :, 3] * clamped_opacity
+
+        out_img = Image.fromarray(np.uint8(np.round(arr)), mode="RGBA")
+
+        # Auto-crop to non-transparent bounding box so scale is accurate
+        if autocrop:
+            bbox = out_img.getbbox()
+            if bbox:
+                pad = 4
+                crop_box = (
+                    max(0, bbox[0] - pad),
+                    max(0, bbox[1] - pad),
+                    min(w, bbox[2] + pad),
+                    min(h, bbox[3] + pad),
+                )
+                out_img = out_img.crop(crop_box)
+
+        if out_path is None:
+            dest_file = src.parent / f"{src.stem}_cinematic_brand.png"
+        else:
+            dest_file = Path(out_path)
+
+        dest_file.parent.mkdir(parents=True, exist_ok=True)
+        out_img.save(dest_file, format="PNG")
+        return dest_file
+
+    except Exception as exc:
+        logger.warning("preprocess_logo_for_branding fallback due to: %s", exc)
+        return logo_path
+
+
+def overlay_logo(
+    video: Path,
+    logo: Optional[Path],
+    dest: Path,
+    *,
+    position: str = "auto",
+    scale_ratio: Optional[float] = None,
+    opacity: float = 0.82,
+    encoder: Optional[str] = None,
+    remove_bg: bool = True,
+) -> Path:
+    """Overlays channel branding logo onto video with zero quality degradation.
+
+    Enhancements:
+    1. Logo Preprocessing: Automatically strips solid black/white/flat background boxes,
+       extracts the core emblem with anti-aliased edge feathering, and sets broadcast opacity.
+    2. Responsive Scaling: Proportionally scales logo based on video resolution (7-12% of width)
+       rather than an arbitrary fixed pixel size.
+    3. Safe Margin Placement: Automatically respects mobile / social UI safe zones (top-left for
+       vertical Shorts/Reels to avoid UI icons; top-right for landscape).
+    4. Zero Quality Degradation: Preserves full visual fidelity using hardware acceleration
+       (NVENC/QSV) with visually lossless CRF / high-bitrate settings and libx264 fallback,
+       stream-copying audio lossless.
+    """
+    dest.parent.mkdir(parents=True, exist_ok=True)
+    if not logo or not Path(logo).exists():
         shutil.copy2(video, dest)
         return dest
+
+    vid_path = Path(video)
+    if not vid_path.is_file():
+        return dest
+
+    # 1. Preprocess logo to clean transparent RGBA PNG
+    clean_logo = preprocess_logo_for_branding(
+        Path(logo),
+        dest.parent / f"{dest.stem}_logo_brand.png",
+        opacity=opacity,
+        remove_bg=remove_bg,
+    )
+
+    # 2. Probe dimensions for responsive layout & safe margins
+    vid_w, vid_h = ffprobe_dimensions(vid_path)
+    is_vertical = vid_h > vid_w
+
+    if is_vertical:
+        # Vertical Shorts / Reels (e.g. 1080x1920)
+        # Avoid UI icons on right, title on bottom -> Top-Left is safest zone
+        ratio = scale_ratio if scale_ratio is not None else 0.11
+        target_w = max(80, min(int(vid_w * ratio), 220))
+        margin_x = max(16, int(vid_w * 0.05))
+        margin_y = max(16, int(vid_h * 0.045))
+        pos = "top_left" if position in ("auto", "top_left") else position
+    else:
+        # Horizontal / Landscape (e.g. 1920x1080, 4K)
+        ratio = scale_ratio if scale_ratio is not None else 0.08
+        target_w = max(90, min(int(vid_w * ratio), 320))
+        margin_x = max(20, int(vid_w * 0.035))
+        margin_y = max(20, int(vid_h * 0.045))
+        pos = "top_right" if position in ("auto", "top_right") else position
+
+    # 3. Calculate overlay coordinates
+    if pos == "top_left":
+        overlay_coord = f"{margin_x}:{margin_y}"
+    elif pos == "bottom_left":
+        overlay_coord = f"{margin_x}:H-h-{margin_y}"
+    elif pos == "bottom_right":
+        overlay_coord = f"W-w-{margin_x}:H-h-{margin_y}"
+    else:  # top_right
+        overlay_coord = f"W-w-{margin_x}:{margin_y}"
+
+    # Filter graph: Scale logo, preserve transparency format, blend over video
+    filter_complex = (
+        f"[1:v]format=rgba,scale={target_w}:-1[logo];"
+        f"[0:v][logo]overlay={overlay_coord}:format=auto"
+    )
+
+    # 4. Choose encoder and high-fidelity video quality flags
+    selected_enc = (encoder or get_h264_encoder()).strip().lower()
+
+    def _build_enc_args(enc: str) -> list[str]:
+        if "nvenc" in enc:
+            return ["-c:v", enc, "-preset", "p6", "-cq", "17", "-b:v", "18M", "-maxrate", "25M", "-pix_fmt", "yuv420p"]
+        elif "qsv" in enc:
+            return ["-c:v", enc, "-global_quality", "18", "-b:v", "18M", "-maxrate", "25M", "-pix_fmt", "yuv420p"]
+        else:
+            return ["-c:v", "libx264", "-crf", "17", "-preset", "medium", "-pix_fmt", "yuv420p"]
+
     cmd = [
         ffmpeg_bin(),
         "-y",
-        "-i",
-        str(video),
-        "-i",
-        str(logo),
-        "-filter_complex",
-        "[1:v]scale=120:-1[logo];[0:v][logo]overlay=W-w-20:20",
-        "-c:a",
-        "copy",
+        "-i", str(vid_path),
+        "-i", str(clean_logo),
+        "-filter_complex", filter_complex,
+        *_build_enc_args(selected_enc),
+        "-c:a", "copy",
         str(dest),
     ]
-    result = subprocess.run(cmd, capture_output=True, text=True)
+
+    result = subprocess.run(cmd, capture_output=True, text=True, creationflags=_WIN_NO_WINDOW)
     if result.returncode != 0:
-        shutil.copy2(video, dest)
+        # Fallback 1: Try CPU libx264 visually lossless
+        if selected_enc != "libx264":
+            cmd_fallback = [
+                ffmpeg_bin(),
+                "-y",
+                "-i", str(vid_path),
+                "-i", str(clean_logo),
+                "-filter_complex", filter_complex,
+                "-c:v", "libx264",
+                "-crf", "17",
+                "-preset", "fast",
+                "-pix_fmt", "yuv420p",
+                "-c:a", "copy",
+                str(dest),
+            ]
+            result = subprocess.run(cmd_fallback, capture_output=True, text=True, creationflags=_WIN_NO_WINDOW)
+
+        # Fallback 2: If FFmpeg overlay fails entirely, copy original
+        if result.returncode != 0:
+            logger.warning("overlay_logo failed (%s), keeping original video", result.stderr[:200])
+            shutil.copy2(video, dest)
+
+    # Clean up temp preprocessed logo if created
+    if clean_logo != logo and clean_logo.exists():
+        try:
+            clean_logo.unlink()
+        except Exception:
+            pass
+
     return dest
 
 

@@ -1,9 +1,11 @@
 from __future__ import annotations
 
 import base64
+import concurrent.futures
 import logging
 import os
 import subprocess
+import threading
 import time
 import wave
 from pathlib import Path
@@ -22,6 +24,62 @@ TTS_MODELS = [
     "gemini-2.5-flash-preview-tts",
     "gemini-2.5-pro-preview-tts",
 ]
+
+
+class AsyncZeroLatencyKeyRotator:
+    """
+    Asynchronous zero-latency key rotator for Google AI Studio API keys.
+    Maintains lock-free / low-overhead active pointers and dispatches cooldown & health audits
+    in a non-blocking background daemon thread pool to eliminate request stalls.
+    """
+
+    def __init__(self, max_background_workers: int = 2):
+        self._lock = threading.Lock()
+        self._indices: dict[str, int] = {}
+        self._executor = concurrent.futures.ThreadPoolExecutor(
+            max_workers=max_background_workers,
+            thread_name_prefix="amp_tts_key_rotator",
+        )
+
+    def get_rotated_keys(self, keys: List[str], lang: str) -> List[str]:
+        """Returns the keys reordered so the next healthy key is first in O(1) time."""
+        clean = [k for k in keys if (k or "").strip()]
+        if len(clean) <= 1:
+            return clean
+
+        with self._lock:
+            current_idx = self._indices.get(lang, 0)
+            self._indices[lang] = (current_idx + 1) % len(clean)
+
+        split = current_idx % len(clean)
+        return clean[split:] + clean[:split]
+
+    def record_success_async(self, key: str, lang: str) -> None:
+        """Dispatches key success metadata asynchronously without blocking caller."""
+        def _bg_success():
+            try:
+                from pipeline.tts_key_map import on_tts_success
+                on_tts_success(lang)
+            except Exception:
+                pass
+
+        self._executor.submit(_bg_success)
+
+    def record_rejection_async(self, key: str, lang: str, reason: str = "") -> None:
+        """Dispatches key quota/cooling updates asynchronously without blocking caller."""
+        def _bg_rejection():
+            try:
+                from pipeline.tts_key_map import on_tts_key_rejected
+                from pipeline.quota_backoff import record_key_quota_hit
+                on_tts_key_rejected(lang, reason=reason)
+                record_key_quota_hit(key, "google")
+            except Exception:
+                pass
+
+        self._executor.submit(_bg_rejection)
+
+
+KEY_ROTATOR = AsyncZeroLatencyKeyRotator()
 
 
 def synthesize_narration(
@@ -96,6 +154,7 @@ def synthesize_narration(
     usable = keys_for_tts_language_with_fallback(keys, lang)
     if not usable:
         usable = [k for k in keys if (k or "").strip()][:1]
+    usable = KEY_ROTATOR.get_rotated_keys(usable, lang)
 
     speak_prompt = _speak_prompt(
         text,
@@ -438,6 +497,7 @@ def _speak_prompt(
         f"informative adult male, same pitch across every clip. "
         f"Do not sound female. Do not imitate Kore, Aoede, Leda, Jenny, or Zephyr. "
         f"Do not change gender, pitch character, or persona mid-script. "
+        f"Strictly maintain high emotional fidelity, gravity, and tone appropriate for the context. "
         f"Style: {register}. Pace: {pace}. "
         f"{en_lock}{dur_line}{finish_line}"
         f"Do not add words beyond the transcript.\n"

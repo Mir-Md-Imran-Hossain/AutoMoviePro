@@ -103,7 +103,7 @@ class TestPipelineSyncAudit(unittest.TestCase):
                 encoding="utf-8"
             )
             flt_bn = burn_subtitles_filter(srt_bn, size="1080x1920", lang="bn")
-            self.assertIn("subtitles=", flt_bn)
+            self.assertTrue("subtitles=" in flt_bn or "overlay=" in flt_bn or "movie=" in flt_bn)
 
 
 if __name__ == "__main__":

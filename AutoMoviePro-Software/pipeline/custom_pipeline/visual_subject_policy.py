@@ -165,8 +165,25 @@ def character_allowed(subject: str) -> bool:
 
 
 def strip_face_language(text: str) -> str:
-    """Remove portrait/face directives from a visual prompt string cleanly."""
+    """Remove positive presenter/portrait/face directives from a visual prompt string cleanly,
+    WITHOUT corrupting negative constraints or 'NO human face' clauses."""
     t = text or ""
+    # Protect negative / forbidden directives so they are never mutilated
+    neg_placeholders = {}
+
+    def _protect_neg(m):
+        key = f"__NEG_PROT_{len(neg_placeholders)}__"
+        neg_placeholders[key] = m.group(0)
+        return key
+
+    # Match negative clauses: NO human face, no portrait, FORBIDDEN: ..., NEGATIVE: ...
+    t = re.sub(
+        r"(?i)\b(?:NO|STRICTLY NO|NEVER|FORBIDDEN:?|NEGATIVE:?)\s+[^.,;\n]{3,120}",
+        _protect_neg,
+        t,
+    )
+
+    # Now strip positive character/presenter directives
     t = _FACE_WORDS.sub(" ", t)
     t = re.sub(
         r"(?i)\b(?:male|female)?\s*presenter\b[^.,;]{0,60}",
@@ -189,6 +206,11 @@ def strip_face_language(text: str) -> str:
     t = re.sub(r"^\s*[,;.\s]+", "", t)
     t = re.sub(r"[,;\s]+$", "", t)
     t = re.sub(r"\s+", " ", t).strip(" ,.;")
+
+    # Restore protected negative directives
+    for k, v in neg_placeholders.items():
+        t = t.replace(k, v)
+
     return t
 
 
@@ -225,9 +247,13 @@ def hands_ui_subject_block() -> str:
 def negative_for_subject(subject: str, topic: str = "") -> str:
     if subject != SUBJECT_PRESENTER or is_non_presenter_topic(topic=topic):
         return (
-            "human face, portrait, selfie, person looking at camera, talking head, "
-            "male presenter, female presenter, random stock model, beauty close-up, "
-            "distorted face, abstract gibberish, blurry illegible text, unreadable newspaper, messy surreal artifacts"
+            "female robot, female robot face, gynoid, woman robot face, female android, doll face, "
+            "mannequin face, robot face close-up, talking head, female portrait, cyborg woman, sexy robot, "
+            "feminine robot, uncanny valley face, anime robot face, breasts, cleavage, erotic robot, "
+            "human face, woman face, male face, presenter face, stock model looking at camera, "
+            "beauty close-up, selfie, dark underexposed shadows, pitch black background, murky dark lighting, "
+            "low resolution artifacts, blurry textures, watermark, logo, text, unreadable newspaper, messy surreal artifacts"
         )
     return ""
+
 

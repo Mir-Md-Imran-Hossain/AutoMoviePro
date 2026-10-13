@@ -95,6 +95,7 @@ def score_topic(
     is_recent_repeat: bool = False,
     risk: float = 0.0,
     evergreen_verified: bool = False,
+    competitor_analysis: Optional[Dict[str, Any]] = None,
 ) -> Dict[str, Any]:
     topic = (topic or "").strip()
     gate = validate_topic_against_dna(topic, dna)
@@ -108,6 +109,7 @@ def score_topic(
             "penalties": {"channel_gate": 1.0},
             "issues": list(gate.get("issues") or []),
             "trend_evidence": trend_evidence,
+            "competitor_analysis": competitor_analysis,
         }
 
     # Channel fit: preferred topic overlap
@@ -145,6 +147,14 @@ def score_topic(
     potential = _clamp01(0.4 + 0.08 * min(8, len(tokens)))
     if any(c.isupper() for c in topic if c.isalpha()):
         potential = min(1.0, potential + 0.1)
+
+    # Competitor headline & thumbnail pattern synergy bonus (if available)
+    if competitor_analysis and isinstance(competitor_analysis, dict):
+        hl_intel = competitor_analysis.get("headline_intelligence") or {}
+        c_curiosity = float(hl_intel.get("curiosity_score") or 0.0)
+        c_density = float(hl_intel.get("power_word_density") or 0.0)
+        c_boost = min(0.08, c_curiosity * 0.05 + c_density * 0.03)
+        potential = _clamp01(potential + c_boost)
 
     components = {
         "trend": t_raw,
@@ -190,6 +200,7 @@ def score_topic(
         "penalties": {k: round(v, 4) for k, v in penalties.items()},
         "issues": issues,
         "trend_evidence": trend_evidence,
+        "competitor_analysis": competitor_analysis,
         "weights": dict(WEIGHTS),
     }
 
@@ -222,6 +233,7 @@ def rank_topics(
             is_recent_repeat=bool(c.get("is_recent_repeat")),
             risk=float(c.get("risk") or 0.0),
             evergreen_verified=bool(c.get("evergreen_verified")),
+            competitor_analysis=c.get("competitor_analysis"),
         )
         row["raw"] = c
         scored.append(row)

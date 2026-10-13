@@ -268,6 +268,11 @@ def harden_video_prompt(
         f"Beat/element: {element or 'feature'}.",
         f"Target duration about {dur:.1f} seconds.",
     ]
+    if str(element).lower() in ("intro", "hook", "greeting_hook"):
+        parts.append(
+            "PATTERN INTERRUPT RETENTION HOOK: High-stimulus focal composition, immediate curiosity trigger, "
+            "striking contrast, zero slow establishing pans, captivating the viewer within the first 3 seconds."
+        )
     if issue_boost:
         parts.append(" ".join(issue_boost))
     if narration:
@@ -298,6 +303,10 @@ def harden_video_prompt(
         )
     logger.info("Hardened prompt (%s chars) for first-shot generation", len(out))
     return out
+
+
+# Backward-compatible alias
+harden_prompt = harden_video_prompt
 
 
 def preflight_keyword_prompt(
@@ -344,3 +353,30 @@ def character_base_seed(name: str, visual_description: str) -> int:
     raw = f"{(name or '').strip().lower()}|{(visual_description or '').strip().lower()}"
     h = hashlib.md5(raw.encode("utf-8")).hexdigest()
     return int(h[:8], 16) % 2_147_483_647
+
+
+def validate_pacing_and_dialogue_redundancy(
+    narration: str,
+    duration_sec: float,
+    *,
+    min_wps: float = 1.6,
+    max_wps: float = 3.5,
+) -> Dict[str, Any]:
+    """Validates dialogue verbal cadence and checks for semantic pacing congestion."""
+    words = len((narration or "").split())
+    dur = max(0.5, float(duration_sec or 1.0))
+    wps = round(words / dur, 2)
+    in_range = min_wps <= wps <= max_wps
+    issues: List[str] = []
+    if wps < min_wps and words > 3:
+        issues.append(f"pacing_too_slow ({wps} wps < {min_wps})")
+    elif wps > max_wps:
+        issues.append(f"pacing_too_fast ({wps} wps > {max_wps})")
+    return {
+        "words": words,
+        "duration_sec": dur,
+        "words_per_second": wps,
+        "cadence_optimal": in_range,
+        "issues": issues,
+    }
+

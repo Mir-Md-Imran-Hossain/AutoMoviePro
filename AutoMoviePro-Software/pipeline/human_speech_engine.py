@@ -52,24 +52,55 @@ def human_speech_editor(story: Dict[str, Any]) -> Dict[str, Any]:
     }
 
 
-def performance_editor(lines: List[str]) -> Dict[str, Any]:
-    """Attach pause/emphasis/breath metadata for TTS pacing."""
+def performance_editor(
+    lines: List[str],
+    *,
+    drama_level: float = 1.0,
+) -> Dict[str, Any]:
+    """Attach fine-tuned pause/emphasis/breath and speech drama metadata for TTS pacing."""
     beats: List[Dict[str, Any]] = []
+    dramatic_cues = {"secret", "truth", "refuses", "changes", "pattern", "forbidden", "why", "shock", "never", "only"}
+
     for i, line in enumerate(lines):
         words = line.split()
         emphasis = []
         for w in words:
             if w[:1].isupper() and len(w) > 3:
                 emphasis.append(w.strip(".,!?"))
+
+        # Detect dramatic tension
+        lower_line = line.lower()
+        is_question = "?" in line
+        has_cue = any(c in lower_line for c in dramatic_cues)
+        is_closing_hook = i == len(lines) - 1 or i in (0, 2)
+
+        # Fine-tune speech drama and pause controls
+        if is_question or (has_cue and is_closing_hook):
+            drama_mode = "dramatic_cadence"
+            pause_after = 0.45 * drama_level
+            speed = 0.92
+        elif is_closing_hook:
+            drama_mode = "revelation_pause"
+            pause_after = 0.38 * drama_level
+            speed = 0.95
+        else:
+            drama_mode = "narrative_flow"
+            pause_after = 0.20
+            speed = 1.0
+
+        pause_before = 0.20 if (has_cue and i > 0) else (0.15 if i > 0 else 0.0)
+
         beats.append(
             {
                 "index": i,
                 "text": line,
-                "pause_before_sec": 0.15 if i > 0 else 0.0,
-                "pause_after_sec": 0.35 if i in (0, 2, len(lines) - 1) else 0.2,
+                "pause_before_sec": round(pause_before, 2),
+                "pause_after_sec": round(pause_after, 2),
                 "emphasis": emphasis[:3],
-                "speed": 0.95 if i == 0 else 1.0,
+                "speed": round(speed, 2),
                 "breath_point": i % 2 == 1,
+                "drama_mode": drama_mode,
+                "drama_intensity": round(0.85 if is_closing_hook else 0.60, 2),
             }
         )
     return {"stage": "performance_editor", "beats": beats}

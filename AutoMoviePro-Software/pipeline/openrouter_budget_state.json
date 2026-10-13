@@ -30,8 +30,13 @@
     1791030063.391151,
     1791030071.2426558
   ],
-  "circuit_open": false,
-  "circuit_reason": "",
-  "circuit_until": 0.0,
-  "strikes": []
+  "circuit_open": true,
+  "circuit_reason": "openrouter 402: {\"error\":{\"message\":\"This request requires more credits, or fewer max_tokens. You requested up to 16384 ",
+  "circuit_until": 1791911209.9714184,
+  "strikes": [
+    1791903953.6938672,
+    1791903953.6959133,
+    1791904009.9516068,
+    1791904009.962572
+  ]
 }

@@ -18,6 +18,79 @@ DURATION_LABEL = {
 }
 
 
+NICHE_STORYTELLING_DIRECTIVES = {
+    "tech": (
+        "💡 টেকনোলজি ও রোবোটিক্স নিস নির্দেশনা: "
+        "প্রযুক্তির শুষ্ক স্পেসিফিকেশন মুখস্থ না বলে বাস্তব মানুষের জীবনে এর প্রভাব ও কাজের রোমাঞ্চ দেখাও। "
+        "যেমন: মানুষের হাতের স্পর্শের সাথে রোবোটিক সেন্সরের তুলনা, জটিল মেকানিজমকে সাধারণ কাজের সাথে মিলিয়ে সহজ করা।"
+    ),
+    "science": (
+        "🔬 বিজ্ঞান ও আবিষ্কার নিস নির্দেশনা: "
+        "বিজ্ঞানের জটিল সূত্র বা ল্যাব টেস্টকে সাধারণ মানুষের চাক্ষুষ উপমায় রূপান্তর করো। "
+        "যেমন: অণুর গঠন, তাপমাত্রা বা চাপকে পরিচিত বস্তুর (বেলুন, কফির কাপ, বরফের টুকরো) সাথে তুলনা করে সহজ ভাষায় ব্যাখ্যা করো।"
+    ),
+    "space": (
+        "🌌 মহাকাশ ও জ্যোতির্বিজ্ঞান নিস নির্দেশনা: "
+        "মহাবিশ্বের অপার রহস্য, অকল্পনীয় বিশালতা ও সময়ের খেলাকে জীবন্ত করে তোলো। "
+        "যেমন: কোটি কোটি কিলোমিটার দূরত্ব বা কৃষ্ণগহ্বরের টানকে পৃথিবীর পরিচিত জিনিসের ওজনের সাথে উপমা দিয়ে তুলে ধরো।"
+    ),
+    "history": (
+        "📜 ইতিহাস ও প্রাচীন রহস্য নিস নির্দেশনা: "
+        "শুকনো তারিখ বা সাল মুখস্থ না বলে একটি থ্রিলার বা গোয়েন্দা কাহিনীর মতো রহস্য উন্মোচন করো। "
+        "কোনো প্রাচীন সিদ্ধান্ত বা ধ্বংসাবশেষের পেছনের অবিশ্বাস্য আসল সত্যি ও মানবিক নাটকীয়তা ফুটিয়ে তোলো।"
+    ),
+    "finance": (
+        "💰 অর্থনীতি, ব্যবসা ও অর্থ নিস নির্দেশনা: "
+        "বড় বড় কর্পোরেশনের গোপন কৌশল, কোটি টাকার ভুল বা সাধারণ মানুষের পকেটের উপর প্রভাব নিয়ে নাটকীয় গল্প বোলো। "
+        "জটিল ফিন্যান্সিয়াল টার্ম সহজ কথ্য বাংলায় পানির মতো বুঝিয়ে দাও।"
+    ),
+    "crime": (
+        "🔍 অপরাধ, রহস্য ও তদন্ত নিস নির্দেশনা: "
+        "ঘটনার পেছনের রহস্য, অমীমাংসিত সূত্র ও মনস্তাত্ত্বিক কৌতূহল দিয়ে সাসপেন্স ধরে রাখো। প্রতিটি তথ্যে থাকবে রোমাঞ্চকর মোড়।"
+    ),
+    "health": (
+        "🧬 স্বাস্থ্য, মানবদেহ ও জীববিজ্ঞান নিস নির্দেশনা: "
+        "আমাদের নিজের শরীরের ভেতরে প্রতি মুহূর্তে কী অবিশ্বাস্য লড়াই চলছে তা সরাসরি দর্শকের সাথে কানেক্ট করে বলো। "
+        "যেমন: রোগ প্রতিরোধ কোষকে প্রশিক্ষিত কমান্ডো বাহিনীর সাথে তুলনা।"
+    ),
+    "wildlife": (
+        "🐾 বন্যপ্রাণী ও প্রকৃতি নিস নির্দেশনা: "
+        "প্রাণীদের বেঁচে থাকার চরম লড়াই, অদ্ভুত সুপারপাওয়ার ও প্রকৃতির বিস্ময়কর নিয়মকে টানটান রোমাঞ্চ দিয়ে উপস্থাপন করো।"
+    ),
+    "psychology": (
+        "🧠 মানব মনস্তত্ত্ব ও আচরণ নিস নির্দেশনা: "
+        "মানুষ কেন এমন আচরণ করে, অবচেতন মনের গোপন চাল এবং প্রতিদিনের জীবনের লুকানো মনস্তাত্ত্বিক সত্য উন্মোচন করো।"
+    ),
+}
+
+
+def get_niche_storytelling_directive(niche: str) -> str:
+    n = (niche or "").lower()
+    if any(k in n for k in ("tech", "robot", "ai", "software", "gadget", "কম্পিউটার", "রোবট", "প্রযুক্তি")):
+        return NICHE_STORYTELLING_DIRECTIVES["tech"]
+    if any(k in n for k in ("space", "astronomy", "cosmos", "মহাকাশ", "গ্রহ", "নক্ষত্র")):
+        return NICHE_STORYTELLING_DIRECTIVES["space"]
+    if any(k in n for k in ("history", "ancient", "war", "ইতিহাস", "প্রাচীন", "যুদ্ধ")):
+        return NICHE_STORYTELLING_DIRECTIVES["history"]
+    if any(k in n for k in ("money", "finance", "business", "economy", "টাকা", "ব্যবসা", "অর্থনীতি")):
+        return NICHE_STORYTELLING_DIRECTIVES["finance"]
+    if any(k in n for k in ("crime", "mystery", "investigation", "অপরাধ", "রহস্য", "গোয়েন্দা")):
+        return NICHE_STORYTELLING_DIRECTIVES["crime"]
+    if any(k in n for k in ("health", "medical", "body", "bio", "স্বাস্থ্য", "শরীর", "চিকিৎসা")):
+        return NICHE_STORYTELLING_DIRECTIVES["health"]
+    if any(k in n for k in ("animal", "wildlife", "nature", "প্রাণী", "বন্য", "প্রকৃতি")):
+        return NICHE_STORYTELLING_DIRECTIVES["wildlife"]
+    if any(k in n for k in ("psychology", "mind", "behavior", "মনস্তত্ত্ব", "মন", "আচরণ")):
+        return NICHE_STORYTELLING_DIRECTIVES["psychology"]
+    if any(k in n for k in ("science", "physics", "chemistry", "বিজ্ঞান", "পদার্থ", "রসায়ন")):
+        return NICHE_STORYTELLING_DIRECTIVES["science"]
+    return (
+        "✨ সার্বজনীন স্টোরিটেলিং নির্দেশনা: "
+        "যেকোনো বিষয়বস্তুকে শুকনো তথ্যের বদলে একটি কৌতূহলোদ্দীপক গল্প হিসেবে উপস্থাপন করো। "
+        "প্রতিটি জটিল পয়েন্টকে সাধারণ মানুষের বোঝার মতো সহজ চাক্ষুষ উপমায় তুলে ধরো।"
+    )
+
+
 def build_topic_research_prompt(
     *,
     niche: str,
@@ -32,6 +105,7 @@ def build_topic_research_prompt(
     duration_line = DURATION_LABEL[kind]
     niche_s = (niche or "").strip() or "General"
     audience_s = (audience or "").strip() or "সাধারণ দর্শক"
+    niche_directive = get_niche_storytelling_directive(niche_s)
     video_type_json = "Shorts" if kind == "short" else "Long"
     duration_json = "60" if kind == "short" else "270"
     blocked = [str(t).strip() for t in (blocked_topics or []) if str(t).strip()]
@@ -50,7 +124,7 @@ def build_topic_research_prompt(
         blocked_block += (
             f"\n\n[কোয়ালিটি রিট্রাই নির্দেশনা - পূর্বের স্ক্রিপ্ট বাতিল করা হয়েছে]:\n"
             f"{quality_feedback.strip()}\n"
-            "এই ত্রুটিগুলো সম্পূর্ণ দূর করে একটি তথ্যবহুল, হাই-রিটেনশন স্ক্রিপ্ট দাও।\n"
+            "এই ত্রুটিগুলো সম্পূর্ণ দূর করে একটি আকর্ষণীয়, সহজবোধ্য, হাই-রিটেনশন স্ক্রিপ্ট দাও।\n"
         )
 
     return f"""════════════════════════════════════════════════════════════
@@ -59,7 +133,7 @@ def build_topic_research_prompt(
 কাজ: চ্যানেলের নিস ও নির্দিষ্ট সময়সীমার (Shorts: ৪০-১২০ সেকেন্ড বা Long: ২৪০-৩০০ সেকেন্ড) ওপর ভিত্তি করে SEO-ফ্রেন্ডলি টপিক, ৫টি টাইটেল, হাই-র‍্যাঙ্কিং ট্যাগ/কিওয়ার্ড এবং শট-বাই-শট সম্পূর্ণ প্রফেশনাল ভিডিও স্ক্রিপ্ট (ভয়েস + ভিজুয়াল + সাউন্ড) তৈরি করা।
 
 ভূমিকা ও মেকার রোল:
-তুমি একজন অভিজ্ঞ ইউটিউব কন্টেন্ট স্ট্র্যাটেজিস্ট, ইউজার গ্রোথ এক্সপার্ট এবং একজন মাস্টার ভিডিও স্ক্রিপ্টরাইটার। আমার বিভিন্ন নিসের ইউটিউব চ্যানেল রয়েছে। তোমার কাজ হলো নির্দিষ্ট নিসের ওপর ভিত্তি করে ভাইরাল হওয়ার মতো SEO-ফ্রেন্ডলি টপিক নির্বাচন করা এবং সেটির জন্য নির্দিষ্ট টাইমিং মেনে একটি সম্পূর্ণ প্রফেশনাল ভিডিও স্ক্রিপ্ট তৈরি করা।
+তুমি একজন অভিজ্ঞ ইউটিউব কন্টেন্ট স্ট্র্যাটেজিস্ট, ইউজার গ্রোথ এক্সপার্ট এবং একজন মাস্টার ভিডিও স্ক্রিপ্টরাইটার। আমার বিভিন্ন নিসের ইউটিউব চ্যানেল রয়েছে। তোমার কাজ হলো নির্দিষ্ট নিসের ওপর ভিত্তি করে ভাইরাল হওয়ার মতো SEO-ফ্রেন্ডলি টপিক নির্বাচন করা এবং সেটির জন্য নির্দিষ্ট টাইমিং মেনে একটি সম্পূর্ণ প্রফেশনাল, মানবিক, অত্যন্ত আকর্ষণীয় ও সহজবোধ্য ভিডিও স্ক্রিপ্ট তৈরি করা।
 
 আজকের ভিডিওর জন্য আমার ইনপুট (User Inputs):
 
@@ -69,6 +143,9 @@ def build_topic_research_prompt(
 ভিডিওর মূল ভাষা (Source Language): বাংলা
 (অন্য ভাষা পরে আলাদা লোকালাইজেশন স্টেজে হবে — এখানে শুধু বাংলা স্ক্রিপ্ট লিখবে।)
 {blocked_block}
+[এই নিসের বিশেষ স্টোরিটেলিং নির্দেশনা]:
+{niche_directive}
+
 তোমার কাজের ধাপসমূহ:
 ১. টপিক ও টাইটেল: ওপরের নিসের ওপর ভিত্তি করে বর্তমানে সবচেয়ে ট্রেন্ডিং এবং হাই-সার্চ ভলিউম বিশিষ্ট একটি SEO-ফ্রেন্ডলি ভিডিও টপিক সিলেক্ট করো। এরপর আকর্ষণীয় ৫টি টাইটেল এবং কিছু হাই-র‍্যাঙ্কিং ট্যাগ/কিওয়ার্ড সাজেস্ট করো।
 ২. JSON আউটপুট জেনারেট করা: আমার অটোমেশন সফটওয়্যারের সুবিধার জন্য সম্পূর্ণ স্ক্রিপ্টটি একটি ভ্যালিড JSON স্ট্রাকচারে রিটার্ন করবে।
@@ -82,20 +159,36 @@ A) ভিডিও দৈর্ঘ্য, শট অ্যাডজাস্ট�
 * একটি ৬০-৮০ সেকেন্ডের Shorts স্ক্রিপ্টে মোট অন্তত ১৫০ থেকে ২০০টি সমৃদ্ধ তথ্যবহুল শব্দ থাকতে হবে।
 * শট সংখ্যা এমন হবে যে সব শটের shot_duration_seconds যোগফল Target Duration রেঞ্জের ভিতরে থাকে।
 
-B) হুক, সালাম, তথ্যের গভীরতা, হিউম্যান স্টোরিটেলিং ও কুইজ (কঠোরভাবে মানতে হবে):
-* শক্তিশালী মেগা-হুক (First 3 Seconds): ভিডিওর প্রথম ৩ সেকেন্ডেই দর্শককে স্ক্রল করা থেকে থামাতে হবে। সাধারণ বোরিং কথা দিয়ে শুরু করা সম্পূর্ণ নিষিদ্ধ। একটি তীব্র কৌতূহল, চাঞ্চল্যকর বৈপরীত্য বা চমকপ্রদ তথ্য দিয়ে শুরু করবে।
-* সালামের সঠিক স্থান (Natural Greeting): ভিডিওর শুরুতে শুভেচ্ছা বা সালাম প্রাকৃতিকভাবে বাক্যের একদম শুরুতেই দেবে (যেমন: "আসসালামু আলাইকুম! আপনি কি জানেন..." অথবা চমকপ্রদ হুক বাক্যের ঠিক পরেই "আসসালামু আলাইকুম...")। সালামকে কখনো কোনো বাক্যের শেষে অদ্ভুতভাবে ঝুলিয়ে দেওয়া সম্পূর্ণ নিষিদ্ধ।
-* তথ্যের গভীরতা ও সুনির্দিষ্টতা (No Empty Platitudes): ভিডিওতে কেন তৈরি হচ্ছে তার একটি পরিষ্কার মূল উদ্দেশ্য বা সারমর্ম (Core Purpose) থাকতে হবে। কোনো ভাসা-ভাসা সাধারণ বুলি বলা যাবে না। সুনির্দিষ্ট প্রতিষ্ঠান, কোম্পানি, গবেষণাগার বা প্রযুক্তির আসল নাম, বাস্তব পরিসংখ্যান, প্রযুক্তিগত কাজের বিশদ বিবরণ (যেমন: সুনির্দিষ্ট মডেল কোড, প্রতি ঘণ্টার খরচ, ব্যাটারি লাইফ, ব্যবহৃত সেন্সর) দিয়ে স্ক্রিপ্টকে তথ্যসমৃদ্ধ করবে।
-* হিউম্যান স্টোরিটেলিং আর্চ (Story Arc — ৪-৫টি বিচ্ছিন্ন ডায়লগ নয়, একটি পূর্ণাঙ্গ গল্প):
-  - শট ১: মেগা-হুক ও স্বাভাবিক সালাম (উচ্চ কৌতূহল সৃষ্টি)।
-  - শট ২-৩: মূল উদ্ভাবনের পেছনের আসল ঘটনা ও প্রেক্ষাপট।
-  - শট ৪-৬: বাস্তব প্রমাণ, মাঠ পর্যায়ের ট্রায়াল ও সুনির্দিষ্ট সক্ষমতার তথ্য।
-  - শট ৭-৮: মানুষের জীবনের উপর প্রভাব ও ভবিষ্যৎ রূপান্তর।
-  - শট ৯: বুদ্ধিদীপ্ত অডিয়েন্স কুইজ/প্রশ্ন (যা দর্শকদের যুক্তি দিয়ে কমেন্ট করতে বাধ্য করে)।
-  - শট ১০: আন্তরিক CTA (লাইক, শেয়ার, সাবস্ক্রাইব) ও বিদায়ী সালাম (আল্লাহ হাফেজ)।
-* বাচনভঙ্গি একদম হিউম্যান ও কথ্য হবে: রোবোটিক বইয়ের ভাষা পরিহার করে স্মার্ট ও প্রাণবন্ত কথ্য বাংলা (যেমন: "কিন্তু আসল সত্যটা কী জানেন?", "ভাবতে পারেন?", "সোজা কথায় বলতে গেলে...", "বাস্তবে যা ঘটছে...") ব্যবহার করবে।
-* কুইজ/প্রশ্ন: ভিডিওর শেষের দিকে একটি বুদ্ধিদীপ্ত প্রশ্ন রাখবে এবং উত্তর কমেন্টে লিখতে বলবে। প্রশ্নটি টপিক-সম্পর্কিত ও চিন্তাশীল হতে হবে — কোনো স্পষ্ট AI-জেনারেটেড খেলো প্রশ্ন নয়।
-* ভিডিওর শেষ শটে সুন্দরভাবে বন্ধুদের সাথে শেয়ার করতে, লাইক দিতে, চ্যানেল সাবস্ক্রাইব/ফলো করতে বলবে এবং বিদায়ী শুভেচ্ছা ("আল্লাহ হাফেজ") জানাবে।
+B) ভাইরাল মেগা-হুক, সহজবোধ্য উপমা, স্টোরিটেলিং ও দর্শক এনগেজমেন্ট (সবচেয়ে গুরুত্বপূর্ণ):
+
+১. তীব্র আকর্ষণীয় মেগা-হুক (First 3 Seconds — Zero Boredom):
+   - প্রথম ৩ সেকেন্ডেই দর্শকের মস্তিষ্কে বিদ্যুৎ চমকানোর মতো তীব্র কৌতূহল বা অবিশ্বাস্য বৈপরীত্য সৃষ্টি করতে হবে। 
+   - গতানুগতিক, শান্ত বা বইয়ের মতো বাক্য সম্পূর্ণ নিষিদ্ধ (যেমন: "আজকে আমরা জানব...", "আসসালামু আলাইকুম, লিথিয়াম ব্যাটারি ছাড়া বাতাস দিয়ে বিদ্যুৎ তৈরি হচ্ছে..." - এই টাইপের নীরস শুরু ১০০% নিষিদ্ধ!)।
+   - ভাইরাল হুকের জন্য নিচের যেকোনো একটি মনস্তাত্ত্বিক প্যাটার্ন ব্যবহার করো:
+     * অবিশ্বাস্য বৈপরীত্য বা প্যারাডক্স: "বাতাসকে কি কখনো বরফের মতো জমিয়ে বোতলে ভরে পুরো শহর আলোকিত করা সম্ভব? শুনতে অসম্ভব লাগলেও..."
+     * চোখ কপালে তোলার মতো 'কী হতো যদি': "এক মুহূর্তের জন্য কল্পনা করুন, যদি কোনো জ্বালানি ছাড়াই শুধু ঘরের বাতাস আপনার গাড়িকে হাজার মাইল ছুটিয়ে নেয়?"
+     * লুকানো সত্যের রোমাঞ্চকর পর্দাফাঁস: "আমরা যে প্রযুক্তিকে এত দিন অসম্ভব বৈজ্ঞানিক গল্প ভাবতাম, বিজ্ঞানীরা সম্পূর্ণ নিঃশব্দে তা বাস্তবে নামিয়ে এনেছেন!"
+     * টানটান মানবিক বা বৈজ্ঞানিক ড্রামা: "ইতিহাসে প্রথমবার এমন এক পরীক্ষা চালানো হয়েছে, যা মানুষের চেনা বিজ্ঞানকেই সম্পূর্ণ উল্টে দিল!"
+   - সালামের স্মার্ট প্লেসমেন্ট: হুকের আকর্ষণ ধরে রাখতে সালাম বা শুভেচ্ছা হুক বাক্যের ঠিক পরপরই স্বাভাবিকভাবে জুড়ে দেবে (যেমন: "বাতাস জমিয়ে বিদ্যুৎ ব্যাংক? শুনতে অবিশ্বাস্য হলেও, আসসালামু আলাইকুম! বিজ্ঞানীরা সত্যি সত্যিই এমন এক অদ্ভুত প্রযুক্তি..."), যাতে প্রথম ৩ সেকেন্ডের উত্তেজনা একটুও নষ্ট না হয়।
+
+২. রোবটের মতো লাইন-বাই-লাইন তথ্য বলা সম্পূর্ণ নিষিদ্ধ — "বাস্তব চাক্ষুষ উপমা"র নিয়ম:
+   - কোনো অবস্থাতেই রোবটের মতো একের পর এক কঠিন নম্বর, মেগাওয়াট বা টেকনিক্যাল স্পেসিফিকেশন মুখস্থ পড়ার মতো বলা যাবে না।
+   - প্রতিটি জটিল তথ্যকে সাধারণ দর্শকের পরিচিত বাস্তব জীবনের চাক্ষুষ উপমা দিয়ে পানির মতো সহজ ও চমৎকার করে বোঝাবে:
+     * উদাহরণ (বাতাসের আয়তন ৭০০ গুণ কমা): "বাতাস তরল হলে এর আয়তন ৭০০ গুণ সংকুচিত হয় — সহজ কথায়, একটি সুবিশাল ফুটবল মাঠের পুরো বাতাসকে যেন চাপ দিয়ে ছোট একটি কফির কাপে ভরে ফেলা হলো!"
+     * উদাহরণ (অগাধ চাপ বা শক্তি): "যেন আপনার হাতের তালুর ওপর একসাথে দশটি বিশালাকার হাতির ওজন চেপে বসেছে!"
+     * উদাহরণ (সুপারকম্পিউটারের গতি): "যে বিশাল হিসাব কষতে মানুষের হাজার বছর লেগে যেত, এআই তা চোখের এক নিমেষেই শেষ করে দিচ্ছে!"
+   - দর্শক যেন প্রতিটি তথ্যে চমকে ওঠে এবং নিজের চোখে দৃশ্যটি দেখতে পায় এমন জীবন্ত শব্দ ব্যবহার করবে।
+
+৩. গল্প বলার ধারাবাহিকতা ও কানেক্টিং ব্রিজ (Storytelling Flow):
+   - কোনো শটের ডায়ালগ যেন বিচ্ছিন্ন বা খাপছাড়া না শোনায়। প্রতিটি বাক্য যেন আগের বাক্যের সাথে একটি রোমাঞ্চকর গল্পের মতো যুক্ত থাকে।
+   - স্মার্ট কথ্য কানেক্টিং ব্রিজ ব্যবহার করবে: "কিন্তু আসল টুইস্টটা ঘটে ঠিক এখানেই...", "শুনতে সহজ মনে হলেও বিজ্ঞানীদের সামনে ছিল এক বিশাল বাধা...", "আর সবচেয়ে অদ্ভুত বিষয় কী জানেন?", "একটু ভেবে দেখুন...", "সোজা কথায় বলতে গেলে..."।
+
+৪. মাঝপথে অডিয়েন্স রিটেনশন ধরে রাখার হুক (Mid-Roll Curiosity Hook — শট ৪ থেকে ৭):
+   - ভিডিওর মাঝখানে যেন দর্শকের আগ্রহ ঝিমিয়ে না পড়ে, সেজন্য ৪ থেকে ৭ নম্বর শটের মধ্যে একটি অপ্রত্যাশিত চ্যালেঞ্জ, গোপন রহস্য, রোমাঞ্চকর পরীক্ষা বা চমকপ্রদ মোড় উন্মোচন করবে।
+
+৫. বুদ্ধিদীপ্ত অডিয়েন্স কুইজ ও আন্তরিক সমাপ্তি:
+   - শেষ শটের ঠিক আগে (শট ৯) একটি চিন্তাশীল ও কৌতূহলোদ্দীপক প্রশ্ন রাখবে এবং দর্শকদের তাদের মতামত কমেন্টে যুক্তি দিয়ে লিখতে বলবে।
+   - শেষ শটে আন্তরিকভাবে লাইক, শেয়ার ও চ্যানেল সাবস্ক্রাইব করতে বলবে এবং উষ্ণ বিদায়ী সালাম ("আল্লাহ হাফেজ") জানাবে।
 
 C) ভিজুয়াল ডিটেইলস ও সাবজেক্ট পলিসি (ফেস ওভারইউজ ও বিকৃত/আবোল-তাবোল ইমেজ সম্পূর্ণ নিষিদ্ধ):
 প্রতিটি শটে অবশ্যই `visual_subject` সেট করবে — এই চারটি মানের একটি:
@@ -110,8 +203,8 @@ C) ভিজুয়াল ডিটেইলস ও সাবজেক্ট �
   ১. Primary Subject & Material Details: সুনির্দিষ্ট অবজেক্ট বা চরিত্রের বাস্তব গঠন, মেটেরিয়াল, টেক্সচার ও রঙ (যেমন: 'Sleek matte-silver and carbon-black bipedal mechanics with exposed articulated joint mechanics and five-finger dexterous hands')।
   ২. Exact Physical Action Tied to Spoken Dialogue: ডায়ালগের কথার সাথে হুবহু মিল রেখে সে মুহূর্তে কী শারীরিক কাজ ঘটছে (যেমন: ডায়ালগে সুনির্দিষ্ট যে পরীক্ষার কথা বলা হচ্ছে, প্রম্পটে হুবহু সেই নির্দিষ্ট যন্ত্রাংশ বা ল্যাব অ্যাকশন বিস্তারিত থাকবে)।
   ৩. Photorealistic Environment & Depth: ব্যাকগ্রাউন্ডে কী আছে (যেমন: 'inside an ultra-modern automated laboratory with laser alignment benches in far background, clean polished gray concrete floor, safety fencing')।
-  ৪. Cinematic Lens, Camera Angle & Lighting: ক্যামেরা অ্যাঙ্গেল ও লেন্সের ফোকাস (যেমন: 'Low-angle cinematic tracking shot, 35mm lens, f/2.0 shallow depth of field, dramatic cool cyan overhead LED industrial lamps paired with warm 3200K tungsten rim-light tracing the metal contours')।
-  ৫. Style & Strict Negatives: '8k photorealistic, Octane Render style, award-winning cinematography, hyper-detailed micro textures, NO human face, no presenter portrait, no cartoon, no text, no watermark --ar {video_type_json}'।
+  ৪. Cinematic Lens, Camera Angle & Lighting: ক্যামেরা অ্যাঙ্গেল ও লেন্সের ফোকাস (যেমন: 'Low-angle cinematic tracking shot, 35mm lens, f/2.0, bright commercial studio high-bay lighting, clean 5600K daylight balanced fill, crystal-clear optics, sharp highlights, zero dark underexposed shadows')।
+  ৫. Style & Strict Negatives: '8k photorealistic, Octane Render style, award-winning cinematography, hyper-detailed micro textures, vibrant true-to-life colors, NO human face, NO female face, NO female robot face, NO gynoid, NO mannequin face, NO doll face, NO robot face close-up, NO talking head, no presenter portrait, no cartoon, no text, no watermark --ar {video_type_json}'।
 * ইমেজ প্রম্পটে কখনোই অবাস্তব জিনিস চাইবে না — যেমন ল্যাপটপের পর্দায় লেখা নিউজ আর্টিকেল, তুলনামূলক চার্ট/গ্রাফ, অবাস্তব ফ্লোটিং টেক্সট। টেক্সটের বদলে সরাসরি আসল বিষয়বস্তু ও অ্যাকশন দেখাও।
 * `character_details`: শুধু যদি ভিডিওটি স্পেসিফিকভাবে presenter-ভিত্তিক হয় তবেই লিখবে, অন্যথায় অবশ্যই `"none"` লিখবে।
 
@@ -143,9 +236,9 @@ F) সাউন্ড ডিজাইন:
       "shot_duration_seconds": 6,
       "visual_subject": "broll",
       "camera_angle": "Cinematic Dynamic Low-Angle Tracking Shot",
-      "lighting": "Moody industrial key lighting with cyan neon reflections and warm tungsten rim light",
+      "lighting": "Bright commercial high-bay illumination with clean 5600K daylight balanced fill and sharp highlights",
       "character_details": "none",
-      "visual_prompt": "Ultra-detailed cinematic low-angle tracking shot of a sleek matte-silver and carbon-black bipedal humanoid robot walking purposefully between car-body fixtures in a clean high-tech manufacturing plant, subtle motion blur on polished concrete floor, sharp focus on articulated knee and hip actuators, dramatic atmospheric factory haze, 8k, photoreal, NO human face, no portrait, no text --ar 9:16",
+      "visual_prompt": "Ultra-detailed cinematic low-angle tracking shot of a sleek matte-silver and carbon-black bipedal humanoid robot walking purposefully between car-body fixtures in a clean brightly-lit high-tech manufacturing plant, subtle motion blur on polished concrete floor, sharp focus on articulated knee and hip actuators, bright clean factory atmosphere, 8k, photoreal, NO human face, NO female face, NO female robot face, NO gynoid, NO doll face, NO portrait, no text --ar 9:16",
       "voiceover_script": "এখানে বাংলা ভয়েসওভারের কথাগুলো থাকবে...",
       "emotion_tag": "Mysterious & Engaging",
       "sfx": "Subtle mechanical servo hum and low cinematic sub whoosh",
@@ -175,6 +268,8 @@ SYSTEM_JSON_ONLY = (
     "You are a YouTube content strategist and master scriptwriter. "
     "Follow every strict rule in the user prompt (timing, hook/salam/CTA/quiz, "
     "visual_subject / no gratuitous faces, continuity, human tone). "
+    "Crucially, inject deep emotion, life, and engaging storytelling into the script. "
+    "Avoid robotic info-dumps at all costs. "
     "Respond with a single valid JSON object only — no markdown fences, no commentary."
 )
 

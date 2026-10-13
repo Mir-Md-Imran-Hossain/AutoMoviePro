@@ -197,6 +197,7 @@ STAGE_LABELS: Dict[str, str] = {
 
 def ensure_job_columns() -> None:
     """Soft-migrate jobs table for C01-A customer metadata."""
+    store.init_db()
     with store.db() as conn:
         cols = {r[1] for r in conn.execute("PRAGMA table_info(jobs)").fetchall()}
         migrations = [

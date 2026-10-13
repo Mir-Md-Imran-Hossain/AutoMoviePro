@@ -688,14 +688,13 @@ def remux_replace_audio(
                 srt_path = Path(written) if written else candidate
             if srt_path is None or not srt_path.is_file() or srt_path.stat().st_size < 8:
                 raise FileNotFoundError(f"subtitle_asset_missing:{srt_path}")
-            from pipeline.subtitle_burn import burn_subtitles_filter
+            from pipeline.subtitle_burn import apply_subtitles_to_vf
 
-            vf_parts.append(
-                burn_subtitles_filter(
-                    Path(srt_path),
-                    size=size or "1080x1920",
-                    lang=lang_code,
-                )
+            vf_string = apply_subtitles_to_vf(
+                vf_parts,
+                Path(srt_path),
+                size=size or "1080x1920",
+                lang=lang_code,
             )
         except Exception as srt_exc:
             logger.warning("subtitle burn-in path failed (%s) — drawtext fallback", str(srt_exc)[:160])
@@ -712,6 +711,9 @@ def remux_replace_audio(
                         fontfile=font or "",
                     )
                 )
+            vf_string = ",".join(vf_parts)
+    else:
+        vf_string = ",".join(vf_parts)
 
     logger.info(
         "Localize remux setpts=%.4f (video %.2fs, audio %.2fs, out~%.2fs) lang=%s — no stream_loop",
@@ -732,7 +734,7 @@ def remux_replace_audio(
         "-t",
         f"{a_dur:.3f}",
         "-vf",
-        ",".join(vf_parts),
+        vf_string,
         "-map",
         "0:v:0",
         "-map",

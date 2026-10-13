@@ -53,25 +53,59 @@ _MOCK_LOCK = threading.Lock()
 _MOCK_VIDEOS: Dict[str, Dict[str, Any]] = {}
 
 
+def _is_live_production_mode() -> bool:
+    """Detects active live production environment where mock publishers are strictly forbidden."""
+    import os
+    if os.getenv("AUTOMOVIE_PRODUCTION", "").strip().lower() in ("1", "true", "yes"):
+        return True
+    if os.getenv("AUTOMOVIE_LIVE_PUBLISH", "").strip().lower() in ("1", "true", "yes"):
+        return True
+    if os.getenv("AUTOMOVIE_ENV", "").strip().lower() == "production":
+        return True
+    return False
+
+
 class MockPublishProvider:
-    """Deterministic offline provider — never pretends to be real YouTube."""
+    """Deterministic offline provider — strictly prevented from executing in live production mode."""
 
     name = "mock"
 
-    def __init__(self, *, scenario: str = "happy_path"):
+    def __init__(self, *, scenario: str = "happy_path", enforce_production_guard: bool = True):
         self.scenario = str(scenario or "happy_path")
+        if enforce_production_guard and _is_live_production_mode():
+            raise RuntimeError(
+                "PRODUCTION_INTEGRITY_VIOLATION: MockPublishProvider is completely prevented from running in live production mode."
+            )
 
     def validate_configuration(self, channel: Dict[str, Any]) -> Dict[str, Any]:
+        if channel.get("live_production") or _is_live_production_mode():
+            raise RuntimeError(
+                "PRODUCTION_INTEGRITY_VIOLATION: MockPublishProvider cannot validate configuration in live production mode."
+            )
         if self.scenario == "config_failure":
             return {"ok": False, "error": "invalid_provider_config", "error_code": "CONFIG_FAILURE"}
         return {"ok": True, "provider": self.name, "mock": True}
 
     def authorize(self, channel: Dict[str, Any]) -> Dict[str, Any]:
+        if channel.get("live_production") or _is_live_production_mode():
+            raise RuntimeError(
+                "PRODUCTION_INTEGRITY_VIOLATION: MockPublishProvider cannot authorize in live production mode."
+            )
         if self.scenario == "auth_failure":
             return {"ok": False, "error": "oauth_required", "error_code": "AUTH_FAILURE", "mock": True}
         return {"ok": True, "authorized": True, "mock": True, "token_exposed": False}
 
     def upload(self, package: Dict[str, Any], channel: Dict[str, Any]) -> ProviderUploadAccepted:
+        if (
+            package.get("live_production")
+            or package.get("allow_live_provider")
+            or channel.get("is_production")
+            or channel.get("live_production")
+            or _is_live_production_mode()
+        ):
+            raise RuntimeError(
+                "PRODUCTION_INTEGRITY_VIOLATION: MockPublishProvider cannot execute upload in live production mode."
+            )
         if self.scenario == "auth_failure":
             raise RuntimeError("AUTH_FAILURE:oauth_required")
         if self.scenario == "provider_rejected":
@@ -185,24 +219,35 @@ class YouTubeDataApiProvider:
     name = "youtube"
 
     def validate_configuration(self, channel: Dict[str, Any]) -> Dict[str, Any]:
+        oauth_connected = bool(channel.get("youtube_oauth_connected"))
         token = (
             channel.get("youtube_access_token")
             or channel.get("youtube_oauth_token")
             or channel.get("youtube_api_token")
             or ""
         ).strip()
-        # Never return the token
-        if not token:
-            # Session cookie alone is NOT sufficient for this customer API path
-            sess = bool(str(channel.get("youtube_session") or "").strip())
+        
+        # If 1-click OAuth is connected, token is valid
+        if oauth_connected or token:
+            ch_title = channel.get("youtube_channel_title") or channel.get("youtube_name") or ""
             return {
-                "ok": False,
-                "error": "youtube_oauth_token_required",
-                "error_code": "AUTH_FAILURE",
-                "has_session_cookie": sess,
-                "note": "Customer publish requires OAuth token; browser session is LEGACY_COMPAT only",
+                "ok": True,
+                "provider": self.name,
+                "oauth_configured": True,
+                "token_exposed": False,
+                "channel_title": ch_title,
+                "one_click_connected": oauth_connected,
             }
-        return {"ok": True, "provider": self.name, "oauth_configured": True, "token_exposed": False}
+
+        # Never return the token
+        sess = bool(str(channel.get("youtube_session") or "").strip())
+        return {
+            "ok": False,
+            "error": "youtube_oauth_token_required",
+            "error_code": "AUTH_FAILURE",
+            "has_session_cookie": sess,
+            "note": "Customer publish requires OAuth token; 1-click YouTube channel connect available in Channel Setup",
+        }
 
     def authorize(self, channel: Dict[str, Any]) -> Dict[str, Any]:
         return self.validate_configuration(channel)
@@ -216,6 +261,16 @@ class YouTubeDataApiProvider:
         from pathlib import Path
         from publishers.youtube_api_uploader import upload_youtube_api
 
+        # Auto-refresh OAuth token if channel is 1-click connected
+        ch_dict = dict(channel)
+        if ch_dict.get("youtube_oauth_connected") and ch_dict.get("id"):
+            try:
+                from publishers.youtube_oauth_service import YouTubeOAuthService
+                fresh_token = YouTubeOAuthService().get_valid_channel_token(int(ch_dict["id"]))
+                ch_dict["youtube_access_token"] = fresh_token
+            except Exception as oauth_err:
+                logger.warning("Could not auto-refresh OAuth token before upload: %s", oauth_err)
+
         path = Path(str(package.get("artifact_path") or ""))
         if not path.is_file():
             raise RuntimeError("ARTIFACT_FAILURE:missing_media")
@@ -226,7 +281,7 @@ class YouTubeDataApiProvider:
             "thumbnail": package.get("thumbnail_path"),
             "lang_code": package.get("language"),
         }
-        url = upload_youtube_api(path, job, channel)
+        url = upload_youtube_api(path, job, ch_dict)
         # Extract id from URL if possible
         vid = ""
         if "v=" in url:
@@ -284,10 +339,19 @@ def get_publish_provider(
                 "LIVE_PUBLISH_REQUIRED: Production YouTube publishing requested but live provider is not enabled. "
                 "Silent fallback to mock uploader is strictly forbidden."
             )
+        if _is_live_production_mode():
+            raise RuntimeError(
+                "PRODUCTION_INTEGRITY_VIOLATION: MockPublishProvider is completely prevented from running in live production mode."
+            )
         # YouTube named but live disabled → mock with youtube label for offline tests
         p = MockPublishProvider(scenario=scenario)
         p.name = "youtube_mock"
         return p
+
+    if _is_live_production_mode() or (is_prod and require_live_in_production):
+        raise RuntimeError(
+            "PRODUCTION_INTEGRITY_VIOLATION: MockPublishProvider is completely prevented from running in live production mode."
+        )
 
     return MockPublishProvider(scenario=scenario)
 

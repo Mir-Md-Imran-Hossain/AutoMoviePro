@@ -27,9 +27,21 @@ GENERIC_WORDS = {
     "আছে", "ছিল", "হচ্ছে", "হয়েছে", "দেয়", "নেয়", "কাজ", "মানুষ", "নতুন", "সবচেয়ে", "বেশি", "কম", "প্রথম",
     "শেষ", "আজ", "কাল", "অনেক", "এক", "দুই", "তিন", "সেই", "কিন্তু", "বা", "কিংবা", "অথবা", "যদি", "তবে", "তাই",
     "বলতে", "গেলে", "জানেন", "দেখুন", "শুনুন", "মনে", "রাখবেন", "কারণ", "ফলে", "পর", "আগে", "পরে",
-    # Generic domain words (should not alone trigger anchor collision)
+    # Generic domain & conversational filler words (should not alone trigger anchor collision)
     "ai", "tech", "facts", "fact", "smart", "video", "topic", "2024", "2025", "2026", "science", "world",
     "robot", "robots", "রোবট", "প্রযুক্তি", "কৃত্রিম", "বুদ্ধিমত্তা", "ডিভাইস", "মোবাইল", "ফোন",
+    "গভীর", "সমুদ্র", "মহাসাগর", "পানি", "জল", "জীবন্ত", "প্রাণী", "বিজ্ঞান", "ইতিহাস", "মহাকাশ",
+    "পৃথিবী", "গবেষণা", "আবিষ্কার", "রহস্য", "রহস্যময়", "ঘটনা", "তদন্ত", "বিজ্ঞানীরা", "গবেষকরা",
+    "মানুষের", "জীবন", "আলো", "অন্ধকার", "বাতাস", "শহর", "দেশ",
+    "আপনার", "আপনা", "আমাদের", "আমরা", "তাদের", "তারা", "তিনি", "সে", "এটি", "এসব",
+    "গোপন", "সত্য", "শুধু", "অবিশ্বাস্য", "চমক", "জানুন", "জানল", "দেখুন", "করুন",
+    "ব্যবস্থা", "সিস্টেম", "উপায়", "উপায়", "কীভাবে", "কেন", "কী", "কখন",
+    "মস্তিষ্ক", "ব্রেইন", "দেহ", "শরীর", "মানুষ", "অঙ্গ", "রক্ত", "কোষ",
+    "রাত", "দিন", "সময়", "সময়", "বছর", "মাস", "ঘণ্টা", "মিনিট", "সেকেন্ড",
+    "নতুন", "পুরোনো", "পুরানো", "ভালো", "খারাপ", "ছোট", "বড়", "সহজ", "কঠিন",
+    "হয়", "হয়", "হলো", "হলো", "নয়", "নয়", "থাকে", "পারে", "হবে", "হয়েছিল", "হয়েছে", "হতে", "করবে", "আসছে",
+    "অসম্ভব", "লুকানো", "কাঁপিয়ে", "কাঁপিয়ে", "দিল", "ভুল", "নাকি", "দেখল", "খেলা", "ঘড়ি", "ঘড়ি",
+    "শিশু", "পূর্ণবয়স্ক", "বিস্ময়কর", "বিস্ময়কর", "চমকপ্রদ", "অজানা", "উন্মোচন", "বদলে", "যাবে",
     # English stopwords
     "the", "a", "an", "and", "or", "in", "on", "at", "to", "for", "of", "with", "is", "are", "was", "were",
     "your", "you", "this", "that", "these", "those", "how", "what", "why", "when", "where", "which", "will",
@@ -80,7 +92,7 @@ def extract_entities(text: str) -> Set[str]:
     cleaned: Set[str] = set()
     for tk in raw_tokens:
         # Strip common Bengali grammatical suffixes
-        for sfx in ("ের", "তে", "ায়", "ে", "র", "য়", "গুলো", "দের"):
+        for sfx in ("টিতেও", "টিতে", "গুলো", "দের", "ের", "তে", "ায়", "ে", "র", "য়", "কে"):
             if tk.endswith(sfx) and len(tk) > len(sfx) + 2:
                 tk = tk[:-len(sfx)]
                 break
@@ -103,14 +115,16 @@ def detect_entity_collision(
         if pair.issubset(common):
             return True, 1.0, common
 
-    # Rule 2: 3 or more distinctive named entities match
-    if len(common) >= 3:
+    # Rule 2: Alphanumeric or distinctive named entity match
+    alphanumeric_common = {tk for tk in common if re.match(r"[a-z0-9]", tk)}
+    distinctive_common = {tk for tk in common if len(tk) >= 4 or re.match(r"[a-z0-9]", tk)}
+    if len(alphanumeric_common) >= 2 or len(distinctive_common) >= 4:
         return True, 0.95, common
 
-    # Rule 3: Jaccard overlap on distinctive entities
+    # Rule 3: Jaccard overlap on distinctive entities (requires at least 2 distinctive matches and >= 50% overlap)
     min_size = min(len(new_entities), len(existing_entities))
-    score = len(common) / min_size if min_size > 0 else 0.0
-    if score >= 0.40 and len(common) >= 2:
+    score = len(distinctive_common) / min_size if min_size > 0 else 0.0
+    if score >= 0.50 and (len(alphanumeric_common) >= 1 or len(distinctive_common) >= 3):
         return True, round(score, 4), common
 
     return False, round(score, 4), common
@@ -136,7 +150,7 @@ def token_overlap(a: str, b: str) -> float:
     def _stem_tokens(tks: Set[str]) -> Set[str]:
         res = set()
         for tk in tks:
-            for sfx in ("ের", "তে", "ায়", "ে", "র", "য়", "গুলো", "দের"):
+            for sfx in ("টিতেও", "টিতে", "গুলো", "দের", "ের", "তে", "ায়", "ে", "র", "য়", "কে"):
                 if tk.endswith(sfx) and len(tk) > len(sfx) + 2:
                     tk = tk[:-len(sfx)]
                     break
@@ -175,7 +189,7 @@ def extract_record(payload: Dict[str, Any], *, source: str = "") -> Dict[str, An
         "NFC",
         str(((payload.get("seo_metadata") or {}).get("selected_topic")) or "").strip(),
     )
-    topic_entities = extract_entities(topic_blob)
+    topic_entities = extract_entities(sel_topic or topic_blob)
     return {
         "topic": topic_blob,
         "script": script_blob,
@@ -258,7 +272,7 @@ def find_duplicate(
         "NFC",
         str(((payload.get("seo_metadata") or {}).get("selected_topic")) or "").strip(),
     )
-    new_topic_entities = extract_entities(topic)
+    new_topic_entities = extract_entities(sel_topic or topic)
     best: Optional[Dict[str, Any]] = None
 
     for rec in history:
@@ -288,8 +302,9 @@ def find_duplicate(
         if is_entity_collision:
             final = 1.0
         else:
-            score = max(topic_sim, script_sim, sel_sim, tok_sim, entity_score)
-            blend = 0.55 * max(topic_sim, sel_sim, tok_sim) + 0.45 * max(script_sim, entity_score)
+            eff_entity = entity_score if len(common_entities) >= 2 else 0.0
+            score = max(topic_sim, script_sim, sel_sim, tok_sim, eff_entity)
+            blend = 0.55 * max(topic_sim, sel_sim, tok_sim) + 0.45 * max(script_sim, eff_entity)
             final = max(score, blend)
 
         if final >= threshold or is_entity_collision:

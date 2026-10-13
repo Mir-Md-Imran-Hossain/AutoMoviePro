@@ -101,7 +101,7 @@ unset($_GET['token']);
 
 $payload = amp_customer_api_payload($pdo, $custRow);
 expect(($payload['unlocked'] ?? []) === ['en', 'bn', 'hi'], 'login/me payload includes unlocked langs');
-expect(($payload['plan'] ?? '') === 'lifetime', 'payload plan is lifetime');
+expect(in_array(($payload['plan'] ?? ''), ['lifetime', 'video_studio', 'fb_business', 'profile_page'], true), 'payload plan is valid tier');
 
 amp_refresh_license($pdo, $token, 10);
 $lic = $pdo->prepare('SELECT expires_at FROM licenses WHERE token = ?');

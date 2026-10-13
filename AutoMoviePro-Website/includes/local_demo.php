@@ -82,12 +82,16 @@ function amp_local_demo_schema(PDO $pdo): void
           login_id TEXT UNIQUE,
           password_hash TEXT,
           status TEXT NOT NULL DEFAULT 'pending',
+          tier TEXT DEFAULT 'video_studio',
+          plan TEXT DEFAULT 'video_studio',
           notes TEXT,
           last_heartbeat_at TEXT,
           created_at TEXT,
           activated_at TEXT
         )"
     );
+    try { $pdo->exec("ALTER TABLE customers ADD COLUMN tier TEXT DEFAULT 'video_studio'"); } catch (\Throwable $e) {}
+    try { $pdo->exec("ALTER TABLE customers ADD COLUMN plan TEXT DEFAULT 'video_studio'"); } catch (\Throwable $e) {}
     $pdo->exec(
         "CREATE TABLE IF NOT EXISTS orders (
           id INTEGER PRIMARY KEY AUTOINCREMENT,
@@ -151,6 +155,21 @@ function amp_local_demo_schema(PDO $pdo): void
           discount_percent INTEGER NOT NULL DEFAULT 0,
           min_order_amount REAL NOT NULL DEFAULT 0,
           is_active INTEGER NOT NULL DEFAULT 1,
+          created_at TEXT
+        )"
+    );
+    $pdo->exec(
+        "CREATE TABLE IF NOT EXISTS download_tokens (
+          id INTEGER PRIMARY KEY AUTOINCREMENT,
+          token TEXT NOT NULL UNIQUE,
+          order_id INTEGER,
+          customer_id INTEGER,
+          product TEXT NOT NULL DEFAULT 'software',
+          expires_at TEXT NOT NULL,
+          is_used INTEGER NOT NULL DEFAULT 0,
+          used_at TEXT,
+          download_count INTEGER NOT NULL DEFAULT 0,
+          max_downloads INTEGER NOT NULL DEFAULT 1,
           created_at TEXT
         )"
     );

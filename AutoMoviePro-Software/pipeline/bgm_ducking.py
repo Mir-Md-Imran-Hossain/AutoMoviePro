@@ -8,8 +8,10 @@ from __future__ import annotations
 
 import logging
 import math
+import os
 import shutil
 import subprocess
+import sys
 from pathlib import Path
 from typing import Optional
 
@@ -87,7 +89,8 @@ def resolve_or_synthesize_bgm(
         str(synth_path),
     ]
     try:
-        res = subprocess.run(cmd, capture_output=True, text=True, check=False)
+        cflags = subprocess.CREATE_NO_WINDOW if sys.platform == "win32" else 0
+        res = subprocess.run(cmd, capture_output=True, text=True, check=False, creationflags=cflags)
         if res.returncode == 0 and synth_path.is_file() and synth_path.stat().st_size > 500:
             return synth_path
     except Exception as exc:
@@ -96,14 +99,15 @@ def resolve_or_synthesize_bgm(
     return None
 
 
-def build_ducking_filter_complex(duck_db: float = -16.0) -> str:
-    """Build 100% clean frequency-separated FFmpeg filter_complex for vocal clarity and BGM sidechain ducking."""
+def build_ducking_filter_complex(duck_db: float = -16.0, attack_ms: Optional[float] = None) -> str:
+    """Build 100% clean frequency-separated FFmpeg filter_complex with sidechain ducking for vocal clarity."""
     linear_duck = round(math.pow(10, duck_db / 20.0), 4)
+    att = round(attack_ms) if attack_ms is not None else 60
     return (
         f"[0:a]highpass=f=85,equalizer=f=3000:t=q:w=1.5:g=2.5,alimiter=limit=0.95[clean_vox];"
         f"[1:a]aloop=loop=-1:size=2e+09,lowpass=f=7500,equalizer=f=2500:t=q:w=1.2:g=-6[pre_bgm];"
         f"[pre_bgm][clean_vox]sidechaincompress="
-        f"threshold=0.025:ratio=10:attack=60:release=450:level_sc=1:mix=0.90[ducked_bgm];"
+        f"threshold=0.025:ratio=10:attack={att}:release=450:level_sc=1:mix=0.90[ducked_bgm];"
         f"[ducked_bgm]volume={linear_duck * 1.8}[bgm_att];"
         f"[clean_vox][bgm_att]amix=inputs=2:duration=first:dropout_transition=2:weights=1.0 0.7[a_out]"
     )
@@ -115,13 +119,14 @@ def apply_bgm_ducking(
     *,
     niche: str = "",
     duck_db: float = -16.0,
+    attack_ms: float = 100.0,
     bgm_path: Optional[Path] = None,
 ) -> Path:
     """
     Mix royalty-free background music under dialogue voiceover with sidechain ducking.
 
     duck_db defaults to -16.0 dB (-14dB to -18dB range), attenuating the music
-    instantly whenever speech frequencies are detected on the primary audio stream.
+    with fine-tuned 0.1s (100ms) attack time whenever speech frequencies are detected.
     """
     video_path = Path(video_path)
     output_path = Path(output_path)
@@ -145,8 +150,8 @@ def apply_bgm_ducking(
             shutil.copy2(video_path, output_path)
         return output_path
 
-    # Build clean frequency separation filter
-    filter_complex = build_ducking_filter_complex(duck_db)
+    # Build clean frequency separation filter with fine-tuned 0.1s (100ms) attack time
+    filter_complex = build_ducking_filter_complex(duck_db, attack_ms=attack_ms)
 
     cmd = [
         ffmpeg_bin(),
@@ -172,7 +177,8 @@ def apply_bgm_ducking(
     ]
 
     try:
-        res = subprocess.run(cmd, capture_output=True, text=True, check=False)
+        cflags = subprocess.CREATE_NO_WINDOW if sys.platform == "win32" else 0
+        res = subprocess.run(cmd, capture_output=True, text=True, check=False, creationflags=cflags)
         if res.returncode == 0 and output_path.is_file() and output_path.stat().st_size > 1000:
             logger.info("BGM ducking applied successfully: %s (duck=%sdB)", output_path.name, duck_db)
             return output_path

@@ -47,6 +47,9 @@ def execute_render_request(
     skip_reference: str = "",
 ) -> RenderGenerationResult:
     """manifest → fingerprint → idempotency → render → validate → atomic promote → provenance → checkpoint"""
+    from pipeline.idempotency.mock_guard import assert_no_mock_in_production
+    assert_no_mock_in_production(use_mock=use_mock, stage="render")
+
     work_dir = Path(work_dir)
     out_path = Path(out_path)
     temp_path = out_path.with_name(out_path.stem + ".tmp" + out_path.suffix)
