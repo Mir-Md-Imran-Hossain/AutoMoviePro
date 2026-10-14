@@ -39,7 +39,7 @@ $addon = (float) setting($pdo, 'language_addon_price', '499');
 if ($action === 'greet' || $message === '') {
     $greetUser = match ($lang) {
         'en' => 'Say a short warm hello as the AutoMovie Pro sales agent and ask how you can help (price, languages, channels, or order).',
-        'bn' => 'সংক্ষেপে স্বাগতিক অভিবাদন দাও এবং জিজ্ঞাসা করো কীভাবে সাহায্য করতে পারো (দাম, ভাষা, চ্যানেল, অর্ডার)।',
+        'bn' => "আপনি {$agentName}, AutoMovie Pro টিমের একজন আন্তরিক প্রতিনিধি। অত্যন্ত বিনীতভাবে সালাম দিয়ে নিজের নাম বলুন এবং কাস্টমারকে কীভাবে সাহায্য করতে পারেন তা জানতে চান।",
         'hi' => 'छोटा सा गर्मजोशी भरा नमस्ते दो और पूछो कैसे मदद कर सकते हो (कीमत, भाषा, चैनल, ऑर्डर)।',
         'ur' => 'مختصر گرم جو شی سے سلام کہو اور پوچھو کیسے مدد کر سکتے ہو (قیمت، زبان، چینل، آرڈر)۔',
         'ta' => 'சுருக்கமான அன்பான வணக்கம் சொல்லி எப்படி உதவலாம் என்று கேள் (விலை, மொழி, சேனல், ஆர்டர்).',
@@ -49,7 +49,10 @@ if ($action === 'greet' || $message === '') {
     $message = $greetUser;
 }
 
-$system = amp_agent_system_prompt($lang, $price, $addon);
+$agentId = (string) ($data['agent_id'] ?? 'ayesha');
+$agentName = (string) ($data['agent_name'] ?? 'আয়েশা (Ayesha)');
+$agentRole = (string) ($data['agent_role'] ?? 'সিনিয়র কাস্টমার কনসালট্যান্ট');
+$system = amp_agent_system_prompt($lang, $price, $addon, $agentName, $agentRole);
 $messages = [];
 foreach (array_slice($history, -8) as $h) {
     if (!is_array($h)) {
@@ -68,7 +71,7 @@ if ($llm === null || $llm === '') {
     // Soft fallback — still language-specific, not one English blob
     $fallback = match ($lang) {
         'en' => "Hi! I'm here to help with AutoMovie Pro.\nCore price ৳" . (int) $price . " (English + 1 language). Extra language ৳" . (int) $addon . ".\nAsk me anything, or say you want to order.",
-        'bn' => "আসসালামু আলাইকুম! AutoMovie Pro নিয়ে সাহায্য করতে আমি আছি।\nমূল প্যাকেজ ৳" . (int) $price . " (ইংরেজি + আপনার ১টা ভাষা)। অতিরিক্ত ভাষা ৳" . (int) $addon . "।\nদাম, চ্যানেল বা অর্ডার — যা জানতে চান বলুন।",
+        'bn' => "আসসালামু আলাইকুম! আমি {$agentName}, AutoMovie Pro টিম থেকে বলছি।\nআমাদের বাণিজ্যিক প্যাকেজ ও ফিচার বা অর্ডার সম্পর্কে আপনার যেকোনো প্রশ্ন থাকলে বলুন, আমি বুঝিয়ে দিচ্ছি।",
         'hi' => "नमस्ते! AutoMovie Pro में मदद के लिए मैं हूँ।\nमुख्य पैकेज ৳" . (int) $price . " (अंग्रेज़ी + आपकी 1 भाषा)। अतिरिक्त भाषा ৳" . (int) $addon . "।\nकीमत, चैनल या ऑर्डर पूछ सकते हैं।",
         'ur' => "السلام علیکم! AutoMovie Pro میں مدد کے لیے میں موجود ہوں۔\nبنیادی پیکیج ৳" . (int) $price . " (انگریزی + آپ کی 1 زبان)۔ اضافی زبان ৳" . (int) $addon . "۔\nقیمت، چینل یا آرڈر پوچھیں۔",
         'ta' => "வணக்கம்! AutoMovie Pro உதவ நான் இங்கே இருக்கிறேன்.\nமுக்கிய பேக்கேஜ் ৳" . (int) $price . " (ஆங்கிலம் + உங்கள் 1 மொழி). கூடுதல் மொழி ৳" . (int) $addon . ".\nவிலை, சேனல் அல்லது ஆர்டர் கேளுங்கள்.",

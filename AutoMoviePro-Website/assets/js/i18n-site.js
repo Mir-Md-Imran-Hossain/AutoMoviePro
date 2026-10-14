@@ -107,7 +107,7 @@
       footer_note: "Windows ডেস্কটপ সফটওয়্যার — হাই-পারফরম্যান্স কন্টেন্ট অটোমেশন ইঞ্জিন।",
       rights_reserved: "সর্বস্বত্ব সংরক্ষিত।",
 
-      agent_toggle_btn: "👩‍💼 আয়েশা (লাইভ সেলস কনসালট্যান্ট)",
+      agent_toggle_btn: "💬 লাইভ সাপোর্ট টিম (অনলাইন)",
       agent_name: "আয়েশা (Ayesha)",
       agent_status: "অনলাইন কনসালট্যান্ট",
       agent_placeholder: "প্যাকেজ, ফিচার বা অফার নিয়ে প্রশ্ন করুন…",
@@ -227,7 +227,7 @@
       footer_note: "Windows Desktop Software — High-Performance Video Automation Platform.",
       rights_reserved: "All rights reserved.",
 
-      agent_toggle_btn: "👩‍💼 Ayesha (Live Sales Consultant)",
+      agent_toggle_btn: "💬 Live Support Team (Online)",
       agent_name: "Ayesha",
       agent_status: "Online Sales Consultant",
       agent_placeholder: "Ask about packages, pricing, or channels…",
@@ -347,7 +347,7 @@
       footer_note: "Windows डेस्कटॉप सॉफ्टवेयर — हाई-परफॉर्मेंस वीडियो ऑटोमेशन प्लेटफॉर्म।",
       rights_reserved: "सर्वाधिकार सुरक्षित।",
 
-      agent_toggle_btn: "👩‍💼 आयशा (लाइव सेल्स कंसल्टेंट)",
+      agent_toggle_btn: "💬 लाइव सपोर्ट टीम (ऑनलाइन)",
       agent_name: "आयशा (Ayesha)",
       agent_status: "ऑनलाइन सेल्स कंसल्टेंट",
       agent_placeholder: "पैकेज, कीमत या फीचर्स के बारे में पूछें…",
@@ -467,7 +467,7 @@
       footer_note: "Windows ڈیسک ٹاپ سافٹ ویئر — اعلیٰ کارکردگی والا ویڈیو آٹومیشن پلیٹ فارم۔",
       rights_reserved: "جملہ حقوق محفوظ ہیں۔",
 
-      agent_toggle_btn: "👩‍💼 عائشہ (لائیو سیلز کنسلٹنٹ)",
+      agent_toggle_btn: "💬 لائیو سپورٹ ٹیم (آن لائن)",
       agent_name: "عائشہ (Ayesha)",
       agent_status: "آن لائن سیلز کنسلٹنٹ",
       agent_placeholder: "پیکیج، قیمت یا فیچرز کے بارے میں پوچھیں…",
@@ -707,7 +707,7 @@
       footer_note: "Windows ഡെസ്ക്ടോപ്പ് സോഫ്റ്റ്‌വെയർ — ഹൈ-പെർഫോമൻസ് വീഡിയോ ഓട്ടോമേഷൻ പ്ലാറ്റ്‌ഫോം.",
       rights_reserved: "എല്ലാ അവകാശങ്ങളും നിക്ഷിപ്തം.",
 
-      agent_toggle_btn: "👩‍💼 ആയിഷ (ലൈവ് സെയിൽസ് കൺസൾട്ടന്റ്)",
+      agent_toggle_btn: "💬 ലൈവ് സപ്പോർട്ട് ടീം (ഓൺലൈൻ)",
       agent_name: "ആയിഷ (Ayesha)",
       agent_status: "ഓൺലൈൻ സെയിൽസ് കൺസൾട്ടന്റ്",
       agent_placeholder: "പാക്കേജുകൾ, വില അല്ലെങ്കിൽ സവിശേഷതകൾ ചോദിക്കുക…",

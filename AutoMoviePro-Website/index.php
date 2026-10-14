@@ -620,19 +620,21 @@ foreach ($catalog as $feat) {
     </div>
   </footer>
 
-  <!-- Floating AI Sales Consultant Widget ("আয়েশা") -->
+  <!-- Floating Multi-Agent Live Support Widget -->
   <div id="ampChat" class="amp-chat" aria-live="polite">
     <button type="button" class="amp-chat-toggle" id="ampChatToggle">
       <span class="online-dot"></span>
-      <span data-i18n="agent_toggle_btn">👩‍💼 আয়েশা (লাইভ সেলস কনসালট্যান্ট)</span>
+      <span data-i18n="agent_toggle_btn">💬 লাইভ সাপোর্ট টিম (অনলাইন)</span>
     </button>
-    <div class="amp-chat-panel" id="ampChatPanel" hidden>
+    <div class="amp-chat-panel is-hidden" id="ampChatPanel" hidden style="display: none;">
       <header class="amp-chat-head">
         <div class="amp-chat-agent-info">
-          <div class="amp-chat-avatar">👩‍💼</div>
+          <div class="amp-chat-avatar" id="ampChatAvatar">
+            <img src="/assets/img/agents/ayesha.png" id="ampChatAvatarImg" alt="Support Agent">
+          </div>
           <div class="amp-chat-name">
-            <strong data-i18n="agent_name">আয়েশা (Ayesha)</strong>
-            <span><span class="online-dot" style="width:6px; height:6px;"></span> <span data-i18n="agent_status">অনলাইন কনসালট্যান্ট</span></span>
+            <strong id="ampChatAgentName" data-i18n="agent_name">আয়েশা (Ayesha)</strong>
+            <span><span class="online-dot" style="width:6px; height:6px;"></span> <span id="ampChatAgentStatus" data-i18n="agent_status">সিনিয়র কাস্টমার কনসালট্যান্ট</span></span>
           </div>
         </div>
         <button type="button" class="amp-chat-close" id="ampChatClose" aria-label="Close">×</button>

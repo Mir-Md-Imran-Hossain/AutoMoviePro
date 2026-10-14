@@ -1,7 +1,65 @@
+/**
+ * AutoMovie Pro — Live Human Multi-Agent Support & Marketing Chat
+ * Features rotating human consultant team (Ayesha, Nirob, Tania),
+ * natural conversational sales guidance, coupon validation, and WhatsApp handoff.
+ */
 (function () {
-  const site = window.AMP_SITE || { price: 2998, addon: 499, features: [], waLink: "" };
+  const site = window.AMP_SITE || { price: 3999, addon: 499, features: [], waLink: "" };
   const history = [];
   let activeCoupon = null;
+
+  // ---------------------------------------------------------------------------
+  // Multi-Agent Rotating Support Team
+  // ---------------------------------------------------------------------------
+  const SUPPORT_TEAM = [
+    {
+      id: "ayesha",
+      name: "আয়েশা (Ayesha)",
+      role: "সিনিয়র কাস্টমার কনসালট্যান্ট",
+      avatar: "/assets/img/agents/ayesha.png",
+      greet: "আসসালামু আলাইকুম! আমি আয়েশা, AutoMovie Pro টিম থেকে বলছি। আপনাদের কীভাবে সাহায্য করতে পারি? আমাদের ৩টি প্যাকেজ, স্পেশাল অফার বা যেকোনো ফিচার সম্পর্কে জানতে চাইলে বলুন।"
+    },
+    {
+      id: "nirob",
+      name: "নীরব (Nirob)",
+      role: "টেকনিক্যাল ও প্রোডাক্ট স্পেশালিস্ট",
+      avatar: "/assets/img/agents/nirob.png",
+      greet: "আসসালামু আলাইকুম! আমি নীরব, AutoMovie Pro টেকনিক্যাল সাপোর্ট থেকে বলছি। ইউটিউব, ফেসবুক বা টিকটক অটোমেশন সফটওয়্যার নিয়ে আপনার যেকোনো প্রশ্ন থাকলে বলুন, আমি বুঝিয়ে দিচ্ছি।"
+    },
+    {
+      id: "tania",
+      name: "তানিয়া (Tania)",
+      role: "অনবোর্ডিং ও লাইসেন্স ম্যানেজার",
+      avatar: "/assets/img/agents/tania.png",
+      greet: "আসসালামু আলাইকুম! আমি তানিয়া। AutoMovie Pro লাইফটাইম লাইসেন্স প্যাকেজ, ডিসকাউন্ট কুপন বা পেমেন্ট ভেরিফিকেশন নিয়ে যেকোনো তথ্য জানতে আমাকে বলতে পারেন।"
+    }
+  ];
+
+  function getAssignedAgent() {
+    let savedId = localStorage.getItem("amp_assigned_agent_id");
+    let agent = SUPPORT_TEAM.find(function (a) { return a.id === savedId; });
+    if (!agent) {
+      // Pick random agent from team for this visitor
+      const idx = Math.floor(Math.random() * SUPPORT_TEAM.length);
+      agent = SUPPORT_TEAM[idx];
+      try {
+        localStorage.setItem("amp_assigned_agent_id", agent.id);
+      } catch (e) {}
+    }
+    return agent;
+  }
+
+  function applyAgentToUI(agent) {
+    const avatarImg = document.getElementById("ampChatAvatarImg");
+    const nameEl = document.getElementById("ampChatAgentName");
+    const statusEl = document.getElementById("ampChatAgentStatus");
+    if (avatarImg) {
+      avatarImg.src = agent.avatar;
+      avatarImg.alt = agent.name;
+    }
+    if (nameEl) nameEl.textContent = agent.name;
+    if (statusEl) statusEl.textContent = agent.role;
+  }
 
   function t(key, vars) {
     if (typeof window.ampSiteT === "function") {
@@ -18,9 +76,9 @@
     const lang = uiLang();
     const grid = document.getElementById("featureGrid");
     if (!grid || !site.features) return;
-    grid.querySelectorAll("[data-feat-id]").forEach((card) => {
+    grid.querySelectorAll("[data-feat-id]").forEach(function (card) {
       const id = card.getAttribute("data-feat-id");
-      const feat = site.features.find((f) => f.id === id);
+      const feat = site.features.find(function (f) { return f.id === id; });
       if (!feat) return;
       const pack = (feat.langs && (feat.langs[lang] || feat.langs.en)) || {};
       const title = card.querySelector(".feature-title");
@@ -43,14 +101,6 @@
       toggle.appendChild(span);
     }
 
-    const nameEl = document.querySelector(".amp-chat-name strong");
-    if (nameEl) nameEl.textContent = t("agent_name");
-
-    const statusEl = document.querySelector(".amp-chat-name span");
-    if (statusEl) {
-      statusEl.innerHTML = '<span class="online-dot" style="width:6px; height:6px;"></span> ' + t("agent_status");
-    }
-
     const input = document.getElementById("ampChatInput");
     if (input) input.placeholder = t("agent_placeholder");
 
@@ -71,7 +121,7 @@
     const personal = document.querySelector('input[name="personal_lang"]:checked');
     const personalCode = personal ? personal.value : "bn";
     const extras = [];
-    document.querySelectorAll('input[name="extra_langs[]"]').forEach((cb) => {
+    document.querySelectorAll('input[name="extra_langs[]"]').forEach(function (cb) {
       const wrap = cb.closest(".chip-addon");
       if (wrap) {
         wrap.style.display = cb.value === personalCode ? "none" : "";
@@ -108,11 +158,11 @@
     if (!log || !items || !items.length) return;
     const row = document.createElement("div");
     row.className = "amp-chat-suggestions";
-    items.forEach((s) => {
+    items.forEach(function (s) {
       const b = document.createElement("button");
       b.type = "button";
       b.textContent = s;
-      b.onclick = () => sendChat(s);
+      b.onclick = function () { sendChat(s); };
       row.appendChild(b);
     });
     log.appendChild(row);
@@ -124,12 +174,15 @@
     const input = document.getElementById("ampChatInput");
     const msg = (text || (input && input.value) || "").trim();
     const isGreet = !!options.greet;
+    const currentAgent = options.agent || getAssignedAgent();
+
     if (!isGreet && !msg) return;
     if (input && !isGreet) input.value = "";
     if (!isGreet) {
       appendChat("user", msg);
       history.push({ role: "user", content: msg });
     }
+
     const thinking = document.createElement("div");
     thinking.className = "amp-chat-bubble amp-chat-bot";
     thinking.textContent = "…";
@@ -138,6 +191,7 @@
       log.appendChild(thinking);
       log.scrollTop = log.scrollHeight;
     }
+
     try {
       const res = await fetch("/api/marketing-chat.php", {
         method: "POST",
@@ -146,12 +200,15 @@
           message: isGreet ? "" : msg,
           action: isGreet ? "greet" : "chat",
           lang: uiLang(),
+          agent_id: currentAgent.id,
+          agent_name: currentAgent.name,
+          agent_role: currentAgent.role,
           history: history.slice(-8),
         }),
       });
       const data = await res.json();
       if (thinking.parentNode) thinking.remove();
-      const reply = data.reply || "…";
+      const reply = data.reply || (isGreet ? currentAgent.greet : "…");
       appendChat("bot", reply);
       history.push({ role: "assistant", content: reply });
       if (data.suggestions && data.suggestions.length) {
@@ -165,13 +222,13 @@
         ]);
       }
       if (data.open_whatsapp && data.whatsapp_url) {
-        setTimeout(() => {
+        setTimeout(function () {
           window.open(data.whatsapp_url, "_blank");
         }, 1500);
       }
     } catch (e) {
       if (thinking.parentNode) thinking.remove();
-      appendChat("bot", t("or_whatsapp"));
+      appendChat("bot", isGreet ? currentAgent.greet : t("or_whatsapp"));
     }
   }
 
@@ -213,18 +270,21 @@
     }
   }
 
-  document.addEventListener("DOMContentLoaded", () => {
-    document.querySelectorAll('input[name="personal_lang"]').forEach((el) => {
+  // ---------------------------------------------------------------------------
+  // DOM Ready Initializer & Open/Close Handlers
+  // ---------------------------------------------------------------------------
+  document.addEventListener("DOMContentLoaded", function () {
+    document.querySelectorAll('input[name="personal_lang"]').forEach(function (el) {
       el.addEventListener("change", calcTotal);
     });
-    document.querySelectorAll('input[name="extra_langs[]"]').forEach((el) => {
-      el.addEventListener("change", calcTotal);
+    document.querySelectorAll('input[name="extra_langs[]"]').forEach(function (cb) {
+      cb.addEventListener("change", calcTotal);
     });
     calcTotal();
     refreshFeatures();
     refreshChatWidgetText();
 
-    document.addEventListener("amp-lang-change", () => {
+    document.addEventListener("amp-lang-change", function () {
       refreshFeatures();
       refreshChatWidgetText();
     });
@@ -233,22 +293,60 @@
     const panel = document.getElementById("ampChatPanel");
     const close = document.getElementById("ampChatClose");
     const form = document.getElementById("ampChatForm");
-    if (toggle && panel) {
-      toggle.onclick = () => {
-        panel.hidden = !panel.hidden;
-        if (!panel.hidden && !panel.dataset.greeted) {
-          panel.dataset.greeted = "1";
-          sendChat("", { greet: true });
+
+    // Assign team agent for this visitor
+    const assignedAgent = getAssignedAgent();
+    applyAgentToUI(assignedAgent);
+
+    function openChat() {
+      if (!panel) return;
+      panel.classList.remove("is-hidden");
+      panel.hidden = false;
+      panel.style.display = "flex";
+      applyAgentToUI(getAssignedAgent());
+      if (!panel.dataset.greeted) {
+        panel.dataset.greeted = "1";
+        sendChat("", { greet: true, agent: assignedAgent });
+      }
+      const inp = document.getElementById("ampChatInput");
+      if (inp) setTimeout(function () { inp.focus(); }, 150);
+    }
+
+    function closeChat() {
+      if (!panel) return;
+      panel.classList.add("is-hidden");
+      panel.hidden = true;
+      panel.style.display = "none";
+    }
+
+    if (toggle) {
+      toggle.onclick = function (e) {
+        e.stopPropagation();
+        const isHidden = panel.classList.contains("is-hidden") || panel.hidden || panel.style.display === "none";
+        if (isHidden) {
+          openChat();
+        } else {
+          closeChat();
         }
       };
     }
-    if (close && panel) {
-      close.onclick = () => {
-        panel.hidden = true;
+
+    if (close) {
+      close.onclick = function (e) {
+        e.stopPropagation();
+        closeChat();
       };
     }
+
+    // Close on Escape key
+    document.addEventListener("keydown", function (e) {
+      if (e.key === "Escape" && panel && !panel.hidden && panel.style.display !== "none") {
+        closeChat();
+      }
+    });
+
     if (form) {
-      form.onsubmit = (e) => {
+      form.onsubmit = function (e) {
         e.preventDefault();
         sendChat();
       };
