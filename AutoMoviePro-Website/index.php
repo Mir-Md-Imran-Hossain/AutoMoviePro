@@ -62,7 +62,7 @@ $broadcastLinkText = setting($pdo, 'broadcast_link_text', '');
   <?php endforeach; ?>
   <link rel="alternate" hreflang="x-default" href="<?= e($siteUrl) ?>/?lang=en">
   <link rel="icon" type="image/png" href="/assets/img/favicon.png">
-  <link rel="stylesheet" href="/assets/css/site.css">
+  <link rel="stylesheet" href="/assets/css/site.css?v=<?= filemtime(__DIR__ . '/assets/css/site.css') ?>">
   <script type="application/ld+json">
   <?= json_encode([
       '@context' => 'https://schema.org',
@@ -138,7 +138,7 @@ $broadcastLinkText = setting($pdo, 'broadcast_link_text', '');
           </select>
        </div>
        <a class="btn btn-sm btn-wa" href="<?= e($waLink) ?>" target="_blank" rel="noopener" data-i18n="chat_whatsapp">WhatsApp</a>
-      <a class="btn btn-sm" href="#buy" data-i18n="buy_now">এখনই কিনুন</a>
+      <a class="btn btn-sm" href="#buy" data-i18n="header_buy_btn">এখনই কিনুন</a>
     </div>
   </header>
 
@@ -193,23 +193,23 @@ $broadcastLinkText = setting($pdo, 'broadcast_link_text', '');
   <section id="income" class="reveal pitch-strip">
     <div class="section-head">
       <h2 data-i18n="income_title">প্রতিটা ভিডিও আলাদা আলাদা ভাষায় অটোমেটিক ট্রান্সলেশন ও একটি ভিডিও দিয়েই আলাদা আলাদা ভাষার প্ল্যাটফর্ম থেকে অধিক প্যাসিভ ইনকামের সুবিধা।</h2>
-      <p class="lead" data-i18n="income_lead">আপনার তৈরি করা প্রতিটি ভিডিও স্বয়ংক্রিয়ভাবে বিশ্বের বিভিন্ন ভাষায় ট্রান্সলেট হবে এবং নিখুঁত লোকাল অডিও ও সাবটাইটেল সহ ভিন্ন ভিন্ন দেশের অডিয়েন্সের কাছে পৌঁছে যাবে। একটিমাত্র ভিডিও থেকেই আপনি ইংরেজি, হিন্দি, আরবি, স্প্যানিশ বা অন্যান্য বড় ভাষার প্ল্যাটফর্ম থেকে বহু গুণ বেশি আরপিএম ও গ্লোবাল প্যাসিভ ইনকাম জেনারেট করতে পারবেন।</p>
+      <p class="lead" data-i18n="income_lead">আমাদের বর্তমানে ৬টিরও বেশি ভাষা সেটআপ করা আছে এবং প্রতিনিয়ত নতুন নতুন ভাষা যুক্ত হচ্ছে। প্রতিটি ভাষায় লোকালাইজেশনের মাধ্যমে সেই ভাষার লোকাল টিউন, ভাবগাম্ভীর্য ও সংস্কৃতি অ্যানালাইসিসের মাধ্যমে ভিডিওটি অত্যন্ত নিখুঁতভাবে ট্রান্সলেশন হয়। তাই একটি ভিডিও দিয়েই আপনি আলাদা আলাদা ভাষার জন্য আলাদা আলাদা ইউটিউব চ্যানেল, ফেসবুক পেজ এবং টিকটক একাউন্ট ক্রিয়েট করে প্রত্যেক একাউন্ট থেকে আলাদা আলাদা প্যাসিভ ইনকাম করতে পারবেন।</p>
     </div>
     <div class="pitch-grid pitch-grid-3">
       <div class="pitch-card">
         <div class="pitch-card-icon">📺</div>
         <h3 data-i18n="pitch_yt">YouTube মাল্টি-চ্যানেল নেটওয়ার্ক</h3>
-        <p data-i18n="pitch_yt_desc">বিভিন্ন ভাষায় মনিটাইজড চ্যানেল গ্রো করুন এবং গ্লোবাল হাই আরপিএম আয় করুন।</p>
+        <p data-i18n="pitch_yt_desc">আলাদা আলাদা ভাষায় ইউটিউব চ্যানেল ক্রিয়েট করে একই ভিডিও একাধিক ভাষায় আপলোড করুন এবং গ্লোবাল প্রিমিয়াম হাই-সিপিএম অ্যাড রেভিনিউ আয় করুন।</p>
       </div>
       <div class="pitch-card">
         <div class="pitch-card-icon">📱</div>
         <h3 data-i18n="pitch_fb">Facebook মাল্টি-পেজ ও রিলস স্ট্রিম</h3>
-        <p data-i18n="pitch_fb_desc">মেটা ক্রিয়েটর প্রোগ্রাম ও ইন-স্ট্রিম অ্যাডস থেকে স্বয়ংক্রিয় আয়ের শক্তিশালী নেটওয়ার্ক।</p>
+        <p data-i18n="pitch_fb_desc">ফেসবুক রিলস ও পেজ পোস্ট একযোগে অটো-পাইলটে পরিচালনা করে দেশীয় ও আন্তর্জাতিক ফলোয়ার বাড়িয়ে ইন-স্ট্রিম অ্যাড মনিটাইজেশন আর্ন করুন।</p>
       </div>
       <div class="pitch-card">
         <div class="pitch-card-icon">🎵</div>
         <h3 data-i18n="pitch_tt">TikTok গ্লোবাল ভাইরাল ডেস্টিনেশন</h3>
-        <p data-i18n="pitch_tt_desc">শর্ট-ফর্ম কনটেন্টের মাধ্যমে হাইপার-গ্রোথ এবং গ্লোবাল ক্রিয়েটর রিওয়ার্ডস আর্ন করুন।</p>
+        <p data-i18n="pitch_tt_desc">টিকটক ক্রিয়েটর রিওয়ার্ডস প্রোগ্রামের জন্য হাইপার-এনগেজিং শর্ট ভিডিও দিয়ে বিশ্বজুড়ে ভাইরাল হয়ে সরাসরি প্যাসিভ ডলার ইনকাম করুন।</p>
       </div>
     </div>
   </section>
@@ -247,7 +247,7 @@ $broadcastLinkText = setting($pdo, 'broadcast_link_text', '');
         </ul>
         <div class="engine-card-actions">
           <button type="button" class="btn btn-ghost btn-engine-details" onclick="window.switchWorkflowTab('engine_social')" data-i18n="engine_see_steps">ফিচার ও ধাপসমূহ দেখুন</button>
-          <a href="#buy" class="btn btn-engine-order" onclick="window.selectEngineRadio('video_studio')" data-i18n="engine_order_now">অর্ডার করুন (৳৩,৯৯৯)</a>
+          <a href="#buy" class="btn btn-engine-order" onclick="window.selectEngineRadio('video_studio')" data-i18n="engine1_order_btn">অর্ডার করুন (৳৩,৯৯৯)</a>
         </div>
       </div>
 
@@ -273,7 +273,7 @@ $broadcastLinkText = setting($pdo, 'broadcast_link_text', '');
         </ul>
         <div class="engine-card-actions">
           <button type="button" class="btn btn-ghost btn-engine-details" onclick="window.switchWorkflowTab('engine_business')" data-i18n="engine_see_steps">ফিচার ও ধাপসমূহ দেখুন</button>
-          <a href="#buy" class="btn btn-engine-order btn-amber" onclick="window.selectEngineRadio('fb_business')" data-i18n="engine_order_now">অর্ডার করুন (৳২,৯৯৯)</a>
+          <a href="#buy" class="btn btn-engine-order btn-amber" onclick="window.selectEngineRadio('fb_business')" data-i18n="engine2_order_btn">অর্ডার করুন (৳২,৯৯৯)</a>
         </div>
       </div>
 
@@ -299,7 +299,7 @@ $broadcastLinkText = setting($pdo, 'broadcast_link_text', '');
         </ul>
         <div class="engine-card-actions">
           <button type="button" class="btn btn-ghost btn-engine-details" onclick="window.switchWorkflowTab('engine_profile')" data-i18n="engine_see_steps">ফিচার ও ধাপসমূহ দেখুন</button>
-          <a href="#buy" class="btn btn-engine-order btn-emerald" onclick="window.selectEngineRadio('profile_page')" data-i18n="engine_order_now">অর্ডার করুন (৳১,৯৯৯)</a>
+          <a href="#buy" class="btn btn-engine-order btn-emerald" onclick="window.selectEngineRadio('profile_page')" data-i18n="engine3_order_btn">অর্ডার করুন (৳১,৯৯৯)</a>
         </div>
       </div>
     </div>
@@ -309,7 +309,7 @@ $broadcastLinkText = setting($pdo, 'broadcast_link_text', '');
   <section id="how" class="reveal">
     <div class="section-head">
       <h2 id="howMainTitle" data-i18n="how_it_works">Automovie Pro - Social Media Content Automation Engine কিভাবে কাজ করে?</h2>
-      <p class="lead" id="howMainLead" data-i18n="how_lead">সম্পূর্ণ স্বয়ংক্রিয় ৯টি ধাপে ভাইরাল কনটেন্ট রিসার্চ থেকে শুরু করে ভিডিও তৈরি, গ্লোবাল ট্রান্সলেশন ও মাল্টি-প্ল্যাটফর্ম পাবলিশিং।</p>
+      <p class="lead" id="howMainLead" data-i18n="how_lead">লগইন করে চ্যানেলের নাম, নিশ এবং চ্যানেল কানেক্ট করে ওয়ান-টাইম সেটআপ। তারপর আপনার আর কিছুই করতে হবে না — আমাদের সফটওয়্যারটি সম্পূর্ণ ৯টি ধাপে পুরো বিষয়গুলো পরিচালনা করবে।</p>
     </div>
 
     <!-- Engine Workflow Switcher Tabs -->
@@ -331,47 +331,47 @@ $broadcastLinkText = setting($pdo, 'broadcast_link_text', '');
         <li class="step-card">
           <div class="step-num">01</div>
           <h4 data-i18n="e1_step1_title">নিশ রিসার্চ ও ট্রেন্ডিং টপিক অ্যানালাইসিস</h4>
-          <p data-i18n="e1_step1_desc">রিয়েল-টাইম ট্রেন্ডিং টপিক ও কম্পিটিটর ডেটা অ্যানালাইসিস করে সর্বোচ্চ ভিউ পাওয়ার মতো ভাইরাল টপিক সিলেক্ট করে।</p>
+          <p data-i18n="e1_step1_desc">আপনার নির্দিষ্ট নিশ এর উপরে ভিত্তি করে Google এবং YouTube API এর মাধ্যমে নিজেই বর্তমানের সবচাইতে ট্রেন্ডিং টপিক খুঁজে বের করে।</p>
         </li>
         <li class="step-card">
           <div class="step-num">02</div>
           <h4 data-i18n="e1_step2_title">ভাইরাল হুক সহ ফুল এআই ভিডিও স্ক্রিপ্ট জেনারেশন</h4>
-          <p data-i18n="e1_step2_desc">প্রথম ৩ সেকেন্ডের প্যাটার্ন ইন্টারাপ্ট হুক, আকর্ষক স্টোরিলাইন এবং হাই-রিটেনশন স্ক্রিপ্ট নিজে থেকেই লেখে।</p>
+          <p data-i18n="e1_step2_desc">নির্দিষ্ট ট্রেন্ডিং টপিকের ভিত্তিতে সঠিক ইমোশন ও সিনেমাটিক ভিউসহ অত্যন্ত নিখুঁতভাবে ভিডিও এবং অডিওর জন্য আলাদা স্ক্রিপ্ট লিখে দেয়।</p>
         </li>
         <li class="step-card">
           <div class="step-num">03</div>
           <h4 data-i18n="e1_step3_title">কাইনেটিক মোশন কার্ড ও সিনেমাটিক ভিজ্যুয়াল ক্রিয়েশন</h4>
-          <p data-i18n="e1_step3_desc">স্ক্রিপ্টের সাথে মানানসই আল্ট্রা-এইচডি সিনেমাটিক সিন, মোশন গ্রাফিক্স ও ডায়নামিক সাবটাইটেল তৈরি করে।</p>
+          <p data-i18n="e1_step3_desc">স্ক্রিপ্টের প্রতিটি সিন এবং অডিও গভীরভাবে অ্যানালাইসিস করে প্রতিটি সিনের ভিত্তিতে আলাদা আলাদা ভিডিও ক্লিপ জেনারেশন করে।</p>
         </li>
         <li class="step-card">
           <div class="step-num">04</div>
           <h4 data-i18n="e1_step4_title">১০০% স্বাভাবিক মানবিক বাংলা এআই ভয়েসওভার</h4>
-          <p data-i18n="e1_step4_desc">কোনো রোবোটিক টোন ছাড়া একদম জীবন্ত ও আকর্ষণীয় কণ্ঠের স্টুдио কোয়ালিটি ভয়েসওভার প্রস্তুত করে।</p>
+          <p data-i18n="e1_step4_desc">অডিও স্ক্রিপ্ট দিয়ে আলাদা আলাদা ভাষায় লোকালাইজেশন করে সঠিক ইমোশনসহ রোবোটিক টিউন লেস অডিও জেনারেশন করে।</p>
         </li>
         <li class="step-card">
           <div class="step-num">05</div>
           <h4 data-i18n="e1_step5_title">হাই-সিপিএম গ্লোবাল মাল্টি-ল্যাঙ্গুয়েজ ট্রান্সলেশন</h4>
-          <p data-i18n="e1_step5_desc">একই ভিডিওকে ইংরেজি, হিন্দি, আরবি সহ বিভিন্ন ভাষায় স্বয়ংক্রিয়ভাবে লোকাল অডিও ও সাবটাইটেল সহ রূপান্তর করে।</p>
+          <p data-i18n="e1_step5_desc">প্রতিটি ভিডিও ক্লিপ এবং অডিও একসাথে জোড়া লাগিয়ে নির্দিষ্ট ভাষার ভিত্তিতে সাবটাইটেল ও সাউন্ড ইফেক্ট বসিয়ে ভিডিও রেন্ডার করে।</p>
         </li>
         <li class="step-card">
           <div class="step-num">06</div>
           <h4 data-i18n="e1_step6_title">স্টুডিও মাস্টার ভিডিও ও ফুল এইচডি রিলস রেন্ডারিং</h4>
-          <p data-i18n="e1_step6_desc">১৬:৯ লং ভিডিও এবং ৯:১৬ ভাইরাল রিলস/শর্টস দুটোই হাই-স্পিড এফএফএমপ্যাগ ইঞ্জিনে হাই কোয়ালিটিতে রেন্ডার করে।</p>
+          <p data-i18n="e1_step6_desc">এরপর নির্দিষ্ট নিস, চ্যানেলের লোগো ও ভিডিওর বিষয়বস্তুর উপর ভিত্তি করে SEO ফ্রেন্ডলি থাম্বনেইল, টাইটেল, ডেসক্রিপশন এবং ট্যাগ জেনারেট করে।</p>
         </li>
         <li class="step-card">
           <div class="step-num">07</div>
           <h4 data-i18n="e1_step7_title">ইউটিউব, ফেসবুক ও টিকটকে অটোমেটিক শিডিউল পাবলিশিং</h4>
-          <p data-i18n="e1_step7_desc">নির্ধারিত সময় অনুযায়ী সরাসরি আপনার ইউটিউব চ্যানেল, ফেসবুক পেজ এবং টিকটক একাউন্টে স্বয়ংক্রিয়ভাবে ভিডিও আপলোড করে।</p>
+          <p data-i18n="e1_step7_desc">ভিডিও প্রস্তুত হলে নির্ধারিত সময়ে প্রতিটি ভাষার জন্য আলাদা আলাদা প্ল্যাটফর্মে এবং আলাদা আলাদা অ্যাকাউন্টে ভিডিওগুলো আপলোড করে।</p>
         </li>
         <li class="step-card">
           <div class="step-num">08</div>
           <h4 data-i18n="e1_step8_title">প্রাসঙ্গিক গ্রুপ সমূহে অটোমেটিক পোস্ট শেয়ারিং</h4>
-          <p data-i18n="e1_step8_desc">আপনার নিশ অনুযায়ী অনুমোদিত ফেসবুক গ্রুপগুলোতে অর্গানিক রিচ বাড়ানোর জন্য স্বয়ংক্রিয়ভাবে ভিডিও শেয়ার করে।</p>
+          <p data-i18n="e1_step8_desc">আপলোড হওয়ার পর প্রতিটি ভিডিও সার্বক্ষণিক নজরদারি করে এবং ভিডিওর টপিকের ভিত্তিতে কমেন্ট ও পেইজের মেসেজের উত্তর দেয়।</p>
         </li>
         <li class="step-card">
           <div class="step-num">09</div>
           <h4 data-i18n="e1_step9_title">২৪/৭ স্মার্ট অটোমেটিক কমেন্ট ও ইনবক্স রেসপন্স</h4>
-          <p data-i18n="e1_step9_desc">ভিডিওর নিচে আসা দর্শকদের কমেন্ট ও পেজের ইনবক্স মেসেজে মানবিক ভাষায় সঠিক তথ্য দিয়ে স্বয়ংক্রিয় উত্তর দেয়।</p>
+          <p data-i18n="e1_step9_desc">সবশেষে একটি সোশ্যাল মিডিয়া ইঞ্জিনিয়ার এজেন্ট ভিডিওগুলো অ্যানালাইসিস করে নির্দিষ্ট গ্রুপে শেয়ার করে ভিউ বাড়ানোর চেষ্টা করে।</p>
         </li>
       </ol>
     </div>
@@ -461,7 +461,7 @@ $broadcastLinkText = setting($pdo, 'broadcast_link_text', '');
         <div style="background: rgba(11, 21, 40, 0.85); border: 2px solid #38bdf8; border-radius: var(--radius-xl); padding: 2rem; display: flex; flex-direction: column; justify-content: space-between; position: relative; box-shadow: 0 0 35px rgba(56, 189, 248, 0.15);">
           <span style="position: absolute; top: -14px; right: 24px; background: #38bdf8; color: #020617; font-size: 0.82rem; font-weight: 800; padding: 4px 14px; border-radius: 999px;">🎬 ফুল কন্টেন্ট পাওয়ারহাউজ</span>
           <div>
-            <h3 style="color: #38bdf8; font-size: 1.35rem; margin-bottom: 0.5rem;" data-i18n="engine1_name">১. Automovie Pro - Social Media Content Automation Engine</h3>
+            <h3 style="color: #38bdf8; font-size: 1.35rem; margin-bottom: 0.5rem;" data-i18n="pkg1_title">১. Automovie Pro - Social Media Content Automation Engine</h3>
             <p style="color: #94a3b8; font-size: 0.9rem; line-height: 1.5; margin-bottom: 1.25rem;">
               ইউটিউব, ফেসবুক ও টিকটকের জন্য শর্ট ও লং ভিডিও তৈরি, রিলস, স্বয়ংক্রিয় শিডিউল আপলোড এবং কমেন্ট/ইনবক্স রেসপন্স।
             </p>
@@ -485,7 +485,7 @@ $broadcastLinkText = setting($pdo, 'broadcast_link_text', '');
         <div style="background: rgba(11, 21, 40, 0.85); border: 2px solid #f59e0b; border-radius: var(--radius-xl); padding: 2rem; display: flex; flex-direction: column; justify-content: space-between; position: relative; box-shadow: 0 0 35px rgba(245, 158, 11, 0.15);">
           <span style="position: absolute; top: -14px; right: 24px; background: #f59e0b; color: #020617; font-size: 0.82rem; font-weight: 800; padding: 4px 14px; border-radius: 999px;">💼 বিজনেস ও সেলস ম্যানেজার</span>
           <div>
-            <h3 style="color: #fbbf24; font-size: 1.35rem; margin-bottom: 0.5rem;" data-i18n="engine2_name">২. Automovie Pro - FB Business Manager & Ad Automation Engine</h3>
+            <h3 style="color: #fbbf24; font-size: 1.35rem; margin-bottom: 0.5rem;" data-i18n="pkg2_title">২. Automovie Pro - FB Business Manager & Ad Automation Engine</h3>
             <p style="color: #94a3b8; font-size: 0.9rem; line-height: 1.5; margin-bottom: 1.25rem;">
               বিজনেস পেজের সেলস গ্রাফিক্স/ব্যানার তৈরি, কাইনেটিক বিজ্ঞাপন ভিডিও, গ্রুপে অর্গানিক শেয়ার এবং মেসেঞ্জার সেলস রিপ্লাই।
             </p>
@@ -509,7 +509,7 @@ $broadcastLinkText = setting($pdo, 'broadcast_link_text', '');
         <div style="background: rgba(11, 21, 40, 0.85); border: 2px solid #10b981; border-radius: var(--radius-xl); padding: 2rem; display: flex; flex-direction: column; justify-content: space-between; position: relative; box-shadow: 0 0 35px rgba(16, 185, 129, 0.15);">
           <span style="position: absolute; top: -14px; right: 24px; background: #10b981; color: #020617; font-size: 0.82rem; font-weight: 800; padding: 4px 14px; border-radius: 999px;">📱 প্রোফাইল ও পেজ অটোমেশন</span>
           <div>
-            <h3 style="color: #34d399; font-size: 1.35rem; margin-bottom: 0.5rem;" data-i18n="engine3_name">৩. Automovie Pro - FB Profile & Page Post Automation Engine</h3>
+            <h3 style="color: #34d399; font-size: 1.35rem; margin-bottom: 0.5rem;" data-i18n="pkg3_title">৩. Automovie Pro - FB Profile & Page Post Automation Engine</h3>
             <p style="color: #94a3b8; font-size: 0.9rem; line-height: 1.5; margin-bottom: 1.25rem;">
               ব্যক্তিগত প্রোফাইল ও পেজের জন্য নির্দিষ্ট নিসভিত্তিক পোস্ট রাইটিং, ব্রান্ডেড কোট ব্যানার ও গ্রুপে অর্গানিক শেয়ার।
             </p>
@@ -757,7 +757,7 @@ $broadcastLinkText = setting($pdo, 'broadcast_link_text', '');
                   <span class="engine-pill pill-cyan">🎬 ফুল কন্টেন্ট পাওয়ারহাউজ</span>
                   <span class="engine-select-price">৳৩,৯৯৯</span>
                 </div>
-                <h4 data-i18n="engine1_name">১. Social Media Content Automation Engine</h4>
+                <h4 data-i18n="engine1_radio_title">১. Social Media Content Automation Engine</h4>
                 <p>সম্পূর্ণ এআই ভিডিও তৈরি, ট্রান্সলেশন এবং YouTube, Facebook ও TikTok-এ অটোমেটিক আপলোড।</p>
               </div>
             </label>
@@ -769,7 +769,7 @@ $broadcastLinkText = setting($pdo, 'broadcast_link_text', '');
                   <span class="engine-pill pill-amber">💼 বিজনেস ও সেলস ম্যানেজার</span>
                   <span class="engine-select-price">৳২,৯৯৯</span>
                 </div>
-                <h4 data-i18n="engine2_name">২. FB Business Manager & Ad Automation Engine</h4>
+                <h4 data-i18n="engine2_radio_title">২. FB Business Manager & Ad Automation Engine</h4>
                 <p>সেলস ব্যানার, বিজ্ঞাপন ভিডিও, গ্রুপে অর্গানিক শেয়ার ও মেসেঞ্জারে ২৪/৭ স্মার্ট সেলস রিপ্লাই।</p>
               </div>
             </label>
@@ -781,7 +781,7 @@ $broadcastLinkText = setting($pdo, 'broadcast_link_text', '');
                   <span class="engine-pill pill-emerald">📱 প্রোফাইল ও পেজ অটো-পাইলট</span>
                   <span class="engine-select-price">৳১,৯৯৯</span>
                 </div>
-                <h4 data-i18n="engine3_name">৩. FB Profile & Page Post Automation Engine</h4>
+                <h4 data-i18n="engine3_radio_title">৩. FB Profile & Page Post Automation Engine</h4>
                 <p>ইসলামিক হাদিস/উক্তি ব্যানার তৈরি, টাইমলাইনে অটো পোস্ট এবং গ্রুপ সমূহে নিরাপদ অর্গানিক শেয়ারিং।</p>
               </div>
             </label>
@@ -926,7 +926,7 @@ $broadcastLinkText = setting($pdo, 'broadcast_link_text', '');
     </div>
 
     <div class="carousel-controls-bottom">
-      <div class="carousel-counter" id="revCounter">১ - ৩ / <?= count($approvedReviews) ?> রিভিউ</div>
+      <div class="carousel-counter" id="revCounter">১ - ৩</div>
     </div>
   </section>
 
@@ -1087,9 +1087,9 @@ $broadcastLinkText = setting($pdo, 'broadcast_link_text', '');
     </div>
   </div>
 
-  <script src="/assets/js/i18n-site.js"></script>
-  <script src="/assets/js/site.js"></script>
-  <script src="/assets/js/marketing-chat.js"></script>
+  <script src="/assets/js/i18n-site.js?v=<?= filemtime(__DIR__ . '/assets/js/i18n-site.js') ?>"></script>
+  <script src="/assets/js/site.js?v=<?= filemtime(__DIR__ . '/assets/js/site.js') ?>"></script>
+  <script src="/assets/js/marketing-chat.js?v=<?= filemtime(__DIR__ . '/assets/js/marketing-chat.js') ?>"></script>
 
   <script>
     document.addEventListener('DOMContentLoaded', () => {
@@ -1135,7 +1135,7 @@ $broadcastLinkText = setting($pdo, 'broadcast_link_text', '');
           const visibleCards = Math.max(1, Math.round(track.clientWidth / cardWidth));
           const currentIndex = Math.min(totalCards - 1, Math.max(0, Math.round(scrollPos / cardWidth)));
           const endNum = Math.min(totalCards, currentIndex + visibleCards);
-          counter.textContent = `${currentIndex + 1} - ${endNum} / ${totalCards}+ রিভিউ`;
+          counter.textContent = `${currentIndex + 1} - ${endNum}`;
         };
 
         if (prevBtn) {

@@ -25,7 +25,7 @@ $error = !empty($_GET['error']);
   <title><?= e($brand) ?> — Checkout</title>
   <meta name="robots" content="noindex">
   <link rel="icon" type="image/png" href="/assets/img/favicon.png">
-  <link rel="stylesheet" href="/assets/css/site.css">
+  <link rel="stylesheet" href="/assets/css/site.css?v=<?= filemtime(__DIR__ . '/assets/css/site.css') ?>">
   <script>
     window.AMP_SITE = {
       price: <?= json_encode($price) ?>,
@@ -489,8 +489,8 @@ $error = !empty($_GET['error']);
     </div>
   </div>
 
-  <script src="/assets/js/i18n-site.js"></script>
-  <script src="/assets/js/site.js"></script>
-  <script src="/assets/js/marketing-chat.js"></script>
+  <script src="/assets/js/i18n-site.js?v=<?= filemtime(__DIR__ . '/assets/js/i18n-site.js') ?>"></script>
+  <script src="/assets/js/site.js?v=<?= filemtime(__DIR__ . '/assets/js/site.js') ?>"></script>
+  <script src="/assets/js/marketing-chat.js?v=<?= filemtime(__DIR__ . '/assets/js/marketing-chat.js') ?>"></script>
 </body>
 </html>
