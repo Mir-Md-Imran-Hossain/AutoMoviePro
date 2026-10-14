@@ -50,13 +50,21 @@
   }
 
   function applyAgentToUI(agent) {
-    const avatarImg = document.getElementById("ampChatAvatarImg");
+    const avatarImgs = [
+      document.getElementById("ampLauncherAvatar"),
+      document.getElementById("ampChoiceAvatar"),
+      document.getElementById("ampConnectingAvatar"),
+      document.getElementById("ampChatAvatarImg"),
+    ];
+    avatarImgs.forEach(function (img) {
+      if (img) {
+        img.src = agent.avatar;
+        img.alt = agent.name;
+      }
+    });
+
     const nameEl = document.getElementById("ampChatAgentName");
     const statusEl = document.getElementById("ampChatAgentStatus");
-    if (avatarImg) {
-      avatarImg.src = agent.avatar;
-      avatarImg.alt = agent.name;
-    }
     if (nameEl) nameEl.textContent = agent.name;
     if (statusEl) statusEl.textContent = agent.role;
   }
@@ -70,9 +78,10 @@
 
   function t(key, vars) {
     if (typeof window.ampSiteT === "function") {
-      return window.ampSiteT(key, vars);
+      const val = window.ampSiteT(key, vars);
+      if (val !== null && val !== undefined) return val;
     }
-    return key;
+    return "";
   }
 
   function uiLang() {
@@ -107,30 +116,29 @@
   }
 
   function refreshChatWidgetText() {
-    const toggle = document.getElementById("ampChatToggle");
-    if (toggle) {
-      const dot = toggle.querySelector(".online-dot");
-      toggle.innerHTML = "";
-      if (dot) toggle.appendChild(dot);
-      const span = document.createElement("span");
-      span.textContent = " " + t("agent_toggle_btn");
-      toggle.appendChild(span);
+    const input = document.getElementById("ampChatInput");
+    if (input) {
+      const ph = t("agent_placeholder");
+      if (ph) input.placeholder = ph;
     }
 
-    const input = document.getElementById("ampChatInput");
-    if (input) input.placeholder = t("agent_placeholder");
-
     const sendBtn = document.querySelector("#ampChatForm button");
-    if (sendBtn) sendBtn.textContent = t("agent_send");
-
-    const waLink = document.getElementById("ampChatWa");
-    if (waLink) waLink.textContent = t("agent_wa_link");
+    if (sendBtn) {
+      const st = t("agent_send");
+      if (st) sendBtn.textContent = st;
+    }
 
     const tabSoft = document.getElementById("tabSoftwareBtn");
-    if (tabSoft) tabSoft.textContent = t("tab_software");
+    if (tabSoft) {
+      const ts = t("tab_software");
+      if (ts) tabSoft.textContent = ts;
+    }
 
     const tabGpro = document.getElementById("tabGoogleProBtn");
-    if (tabGpro) tabGpro.textContent = t("tab_google_pro");
+    if (tabGpro) {
+      const tg = t("tab_google_pro");
+      if (tg) tabGpro.textContent = tg;
+    }
   }
 
   function calcTotal() {
@@ -358,59 +366,155 @@
       refreshChatWidgetText();
     });
 
-    const toggle = document.getElementById("ampChatToggle");
+    const launcher = document.getElementById("ampChatLauncher");
+    const choiceCard = document.getElementById("ampChoiceCard");
+    const choiceClose = document.getElementById("ampChoiceClose");
+    const startLiveBtn = document.getElementById("ampStartLiveAgentBtn");
     const panel = document.getElementById("ampChatPanel");
-    const close = document.getElementById("ampChatClose");
+    const chatBack = document.getElementById("ampChatBack");
+    const chatClose = document.getElementById("ampChatClose");
     const form = document.getElementById("ampChatForm");
 
     // Assign team agent for this visitor
     const assignedAgent = getAssignedAgent();
     applyAgentToUI(assignedAgent);
 
-    function openChat() {
+    function closeAll() {
+      if (choiceCard) {
+        choiceCard.classList.add("is-hidden");
+        choiceCard.style.display = "none";
+      }
+      if (panel) {
+        panel.classList.add("is-hidden");
+        panel.hidden = true;
+        panel.style.display = "none";
+      }
+    }
+
+    function openChoiceCard() {
+      if (!choiceCard) return;
+      if (panel) {
+        panel.classList.add("is-hidden");
+        panel.style.display = "none";
+      }
+      choiceCard.classList.remove("is-hidden");
+      choiceCard.style.display = "flex";
+      applyAgentToUI(getAssignedAgent());
+    }
+
+    function startConnectingSequence(agent, onComplete) {
+      const overlay = document.getElementById("ampConnectingOverlay");
+      const title = document.getElementById("ampConnectingTitle");
+      const desc = document.getElementById("ampConnectingDesc");
+      const prog = document.getElementById("ampConnectingProgress");
+
+      if (!overlay || panel.dataset.greeted) {
+        if (overlay) overlay.style.display = "none";
+        if (!panel.dataset.greeted) {
+          panel.dataset.greeted = "1";
+          sendChat("", { greet: true, agent: agent });
+        }
+        const inp = document.getElementById("ampChatInput");
+        if (inp) setTimeout(function () { inp.focus(); }, 150);
+        if (onComplete) onComplete();
+        return;
+      }
+
+      overlay.style.display = "flex";
+      overlay.style.opacity = "1";
+      if (prog) prog.style.width = "15%";
+      if (title) title.textContent = "লাইভ সাপোর্ট সক্রিয় হচ্ছে…";
+      if (desc) desc.textContent = "🔄 আপনার জন্য একজন কাস্টমার কনসালট্যান্ট নির্ধারণ করা হচ্ছে...";
+
+      // Step 2: Agent Assigned (700ms)
+      setTimeout(function () {
+        if (prog) prog.style.width = "65%";
+        if (title) title.textContent = agent.name + " দায়িত্ব নিচ্ছেন…";
+        if (desc) desc.textContent = "👤 " + agent.name + " (" + agent.role + ") আপনার চ্যাটের দায়িত্ব গ্রহণ করেছেন...";
+      }, 700);
+
+      // Step 3: Connection Established (1400ms)
+      setTimeout(function () {
+        if (prog) prog.style.width = "100%";
+        if (title) title.textContent = "✅ লাইভ সংযোগ স্থাপিত!";
+        if (desc) desc.textContent = "এখনই চ্যাট শুরু হচ্ছে...";
+      }, 1400);
+
+      // Step 4: Fade out and greet (1750ms)
+      setTimeout(function () {
+        overlay.style.opacity = "0";
+        setTimeout(function () {
+          overlay.style.display = "none";
+          if (!panel.dataset.greeted) {
+            panel.dataset.greeted = "1";
+            sendChat("", { greet: true, agent: agent });
+          }
+          const inp = document.getElementById("ampChatInput");
+          if (inp) inp.focus();
+          if (onComplete) onComplete();
+        }, 350);
+      }, 1750);
+    }
+
+    function openLiveChat() {
       if (!panel) return;
+      if (choiceCard) {
+        choiceCard.classList.add("is-hidden");
+        choiceCard.style.display = "none";
+      }
       panel.classList.remove("is-hidden");
       panel.hidden = false;
       panel.style.display = "flex";
       applyAgentToUI(getAssignedAgent());
-      if (!panel.dataset.greeted) {
-        panel.dataset.greeted = "1";
-        sendChat("", { greet: true, agent: assignedAgent });
-      }
-      const inp = document.getElementById("ampChatInput");
-      if (inp) setTimeout(function () { inp.focus(); }, 150);
+      startConnectingSequence(getAssignedAgent());
     }
 
-    function closeChat() {
-      if (!panel) return;
-      panel.classList.add("is-hidden");
-      panel.hidden = true;
-      panel.style.display = "none";
-    }
-
-    if (toggle) {
-      toggle.onclick = function (e) {
+    // Launcher click toggles choice card or closes active panel
+    if (launcher) {
+      launcher.onclick = function (e) {
         e.stopPropagation();
-        const isHidden = panel.classList.contains("is-hidden") || panel.hidden || panel.style.display === "none";
-        if (isHidden) {
-          openChat();
+        const isChoiceOpen = choiceCard && !choiceCard.classList.contains("is-hidden") && choiceCard.style.display !== "none";
+        const isPanelOpen = panel && !panel.classList.contains("is-hidden") && panel.style.display !== "none";
+        if (isChoiceOpen || isPanelOpen) {
+          closeAll();
         } else {
-          closeChat();
+          openChoiceCard();
         }
       };
     }
 
-    if (close) {
-      close.onclick = function (e) {
+    if (choiceClose) {
+      choiceClose.onclick = function (e) {
         e.stopPropagation();
-        closeChat();
+        closeAll();
+      };
+    }
+
+    if (startLiveBtn) {
+      startLiveBtn.onclick = function (e) {
+        e.stopPropagation();
+        openLiveChat();
+      };
+    }
+
+    if (chatBack) {
+      chatBack.onclick = function (e) {
+        e.stopPropagation();
+        openChoiceCard();
+      };
+    }
+
+    if (chatClose) {
+      chatClose.onclick = function (e) {
+        e.stopPropagation();
+        closeAll();
       };
     }
 
     // Close on Escape key
     document.addEventListener("keydown", function (e) {
-      if (e.key === "Escape" && panel && !panel.hidden && panel.style.display !== "none") {
-        closeChat();
+      if (e.key === "Escape") {
+        closeAll();
       }
     });
 

@@ -722,31 +722,105 @@ $broadcastLinkText = setting($pdo, 'broadcast_link_text', '');
     </div>
   </footer>
 
-  <!-- Floating Multi-Agent Live Support Widget -->
+  <!-- Floating Multi-Agent Live Support & WhatsApp Launcher Widget -->
   <div id="ampChat" class="amp-chat" aria-live="polite">
-    <button type="button" class="amp-chat-toggle" id="ampChatToggle">
-      <span class="online-dot"></span>
-      <span data-i18n="agent_toggle_btn">💬 লাইভ সাপোর্ট টিম (অনলাইন)</span>
+    <!-- 1. Sleek Floating Launcher Button -->
+    <button type="button" class="amp-chat-launcher" id="ampChatLauncher" aria-label="Open Live Support">
+      <div class="launcher-avatar-wrap">
+        <img src="/assets/img/agents/ayesha.png" id="ampLauncherAvatar" alt="Support Agent">
+        <span class="online-dot"></span>
+      </div>
+      <div class="launcher-label">
+        <span class="launcher-title">লাইভ সাপোর্ট</span>
+        <span class="launcher-sub">অনলাইন • কথা বলুন</span>
+      </div>
+      <span class="launcher-close-icon" id="ampLauncherCloseIcon" style="display:none;">✕</span>
     </button>
-    <div class="amp-chat-panel is-hidden" id="ampChatPanel" hidden style="display: none;">
+
+    <!-- 2. Choice Card (WhatsApp vs Live Agent) -->
+    <div class="amp-choice-card is-hidden" id="ampChoiceCard" style="display: none;">
+      <div class="choice-header">
+        <div class="choice-agent-preview">
+          <div class="choice-avatar-wrap">
+            <img src="/assets/img/agents/ayesha.png" id="ampChoiceAvatar" alt="Support Agent">
+            <span class="online-dot" style="width:7px; height:7px;"></span>
+          </div>
+          <div>
+            <strong>AutoMovie Pro সাপোর্ট টিম</strong>
+            <span class="choice-status-text">🟢 সক্রিয় • ১ মিনিটে রিপ্লাই</span>
+          </div>
+        </div>
+        <button type="button" class="choice-close-btn" id="ampChoiceClose" aria-label="Close">✕</button>
+      </div>
+      <div class="choice-body">
+        <p class="choice-lead">আসসালামু আলাইকুম! আপনার পছন্দের সাপোর্ট মাধ্যম বেছে নিন:</p>
+        
+        <!-- Option 1: Live Agent -->
+        <button type="button" class="choice-option-btn primary-live" id="ampStartLiveAgentBtn">
+          <div class="choice-icon-wrap live-icon">💬</div>
+          <div class="choice-text">
+            <strong>একজন লাইভ এজেন্টের সাথে কথা বলুন</strong>
+            <span>ওয়েবসাইটে সরাসরি তাৎক্ষণিক চ্যাট শুরু করুন</span>
+          </div>
+          <span class="choice-badge">অনলাইন</span>
+        </button>
+
+        <!-- Option 2: Direct WhatsApp -->
+        <a href="<?= e($waLink) ?>" target="_blank" rel="noopener" class="choice-option-btn whatsapp-link" id="ampDirectWaBtn">
+          <div class="choice-icon-wrap wa-icon">📱</div>
+          <div class="choice-text">
+            <strong>WhatsApp-এ সরাসরি যোগাযোগ করুন</strong>
+            <span>আমাদের অফিশিয়াল WhatsApp ইনবক্সে মেসেজ পাঠান</span>
+          </div>
+          <span class="choice-arrow">➔</span>
+        </a>
+      </div>
+    </div>
+
+    <!-- 3. Active Chat Panel -->
+    <div class="amp-chat-panel is-hidden" id="ampChatPanel" style="display: none;">
       <header class="amp-chat-head">
         <div class="amp-chat-agent-info">
           <div class="amp-chat-avatar" id="ampChatAvatar">
             <img src="/assets/img/agents/ayesha.png" id="ampChatAvatarImg" alt="Support Agent">
           </div>
           <div class="amp-chat-name">
-            <strong id="ampChatAgentName" data-i18n="agent_name">আয়েশা (Ayesha)</strong>
-            <span><span class="online-dot" style="width:6px; height:6px;"></span> <span id="ampChatAgentStatus" data-i18n="agent_status">সিনিয়র কাস্টমার কনসালট্যান্ট</span></span>
+            <strong id="ampChatAgentName">আয়েশা (Ayesha)</strong>
+            <span><span class="online-dot" style="width:6px; height:6px;"></span> <span id="ampChatAgentStatus">সিনিয়র কাস্টমার কনসালট্যান্ট</span></span>
           </div>
         </div>
-        <button type="button" class="amp-chat-close" id="ampChatClose" aria-label="Close">×</button>
+        <div class="amp-chat-head-actions">
+          <button type="button" class="amp-chat-back" id="ampChatBack" title="মেনুতে ফিরুন">↩</button>
+          <button type="button" class="amp-chat-close" id="ampChatClose" aria-label="Close">✕</button>
+        </div>
       </header>
+
+      <!-- Connecting Overlay (Fake Loading Simulation) -->
+      <div class="amp-connecting-overlay" id="ampConnectingOverlay" style="display: none;">
+        <div class="connecting-spinner-wrap">
+          <div class="connecting-pulse-ring"></div>
+          <div class="connecting-avatar-wrap">
+            <img src="/assets/img/agents/ayesha.png" id="ampConnectingAvatar" class="connecting-avatar" alt="Agent">
+          </div>
+        </div>
+        <div class="connecting-status-title" id="ampConnectingTitle">লাইভ কনসালট্যান্ট নির্ধারণ হচ্ছে…</div>
+        <div class="connecting-status-desc" id="ampConnectingDesc">আপনার চ্যাটের জন্য একজন সাপোর্ট এজেন্ট যুক্ত করা হচ্ছে</div>
+        <div class="connecting-progress-bar">
+          <div class="connecting-progress-fill" id="ampConnectingProgress"></div>
+        </div>
+      </div>
+
+      <!-- Chat Log -->
       <div class="amp-chat-log" id="ampChatLog"></div>
+
+      <!-- Chat Form -->
       <form class="amp-chat-form" id="ampChatForm">
-        <input type="text" id="ampChatInput" placeholder="প্যাকেজ, ফিচার বা অফার নিয়ে প্রশ্ন করুন…" data-i18n-placeholder="agent_placeholder" maxlength="800" autocomplete="off">
-        <button type="submit" data-i18n="agent_send">পাঠান</button>
+        <input type="text" id="ampChatInput" placeholder="প্যাকেজ, ফিচার বা অফার নিয়ে প্রশ্ন করুন…" maxlength="800" autocomplete="off">
+        <button type="submit">পাঠান</button>
       </form>
-      <a class="amp-chat-wa" id="ampChatWa" href="<?= e($waLink) ?>" target="_blank" rel="noopener" data-i18n="agent_wa_link">📱 সরাসরি WhatsApp-এ বিস্তারিত কথা বলুন</a>
+
+      <!-- Bottom WhatsApp quicklink -->
+      <a class="amp-chat-wa" id="ampChatWa" href="<?= e($waLink) ?>" target="_blank" rel="noopener">📱 সরাসরি WhatsApp-এ কথা বলতে এখানে ক্লিক করুন</a>
     </div>
   </div>
 
