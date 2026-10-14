@@ -67,17 +67,17 @@ $error = !empty($_GET['error']);
       if ($reqPlan === 24) $initialPrice = 1999;
       elseif ($reqPlan === 18) $initialPrice = 1299;
       elseif ($reqPlan === 12) $initialPrice = 999;
-      else { $reqPlan = 1; $initialPrice = 199; }
+      else { $reqPlan = 1; $initialPrice = 120; }
       $initialPlanName = "Special Gemini Pro API ({$reqPlan} Months)";
   } elseif ($reqProduct === 'fb_business') {
       $initialPrice = 2999;
-      $initialPlanName = 'AutoMovie Pro FB Business Manager & Ad';
+      $initialPlanName = 'AutoMovie Pro - FB Business Manager & Ad Automation Engine';
   } elseif ($reqProduct === 'profile_page') {
       $initialPrice = 1999;
-      $initialPlanName = 'AutoMovie Pro FB Profile & Page Post';
+      $initialPlanName = 'AutoMovie Pro - FB Profile & Page Post Automation Engine';
   } else {
       $initialPrice = 3999;
-      $initialPlanName = 'AutoMovie Pro Omni Social Media Content Automation';
+      $initialPlanName = 'AutoMovie Pro - Social Media Content Automation Engine';
   }
   ?>
 
@@ -94,16 +94,16 @@ $error = !empty($_GET['error']);
         </p>
       <?php endif; ?>
 
-      <!-- Product Selection Tabs (5 Distinct Products) -->
+      <!-- Product Selection Tabs (4 Distinct Products) -->
       <div style="display: flex; gap: 0.65rem; justify-content: center; margin-bottom: 2rem; flex-wrap: wrap;">
-        <button type="button" id="tabVideoStudioBtn" class="btn <?= ($reqProduct === 'video_studio' || (!$isGooglePro && !$isOmniSocial && $reqProduct !== 'fb_business' && $reqProduct !== 'profile_page')) ? '' : 'btn-ghost' ?>" style="border-radius: var(--radius-full); font-size: 0.92rem;">
-          🎬 ১. Omni Social Video Automation (৳৩,৯৯৯)
+        <button type="button" id="tabVideoStudioBtn" class="btn <?= ($reqProduct === 'video_studio' || (!$isGooglePro && $reqProduct !== 'fb_business' && $reqProduct !== 'profile_page')) ? '' : 'btn-ghost' ?>" style="border-radius: var(--radius-full); font-size: 0.92rem;">
+          🎬 ১. Social Media Engine (৳৩,৯৯৯)
         </button>
         <button type="button" id="tabFbBusinessBtn" class="btn <?= ($reqProduct === 'fb_business') ? '' : 'btn-ghost' ?>" style="border-radius: var(--radius-full); font-size: 0.92rem;">
-          💼 ২. Omni FB Business Manager & Ad (৳২,৯৯৯)
+          💼 ২. FB Business Engine (৳২,৯৯৯)
         </button>
         <button type="button" id="tabProfilePageBtn" class="btn <?= ($reqProduct === 'profile_page') ? '' : 'btn-ghost' ?>" style="border-radius: var(--radius-full); font-size: 0.92rem;">
-          📝 ৩. Omni Profile & Page Post (৳১,৯৯৯)
+          📝 ৩. FB Profile Engine (৳১,৯৯৯)
         </button>
         <button type="button" id="tabGoogleProBtn" class="btn <?= $isGooglePro ? '' : 'btn-ghost' ?>" style="border-radius: var(--radius-full); font-size: 0.92rem;">
           🚀 ৪. Special Gemini Pro API
@@ -111,11 +111,11 @@ $error = !empty($_GET['error']);
       </div>
 
       <!-- 1. Video Studio Product Block -->
-      <div id="videoStudioBlock" style="<?= ($reqProduct === 'video_studio' || (!$isGooglePro && !$isOmniSocial && $reqProduct !== 'fb_business' && $reqProduct !== 'profile_page')) ? '' : 'display:none;' ?> background: rgba(11, 21, 40, 0.85); border: 2px solid #38bdf8; border-radius: var(--radius-lg); padding: 1.75rem; margin-bottom: 2rem; box-shadow: 0 0 30px rgba(56, 189, 248, 0.15);">
+      <div id="videoStudioBlock" style="<?= ($reqProduct === 'video_studio' || (!$isGooglePro && $reqProduct !== 'fb_business' && $reqProduct !== 'profile_page')) ? '' : 'display:none;' ?> background: rgba(11, 21, 40, 0.85); border: 2px solid #38bdf8; border-radius: var(--radius-lg); padding: 1.75rem; margin-bottom: 2rem; box-shadow: 0 0 30px rgba(56, 189, 248, 0.15);">
         <div style="text-align: center; margin-bottom: 1.25rem;">
           <span class="gpro-pill" style="background: rgba(56, 189, 248, 0.2); border: 1px solid #38bdf8; color: #38bdf8;">🎬 ভিডিও কন্টেন্ট পাইপলাইন</span>
           <h3 style="color: #38bdf8; font-size: 1.4rem; margin-top: 0.75rem; margin-bottom: 0.35rem;">
-            AutoMovie Pro “Omni Social Media Content Automation”
+            AutoMovie Pro - Social Media Content Automation Engine
           </h3>
           <p style="color: #cbd5e1; font-size: 0.92rem;">
             ইউটিউব, ফেসবুক ও টিকটকের জন্য স্বয়ংক্রিয় শর্ট ও লং ভিডিও তৈরি, শিডিউল পোস্টিং এবং কমেন্ট ও ইনবক্স রিপ্লাই।
@@ -137,7 +137,7 @@ $error = !empty($_GET['error']);
         <div style="text-align: center; margin-bottom: 1.25rem;">
           <span class="gpro-pill" style="background: rgba(245, 158, 11, 0.2); border: 1px solid #f59e0b; color: #f59e0b;">💼 বিজনেস ও সেলস ম্যানেজার</span>
           <h3 style="color: #fbbf24; font-size: 1.4rem; margin-top: 0.75rem; margin-bottom: 0.35rem;">
-            AutoMovie Pro “Omni FB Business Manager & Ad Content Automation”
+            AutoMovie Pro - FB Business Manager & Ad Automation Engine
           </h3>
           <p style="color: #cbd5e1; font-size: 0.92rem;">
             বিজনেস পেজের জন্য সেলস ব্যানার, রিলস/অ্যাড তৈরি, ফেসবুক গ্রুপে অর্গানিক শেয়ার এবং কাস্টমার ইনবক্স ও কমেন্ট সেলস রিপ্লাই।
@@ -159,7 +159,7 @@ $error = !empty($_GET['error']);
         <div style="text-align: center; margin-bottom: 1.25rem;">
           <span class="gpro-pill" style="background: rgba(16, 185, 129, 0.2); border: 1px solid #10b981; color: #10b981;">📝 প্রোফাইল ও পেজ ব্র্যান্ডিং</span>
           <h3 style="color: #34d399; font-size: 1.4rem; margin-top: 0.75rem; margin-bottom: 0.35rem;">
-            AutoMovie Pro “Omni Facebook Profile & Page Post Automation”
+            AutoMovie Pro - FB Profile & Page Post Automation Engine
           </h3>
           <p style="color: #cbd5e1; font-size: 0.92rem;">
             ব্যক্তিগত প্রোফাইল ও পেজের জন্য নির্দিষ্ট নিসভিত্তিক রিটেন পোস্ট, কোট ব্যানার ও অটোপোস্টিং (যেমন আস-সুন্নাহ পাথ)।
@@ -341,27 +341,27 @@ $error = !empty($_GET['error']);
       function calculateTotal() {
         const prod = productTypeField.value;
         let base = 3999;
-        let pName = 'AutoMovie Pro Omni Social Media Content Automation';
+        let pName = 'AutoMovie Pro - Social Media Content Automation Engine';
 
         if (prod === 'fb_business') {
           base = 2999;
-          pName = 'AutoMovie Pro FB Business Manager & Ad';
+          pName = 'AutoMovie Pro - FB Business Manager & Ad Automation Engine';
         } else if (prod === 'profile_page') {
           base = 1999;
-          pName = 'AutoMovie Pro FB Profile & Page Post';
+          pName = 'AutoMovie Pro - FB Profile & Page Post Automation Engine';
         } else if (prod === 'google_pro') {
           const choice = document.querySelector('input[name="google_plan_choice"]:checked');
           const months = choice ? parseInt(choice.value, 10) : 1;
           if (months === 24) base = 1999;
           else if (months === 18) base = 1299;
           else if (months === 12) base = 999;
-          else base = 199;
+          else base = 120;
           planDurationField.value = months;
           pName = `Special Gemini Pro API (${months} Months)`;
         } else {
           // video_studio: calculate multi-language add-on
           base = 3999;
-          pName = 'AutoMovie Pro Omni Social Media Content Automation';
+          pName = 'AutoMovie Pro - Social Media Content Automation Engine';
           const checkedAddons = document.querySelectorAll('input[name="extra_langs[]"]:checked');
           base += (checkedAddons.length * 499);
         }

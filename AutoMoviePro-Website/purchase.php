@@ -40,16 +40,20 @@ $durationMonths = (int) ($_POST['plan_duration_months'] ?? 1);
 
 if ($productType === 'fb_business' || str_contains($plan, 'FB Business')) {
     $productType = 'fb_business';
-    $amount = 2999.0;
-    $plan = 'AutoMovie Pro “Omni FB Business Manager & Ad Content Automation” (Lifetime License)';
-    $baseLangs = 'en,bn';
-    $addonLangs = 'fb_business_sales_hub';
+    $basePrice = 2999.0;
+    $addonPrice = 499.0;
+    $amount = $basePrice + ($addonPrice * count($addonCodes));
+    $plan = 'AutoMovie Pro - FB Business Manager & Ad Automation Engine (Lifetime License)';
+    $baseLangs = 'en,' . $personal;
+    $addonLangs = implode(',', $addonCodes);
 } elseif ($productType === 'profile_page' || str_contains($plan, 'Profile & Page')) {
     $productType = 'profile_page';
-    $amount = 1999.0;
-    $plan = 'AutoMovie Pro “Omni Facebook Profile & Page Post Automation” (Lifetime License)';
-    $baseLangs = 'en,bn';
-    $addonLangs = 'profile_page_branding';
+    $basePrice = 1999.0;
+    $addonPrice = 499.0;
+    $amount = $basePrice + ($addonPrice * count($addonCodes));
+    $plan = 'AutoMovie Pro - FB Profile & Page Post Automation Engine (Lifetime License)';
+    $baseLangs = 'en,' . $personal;
+    $addonLangs = implode(',', $addonCodes);
 } elseif ($productType === 'google_pro' || str_contains($plan, 'Google AI Pro') || str_contains($plan, 'Gemini Pro')) {
     $productType = 'google_pro';
     if ($durationMonths === 24) {
@@ -63,18 +67,18 @@ if ($productType === 'fb_business' || str_contains($plan, 'FB Business')) {
         $plan = 'Special Gemini Pro API — Startup Account (12 Months)';
     } else {
         $durationMonths = 1;
-        $amount = 199.0;
+        $amount = 120.0;
         $plan = 'Special Gemini Pro API — Test Account (1 Month)';
     }
     $baseLangs = 'all_unlimited';
     $addonLangs = 'google_pro_vault_150gb';
 } else {
-    // Default: video_studio / Omni Social Media Content Automation
+    // Default: video_studio / Social Media Content Automation Engine
     $productType = 'video_studio';
     $basePrice = 3999.0;
     $addonPrice = 499.0;
     $amount = $basePrice + ($addonPrice * count($addonCodes));
-    $plan = 'AutoMovie Pro “Omni Social Media Content Automation” (Lifetime License)';
+    $plan = 'AutoMovie Pro - Social Media Content Automation Engine (Lifetime License)';
     $baseLangs = 'en,' . $personal;
     $addonLangs = implode(',', $addonCodes);
 }

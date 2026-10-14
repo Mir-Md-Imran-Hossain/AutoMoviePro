@@ -476,27 +476,27 @@ function amp_features_catalog(): array
             'tier' => 'fb_business',
             'image' => 'feat-omnisocial.png',
             'en' => [
-                'title' => 'OmniSocial AI Autonomous Hub & Post Healer',
+                'title' => 'AutoMovie Pro AI Autonomous Hub & Post Healer',
                 'detail' => 'Integrated social autopilot with self-healing audit, live post editor, permanent delete & repost engine, and graceful 30s Chrome watchdog alerts.',
             ],
             'bn' => [
-                'title' => 'OmniSocial AI হাব ও সেলফ-হিলিং পোস্ট এডিটর',
+                'title' => 'AutoMovie Pro AI হাব ও সেলফ-হিলিং পোস্ট এডিটর',
                 'detail' => 'সম্পূর্ণ অটোপাইলট সোশ্যাল হাব: পোস্টের ভুল নিজে ডিটেক্ট করে লাইভ এডিট বা ডিলিট, ৩০ সেকেন্ডের গ্রেসফুল ক্রোম ওয়াচডগ এবং হিউম্যান-লাইক সেফটি পজ।',
             ],
             'hi' => [
-                'title' => 'OmniSocial AI हब और सेल्फ़-हीलिंग पोस्ट एडिटर',
-                'detail' => 'सोशल ऑटोपायलट: पोस्ट की गलतियाँ खुद ठीक करें, लाइव पोस्ट एडिटर, 30 सेकंड क्रोम वॉचडॉग और स्मार्ट सेफ्टी पॉज़।',
+                'title' => 'AutoMovie Pro AI हब और सेल्फ़-हीलिंग पोस्ट एडिटर',
+                'detail' => 'सोशल ऑटोपायलٹ: पोस्ट की गलतियाँ खुद ठीक करें, लाइव पोस्ट एडिटर, 30 सेकंड क्रोम वॉचडॉग और स्मार्ट सेफ्टी पॉज़।',
             ],
             'ur' => [
-                'title' => 'OmniSocial AI ہب اور سیلف ہیلنگ پوسٹ ایڈیٹر',
+                'title' => 'AutoMovie Pro AI ہب اور سیلف ہیلنگ پوسٹ ایڈیٹر',
                 'detail' => 'سوشل آٹو پائلٹ: پوسٹ کی غلطیاں خود بخود درست، لائیو پوسٹ ایڈیٹ، 30 سیکنڈ کروم واچ ڈاگ اور سیفٹی پاز۔',
             ],
             'ta' => [
-                'title' => 'OmniSocial AI ஹப் & போஸ்ட் எடிட்டர்',
+                'title' => 'AutoMovie Pro AI ஹப் & போஸ்ட் எடிட்டர்',
                 'detail' => 'தானியங்கி சமூக ஊடக மேலாண்மை, பிழைகளைத் திருத்தும் போஸ்ட் எடிட்டர் மற்றும் பாதுகாப்பு இடைநிறுத்தம்.',
             ],
             'ml' => [
-                'title' => 'OmniSocial AI ഹബ്ബ് & പോസ്റ്റ് എഡിറ്റർ',
+                'title' => 'AutoMovie Pro AI ഹബ്ബ് & പോസ്റ്റ് എഡിറ്റർ',
                 'detail' => 'ഓട്ടോപൈലറ്റ് സോഷ്യൽ ഹബ്ബ്, തെറ്റുകൾ തിരുത്തുന്ന ലൈവ് എഡിറ്റർ, 30 സെക്കൻഡ് ക്രോം വാച്ച്ഡോഗ് അലേർട്ട്.',
             ],
         ],

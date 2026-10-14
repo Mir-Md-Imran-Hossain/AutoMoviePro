@@ -119,7 +119,7 @@ function amp_classify_order_tier(array $order): string
     $amt = (float) ($order['amount'] ?? 0);
     $plan = strtolower((string) ($order['plan_name'] ?? ''));
 
-    if (abs($amt - 3999.0) < 50 || str_contains($plan, 'omni social') || str_contains($plan, 'video')) {
+    if (abs($amt - 3999.0) < 50 || str_contains($plan, 'social media') || str_contains($plan, 'omni social') || str_contains($plan, 'video')) {
         return '3999';
     }
     if (abs($amt - 2999.0) < 50 || str_contains($plan, 'fb business') || str_contains($plan, 'business manager')) {
@@ -141,9 +141,9 @@ $analytics = [
     'total_approved_count' => 0,
     'total_pending_revenue' => 0.0,
     'total_pending_count' => 0,
-    'tier_3999' => ['revenue' => 0.0, 'count' => 0, 'label' => 'Omni Social Video Studio (৳৩,৯৯৯)'],
-    'tier_2999' => ['revenue' => 0.0, 'count' => 0, 'label' => 'FB Business Manager (৳২,৯৯৯)'],
-    'tier_1999' => ['revenue' => 0.0, 'count' => 0, 'label' => 'FB Profile & Page (৳১,৯৯৯)'],
+    'tier_3999' => ['revenue' => 0.0, 'count' => 0, 'label' => 'AutoMovie Pro - Social Media Engine (৳৩,৯৯৯)'],
+    'tier_2999' => ['revenue' => 0.0, 'count' => 0, 'label' => 'AutoMovie Pro - FB Business Engine (৳২,৯৯৯)'],
+    'tier_1999' => ['revenue' => 0.0, 'count' => 0, 'label' => 'AutoMovie Pro - FB Profile Engine (৳১,৯৯৯)'],
     'tier_google_pro' => ['revenue' => 0.0, 'count' => 0, 'label' => 'Google AI Pro / অন্যান্য'],
 ];
 
@@ -227,7 +227,7 @@ if ($message): ?><p class="ok"><?= e($message) ?></p><?php endif; ?>
 
     <!-- Card 2: ৳3,999 Tier -->
     <div style="background: linear-gradient(135deg, rgba(56,189,248,0.12), rgba(15,23,42,0.6)); border: 1px solid rgba(56,189,248,0.3); border-radius: 12px; padding: 1.15rem;">
-      <span style="color: #38bdf8; font-size: 0.8rem; text-transform: uppercase; font-weight: 600; letter-spacing: 0.5px;">৳৩,৯৯৯ প্যাকেজ (Omni Social)</span>
+      <span style="color: #38bdf8; font-size: 0.8rem; text-transform: uppercase; font-weight: 600; letter-spacing: 0.5px;">৳৩,৯৯৯ প্যাকেজ (Social Media Content Engine)</span>
       <div style="font-size: 1.6rem; font-weight: 800; color: #38bdf8; margin: 4px 0;">৳<?= number_format($analytics['tier_3999']['revenue'], 0) ?></div>
       <small style="color: #94a3b8;"><?= (int) $analytics['tier_3999']['count'] ?> টি লাইসেন্স বিক্রি</small>
     </div>
@@ -260,7 +260,7 @@ if ($message): ?><p class="ok"><?= e($message) ?></p><?php endif; ?>
   <div style="display: flex; flex-wrap: wrap; gap: 8px; align-items: center;">
     <span style="font-size: 0.85rem; color: #94a3b8; font-weight: 600;">প্যাকেজ ফিল্টার:</span>
     <a href="?tier=all&status=<?= e($selectedStatus) ?>" class="btn btn-sm <?= $selectedTier === 'all' ? '' : 'btn-ghost' ?>" style="border-radius: 20px; font-size: 0.82rem; padding: 4px 12px;">সকল (All)</a>
-    <a href="?tier=3999&status=<?= e($selectedStatus) ?>" class="btn btn-sm <?= $selectedTier === '3999' ? '' : 'btn-ghost' ?>" style="border-radius: 20px; font-size: 0.82rem; padding: 4px 12px; border-color:#38bdf8; <?= $selectedTier === '3999' ? 'background:#0284c7;' : 'color:#38bdf8;' ?>">🎬 ৳৩,৯৯৯ (Omni Social)</a>
+    <a href="?tier=3999&status=<?= e($selectedStatus) ?>" class="btn btn-sm <?= $selectedTier === '3999' ? '' : 'btn-ghost' ?>" style="border-radius: 20px; font-size: 0.82rem; padding: 4px 12px; border-color:#38bdf8; <?= $selectedTier === '3999' ? 'background:#0284c7;' : 'color:#38bdf8;' ?>">🎬 ৳৩,৯৯৯ (Social Media Content Engine)</a>
     <a href="?tier=2999&status=<?= e($selectedStatus) ?>" class="btn btn-sm <?= $selectedTier === '2999' ? '' : 'btn-ghost' ?>" style="border-radius: 20px; font-size: 0.82rem; padding: 4px 12px; border-color:#c084fc; <?= $selectedTier === '2999' ? 'background:#9333ea;' : 'color:#c084fc;' ?>">💼 ৳২,৯৯৯ (FB Business)</a>
     <a href="?tier=1999&status=<?= e($selectedStatus) ?>" class="btn btn-sm <?= $selectedTier === '1999' ? '' : 'btn-ghost' ?>" style="border-radius: 20px; font-size: 0.82rem; padding: 4px 12px; border-color:#fbbf24; <?= $selectedTier === '1999' ? 'background:#d97706;' : 'color:#fbbf24;' ?>">📱 ৳১,৯৯৯ (Profile & Page)</a>
     <a href="?tier=google_pro&status=<?= e($selectedStatus) ?>" class="btn btn-sm <?= $selectedTier === 'google_pro' ? '' : 'btn-ghost' ?>" style="border-radius: 20px; font-size: 0.82rem; padding: 4px 12px;">🤖 Google Pro / অন্যান্য</a>

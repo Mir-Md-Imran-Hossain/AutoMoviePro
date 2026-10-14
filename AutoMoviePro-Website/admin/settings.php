@@ -16,7 +16,7 @@ $settingDefinitions = [
     'binance_pay_id' => ['label' => 'Binance Payee Name / Pay ID', 'default' => 'ChatEarly Ai', 'category' => 'payment', 'hint' => 'আন্তর্জাতিক বা ক্রিপ্টো পেমেন্টের অ্যাকাউন্ট নেম।'],
 
     // Pricing
-    'price_amount' => ['label' => 'ফুল স্টুডিও প্যাকেজ মূল্য (৳)', 'default' => '3999', 'category' => 'pricing', 'hint' => 'Omni Social Video Studio মূল প্যাকেজের মূল্য।'],
+    'price_amount' => ['label' => 'ফুল স্টুডিও প্যাকেজ মূল্য (৳)', 'default' => '3999', 'category' => 'pricing', 'hint' => 'Social Media Content Automation Engine মূল প্যাকেজের মূল্য।'],
     'price_tier_2999' => ['label' => 'বিজনেস ম্যানেজার প্যাকেজ মূল্য (৳)', 'default' => '2999', 'category' => 'pricing', 'hint' => 'FB Business Manager & Ad Studio প্যাকেজের মূল্য।'],
     'price_tier_1999' => ['label' => 'প্রোফাইল অটো পাইলট প্যাকেজ মূল্য (৳)', 'default' => '1999', 'category' => 'pricing', 'hint' => 'FB Profile & Page Auto Pilot প্যাকেজের মূল্য।'],
     'language_addon_price' => ['label' => 'অতিরিক্ত ভাষা অ্যাড-অন মূল্য (৳)', 'default' => '499', 'category' => 'pricing', 'hint' => 'প্রতিটি অতিরিক্ত আন্তর্জাতিক ভাষার ফি।'],

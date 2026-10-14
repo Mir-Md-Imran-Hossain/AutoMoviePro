@@ -108,16 +108,16 @@ function amp_determine_order_tier(array $order): string
     $amt = (float) ($order['amount'] ?? 0);
     $plan = strtolower((string) ($order['plan_name'] ?? ''));
 
-    // ৳3,999 -> video_studio (Full Omni Social Media Content Automation)
-    if (abs($amt - 3999.0) < 50 || str_contains($plan, 'video') || str_contains($plan, 'omni social') || str_contains($plan, 'studio')) {
+    // ৳3,999 -> video_studio (Social Media Content Automation Engine)
+    if (abs($amt - 3999.0) < 50 || str_contains($plan, 'content automation') || str_contains($plan, 'video') || str_contains($plan, 'social media') || str_contains($plan, 'omni social') || str_contains($plan, 'studio')) {
         return 'video_studio';
     }
-    // ৳2,999 -> fb_business (Omni FB Business Manager & Ad Content Automation)
+    // ৳2,999 -> fb_business (FB Business Manager & Ad Automation Engine)
     if (abs($amt - 2999.0) < 50 || str_contains($plan, 'fb business') || str_contains($plan, 'business manager') || str_contains($plan, 'business_ad') || str_contains($plan, 'business') || str_contains($plan, 'ad')) {
         return 'fb_business';
     }
-    // ৳1,999 -> profile_page (Omni FB Profile & Page Post Automation)
-    if (abs($amt - 1999.0) < 50 || str_contains($plan, 'profile') || str_contains($plan, 'page') || str_contains($plan, 'autopilot')) {
+    // ৳1,999 -> profile_page (FB Profile & Page Post Automation Engine)
+    if (abs($amt - 1999.0) < 50 || str_contains($plan, 'profile & page') || str_contains($plan, 'profile') || str_contains($plan, 'page') || str_contains($plan, 'autopilot')) {
         return 'profile_page';
     }
     // Tier threshold fallbacks

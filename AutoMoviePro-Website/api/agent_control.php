@@ -340,7 +340,7 @@ try {
             $dlUrl = $siteUrl . '/download.php?token=' . $dlToken;
 
             // WhatsApp message
-            $tierLabel = ($tier === 'video_studio') ? 'Omni Video Studio (৳৩,৯৯৯)' : (($tier === 'fb_business') ? 'Omni FB Business Manager (৳২,৯৯৯)' : 'Omni FB Profile & Page (৳১,৯৯৯)');
+            $tierLabel = ($tier === 'video_studio') ? 'AutoMovie Pro - Social Media Content Automation Engine (৳৩,৯৯৯)' : (($tier === 'fb_business') ? 'AutoMovie Pro - FB Business Manager & Ad Automation Engine (৳২,৯৯৯)' : 'AutoMovie Pro - FB Profile & Page Post Automation Engine (৳১,৯৯৯)');
             $msg = "অভিনন্দন {$name}! AutoMovie Pro-তে আপনার অ্যাকাউন্ট সক্রিয় করা হয়েছে।\n"
                  . "প্যাকেজ: {$tierLabel}\n"
                  . "Login ID: {$loginId}\n"

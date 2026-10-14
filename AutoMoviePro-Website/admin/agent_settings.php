@@ -253,7 +253,7 @@ admin_header('এআই চ্যাট এজেন্ট ও ডিসকা�
         <!-- Package 1 -->
         <div style="background:rgba(0,0,0,0.3); border:1px solid rgba(56,189,248,0.25); border-radius:12px; padding:1.25rem;">
           <div style="font-weight:700; color:#38bdf8; font-size:1rem; margin-bottom:4px;">
-            Omni Video Content Studio
+            Social Media Content Automation Engine
           </div>
           <div style="color:#94a3b8; font-size:0.8rem; margin-bottom:12px;">মূল প্যাকেজ রেগুলার মূল্য: <strong>৳৩,৯৯৯</strong></div>
           <div class="form-group" style="margin-bottom:8px;">

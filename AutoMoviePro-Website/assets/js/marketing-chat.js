@@ -141,6 +141,27 @@
     }
   }
 
+  const ENGINE_PLANS = {
+    video_studio: {
+      price: 3999,
+      title: "AutoMovie Pro - Social Media Content Automation Engine (Lifetime License)"
+    },
+    fb_business: {
+      price: 2999,
+      title: "AutoMovie Pro - FB Business Manager & Ad Automation Engine (Lifetime License)"
+    },
+    profile_page: {
+      price: 1999,
+      title: "AutoMovie Pro - FB Profile & Page Post Automation Engine (Lifetime License)"
+    }
+  };
+
+  function getSelectedEngine() {
+    const radio = document.querySelector('input[name="product_type"]:checked');
+    const val = radio ? radio.value : "video_studio";
+    return ENGINE_PLANS[val] || ENGINE_PLANS.video_studio;
+  }
+
   function calcTotal() {
     const personal = document.querySelector('input[name="personal_lang"]:checked');
     const personalCode = personal ? personal.value : "bn";
@@ -153,19 +174,100 @@
       }
       if (cb.checked && cb.value !== personalCode) extras.push(cb.value);
     });
-    let total = Number(site.price) + Number(site.addon) * extras.length;
+
+    const engine = getSelectedEngine();
+    const basePrice = engine.price;
+    let total = Number(basePrice) + Number(site.addon || 499) * extras.length;
     if (activeCoupon && activeCoupon.discount) {
       total = Math.max(0, total - Number(activeCoupon.discount));
     }
     const amountEl = document.getElementById("orderAmount");
+    const planNameEl = document.getElementById("orderPlanName");
     const totalEl = document.getElementById("totalDisplay");
     const baseEl = document.getElementById("baseLangs");
     const addonEl = document.getElementById("addonLangs");
     if (amountEl) amountEl.value = String(total);
+    if (planNameEl) planNameEl.value = engine.title;
     if (totalEl) totalEl.textContent = "৳" + total;
     if (baseEl) baseEl.value = "en," + personalCode;
     if (addonEl) addonEl.value = extras.join(",");
   }
+
+  window.selectEngineRadio = function (engineVal) {
+    const radio = document.querySelector('input[name="product_type"][value="' + engineVal + '"]');
+    if (radio) {
+      radio.checked = true;
+      document.querySelectorAll(".engine-select-card").forEach(function (card) {
+        if (card.getAttribute("data-engine") === engineVal) {
+          card.classList.add("active");
+        } else {
+          card.classList.remove("active");
+        }
+      });
+      calcTotal();
+    }
+  };
+
+  window.switchWorkflowTab = function (engineKey) {
+    const tabs = [
+      {
+        key: "engine_social",
+        btn: "wfTabSocial",
+        pane: "pane_engine_social",
+        titleKey: "how_it_works",
+        titleDef: "Automovie Pro - Social Media Content Automation Engine কিভাবে কাজ করে?",
+        leadDef: "সম্পূর্ণ স্বয়ংক্রিয় ৯টি ধাপে ভাইরাল কনটেন্ট রিসার্চ থেকে শুরু করে ভিডিও তৈরি, গ্লোবাল ট্রান্সলেশন ও মাল্টি-প্ল্যাটফর্ম পাবলিশিং।"
+      },
+      {
+        key: "engine_business",
+        btn: "wfTabBusiness",
+        pane: "pane_engine_business",
+        titleKey: "how_engine2_title",
+        titleDef: "Automovie Pro - FB Business Manager & Ad Automation Engine কিভাবে কাজ করে?",
+        leadDef: "৫টি নিখুঁত পদক্ষেপে প্রোডাক্ট ও সার্ভিসের সেলস ব্যানার, অ্যাড ভিডিও ও কাস্টমার রেসপন্স।"
+      },
+      {
+        key: "engine_profile",
+        btn: "wfTabProfile",
+        pane: "pane_engine_profile",
+        titleKey: "how_engine3_title",
+        titleDef: "Automovie Pro - FB Profile & Page Post Automation Engine কিভাবে কাজ করে?",
+        leadDef: "৫টি পবিত্র ও পরিচ্ছন্ন ধাপে ইসলামিক বা অনুপ্রেরণামূলক পোস্ট ও ব্যানার অটো-পাইলট পাবলিশিং।"
+      }
+    ];
+
+    tabs.forEach(function (item) {
+      const btn = document.getElementById(item.btn);
+      const pane = document.getElementById(item.pane);
+      if (item.key === engineKey) {
+        if (btn) btn.classList.add("active");
+        if (pane) {
+          pane.style.display = "block";
+          pane.classList.add("active");
+        }
+        const titleEl = document.getElementById("howMainTitle");
+        const leadEl = document.getElementById("howMainLead");
+        if (titleEl) {
+          titleEl.textContent = t(item.titleKey) || item.titleDef;
+          titleEl.setAttribute("data-i18n", item.titleKey);
+        }
+        if (leadEl) {
+          leadEl.textContent = item.leadDef;
+        }
+      } else {
+        if (btn) btn.classList.remove("active");
+        if (pane) {
+          pane.style.display = "none";
+          pane.classList.remove("active");
+        }
+      }
+    });
+
+    const howSec = document.getElementById("how");
+    if (howSec) {
+      howSec.scrollIntoView({ behavior: "smooth", block: "start" });
+    }
+  };
 
   function appendChat(role, text, onComplete, checkoutUrl) {
     const log = document.getElementById("ampChatLog");
@@ -176,7 +278,20 @@
     log.scrollTop = log.scrollHeight;
 
     if (role === "user") {
-      div.textContent = text;
+      const textSpan = document.createElement("div");
+      textSpan.textContent = text;
+      div.appendChild(textSpan);
+
+      const statusMeta = document.createElement("div");
+      statusMeta.className = "msg-status-meta";
+      statusMeta.innerHTML = '<span class="status-tick">✓</span> <span class="status-label">পাঠানো হয়েছে</span>';
+      div.appendChild(statusMeta);
+
+      // Simulate human seen receipt after 750ms
+      setTimeout(function () {
+        statusMeta.innerHTML = '<span class="status-tick is-seen">✓✓</span> <span class="status-label">দেখা হয়েছে</span>';
+      }, 750);
+
       if (onComplete) onComplete();
       return;
     }
@@ -254,13 +369,32 @@
       history.push({ role: "user", content: msg });
     }
 
-    const thinking = document.createElement("div");
-    thinking.className = "amp-chat-bubble amp-chat-bot amp-chat-typing-indicator";
-    thinking.innerHTML = "<span>" + esc(currentAgent.name) + " লিখছেন…</span>";
-    const log = document.getElementById("ampChatLog");
-    if (log) {
-      log.appendChild(thinking);
-      log.scrollTop = log.scrollHeight;
+    const sendTime = Date.now();
+    let thinking = null;
+
+    if (!isGreet) {
+      // Realistic human reaction delay before typing starts (after 750ms seen mark)
+      setTimeout(function () {
+        if (!thinking) {
+          thinking = document.createElement("div");
+          thinking.className = "amp-chat-bubble amp-chat-bot amp-chat-typing-indicator";
+          thinking.innerHTML = "<span>" + esc(currentAgent.name) + " লিখছেন…</span> <span class=\"typing-dots\"><span></span><span></span><span></span></span>";
+          const log = document.getElementById("ampChatLog");
+          if (log) {
+            log.appendChild(thinking);
+            log.scrollTop = log.scrollHeight;
+          }
+        }
+      }, 800);
+    } else {
+      thinking = document.createElement("div");
+      thinking.className = "amp-chat-bubble amp-chat-bot amp-chat-typing-indicator";
+      thinking.innerHTML = "<span>" + esc(currentAgent.name) + " যুক্ত হচ্ছেন…</span> <span class=\"typing-dots\"><span></span><span></span><span></span></span>";
+      const log = document.getElementById("ampChatLog");
+      if (log) {
+        log.appendChild(thinking);
+        log.scrollTop = log.scrollHeight;
+      }
     }
 
     try {
@@ -281,9 +415,12 @@
       const data = await res.json();
       const reply = data.reply || (isGreet ? currentAgent.greet : "…");
 
-      // Realistic human thinking & reading delay (650ms)
+      const minDelay = isGreet ? 400 : 1350;
+      const elapsed = Date.now() - sendTime;
+      const remainingWait = Math.max(200, minDelay - elapsed);
+
       setTimeout(function () {
-        if (thinking.parentNode) thinking.remove();
+        if (thinking && thinking.parentNode) thinking.remove();
         appendChat("bot", reply, function () {
           if (data.suggestions && data.suggestions.length) {
             addSuggestions(data.suggestions);
@@ -296,7 +433,7 @@
           }
         }, data.checkout_url);
         history.push({ role: "assistant", content: reply });
-      }, 650);
+      }, remainingWait);
 
       if (data.open_whatsapp && data.whatsapp_url) {
         setTimeout(function () {
@@ -304,7 +441,7 @@
         }, 1500);
       }
     } catch (e) {
-      if (thinking.parentNode) thinking.remove();
+      if (thinking && thinking.parentNode) thinking.remove();
       appendChat("bot", isGreet ? currentAgent.greet : t("or_whatsapp"));
     }
   }
@@ -356,6 +493,26 @@
     });
     document.querySelectorAll('input[name="extra_langs[]"]').forEach(function (cb) {
       cb.addEventListener("change", calcTotal);
+    });
+    document.querySelectorAll('input[name="product_type"]').forEach(function (radio) {
+      radio.addEventListener("change", function () {
+        window.selectEngineRadio(this.value);
+      });
+    });
+    document.querySelectorAll(".engine-select-card").forEach(function (card) {
+      card.addEventListener("click", function (e) {
+        const radio = this.querySelector('input[type="radio"]');
+        if (radio && e.target !== radio) {
+          radio.checked = true;
+          window.selectEngineRadio(radio.value);
+        }
+      });
+    });
+    document.querySelectorAll(".workflow-tab-btn").forEach(function (btn) {
+      btn.addEventListener("click", function () {
+        const target = this.getAttribute("data-engine-target");
+        if (target) window.switchWorkflowTab(target);
+      });
     });
     calcTotal();
     refreshFeatures();

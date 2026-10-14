@@ -387,7 +387,7 @@ admin_header('হোয়াটসঅ্যাপ মার্কেটিং �
                     <span class="admin-badge badge-warning">✍️ ম্যানুয়াল</span>
                   <?php endif; ?>
                   <div style="font-size:0.8rem; color:#94a3b8; margin-top:4px;">
-                    <?= e($ld['interest_package'] ?: 'Omni Video Studio') ?>
+                    <?= e($ld['interest_package'] ?: 'Social Media Content Automation Engine') ?>
                   </div>
                 </td>
                 <td style="max-width:280px;">
@@ -462,7 +462,7 @@ admin_header('হোয়াটসঅ্যাপ মার্কেটিং �
         <div class="form-group">
           <label class="form-label">প্যাকেজ আগ্রহ</label>
           <select name="interest_package" class="form-select">
-            <option value="Omni Video Content Studio (৳৩,৯৯৯)">Omni Video Content Studio (৳৩,৯৯৯)</option>
+            <option value="Social Media Content Automation Engine (৳৩,৯৯৯)">Social Media Content Automation Engine (৳৩,৯৯৯)</option>
             <option value="FB Business Manager & Ads (৳২,৯৯৯)">FB Business Manager & Ads (৳২,৯৯৯)</option>
             <option value="FB Profile Auto Pilot (৳১,৯৯৯)">FB Profile Auto Pilot (৳১,৯৯৯)</option>
           </select>

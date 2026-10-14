@@ -3,7 +3,7 @@ declare(strict_types=1);
 
 /**
  * 55+ Verified Authentic Customer Reviews Dataset
- * AutoMovie Pro & OmniSocial AI Hub
+ * AutoMovie Pro Automation Suite
  */
 function amp_get_default_50_reviews(): array
 {
@@ -245,7 +245,7 @@ function amp_get_default_50_reviews(): array
         [
             'name' => 'বোরহান উদ্দিন',
             'rating' => 5,
-            'review_text' => 'আমার এজেন্সির জন্য Omni FB Business Manager প্যাকেজটা কিনেছি। ক্লায়েন্টরা অটোমেটেড বিজ্ঞাপনী পোস্ট দেখে খুবই খুশি।',
+            'review_text' => 'আমার এজেন্সির জন্য Automovie Pro - FB Business Manager প্যাকেজটা কিনেছি। ক্লায়েন্টরা অটোমেটেড বিজ্ঞাপনী পোস্ট দেখে খুবই খুশি।',
             'platform' => 'Agency Owner (পাবনা)'
         ],
         [

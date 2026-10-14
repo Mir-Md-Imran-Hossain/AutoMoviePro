@@ -74,7 +74,7 @@ if ($token !== '' && $isDownloadAction) {
 }
 
 $product = strtolower(trim((string) ($_GET['product'] ?? ($tokenCheck['record']['product'] ?? 'software'))));
-$isOmniSocial = ($product === 'omnisocial');
+$isFBSuite = ($product === 'omnisocial' || $product === 'fbsuite' || $product === 'business');
 $brand = setting($pdo, 'hero_brand', 'AutoMovie Pro');
 $waSupport = amp_whatsapp_sales_link('Hi, I need assistance regarding my AutoMovie Pro download link.');
 ?><!DOCTYPE html>
@@ -82,7 +82,7 @@ $waSupport = amp_whatsapp_sales_link('Hi, I need assistance regarding my AutoMov
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title><?= $isOmniSocial ? 'OmniSocial AI Hub ডাউনলোড' : 'AutoMovie Pro — সিকিউর ডাউনলোড' ?></title>
+  <title><?= $isFBSuite ? 'AutoMovie Pro FB Suite ডাউনলোড' : 'AutoMovie Pro — সিকিউর ডাউনলোড' ?></title>
   <link rel="stylesheet" href="/assets/css/site.css">
   <link rel="icon" type="image/png" href="/assets/img/logo.png">
   <meta name="robots" content="noindex, nofollow">
@@ -173,7 +173,7 @@ $waSupport = amp_whatsapp_sales_link('Hi, I need assistance regarding my AutoMov
           🔒 ক্রিপ্টোগ্রাফিক ওয়ান-টাইম সিকিউর টোকেন অ্যাক্টিভ
         </span>
         <h1 style="font-size: 1.8rem; color: #fff; margin-bottom: 0.5rem;">
-          <?= $isOmniSocial ? '🤖 OmniSocial AI Hub ডাউনলোড' : '🎬 AutoMovie Pro ডাউনলোড' ?>
+          <?= $isFBSuite ? '🤖 AutoMovie Pro FB Suite ডাউনলোড' : '🎬 AutoMovie Pro ডাউনলোড' ?>
         </h1>
         <p style="color: #94a3b8; font-size: 0.95rem;">পেমেন্ট অনুমোদনের জন্য ধন্যবাদ! নিচের সুরক্ষিত বাটন থেকে সফটওয়্যার সংগ্রহ করুন।</p>
       </div>
