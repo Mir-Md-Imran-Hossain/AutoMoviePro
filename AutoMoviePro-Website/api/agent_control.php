@@ -585,6 +585,25 @@ try {
             send_json(['ok' => true, 'count' => count($revs), 'reviews' => $revs]);
             break;
 
+        case 'debug_index':
+            ini_set('display_errors', '1');
+            error_reporting(E_ALL);
+            try {
+                ob_start();
+                include dirname(__DIR__) . '/index.php';
+                $out = ob_get_clean();
+                send_json(['ok' => true, 'output_length' => strlen($out)]);
+            } catch (\Throwable $e) {
+                send_json([
+                    'ok' => false,
+                    'error' => $e->getMessage(),
+                    'file' => $e->getFile(),
+                    'line' => $e->getLine(),
+                    'trace' => $e->getTraceAsString()
+                ], 500);
+            }
+            break;
+
         // ---------------------------------------------------------------------
         // H. EMERGENCY & HEALTH CONTROL
         // ---------------------------------------------------------------------
