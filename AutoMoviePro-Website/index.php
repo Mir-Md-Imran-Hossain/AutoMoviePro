@@ -305,231 +305,156 @@ $broadcastLinkText = setting($pdo, 'broadcast_link_text', '');
     </div>
   </section>
 
-  <!-- How It Works Section (Granular Workflows for all 3 Engines) -->
+  <!-- How It Works Section (Dedicated Workflows for All 3 Engines - Zero Tabs) -->
   <section id="how" class="reveal">
     <div class="section-head">
-      <h2 id="howMainTitle" data-i18n="how_it_works">Automovie Pro - Social Media Content Automation Engine কিভাবে কাজ করে?</h2>
-      <p class="lead" id="howMainLead" data-i18n="how_lead">লগইন করে চ্যানেলের নাম, নিশ এবং চ্যানেল কানেক্ট করে ওয়ান-টাইম সেটআপ। তারপর আপনার আর কিছুই করতে হবে না — আমাদের সফটওয়্যারটি সম্পূর্ণ ৯টি ধাপে পুরো বিষয়গুলো পরিচালনা করবে।</p>
+      <h2 data-i18n="how_section_title">৩টি স্বতন্ত্র অটোমেশন ইঞ্জিনের স্বয়ংক্রিয় কার্যপ্রণালী</h2>
+      <p class="lead" data-i18n="how_section_lead">একবার নিশ ও চ্যানেল কানেক্ট করলেই প্রতিটি ইঞ্জিন মানুষের কোনো হস্তক্ষেপ ছাড়াই স্বয়ংক্রিয়ভাবে কাজ করে। নিচে প্রতিটি সফটওয়্যারের ধাপসমূহ বিস্তারিত দেখুন:</p>
     </div>
 
-    <!-- Engine Workflow Switcher Tabs -->
-    <div class="workflow-tabs-nav">
-      <button type="button" class="workflow-tab-btn active" data-engine-target="engine_social" id="wfTabSocial">
-        🎬 <span data-i18n="wf_tab1">১. Social Media Content Automation Engine (৯টি ধাপ)</span>
-      </button>
-      <button type="button" class="workflow-tab-btn" data-engine-target="engine_business" id="wfTabBusiness">
-        💼 <span data-i18n="wf_tab2">২. FB Business Manager & Ad Engine (৫টি ধাপ)</span>
-      </button>
-      <button type="button" class="workflow-tab-btn" data-engine-target="engine_profile" id="wfTabProfile">
-        📱 <span data-i18n="wf_tab3">৩. FB Profile & Page Post Engine (৫টি ধাপ)</span>
-      </button>
-    </div>
+    <!-- 3 Dedicated Workflow Boxes (Zero Tab Clicks Required) -->
+    <div class="engine-workflows-container">
+      <!-- Workflow Box 1: Social Media Content Automation Engine (9 Steps) -->
+      <div class="workflow-engine-box wf-box-social" id="wfBoxSocial">
+        <div class="wf-box-header">
+          <div class="wf-box-title-group">
+            <span class="engine-pill pill-cyan">🎬 ফুল কন্টেন্ট পাওয়ারহাউজ • ৳৩,৯৯৯</span>
+            <h3 data-i18n="how_it_works">১. Automovie Pro - Social Media Content Automation Engine (৯টি ধাপ)</h3>
+            <p data-i18n="how_lead">সম্পূর্ণ স্বয়ংক্রিয় ৯টি ধাপে ভাইরাল কনটেন্ট রিসার্চ থেকে শুরু করে ভিডিও তৈরি, গ্লোবাল ট্রান্সলেশন ও মাল্টি-প্ল্যাটফর্ম পাবলিশিং।</p>
+          </div>
+          <a href="#buy" class="btn btn-sm btn-engine-order" onclick="window.selectEngineRadio('video_studio')" data-i18n="engine1_order_btn">অর্ডার করুন (৳৩,৯৯৯)</a>
+        </div>
+        <ol class="flow-steps-grid steps-grid-9">
+          <li class="step-card">
+            <div class="step-num">01</div>
+            <h4 data-i18n="e1_step1_title">নিশ রিসার্চ ও ট্রেন্ডিং টপিক অ্যানালাইসিস</h4>
+            <p data-i18n="e1_step1_desc">আপনার নির্দিষ্ট নিশ এর উপরে ভিত্তি করে Google এবং YouTube API এর মাধ্যমে নিজেই বর্তমানের সবচাইতে ট্রেন্ডিং টপিক খুঁজে বের করে।</p>
+          </li>
+          <li class="step-card">
+            <div class="step-num">02</div>
+            <h4 data-i18n="e1_step2_title">ভাইরাল হুক সহ ফুল এআই ভিডিও স্ক্রিপ্ট জেনারেশন</h4>
+            <p data-i18n="e1_step2_desc">নির্দিষ্ট ট্রেন্ডিং টপিকের ভিত্তিতে সঠিক ইমোশন ও সিনেমাটিক ভিউসহ অত্যন্ত নিখুঁতভাবে ভিডিও এবং অডিওর জন্য আলাদা স্ক্রিপ্ট লিখে দেয়।</p>
+          </li>
+          <li class="step-card">
+            <div class="step-num">03</div>
+            <h4 data-i18n="e1_step3_title">কাইনেটিক মোশন কার্ড ও সিনেমাটিক ভিজ্যুয়াল ক্রিয়েশন</h4>
+            <p data-i18n="e1_step3_desc">স্ক্রিপ্টের প্রতিটি সিন এবং অডিও গভীরভাবে অ্যানালাইসিস করে প্রতিটি সিনের ভিত্তিতে আলাদা আলাদা ভিডিও ক্লিপ জেনারেশন করে।</p>
+          </li>
+          <li class="step-card">
+            <div class="step-num">04</div>
+            <h4 data-i18n="e1_step4_title">১০০% স্বাভাবিক মানবিক বাংলা এআই ভয়েসওভার</h4>
+            <p data-i18n="e1_step4_desc">অডিও স্ক্রিপ্ট দিয়ে আলাদা আলাদা ভাষায় লোকালাইজেশন করে সঠিক ইমোশনসহ রোবোটিক টিউন লেস অডিও জেনারেশন করে।</p>
+          </li>
+          <li class="step-card">
+            <div class="step-num">05</div>
+            <h4 data-i18n="e1_step5_title">হাই-সিপিএম গ্লোবাল মাল্টি-ল্যাঙ্গুয়েজ ট্রান্সলেশন</h4>
+            <p data-i18n="e1_step5_desc">প্রতিটি ভিডিও ক্লিপ এবং অডিও একসাথে জোড়া লাগিয়ে নির্দিষ্ট ভাষার ভিত্তিতে সাবটাইটেল ও সাউন্ড ইফেক্ট বসিয়ে ভিডিও রেন্ডার করে।</p>
+          </li>
+          <li class="step-card">
+            <div class="step-num">06</div>
+            <h4 data-i18n="e1_step6_title">স্টুডিও মাস্টার ভিডিও ও ফুল এইচডি রিলস রেন্ডারিং</h4>
+            <p data-i18n="e1_step6_desc">এরপর নির্দিষ্ট নিস, চ্যানেলের লোগো ও ভিডিওর বিষয়বস্তুর উপর ভিত্তি করে SEO ফ্রেন্ডলি থাম্বনেইল, টাইটেল, ডেসক্রিপশন এবং ট্যাগ জেনারেট করে।</p>
+          </li>
+          <li class="step-card">
+            <div class="step-num">07</div>
+            <h4 data-i18n="e1_step7_title">ইউটিউব, ফেসবুক ও টিকটকে অটোমেটিক শিডিউল পাবলিশিং</h4>
+            <p data-i18n="e1_step7_desc">ভিডিও প্রস্তুত হলে নির্ধারিত সময়ে প্রতিটি ভাষার জন্য আলাদা আলাদা প্ল্যাটফর্মে এবং আলাদা আলাদা অ্যাকাউন্টে ভিডিওগুলো আপলোড করে।</p>
+          </li>
+          <li class="step-card">
+            <div class="step-num">08</div>
+            <h4 data-i18n="e1_step8_title">প্রাসঙ্গিক গ্রুপ সমূহে অটোমেটিক পোস্ট শেয়ারিং</h4>
+            <p data-i18n="e1_step8_desc">আপলোড হওয়ার পর প্রতিটি ভিডিও সার্বক্ষণিক নজরদারি করে এবং ভিডিওর টপিকের ভিত্তিতে কমেন্ট ও পেইজের মেসেজের উত্তর দেয়।</p>
+          </li>
+          <li class="step-card">
+            <div class="step-num">09</div>
+            <h4 data-i18n="e1_step9_title">২৪/৭ স্মার্ট অটোমেটিক কমেন্ট ও ইনবক্স রেসপন্স</h4>
+            <p data-i18n="e1_step9_desc">সবশেষে একটি সোশ্যাল মিডিয়া ইঞ্জিনিয়ার এজেন্ট ভিডিওগুলো অ্যানালাইসিস করে নির্দিষ্ট গ্রুপে শেয়ার করে ভিউ বাড়ানোর চেষ্টা করে।</p>
+          </li>
+        </ol>
+      </div>
 
-    <!-- Workflow Pane 1: Social Media Content Automation Engine (9 Steps) -->
-    <div class="workflow-pane active" id="pane_engine_social">
-      <ol class="flow-steps-grid steps-grid-9">
-        <li class="step-card">
-          <div class="step-num">01</div>
-          <h4 data-i18n="e1_step1_title">নিশ রিসার্চ ও ট্রেন্ডিং টপিক অ্যানালাইসিস</h4>
-          <p data-i18n="e1_step1_desc">আপনার নির্দিষ্ট নিশ এর উপরে ভিত্তি করে Google এবং YouTube API এর মাধ্যমে নিজেই বর্তমানের সবচাইতে ট্রেন্ডিং টপিক খুঁজে বের করে।</p>
-        </li>
-        <li class="step-card">
-          <div class="step-num">02</div>
-          <h4 data-i18n="e1_step2_title">ভাইরাল হুক সহ ফুল এআই ভিডিও স্ক্রিপ্ট জেনারেশন</h4>
-          <p data-i18n="e1_step2_desc">নির্দিষ্ট ট্রেন্ডিং টপিকের ভিত্তিতে সঠিক ইমোশন ও সিনেমাটিক ভিউসহ অত্যন্ত নিখুঁতভাবে ভিডিও এবং অডিওর জন্য আলাদা স্ক্রিপ্ট লিখে দেয়।</p>
-        </li>
-        <li class="step-card">
-          <div class="step-num">03</div>
-          <h4 data-i18n="e1_step3_title">কাইনেটিক মোশন কার্ড ও সিনেমাটিক ভিজ্যুয়াল ক্রিয়েশন</h4>
-          <p data-i18n="e1_step3_desc">স্ক্রিপ্টের প্রতিটি সিন এবং অডিও গভীরভাবে অ্যানালাইসিস করে প্রতিটি সিনের ভিত্তিতে আলাদা আলাদা ভিডিও ক্লিপ জেনারেশন করে।</p>
-        </li>
-        <li class="step-card">
-          <div class="step-num">04</div>
-          <h4 data-i18n="e1_step4_title">১০০% স্বাভাবিক মানবিক বাংলা এআই ভয়েসওভার</h4>
-          <p data-i18n="e1_step4_desc">অডিও স্ক্রিপ্ট দিয়ে আলাদা আলাদা ভাষায় লোকালাইজেশন করে সঠিক ইমোশনসহ রোবোটিক টিউন লেস অডিও জেনারেশন করে।</p>
-        </li>
-        <li class="step-card">
-          <div class="step-num">05</div>
-          <h4 data-i18n="e1_step5_title">হাই-সিপিএম গ্লোবাল মাল্টি-ল্যাঙ্গুয়েজ ট্রান্সলেশন</h4>
-          <p data-i18n="e1_step5_desc">প্রতিটি ভিডিও ক্লিপ এবং অডিও একসাথে জোড়া লাগিয়ে নির্দিষ্ট ভাষার ভিত্তিতে সাবটাইটেল ও সাউন্ড ইফেক্ট বসিয়ে ভিডিও রেন্ডার করে।</p>
-        </li>
-        <li class="step-card">
-          <div class="step-num">06</div>
-          <h4 data-i18n="e1_step6_title">স্টুডিও মাস্টার ভিডিও ও ফুল এইচডি রিলস রেন্ডারিং</h4>
-          <p data-i18n="e1_step6_desc">এরপর নির্দিষ্ট নিস, চ্যানেলের লোগো ও ভিডিওর বিষয়বস্তুর উপর ভিত্তি করে SEO ফ্রেন্ডলি থাম্বনেইল, টাইটেল, ডেসক্রিপশন এবং ট্যাগ জেনারেট করে।</p>
-        </li>
-        <li class="step-card">
-          <div class="step-num">07</div>
-          <h4 data-i18n="e1_step7_title">ইউটিউব, ফেসবুক ও টিকটকে অটোমেটিক শিডিউল পাবলিশিং</h4>
-          <p data-i18n="e1_step7_desc">ভিডিও প্রস্তুত হলে নির্ধারিত সময়ে প্রতিটি ভাষার জন্য আলাদা আলাদা প্ল্যাটফর্মে এবং আলাদা আলাদা অ্যাকাউন্টে ভিডিওগুলো আপলোড করে।</p>
-        </li>
-        <li class="step-card">
-          <div class="step-num">08</div>
-          <h4 data-i18n="e1_step8_title">প্রাসঙ্গিক গ্রুপ সমূহে অটোমেটিক পোস্ট শেয়ারিং</h4>
-          <p data-i18n="e1_step8_desc">আপলোড হওয়ার পর প্রতিটি ভিডিও সার্বক্ষণিক নজরদারি করে এবং ভিডিওর টপিকের ভিত্তিতে কমেন্ট ও পেইজের মেসেজের উত্তর দেয়।</p>
-        </li>
-        <li class="step-card">
-          <div class="step-num">09</div>
-          <h4 data-i18n="e1_step9_title">২৪/৭ স্মার্ট অটোমেটিক কমেন্ট ও ইনবক্স রেসপন্স</h4>
-          <p data-i18n="e1_step9_desc">সবশেষে একটি সোশ্যাল মিডিয়া ইঞ্জিনিয়ার এজেন্ট ভিডিওগুলো অ্যানালাইসিস করে নির্দিষ্ট গ্রুপে শেয়ার করে ভিউ বাড়ানোর চেষ্টা করে।</p>
-        </li>
-      </ol>
-    </div>
+      <!-- Workflow Box 2: FB Business Manager & Ad Automation Engine (5 Steps) -->
+      <div class="workflow-engine-box wf-box-business" id="wfBoxBusiness">
+        <div class="wf-box-header">
+          <div class="wf-box-title-group">
+            <span class="engine-pill pill-amber">💼 বিজনেস ও সেলস ম্যানেজার • ৳২,৯৯৯</span>
+            <h3 data-i18n="how_engine2_title">২. Automovie Pro - FB Business Manager & Ad Automation Engine (৫টি ধাপ)</h3>
+            <p data-i18n="how_engine2_lead">৫টি নিখুঁত পদক্ষেপে প্রোডাক্ট ও সার্ভিসের সেলস ব্যানার, অ্যাড ভিডিও ও কাস্টমার রেসপন্স।</p>
+          </div>
+          <a href="#buy" class="btn btn-sm btn-engine-order btn-amber" onclick="window.selectEngineRadio('fb_business')" data-i18n="engine2_order_btn">অর্ডার করুন (৳২,৯৯৯)</a>
+        </div>
+        <ol class="flow-steps-grid steps-grid-5">
+          <li class="step-card">
+            <div class="step-num">01</div>
+            <h4 data-i18n="e2_step1_title">প্রোডাক্ট ও অফার অ্যানালাইসিস</h4>
+            <p data-i18n="e2_step1_desc">আপনার প্রোডাক্ট, সেবা ও স্পেশাল অফারের মূল বৈশিষ্ট্য এবং টার্গেট কাস্টমার প্রোফাইল অ্যানালাইসিস করে।</p>
+          </li>
+          <li class="step-card">
+            <div class="step-num">02</div>
+            <h4 data-i18n="e2_step2_title">হাই-কনভার্টিং সেলস ব্যানার ও গ্রাফিক্স ডিজাইন</h4>
+            <p data-i18n="e2_step2_desc">আকর্ষণীয় অফার টেক্সট, প্রোডাক্টের ছবি, মূল্যছাড় ও জরুরি যোগাযোগের তথ্য সহ প্রিমিয়াম ব্যানার তৈরি করে।</p>
+          </li>
+          <li class="step-card">
+            <div class="step-num">03</div>
+            <h4 data-i18n="e2_step3_title">কাইনেটিক মোশন অ্যাড ভিডিও জেনারেশন</h4>
+            <p data-i18n="e2_step3_desc">সোশ্যাল মিডিয়ায় দ্রুত সেলস কনভার্শনের জন্য ৩০-৭০ সেকেন্ডের ডায়নামিক কাইনেটিক অ্যাড ভিডিও তৈরি করে।</p>
+          </li>
+          <li class="step-card">
+            <div class="step-num">04</div>
+            <h4 data-i18n="e2_step4_title">টার্গেটেড ফেসবুক গ্রুপ ও মার্কেটপ্লেসে অটো-শেয়ার</h4>
+            <p data-i18n="e2_step4_desc">অর্গানিক সেলস লিড পাওয়ার জন্য নিশভিত্তিক বিজনেস গ্রুপ সমূহে স্বয়ংক্রিয়ভাবে পোস্ট শেয়ার করে।</p>
+          </li>
+          <li class="step-card">
+            <div class="step-num">05</div>
+            <h4 data-i18n="e2_step5_title">২৪/৭ স্মার্ট সেলস রিপ্লাই ও কাস্টমার সাপোর্ট</h4>
+            <p data-i18n="e2_step5_desc">মেসেঞ্জার ও কমেন্টে কাস্টমারের প্রোডাক্টের দাম, অর্ডার ও ডেলিভারি সংক্রান্ত যেকোনো প্রশ্নের সাথে সাথে উত্তর দেয়।</p>
+          </li>
+        </ol>
+      </div>
 
-    <!-- Workflow Pane 2: FB Business Manager & Ad Automation Engine (5 Steps) -->
-    <div class="workflow-pane" id="pane_engine_business" style="display:none;">
-      <ol class="flow-steps-grid steps-grid-5">
-        <li class="step-card">
-          <div class="step-num">01</div>
-          <h4 data-i18n="e2_step1_title">প্রোডাক্ট ও অফার অ্যানালাইসিস</h4>
-          <p data-i18n="e2_step1_desc">আপনার প্রোডাক্ট, সেবা ও স্পেশাল অফারের মূল বৈশিষ্ট্য এবং টার্গেট কাস্টমার প্রোফাইল অ্যানালাইসিস করে।</p>
-        </li>
-        <li class="step-card">
-          <div class="step-num">02</div>
-          <h4 data-i18n="e2_step2_title">হাই-কনভার্টিং সেলস ব্যানার ও গ্রাফিক্স ডিজাইন</h4>
-          <p data-i18n="e2_step2_desc">আকর্ষণীয় অফার টেক্সট, প্রোডাক্টের ছবি, মূল্যছাড় ও জরুরি যোগাযোগের তথ্য সহ প্রিমিয়াম ব্যানার তৈরি করে।</p>
-        </li>
-        <li class="step-card">
-          <div class="step-num">03</div>
-          <h4 data-i18n="e2_step3_title">কাইনেটিক মোশন অ্যাড ভিডিও জেনারেশন</h4>
-          <p data-i18n="e2_step3_desc">সোশ্যাল মিডিয়ায় দ্রুত সেলস কনভার্শনের জন্য ৩০-৭০ সেকেন্ডের ডায়নামিক কাইনেটিক অ্যাড ভিডিও তৈরি করে।</p>
-        </li>
-        <li class="step-card">
-          <div class="step-num">04</div>
-          <h4 data-i18n="e2_step4_title">টার্গেটেড ফেসবুক গ্রুপ ও মার্কেটপ্লেসে অটো-শেয়ার</h4>
-          <p data-i18n="e2_step4_desc">অর্গানিক সেলস লিড পাওয়ার জন্য নিশভিত্তিক বিজনেস গ্রুপ সমূহে স্বয়ংক্রিয়ভাবে পোস্ট শেয়ার করে।</p>
-        </li>
-        <li class="step-card">
-          <div class="step-num">05</div>
-          <h4 data-i18n="e2_step5_title">২৪/৭ স্মার্ট সেলস রিপ্লাই ও কাস্টমার সাপোর্ট</h4>
-          <p data-i18n="e2_step5_desc">মেসেঞ্জার ও কমেন্টে কাস্টমারের প্রোডাক্টের দাম, অর্ডার ও ডেলিভারি সংক্রান্ত যেকোনো প্রশ্নের সাথে সাথে উত্তর দেয়।</p>
-        </li>
-      </ol>
-    </div>
-
-    <!-- Workflow Pane 3: FB Profile & Page Post Automation Engine (5 Steps) -->
-    <div class="workflow-pane" id="pane_engine_profile" style="display:none;">
-      <ol class="flow-steps-grid steps-grid-5">
-        <li class="step-card">
-          <div class="step-num">01</div>
-          <h4 data-i18n="e3_step1_title">নিসভিত্তিক কন্টেন্ট ও হাদিস/উক্তি নির্বাচন</h4>
-          <p data-i18n="e3_step1_desc">ইসলামিক নির্ভরযোগ্য হাদিস, কোরআনের বাণী বা অনুপ্রেরণামূলক পজিটিভ উক্তি অটোমেটিক নির্বাচন করে।</p>
-        </li>
-        <li class="step-card">
-          <div class="step-num">02</div>
-          <h4 data-i18n="e3_step2_title">গোল্ডেন এমবলেম ব্যানার ও ফটো ফ্রেম তৈরি</h4>
-          <p data-i18n="e3_step2_desc">আপনার পেজ বা প্রোফাইলের লোগো ও ব্র্যান্ডিং সহ দৃষ্টিনন্দন সোশ্যাল কোট ব্যানার ইমেজ প্রস্তুত করে।</p>
-        </li>
-        <li class="step-card">
-          <div class="step-num">03</div>
-          <h4 data-i18n="e3_step3_title">প্রাসঙ্গিক স্ট্যাটাস ও ক্যাপশন রাইটিং</h4>
-          <p data-i18n="e3_step3_desc">অডিয়েন্স এনগেজমেন্ট বাড়ানোর জন্য আকর্ষণীয় বাংলা ক্যাপশন, রেফারেন্স ও হ্যাশট্যাগ দিয়ে পোস্ট ড্রাফট করে।</p>
-        </li>
-        <li class="step-card">
-          <div class="step-num">04</div>
-          <h4 data-i18n="e3_step4_title">ফেসবুক প্রোফাইল ও পেজে হিউম্যান-লাইক পোস্টিং</h4>
-          <p data-i18n="e3_step4_desc">সম্পূর্ণ নিরাপদ হিউম্যান সিমুলেশনের মাধ্যমে নির্দিষ্ট শিডিউলে আপনার প্রোফাইল ও পেজে পোস্ট পাবলিশ করে।</p>
-        </li>
-        <li class="step-card">
-          <div class="step-num">05</div>
-          <h4 data-i18n="e3_step5_title">নিশভিত্তিক কমিউনিটি গ্রুপে অর্গানিক শেয়ারিং</h4>
-          <p data-i18n="e3_step5_desc">প্রোফাইল বা পেজের ফলোয়ার ও রিচ বাড়ানোর জন্য ইসলামিক ও জ্ঞানমূলক ফেসবুক গ্রুপগুলোতে পোস্ট পৌঁছে দেয়।</p>
-        </li>
-      </ol>
+      <!-- Workflow Box 3: FB Profile & Page Post Automation Engine (5 Steps) -->
+      <div class="workflow-engine-box wf-box-profile" id="wfBoxProfile">
+        <div class="wf-box-header">
+          <div class="wf-box-title-group">
+            <span class="engine-pill pill-emerald">📱 প্রোফাইল ও পেজ অটো-পাইলট • ৳১,৯৯৯</span>
+            <h3 data-i18n="how_engine3_title">৩. Automovie Pro - FB Profile & Page Post Automation Engine (৫টি ধাপ)</h3>
+            <p data-i18n="how_engine3_lead">৫টি পবিত্র ও পরিচ্ছন্ন ধাপে ইসলামিক বা অনুপ্রেরণামূলক পোস্ট ও ব্যানার অটো-পাইলট পাবলিশিং।</p>
+          </div>
+          <a href="#buy" class="btn btn-sm btn-engine-order btn-emerald" onclick="window.selectEngineRadio('profile_page')" data-i18n="engine3_order_btn">অর্ডার করুন (৳১,৯৯৯)</a>
+        </div>
+        <ol class="flow-steps-grid steps-grid-5">
+          <li class="step-card">
+            <div class="step-num">01</div>
+            <h4 data-i18n="e3_step1_title">নিসভিত্তিক কন্টেন্ট ও হাদিস/উক্তি নির্বাচন</h4>
+            <p data-i18n="e3_step1_desc">ইসলামিক নির্ভরযোগ্য হাদিস, কোরআনের বাণী বা অনুপ্রেরণামূলক পজিটিভ উক্তি অটোমেটিক নির্বাচন করে।</p>
+          </li>
+          <li class="step-card">
+            <div class="step-num">02</div>
+            <h4 data-i18n="e3_step2_title">গোল্ডেন এমবলেম ব্যানার ও ফটো ফ্রেম তৈরি</h4>
+            <p data-i18n="e3_step2_desc">আপনার পেজ বা প্রোফাইলের লোগো ও ব্র্যান্ডিং সহ দৃষ্টিনন্দন সোশ্যাল কোট ব্যানার ইমেজ প্রস্তুত করে।</p>
+          </li>
+          <li class="step-card">
+            <div class="step-num">03</div>
+            <h4 data-i18n="e3_step3_title">প্রাসঙ্গিক স্ট্যাটাস ও ক্যাপশন রাইটিং</h4>
+            <p data-i18n="e3_step3_desc">অডিয়েন্স এনগেজমেন্ট বাড়ানোর জন্য আকর্ষণীয় বাংলা ক্যাপশন, রেফারেন্স ও হ্যাশট্যাগ দিয়ে পোস্ট ড্রাফট করে।</p>
+          </li>
+          <li class="step-card">
+            <div class="step-num">04</div>
+            <h4 data-i18n="e3_step4_title">ফেসবুক প্রোফাইল ও পেজে হিউম্যান-লাইক পোস্টিং</h4>
+            <p data-i18n="e3_step4_desc">সম্পূর্ণ নিরাপদ হিউম্যান সিমুলেশনের মাধ্যমে নির্দিষ্ট শিডিউলে আপনার প্রোফাইল ও পেজে পোস্ট পাবলিশ করে।</p>
+          </li>
+          <li class="step-card">
+            <div class="step-num">05</div>
+            <h4 data-i18n="e3_step5_title">নিশভিত্তিক কমিউনিটি গ্রুপে অর্গানিক শেয়ারিং</h4>
+            <p data-i18n="e3_step5_desc">প্রোফাইল বা পেজের ফলোয়ার ও রিচ বাড়ানোর জন্য ইসলামিক ও জ্ঞানমূলক ফেসবুক গ্রুপগুলোতে পোস্ট পৌঁছে দেয়।</p>
+          </li>
+        </ol>
+      </div>
     </div>
 
     <?php if (trim($how) !== ''): ?>
       <div class="steps cms-block" style="max-width:800px; margin:2rem auto 0;"><?= nl2br(e($how)) ?></div>
     <?php endif; ?>
-  </section>
-
-  <!-- 3 DISTINCT AUTOMOVIE PRO SOFTWARE PACKAGES -->
-  <section id="software-packages" class="reveal" style="margin: 4.5rem 0;">
-    <div style="max-width: 1200px; margin: 0 auto; padding: 0 1rem;">
-      <div style="text-align: center; margin-bottom: 2.75rem;">
-        <span class="gpro-pill" style="background: rgba(56, 189, 248, 0.2); border: 1px solid #38bdf8; color: #38bdf8;">💼 ৩টি স্বতন্ত্র অটোমেশন সফটওয়্যার প্যাকেজ</span>
-        <h2 style="font-size: 2.3rem; color: #f8fafc; margin-top: 1.25rem; margin-bottom: 0.85rem;" data-i18n="pkg_section_title">
-          আপনার প্রয়োজন অনুযায়ী সঠিক AutoMovie Pro প্যাকেজটি বেছে নিন
-        </h2>
-        <p class="lead" style="color: #cbd5e1; max-width: 860px; margin: 0 auto; font-size: 1.05rem;" data-i18n="pkg_section_lead">
-          প্রতিটি সফটওয়্যার সম্পূর্ণ লাইফটাইম লাইসেন্স সহ এককালীন ওয়ান-টাইম ফি। কোনো মাসিক চার্জ নেই, আজীবন ফ্রি আপডেট ও সাপোর্ট।
-        </p>
-      </div>
-
-      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 1.75rem;">
-        <!-- Product 1: Video Studio -->
-        <div style="background: rgba(11, 21, 40, 0.85); border: 2px solid #38bdf8; border-radius: var(--radius-xl); padding: 2rem; display: flex; flex-direction: column; justify-content: space-between; position: relative; box-shadow: 0 0 35px rgba(56, 189, 248, 0.15);">
-          <span style="position: absolute; top: -14px; right: 24px; background: #38bdf8; color: #020617; font-size: 0.82rem; font-weight: 800; padding: 4px 14px; border-radius: 999px;">🎬 ফুল কন্টেন্ট পাওয়ারহাউজ</span>
-          <div>
-            <h3 style="color: #38bdf8; font-size: 1.35rem; margin-bottom: 0.5rem;" data-i18n="pkg1_title">১. Automovie Pro - Social Media Content Automation Engine</h3>
-            <p style="color: #94a3b8; font-size: 0.9rem; line-height: 1.5; margin-bottom: 1.25rem;">
-              ইউটিউব, ফেসবুক ও টিকটকের জন্য শর্ট ও লং ভিডিও তৈরি, রিলস, স্বয়ংক্রিয় শিডিউল আপলোড এবং কমেন্ট/ইনবক্স রেসপন্স।
-            </p>
-            <div style="margin-bottom: 1.5rem;">
-              <span style="font-size: 2.3rem; font-weight: 900; color: #38bdf8;">৳৩,৯৯৯</span>
-              <span style="color: #ef4444; text-decoration: line-through; font-size: 1.1rem; margin-left: 8px;">৳১০,০০০</span>
-              <span style="display: block; font-size: 0.85rem; color: #64748b; margin-top: 4px;">এককালীন ওয়ান টাইম • লাইফটাইম লাইসেন্স</span>
-            </div>
-            <ul style="list-style: none; padding: 0; margin: 0 0 2rem; color: #cbd5e1; font-size: 0.92rem; line-height: 1.8;">
-              <li>✓ সম্পূর্ণ স্বয়ংক্রিয় ভাইরাল টপিক রিসার্চ ও স্ক্রিপ্ট</li>
-              <li>✓ ১০০% স্বাভাবিক মানবিক বাংলা এআই ভয়েসওভার</li>
-              <li>✓ কাইনেটিক মোশন কার্ড ও সিনেমাটিক ভিজ্যুয়াল</li>
-              <li>✓ ইংরেজি + ১টি ব্যক্তিগত ভাষা অন্তর্ভুক্ত</li>
-              <li>✓ মাল্টি-ল্যাঙ্গুয়েজ অ্যাড-অন সুবিধা (+৳৪৯৯/ভাষা)</li>
-            </ul>
-          </div>
-          <a href="#buy" onclick="window.selectEngineRadio('video_studio')" class="btn" style="width: 100%; text-align: center; background: linear-gradient(135deg, #0284c7, #2563eb); font-weight: 700; padding: 0.9rem;">অর্ডার করুন (৳৩,৯৯৯)</a>
-        </div>
-
-        <!-- Product 2: FB Business Manager -->
-        <div style="background: rgba(11, 21, 40, 0.85); border: 2px solid #f59e0b; border-radius: var(--radius-xl); padding: 2rem; display: flex; flex-direction: column; justify-content: space-between; position: relative; box-shadow: 0 0 35px rgba(245, 158, 11, 0.15);">
-          <span style="position: absolute; top: -14px; right: 24px; background: #f59e0b; color: #020617; font-size: 0.82rem; font-weight: 800; padding: 4px 14px; border-radius: 999px;">💼 বিজনেস ও সেলস ম্যানেজার</span>
-          <div>
-            <h3 style="color: #fbbf24; font-size: 1.35rem; margin-bottom: 0.5rem;" data-i18n="pkg2_title">২. Automovie Pro - FB Business Manager & Ad Automation Engine</h3>
-            <p style="color: #94a3b8; font-size: 0.9rem; line-height: 1.5; margin-bottom: 1.25rem;">
-              বিজনেস পেজের সেলস গ্রাফিক্স/ব্যানার তৈরি, কাইনেটিক বিজ্ঞাপন ভিডিও, গ্রুপে অর্গানিক শেয়ার এবং মেসেঞ্জার সেলস রিপ্লাই।
-            </p>
-            <div style="margin-bottom: 1.5rem;">
-              <span style="font-size: 2.3rem; font-weight: 900; color: #fbbf24;">৳২,৯৯৯</span>
-              <span style="color: #ef4444; text-decoration: line-through; font-size: 1.1rem; margin-left: 8px;">৳৮,৫০০</span>
-              <span style="display: block; font-size: 0.85rem; color: #64748b; margin-top: 4px;">এককালীন ওয়ান টাইম • লাইফটাইম লাইসেন্স</span>
-            </div>
-            <ul style="list-style: none; padding: 0; margin: 0 0 2rem; color: #cbd5e1; font-size: 0.92rem; line-height: 1.8;">
-              <li>✓ হাই-কনভার্টিং সেলস ব্যানার ও অফার গ্রাফিক্স</li>
-              <li>✓ কাইনেটিক মোশন কার্ড সহ ৩০-৭০ সেকেন্ডের বিজ্ঞাপন ভিডিও</li>
-              <li>✓ টার্গেটেড ফেসবুক গ্রুপে স্বয়ংক্রিয় অর্গানিক শেয়ার</li>
-              <li>✓ ২৪/৭ স্মার্ট কাস্টমার ইনকোয়ারি সেলস রেসপন্স</li>
-              <li>✓ প্রোডাক্ট ও সার্ভিসের স্পেশাল ক্যাম্পেইন ম্যানেজমেন্ট</li>
-            </ul>
-          </div>
-          <a href="#buy" onclick="window.selectEngineRadio('fb_business')" class="btn" style="width: 100%; text-align: center; background: linear-gradient(135deg, #d97706, #b45309); font-weight: 700; padding: 0.9rem;">অর্ডার করুন (৳২,৯৯৯)</a>
-        </div>
-
-        <!-- Product 3: Profile & Page Post -->
-        <div style="background: rgba(11, 21, 40, 0.85); border: 2px solid #10b981; border-radius: var(--radius-xl); padding: 2rem; display: flex; flex-direction: column; justify-content: space-between; position: relative; box-shadow: 0 0 35px rgba(16, 185, 129, 0.15);">
-          <span style="position: absolute; top: -14px; right: 24px; background: #10b981; color: #020617; font-size: 0.82rem; font-weight: 800; padding: 4px 14px; border-radius: 999px;">📱 প্রোফাইল ও পেজ অটোমেশন</span>
-          <div>
-            <h3 style="color: #34d399; font-size: 1.35rem; margin-bottom: 0.5rem;" data-i18n="pkg3_title">৩. Automovie Pro - FB Profile & Page Post Automation Engine</h3>
-            <p style="color: #94a3b8; font-size: 0.9rem; line-height: 1.5; margin-bottom: 1.25rem;">
-              ব্যক্তিগত প্রোফাইল ও পেজের জন্য নির্দিষ্ট নিসভিত্তিক পোস্ট রাইটিং, ব্রান্ডেড কোট ব্যানার ও গ্রুপে অর্গানিক শেয়ার।
-            </p>
-            <div style="margin-bottom: 1.5rem;">
-              <span style="font-size: 2.3rem; font-weight: 900; color: #34d399;">৳১,৯৯৯</span>
-              <span style="color: #ef4444; text-decoration: line-through; font-size: 1.1rem; margin-left: 8px;">৳৬,৫০০</span>
-              <span style="display: block; font-size: 0.85rem; color: #64748b; margin-top: 4px;">এককালীন ওয়ান টাইম • লাইফটাইম লাইসেন্স</span>
-            </div>
-            <ul style="list-style: none; padding: 0; margin: 0 0 2rem; color: #cbd5e1; font-size: 0.92rem; line-height: 1.8;">
-              <li>✓ খাঁটি ইসলামিক হাদিস/কোরআন বা অনুপ্রেরণামূলক পোস্ট</li>
-              <li>✓ স্বয়ংক্রিয় গোল্ডেন এমবলেম ব্যানার ও ফটো ফ্রেম</li>
-              <li>✓ ফেসবুক প্রোফাইল ও পেজে হিউম্যান-লাইক শিডিউল পোস্ট</li>
-              <li>✓ ইসলামিক ও শিক্ষণীয় গ্রুপে নিরাপদ অর্গানিক শেয়ারিং</li>
-              <li>✓ ফ্রেন্ড ও ফলোয়ার এনগেজমেন্ট অটোমেশন</li>
-            </ul>
-          </div>
-          <a href="#buy" onclick="window.selectEngineRadio('profile_page')" class="btn" style="width: 100%; text-align: center; background: linear-gradient(135deg, #059669, #047857); font-weight: 700; padding: 0.9rem;">অর্ডার করুন (৳১,৯৯৯)</a>
-        </div>
-      </div>
-    </div>
   </section>
 
   <!-- SPECIAL GOOGLE AI PRO PACKAGE SECTION (Sitting right below Software Packages with Disclaimer Banner) -->
@@ -679,51 +604,281 @@ $broadcastLinkText = setting($pdo, 'broadcast_link_text', '');
     </div>
   </section>
 
-  <!-- Feature Cards Grid (Filtered by Package) -->
+  <!-- Feature Cards & 3-Column Suite (Zero Tabs, 100% Direct Visibility) -->
   <section id="features" class="reveal">
     <div class="section-head">
-      <h2 data-i18n="features">পাওয়ারফুল ইন্ডাস্ট্রিয়াল ফিচারসমূহ</h2>
-      <p class="lead" data-i18n="features_lead">বিশ্বমানের কনটেন্ট ক্রিয়েটর ও মিডিয়া এজেন্সির জন্য প্রস্তুত প্রতিটি টুলস। প্যাকেজ অনুযায়ী ফিল্টার করে দেখুন।</p>
+      <h2 data-i18n="features_suite_title">৩টি সফটওয়্যার প্যাকেজের পূর্ণাঙ্গ ফিচার ও সুবিধাসমূহ</h2>
+      <p class="lead" data-i18n="features_suite_lead">কোনো ক্লিক বা ফিল্টার ছাড়াই ৩টি সফটওয়্যারের প্রতিটি ফিচার ও অনন্য সুবিধাসমূহ পাশাপাশি তুলনা করে দেখুন।</p>
     </div>
 
-    <!-- Software Tier Filter Tabs -->
-    <div class="feature-tabs-nav">
-      <button type="button" class="feature-tab-btn active" data-filter="all">
-        🔥 <span data-i18n="feat_tab_all">সব ফিচার (১৮টি)</span>
-      </button>
-      <button type="button" class="feature-tab-btn" data-filter="video_studio">
-        🎬 <span data-i18n="feat_tab_video">১. Social Media Content Automation Engine (৳৩,৯৯৯)</span>
-      </button>
-      <button type="button" class="feature-tab-btn" data-filter="fb_business">
-        💼 <span data-i18n="feat_tab_business">২. FB Business Manager & Ad Automation Engine (৳২,৯৯৯)</span>
-      </button>
-      <button type="button" class="feature-tab-btn" data-filter="profile_page">
-        📱 <span data-i18n="feat_tab_profile">৩. FB Profile & Page Post Automation Engine (৳১,৯৯৯)</span>
-      </button>
+    <!-- 3-Column Modern Feature & Capabilities Suite (Zero Tabs, All Direct) -->
+    <div class="feature-suite-3col-grid">
+      <!-- Box 1: Social Media Content Automation Engine -->
+      <div class="feat-box feat-box-video">
+        <div class="feat-box-top">
+          <span class="engine-top-badge badge-cyan">🎬 ফুল কন্টেন্ট পাওয়ারহাউজ</span>
+          <div class="feat-box-price-wrap">
+            <span class="feat-current-price">৳৩,৯৯৯</span>
+            <span class="feat-old-price">৳১০,০০০</span>
+            <span class="feat-license-tag">লাইফটাইম লাইসেন্স • এককালীন ফি</span>
+          </div>
+        </div>
+        <h3 class="feat-box-title" data-i18n="pkg1_title">১. Automovie Pro - Social Media Content Automation Engine</h3>
+        <p class="feat-box-lead">ইউটিউব, ফেসবুক ও টিকটকের জন্য সম্পূর্ণ স্বয়ংক্রিয় ভাইরাল ভিডিও তৈরি, ট্রান্সলেশন ও মাল্টি-প্ল্যাটফর্ম পাবলিশিং।</p>
+        
+        <div class="feat-box-checklist-title">✨ অন্তর্ভুক্ত সকল ফিচার ও সুবিধাসমূহ:</div>
+        <ul class="feat-box-checklist">
+          <li>
+            <span class="feat-chk">✓</span>
+            <div><strong>সম্পূর্ণ অটো শর্ট ও লং ভিডিও তৈরি:</strong> নির্দিষ্ট সময়ে ফুল এআই শর্টস ও ৫ মিনিটের লং স্টোরি ভিডিও নিজে তৈরি করে।</div>
+          </li>
+          <li>
+            <span class="feat-chk">✓</span>
+            <div><strong>ভাইরাল হুক ও চিত্রনাট্য জেনারেশন:</strong> Google ও YouTube ট্রেন্ডস অ্যানালাইসিস করে স্বয়ংক্রিয় ট্রেন্ডিং টপিক ও স্ক্রিপ্ট তৈরি।</div>
+          </li>
+          <li>
+            <span class="feat-chk">✓</span>
+            <div><strong>১০০% মানবিক বাংলা ও বহুভাষিক ভয়েসওভার:</strong> সম্পূর্ণ রোবোটিকলেস ন্যাচারাল প্রো অডিও।</div>
+          </li>
+          <li>
+            <span class="feat-chk">✓</span>
+            <div><strong>কাইনেটিক মোশন কার্ড ও সিনেমাটিক ভিজ্যুয়াল:</strong> স্ক্রিপ্টের সাথে নিখুঁতভাবে ম্যাচ করা এইচডি ভিজ্যুয়াল ক্লিপস।</div>
+          </li>
+          <li>
+            <span class="feat-chk">✓</span>
+            <div><strong>এক মাস্টার ভিডিও থেকে ৬ ভাষায় ট্রান্সলেশন:</strong> একই ভিডিও বাংলা, হিন্দি, উর্দু, তামিল, মালয়ালম ও ইংরেজিতে তৈরি করে বিশ্বব্যাপী রিচ।</div>
+          </li>
+          <li>
+            <span class="feat-chk">✓</span>
+            <div><strong>একসাথে ৬টি YouTube + ৬টি Facebook + ৬টি TikTok:</strong> স্বয়ংক্রিয় নির্দিষ্ট শিডিউলে ভিডিও আপলোড।</div>
+          </li>
+          <li>
+            <span class="feat-chk">✓</span>
+            <div><strong>SEO থাম্বনেইল, টাইটেল ও মেটাডাটা:</strong> আকর্ষণীয় ক্লিকেবল থাম্বনেইল, টাইটেল, ডেসক্রিপশন ও ট্যাগ জেনারেটর।</div>
+          </li>
+          <li>
+            <span class="feat-chk">✓</span>
+            <div><strong>সোশ্যাল মিডিয়া ইঞ্জিনিয়ার দ্বারা অর্গানিক শেয়ার:</strong> প্রাসঙ্গিক ফেসবুক গ্রুপসমূহে স্বয়ংক্রিয় ভিডিও শেয়ারিং।</div>
+          </li>
+          <li>
+            <span class="feat-chk">✓</span>
+            <div><strong>২৪/৭ স্মার্ট কমেন্ট ও ইনবক্স রেসপন্স:</strong> ভিউয়ারদের কমেন্টের তাৎক্ষণিক উত্তর ও এআই কাস্টমার এনগেজমেন্ট।</div>
+          </li>
+          <li>
+            <span class="feat-chk">✓</span>
+            <div><strong>Agnes ভিডিও ইঞ্জিন ও ইমেজ ফলব্যাক:</strong> কোনো ফ্রেম আটকে না থেকে নিরবচ্ছিন্ন ভিডিও রেন্ডারিং।</div>
+          </li>
+        </ul>
+        <div class="feat-box-footer">
+          <a href="#buy" class="btn btn-engine-order" onclick="window.selectEngineRadio('video_studio')">অর্ডার করুন (৳৩,৯৯৯)</a>
+        </div>
+      </div>
+
+      <!-- Box 2: FB Business Manager & Ad Automation Engine -->
+      <div class="feat-box feat-box-business">
+        <div class="feat-box-top">
+          <span class="engine-top-badge badge-amber">💼 বিজনেস ও সেলস ম্যানেজার</span>
+          <div class="feat-box-price-wrap">
+            <span class="feat-current-price">৳২,৯৯৯</span>
+            <span class="feat-old-price">৳৮,৫০০</span>
+            <span class="feat-license-tag">লাইফটাইম লাইসেন্স • এককালীন ফি</span>
+          </div>
+        </div>
+        <h3 class="feat-box-title" data-i18n="pkg2_title">২. Automovie Pro - FB Business Manager & Ad Automation Engine</h3>
+        <p class="feat-box-lead">ব্যবসা ও প্রডাক্টের হাই-কনভার্টিং সেলস ব্যানার, কাইনেটিক বিজ্ঞাপন ভিডিও ও মেসেঞ্জার সেলস সাপোর্ট।</p>
+        
+        <div class="feat-box-checklist-title">✨ অন্তর্ভুক্ত সকল ফিচার ও সুবিধাসমূহ:</div>
+        <ul class="feat-box-checklist">
+          <li>
+            <span class="feat-chk">✓</span>
+            <div><strong>হাই-কনভার্টিং সেলস ব্যানার ও অফার গ্রাফিক্স:</strong> প্রডাক্টের ছবি, আকর্ষণীয় মূল্যছাড় ও জরুরি যোগাযোগের তথ্য সহ প্রিমিয়াম ব্যানার।</div>
+          </li>
+          <li>
+            <span class="feat-chk">✓</span>
+            <div><strong>কাইনেটিক বিজ্ঞাপন ভিডিও জেনারেশন:</strong> সোশ্যাল মিডিয়ায় দ্রুত বিক্রির জন্য ৩০-৭০ সেকেন্ডের ডায়নামিক ভিডিও বিজ্ঞাপন।</div>
+          </li>
+          <li>
+            <span class="feat-chk">✓</span>
+            <div><strong>টার্গেটেড ফেসবুক গ্রুপ ও মার্কেটপ্লেসে অটো-শেয়ার:</strong> অর্গানিক সেলস লিড সংগ্রহের জন্য নিয়মিত পোস্ট শেয়ার।</div>
+          </li>
+          <li>
+            <span class="feat-chk">✓</span>
+            <div><strong>২৪/৭ ইনস্ট্যান্ট মেসেঞ্জার ও কমেন্ট সেলস রিপ্লাই:</strong> পণ্যের দাম, স্টক ও অর্ডার সংক্রান্ত প্রশ্নের তাৎক্ষণিক উত্তর।</div>
+          </li>
+          <li>
+            <span class="feat-chk">✓</span>
+            <div><strong>প্রোডাক্ট ক্যাটালগ ও স্পেশাল ক্যাম্পেইন ম্যানেজমেন্ট:</strong> একাধিক পণ্য ও অফার স্বয়ংক্রিয় প্রমোশন পরিচালনা।</div>
+          </li>
+          <li>
+            <span class="feat-chk">✓</span>
+            <div><strong>একসাথে ৬টি ফেসবুক পেজ ও ডেস্টিনেশন:</strong> একাধিক ব্র্যান্ড পেজ একসাথে এক ড্যাশবোর্ড থেকে হ্যান্ডেল করার সুবিধা।</div>
+          </li>
+          <li>
+            <span class="feat-chk">✓</span>
+            <div><strong>ফেসবুক পেজ পোস্ট ও দৈনিক স্টোরি শিডিউলার:</strong> নির্দিষ্ট সময়সূচিতে পোস্ট ও ৯:১৬ স্টোরি স্বয়ংক্রিয় পাবলিশ।</div>
+          </li>
+          <li>
+            <span class="feat-chk">✓</span>
+            <div><strong>অটোপাইলট পোস্ট হিলার ও অডিট গার্ড:</strong> ভুল পোস্ট স্বয়ংক্রিয় সংশোধন ও পেজের নিরাপত্তা বজায় রাখা।</div>
+          </li>
+          <li>
+            <span class="feat-chk">✓</span>
+            <div><strong>কাস্টমার ইনকোয়ারি লিড ক্যাপচার:</strong> আগ্রহী ক্রেতাদের তথ্য সংগ্রহ ও ফলো-আপ সুবিধা।</div>
+          </li>
+          <li>
+            <span class="feat-chk">✓</span>
+            <div><strong>নিরাপদ হিউম্যান সিমুলেশন পোস্টিং:</strong> ফেসবুক অ্যালগরিদম মেনে অ্যাকাউন্টের শতভাগ সুরক্ষা।</div>
+          </li>
+        </ul>
+        <div class="feat-box-footer">
+          <a href="#buy" class="btn btn-engine-order btn-amber" onclick="window.selectEngineRadio('fb_business')">অর্ডার করুন (৳২,৯৯৯)</a>
+        </div>
+      </div>
+
+      <!-- Box 3: FB Profile & Page Post Automation Engine -->
+      <div class="feat-box feat-box-profile">
+        <div class="feat-box-top">
+          <span class="engine-top-badge badge-emerald">📱 প্রোফাইল ও পেজ অটো-পাইলট</span>
+          <div class="feat-box-price-wrap">
+            <span class="feat-current-price">৳১,৯৯৯</span>
+            <span class="feat-old-price">৳৬,৫০০</span>
+            <span class="feat-license-tag">লাইফটাইম লাইসেন্স • এককালীন ফি</span>
+          </div>
+        </div>
+        <h3 class="feat-box-title" data-i18n="pkg3_title">৩. Automovie Pro - FB Profile & Page Post Automation Engine</h3>
+        <p class="feat-box-lead">ব্যক্তিগত প্রোফাইল ও পেজের জন্য ইসলামিক বা মোটিভেশনাল পোস্ট ও গোল্ডেন এমবলেম ব্যানার অটোমেশন।</p>
+        
+        <div class="feat-box-checklist-title">✨ অন্তর্ভুক্ত সকল ফিচার ও সুবিধাসমূহ:</div>
+        <ul class="feat-box-checklist">
+          <li>
+            <span class="feat-chk">✓</span>
+            <div><strong>খাঁটি ইসলামিক হাদিস/কোরআনের বাণী বা অনুপ্রেরণামূলক উক্তি:</strong> স্বয়ংক্রিয় নির্ভরযোগ্য কন্টেন্ট নির্বাচন।</div>
+          </li>
+          <li>
+            <span class="feat-chk">✓</span>
+            <div><strong>গোল্ডেন এমবলেম ব্যানার ও ব্র্যান্ড ফটো ফ্রেম:</strong> আপনার পেজের লোগো ও ফ্রেম সহ আকর্ষণীয় কোট ব্যানার ডিজাইন।</div>
+          </li>
+          <li>
+            <span class="feat-chk">✓</span>
+            <div><strong>প্রাসঙ্গিক বাংলা স্ট্যাটাস ও ক্যাপশন রাইটিং:</strong> অডিয়েন্স এনগেজমেন্ট ও রিচ বাড়ানোর জন্য নিখুঁত লেখা।</div>
+          </li>
+          <li>
+            <span class="feat-chk">✓</span>
+            <div><strong>প্রোফাইল ও পেজে হিউম্যান-লাইক পোস্টিং:</strong> কোনো রোবোটিক স্প্যাম ছাড়াই নিরাপদ ব্রাউজার সিমুলেশনে পোস্ট পাবলিশ।</div>
+          </li>
+          <li>
+            <span class="feat-chk">✓</span>
+            <div><strong>নিশভিত্তিক কমিউনিটি গ্রুপে অর্গানিক শেয়ারিং:</strong> ফলোয়ার ও পরিচিতি বৃদ্ধির জন্য গ্রুপে পোস্ট পৌঁছে দেওয়া।</div>
+          </li>
+          <li>
+            <span class="feat-chk">✓</span>
+            <div><strong>ফ্রেন্ড ও ফলোয়ার এনগেজমেন্ট অটোমেশন:</strong> লাইক ও কমেন্টে সক্রিয় থাকার সুবিধা।</div>
+          </li>
+          <li>
+            <span class="feat-chk">✓</span>
+            <div><strong>ওয়ান-টাইম কানেক্ট ও সেশন কুকি সেভার:</strong> প্রতিদিন বারবার অ্যাকাউন্টে লগইনের ঝামেলা নেই।</div>
+          </li>
+          <li>
+            <span class="feat-chk">✓</span>
+            <div><strong>ইন-অ্যাপ ডেস্কটপ হেল্পার ও ক্যাপচা অ্যালার্ট:</strong> সেটআপ ও ব্যবহারে তাৎক্ষণিক গাইডলাইন।</div>
+          </li>
+          <li>
+            <span class="feat-chk">✓</span>
+            <div><strong>৩০ সেকেন্ডের গ্রেসফুল ওয়াচডগ ও অটো-রিট্রাই:</strong> কোনো ব্রাউজার ড্রপ হলে নিরাপদ অটোমেটিক রিকভারি।</div>
+          </li>
+          <li>
+            <span class="feat-chk">✓</span>
+            <div><strong>লাইফটাইম লাইসেন্স ও আজীবন সাপোর্ট:</strong> কোনো মাসিক সাবস্ক্রিপশন চার্জ ছাড়া আজীবন ব্যবহার।</div>
+          </li>
+        </ul>
+        <div class="feat-box-footer">
+          <a href="#buy" class="btn btn-engine-order btn-emerald" onclick="window.selectEngineRadio('profile_page')">অর্ডার করুন (৳১,৯৯৯)</a>
+        </div>
+      </div>
     </div>
 
-    <div class="feature-grid" id="featureGrid">
-      <?php foreach ($catalog as $feat):
-          $f = amp_feature_for_lang($feat, $uiLang);
-          $tier = $f['tier'] ?? 'video_studio';
-          $img = '/assets/img/' . rawurlencode($f['image']);
-          $tierBadge = [
-              'video_studio' => ['cls' => 'tier-video', 'label' => '🎬 Social Media Engine (৳৩,৯৯৯)'],
-              'fb_business' => ['cls' => 'tier-business', 'label' => '💼 FB Business Engine (৳২,৯৯৯)'],
-              'profile_page' => ['cls' => 'tier-profile', 'label' => '📱 FB Profile Engine (৳১,৯৯৯)'],
-          ][$tier] ?? ['cls' => 'tier-video', 'label' => 'AutoMovie Pro'];
-          ?>
-        <article class="feature-card" data-feat-id="<?= e($f['id']) ?>" data-tier="<?= e($tier) ?>">
-          <div class="feature-img-wrap">
-            <span class="tier-pill <?= e($tierBadge['cls']) ?>"><?= e($tierBadge['label']) ?></span>
-            <img class="feature-img" src="<?= e($img) ?>" alt="<?= e($f['title']) ?>" loading="lazy" width="800" height="450">
-          </div>
-          <div class="feature-card-body">
-            <h3 class="feature-title"><?= e($f['title']) ?></h3>
-            <p class="feature-detail"><?= e($f['detail']) ?></p>
-          </div>
-        </article>
-      <?php endforeach; ?>
+    <?php
+    $catalogByTier = [
+        'video_studio' => [],
+        'fb_business' => [],
+        'profile_page' => []
+    ];
+    foreach ($catalog as $feat) {
+        $t = $feat['tier'] ?? 'video_studio';
+        if (!isset($catalogByTier[$t])) {
+            $catalogByTier[$t] = [];
+        }
+        $catalogByTier[$t][] = $feat;
+    }
+    ?>
+
+    <!-- Visual Feature Galleries for Each Software (No tabs, all directly visible) -->
+    <div class="feature-visual-galleries">
+      <!-- Section 1: Video Studio Gallery -->
+      <div class="feat-gallery-section">
+        <h4 class="gallery-subheading" style="color:#38bdf8;">🎬 ১. Social Media Content Automation Engine — ভিজ্যুয়াল ফিচারসমূহ</h4>
+        <div class="feature-grid">
+          <?php foreach ($catalogByTier['video_studio'] as $feat):
+              $f = amp_feature_for_lang($feat, $uiLang);
+              $img = '/assets/img/' . rawurlencode($f['image']);
+              ?>
+            <article class="feature-card" data-feat-id="<?= e($f['id']) ?>" data-tier="video_studio">
+              <div class="feature-img-wrap">
+                <span class="tier-pill tier-video">🎬 Social Media Engine (৳৩,৯৯৯)</span>
+                <img class="feature-img" src="<?= e($img) ?>" alt="<?= e($f['title']) ?>" loading="lazy" width="800" height="450">
+              </div>
+              <div class="feature-card-body">
+                <h3 class="feature-title"><?= e($f['title']) ?></h3>
+                <p class="feature-detail"><?= e($f['detail']) ?></p>
+              </div>
+            </article>
+          <?php endforeach; ?>
+        </div>
+      </div>
+
+      <!-- Section 2: FB Business Gallery -->
+      <div class="feat-gallery-section">
+        <h4 class="gallery-subheading" style="color:#fbbf24;">💼 ২. FB Business Manager & Ad Automation Engine — ভিজ্যুয়াল ফিচারসমূহ</h4>
+        <div class="feature-grid">
+          <?php foreach ($catalogByTier['fb_business'] as $feat):
+              $f = amp_feature_for_lang($feat, $uiLang);
+              $img = '/assets/img/' . rawurlencode($f['image']);
+              ?>
+            <article class="feature-card" data-feat-id="<?= e($f['id']) ?>" data-tier="fb_business">
+              <div class="feature-img-wrap">
+                <span class="tier-pill tier-business">💼 FB Business Engine (৳২,৯৯৯)</span>
+                <img class="feature-img" src="<?= e($img) ?>" alt="<?= e($f['title']) ?>" loading="lazy" width="800" height="450">
+              </div>
+              <div class="feature-card-body">
+                <h3 class="feature-title"><?= e($f['title']) ?></h3>
+                <p class="feature-detail"><?= e($f['detail']) ?></p>
+              </div>
+            </article>
+          <?php endforeach; ?>
+        </div>
+      </div>
+
+      <!-- Section 3: Profile Page Gallery -->
+      <div class="feat-gallery-section">
+        <h4 class="gallery-subheading" style="color:#34d399;">📱 ৩. FB Profile & Page Post Automation Engine — ভিজ্যুয়াল ফিচারসমূহ</h4>
+        <div class="feature-grid">
+          <?php foreach ($catalogByTier['profile_page'] as $feat):
+              $f = amp_feature_for_lang($feat, $uiLang);
+              $img = '/assets/img/' . rawurlencode($f['image']);
+              ?>
+            <article class="feature-card" data-feat-id="<?= e($f['id']) ?>" data-tier="profile_page">
+              <div class="feature-img-wrap">
+                <span class="tier-pill tier-profile">📱 FB Profile Engine (৳১,৯৯৯)</span>
+                <img class="feature-img" src="<?= e($img) ?>" alt="<?= e($f['title']) ?>" loading="lazy" width="800" height="450">
+              </div>
+              <div class="feature-card-body">
+                <h3 class="feature-title"><?= e($f['title']) ?></h3>
+                <p class="feature-detail"><?= e($f['detail']) ?></p>
+              </div>
+            </article>
+          <?php endforeach; ?>
+        </div>
+      </div>
     </div>
   </section>
 
@@ -1093,27 +1248,7 @@ $broadcastLinkText = setting($pdo, 'broadcast_link_text', '');
 
   <script>
     document.addEventListener('DOMContentLoaded', () => {
-      // 1. Feature Tabs Filter
-      const tabBtns = document.querySelectorAll('.feature-tab-btn');
-      const featCards = document.querySelectorAll('.feature-card');
-      tabBtns.forEach(btn => {
-        btn.addEventListener('click', () => {
-          tabBtns.forEach(b => b.classList.remove('active'));
-          btn.classList.add('active');
-          const filter = btn.getAttribute('data-filter');
-          featCards.forEach(card => {
-            const cardTier = card.getAttribute('data-tier');
-            if (filter === 'all' || cardTier === filter) {
-              card.style.display = 'flex';
-              setTimeout(() => { card.style.opacity = '1'; }, 10);
-            } else {
-              card.style.display = 'none';
-            }
-          });
-        });
-      });
-
-      // 2. Verified Reviews Interactive Carousel Slider
+      // 1. Verified Reviews Interactive Carousel Slider
       const track = document.getElementById('revCarouselTrack');
       const prevBtn = document.getElementById('revPrevBtn');
       const nextBtn = document.getElementById('revNextBtn');

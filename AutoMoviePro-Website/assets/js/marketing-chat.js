@@ -162,6 +162,19 @@
     return ENGINE_PLANS[val] || ENGINE_PLANS.video_studio;
   }
 
+  const BN_DIGITS = ["০", "১", "২", "৩", "৪", "৫", "৬", "৭", "৮", "৯"];
+  function toBnDigits(num) {
+    return String(num).replace(/[0-9]/g, function (d) { return BN_DIGITS[d]; });
+  }
+
+  function formatMoney(num) {
+    const currentLang = (window.i18n && window.i18n.currentLang) || "bn";
+    if (currentLang === "bn") {
+      return "৳" + toBnDigits(num);
+    }
+    return "৳" + String(num).replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+  }
+
   function calcTotal() {
     const personal = document.querySelector('input[name="personal_lang"]:checked');
     const personalCode = personal ? personal.value : "bn";
@@ -186,9 +199,27 @@
     const totalEl = document.getElementById("totalDisplay");
     const baseEl = document.getElementById("baseLangs");
     const addonEl = document.getElementById("addonLangs");
+    const heroPriceEl = document.getElementById("heroSelectedPrice");
+    const heroPlanNoteEl = document.getElementById("heroSelectedPlanNote");
+
     if (amountEl) amountEl.value = String(total);
     if (planNameEl) planNameEl.value = engine.title;
-    if (totalEl) totalEl.textContent = "৳" + total;
+
+    const formattedPrice = formatMoney(total);
+    if (totalEl) totalEl.textContent = formattedPrice;
+    if (heroPriceEl) heroPriceEl.textContent = formattedPrice;
+
+    if (heroPlanNoteEl) {
+      const radio = document.querySelector('input[name="product_type"]:checked');
+      const val = radio ? radio.value : "video_studio";
+      const notes = {
+        video_studio: "Social Media Engine — লাইফটাইম লাইসেন্স (ইংরেজি + ১টি ব্যক্তিগত ভাষা অন্তর্ভুক্ত)",
+        fb_business: "FB Business Manager & Ad Engine — লাইফটাইম লাইসেন্স (আনলিমিটেড প্রোডাক্ট ও অ্যাড)",
+        profile_page: "FB Profile & Page Post Engine — লাইফটাইম লাইসেন্স (১০০% হিউম্যান সিমুলেশন পোস্টিং)"
+      };
+      heroPlanNoteEl.textContent = notes[val] || "লাইফটাইম লাইসেন্স — এককালীন ওয়ান-টাইম ফি";
+    }
+
     if (baseEl) baseEl.value = "en," + personalCode;
     if (addonEl) addonEl.value = extras.join(",");
   }
@@ -209,63 +240,15 @@
   };
 
   window.switchWorkflowTab = function (engineKey) {
-    const tabs = [
-      {
-        key: "engine_social",
-        btn: "wfTabSocial",
-        pane: "pane_engine_social",
-        titleKey: "how_it_works",
-        titleDef: "Automovie Pro - Social Media Content Automation Engine কিভাবে কাজ করে?",
-        leadDef: "সম্পূর্ণ স্বয়ংক্রিয় ৯টি ধাপে ভাইরাল কনটেন্ট রিসার্চ থেকে শুরু করে ভিডিও তৈরি, গ্লোবাল ট্রান্সলেশন ও মাল্টি-প্ল্যাটফর্ম পাবলিশিং।"
-      },
-      {
-        key: "engine_business",
-        btn: "wfTabBusiness",
-        pane: "pane_engine_business",
-        titleKey: "how_engine2_title",
-        titleDef: "Automovie Pro - FB Business Manager & Ad Automation Engine কিভাবে কাজ করে?",
-        leadDef: "৫টি নিখুঁত পদক্ষেপে প্রোডাক্ট ও সার্ভিসের সেলস ব্যানার, অ্যাড ভিডিও ও কাস্টমার রেসপন্স।"
-      },
-      {
-        key: "engine_profile",
-        btn: "wfTabProfile",
-        pane: "pane_engine_profile",
-        titleKey: "how_engine3_title",
-        titleDef: "Automovie Pro - FB Profile & Page Post Automation Engine কিভাবে কাজ করে?",
-        leadDef: "৫টি পবিত্র ও পরিচ্ছন্ন ধাপে ইসলামিক বা অনুপ্রেরণামূলক পোস্ট ও ব্যানার অটো-পাইলট পাবলিশিং।"
-      }
-    ];
-
-    tabs.forEach(function (item) {
-      const btn = document.getElementById(item.btn);
-      const pane = document.getElementById(item.pane);
-      if (item.key === engineKey) {
-        if (btn) btn.classList.add("active");
-        if (pane) {
-          pane.style.display = "block";
-          pane.classList.add("active");
-        }
-        const titleEl = document.getElementById("howMainTitle");
-        const leadEl = document.getElementById("howMainLead");
-        if (titleEl) {
-          titleEl.textContent = t(item.titleKey) || item.titleDef;
-          titleEl.setAttribute("data-i18n", item.titleKey);
-        }
-        if (leadEl) {
-          leadEl.textContent = item.leadDef;
-        }
-      } else {
-        if (btn) btn.classList.remove("active");
-        if (pane) {
-          pane.style.display = "none";
-          pane.classList.remove("active");
-        }
-      }
-    });
-
-    const howSec = document.getElementById("how");
-    if (howSec) {
-      howSec.scrollIntoView({ behavior: "smooth", block: "start" });
+    const targetMap = {
+      engine_social: "wfBoxSocial",
+      engine_business: "wfBoxBusiness",
+      engine_profile: "wfBoxProfile"
+    };
+    const targetId = targetMap[engineKey] || "how";
+    const el = document.getElementById(targetId);
+    if (el) {
+      el.scrollIntoView({ behavior: "smooth", block: "start" });
     }
   };
 
@@ -519,6 +502,7 @@
     refreshChatWidgetText();
 
     document.addEventListener("amp-lang-change", function () {
+      calcTotal();
       refreshFeatures();
       refreshChatWidgetText();
     });
