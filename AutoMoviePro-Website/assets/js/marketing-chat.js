@@ -61,6 +61,13 @@
     if (statusEl) statusEl.textContent = agent.role;
   }
 
+  function esc(s) {
+    if (!s) return "";
+    return String(s).replace(/[&<>"']/g, function (m) {
+      return ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" })[m];
+    });
+  }
+
   function t(key, vars) {
     if (typeof window.ampSiteT === "function") {
       return window.ampSiteT(key, vars);
@@ -152,19 +159,66 @@
     if (addonEl) addonEl.value = extras.join(",");
   }
 
-  function appendChat(role, text) {
+  function appendChat(role, text, onComplete, checkoutUrl) {
     const log = document.getElementById("ampChatLog");
     if (!log) return;
     const div = document.createElement("div");
     div.className = "amp-chat-bubble amp-chat-" + role;
-    div.textContent = text;
     log.appendChild(div);
     log.scrollTop = log.scrollHeight;
+
+    if (role === "user") {
+      div.textContent = text;
+      if (onComplete) onComplete();
+      return;
+    }
+
+    // Realistic human word-by-word typing effect for bot replies
+    const words = text.split(/(\s+)/);
+    let idx = 0;
+
+    function typeNextWord() {
+      if (idx < words.length) {
+        div.textContent += words[idx];
+        idx++;
+        log.scrollTop = log.scrollHeight;
+
+        let delay = Math.floor(Math.random() * 22) + 18;
+        const last = words[idx - 1];
+        if (last && (last.includes("।") || last.includes("?") || last.includes("!") || last.includes("\n"))) {
+          delay += 110;
+        } else if (last && (last.includes(",") || last.includes(";"))) {
+          delay += 60;
+        }
+        setTimeout(typeNextWord, delay);
+      } else {
+        if (checkoutUrl) {
+          const ctaWrap = document.createElement("div");
+          ctaWrap.style.cssText = "margin-top:10px; padding-top:8px; border-top:1px dashed rgba(255,255,255,0.2);";
+          const ctaBtn = document.createElement("a");
+          ctaBtn.href = checkoutUrl;
+          ctaBtn.className = "amp-chat-cta-btn";
+          ctaBtn.style.cssText = "display:inline-flex; align-items:center; gap:6px; background:linear-gradient(135deg, #10b981, #059669); color:#ffffff; font-weight:700; font-size:0.85rem; padding:8px 14px; border-radius:6px; text-decoration:none; box-shadow:0 2px 8px rgba(16,185,129,0.3);";
+          ctaBtn.innerHTML = "🎟️ ৳৫০০ নগদ ছাড়ে এখনই অর্ডার করুন →";
+          ctaWrap.appendChild(ctaBtn);
+          div.appendChild(ctaWrap);
+          log.scrollTop = log.scrollHeight;
+        }
+        if (onComplete) onComplete();
+      }
+    }
+
+    typeNextWord();
   }
 
   function addSuggestions(items) {
     const log = document.getElementById("ampChatLog");
     if (!log || !items || !items.length) return;
+
+    // Clear old suggestions so chat stays neat
+    const oldRows = log.querySelectorAll(".amp-chat-suggestions");
+    oldRows.forEach(function (r) { r.remove(); });
+
     const row = document.createElement("div");
     row.className = "amp-chat-suggestions";
     items.forEach(function (s) {
@@ -193,8 +247,8 @@
     }
 
     const thinking = document.createElement("div");
-    thinking.className = "amp-chat-bubble amp-chat-bot";
-    thinking.textContent = "…";
+    thinking.className = "amp-chat-bubble amp-chat-bot amp-chat-typing-indicator";
+    thinking.innerHTML = "<span>" + esc(currentAgent.name) + " লিখছেন…</span>";
     const log = document.getElementById("ampChatLog");
     if (log) {
       log.appendChild(thinking);
@@ -217,20 +271,25 @@
         }),
       });
       const data = await res.json();
-      if (thinking.parentNode) thinking.remove();
       const reply = data.reply || (isGreet ? currentAgent.greet : "…");
-      appendChat("bot", reply);
-      history.push({ role: "assistant", content: reply });
-      if (data.suggestions && data.suggestions.length) {
-        addSuggestions(data.suggestions);
-      } else {
-        addSuggestions([
-          t("agent_suggestion_1"),
-          t("agent_suggestion_2"),
-          t("agent_suggestion_3"),
-          t("agent_suggestion_4"),
-        ]);
-      }
+
+      // Realistic human thinking & reading delay (650ms)
+      setTimeout(function () {
+        if (thinking.parentNode) thinking.remove();
+        appendChat("bot", reply, function () {
+          if (data.suggestions && data.suggestions.length) {
+            addSuggestions(data.suggestions);
+          } else {
+            addSuggestions([
+              t("agent_suggestion_1"),
+              t("agent_suggestion_2"),
+              t("agent_suggestion_3"),
+            ]);
+          }
+        }, data.checkout_url);
+        history.push({ role: "assistant", content: reply });
+      }, 650);
+
       if (data.open_whatsapp && data.whatsapp_url) {
         setTimeout(function () {
           window.open(data.whatsapp_url, "_blank");
