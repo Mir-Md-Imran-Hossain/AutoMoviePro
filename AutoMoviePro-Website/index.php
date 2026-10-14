@@ -651,12 +651,6 @@ foreach ($catalog as $feat) {
       </div>
     </div>
   </section>
-          </div>
-        </article>
-      <?php endforeach; ?>
-    </div>
-  </section>
-  <?php endif; ?>
 
   <!-- FAQ Section (Fully Internationalized) -->
   <section id="faq" class="reveal">
