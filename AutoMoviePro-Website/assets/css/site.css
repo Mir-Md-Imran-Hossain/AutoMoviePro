@@ -579,15 +579,17 @@ section .lead {
 }
 
 .feature-title {
-  font-size: 1.25rem;
-  margin: 0 0 0.65rem;
+  font-size: 1.45rem;
+  font-weight: 800;
+  margin: 0 0 0.75rem;
   color: #ffffff;
+  letter-spacing: -0.01em;
 }
 
 .feature-detail {
-  font-size: 0.95rem;
-  color: var(--muted);
-  line-height: 1.65;
+  font-size: 1.02rem;
+  color: #cbd5e1;
+  line-height: 1.7;
   margin: 0;
 }
 
@@ -1027,139 +1029,160 @@ input:focus, textarea:focus, select:focus {
   color: var(--ink-secondary);
   font-size: 1rem;
   line-height: 1.7;
+}
+
 /* ==========================================================================
-   Continuous 50+ Verified Reviews Infinite Marquee / Slider
+   Header Language Selector Pill
    ========================================================================== */
-.reviews-section-wrapper {
-  overflow: hidden;
+.lang-selector-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: rgba(15, 23, 42, 0.85);
+  border: 1px solid rgba(56, 189, 248, 0.4);
+  border-radius: 999px;
+  padding: 4px 14px;
+  transition: all 0.2s ease;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+}
+.lang-selector-pill:hover {
+  border-color: #38bdf8;
+  box-shadow: 0 0 15px rgba(56, 189, 248, 0.3);
+}
+.lang-globe-icon {
+  font-size: 1.05rem;
+  line-height: 1;
+}
+.lang-dropdown-select {
+  background: transparent;
+  color: #f1f5f9;
+  border: none;
+  font-size: 0.9rem;
+  font-weight: 700;
+  cursor: pointer;
+  outline: none;
+  padding-right: 4px;
+}
+.lang-dropdown-select option {
+  background: #0f172a;
+  color: #f8fafc;
+}
+
+/* ==========================================================================
+   Interactive 50+ Verified Reviews Horizontal Carousel Slider
+   ========================================================================== */
+.reviews-carousel-container {
   position: relative;
-  width: 100%;
-  padding: 1.5rem 0 2.5rem;
+  max-width: 1240px;
+  margin: 0 auto;
+  padding: 0.5rem 3.5rem;
 }
 
-.reviews-section-wrapper::before,
-.reviews-section-wrapper::after {
-  content: "";
-  position: absolute;
-  top: 0;
-  bottom: 0;
-  width: 120px;
-  z-index: 2;
-  pointer-events: none;
-}
-.reviews-section-wrapper::before {
-  left: 0;
-  background: linear-gradient(to right, #020617, transparent);
-}
-.reviews-section-wrapper::after {
-  right: 0;
-  background: linear-gradient(to left, #020617, transparent);
-}
-
-.review-marquee-track {
+.reviews-carousel-track {
   display: flex;
   gap: 1.5rem;
-  width: max-content;
-  will-change: transform;
+  overflow-x: auto;
+  scroll-behavior: smooth;
+  scroll-snap-type: x mandatory;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;
+  padding: 1rem 0.5rem;
+}
+.reviews-carousel-track::-webkit-scrollbar {
+  display: none;
 }
 
-.review-marquee-track.track-top {
-  animation: marquee-left 110s linear infinite;
-  margin-bottom: 1.5rem;
-}
-
-.review-marquee-track.track-bottom {
-  animation: marquee-right 115s linear infinite;
-}
-
-.review-marquee-track:hover {
-  animation-play-state: paused;
-}
-
-@keyframes marquee-left {
-  0% { transform: translateX(0); }
-  100% { transform: translateX(-50%); }
-}
-
-@keyframes marquee-right {
-  0% { transform: translateX(-50%); }
-  100% { transform: translateX(0); }
-}
-
-.review-card-marquee {
-  width: 360px;
-  min-width: 360px;
-  max-width: 360px;
-  background: rgba(15, 23, 42, 0.75);
-  border: 1px solid rgba(255, 255, 255, 0.08);
+.review-slide-card {
+  flex: 0 0 calc((100% - 3rem) / 3);
+  min-width: 320px;
+  scroll-snap-align: start;
+  background: rgba(15, 23, 42, 0.85);
+  border: 1px solid rgba(255, 255, 255, 0.1);
   border-radius: var(--radius-lg);
-  padding: 1.5rem;
+  padding: 1.6rem;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  backdrop-filter: blur(14px);
-  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.35);
+  backdrop-filter: blur(16px);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
   transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
   user-select: none;
 }
 
-.review-card-marquee:hover {
-  transform: translateY(-4px) scale(1.02);
-  border-color: rgba(56, 189, 248, 0.4);
-  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.6), 0 0 20px rgba(56, 189, 248, 0.15);
+@media (max-width: 1024px) {
+  .review-slide-card {
+    flex: 0 0 calc((100% - 1.5rem) / 2);
+    min-width: 280px;
+  }
 }
 
-.review-card-marquee .review-stars {
+@media (max-width: 640px) {
+  .reviews-carousel-container {
+    padding: 0.5rem 0.5rem;
+  }
+  .review-slide-card {
+    flex: 0 0 100%;
+    min-width: 260px;
+  }
+}
+
+.review-slide-card:hover {
+  transform: translateY(-5px);
+  border-color: rgba(56, 189, 248, 0.5);
+  box-shadow: 0 16px 36px rgba(0, 0, 0, 0.6), 0 0 25px rgba(56, 189, 248, 0.2);
+}
+
+.review-slide-card .review-stars {
   color: #fbbf24;
-  font-size: 1.1rem;
-  margin-bottom: 0.65rem;
+  font-size: 1.15rem;
+  margin-bottom: 0.75rem;
   display: flex;
   align-items: center;
-  gap: 3px;
+  gap: 4px;
 }
 
-.review-card-marquee .verified-pill {
+.review-slide-card .verified-pill {
   margin-left: auto;
-  font-size: 0.72rem;
+  font-size: 0.75rem;
   color: #34d399;
   background: rgba(16, 185, 129, 0.15);
-  border: 1px solid rgba(16, 185, 129, 0.3);
-  padding: 2px 8px;
+  border: 1px solid rgba(16, 185, 129, 0.35);
+  padding: 3px 10px;
   border-radius: 999px;
-  font-weight: 600;
+  font-weight: 700;
 }
 
-.review-card-marquee .review-text {
+.review-slide-card .review-text {
   color: #cbd5e1;
-  font-size: 0.92rem;
-  line-height: 1.6;
-  margin: 0 0 1.25rem;
-  font-style: normal;
+  font-size: 0.95rem;
+  line-height: 1.65;
+  margin: 0 0 1.4rem;
   display: -webkit-box;
-  -webkit-line-clamp: 5;
+  -webkit-line-clamp: 4;
   -webkit-box-orient: vertical;
   overflow: hidden;
 }
 
-.review-card-marquee .review-author {
+.review-slide-card .review-author {
   display: flex;
   justify-content: space-between;
   align-items: center;
   border-top: 1px solid rgba(255, 255, 255, 0.08);
-  padding-top: 0.85rem;
+  padding-top: 1rem;
 }
 
-.review-card-marquee .review-author strong {
+.review-slide-card .review-author strong {
   color: #f8fafc;
-  font-size: 0.9rem;
+  font-size: 0.95rem;
+  font-weight: 700;
 }
 
-.review-card-marquee .platform-badge {
+.review-slide-card .platform-badge {
   background: rgba(6, 182, 212, 0.12);
   color: #38bdf8;
-  padding: 2px 8px;
+  padding: 3px 10px;
   border-radius: 999px;
-  font-size: 0.72rem;
+  font-size: 0.75rem;
   font-weight: 600;
   border: 1px solid rgba(56, 189, 248, 0.25);
   max-width: 170px;
@@ -1168,29 +1191,96 @@ input:focus, textarea:focus, select:focus {
   white-space: nowrap;
 }
 
+/* Carousel Arrow Controls */
+.carousel-arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background: rgba(15, 23, 42, 0.95);
+  border: 1px solid rgba(56, 189, 248, 0.5);
+  color: #f8fafc;
+  font-size: 1.4rem;
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  z-index: 10;
+  transition: all 0.2s ease;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.6);
+}
+.carousel-arrow:hover {
+  background: #0284c7;
+  color: #ffffff;
+  border-color: #38bdf8;
+  transform: translateY(-50%) scale(1.1);
+  box-shadow: 0 0 25px rgba(56, 189, 248, 0.5);
+}
+.carousel-arrow.prev { left: 8px; }
+.carousel-arrow.next { right: 8px; }
+
+@media (max-width: 640px) {
+  .carousel-arrow {
+    display: none;
+  }
+}
+
+.carousel-controls-bottom {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 1240px;
+  margin: 1.5rem auto 0;
+  padding: 0 3.5rem;
+}
+@media (max-width: 640px) {
+  .carousel-controls-bottom {
+    padding: 0 1rem;
+    justify-content: center;
+  }
+}
+.carousel-counter {
+  color: #94a3b8;
+  font-size: 0.88rem;
+  font-weight: 600;
+  background: rgba(15, 23, 42, 0.6);
+  padding: 4px 14px;
+  border-radius: 999px;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
 /* ==========================================================================
    Feature Category Filter Tabs & Tier Badges
    ========================================================================== */
 .feature-tabs-nav {
   display: flex;
   justify-content: center;
+  align-items: center;
   flex-wrap: wrap;
-  gap: 0.75rem;
+  gap: 0.85rem;
   margin: 2rem auto 3rem;
-  max-width: 1100px;
-  padding: 0 1rem;
+  max-width: 1040px;
+  padding: 0.6rem;
+  background: rgba(15, 23, 42, 0.85);
+  border: 1px solid rgba(56, 189, 248, 0.25);
+  border-radius: 999px;
+  backdrop-filter: blur(14px);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
 }
 
 .feature-tab-btn {
-  background: rgba(15, 23, 42, 0.7);
-  border: 1px solid rgba(255, 255, 255, 0.12);
+  background: transparent;
+  border: 1px solid transparent;
   color: #94a3b8;
-  font-size: 0.95rem;
+  font-size: 1rem;
   font-weight: 700;
-  padding: 0.75rem 1.4rem;
-  border-radius: var(--radius-full);
+  padding: 0.75rem 1.6rem;
+  border-radius: 999px;
   cursor: pointer;
-  transition: all var(--transition-fast);
+  transition: all 0.25s ease;
   display: inline-flex;
   align-items: center;
   gap: 8px;
@@ -1198,15 +1288,15 @@ input:focus, textarea:focus, select:focus {
 
 .feature-tab-btn:hover {
   background: rgba(255, 255, 255, 0.08);
-  color: #f1f5f9;
+  color: #ffffff;
   border-color: rgba(56, 189, 248, 0.4);
 }
 
 .feature-tab-btn.active {
-  background: linear-gradient(135deg, rgba(6, 182, 212, 0.25), rgba(37, 99, 235, 0.3));
+  background: linear-gradient(135deg, #0284c7, #2563eb);
   border-color: #38bdf8;
   color: #ffffff;
-  box-shadow: 0 0 25px rgba(6, 182, 212, 0.35);
+  box-shadow: 0 4px 20px rgba(56, 189, 248, 0.4);
 }
 
 .tier-pill {

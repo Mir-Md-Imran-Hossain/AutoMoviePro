@@ -126,10 +126,9 @@ $broadcastLinkText = setting($pdo, 'broadcast_link_text', '');
       <div class="logo"><?= e($brand) ?> <span>SAAS</span></div>
     </a>
     <div class="header-actions">
-       <div class="lang-switcher-wrap">
-          <button type="button" class="lang-btn <?= $uiLang === 'bn' ? 'active' : '' ?>" onclick="ampSwitchLang('bn')">বাংলা</button>
-          <button type="button" class="lang-btn <?= $uiLang === 'en' ? 'active' : '' ?>" onclick="ampSwitchLang('en')">English</button>
-          <select id="siteLangSelect" class="lang-dropdown-compact" aria-label="Choose Language" onchange="ampSwitchLang(this.value)">
+       <div class="lang-selector-pill">
+          <span class="lang-globe-icon">🌐</span>
+          <select id="siteLangSelect" class="lang-dropdown-select" aria-label="Choose Language" onchange="ampSwitchLang(this.value)">
             <option value="bn" <?= $uiLang === 'bn' ? 'selected' : '' ?>>বাংলা (BN)</option>
             <option value="en" <?= $uiLang === 'en' ? 'selected' : '' ?>>English (EN)</option>
             <option value="hi" <?= $uiLang === 'hi' ? 'selected' : '' ?>>हिन्दी (HI)</option>
@@ -138,7 +137,7 @@ $broadcastLinkText = setting($pdo, 'broadcast_link_text', '');
             <option value="ml" <?= $uiLang === 'ml' ? 'selected' : '' ?>>മലയാളം (ML)</option>
           </select>
        </div>
-      <a class="btn btn-sm btn-wa" href="<?= e($waLink) ?>" target="_blank" rel="noopener" data-i18n="chat_whatsapp">WhatsApp</a>
+       <a class="btn btn-sm btn-wa" href="<?= e($waLink) ?>" target="_blank" rel="noopener" data-i18n="chat_whatsapp">WhatsApp</a>
       <a class="btn btn-sm" href="#buy" data-i18n="buy_now">এখনই কিনুন</a>
     </div>
   </header>
@@ -627,21 +626,22 @@ $broadcastLinkText = setting($pdo, 'broadcast_link_text', '');
   $row1 = array_slice($approvedReviews, 0, $halfCount);
   $row2 = array_slice($approvedReviews, $halfCount);
   ?>
-  <!-- Authentic Verified Customer Reviews (50+ Infinite Marquee Slider) -->
+  <!-- Authentic Verified Customer Reviews (Interactive Carousel Slider) -->
   <section id="reviews" class="reveal">
     <div class="section-head" style="margin-bottom: 2rem;">
       <div class="gpro-pill" style="margin-bottom: 0.75rem; background: linear-gradient(135deg, #f59e0b, #d97706); box-shadow: 0 0 20px rgba(245, 158, 11, 0.4);">
         🌟 ৫০+ সফল কন্টেন্ট ক্রিয়েটরের বাস্তব অভিজ্ঞতা
       </div>
       <h2 data-i18n="reviews_title">ভেরিফাইড ক্রিয়েটরদের বাস্তব মতামত ও রেটিং</h2>
-      <p class="lead" data-i18n="reviews_lead">সফল ইউটিউবার, ফেসবুক পেজ ওনার এবং ডিজিটাল এজেন্সির সরাসরি অভিজ্ঞতা। মাউস রেখে যেকোনো রিভিউ থামিয়ে পড়তে পারেন।</p>
+      <p class="lead" data-i18n="reviews_lead">সফল ইউটিউবার, ফেসবুক পেজ ওনার এবং ডিজিটাল এজেন্সির সরাসরি অভিজ্ঞতা। স্লাইড করে অথবা বাটনে ক্লিক করে সব রিভিউ দেখতে পারেন।</p>
     </div>
 
-    <div class="reviews-section-wrapper">
-      <!-- Top Row Marquee (Scrolls Left) -->
-      <div class="review-marquee-track track-top">
-        <?php foreach (array_merge($row1, $row1) as $rev): ?>
-          <article class="review-card-marquee">
+    <div class="reviews-carousel-container">
+      <button type="button" class="carousel-arrow prev" id="revPrevBtn" aria-label="Previous Reviews">❮</button>
+
+      <div class="reviews-carousel-track" id="revCarouselTrack">
+        <?php foreach ($approvedReviews as $rev): ?>
+          <article class="review-slide-card">
             <div>
               <div class="review-stars">
                 <span><?= str_repeat('★', max(1, min(5, (int) ($rev['rating'] ?? 5)))) ?></span>
@@ -659,26 +659,11 @@ $broadcastLinkText = setting($pdo, 'broadcast_link_text', '');
         <?php endforeach; ?>
       </div>
 
-      <!-- Bottom Row Marquee (Scrolls Right) -->
-      <div class="review-marquee-track track-bottom">
-        <?php foreach (array_merge($row2, $row2) as $rev): ?>
-          <article class="review-card-marquee">
-            <div>
-              <div class="review-stars">
-                <span><?= str_repeat('★', max(1, min(5, (int) ($rev['rating'] ?? 5)))) ?></span>
-                <span class="verified-pill">✓ ভেরিফাইড ইউজার</span>
-              </div>
-              <p class="review-text">"<?= e((string) ($rev['review_text'] ?? '')) ?>"</p>
-            </div>
-            <div class="review-author">
-              <strong><?= e((string) ($rev['name'] ?? 'Creator')) ?></strong>
-              <?php if (!empty($rev['platform'])): ?>
-                <span class="platform-badge"><?= e((string) $rev['platform']) ?></span>
-              <?php endif; ?>
-            </div>
-          </article>
-        <?php endforeach; ?>
-      </div>
+      <button type="button" class="carousel-arrow next" id="revNextBtn" aria-label="Next Reviews">❯</button>
+    </div>
+
+    <div class="carousel-controls-bottom">
+      <div class="carousel-counter" id="revCounter">১ - ৩ / <?= count($approvedReviews) ?>+ রিভিউ</div>
     </div>
   </section>
 
@@ -722,9 +707,6 @@ $broadcastLinkText = setting($pdo, 'broadcast_link_text', '');
         <p data-i18n="faq8_a">যেকোনো সাধারণ Windows 10 বা 11 ল্যাপটপ অথবা ডেস্কটপ পিসিতে এটি মসৃণভাবে চলে। নূন্যতম 4GB RAM (8GB রেকমেন্ডেড) এবং সাধারণ ইন্টারনেট কানেকশন থাকলেই চলবে। কোনো দামি গ্রাফিক্স কার্ডের প্রয়োজন নেই।</p>
       </details>
     </div>
-    <?php if (trim($faq) !== ''): ?>
-      <div class="steps cms-block" style="max-width:820px; margin:2rem auto 0;"><?= nl2br(e($faq)) ?></div>
-    <?php endif; ?>
   </section>
 
   <!-- Site Footer -->
@@ -774,6 +756,7 @@ $broadcastLinkText = setting($pdo, 'broadcast_link_text', '');
 
   <script>
     document.addEventListener('DOMContentLoaded', () => {
+      // 1. Feature Tabs Filter
       const tabBtns = document.querySelectorAll('.feature-tab-btn');
       const featCards = document.querySelectorAll('.feature-card');
       tabBtns.forEach(btn => {
@@ -792,6 +775,78 @@ $broadcastLinkText = setting($pdo, 'broadcast_link_text', '');
           });
         });
       });
+
+      // 2. Verified Reviews Interactive Carousel Slider
+      const track = document.getElementById('revCarouselTrack');
+      const prevBtn = document.getElementById('revPrevBtn');
+      const nextBtn = document.getElementById('revNextBtn');
+      const counter = document.getElementById('revCounter');
+
+      if (track) {
+        const cards = track.querySelectorAll('.review-slide-card');
+        const totalCards = cards.length;
+
+        const getCardWidth = () => {
+          if (!cards.length) return 340;
+          return cards[0].offsetWidth + 24; // width + gap
+        };
+
+        const updateCounter = () => {
+          if (!counter || totalCards === 0) return;
+          const cardWidth = getCardWidth();
+          const scrollPos = track.scrollLeft;
+          const visibleCards = Math.max(1, Math.round(track.clientWidth / cardWidth));
+          const currentIndex = Math.min(totalCards - 1, Math.max(0, Math.round(scrollPos / cardWidth)));
+          const endNum = Math.min(totalCards, currentIndex + visibleCards);
+          counter.textContent = `${currentIndex + 1} - ${endNum} / ${totalCards}+ রিভিউ`;
+        };
+
+        if (prevBtn) {
+          prevBtn.addEventListener('click', () => {
+            track.scrollBy({ left: -getCardWidth(), behavior: 'smooth' });
+          });
+        }
+
+        if (nextBtn) {
+          nextBtn.addEventListener('click', () => {
+            const maxScroll = track.scrollWidth - track.clientWidth;
+            if (track.scrollLeft >= maxScroll - 15) {
+              track.scrollTo({ left: 0, behavior: 'smooth' });
+            } else {
+              track.scrollBy({ left: getCardWidth(), behavior: 'smooth' });
+            }
+          });
+        }
+
+        let autoScrollTimer = null;
+        const startAutoScroll = () => {
+          stopAutoScroll();
+          autoScrollTimer = setInterval(() => {
+            const maxScroll = track.scrollWidth - track.clientWidth;
+            if (track.scrollLeft >= maxScroll - 15) {
+              track.scrollTo({ left: 0, behavior: 'smooth' });
+            } else {
+              track.scrollBy({ left: getCardWidth(), behavior: 'smooth' });
+            }
+          }, 4500);
+        };
+
+        const stopAutoScroll = () => {
+          if (autoScrollTimer) {
+            clearInterval(autoScrollTimer);
+            autoScrollTimer = null;
+          }
+        };
+
+        track.addEventListener('scroll', updateCounter, { passive: true });
+        track.addEventListener('mouseenter', stopAutoScroll);
+        track.addEventListener('mouseleave', startAutoScroll);
+        track.addEventListener('touchstart', stopAutoScroll, { passive: true });
+        track.addEventListener('touchend', startAutoScroll, { passive: true });
+
+        startAutoScroll();
+        updateCounter();
+      }
     });
   </script>
 
