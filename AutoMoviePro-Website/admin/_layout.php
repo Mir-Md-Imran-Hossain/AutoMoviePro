@@ -5,12 +5,14 @@ function admin_header(string $title, string $active = ''): void
 {
     global $pdo, $config;
 
-    // Fetch pending order count for notification badge
+    // Fetch pending order count and new leads count for notification badges
     $pendingCount = 0;
     $todayRevenue = 0.0;
+    $newLeadCount = 0;
     try {
         $pendingCount = (int) $pdo->query("SELECT COUNT(*) FROM orders WHERE status = 'pending_payment'")->fetchColumn();
         $todayRevenue = (float) $pdo->query("SELECT COALESCE(SUM(amount), 0) FROM orders WHERE status IN ('approved', 'active') AND DATE(created_at) = CURRENT_DATE")->fetchColumn();
+        $newLeadCount = (int) $pdo->query("SELECT COUNT(*) FROM whatsapp_leads WHERE status = 'new'")->fetchColumn();
     } catch (\Throwable $e) {}
 
     $navGroups = [
@@ -21,10 +23,12 @@ function admin_header(string $title, string $active = ''): void
             'reviews' => ['/admin/reviews.php', '🌟', 'রিভিউ ও রেটিং (55+)', null],
         ],
         'মার্কেটিং ও সেলস' => [
-            'cms' => ['/admin/cms.php', '📝', 'ওয়েবসাইট CMS কন্টেন্ট', null],
-            'coupons' => ['/admin/coupons.php', '🎟️', 'ডিসকাউন্ট কুপন', null],
+            'whatsapp' => ['/admin/whatsapp_marketing.php', '📱', 'হোয়াটসঅ্যাপ মার্কেটিং ও লিড', $newLeadCount > 0 ? ['val' => $newLeadCount, 'type' => 'badge-warning'] : null],
+            'agent_settings' => ['/admin/agent_settings.php', '🤖', 'এআই এজেন্ট ও ডিসকাউন্ট', null],
             'chat_logs' => ['/admin/chat_logs.php', '💬', 'আয়েশা চ্যাট লগস', null],
+            'coupons' => ['/admin/coupons.php', '🎟️', 'ডিসকাউন্ট কুপন', null],
             'broadcast' => ['/admin/broadcast.php', '📢', 'লাইভ এলার্ট ও নোটিশ', null],
+            'cms' => ['/admin/cms.php', '📝', 'ওয়েবসাইট CMS কন্টেন্ট', null],
         ],
         'সিস্টেম ও কনফিগারেশন' => [
             'settings' => ['/admin/settings.php', '⚙️', 'মূল্য ও পেমেন্ট নম্বর', null],

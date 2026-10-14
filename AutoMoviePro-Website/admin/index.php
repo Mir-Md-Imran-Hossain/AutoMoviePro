@@ -80,14 +80,17 @@ admin_header('মাস্টার ড্যাশবোর্ড', 'dashboard'
     ⚡ ১-ক্লিক কুইক অ্যাকশন হাব (নন-টেক শর্টকাট)
   </div>
   <div class="quick-action-strip" style="margin-bottom:0;">
+    <a href="/admin/whatsapp_marketing.php" class="action-pill-btn" style="border-color:#10b981; color:#34d399;">
+      <span>📱</span> <span>হোয়াটসঅ্যাপ মার্কেটিং ও লিড</span>
+    </a>
+    <a href="/admin/agent_settings.php" class="action-pill-btn" style="border-color:#38bdf8; color:#38bdf8;">
+      <span>🤖</span> <span>এআই চ্যাট এজেন্ট ও ডিসকাউন্ট</span>
+    </a>
     <a href="/admin/orders.php" class="action-pill-btn">
       <span>💳</span> <span>পেমেন্ট যাচাই করুন <?= $pendingOrders > 0 ? "({$pendingOrders})" : "" ?></span>
     </a>
     <a href="/admin/customers.php" class="action-pill-btn">
       <span>👥</span> <span>কাস্টমার লিস্ট দেখুন</span>
-    </a>
-    <a href="/admin/reviews.php" class="action-pill-btn">
-      <span>🌟</span> <span>কাস্টমার রিভিউ ম্যানেজ করুন (55+)</span>
     </a>
     <a href="/admin/coupons.php" class="action-pill-btn">
       <span>🎟️</span> <span>নতুন কুপন কোড তৈরি</span>

@@ -278,9 +278,56 @@ function amp_agent_lang_name(string $lang): string
     };
 }
 
-function amp_agent_system_prompt(string $lang, float $price, float $addon, string $agentName = 'আয়েশা (Ayesha)', string $agentRole = 'সিনিয়র সেলস ও কাস্টমার কনসালট্যান্ট'): string
-{
+function amp_agent_system_prompt(
+    string $lang, 
+    float $price, 
+    float $addon, 
+    string $agentName = 'আয়েশা (Ayesha)', 
+    string $agentRole = 'সিনিয়র সেলস ও কাস্টমার কনসালট্যান্ট',
+    ?PDO $pdo = null
+): string {
     $langName = amp_agent_lang_name($lang);
+
+    // Dynamic Admin Settings
+    $discountAllowed = ($pdo ? setting($pdo, 'agent_discount_allowed', '1') : '1') === '1';
+    $discountMode = $pdo ? setting($pdo, 'agent_discount_mode', 'consultative') : 'consultative';
+    $discountType = $pdo ? setting($pdo, 'agent_discount_type', 'flat') : 'flat';
+    $initDiscount = (float) ($pdo ? setting($pdo, 'agent_initial_discount_amount', '500') : 500);
+    $maxDiscount = (float) ($pdo ? setting($pdo, 'agent_max_discount_amount', '1000') : 1000);
+
+    $pkgVideoInit = (float) ($pdo ? setting($pdo, 'agent_pkg_video_studio_init', '500') : 500);
+    $pkgVideoMax = (float) ($pdo ? setting($pdo, 'agent_pkg_video_studio_max', '1000') : 1000);
+
+    $pkgFbInit = (float) ($pdo ? setting($pdo, 'agent_pkg_fb_business_init', '300') : 300);
+    $pkgFbMax = (float) ($pdo ? setting($pdo, 'agent_pkg_fb_business_max', '600') : 600);
+
+    $pkgProfInit = (float) ($pdo ? setting($pdo, 'agent_pkg_profile_page_init', '200') : 200);
+    $pkgProfMax = (float) ($pdo ? setting($pdo, 'agent_pkg_profile_page_max', '400') : 400);
+
+    $freeAddon = ($pdo ? setting($pdo, 'agent_free_addon_lang', '1') : '1') === '1';
+    $couponCode = $pdo ? trim(setting($pdo, 'agent_coupon_prefix', 'VIP500')) : 'VIP500';
+    $validityHours = (int) ($pdo ? setting($pdo, 'agent_followup_reminder_hours', '24') : 24);
+    $customInstructions = $pdo ? trim(setting($pdo, 'agent_custom_instructions', '')) : '';
+    $askWaForDemo = ($pdo ? setting($pdo, 'agent_ask_whatsapp_for_demo', '1') : '1') === '1';
+
+    $discountRuleText = $discountAllowed
+        ? "DISCOUNTS PERMITTED: You are authorized by admin to offer discounts.\n"
+          . "- Negotiation Strategy: {$discountMode} mode.\n"
+          . "- Initial Offer: ৳{$initDiscount} flat discount.\n"
+          . "- Maximum Absolute Ceiling: ৳{$maxDiscount} (NEVER exceed this ceiling).\n"
+          . "- Package-Specific Limits:\n"
+          . "  * Omni Video Content Studio (৳৩,৯৯৯): Start with ৳{$pkgVideoInit}, Max allowed ৳{$pkgVideoMax}.\n"
+          . "  * FB Business Manager (৳২,৯৯৯): Start with ৳{$pkgFbInit}, Max allowed ৳{$pkgFbMax}.\n"
+          . "  * FB Profile Auto Pilot (৳১,৯৯৯): Start with ৳{$pkgProfInit}, Max allowed ৳{$pkgProfMax}.\n"
+          . "- Free Addon Language: " . ($freeAddon ? "Yes, you can offer 1 free international language (worth ৳{$addon}) as a closing gift." : "No free addon.") . "\n"
+          . "- Secret Coupon Code: [{$couponCode}]\n"
+          . "- Validity Window: State that the offer is reserved for the next {$validityHours} hours."
+        : "DISCOUNTS DISABLED: Admin has disabled discounts. Politely explain that our packages are already discounted lifetime licenses with zero monthly fees.";
+
+    $customNoteSection = $customInstructions !== ''
+        ? "\nADMIN SPECIAL DIRECTIVE:\n{$customInstructions}\n"
+        : "";
+
     return <<<PROMPT
 You are {$agentName}, a world-class, top-tier senior sales consultant and customer advisor representing the official AutoMovie Pro team in Bangladesh (https://automoviepro.com).
 Your title: {$agentRole}.
@@ -313,6 +360,10 @@ PRODUCT SUITE (3 DEDICATED TURNKEY PACKAGES):
 • অতিরিক্ত ভাষা অ্যাড-অন: মাত্র ৳{$addon} (বাংলা ছাড়াও English, हिन्दी, اردو, தமிழ், മലയാളം সাপোর্ট)।
 • লাইফটাইম লাইসেন্স: কোনো মাসিক সাবস্ক্রিপশন ফি নেই, সম্পূর্ণ কম্পিউটার সুরক্ষিত ও ওয়ান-টাইম পেমেন্ট।
 
+MANDATORY ADMIN DISCOUNT & NEGOTIATION RULES:
+{$discountRuleText}
+{$customNoteSection}
+
 WORLD-CLASS SALES PSYCHOLOGY & CONVERSION TECHNIQUES (SPIN & STRAIGHT LINE):
 1. Empathy & Problem-Solution:
    - কাস্টমারকে বোঝান যে ম্যানুয়াল ভিডিও এডিটিং করতে দিনে ৪-৬ ঘণ্টা সময় নষ্ট হয় অথবা মাসে ৳১৫,০০০-৳২৫,০০০ দিয়ে এডিটর রাখতে হয়। AutoMovie Pro মাত্র এক ক্লিকে সম্পূর্ণ ফ্রিতে লাইফটাইম সেই কাজটি করে দেয়।
@@ -325,9 +376,8 @@ WORLD-CLASS SALES PSYCHOLOGY & CONVERSION TECHNIQUES (SPIN & STRAIGHT LINE):
 4. Objection Handling ("পরে যোগাযোগ করব" / "পরে নেব"):
    - কাস্টমার যদি বলে পরে নেবে বা চিন্তা করে জানাবে, তাকে কখনোই জোর করবেন না।
    - প্রথমে সম্মতির সাথে রিমাইন্ডার টাইম চান: "অবশ্যই স্যার! আপনি কখন একটু ফ্রি থাকবেন—আজ সন্ধ্যায় নাকি আগামীকাল দুপুরে? যাতে আপনাকে সুন্দরভাবে মনে করিয়ে দিতে পারি।"
-   - সাথে সাথেই একটি লোভনীয় সময়-সীমিত ডিসকাউন্ট ও সুবিধা অফার করুন:
-     "আর স্যার, যেহেতু আজ আপনি আমাদের সাথে যোগাযোগ করলেন, আপনার জন্য স্পেশাল একটি সিক্রেট ডিসকাউন্ট কুপন কোড [VIP500] এক্টিভ করে রাখছি। আগামী ২৪ ঘণ্টার মধ্যে এই কুপন ব্যবহার করলে সরাসরি ৳৫০০ নগদ ছাড় পাবেন এবং সাথে ১টি অতিরিক্ত আন্তর্জাতিক ভাষা (মূল্য ৳৪৯৯) সম্পূর্ণ বিনামূল্যে আজীবন ফ্রি পাবেন!"
-   - অর্ডার লিংক দিন: https://automoviepro.com/order.php?coupon=VIP500
+   - সাথে সাথেই অ্যাডমিন পলিসি অনুযায়ী স্পেশাল সিক্রেট ডিসকাউন্ট কুপন কোড [{$couponCode}] অফার করুন।
+   - অর্ডার লিংক দিন: https://automoviepro.com/order.php?coupon={$couponCode}
 
 PAYMENT METHODS & INSTANT DELIVERY:
 - বিকাশ এজেন্ট ক্যাশ আউট: 01756160993 (Zahid Pharmacy)
@@ -342,7 +392,7 @@ OUTPUT FORMAT (STRICT):
 
 - suggestions: 2-4 smart, highly relevant, clickable question chips that address their next likely curiosity.
 - open_whatsapp: true if the user asks to connect to WhatsApp or is ready to order.
-- coupon_offered: "VIP500" if user asks for discount or says "পরে যোগাযোগ করব".
+- coupon_offered: "{$couponCode}" if user asks for discount or says "পরে যোগাযোগ করব" (only if discounts permitted).
 PROMPT;
 }
 

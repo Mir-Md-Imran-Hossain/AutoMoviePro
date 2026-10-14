@@ -36,8 +36,17 @@ $draft = is_array($data['draft'] ?? null) ? $data['draft'] : [];
 $price = (float) setting($pdo, 'price_amount', '3999');
 $addon = (float) setting($pdo, 'language_addon_price', '499');
 
-$agentId = (string) ($data['agent_id'] ?? 'ayesha');
-$agentName = (string) ($data['agent_name'] ?? 'আয়েশা (Ayesha)');
+// Dynamic Admin Chat Agent & Discount Settings
+$discountAllowed = setting($pdo, 'agent_discount_allowed', '1') === '1';
+$initDiscount = (float) setting($pdo, 'agent_initial_discount_amount', '500');
+$maxDiscount = (float) setting($pdo, 'agent_max_discount_amount', '1000');
+$cfgCouponCode = strtoupper(trim(setting($pdo, 'agent_coupon_prefix', 'VIP500')) ?: 'VIP500');
+$freeAddon = setting($pdo, 'agent_free_addon_lang', '1') === '1';
+$validityHours = (int) setting($pdo, 'agent_followup_reminder_hours', '24');
+$configuredPersona = setting($pdo, 'agent_primary_persona', 'ayesha');
+
+$agentId = (string) ($data['agent_id'] ?? $configuredPersona);
+$agentName = (string) ($data['agent_name'] ?? ($agentId === 'nirob' ? 'নীরব (Nirob)' : ($agentId === 'tania' ? 'তানিয়া (Tania)' : 'আয়েশা (Ayesha)')));
 $agentRole = (string) ($data['agent_role'] ?? 'সিনিয়র সেলস ও কাস্টমার কনসালট্যান্ট');
 
 // 1. Detect Phone / WhatsApp number from message
@@ -56,14 +65,14 @@ $isPoreOrDiscount = (bool) preg_match('/(pore|pore\s*kinbo|pore\s*jogajog|pore\s
 $couponCode = null;
 $checkoutUrl = null;
 
-if ($isPoreOrDiscount) {
-    $couponCode = 'VIP500';
+if ($isPoreOrDiscount && $discountAllowed) {
+    $couponCode = $cfgCouponCode;
     try {
         $cpStmt = $pdo->prepare("SELECT id FROM coupons WHERE code = ? LIMIT 1");
         $cpStmt->execute([$couponCode]);
         if (!$cpStmt->fetch()) {
-            $pdo->prepare("INSERT INTO coupons (code, discount_amount, discount_percent, min_order_amount, is_active) VALUES (?, 500, 0, 0, 1)")
-                ->execute([$couponCode]);
+            $pdo->prepare("INSERT INTO coupons (code, discount_amount, discount_percent, min_order_amount, is_active) VALUES (?, ?, 0, 0, 1)")
+                ->execute([$couponCode, $initDiscount]);
         }
     } catch (\Throwable $e) {}
     $checkoutUrl = "/order.php?coupon=" . rawurlencode($couponCode);
@@ -82,7 +91,7 @@ if ($action === 'greet' || $message === '') {
     $message = $greetUser;
 }
 
-$system = amp_agent_system_prompt($lang, $price, $addon, $agentName, $agentRole);
+$system = amp_agent_system_prompt($lang, $price, $addon, $agentName, $agentRole, $pdo);
 $messages = [];
 foreach (array_slice($history, -8) as $h) {
     if (!is_array($h)) {
@@ -117,9 +126,15 @@ if ($llm === null || $llm === '') {
         $reply = "জি ভাইয়া! AutoMovie Pro সম্পূর্ণ ওয়ান-টাইম পেমেন্ট, কোনো মাসিক ফি নেই।\n\n• ফুল ভিডিও স্টুডিও লাইসেন্স: মাত্র ৳৩,৯৯৯\n• ফেসবুক বিজনেস প্যাকেজ: মাত্র ৳২,৯৯৯\n• প্রোফাইল অটো পোস্ট প্যাকেজ: মাত্র ৳১,৯৯৯\n\nআজকে অর্ডার করলে পাবেন ইনস্ট্যান্ট সফটওয়্যার ডাউনলোড, লাইসেন্স কি এবং ফ্রি লাইফটাইম আপডেট। আপনি কোনটি নিতে চাচ্ছেন?";
         $suggestions = ['৩,৯৯৯ টাকার প্যাকেজ নেব', 'বিকাশ নম্বর দিন', 'পরে যোগাযোগ করব'];
     } elseif ($isPoreOrDiscount) {
-        $reply = "অবশ্যই স্যার! কোনো সমস্যা নেই। আপনি কখন ফ্রি থাকবেন—আজ সন্ধ্যায় নাকি আগামীকাল দুপুরে? যাতে আপনাকে সুন্দরভাবে রিমাইন্ডার দিতে পারি।\n\nআর স্যার, যেহেতু আজ আপনি আমাদের সাথে যোগাযোগ করলেন, আপনার জন্য স্পেশাল একটি সিক্রেট ডিসকাউন্ট কুপন কোড [VIP500] এক্টিভ করে দিয়েছি। এটি দিয়ে অর্ডার করলে সরাসরি ৳৫০০ নগদ ছাড় পাবেন এবং সাথে ১টি অতিরিক্ত আন্তর্জাতিক ভাষা (মূল্য ৳৪৯৯) আজীবন ফ্রি পাবেন!";
-        $suggestions = ['কুপন দিয়ে এখনই অর্ডার করব', 'WhatsApp এ বিস্তারিত পাঠান'];
-        $checkoutUrl = "/order.php?coupon=VIP500";
+        if ($discountAllowed) {
+            $reply = "অবশ্যই স্যার! কোনো সমস্যা নেই। আপনি কখন ফ্রি থাকবেন—আজ সন্ধ্যায় নাকি আগামীকাল দুপুরে? যাতে আপনাকে সুন্দরভাবে রিমাইন্ডার দিতে পারি।\n\nআর স্যার, যেহেতু আজ আপনি আমাদের সাথে যোগাযোগ করলেন, আপনার জন্য স্পেশাল একটি সিক্রেট ডিসকাউন্ট কুপন কোড [{$cfgCouponCode}] এক্টিভ করে দিয়েছি। এটি দিয়ে আগামী {$validityHours} ঘণ্টার মধ্যে অর্ডার করলে সরাসরি ৳" . (int)$initDiscount . " নগদ ছাড় পাবেন" . ($freeAddon ? " এবং সাথে ১টি অতিরিক্ত আন্তর্জাতিক ভাষা (মূল্য ৳" . (int)$addon . ") আজীবন ফ্রি পাবেন!" : "!");
+            $suggestions = ['কুপন দিয়ে এখনই অর্ডার করব', 'WhatsApp এ বিস্তারিত পাঠান'];
+            $checkoutUrl = "/order.php?coupon=" . rawurlencode($cfgCouponCode);
+        } else {
+            $reply = "অবশ্যই স্যার! কোনো সমস্যা নেই। আপনি সময় নিয়ে বিবেচনা করুন। আমাদের প্যাকেজগুলোতে কোনো মাসিক ফি নেই এবং এটি ওয়ান-টাইম লাইফটাইম লাইসেন্স। যেকোনো সময় যেকোনো প্রশ্ন থাকলে সরাসরি আমাকে জানাতে পারেন।";
+            $suggestions = ['প্যাকেজের ফিচার বিস্তারিত বলুন', 'ভিডিও ডেমো দেখতে চাই', 'সরাসরি WhatsApp-এ কথা বলুন'];
+            $checkoutUrl = null;
+        }
     } else {
         $reply = "জি ভাইয়া, আমি বুঝতে পেরেছি। AutoMovie Pro দিয়ে কোনো কোডিং বা ভিডিও এডিটিং ছাড়া সম্পূর্ণ কম্পিউটার নিজে নিজে স্ক্রিপ্ট, ভয়েস, সিনেমাটিক সিন ও সাবটাইটেল তৈরি করে সোশ্যাল মিডিয়ায় অটো আপলোড করতে পারে।\n\nআপনি কি সফটওয়্যারটির লাইভ ভিডিও ডেমো দেখতে চান, নাকি সরাসরি ৩,৯৯৯ টাকার লাইফটাইম প্যাকেজটি নিতে চাচ্ছেন?";
         $suggestions = ['লাইভ ভিডিও ডেমো দেখতে চাই', '৩টি প্যাকেজের পার্থক্য বলুন', 'অর্ডার করতে চাই'];
@@ -153,8 +168,19 @@ if ($llm === null || $llm === '') {
             $isWaLead
         ]);
         if ($userPhone) {
-            $waMsg = "আসসালামু আলাইকুম স্যার! AutoMovie Pro টিম থেকে বলছি। ওয়েবসাইটে আপনার সাথে কথা হয়েছিল। সফটওয়্যারটির লাইভ ফুল ভিডিও ডেমো ও ইনস্টলেশন গাইড দেখতে পারেন: https://automoviepro.com/#features \n\nআপনার যেকোনো প্রশ্ন থাকলে সরাসরি এখানেও জানাতে পারেন।";
-            whatsapp_queue($pdo, $config, '88' . $userPhone, $waMsg, null);
+            whatsapp_save_lead(
+                $pdo,
+                $userPhone,
+                $draft['name'] ?? 'ওয়েবসাইট চ্যাট ভিজিটর',
+                'chat',
+                $draft['package'] ?? 'video_studio',
+                'চ্যাট এজেন্টের সাথে কথা বলে নম্বর দিয়েছেন',
+                $message
+            );
+            if (setting($pdo, 'agent_auto_queue_whatsapp_welcome', '1') === '1') {
+                $waMsg = "আসসালামু আলাইকুম স্যার! AutoMovie Pro টিম থেকে বলছি। ওয়েবসাইটে আপনার সাথে কথা হয়েছিল। সফটওয়্যারটির লাইভ ফুল ভিডিও ডেমো ও ইনস্টলেশন গাইড দেখতে পারেন: https://automoviepro.com/#features \n\nআপনার যেকোনো প্রশ্ন থাকলে সরাসরি এখানেও জানাতে পারেন।";
+                whatsapp_queue($pdo, $config, '88' . $userPhone, $waMsg, null);
+            }
         }
     } catch (\Throwable $e) {}
 
@@ -166,14 +192,14 @@ $parsed = amp_agent_parse_llm_payload($llm);
 $meta = $parsed['meta'];
 $newDraft = array_merge($draft, is_array($meta['draft'] ?? null) ? $meta['draft'] : []);
 
-if (!empty($meta['coupon_offered'])) {
+if (!empty($meta['coupon_offered']) && $discountAllowed) {
     $couponCode = strtoupper($meta['coupon_offered']);
     try {
         $cpStmt = $pdo->prepare("SELECT id FROM coupons WHERE code = ? LIMIT 1");
         $cpStmt->execute([$couponCode]);
         if (!$cpStmt->fetch()) {
-            $pdo->prepare("INSERT INTO coupons (code, discount_amount, discount_percent, min_order_amount, is_active) VALUES (?, 500, 0, 0, 1)")
-                ->execute([$couponCode]);
+            $pdo->prepare("INSERT INTO coupons (code, discount_amount, discount_percent, min_order_amount, is_active) VALUES (?, ?, 0, 0, 1)")
+                ->execute([$couponCode, $initDiscount]);
         }
     } catch (\Throwable $e) {}
     $checkoutUrl = "/order.php?coupon=" . rawurlencode($couponCode);
@@ -218,8 +244,19 @@ try {
         $isWaLead
     ]);
     if ($userPhone) {
-        $waMsg = "আসসালামু আলাইকুম স্যার! AutoMovie Pro টিম থেকে বলছি। ওয়েবসাইটে আপনার সাথে কথা হয়েছিল। সফটওয়্যারটির লাইভ ফুল ভিডিও ডেমো ও ইনস্টলেশন গাইড দেখতে পারেন: https://automoviepro.com/#features \n\nআপনার যেকোনো প্রশ্ন থাকলে সরাসরি এখানেও জানাতে পারেন।";
-        whatsapp_queue($pdo, $config, '88' . $userPhone, $waMsg, null);
+        whatsapp_save_lead(
+            $pdo,
+            $userPhone,
+            $draft['name'] ?? 'ওয়েবসাইট চ্যাট ভিজিটর',
+            'chat',
+            $draft['package'] ?? 'video_studio',
+            'চ্যাট এজেন্টের সাথে কথা বলে নম্বর দিয়েছেন',
+            $message
+        );
+        if (setting($pdo, 'agent_auto_queue_whatsapp_welcome', '1') === '1') {
+            $waMsg = "আসসালামু আলাইকুম স্যার! AutoMovie Pro টিম থেকে বলছি। ওয়েবসাইটে আপনার সাথে কথা হয়েছিল। সফটওয়্যারটির লাইভ ফুল ভিডিও ডেমো ও ইনস্টলেশন গাইড দেখতে পারেন: https://automoviepro.com/#features \n\nআপনার যেকোনো প্রশ্ন থাকলে সরাসরি এখানেও জানাতে পারেন।";
+            whatsapp_queue($pdo, $config, '88' . $userPhone, $waMsg, null);
+        }
     }
 } catch (\Throwable $e) {}
 

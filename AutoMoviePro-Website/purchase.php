@@ -166,6 +166,19 @@ try {
 
     $pdo->commit();
 
+    // Auto Save Lead into WhatsApp Marketing Hub
+    try {
+        whatsapp_save_lead($pdo, $whatsapp, $name, 'order', $productType, "অর্ডার #{$orderId} তৈরি হয়েছে ({$plan})");
+        
+        // Auto WhatsApp notification to customer upon order placement
+        if (setting($pdo, 'wa_auto_order_placed', '1') === '1' && $productType !== 'google_pro') {
+            $bkashAgent = setting($pdo, 'bkash_agent_number', '01756160993');
+            $nagadAgent = setting($pdo, 'nagad_agent_number', '01611-824811');
+            $orderMsg = "আসসালামু আলাইকুম {$name}!\n\nAutoMovie Pro-তে আপনার অর্ডার #{$orderId} সফলভাবে প্লেস হয়েছে।\nনির্বাচিত প্যাকেজ: {$plan}\nমোট প্রদেয়: ৳" . (int)$amount . "\n\nপেমেন্ট সম্পন্ন করতে বিকাশ এজেন্ট ({$bkashAgent}) বা নগদ এজেন্ট ({$nagadAgent})-এ ক্যাশ আউট করে ট্রানজেকশন আইডি ওয়েবসাইটে সাবমিট করুন অথবা সরাসরি এই WhatsApp-এ জানিয়ে দিন। ধন্যবাদ!";
+            whatsapp_queue($pdo, $config, $whatsapp, $orderMsg, $customerId);
+        }
+    } catch (\Throwable $eLead) {}
+
     // 2-Way WhatsApp Alert for Google AI Pro
     if ($productType === 'google_pro' || str_contains($plan, 'Google AI Pro')) {
         try {
@@ -173,8 +186,8 @@ try {
             $custMsg = "অভিনন্দন {$name}! AutoMovie Pro-এর 'Google AI Pro প্যাকেজ' (#{$orderId})-এর অর্ডার সফলভাবে তৈরি হয়েছে। এটি একটি ডেডিকেটেড প্রিমিয়াম সার্ভিস হওয়ায় আপনার জন্য ১৫০ জিবি ক্লাউড ভল্ট ও এপিআই এক্সেস প্রস্তুত করা হচ্ছে। অনুগ্রহ করে আপনার যে জিমেইল (Gmail) অ্যাকাউন্টে ১৫০ জিবি ক্লাউড স্টোরেজ ও এপিআই এক্সেস নিতে চান, সেই ইমেইল অ্যাড্রেসটি লিখে এখনই আমাদের এই হোয়াটসঅ্যাপে মেসেজ পাঠান।";
             whatsapp_queue($pdo, $config, $whatsapp, $custMsg, $customerId);
 
-            // ২. অ্যাডমিনের হোয়াটসঅ্যাপ নম্বরে (01684355055) বিস্তারিত অর্ডার নোটিফিকেশন
-            $adminWhatsapp = '01684355055';
+            // ২. অ্যাডমিনের হোয়াটসঅ্যাপ নম্বরে বিস্তারিত অর্ডার নোটিফিকেশন
+            $adminWhatsapp = setting($pdo, 'admin_notify_whatsapp', '8801684355055');
             $adminMsg = "🚨 নতুন Google AI Pro অর্ডার! অর্ডার আইডি: #{$orderId}, গ্রাহকের নাম: {$name}, মোবাইল: {$whatsapp}, প্ল্যান: {$plan} (৳" . (int)$amount . ")। গ্রাহককে জিমেইল চেয়ে ম্যানুয়ালি ১৫০ জিবি ক্লাউড ভল্ট ও এপিআই এক্সেস বুঝিয়ে দিন।";
             whatsapp_queue($pdo, $config, $adminWhatsapp, $adminMsg, $customerId);
         } catch (\Throwable $eNotice) {
