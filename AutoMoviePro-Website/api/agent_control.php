@@ -571,6 +571,75 @@ try {
             ]);
             break;
 
+        // ---------------------------------------------------------------------
+        // I. ADMIN CREDENTIALS & API KEYS CONTROL
+        // ---------------------------------------------------------------------
+        case 'get_admins':
+            $stmt = $pdo->query("SELECT id, username, created_at FROM admins");
+            $admins = $stmt->fetchAll(PDO::FETCH_ASSOC);
+            send_json([
+                'ok' => true,
+                'count' => count($admins),
+                'admins' => $admins
+            ]);
+            break;
+
+        case 'set_admin_password':
+            $username = trim((string) ($payload['username'] ?? $_GET['username'] ?? 'admin'));
+            $password = (string) ($payload['password'] ?? $_GET['password'] ?? '');
+            if (empty($password)) {
+                send_json(['ok' => false, 'error' => 'empty_password', 'message' => 'Password cannot be empty.'], 400);
+            }
+            $hash = password_hash($password, PASSWORD_DEFAULT);
+            $check = $pdo->prepare("SELECT id FROM admins WHERE username = ? LIMIT 1");
+            $check->execute([$username]);
+            $existing = $check->fetch(PDO::FETCH_ASSOC);
+            if ($existing) {
+                $up = $pdo->prepare("UPDATE admins SET password_hash = ? WHERE username = ?");
+                $up->execute([$hash, $username]);
+                $msg = "Password for admin '{$username}' updated successfully.";
+            } else {
+                $ins = $pdo->prepare("INSERT INTO admins (username, password_hash) VALUES (?, ?)");
+                $ins->execute([$username, $hash]);
+                $msg = "Admin user '{$username}' created successfully.";
+            }
+            send_json([
+                'ok' => true,
+                'message' => $msg,
+                'username' => $username
+            ]);
+            break;
+
+        case 'get_api_keys':
+            send_json([
+                'ok' => true,
+                'gemini_api_key' => setting($pdo, 'gemini_api_key', '') ? 'configured' : 'not_set',
+                'google_api_key' => setting($pdo, 'google_api_key', '') ? 'configured' : 'not_set',
+                'groq_api_key' => setting($pdo, 'groq_api_key', '') ? 'configured' : 'not_set',
+                'openrouter_api_key' => setting($pdo, 'openrouter_api_key', '') ? 'configured' : 'not_set',
+            ]);
+            break;
+
+        case 'set_api_keys':
+            $geminiKey = trim((string) ($payload['gemini_api_key'] ?? ''));
+            $groqKey = trim((string) ($payload['groq_api_key'] ?? ''));
+            $openrouterKey = trim((string) ($payload['openrouter_api_key'] ?? ''));
+
+            if (!empty($geminiKey)) {
+                set_setting($pdo, 'gemini_api_key', $geminiKey);
+            }
+            if (!empty($groqKey)) {
+                set_setting($pdo, 'groq_api_key', $groqKey);
+            }
+            if (!empty($openrouterKey)) {
+                set_setting($pdo, 'openrouter_api_key', $openrouterKey);
+            }
+            send_json([
+                'ok' => true,
+                'message' => 'API keys successfully saved to website settings!'
+            ]);
+            break;
+
         default:
             send_json([
                 'ok' => false,

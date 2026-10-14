@@ -211,6 +211,16 @@ function ensure_amp_migrations(PDO $pdo): void
         );
         $ins->execute(['language_addon_price', '499']);
     }
+
+    // Ensure default admin user exists if table is empty
+    try {
+        $admCount = (int) $pdo->query("SELECT COUNT(*) FROM admins")->fetchColumn();
+        if ($admCount === 0) {
+            $defaultHash = password_hash('Admin@2026', PASSWORD_DEFAULT);
+            $insAdm = $pdo->prepare("INSERT INTO admins (username, password_hash) VALUES (?, ?)");
+            $insAdm->execute(['admin', $defaultHash]);
+        }
+    } catch (\Throwable $e) {}
 }
 
 function amp_lang_catalog(): array

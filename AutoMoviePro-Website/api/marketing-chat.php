@@ -33,13 +33,17 @@ if (!is_array($history)) {
 }
 $draft = is_array($data['draft'] ?? null) ? $data['draft'] : [];
 
-$price = (float) setting($pdo, 'price_amount', '2998');
+$price = (float) setting($pdo, 'price_amount', '3999');
 $addon = (float) setting($pdo, 'language_addon_price', '499');
+
+$agentId = (string) ($data['agent_id'] ?? 'ayesha');
+$agentName = (string) ($data['agent_name'] ?? 'আয়েশা (Ayesha)');
+$agentRole = (string) ($data['agent_role'] ?? 'সিনিয়র কাস্টমার কনসালট্যান্ট');
 
 if ($action === 'greet' || $message === '') {
     $greetUser = match ($lang) {
-        'en' => 'Say a short warm hello as the AutoMovie Pro sales agent and ask how you can help (price, languages, channels, or order).',
-        'bn' => "আপনি {$agentName}, AutoMovie Pro টিমের একজন আন্তরিক প্রতিনিধি। অত্যন্ত বিনীতভাবে সালাম দিয়ে নিজের নাম বলুন এবং কাস্টমারকে কীভাবে সাহায্য করতে পারেন তা জানতে চান।",
+        'en' => "Say a short warm hello as {$agentName}, the AutoMovie Pro sales consultant and ask how you can help (features, pricing, packages, or order).",
+        'bn' => "আপনি {$agentName}, AutoMovie Pro টিমের একজন আন্তরিক প্রতিনিধি। অত্যন্ত বিনীতভাবে সালাম দিয়ে নিজের নাম বলুন এবং কাস্টমারকে কীভাবে সাহায্য করতে পারেন (প্যাকেজ, দাম বা অর্ডার) তা জানতে চান।",
         'hi' => 'छोटा सा गर्मजोशी भरा नमस्ते दो और पूछो कैसे मदद कर सकते हो (कीमत, भाषा, चैनल, ऑर्डर)।',
         'ur' => 'مختصر گرم جو شی سے سلام کہو اور پوچھو کیسے مدد کر سکتے ہو (قیمت، زبان، چینل، آرڈر)۔',
         'ta' => 'சுருக்கமான அன்பான வணக்கம் சொல்லி எப்படி உதவலாம் என்று கேள் (விலை, மொழி, சேனல், ஆர்டர்).',
@@ -49,9 +53,6 @@ if ($action === 'greet' || $message === '') {
     $message = $greetUser;
 }
 
-$agentId = (string) ($data['agent_id'] ?? 'ayesha');
-$agentName = (string) ($data['agent_name'] ?? 'আয়েশা (Ayesha)');
-$agentRole = (string) ($data['agent_role'] ?? 'সিনিয়র কাস্টমার কনসালট্যান্ট');
 $system = amp_agent_system_prompt($lang, $price, $addon, $agentName, $agentRole);
 $messages = [];
 foreach (array_slice($history, -8) as $h) {
@@ -66,7 +67,7 @@ foreach (array_slice($history, -8) as $h) {
 }
 $messages[] = ['role' => 'user', 'content' => $message];
 
-$llm = amp_agent_chat_llm($config, $system, $messages);
+$llm = amp_agent_chat_llm($config, $system, $messages, $pdo);
 if ($llm === null || $llm === '') {
     // Soft fallback — still language-specific, not one English blob
     $fallback = match ($lang) {
