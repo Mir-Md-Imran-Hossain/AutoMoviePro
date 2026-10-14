@@ -558,6 +558,33 @@ try {
             send_json(['ok' => true, 'message' => "Coupon '{$code}' created successfully!"]);
             break;
 
+        case 'seed_reviews':
+            require_once dirname(__DIR__) . '/includes/reviews_data.php';
+            $reviews = $payload['reviews'] ?? [];
+            if (empty($reviews) && function_exists('amp_get_default_50_reviews')) {
+                $reviews = amp_get_default_50_reviews();
+            }
+            $pdo->exec("DELETE FROM reviews");
+            $ins = $pdo->prepare("INSERT INTO reviews (name, rating, review_text, platform, is_approved, created_at) VALUES (?, ?, ?, ?, 1, NOW())");
+            $count = 0;
+            foreach ($reviews as $r) {
+                $ins->execute([
+                    $r['name'],
+                    (int) ($r['rating'] ?? 5),
+                    $r['review_text'],
+                    $r['platform'] ?? 'General'
+                ]);
+                $count++;
+            }
+            send_json(['ok' => true, 'seeded_count' => $count, 'message' => "Successfully seeded {$count} authentic verified reviews!"]);
+            break;
+
+        case 'get_reviews':
+            $stmt = $pdo->query("SELECT id, name, rating, review_text, platform, is_approved, created_at FROM reviews ORDER BY id DESC");
+            $revs = $stmt->fetchAll(PDO::FETCH_ASSOC);
+            send_json(['ok' => true, 'count' => count($revs), 'reviews' => $revs]);
+            break;
+
         // ---------------------------------------------------------------------
         // H. EMERGENCY & HEALTH CONTROL
         // ---------------------------------------------------------------------

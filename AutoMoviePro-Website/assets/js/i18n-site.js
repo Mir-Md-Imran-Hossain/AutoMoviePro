@@ -35,6 +35,10 @@
       step3: "ইংরেজি মাস্টার থেকে স্বয়ংক্রিয়ভাবে নিখুঁত সাবটাইটেল ও লোকাল ভয়েসওভারে রূপান্তর",
       step4: "নির্ধারিত শিডিউল অনুযায়ী YouTube, Facebook এবং TikTok-এ সরাসরি অটো-আপলোড",
 
+      feat_tab_all: "সব ফিচার (১৮টি)",
+      feat_tab_video: "🎬 ১. Omni Video Studio (৳৩,৯৯৯)",
+      feat_tab_business: "💼 ২. Omni FB Business Manager (৳২,৯৯৯)",
+      feat_tab_profile: "📱 ৩. Omni FB Profile & Page Post (৳১,৯৯৯)",
       features: "পাওয়ারফুল ইন্ডাস্ট্রিয়াল ফিচারসমূহ",
       features_lead: "বিশ্বমানের কনটেন্ট ক্রিয়েটর ও মিডিয়া এজেন্সির জন্য প্রস্তুত প্রতিটি টুলস।",
 
@@ -95,14 +99,22 @@
       reviews_lead: "অটোমুভি প্রো ব্যবহারকারী সফল ইউটিউবার ও কন্টেন্ট ক্রিয়েটরদের সরাসরি মতামত।",
 
       faq: "সাধারণ জিজ্ঞাসাসমূহ (FAQ)",
-      faq1_q: "AutoMovie Pro-এর লাইসেন্স ফি কত?",
-      faq1_a: "মূল সফটওয়্যার লাইসেন্স মাত্র ৳২৯৯৮ — এতে ইংরেজি ছাড়াও আপনার ব্যক্তিগত ১টি ভাষা অন্তর্ভুক্ত থাকে। যেকোনো অতিরিক্ত ভাষা মাত্র ৳৪৯৯ দিয়ে আজীবনের জন্য যুক্ত করা যায়।",
-      faq2_q: "সর্বোচ্চ কতগুলো সোশ্যাল মিডিয়া চ্যানেল যোগ করা যাবে?",
-      faq2_a: "প্রতিটি ভাষা ও বাজার স্ট্র্যাটেজিতে মিলিয়ে আপনি সর্বোচ্চ ৬টি YouTube চ্যানেল + ৬টি Facebook পেজ/প্রোফাইল + ৬টি TikTok গন্তব্য সম্পূর্ণ স্বয়ংক্রিয়ভাবে পরিচালনা করতে পারবেন।",
-      faq3_q: "পেমেন্ট করার পর লাইসেন্স কীভাবে পাব?",
-      faq3_a: "অর্ডার ফর্ম সাবমিট করার পর আমাদের WhatsApp সাপোর্টে পেমেন্টের স্ক্রিনশট বা ট্রানজেকশন আইডি পাঠিয়ে দিন। আমাদের টিম তাৎক্ষণিকভাবে ভেরিফাই করে সফটওয়্যার ডাউনলোড লিংক ও লাইসেন্স কি পাঠিয়ে দেবে।",
-      faq4_q: "লাইসেন্সের মেয়াদ কতদিন? ভবিষ্যতে আপডেট পাব কি?",
-      faq4_a: "AutoMovie Pro-এর কোর লাইসেন্স সম্পূর্ণ আজীবন মেয়াদের (Lifetime License)। কোনো গোপন মাসিক ফি নেই। কোর সফটওয়্যারের নিয়মিত বাগফিক্স ও পারফরম্যান্স আপডেট আজীবন ফ্রি পাবেন।",
+      faq1_q: "আমার কি ভিডিও এডিটিং-এর কোনো অভিজ্ঞতা থাকা লাগবে?",
+      faq1_a: "না, বিন্দুমাত্র এডিটিং অভিজ্ঞতা লাগবে না! প্রিমিয়ার প্রো বা আফটার ইফেক্টসের কোনো জটিলতা নেই। আপনি শুধু নিশ বেছে দেবেন — স্ক্রিপ্ট তৈরি, বাংলা ভয়েসওভার, সিনেমাটিক সিন ও সাবটাইটেল সবকিছু অটোমুভি প্রো নিজেই স্বয়ংক্রিয়ভাবে করে দেবে।",
+      faq2_q: "আমি কি এটা মোবাইল দিয়ে চালাতে পারব নাকি শুধু কম্পিউটারে চলবে?",
+      faq2_a: "অটোমুভি প্রো একটি হাই-পারফরম্যান্স Windows ডেস্কটপ সফটওয়্যার (Windows 10/11)। তবে আমাদের স্পেশাল স্মার্টফোন কম্প্যানিয়ন UI রয়েছে, যার মাধ্যমে আপনি যেকোনো স্থান থেকে মোবাইল দিয়েই আপনার কম্পিউটারের সফটওয়্যার মনিটর ও ক্যাপচা সলভ করতে পারবেন।",
+      faq3_q: "ভিডিওগুলো কি আসলেই ইউটিউব বা ফেসবুকে মনিটাইজ হবে নাকি কপিরাইট আসবে?",
+      faq3_a: "১০০% মনিটাইজেশন ফ্রেন্ডলি! আমাদের সফটওয়্যারের প্রতিটি ভিজ্যুয়াল, ব্যাকগ্রাউন্ড মিউজিক এবং ভয়েসওভার মেটা ও ইউটিউবের সর্বশেষ পলিসি অনুযায়ী তৈরি। প্রতিটি ভিডিও অনন্য (Unique) এবং কোনো কপিরাইট ক্লেইমের ঝামেলা নেই।",
+      faq4_q: "আমার পিসি বন্ধ থাকলেও কি ভিডিও অটোমেটিক আপলোড হবে?",
+      faq4_a: "সফটওয়্যারটি আপনার কম্পিউটারের ব্যাকগ্রাউন্ডে কাজ করে। তাই শিডিউল অনুযায়ী ভিডিও তৈরি ও আপলোড হওয়ার সময় পিসি অন ও ইন্টারনেট কানেক্টেড থাকতে হবে। তবে স্ক্রিনের সামনে বসে থাকতে হয় না — পিসিতে অন্যান্য কাজ করলেও ব্যাকগ্রাউন্ডে নিরবচ্ছিন্ন আপলোড চলবে।",
+      faq5_q: "৩টি সফটওয়্যার প্যাকেজের মধ্যে কোনটা আমার জন্য সেরা?",
+      faq5_a: "১) Omni Video Studio (৳৩,৯৯৯): ফুল এআই শর্টস ও লং ভিডিও অটোমেশন এবং ইউটিউব/মেটা মনিটাইজেশনের জন্য সেরা। ২) Omni FB Business Manager (৳২,৯৯৯): পেজ ও শপের সেলস ব্যানার, অ্যাড ভিডিও ও অর্গানিক গ্রুপ শেয়ারিংয়ের জন্য পারফেক্ট। ৩) Omni Profile & Page Post (৳১,৯৯৯): ব্যক্তিগত প্রোফাইল ও পেজে ইসলামিক বা অনুপ্রেরণামূলক পোস্ট ও ফলোয়ার বৃদ্ধির জন্য সেরা।",
+      faq6_q: "কেনার পর কতক্ষণ পর আমি সফটওয়্যার ডাউনলোড করতে পারব?",
+      faq6_a: "সাথে সাথে ইনস্ট্যান্ট ডেলিভারি! অর্ডার ফর্ম সাবমিট করে পেমেন্ট সম্পন্ন হওয়ামাত্র আপনার WhatsApp ও ইমেইলে সরাসরি সফটওয়্যার ডাউনলোড লিংক, লাইসেন্স কি এবং সহজ ১-ক্লিক ভিডিও সেটআপ গাইড পাঠিয়ে দেওয়া হবে।",
+      faq7_q: "লাইসেন্সের মেয়াদ কতদিন? ভবিষ্যতে কি নতুন আপডেট পাব?",
+      faq7_a: "এটি সম্পূর্ণ লাইফটাইম লাইসেন্স (Lifetime License) — কোনো গোপন মাসিক চার্জ নেই। একবার কিনলে আজীবন ব্যবহার করতে পারবেন। এছাড়া সফটওয়্যারের সকল ভবিষ্যৎ বাগফিক্স ও পারফরম্যান্স আপডেট আজীবন ফ্রিতে পাবেন।",
+      faq8_q: "আমার কম্পিউটার কনফিগারেশন কেমন হওয়া দরকার?",
+      faq8_a: "যেকোনো সাধারণ Windows 10 বা 11 ল্যাপটপ অথবা ডেস্কটপ পিসিতে এটি মসৃণভাবে চলে। নূন্যতম 4GB RAM (8GB রেকমেন্ডেড) এবং সাধারণ ইন্টারনেট কানেকশন থাকলেই চলবে। কোনো দামি গ্রাফিক্স কার্ডের প্রয়োজন নেই।",
 
       footer_note: "Windows ডেস্কটপ সফটওয়্যার — হাই-পারফরম্যান্স কন্টেন্ট অটোমেশন ইঞ্জিন।",
       rights_reserved: "সর্বস্বত্ব সংরক্ষিত।",
@@ -215,14 +227,22 @@
       reviews_lead: "Real feedback from successful YouTubers and automated channel operators using AutoMovie Pro.",
 
       faq: "Frequently Asked Questions (FAQ)",
-      faq1_q: "How much does the AutoMovie Pro license cost?",
-      faq1_a: "The core desktop lifetime license is only ৳2,998, which includes English plus 1 regional language of your choice. Any additional language can be unlocked forever for only ৳499.",
-      faq2_q: "How many social channels can I connect?",
-      faq2_a: "Across your language strategies, you can connect and auto-publish to up to 6 YouTube channels + 6 Facebook pages/profiles + 6 TikTok destinations simultaneously.",
-      faq3_q: "How do I receive my license after payment?",
-      faq3_a: "After submitting the order form, send your payment screenshot or transaction ID to our WhatsApp support. Our verification team will immediately deliver your installer download link and license credentials.",
-      faq4_q: "How long is the license valid? Do I get future updates?",
-      faq4_a: "AutoMovie Pro core license is 100% Lifetime. There are no recurring monthly subscription charges. Performance upgrades and bugfix releases for the core engine are free forever.",
+      faq1_q: "Do I need any prior video editing experience?",
+      faq1_a: "Not at all! You don't need Premiere Pro, After Effects, or any complex editing software. You simply choose your topic or niche — AutoMovie Pro automatically writes scripts, generates voiceovers, compiles cinematic scenes, and aligns subtitles flawlessly.",
+      faq2_q: "Can I run this on my mobile phone or does it require a PC?",
+      faq2_a: "AutoMovie Pro is an industrial Windows desktop software (Windows 10/11). However, we include a Mobile Companion UI that lets you remotely monitor job progress, view rendered clips, and solve prompts directly from your smartphone over Wi-Fi.",
+      faq3_q: "Will these videos actually monetize on YouTube and Facebook without copyright strikes?",
+      faq3_a: "100% monetization-friendly! Every visual scene, background track, and voiceover complies strictly with YouTube and Meta's 2025 creator policies. All videos are uniquely rendered with zero duplicate content issues.",
+      faq4_q: "Will videos still publish if my computer is turned off?",
+      faq4_a: "Because AutoMovie Pro runs locally on your PC for maximum data privacy and zero monthly server fees, your PC must be on and connected to the internet during scheduled creation and upload cycles.",
+      faq5_q: "Which of the 3 software packages is right for me?",
+      faq5_a: "1) Omni Video Content Studio (৳3,999): Best for multi-channel creators wanting full AI video automation for YouTube, Facebook & TikTok monetization. 2) Omni FB Business Manager (৳2,999): Ideal for business page owners needing automated sales graphics, ad videos, and organic group marketing. 3) Omni Profile & Page Post (৳1,999): Perfect for personal profile and page authority building with Islamic quotes and inspirational content.",
+      faq6_q: "How soon do I get the software download after payment?",
+      faq6_a: "Instant delivery! As soon as your order is confirmed, your download link, lifetime license key, and step-by-step setup guide are delivered immediately to your WhatsApp and email.",
+      faq7_q: "How long does the license last? Are future updates included?",
+      faq7_a: "It is a genuine Lifetime License — with zero recurring monthly subscription charges. You buy once and own it forever, with free performance enhancements and bugfix updates for life.",
+      faq8_q: "What PC hardware specifications are required?",
+      faq8_a: "It runs smoothly on any standard Windows 10 or 11 laptop or desktop. Minimum 4GB RAM (8GB recommended) and a standard internet connection. No expensive dedicated graphics card required.",
 
       footer_note: "Windows Desktop Software — High-Performance Video Automation Platform.",
       rights_reserved: "All rights reserved.",
@@ -824,6 +844,16 @@
       window.location.href = u.toString();
     };
   }
+
+  
+  window.ampSwitchLang = function(lang) {
+    if (!lang) return;
+    localStorage.setItem("amp_ui_lang", lang);
+    document.cookie = "amp_ui_lang=" + encodeURIComponent(lang) + ";path=/;max-age=31536000";
+    const u = new URL(window.location.href);
+    u.searchParams.set("lang", lang);
+    window.location.href = u.toString();
+  };
 
   window.ampSiteT = t;
   window.ampSiteApplyI18n = apply;

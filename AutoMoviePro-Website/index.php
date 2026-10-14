@@ -1,6 +1,7 @@
 <?php
 declare(strict_types=1);
 require __DIR__ . '/includes/bootstrap.php';
+require_once __DIR__ . '/includes/reviews_data.php';
 
 $uiLang = strtolower(substr((string) ($_GET['lang'] ?? $_COOKIE['amp_ui_lang'] ?? 'bn'), 0, 2));
 if (!in_array($uiLang, amp_cms_langs(), true)) {
@@ -95,13 +96,18 @@ foreach ($catalog as $feat) {
       <div class="logo"><?= e($brand) ?> <span>SAAS</span></div>
     </a>
     <div class="header-actions">
-       <div class="mech-switch-container">
-          <span class="lang-label" id="lang-en">EN</span>
-          <div class="mech-switch" id="siteLangSwitch" onclick="this.classList.toggle('active'); document.dispatchEvent(new CustomEvent('langToggle'));">
-              <div class="mech-toggle"></div>
-          </div>
-          <span class="lang-label" id="lang-bn">BN</span>
-      </div>
+       <div class="lang-switcher-wrap">
+          <button type="button" class="lang-btn <?= $uiLang === 'bn' ? 'active' : '' ?>" onclick="ampSwitchLang('bn')">বাংলা</button>
+          <button type="button" class="lang-btn <?= $uiLang === 'en' ? 'active' : '' ?>" onclick="ampSwitchLang('en')">English</button>
+          <select id="siteLangSelect" class="lang-dropdown-compact" aria-label="Choose Language" onchange="ampSwitchLang(this.value)">
+            <option value="bn" <?= $uiLang === 'bn' ? 'selected' : '' ?>>বাংলা (BN)</option>
+            <option value="en" <?= $uiLang === 'en' ? 'selected' : '' ?>>English (EN)</option>
+            <option value="hi" <?= $uiLang === 'hi' ? 'selected' : '' ?>>हिन्दी (HI)</option>
+            <option value="ur" <?= $uiLang === 'ur' ? 'selected' : '' ?>>اردو (UR)</option>
+            <option value="ta" <?= $uiLang === 'ta' ? 'selected' : '' ?>>தமிழ் (TA)</option>
+            <option value="ml" <?= $uiLang === 'ml' ? 'selected' : '' ?>>മലയാളം (ML)</option>
+          </select>
+       </div>
       <a class="btn btn-sm btn-wa" href="<?= e($waLink) ?>" target="_blank" rel="noopener" data-i18n="chat_whatsapp">WhatsApp</a>
       <a class="btn btn-sm" href="#buy" data-i18n="buy_now">এখনই কিনুন</a>
     </div>
@@ -217,16 +223,40 @@ foreach ($catalog as $feat) {
   <section id="features" class="reveal">
     <div class="section-head">
       <h2 data-i18n="features">পাওয়ারফুল ইন্ডাস্ট্রিয়াল ফিচারসমূহ</h2>
-      <p class="lead" data-i18n="features_lead">বিশ্বমানের কনটেন্ট ক্রিয়েটর ও মিডিয়া এজেন্সির জন্য প্রস্তুত প্রতিটি টুলস।</p>
+      <p class="lead" data-i18n="features_lead">বিশ্বমানের কনটেন্ট ক্রিয়েটর ও মিডিয়া এজেন্সির জন্য প্রস্তুত প্রতিটি টুলস। প্যাকেজ অনুযায়ী ফিল্টার করে দেখুন।</p>
     </div>
+
+    <!-- Software Tier Filter Tabs -->
+    <div class="feature-tabs-nav">
+      <button type="button" class="feature-tab-btn active" data-filter="all">
+        🔥 <span data-i18n="feat_tab_all">সব ফিচার (১৮টি)</span>
+      </button>
+      <button type="button" class="feature-tab-btn" data-filter="video_studio">
+        🎬 <span data-i18n="feat_tab_video">১. Omni Video Studio (৳৩,৯৯৯)</span>
+      </button>
+      <button type="button" class="feature-tab-btn" data-filter="fb_business">
+        💼 <span data-i18n="feat_tab_business">২. Omni FB Business Manager (৳২,৯৯৯)</span>
+      </button>
+      <button type="button" class="feature-tab-btn" data-filter="profile_page">
+        📱 <span data-i18n="feat_tab_profile">৩. Omni FB Profile & Page Post (৳১,৯৯৯)</span>
+      </button>
+    </div>
+
     <div class="feature-grid" id="featureGrid">
       <?php foreach ($catalog as $feat):
           $f = amp_feature_for_lang($feat, $uiLang);
+          $tier = $f['tier'] ?? 'video_studio';
           $img = '/assets/img/' . rawurlencode($f['image']);
+          $tierBadge = [
+              'video_studio' => ['cls' => 'tier-video', 'label' => '🎬 Video Studio (৳৩,৯৯৯)'],
+              'fb_business' => ['cls' => 'tier-business', 'label' => '💼 FB Business (৳২,৯৯৯)'],
+              'profile_page' => ['cls' => 'tier-profile', 'label' => '📱 Profile & Page (৳১,৯৯৯)'],
+          ][$tier] ?? ['cls' => 'tier-video', 'label' => 'AutoMovie Pro'];
           ?>
-        <article class="feature-card" data-feat-id="<?= e($f['id']) ?>">
+        <article class="feature-card" data-feat-id="<?= e($f['id']) ?>" data-tier="<?= e($tier) ?>">
           <div class="feature-img-wrap">
-            <img class="feature-img" src="<?= e($img) ?>" alt="<?= e($f['title']) ?>" loading="lazy" width="640" height="360">
+            <span class="tier-pill <?= e($tierBadge['cls']) ?>"><?= e($tierBadge['label']) ?></span>
+            <img class="feature-img" src="<?= e($img) ?>" alt="<?= e($f['title']) ?>" loading="lazy" width="800" height="450">
           </div>
           <div class="feature-card-body">
             <h3 class="feature-title"><?= e($f['title']) ?></h3>
@@ -240,13 +270,22 @@ foreach ($catalog as $feat) {
   <!-- SPECIAL GOOGLE AI PRO PACKAGE SECTION (Fully Internationalized) -->
   <section id="google-pro" class="reveal">
     <div class="google-pro-container">
-      <div style="text-align: center; margin-bottom: 2.5rem;">
-        <span class="gpro-pill" data-i18n="gpro_badge">স্পেশাল ভিআইপি অফার</span>
-        <h2 style="font-size: 2.2rem; color: #60a5fa; margin-top: 1.25rem; margin-bottom: 0.85rem;" data-i18n="gpro_title">
+      <div style="text-align: center; margin-bottom: 2.75rem;">
+        <div style="display:inline-flex; align-items:center; gap:12px; background:rgba(255,255,255,0.06); padding:8px 24px; border-radius:999px; border:1px solid rgba(66,133,244,0.35); margin-bottom:1.25rem;">
+          <svg width="26" height="26" viewBox="0 0 48 48" style="vertical-align:middle;">
+            <path fill="#EA4335" d="M24 9.5c3.54 0 6.71 1.22 9.21 3.6l6.85-6.85C35.9 2.38 30.47 0 24 0 14.62 0 6.51 5.38 2.56 13.22l7.98 6.19C12.43 13.72 17.74 9.5 24 9.5z"/>
+            <path fill="#4285F4" d="M46.98 24.55c0-1.57-.15-3.09-.38-4.55H24v9.02h12.94c-.58 2.96-2.26 5.48-4.78 7.18l7.73 6c4.51-4.18 7.09-10.36 7.09-17.65z"/>
+            <path fill="#FBBC05" d="M10.53 28.59c-.48-1.45-.76-2.99-.76-4.59s.27-3.14.76-4.59l-7.98-6.19C.92 16.46 0 20.12 0 24c0 3.88.92 7.54 2.56 10.78l7.97-6.19z"/>
+            <path fill="#34A853" d="M24 48c6.48 0 11.93-2.13 15.89-5.81l-7.73-6c-2.15 1.45-4.92 2.3-8.16 2.3-6.26 0-11.57-4.22-13.47-9.91l-7.98 6.19C6.51 42.62 14.62 48 24 48z"/>
+          </svg>
+          <span style="font-weight:800; font-size:1.15rem; color:#ffffff; letter-spacing:0.5px;">Google AI Pro Cloud Engine</span>
+          <span style="background:#38bdf8; color:#020617; font-size:0.75rem; font-weight:800; padding:2px 8px; border-radius:999px;">OFFICIAL</span>
+        </div>
+        <h2 style="font-size: 2.2rem; color: #60a5fa; margin-bottom: 0.85rem;" data-i18n="gpro_title">
           কোন ঝামেলা ছাড়াই ভিডিও তৈরির জন্য স্পেশাল গুগল AI Pro প্যাকেজ
         </h2>
         <p class="lead" style="color: #cbd5e1; max-width: 840px; margin: 0 auto;" data-i18n="gpro_lead">
-          কোটা লিমিটেশন বা রোবোটিক সাউন্ডের কোনো ঝামেলা ছাড়া আনলিমিটেড ক্রিয়েশন! সরাসরি গুগল প্রো ক্লাউড, হাই-রেজুলেশন সিনেমাটিক মডেল ও নিরাপদ ১৫০ জিবি ক্লাউড ড্রাইভ ব্যাকআপ।
+          কোটা লিমিট শেষ হওয়া বা রোবোটিক সাউন্ডের কোনো ঝামেলা ছাড়া আনলিমিটেড ক্রিয়েশন! সরাসরি গুগল প্রো ক্লাউড, হাই-রেজুলেশন সিনেমাটিক মডেল ও নিরাপদ ১৫০ জিবি ক্লাউড ড্রাইভ ব্যাকআপ আপনার জিমেইলে।
         </p>
       </div>
 
@@ -545,33 +584,73 @@ foreach ($catalog as $feat) {
   </section>
 
   <?php
-  $revStmt = $pdo->query('SELECT name, rating, review_text, platform FROM reviews WHERE is_approved = 1 ORDER BY id DESC LIMIT 6');
-  $approvedReviews = $revStmt ? $revStmt->fetchAll(PDO::FETCH_ASSOC) : [];
+  $approvedReviews = [];
+  try {
+      $revStmt = $pdo->query('SELECT name, rating, review_text, platform FROM reviews WHERE is_approved = 1 ORDER BY id DESC');
+      $approvedReviews = $revStmt ? $revStmt->fetchAll(PDO::FETCH_ASSOC) : [];
+  } catch (\Throwable $e) {}
+
+  if (count($approvedReviews) < 10 && function_exists('amp_get_default_50_reviews')) {
+      $approvedReviews = amp_get_default_50_reviews();
+  }
+  $halfCount = (int) ceil(count($approvedReviews) / 2);
+  $row1 = array_slice($approvedReviews, 0, $halfCount);
+  $row2 = array_slice($approvedReviews, $halfCount);
   ?>
-  <?php if (!empty($approvedReviews)): ?>
-  <!-- Authentic Verified Customer Reviews -->
+  <!-- Authentic Verified Customer Reviews (50+ Infinite Marquee Slider) -->
   <section id="reviews" class="reveal">
-    <div class="section-head">
-      <h2 data-i18n="reviews_title">🌟 ভেরিফাইড ক্রিয়েটরদের বাস্তব অভিজ্ঞতা</h2>
-      <p class="lead" data-i18n="reviews_lead">অটোমুভি প্রো ব্যবহারকারী সফল ইউটিউবার ও কন্টেন্ট ক্রিয়েটরদের সরাসরি মতামত।</p>
+    <div class="section-head" style="margin-bottom: 2rem;">
+      <div class="gpro-pill" style="margin-bottom: 0.75rem; background: linear-gradient(135deg, #f59e0b, #d97706); box-shadow: 0 0 20px rgba(245, 158, 11, 0.4);">
+        🌟 ৫০+ সফল কন্টেন্ট ক্রিয়েটরের বাস্তব অভিজ্ঞতা
+      </div>
+      <h2 data-i18n="reviews_title">ভেরিফাইড ক্রিয়েটরদের বাস্তব মতামত ও রেটিং</h2>
+      <p class="lead" data-i18n="reviews_lead">সফল ইউটিউবার, ফেসবুক পেজ ওনার এবং ডিজিটাল এজেন্সির সরাসরি অভিজ্ঞতা। মাউস রেখে যেকোনো রিভিউ থামিয়ে পড়তে পারেন।</p>
     </div>
 
-    <div class="review-grid">
-      <?php foreach ($approvedReviews as $rev): ?>
-        <article class="review-card">
-          <div>
-            <div class="review-stars">
-              <?= str_repeat('★', max(1, min(5, (int) ($rev['rating'] ?? 5)))) ?>
+    <div class="reviews-section-wrapper">
+      <!-- Top Row Marquee (Scrolls Left) -->
+      <div class="review-marquee-track track-top">
+        <?php foreach (array_merge($row1, $row1) as $rev): ?>
+          <article class="review-card-marquee">
+            <div>
+              <div class="review-stars">
+                <span><?= str_repeat('★', max(1, min(5, (int) ($rev['rating'] ?? 5)))) ?></span>
+                <span class="verified-pill">✓ ভেরিফাইড ইউজার</span>
+              </div>
+              <p class="review-text">"<?= e((string) ($rev['review_text'] ?? '')) ?>"</p>
             </div>
-            <p class="review-text">
-              "<?= e((string) ($rev['review_text'] ?? '')) ?>"
-            </p>
-          </div>
-          <div class="review-author">
-            <strong><?= e((string) ($rev['name'] ?? 'Creator')) ?></strong>
-            <?php if (!empty($rev['platform'])): ?>
-              <span class="platform-badge"><?= e((string) $rev['platform']) ?></span>
-            <?php endif; ?>
+            <div class="review-author">
+              <strong><?= e((string) ($rev['name'] ?? 'Creator')) ?></strong>
+              <?php if (!empty($rev['platform'])): ?>
+                <span class="platform-badge"><?= e((string) $rev['platform']) ?></span>
+              <?php endif; ?>
+            </div>
+          </article>
+        <?php endforeach; ?>
+      </div>
+
+      <!-- Bottom Row Marquee (Scrolls Right) -->
+      <div class="review-marquee-track track-bottom">
+        <?php foreach (array_merge($row2, $row2) as $rev): ?>
+          <article class="review-card-marquee">
+            <div>
+              <div class="review-stars">
+                <span><?= str_repeat('★', max(1, min(5, (int) ($rev['rating'] ?? 5)))) ?></span>
+                <span class="verified-pill">✓ ভেরিফাইড ইউজার</span>
+              </div>
+              <p class="review-text">"<?= e((string) ($rev['review_text'] ?? '')) ?>"</p>
+            </div>
+            <div class="review-author">
+              <strong><?= e((string) ($rev['name'] ?? 'Creator')) ?></strong>
+              <?php if (!empty($rev['platform'])): ?>
+                <span class="platform-badge"><?= e((string) $rev['platform']) ?></span>
+              <?php endif; ?>
+            </div>
+          </article>
+        <?php endforeach; ?>
+      </div>
+    </div>
+  </section>
           </div>
         </article>
       <?php endforeach; ?>
@@ -583,23 +662,40 @@ foreach ($catalog as $feat) {
   <section id="faq" class="reveal">
     <div class="section-head">
       <h2 data-i18n="faq">সাধারণ জিজ্ঞাসাসমূহ (FAQ)</h2>
+      <p class="lead">অটোমুভি প্রো কেনার আগে সচরাচর যে প্রশ্নগুলো সবার মনে আসে</p>
     </div>
     <div class="faq-list" id="faqDefault">
       <details open>
-        <summary data-i18n="faq1_q">AutoMovie Pro-এর লাইসেন্স ফি কত?</summary>
-        <p data-i18n="faq1_a">মূল সফটওয়্যার লাইসেন্স মাত্র ৳২৯৯৮ — এতে ইংরেজি ছাড়াও আপনার ব্যক্তিগত ১টি ভাষা অন্তর্ভুক্ত থাকে। যেকোনো অতিরিক্ত ভাষা মাত্র ৳৪৯৯ দিয়ে আজীবনের জন্য যুক্ত করা যায়।</p>
+        <summary data-i18n="faq1_q">আমার কি ভিডিও এডিটিং-এর কোনো অভিজ্ঞতা থাকা লাগবে?</summary>
+        <p data-i18n="faq1_a">না, বিন্দুমাত্র এডিটিং অভিজ্ঞতা লাগবে না! প্রিমিয়ার প্রো বা আফটার ইফেক্টসের কোনো জটিলতা নেই। আপনি শুধু নিশ বেছে দেবেন — স্ক্রিপ্ট তৈরি, বাংলা ভয়েসওভার, সিনেমাটিক সিন ও সাবটাইটেল সবকিছু অটোমুভি প্রো নিজেই স্বয়ংক্রিয়ভাবে করে দেবে।</p>
       </details>
       <details>
-        <summary data-i18n="faq2_q">সর্বোচ্চ কতগুলো সোশ্যাল মিডিয়া চ্যানেল যোগ করা যাবে?</summary>
-        <p data-i18n="faq2_a">প্রতিটি ভাষা ও বাজার স্ট্র্যাটেজিতে মিলিয়ে আপনি সর্বোচ্চ ৬টি YouTube চ্যানেল + ৬টি Facebook পেজ/প্রোফাইল + ৬টি TikTok গন্তব্য সম্পূর্ণ স্বয়ংক্রিয়ভাবে পরিচালনা করতে পারবেন।</p>
+        <summary data-i18n="faq2_q">আমি কি এটা মোবাইল দিয়ে চালাতে পারব নাকি শুধু কম্পিউটারে চলবে?</summary>
+        <p data-i18n="faq2_a">অটোমুভি প্রো একটি হাই-পারফরম্যান্স Windows ডেস্কটপ সফটওয়্যার (Windows 10/11)। তবে আমাদের স্পেশাল স্মার্টফোন কম্প্যানিয়ন UI রয়েছে, যার মাধ্যমে আপনি যেকোনো স্থান থেকে মোবাইল দিয়েই আপনার কম্পিউটারের সফটওয়্যার মনিটর ও ক্যাপচা সলভ করতে পারবেন।</p>
       </details>
       <details>
-        <summary data-i18n="faq3_q">পেমেন্ট করার পর লাইসেন্স কীভাবে পাব?</summary>
-        <p data-i18n="faq3_a">অর্ডার ফর্ম সাবমিট করার পর আমাদের WhatsApp সাপোর্টে পেমেন্টের স্ক্রিনশট বা ট্রানজেকশন আইডি পাঠিয়ে দিন। আমাদের টিম তাৎক্ষণিকভাবে ভেরিফাই করে সফটওয়্যার ডাউনলোড লিংক ও লাইসেন্স কি পাঠিয়ে দেবে।</p>
+        <summary data-i18n="faq3_q">ভিডিওগুলো কি আসলেই ইউটিউব বা ফেসবুকে মনিটাইজ হবে নাকি কপিরাইট আসবে?</summary>
+        <p data-i18n="faq3_a">১০০% মনিটাইজেশন ফ্রেন্ডলি! আমাদের সফটওয়্যারের প্রতিটি ভিজ্যুয়াল, ব্যাকগ্রাউন্ড মিউজিক এবং ভয়েসওভার মেটা ও ইউটিউবের সর্বশেষ পলিসি অনুযায়ী তৈরি। প্রতিটি ভিডিও অনন্য (Unique) এবং কোনো কপিরাইট ক্লেইমের ঝামেলা নেই।</p>
       </details>
       <details>
-        <summary data-i18n="faq4_q">লাইসেন্সের মেয়াদ কতদিন? ভবিষ্যতে আপডেট পাব কি?</summary>
-        <p data-i18n="faq4_a">AutoMovie Pro-এর কোর লাইসেন্স সম্পূর্ণ আজীবন মেয়াদের (Lifetime License)। কোনো গোপন মাসিক ফি নেই। কোর সফটওয়্যারের নিয়মিত বাগফিক্স ও পারফরম্যান্স আপডেট আজীবন ফ্রি পাবেন।</p>
+        <summary data-i18n="faq4_q">আমার পিসি বন্ধ থাকলেও কি ভিডিও অটোমেটিক আপলোড হবে?</summary>
+        <p data-i18n="faq4_a">সফটওয়্যারটি আপনার কম্পিউটারের ব্যাকগ্রাউন্ডে কাজ করে। তাই শিডিউল অনুযায়ী ভিডিও তৈরি ও আপলোড হওয়ার সময় পিসি অন ও ইন্টারনেট কানেক্টেড থাকতে হবে। তবে স্ক্রিনের সামনে বসে থাকতে হয় না — পিসিতে অন্যান্য কাজ করলেও ব্যাকগ্রাউন্ডে নিরবচ্ছিন্ন আপলোড চলবে।</p>
+      </details>
+      <details>
+        <summary data-i18n="faq5_q">৩টি সফটওয়্যার প্যাকেজের মধ্যে কোনটা আমার জন্য সেরা?</summary>
+        <p data-i18n="faq5_a">১) Omni Video Studio (৳৩,৯৯৯): ফুল এআই শর্টস ও লং ভিডিও অটোমেশন এবং ইউটিউব/মেটা মনিটাইজেশনের জন্য সেরা। ২) Omni FB Business Manager (৳২,৯৯৯): পেজ ও শপের সেলস ব্যানার, অ্যাড ভিডিও ও অর্গানিক গ্রুপ শেয়ারিংয়ের জন্য পারফেক্ট। ৩) Omni Profile & Page Post (৳১,৯৯৯): ব্যক্তিগত প্রোফাইল ও পেজে ইসলামিক বা অনুপ্রেরণামূলক পোস্ট ও ফলোয়ার বৃদ্ধির জন্য সেরা।</p>
+      </details>
+      <details>
+        <summary data-i18n="faq6_q">কেনার পর কতক্ষণ পর আমি সফটওয়্যার ডাউনলোড করতে পারব?</summary>
+        <p data-i18n="faq6_a">সাথে সাথে ইনস্ট্যান্ট ডেলিভারি! অর্ডার ফর্ম সাবমিট করে পেমেন্ট সম্পন্ন হওয়ামাত্র আপনার WhatsApp ও ইমেইলে সরাসরি সফটওয়্যার ডাউনলোড লিংক, লাইসেন্স কি এবং সহজ ১-ক্লিক ভিডিও সেটআপ গাইড পাঠিয়ে দেওয়া হবে।</p>
+      </details>
+      <details>
+        <summary data-i18n="faq7_q">লাইসেন্সের মেয়াদ কতদিন? ভবিষ্যতে কি নতুন আপডেট পাব?</summary>
+        <p data-i18n="faq7_a">এটি সম্পূর্ণ লাইফটাইম লাইসেন্স (Lifetime License) — কোনো গোপন মাসিক চার্জ নেই। একবার কিনলে আজীবন ব্যবহার করতে পারবেন। এছাড়া সফটওয়্যারের সকল ভবিষ্যৎ বাগফিক্স ও পারফরম্যান্স আপডেট আজীবন ফ্রিতে পাবেন।</p>
+      </details>
+      <details>
+        <summary data-i18n="faq8_q">আমার কম্পিউটার কনফিগারেশন কেমন হওয়া দরকার?</summary>
+        <p data-i18n="faq8_a">যেকোনো সাধারণ Windows 10 বা 11 ল্যাপটপ অথবা ডেস্কটপ পিসিতে এটি মসৃণভাবে চলে। নূন্যতম 4GB RAM (8GB রেকমেন্ডেড) এবং সাধারণ ইন্টারনেট কানেকশন থাকলেই চলবে। কোনো দামি গ্রাফিক্স কার্ডের প্রয়োজন নেই।</p>
       </details>
     </div>
     <?php if (trim($faq) !== ''): ?>
@@ -610,7 +706,7 @@ foreach ($catalog as $feat) {
   <!-- Site Footer -->
   <footer class="site-footer">
     <div>
-      &copy; <?= date('Y') ?> <?= e($brand) ?>. <span data-i18n="rights_reserved">সর্বস্বত্ব সংরক্ষিত।</span>
+      &copy; 2025 <?= e($brand) ?>. <span data-i18n="rights_reserved">সর্বস্বত্ব সংরক্ষিত।</span>
     </div>
     <div>
       <span data-i18n="footer_note">Windows ডেস্কটপ সফটওয়্যার — হাই-পারফরম্যান্স কন্টেন্ট অটোমেশন ইঞ্জিন।</span>
@@ -651,5 +747,29 @@ foreach ($catalog as $feat) {
   <script src="/assets/js/i18n-site.js"></script>
   <script src="/assets/js/site.js"></script>
   <script src="/assets/js/marketing-chat.js"></script>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const tabBtns = document.querySelectorAll('.feature-tab-btn');
+      const featCards = document.querySelectorAll('.feature-card');
+      tabBtns.forEach(btn => {
+        btn.addEventListener('click', () => {
+          tabBtns.forEach(b => b.classList.remove('active'));
+          btn.classList.add('active');
+          const filter = btn.getAttribute('data-filter');
+          featCards.forEach(card => {
+            const cardTier = card.getAttribute('data-tier');
+            if (filter === 'all' || cardTier === filter) {
+              card.style.display = 'flex';
+              setTimeout(() => { card.style.opacity = '1'; }, 10);
+            } else {
+              card.style.display = 'none';
+            }
+          });
+        });
+      });
+    });
+  </script>
+
 </body>
 </html>

@@ -9,6 +9,7 @@ function amp_features_catalog(): array
     return [
         [
             'id' => 'auto_short',
+            'tier' => 'video_studio',
             'image' => 'feat-auto-short.png',
             'en' => [
                 'title' => 'Auto short videos',
@@ -37,6 +38,7 @@ function amp_features_catalog(): array
         ],
         [
             'id' => 'auto_long',
+            'tier' => 'video_studio',
             'image' => 'feat-auto-long.png',
             'en' => [
                 'title' => 'Auto longer videos',
@@ -65,6 +67,7 @@ function amp_features_catalog(): array
         ],
         [
             'id' => 'six_langs',
+            'tier' => 'video_studio',
             'image' => 'feat-six-langs.png',
             'en' => [
                 'title' => 'Six languages from one master',
@@ -93,6 +96,7 @@ function amp_features_catalog(): array
         ],
         [
             'id' => 'yt6',
+            'tier' => 'video_studio',
             'image' => 'feat-yt6.png',
             'en' => [
                 'title' => 'Up to 6 YouTube channels',
@@ -121,6 +125,7 @@ function amp_features_catalog(): array
         ],
         [
             'id' => 'fb6',
+            'tier' => 'fb_business',
             'image' => 'feat-fb6.png',
             'en' => [
                 'title' => 'Up to 6 Facebook destinations',
@@ -149,6 +154,7 @@ function amp_features_catalog(): array
         ],
         [
             'id' => 'tt6',
+            'tier' => 'video_studio',
             'image' => 'feat-tt6.png',
             'en' => [
                 'title' => 'Up to 6 TikTok destinations',
@@ -177,6 +183,7 @@ function amp_features_catalog(): array
         ],
         [
             'id' => 'connect',
+            'tier' => 'profile_page',
             'image' => 'feat-connect.png',
             'en' => [
                 'title' => 'Connect once, stay logged in',
@@ -205,6 +212,7 @@ function amp_features_catalog(): array
         ],
         [
             'id' => 'niche_seo',
+            'tier' => 'fb_business',
             'image' => 'feat-niche-seo.png',
             'en' => [
                 'title' => 'Niche + SEO-ready titles',
@@ -233,6 +241,7 @@ function amp_features_catalog(): array
         ],
         [
             'id' => 'agnes',
+            'tier' => 'video_studio',
             'image' => 'feat-agnes.png',
             'en' => [
                 'title' => 'Agnes video generation',
@@ -261,6 +270,7 @@ function amp_features_catalog(): array
         ],
         [
             'id' => 'image_fallback',
+            'tier' => 'video_studio',
             'image' => 'feat-image-fallback.png',
             'en' => [
                 'title' => 'Image-to-video fallback',
@@ -289,6 +299,7 @@ function amp_features_catalog(): array
         ],
         [
             'id' => 'human_browser',
+            'tier' => 'profile_page',
             'image' => 'feat-human-browser.png',
             'en' => [
                 'title' => 'Human-like browser actions',
@@ -317,6 +328,7 @@ function amp_features_catalog(): array
         ],
         [
             'id' => 'agent',
+            'tier' => 'profile_page',
             'image' => 'feat-agent.png',
             'en' => [
                 'title' => 'In-app helper agent',
@@ -345,6 +357,7 @@ function amp_features_catalog(): array
         ],
         [
             'id' => 'schedule',
+            'tier' => 'profile_page',
             'image' => 'feat-schedule.png',
             'en' => [
                 'title' => 'Upload scheduler',
@@ -373,6 +386,7 @@ function amp_features_catalog(): array
         ],
         [
             'id' => 'insights',
+            'tier' => 'fb_business',
             'image' => 'feat-insights.png',
             'en' => [
                 'title' => 'Post insights & replies',
@@ -401,6 +415,7 @@ function amp_features_catalog(): array
         ],
         [
             'id' => 'lifetime',
+            'tier' => 'profile_page',
             'image' => 'feat-lifetime.png',
             'en' => [
                 'title' => 'One-time price + language add-ons',
@@ -429,6 +444,7 @@ function amp_features_catalog(): array
         ],
         [
             'id' => 'dream_creator',
+            'tier' => 'video_studio',
             'image' => 'feat-dream.png',
             'en' => [
                 'title' => 'Become an automatic content creator',
@@ -457,6 +473,7 @@ function amp_features_catalog(): array
         ],
         [
             'id' => 'omnisocial_hub',
+            'tier' => 'fb_business',
             'image' => 'feat-omnisocial.png',
             'en' => [
                 'title' => 'OmniSocial AI Autonomous Hub & Post Healer',
@@ -485,6 +502,7 @@ function amp_features_catalog(): array
         ],
         [
             'id' => 'smart_sharer_stories',
+            'tier' => 'fb_business',
             'image' => 'feat-sharer-stories.png',
             'en' => [
                 'title' => 'Niche Community Sharer & Daily Story Publisher',
@@ -522,6 +540,7 @@ function amp_feature_for_lang(array $feat, string $lang): array
     }
     return [
         'id' => $feat['id'],
+        'tier' => $feat['tier'] ?? 'video_studio',
         'image' => $feat['image'] ?? '',
         'title' => $feat[$lang]['title'] ?? $feat['en']['title'],
         'detail' => $feat[$lang]['detail'] ?? $feat['en']['detail'],

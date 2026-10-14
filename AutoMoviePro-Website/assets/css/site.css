@@ -1027,7 +1027,269 @@ input:focus, textarea:focus, select:focus {
   color: var(--ink-secondary);
   font-size: 1rem;
   line-height: 1.7;
-  margin: 1rem 0 0;
+/* ==========================================================================
+   Continuous 50+ Verified Reviews Infinite Marquee / Slider
+   ========================================================================== */
+.reviews-section-wrapper {
+  overflow: hidden;
+  position: relative;
+  width: 100%;
+  padding: 1.5rem 0 2.5rem;
+}
+
+.reviews-section-wrapper::before,
+.reviews-section-wrapper::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 120px;
+  z-index: 2;
+  pointer-events: none;
+}
+.reviews-section-wrapper::before {
+  left: 0;
+  background: linear-gradient(to right, #020617, transparent);
+}
+.reviews-section-wrapper::after {
+  right: 0;
+  background: linear-gradient(to left, #020617, transparent);
+}
+
+.review-marquee-track {
+  display: flex;
+  gap: 1.5rem;
+  width: max-content;
+  will-change: transform;
+}
+
+.review-marquee-track.track-top {
+  animation: marquee-left 110s linear infinite;
+  margin-bottom: 1.5rem;
+}
+
+.review-marquee-track.track-bottom {
+  animation: marquee-right 115s linear infinite;
+}
+
+.review-marquee-track:hover {
+  animation-play-state: paused;
+}
+
+@keyframes marquee-left {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+@keyframes marquee-right {
+  0% { transform: translateX(-50%); }
+  100% { transform: translateX(0); }
+}
+
+.review-card-marquee {
+  width: 360px;
+  min-width: 360px;
+  max-width: 360px;
+  background: rgba(15, 23, 42, 0.75);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: var(--radius-lg);
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  backdrop-filter: blur(14px);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.35);
+  transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+  user-select: none;
+}
+
+.review-card-marquee:hover {
+  transform: translateY(-4px) scale(1.02);
+  border-color: rgba(56, 189, 248, 0.4);
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.6), 0 0 20px rgba(56, 189, 248, 0.15);
+}
+
+.review-card-marquee .review-stars {
+  color: #fbbf24;
+  font-size: 1.1rem;
+  margin-bottom: 0.65rem;
+  display: flex;
+  align-items: center;
+  gap: 3px;
+}
+
+.review-card-marquee .verified-pill {
+  margin-left: auto;
+  font-size: 0.72rem;
+  color: #34d399;
+  background: rgba(16, 185, 129, 0.15);
+  border: 1px solid rgba(16, 185, 129, 0.3);
+  padding: 2px 8px;
+  border-radius: 999px;
+  font-weight: 600;
+}
+
+.review-card-marquee .review-text {
+  color: #cbd5e1;
+  font-size: 0.92rem;
+  line-height: 1.6;
+  margin: 0 0 1.25rem;
+  font-style: normal;
+  display: -webkit-box;
+  -webkit-line-clamp: 5;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.review-card-marquee .review-author {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  padding-top: 0.85rem;
+}
+
+.review-card-marquee .review-author strong {
+  color: #f8fafc;
+  font-size: 0.9rem;
+}
+
+.review-card-marquee .platform-badge {
+  background: rgba(6, 182, 212, 0.12);
+  color: #38bdf8;
+  padding: 2px 8px;
+  border-radius: 999px;
+  font-size: 0.72rem;
+  font-weight: 600;
+  border: 1px solid rgba(56, 189, 248, 0.25);
+  max-width: 170px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+/* ==========================================================================
+   Feature Category Filter Tabs & Tier Badges
+   ========================================================================== */
+.feature-tabs-nav {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  margin: 2rem auto 3rem;
+  max-width: 1100px;
+  padding: 0 1rem;
+}
+
+.feature-tab-btn {
+  background: rgba(15, 23, 42, 0.7);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  color: #94a3b8;
+  font-size: 0.95rem;
+  font-weight: 700;
+  padding: 0.75rem 1.4rem;
+  border-radius: var(--radius-full);
+  cursor: pointer;
+  transition: all var(--transition-fast);
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.feature-tab-btn:hover {
+  background: rgba(255, 255, 255, 0.08);
+  color: #f1f5f9;
+  border-color: rgba(56, 189, 248, 0.4);
+}
+
+.feature-tab-btn.active {
+  background: linear-gradient(135deg, rgba(6, 182, 212, 0.25), rgba(37, 99, 235, 0.3));
+  border-color: #38bdf8;
+  color: #ffffff;
+  box-shadow: 0 0 25px rgba(6, 182, 212, 0.35);
+}
+
+.tier-pill {
+  position: absolute;
+  top: 12px;
+  left: 12px;
+  z-index: 3;
+  font-size: 0.75rem;
+  font-weight: 800;
+  padding: 4px 12px;
+  border-radius: 999px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(8px);
+}
+
+.tier-pill.tier-video {
+  background: rgba(2, 132, 199, 0.9);
+  color: #ffffff;
+  border: 1px solid rgba(56, 189, 248, 0.8);
+}
+
+.tier-pill.tier-business {
+  background: rgba(217, 119, 6, 0.9);
+  color: #ffffff;
+  border: 1px solid rgba(251, 191, 36, 0.8);
+}
+
+.tier-pill.tier-profile {
+  background: rgba(5, 150, 105, 0.9);
+  color: #ffffff;
+  border: 1px solid rgba(52, 211, 153, 0.8);
+}
+
+/* ==========================================================================
+   Header Language Switcher UI
+   ========================================================================== */
+.lang-switcher-wrap {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: rgba(15, 23, 42, 0.8);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: var(--radius-full);
+  padding: 4px 6px;
+}
+
+.lang-btn {
+  background: transparent;
+  border: none;
+  color: #94a3b8;
+  font-size: 0.82rem;
+  font-weight: 700;
+  padding: 5px 12px;
+  border-radius: var(--radius-full);
+  cursor: pointer;
+  transition: all var(--transition-fast);
+}
+
+.lang-btn:hover {
+  color: #ffffff;
+}
+
+.lang-btn.active {
+  background: linear-gradient(135deg, #0284c7, #2563eb);
+  color: #ffffff;
+  box-shadow: 0 0 12px rgba(6, 182, 212, 0.4);
+}
+
+.lang-dropdown-compact {
+  background: #0b1528;
+  color: #94a3b8;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  font-size: 0.78rem;
+  font-weight: 600;
+  border-radius: var(--radius-full);
+  padding: 4px 8px;
+  cursor: pointer;
+  outline: none;
+}
+
+.lang-dropdown-compact:focus, .lang-dropdown-compact:hover {
+  border-color: #38bdf8;
+  color: #ffffff;
 }
 
 /* ==========================================================================
