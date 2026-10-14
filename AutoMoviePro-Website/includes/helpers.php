@@ -45,10 +45,15 @@ function setting(PDO $pdo, string $key, ?string $default = null): ?string
 
 function set_setting(PDO $pdo, string $key, string $value): void
 {
-    $stmt = $pdo->prepare(
-        'INSERT INTO site_settings (setting_key, setting_value) VALUES (?, ?)
-         ON DUPLICATE KEY UPDATE setting_value = VALUES(setting_value)'
-    );
+    $driver = (string) $pdo->getAttribute(PDO::ATTR_DRIVER_NAME);
+    if ($driver === 'sqlite') {
+        $stmt = $pdo->prepare('INSERT OR REPLACE INTO site_settings (setting_key, setting_value) VALUES (?, ?)');
+    } else {
+        $stmt = $pdo->prepare(
+            'INSERT INTO site_settings (setting_key, setting_value) VALUES (?, ?)
+             ON DUPLICATE KEY UPDATE setting_value = VALUES(setting_value)'
+        );
+    }
     $stmt->execute([$key, $value]);
 }
 

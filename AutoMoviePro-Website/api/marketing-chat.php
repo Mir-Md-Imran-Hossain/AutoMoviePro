@@ -79,7 +79,7 @@ if ($llm === null || $llm === '') {
         'ml' => "നമസ്കാരം! AutoMovie Pro സഹായിക്കാൻ ഞാൻ ഇ�്ടുണ്ട്.\nമെയിൻ പാക്കേജ് ৳" . (int) $price . " (ഇംഗ്ലീഷ് + നിങ്ങളുടെ 1 ഭാഷ). അധിക ഭാഷ ৳" . (int) $addon . ".\nവില, ചാനൽ അല്ലെങ്കിൽ ഓർഡർ ചോദിക്കാം.",
         default => 'Hello! How can I help with AutoMovie Pro?',
     };
-    echo json_encode([
+    $fallbackOut = [
         'ok' => true,
         'reply' => $fallback,
         'draft' => $draft,
@@ -93,7 +93,27 @@ if ($llm === null || $llm === '') {
             default => [],
         },
         'mode' => 'fallback',
-    ], JSON_UNESCAPED_UNICODE);
+    ];
+
+    try {
+        $cIp = client_ip();
+        $sessId = (string) ($data['session_id'] ?? bin2hex(random_bytes(8)));
+        $logStmt = $pdo->prepare(
+            "INSERT INTO customer_chat_logs (session_id, customer_ip, lang, agent_id, agent_name, user_message, bot_reply, whatsapp_handoff) 
+             VALUES (?, ?, ?, ?, ?, ?, ?, 0)"
+        );
+        $logStmt->execute([
+            $sessId,
+            $cIp,
+            $lang,
+            $agentId,
+            $agentName,
+            $action === 'greet' ? '[স্বাগত বার্তা সম্ভাষণ]' : $message,
+            $fallback
+        ]);
+    } catch (\Throwable $e) {}
+
+    echo json_encode($fallbackOut, JSON_UNESCAPED_UNICODE);
     exit;
 }
 
@@ -109,6 +129,7 @@ $out = [
     'mode' => 'llm',
 ];
 
+$isWaHandoff = 0;
 if (!empty($meta['open_whatsapp']) || trim((string) ($meta['wa_prefill'] ?? '')) !== '') {
     $prefill = trim((string) ($meta['wa_prefill'] ?? ''));
     if ($prefill === '') {
@@ -116,6 +137,26 @@ if (!empty($meta['open_whatsapp']) || trim((string) ($meta['wa_prefill'] ?? ''))
     }
     $out['whatsapp_url'] = amp_whatsapp_sales_link($prefill);
     $out['open_whatsapp'] = !empty($meta['open_whatsapp']);
+    $isWaHandoff = 1;
 }
+
+try {
+    $cIp = client_ip();
+    $sessId = (string) ($data['session_id'] ?? bin2hex(random_bytes(8)));
+    $logStmt = $pdo->prepare(
+        "INSERT INTO customer_chat_logs (session_id, customer_ip, lang, agent_id, agent_name, user_message, bot_reply, whatsapp_handoff) 
+         VALUES (?, ?, ?, ?, ?, ?, ?, ?)"
+    );
+    $logStmt->execute([
+        $sessId,
+        $cIp,
+        $lang,
+        $agentId,
+        $agentName,
+        $action === 'greet' ? '[স্বাগত বার্তা সম্ভাষণ]' : $message,
+        $parsed['reply'],
+        $isWaHandoff
+    ]);
+} catch (\Throwable $e) {}
 
 echo json_encode($out, JSON_UNESCAPED_UNICODE);

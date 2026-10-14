@@ -72,6 +72,15 @@
     return localStorage.getItem("amp_ui_lang") || site.uiLang || "bn";
   }
 
+  function getChatSessionId() {
+    let sid = sessionStorage.getItem("amp_chat_sid");
+    if (!sid) {
+      sid = "sess_" + Math.random().toString(36).substring(2, 9) + "_" + Date.now().toString(36);
+      sessionStorage.setItem("amp_chat_sid", sid);
+    }
+    return sid;
+  }
+
   function refreshFeatures() {
     const lang = uiLang();
     const grid = document.getElementById("featureGrid");
@@ -203,6 +212,7 @@
           agent_id: currentAgent.id,
           agent_name: currentAgent.name,
           agent_role: currentAgent.role,
+          session_id: getChatSessionId(),
           history: history.slice(-8),
         }),
       });

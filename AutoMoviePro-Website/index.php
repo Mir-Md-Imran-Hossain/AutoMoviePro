@@ -36,6 +36,12 @@ foreach ($catalog as $feat) {
     }
     $featuresPayload[] = $row;
 }
+
+$broadcastActive = setting($pdo, 'broadcast_active', '0') === '1';
+$broadcastText = setting($pdo, 'broadcast_text', '');
+$broadcastType = setting($pdo, 'broadcast_type', 'offer');
+$broadcastLink = setting($pdo, 'broadcast_link', '');
+$broadcastLinkText = setting($pdo, 'broadcast_link_text', '');
 ?>
 <!DOCTYPE html>
 <html lang="<?= e($uiLang) ?>"<?= $uiLang === 'ur' ? ' dir="rtl"' : '' ?>>
@@ -89,6 +95,30 @@ foreach ($catalog as $feat) {
   </script>
 </head>
 <body>
+  <?php if ($broadcastActive && !empty($broadcastText)): 
+    $bBg = match ($broadcastType) {
+        'offer' => 'linear-gradient(90deg, #064e3b, #047857)',
+        'warning' => 'linear-gradient(90deg, #78350f, #d97706)',
+        'alert' => 'linear-gradient(90deg, #881337, #e11d48)',
+        default => 'linear-gradient(90deg, #0c4a6e, #0284c7)',
+    };
+    $bIcon = match ($broadcastType) {
+        'offer' => '⚡',
+        'warning' => '⚠️',
+        'alert' => '🚨',
+        default => '📢',
+    };
+  ?>
+  <aside class="amp-broadcast-banner" style="background:<?= $bBg ?>; color:#ffffff; padding:9px 16px; font-size:0.88rem; font-weight:600; text-align:center; display:flex; align-items:center; justify-content:center; gap:12px; z-index:99; position:relative; box-shadow:0 2px 8px rgba(0,0,0,0.3);">
+    <span><?= $bIcon ?> <?= e($broadcastText) ?></span>
+    <?php if ($broadcastLink && $broadcastLinkText): ?>
+      <a href="<?= e($broadcastLink) ?>" style="background:#ffffff; color:#0f172a; padding:3px 12px; border-radius:4px; font-size:0.78rem; font-weight:700; text-decoration:none; white-space:nowrap; margin-left:6px; transition:transform 0.2s ease;">
+        <?= e($broadcastLinkText) ?> →
+      </a>
+    <?php endif; ?>
+  </aside>
+  <?php endif; ?>
+
   <!-- Header Navigation -->
   <header class="site-header">
     <a class="logo-link" href="/?lang=<?= e($uiLang) ?>">

@@ -221,6 +221,44 @@ function ensure_amp_migrations(PDO $pdo): void
             $insAdm->execute(['admin', $defaultHash]);
         }
     } catch (\Throwable $e) {}
+
+    // Ensure customer_chat_logs table exists
+    try {
+        $driver = (string) $pdo->getAttribute(PDO::ATTR_DRIVER_NAME);
+        if ($driver === 'sqlite') {
+            $pdo->exec(
+                "CREATE TABLE IF NOT EXISTS customer_chat_logs (
+                  id INTEGER PRIMARY KEY AUTOINCREMENT,
+                  session_id VARCHAR(64) NULL,
+                  customer_ip VARCHAR(64) NULL,
+                  lang VARCHAR(8) NOT NULL DEFAULT 'bn',
+                  agent_id VARCHAR(32) NOT NULL DEFAULT 'ayesha',
+                  agent_name VARCHAR(64) NOT NULL DEFAULT 'আয়েশা (Ayesha)',
+                  user_message TEXT NULL,
+                  bot_reply TEXT NULL,
+                  whatsapp_handoff TINYINT(1) NOT NULL DEFAULT 0,
+                  created_at DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP
+                )"
+            );
+        } else {
+            $pdo->exec(
+                "CREATE TABLE IF NOT EXISTS customer_chat_logs (
+                  id BIGINT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
+                  session_id VARCHAR(64) NULL,
+                  customer_ip VARCHAR(64) NULL,
+                  lang VARCHAR(8) NOT NULL DEFAULT 'bn',
+                  agent_id VARCHAR(32) NOT NULL DEFAULT 'ayesha',
+                  agent_name VARCHAR(64) NOT NULL DEFAULT 'আয়েশা (Ayesha)',
+                  user_message TEXT NULL,
+                  bot_reply TEXT NULL,
+                  whatsapp_handoff TINYINT(1) NOT NULL DEFAULT 0,
+                  created_at DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
+                  INDEX (session_id),
+                  INDEX (created_at)
+                ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4"
+            );
+        }
+    } catch (\Throwable $e) {}
 }
 
 function amp_lang_catalog(): array
