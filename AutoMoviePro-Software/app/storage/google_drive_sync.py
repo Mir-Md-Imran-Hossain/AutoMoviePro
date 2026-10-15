@@ -479,7 +479,11 @@ class GoogleDriveVaultSync:
         history = self.get_history(limit=5)
         today = datetime.now(timezone.utc).strftime("%Y-%m-%d")
 
-        today_synced = [h for h in history if h.get("date") == today and h.get("status") == "success"]
+        today_synced = [
+            h for h in history 
+            if (h.get("date") == today or (h.get("synced_at") and str(h.get("synced_at"))[:10] == today)) 
+            and h.get("status") == "success"
+        ]
 
         return {
             "is_connected": cfg.get("is_connected", False),

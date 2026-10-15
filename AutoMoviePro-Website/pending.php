@@ -70,7 +70,7 @@ $waLink = amp_whatsapp_sales_link($prefill);
 <body>
   <header class="site-header">
     <a class="logo-link" href="/?lang=<?= e($uiLang) ?>">
-      <img class="logo-img" src="/assets/img/logo.png" alt="<?= e($brand) ?>" width="40" height="40">
+      <img class="logo-img" src="/assets/img/logo.png?v=<?= filemtime(__DIR__ . '/assets/img/logo.png') ?>" alt="<?= e($brand) ?>" width="40" height="40">
       <div class="logo"><?= e($brand) ?> <span>SAAS</span></div>
     </a>
     <div class="header-actions">

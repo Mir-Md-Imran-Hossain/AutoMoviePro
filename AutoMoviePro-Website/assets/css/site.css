@@ -2632,10 +2632,37 @@ input:focus, textarea:focus, select:focus {
 .feat-box-top {
   display: flex;
   justify-content: space-between;
-  align-items: flex-start;
+  align-items: center;
   margin-bottom: 1.25rem;
   flex-wrap: wrap;
   gap: 0.75rem;
+}
+
+.feat-box-identity {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.feat-product-logo {
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  object-fit: contain;
+  filter: drop-shadow(0 0 14px rgba(56, 189, 248, 0.45));
+  transition: transform 0.35s ease, filter 0.35s ease;
+}
+
+.feat-box-business .feat-product-logo {
+  filter: drop-shadow(0 0 14px rgba(236, 72, 153, 0.45));
+}
+
+.feat-box-profile .feat-product-logo {
+  filter: drop-shadow(0 0 14px rgba(16, 185, 129, 0.45));
+}
+
+.feat-box:hover .feat-product-logo {
+  transform: scale(1.1) rotate(4deg);
 }
 
 .feat-box-price-wrap {

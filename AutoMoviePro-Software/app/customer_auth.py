@@ -103,6 +103,19 @@ def session_ttl_hours() -> int:
 def ensure_session_columns() -> None:
     """Soft-migrate session table for C02 metadata."""
     with store.db() as conn:
+        conn.execute("""
+            CREATE TABLE IF NOT EXISTS session (
+                token TEXT PRIMARY KEY,
+                customer_id TEXT,
+                login_id TEXT,
+                email TEXT,
+                whatsapp TEXT,
+                name TEXT,
+                tier TEXT,
+                plan TEXT,
+                created_at TEXT
+            )
+        """)
         cols = {r[1] for r in conn.execute("PRAGMA table_info(session)").fetchall()}
         for name, typ in (
             ("expires_at", "TEXT"),

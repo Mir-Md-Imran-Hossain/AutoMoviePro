@@ -122,7 +122,7 @@ $broadcastLinkText = setting($pdo, 'broadcast_link_text', '');
   <!-- Header Navigation -->
   <header class="site-header">
     <a class="logo-link" href="/?lang=<?= e($uiLang) ?>">
-      <img class="logo-img" src="/assets/img/logo.png" alt="<?= e($brand) ?>" width="42" height="42">
+      <img class="logo-img" src="/assets/img/logo.png?v=<?= filemtime(__DIR__ . '/assets/img/logo.png') ?>" alt="<?= e($brand) ?>" width="42" height="42">
       <div class="logo"><?= e($brand) ?> <span>SAAS</span></div>
     </a>
     <div class="header-actions">
@@ -670,7 +670,10 @@ $broadcastLinkText = setting($pdo, 'broadcast_link_text', '');
       <!-- Box 1: Social Media Content Automation Engine -->
       <div class="feat-box feat-box-video">
         <div class="feat-box-top">
-          <span class="engine-top-badge badge-cyan">🎬 ফুল কন্টেন্ট পাওয়ারহাউজ</span>
+          <div class="feat-box-identity">
+            <img src="/assets/img/logo_video_studio.png?v=<?= filemtime(__DIR__ . '/assets/img/logo_video_studio.png') ?>" alt="Video Content Studio Logo" class="feat-product-logo">
+            <span class="engine-top-badge badge-cyan">🎬 ফুল কন্টেন্ট পাওয়ারহাউজ</span>
+          </div>
           <div class="feat-box-price-wrap">
             <span class="feat-current-price">৳৩,৯৯৯</span>
             <span class="feat-old-price">৳১০,০০০</span>
@@ -731,7 +734,10 @@ $broadcastLinkText = setting($pdo, 'broadcast_link_text', '');
       <!-- Box 2: FB Business Manager & Ad Automation Engine -->
       <div class="feat-box feat-box-business">
         <div class="feat-box-top">
-          <span class="engine-top-badge badge-amber">💼 বিজনেস ও সেলস ম্যানেজার</span>
+          <div class="feat-box-identity">
+            <img src="/assets/img/logo_fb_business.png?v=<?= filemtime(__DIR__ . '/assets/img/logo_fb_business.png') ?>" alt="FB Business & Ad Engine Logo" class="feat-product-logo">
+            <span class="engine-top-badge badge-amber">💼 বিজনেস ও সেলস ম্যানেজার</span>
+          </div>
           <div class="feat-box-price-wrap">
             <span class="feat-current-price">৳২,৯৯৯</span>
             <span class="feat-old-price">৳৮,৫০০</span>
@@ -792,7 +798,10 @@ $broadcastLinkText = setting($pdo, 'broadcast_link_text', '');
       <!-- Box 3: FB Profile & Page Post Automation Engine -->
       <div class="feat-box feat-box-profile">
         <div class="feat-box-top">
-          <span class="engine-top-badge badge-emerald">📱 প্রোফাইল ও পেজ অটো-পাইলট</span>
+          <div class="feat-box-identity">
+            <img src="/assets/img/logo_profile_page.png?v=<?= filemtime(__DIR__ . '/assets/img/logo_profile_page.png') ?>" alt="Social AutoPilot Engine Logo" class="feat-product-logo">
+            <span class="engine-top-badge badge-emerald">📱 প্রোফাইল ও পেজ অটো-পাইলট</span>
+          </div>
           <div class="feat-box-price-wrap">
             <span class="feat-current-price">৳১,৯৯৯</span>
             <span class="feat-old-price">৳৬,৫০০</span>

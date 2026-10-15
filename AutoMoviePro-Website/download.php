@@ -91,7 +91,7 @@ $waSupport = amp_whatsapp_sales_link('Hi, I need assistance regarding my AutoMov
   
   <header style="padding: 1.5rem 1rem; border-bottom: 1px solid rgba(255,255,255,0.08); text-align: center;">
     <a href="/" style="text-decoration: none; color: #fff; display: inline-flex; align-items: center; gap: 10px; font-weight: 700; font-size: 1.25rem;">
-      <img src="/assets/img/logo.png" alt="AutoMovie Pro" width="36" height="36" style="border-radius: 8px;">
+      <img src="/assets/img/logo.png?v=<?= filemtime(__DIR__ . '/assets/img/logo.png') ?>" alt="AutoMovie Pro" width="36" height="36" style="border-radius: 8px;">
       <span>AutoMovie Pro <span style="color: #38bdf8; font-size: 0.85rem; background: rgba(56,189,248,0.15); padding: 2px 8px; border-radius: 99px;">PORTAL</span></span>
     </a>
   </header>

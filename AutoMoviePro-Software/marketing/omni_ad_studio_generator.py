@@ -474,8 +474,26 @@ class OmniAdStudioGenerator:
     """End-to-End Autonomous Commercial Reel Creator."""
 
     @staticmethod
-    def can_publish_ad_today() -> bool:
-        """Enforces strictly 1 ad reel upload per 24 hours."""
+    def get_today_ads_count() -> int:
+        if not HISTORY_FILE.exists():
+            return 0
+        try:
+            with open(HISTORY_FILE, "r", encoding="utf-8") as f:
+                history = json.load(f)
+                today_str = datetime.now().strftime("%Y-%m-%d")
+                ads = history.get("ads_published", [])
+                if isinstance(ads, list):
+                    return len([a for a in ads if a.get("date") == today_str or (a.get("published_at") or "").startswith(today_str)])
+                last_time_str = history.get("last_ad_published_at")
+                if last_time_str and last_time_str.startswith(today_str):
+                    return 1
+                return 0
+        except Exception:
+            return 0
+
+    @staticmethod
+    def can_publish_ad_today(daily_limit: int = 10, min_interval_mins: float = 20.0) -> bool:
+        """Enforces daily limit (default 10 ads/day) and minimum safe interval between video ads."""
         if not HISTORY_FILE.exists():
             return True
         try:
@@ -485,17 +503,36 @@ class OmniAdStudioGenerator:
                 if not last_time_str:
                     return True
                 last_time = datetime.fromisoformat(last_time_str)
-                elapsed_hours = (datetime.now() - last_time).total_seconds() / 3600.0
-                return elapsed_hours >= 20.0  # Allow once daily
+                elapsed_mins = (datetime.now() - last_time).total_seconds() / 60.0
+                if elapsed_mins < min_interval_mins:
+                    return False
+                
+                today_count = OmniAdStudioGenerator.get_today_ads_count()
+                return today_count < daily_limit
         except Exception:
             return True
 
     @staticmethod
     def record_ad_published(ad_metadata: Dict[str, Any]):
-        history = {
-            "last_ad_published_at": datetime.now().isoformat(),
-            "latest_ad": ad_metadata
-        }
+        now_dt = datetime.now()
+        history = {}
+        if HISTORY_FILE.exists():
+            try:
+                with open(HISTORY_FILE, "r", encoding="utf-8") as f:
+                    history = json.load(f)
+            except Exception:
+                history = {}
+        history["last_ad_published_at"] = now_dt.isoformat()
+        history["latest_ad"] = ad_metadata
+        if "ads_published" not in history or not isinstance(history["ads_published"], list):
+            history["ads_published"] = []
+        history["ads_published"].append({
+            "published_at": now_dt.isoformat(),
+            "date": now_dt.strftime("%Y-%m-%d"),
+            "ad_id": ad_metadata.get("ad_id", ""),
+            "theme": ad_metadata.get("ad_theme", "") or ad_metadata.get("theme", ""),
+            "file_path": str(ad_metadata.get("file_path", ""))
+        })
         with open(HISTORY_FILE, "w", encoding="utf-8") as f:
             json.dump(history, f, indent=2, ensure_ascii=False)
 
@@ -556,7 +593,8 @@ class OmniAdStudioGenerator:
             "-of", "default=noprint_wrappers=1:nokey=1", str(out_path)
         ]
         try:
-            res = subprocess.check_output(dur_cmd, text=True)
+            cflags = subprocess.CREATE_NO_WINDOW if sys.platform == "win32" else 0
+            res = subprocess.check_output(dur_cmd, text=True, creationflags=cflags)
             return float(res.strip())
         except Exception:
             return 8.0
@@ -752,7 +790,8 @@ class OmniAdStudioGenerator:
                     "-t", str(duration),
                     str(seg_path)
                 ]
-                subprocess.run(cmd, stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL, check=True)
+                cflags = subprocess.CREATE_NO_WINDOW if sys.platform == "win32" else 0
+                subprocess.run(cmd, stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL, check=True, creationflags=cflags)
 
             scene_video_segments.append(seg_path)
             print(f"[AD STUDIO] ✅ Scene #{s_num} compiled successfully with motion & kinetic cards ({duration:.1f}s)", flush=True)
@@ -782,7 +821,8 @@ class OmniAdStudioGenerator:
             "-c", "copy",
             str(raw_mp4)
         ]
-        subprocess.run(concat_cmd, stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL, check=True)
+        cflags = subprocess.CREATE_NO_WINDOW if sys.platform == "win32" else 0
+        subprocess.run(concat_cmd, stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL, check=True, creationflags=cflags)
 
         # 7. Apply Harmonic Ambient Background Music with Sidechain Ducking
         print("[AD STUDIO] 🎵 Applying harmonic ambient BGM with automated voice ducking...", flush=True)
@@ -791,7 +831,8 @@ class OmniAdStudioGenerator:
                 FFPROBE_EXE, "-v", "error", "-show_entries", "format=duration",
                 "-of", "default=noprint_wrappers=1:nokey=1", str(raw_mp4)
             ]
-            tot_dur = float(subprocess.check_output(total_dur_cmd, text=True).strip())
+            cflags = subprocess.CREATE_NO_WINDOW if sys.platform == "win32" else 0
+            tot_dur = float(subprocess.check_output(total_dur_cmd, text=True, creationflags=cflags).strip())
             bgm_file = resolve_or_synthesize_bgm(temp_dir, tot_dur, niche="tech")
             if bgm_file and bgm_file.exists():
                 apply_bgm_ducking(raw_mp4, final_mp4, niche="tech", duck_db=-18.0, bgm_path=bgm_file)
@@ -818,12 +859,25 @@ class OmniAdStudioGenerator:
                 "audit_report": audit_report
             }, f, indent=2, ensure_ascii=False)
 
-        cls.record_ad_published({
-            "ad_id": ad_id,
-            "theme": ad_theme,
-            "path": str(final_mp4),
-            "timestamp": datetime.now().isoformat()
-        })
+        # Save to dedicated product_ads_vault
+        try:
+            from omni_product_manager import OmniProductManager
+            prod_id = template.get("product_id", "automovie-pro-suite")
+            OmniProductManager.save_ad_to_vault(
+                product_id=prod_id,
+                ad_id=ad_id,
+                video_path=str(final_mp4),
+                metadata={
+                    "ad_theme": ad_theme,
+                    "seed": seed,
+                    "file_size": final_mp4.stat().st_size,
+                    "audit_report": audit_report,
+                    "template": template
+                },
+                status="approved"
+            )
+        except Exception as e_vault:
+            print(f"[AD_STUDIO] Vault saving warning: {e_vault}", flush=True)
 
         return True, final_mp4, audit_report
 
