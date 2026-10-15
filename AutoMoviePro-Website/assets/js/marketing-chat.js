@@ -600,16 +600,16 @@
       statusMeta.innerHTML = '<span class="status-tick">✓</span> <span class="status-label">পাঠানো হয়েছে</span>';
       div.appendChild(statusMeta);
 
-      // Simulate seen status quickly (350ms)
+      // Exactly 1 second (1000ms) after sending, status changes to "দেখা হয়েছে"
       setTimeout(function () {
         statusMeta.innerHTML = '<span class="status-tick is-seen">✓✓</span> <span class="status-label">দেখা হয়েছে</span>';
-      }, 350);
+      }, 1000);
 
       if (onComplete) onComplete();
       return;
     }
 
-    // Realistic human word-by-word typing simulation (Snappy, visible cadence without long waiting)
+    // Realistic human letter-by-letter live simulation (Letter by letter forming words live as user reads)
     AmpChatAudio.playReceived();
     const textSpan = document.createElement("span");
     textSpan.className = "bot-msg-text";
@@ -619,9 +619,8 @@
     cursor.className = "typing-cursor";
     div.appendChild(cursor);
 
-    // Split text into word tokens preserving whitespace and newlines
-    const words = text.match(/(\S+\s*|\n+)/g) || [text];
-    let wordIdx = 0;
+    const chars = Array.from(text);
+    let idx = 0;
     let isFinished = false;
 
     function finishTyping() {
@@ -648,38 +647,42 @@
 
     // Allow user to click bubble to instantly complete typing
     div.addEventListener("click", function () {
-      if (!isFinished) {
+      if (!isFinished && idx < chars.length) {
         finishTyping();
       }
     });
 
-    function typeNextWord() {
+    function typeNextChar() {
       if (isFinished) return;
-      if (wordIdx < words.length) {
-        textSpan.textContent += words[wordIdx];
-        const currentWord = words[wordIdx];
-        wordIdx++;
+      if (idx < chars.length) {
+        textSpan.textContent += chars[idx];
+        const currentChar = chars[idx];
+        idx++;
         log.scrollTop = log.scrollHeight;
 
-        // Snappy word typing speed: 50ms - 80ms per word
-        let delay = Math.floor(Math.random() * 30) + 50;
+        // Human reading synchronization: 24ms - 32ms per character
+        let delay = Math.floor(Math.random() * 9) + 24;
 
-        // Minor breath pause at punctuation (100ms)
-        if (/[,\-—:]/.test(currentWord)) {
-          delay += 60;
+        // Spacebar pause between words: 60ms - 80ms (word separation rhythm)
+        if (currentChar === " ") {
+          delay += Math.floor(Math.random() * 20) + 40;
         }
-        // Brief pause at sentence end (160ms)
-        else if (/[।?!]|\n/.test(currentWord)) {
-          delay += 100;
+        // Brief comma/dash pause: 100ms - 130ms
+        else if (currentChar === "," || currentChar === "—" || currentChar === "-" || currentChar === ":") {
+          delay += Math.floor(Math.random() * 30) + 75;
+        }
+        // Sentence ending pause (দাঁড়ি '।', '?', '!', newline): 160ms - 220ms
+        else if (currentChar === "।" || currentChar === "?" || currentChar === "!" || currentChar === "\n") {
+          delay += Math.floor(Math.random() * 50) + 130;
         }
 
-        setTimeout(typeNextWord, delay);
+        setTimeout(typeNextChar, delay);
       } else {
         finishTyping();
       }
     }
 
-    typeNextWord();
+    typeNextChar();
   }
 
   function addSuggestions(items) {
@@ -726,7 +729,8 @@
     let thinking = null;
 
     if (!isGreet) {
-      // 1. Typing indicator starts after quick realistic delay (300ms)
+      // 1. User sees "পাঠানো হয়েছে", then exactly after 1 second (1000ms) "দেখা হয়েছে" appears
+      // 2. Right after seen (at 1050ms), agent typing indicator appears ("নীরব লিখছেন…")
       setTimeout(function () {
         if (!thinking) {
           thinking = document.createElement("div");
@@ -739,7 +743,7 @@
           }
           AmpChatAudio.playTypingStart();
         }
-      }, 300);
+      }, 1050);
     } else {
       thinking = document.createElement("div");
       thinking.className = "amp-chat-bubble amp-chat-bot amp-chat-typing-indicator";
@@ -779,10 +783,13 @@
         if (syncedAgent) currentAgent = syncedAgent;
       }
 
-      // Snappy reaction time: start typing response quickly (350-450ms)
-      const minDelay = isGreet ? 150 : 450;
+      // Timing choreography:
+      // 0 - 1000ms: "পাঠানো হয়েছে" -> then "দেখা হয়েছে"
+      // 1050ms - 1750ms: "নীরব লিখছেন…" indicator plays
+      // 1750ms: live letter-by-letter typing simulation begins on screen!
+      const minDelay = isGreet ? 250 : 1750;
       const elapsed = Date.now() - sendTime;
-      const remainingWait = Math.max(80, minDelay - elapsed);
+      const remainingWait = Math.max(50, minDelay - elapsed);
 
       setTimeout(function () {
         if (thinking && thinking.parentNode) thinking.remove();
