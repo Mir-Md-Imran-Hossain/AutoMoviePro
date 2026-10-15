@@ -459,6 +459,359 @@ function ensure_amp_migrations(PDO $pdo): void
             }
         }
     } catch (\Throwable $e) {}
+
+    ensure_wamanager_migrations($pdo);
+}
+
+function ensure_wamanager_migrations(PDO $pdo): void
+{
+    $driver = (string) $pdo->getAttribute(PDO::ATTR_DRIVER_NAME);
+    $isSqlite = ($driver === 'sqlite');
+
+    $schema = [
+        'wa_accounts' => $isSqlite ?
+            "CREATE TABLE IF NOT EXISTS wa_accounts (
+                id VARCHAR(64) PRIMARY KEY,
+                name VARCHAR(120) NOT NULL,
+                phone VARCHAR(32) NULL,
+                provider_type VARCHAR(32) NOT NULL DEFAULT 'cloud_api',
+                status VARCHAR(32) NOT NULL DEFAULT 'disconnected',
+                session_health INT DEFAULT 100,
+                api_config TEXT NULL,
+                messages_sent_count INT DEFAULT 0,
+                last_active_at DATETIME NULL,
+                created_at DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP
+            )" :
+            "CREATE TABLE IF NOT EXISTS wa_accounts (
+                id VARCHAR(64) PRIMARY KEY,
+                name VARCHAR(120) NOT NULL,
+                phone VARCHAR(32) NULL,
+                provider_type VARCHAR(32) NOT NULL DEFAULT 'cloud_api',
+                status VARCHAR(32) NOT NULL DEFAULT 'disconnected',
+                session_health INT DEFAULT 100,
+                api_config TEXT NULL,
+                messages_sent_count INT DEFAULT 0,
+                last_active_at DATETIME NULL,
+                created_at DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
+                INDEX (provider_type),
+                INDEX (status)
+            ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4",
+
+        'wa_contacts' => $isSqlite ?
+            "CREATE TABLE IF NOT EXISTS wa_contacts (
+                id VARCHAR(64) PRIMARY KEY,
+                name VARCHAR(120) NOT NULL,
+                phone VARCHAR(32) NOT NULL UNIQUE,
+                country_code VARCHAR(16) NOT NULL DEFAULT '880',
+                email VARCHAR(120) NULL,
+                business_name VARCHAR(160) NULL,
+                tags TEXT NULL,
+                notes TEXT NULL,
+                source VARCHAR(64) DEFAULT 'manual',
+                consent_status VARCHAR(32) NOT NULL DEFAULT 'opted_in',
+                created_at DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
+                updated_at DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP
+            )" :
+            "CREATE TABLE IF NOT EXISTS wa_contacts (
+                id VARCHAR(64) PRIMARY KEY,
+                name VARCHAR(120) NOT NULL,
+                phone VARCHAR(32) NOT NULL UNIQUE,
+                country_code VARCHAR(16) NOT NULL DEFAULT '880',
+                email VARCHAR(120) NULL,
+                business_name VARCHAR(160) NULL,
+                tags TEXT NULL,
+                notes TEXT NULL,
+                source VARCHAR(64) DEFAULT 'manual',
+                consent_status VARCHAR(32) NOT NULL DEFAULT 'opted_in',
+                created_at DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
+                updated_at DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
+                INDEX (phone),
+                INDEX (consent_status),
+                INDEX (source)
+            ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4",
+
+        'wa_contact_groups' => $isSqlite ?
+            "CREATE TABLE IF NOT EXISTS wa_contact_groups (
+                id VARCHAR(64) PRIMARY KEY,
+                name VARCHAR(120) NOT NULL UNIQUE,
+                description TEXT NULL,
+                created_at DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP
+            )" :
+            "CREATE TABLE IF NOT EXISTS wa_contact_groups (
+                id VARCHAR(64) PRIMARY KEY,
+                name VARCHAR(120) NOT NULL UNIQUE,
+                description TEXT NULL,
+                created_at DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP
+            ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4",
+
+        'wa_group_members' => $isSqlite ?
+            "CREATE TABLE IF NOT EXISTS wa_group_members (
+                group_id VARCHAR(64) NOT NULL,
+                contact_id VARCHAR(64) NOT NULL,
+                added_at DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
+                PRIMARY KEY (group_id, contact_id)
+            )" :
+            "CREATE TABLE IF NOT EXISTS wa_group_members (
+                group_id VARCHAR(64) NOT NULL,
+                contact_id VARCHAR(64) NOT NULL,
+                added_at DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
+                PRIMARY KEY (group_id, contact_id),
+                INDEX (group_id),
+                INDEX (contact_id)
+            ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4",
+
+        'wa_campaigns' => $isSqlite ?
+            "CREATE TABLE IF NOT EXISTS wa_campaigns (
+                id VARCHAR(64) PRIMARY KEY,
+                title VARCHAR(160) NOT NULL,
+                account_id VARCHAR(64) NULL,
+                account_ids TEXT NULL,
+                rotate_message_count INT DEFAULT 2,
+                group_id VARCHAR(64) NULL,
+                target_audience VARCHAR(64) DEFAULT 'group',
+                template_id VARCHAR(64) NULL,
+                custom_message TEXT NOT NULL,
+                attachment_url TEXT NULL,
+                attachment_type VARCHAR(32) NULL,
+                status VARCHAR(32) NOT NULL DEFAULT 'draft',
+                total_recipients INT DEFAULT 0,
+                sent_count INT DEFAULT 0,
+                delivered_count INT DEFAULT 0,
+                failed_count INT DEFAULT 0,
+                opt_out_skipped INT DEFAULT 0,
+                jitter_min_seconds INT DEFAULT 3,
+                jitter_max_seconds INT DEFAULT 8,
+                scheduled_at DATETIME NULL,
+                created_at DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP
+            )" :
+            "CREATE TABLE IF NOT EXISTS wa_campaigns (
+                id VARCHAR(64) PRIMARY KEY,
+                title VARCHAR(160) NOT NULL,
+                account_id VARCHAR(64) NULL,
+                account_ids TEXT NULL,
+                rotate_message_count INT DEFAULT 2,
+                group_id VARCHAR(64) NULL,
+                target_audience VARCHAR(64) DEFAULT 'group',
+                template_id VARCHAR(64) NULL,
+                custom_message TEXT NOT NULL,
+                attachment_url TEXT NULL,
+                attachment_type VARCHAR(32) NULL,
+                status VARCHAR(32) NOT NULL DEFAULT 'draft',
+                total_recipients INT DEFAULT 0,
+                sent_count INT DEFAULT 0,
+                delivered_count INT DEFAULT 0,
+                failed_count INT DEFAULT 0,
+                opt_out_skipped INT DEFAULT 0,
+                jitter_min_seconds INT DEFAULT 3,
+                jitter_max_seconds INT DEFAULT 8,
+                scheduled_at DATETIME NULL,
+                created_at DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
+                INDEX (status),
+                INDEX (created_at)
+            ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4",
+
+        'wa_campaign_jobs' => $isSqlite ?
+            "CREATE TABLE IF NOT EXISTS wa_campaign_jobs (
+                id VARCHAR(64) PRIMARY KEY,
+                campaign_id VARCHAR(64) NOT NULL,
+                account_id VARCHAR(64) NULL,
+                recipient_phone VARCHAR(32) NOT NULL,
+                recipient_name VARCHAR(120) NOT NULL,
+                rendered_content TEXT NOT NULL,
+                attachment_url TEXT NULL,
+                status VARCHAR(32) NOT NULL DEFAULT 'pending',
+                error_message TEXT NULL,
+                sent_at DATETIME NULL,
+                created_at DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP
+            )" :
+            "CREATE TABLE IF NOT EXISTS wa_campaign_jobs (
+                id VARCHAR(64) PRIMARY KEY,
+                campaign_id VARCHAR(64) NOT NULL,
+                account_id VARCHAR(64) NULL,
+                recipient_phone VARCHAR(32) NOT NULL,
+                recipient_name VARCHAR(120) NOT NULL,
+                rendered_content TEXT NOT NULL,
+                attachment_url TEXT NULL,
+                status VARCHAR(32) NOT NULL DEFAULT 'pending',
+                error_message TEXT NULL,
+                sent_at DATETIME NULL,
+                created_at DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
+                INDEX (campaign_id),
+                INDEX (status),
+                INDEX (recipient_phone)
+            ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4",
+
+        'wa_inbox_messages' => $isSqlite ?
+            "CREATE TABLE IF NOT EXISTS wa_inbox_messages (
+                id VARCHAR(64) PRIMARY KEY,
+                account_id VARCHAR(64) NULL,
+                direction VARCHAR(16) NOT NULL DEFAULT 'inbound',
+                sender_phone VARCHAR(32) NOT NULL,
+                recipient_phone VARCHAR(32) NOT NULL,
+                sender_name VARCHAR(120) NULL,
+                message_body TEXT NOT NULL,
+                status VARCHAR(32) NOT NULL DEFAULT 'delivered',
+                is_read TINYINT(1) DEFAULT 0,
+                timestamp DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP
+            )" :
+            "CREATE TABLE IF NOT EXISTS wa_inbox_messages (
+                id VARCHAR(64) PRIMARY KEY,
+                account_id VARCHAR(64) NULL,
+                direction VARCHAR(16) NOT NULL DEFAULT 'inbound',
+                sender_phone VARCHAR(32) NOT NULL,
+                recipient_phone VARCHAR(32) NOT NULL,
+                sender_name VARCHAR(120) NULL,
+                message_body TEXT NOT NULL,
+                status VARCHAR(32) NOT NULL DEFAULT 'delivered',
+                is_read TINYINT(1) DEFAULT 0,
+                timestamp DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
+                INDEX (sender_phone),
+                INDEX (recipient_phone),
+                INDEX (is_read),
+                INDEX (timestamp)
+            ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4",
+
+        'wa_auto_reply_rules' => $isSqlite ?
+            "CREATE TABLE IF NOT EXISTS wa_auto_reply_rules (
+                id VARCHAR(64) PRIMARY KEY,
+                keyword VARCHAR(120) NOT NULL,
+                match_type VARCHAR(32) NOT NULL DEFAULT 'contains',
+                response_text TEXT NOT NULL,
+                is_active TINYINT(1) DEFAULT 1,
+                priority INT DEFAULT 1,
+                created_at DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP
+            )" :
+            "CREATE TABLE IF NOT EXISTS wa_auto_reply_rules (
+                id VARCHAR(64) PRIMARY KEY,
+                keyword VARCHAR(120) NOT NULL,
+                match_type VARCHAR(32) NOT NULL DEFAULT 'contains',
+                response_text TEXT NOT NULL,
+                is_active TINYINT(1) DEFAULT 1,
+                priority INT DEFAULT 1,
+                created_at DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP
+            ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4",
+
+        'wa_business_leads' => $isSqlite ?
+            "CREATE TABLE IF NOT EXISTS wa_business_leads (
+                id VARCHAR(64) PRIMARY KEY,
+                name VARCHAR(160) NOT NULL,
+                phone VARCHAR(32) NOT NULL,
+                address TEXT NULL,
+                website VARCHAR(200) NULL,
+                category VARCHAR(80) NOT NULL,
+                city VARCHAR(80) NOT NULL DEFAULT 'Dhaka',
+                source VARCHAR(64) DEFAULT 'lead_finder',
+                status VARCHAR(32) DEFAULT 'new',
+                collected_at DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP
+            )" :
+            "CREATE TABLE IF NOT EXISTS wa_business_leads (
+                id VARCHAR(64) PRIMARY KEY,
+                name VARCHAR(160) NOT NULL,
+                phone VARCHAR(32) NOT NULL,
+                address TEXT NULL,
+                website VARCHAR(200) NULL,
+                category VARCHAR(80) NOT NULL,
+                city VARCHAR(80) NOT NULL DEFAULT 'Dhaka',
+                source VARCHAR(64) DEFAULT 'lead_finder',
+                status VARCHAR(32) DEFAULT 'new',
+                collected_at DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
+                INDEX (category),
+                INDEX (city),
+                INDEX (phone)
+            ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4",
+
+        'wa_media_library' => $isSqlite ?
+            "CREATE TABLE IF NOT EXISTS wa_media_library (
+                id VARCHAR(64) PRIMARY KEY,
+                file_name VARCHAR(200) NOT NULL,
+                file_url TEXT NOT NULL,
+                file_type VARCHAR(32) NOT NULL DEFAULT 'image',
+                file_size INT DEFAULT 0,
+                uploaded_at DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP
+            )" :
+            "CREATE TABLE IF NOT EXISTS wa_media_library (
+                id VARCHAR(64) PRIMARY KEY,
+                file_name VARCHAR(200) NOT NULL,
+                file_url TEXT NOT NULL,
+                file_type VARCHAR(32) NOT NULL DEFAULT 'image',
+                file_size INT DEFAULT 0,
+                uploaded_at DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP
+            ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4",
+
+        'wa_audit_logs' => $isSqlite ?
+            "CREATE TABLE IF NOT EXISTS wa_audit_logs (
+                id VARCHAR(64) PRIMARY KEY,
+                action VARCHAR(64) NOT NULL,
+                details TEXT NOT NULL,
+                created_at DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP
+            )" :
+            "CREATE TABLE IF NOT EXISTS wa_audit_logs (
+                id VARCHAR(64) PRIMARY KEY,
+                action VARCHAR(64) NOT NULL,
+                details TEXT NOT NULL,
+                created_at DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
+                INDEX (action),
+                INDEX (created_at)
+            ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4"
+    ];
+
+    foreach ($schema as $tbl => $sql) {
+        try {
+            $pdo->exec($sql);
+        } catch (\Throwable $e) {}
+    }
+
+    // Seed default contact groups
+    try {
+        $stGroup = $pdo->prepare("SELECT id FROM wa_contact_groups WHERE id = ? LIMIT 1");
+        $insGroup = $pdo->prepare("INSERT INTO wa_contact_groups (id, name, description) VALUES (?, ?, ?)");
+        $defaultGroups = [
+            ['vip_customers', '🌟 ভিআইপি কাস্টমার (VIP Buyers)', 'যারা ইতিমধ্যে AutoMovie Pro লাইসেন্স ক্রয় করেছেন'],
+            ['pending_leads', '⏳ পেন্ডিং অর্ডার ও লিড', 'ওয়েবসাইট ও চ্যাটে আগ্রহী কিন্তু এখনও পেমেন্ট করেননি'],
+            ['ecommerce_owners', '🛍️ ই-কমার্স ও শপ ওনার্স', 'অনলাইন শপ, ড্রপশিপিং ও প্রোডাক্ট বিজনেসের কাস্টমার'],
+            ['video_creators', '🎬 ইউটিউব ও রিলস ক্রিয়েটর', 'কনটেন্ট ক্রিয়েটর ও ডিজিটাল মিডিয়া চ্যানেল মালিক'],
+            ['agency_b2b', '🏢 ডিজিটাল এজেন্সি ও মার্কেটার', 'এজেন্সি ও ক্লায়েন্ট সার্ভিসের জন্য সফটওয়্যার সন্ধানকারী']
+        ];
+        foreach ($defaultGroups as [$gid, $gname, $gdesc]) {
+            $stGroup->execute([$gid]);
+            if (!$stGroup->fetch()) {
+                $insGroup->execute([$gid, $gname, $gdesc]);
+            }
+        }
+    } catch (\Throwable $e) {}
+
+    // Seed default primary account
+    try {
+        $stAcc = $pdo->prepare("SELECT id FROM wa_accounts WHERE id = ? LIMIT 1");
+        $stAcc->execute(['primary_cloud_api']);
+        if (!$stAcc->fetch()) {
+            $insAcc = $pdo->prepare("INSERT INTO wa_accounts (id, name, phone, provider_type, status, session_health, api_config) VALUES (?, ?, ?, ?, ?, ?, ?)");
+            $initialCfg = json_encode([
+                'access_token' => '',
+                'phone_number_id' => '',
+                'business_account_id' => '',
+                'webhook_verify_token' => 'automoviepro_wa_webhook_secure_key_2026'
+            ]);
+            $insAcc->execute(['primary_cloud_api', 'Official Cloud API (Primary)', '+8801968111593', 'cloud_api', 'disconnected', 100, $initialCfg]);
+        }
+    } catch (\Throwable $e) {}
+
+    // Seed default auto-reply rules
+    try {
+        $stRule = $pdo->prepare("SELECT id FROM wa_auto_reply_rules WHERE id = ? LIMIT 1");
+        $insRule = $pdo->prepare("INSERT INTO wa_auto_reply_rules (id, keyword, match_type, response_text, is_active, priority) VALUES (?, ?, ?, ?, 1, ?)");
+        $defaultRules = [
+            ['rule_price', 'দাম|মূল্য|price|cost|koto', 'contains', "আসসালামু আলাইকুম! AutoMovie Pro-এর ৩টি স্পেশাল আজীবন লাইসেন্স প্যাকেজ রয়েছে:\n\n১. 4K Video Studio — ৳৩,৯৯৯ (ভিডিও তৈরি + অটো আপলোড + সোশ্যাল হাব)\n২. FB Business & Ad — ৳২,৯৯৯ (মার্কেটিং ব্যানার + অটো রিপ্লাই)\n৩. Profile AutoPilot — ৳১,৯৯৯ (ব্যক্তিগত প্রোফাইল অটো-পোস্ট)\n\nওয়েবসাইটে গিয়ে সরাসরি ডেমো দেখে অর্ডার করতে পারেন:\n👉 https://automoviepro.com/#pricing", 1],
+            ['rule_demo', 'demo|ভিডিও ডেমো|কাজ কেমন|কিভাবে কাজ করে', 'contains', "আমাদের ৩টি প্যাকেজের পূর্ণাঙ্গ লাইভ ভিডিও ডেমো দেখতে ক্লিক করুন:\n👉 https://automoviepro.com/#features \n\nযেকোনো প্রশ্ন থাকলে আমাদের জানান!", 2],
+            ['rule_order', 'order|কিনতে চাই|অর্ডার|payment|bkash', 'contains', "অর্ডার করার প্রক্রিয়া একদম সহজ:\n১. ভিজিট করুন: https://automoviepro.com/order.php \n২. প্যাকেজ নির্বাচন করে বিকাশ/নগদে ক্যাশ আউট করুন।\n৩. TrxID সাবমিট করলেই সাথে সাথে সফটওয়্যার ডাউনলোড লিংক ও লাইসেন্স পেয়ে যাবেন!", 3]
+        ];
+        foreach ($defaultRules as [$rid, $rk, $rmt, $rrp, $rprio]) {
+            $stRule->execute([$rid]);
+            if (!$stRule->fetch()) {
+                $insRule->execute([$rid, $rk, $rmt, $rrp, $rprio]);
+            }
+        }
+    } catch (\Throwable $e) {}
 }
 
 function amp_lang_catalog(): array
