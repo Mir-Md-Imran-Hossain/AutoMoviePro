@@ -645,10 +645,11 @@
       statusMeta.innerHTML = '<span class="status-tick">✓</span> <span class="status-label">পাঠানো হয়েছে</span>';
       div.appendChild(statusMeta);
 
-      // Exactly 1 second (1000ms) after sending, status changes to "দেখা হয়েছে"
+      // Natural Human Reading Latency:
+      // Agent receives and reads the message in 2.0 - 2.4 seconds (2200ms)
       setTimeout(function () {
         statusMeta.innerHTML = '<span class="status-tick is-seen">✓✓</span> <span class="status-label">দেখা হয়েছে</span>';
-      }, 1000);
+      }, 2200);
 
       if (onComplete) onComplete();
       return;
@@ -705,21 +706,21 @@
         idx++;
         log.scrollTop = log.scrollHeight;
 
-        // Realistic deliberate human Bengali typing pace (slower, organic letter-by-letter)
-        // Average keystroke delay: 52ms - 72ms per character
-        let delay = Math.floor(Math.random() * 21) + 52;
+        // Realistic deliberate human Bengali typing pace (slower, organic letter-by-letter as requested)
+        // Average keystroke delay: 68ms - 88ms per character
+        let delay = Math.floor(Math.random() * 21) + 68;
 
-        // Spacebar pause between words: +80ms - 130ms (so total ~130ms - 190ms)
+        // Spacebar pause between words: +90ms - 140ms (so total ~160ms - 230ms)
         if (currentChar === " ") {
-          delay += Math.floor(Math.random() * 51) + 80;
+          delay += Math.floor(Math.random() * 51) + 90;
         }
-        // Brief comma/dash pause: +160ms - 220ms (so total ~220ms - 280ms)
+        // Brief comma/dash pause: +180ms - 250ms (so total ~250ms - 340ms)
         else if (currentChar === "," || currentChar === "—" || currentChar === "-" || currentChar === ":") {
-          delay += Math.floor(Math.random() * 61) + 160;
+          delay += Math.floor(Math.random() * 71) + 180;
         }
-        // Sentence ending pause (দাঁড়ি '।', '?', '!', newline): +280ms - 380ms (so total ~340ms - 440ms)
+        // Sentence ending pause (দাঁড়ি '।', '?', '!', newline): +320ms - 420ms (so total ~390ms - 510ms)
         else if (currentChar === "।" || currentChar === "?" || currentChar === "!" || currentChar === "\n") {
-          delay += Math.floor(Math.random() * 101) + 280;
+          delay += Math.floor(Math.random() * 101) + 320;
         }
 
         setTimeout(typeNextChar, delay);
@@ -773,24 +774,10 @@
 
     const sendTime = Date.now();
     let thinking = null;
+    let thinkingTimer = null;
 
-    if (!isGreet) {
-      // 1. User sees "পাঠানো হয়েছে", then exactly after 1 second (1000ms) "দেখা হয়েছে" appears
-      // 2. Right after seen (at 1050ms), agent typing indicator appears ("নীরব লিখছেন…")
-      setTimeout(function () {
-        if (!thinking) {
-          thinking = document.createElement("div");
-          thinking.className = "amp-chat-bubble amp-chat-bot amp-chat-typing-indicator";
-          thinking.innerHTML = "<span>" + esc(currentAgent.name) + " লিখছেন…</span> <span class=\"typing-dots\"><span></span><span></span><span></span></span>";
-          const log = document.getElementById("ampChatLog");
-          if (log) {
-            log.appendChild(thinking);
-            log.scrollTop = log.scrollHeight;
-          }
-          AmpChatAudio.playTypingStart();
-        }
-      }, 1050);
-    } else {
+    function showThinkingIndicator() {
+      if (thinking) return;
       thinking = document.createElement("div");
       thinking.className = "amp-chat-bubble amp-chat-bot amp-chat-typing-indicator";
       thinking.innerHTML = "<span>" + esc(currentAgent.name) + " লিখছেন…</span> <span class=\"typing-dots\"><span></span><span></span><span></span></span>";
@@ -800,6 +787,26 @@
         log.scrollTop = log.scrollHeight;
       }
       AmpChatAudio.playTypingStart();
+    }
+
+    function removeThinkingIndicator() {
+      if (thinkingTimer) {
+        clearTimeout(thinkingTimer);
+        thinkingTimer = null;
+      }
+      if (thinking && thinking.parentNode) {
+        thinking.remove();
+        thinking = null;
+      }
+    }
+
+    if (isGreet) {
+      showThinkingIndicator();
+    } else {
+      // Natural human reading latency: If response takes longer than 2.2s, show typing indicator after seen (2300ms)
+      thinkingTimer = setTimeout(function () {
+        showThinkingIndicator();
+      }, 2300);
     }
 
     try {
@@ -830,15 +837,31 @@
       }
 
       // Timing choreography:
-      // 0 - 1000ms: "পাঠানো হয়েছে" -> then "দেখা হয়েছে"
-      // 1050ms - 1750ms: "নীরব লিখছেন…" indicator plays
-      // 1750ms: live letter-by-letter typing simulation begins on screen!
-      const minDelay = isGreet ? 200 : 1750;
+      // 1. Reading time: ~2200ms (message marked "দেখা হয়েছে")
+      // 2. Typing indicator: brief 800ms - 950ms warm-up (never frozen!)
+      // 3. Immediately begins live letter-by-letter typing!
       const elapsed = Date.now() - sendTime;
-      const remainingWait = Math.max(50, minDelay - elapsed);
+      let startTypingDelay = 50;
+
+      if (isGreet) {
+        startTypingDelay = Math.max(50, 300 - elapsed);
+      } else {
+        if (elapsed < 2200) {
+          const waitBeforeThinking = 2200 - elapsed;
+          setTimeout(function () {
+            showThinkingIndicator();
+          }, waitBeforeThinking);
+          startTypingDelay = waitBeforeThinking + 850;
+        } else if (!thinking) {
+          showThinkingIndicator();
+          startTypingDelay = 800;
+        } else {
+          startTypingDelay = 350;
+        }
+      }
 
       setTimeout(function () {
-        if (thinking && thinking.parentNode) thinking.remove();
+        removeThinkingIndicator();
         appendChat("bot", reply, function () {
           if (data.suggestions && data.suggestions.length) {
             addSuggestions(data.suggestions);
@@ -853,7 +876,7 @@
         history.push({ role: "assistant", content: reply });
         const replyTime = new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
         appendToSavedHistory({ role: "bot", content: reply, time: replyTime, checkoutUrl: data.checkout_url || null });
-      }, remainingWait);
+      }, startTypingDelay);
 
       if (data.open_whatsapp && data.whatsapp_url) {
         setTimeout(function () {
@@ -861,7 +884,7 @@
         }, 1500);
       }
     } catch (e) {
-      if (thinking && thinking.parentNode) thinking.remove();
+      removeThinkingIndicator();
       appendChat("bot", isGreet ? currentAgent.greet : t("or_whatsapp"));
     }
   }

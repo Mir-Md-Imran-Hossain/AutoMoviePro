@@ -309,12 +309,15 @@ $broadcastLinkText = setting($pdo, 'broadcast_link_text', '');
         <div class="engine-card-top">
           <div class="engine-brand-emblem-wrap">
             <img src="/assets/img/logo_video_studio-128.png?v=<?= filemtime(__DIR__ . '/assets/img/logo_video_studio-128.png') ?>" alt="Social Media Content Engine Logo" class="engine-brand-emblem" width="44" height="44" loading="lazy">
-            <span class="engine-top-badge badge-cyan">🎬 ফুল কন্টেন্ট পাওয়ারহাউজ</span>
           </div>
+          <span class="engine-top-badge badge-cyan">🎬 ফুল কন্টেন্ট পাওয়ারহাউজ</span>
+        </div>
+        <div class="engine-price-row">
           <div class="engine-pricing-badge">
             <span class="current-price">৳৩,৯৯৯</span>
             <span class="old-price">৳১০,০০০</span>
           </div>
+          <span class="engine-billing-sub">এককালীন লাইফটাইম ডিল</span>
         </div>
         <h3 class="engine-title" data-i18n="engine1_name">Automovie Pro - Social Media Content Automation Engine</h3>
         <p class="engine-desc" data-i18n="engine1_desc">
@@ -338,12 +341,15 @@ $broadcastLinkText = setting($pdo, 'broadcast_link_text', '');
         <div class="engine-card-top">
           <div class="engine-brand-emblem-wrap">
             <img src="/assets/img/logo_fb_business-128.png?v=<?= filemtime(__DIR__ . '/assets/img/logo_fb_business-128.png') ?>" alt="FB Business Engine Logo" class="engine-brand-emblem" width="44" height="44" loading="lazy">
-            <span class="engine-top-badge badge-amber">💼 বিজনেস ও সেলস ম্যানেজার</span>
           </div>
+          <span class="engine-top-badge badge-amber">💼 বিজনেস ও সেলস ম্যানেজার</span>
+        </div>
+        <div class="engine-price-row">
           <div class="engine-pricing-badge">
             <span class="current-price">৳২,৯৯৯</span>
             <span class="old-price">৳৮,৫০০</span>
           </div>
+          <span class="engine-billing-sub">এককালীন লাইফটাইম ডিল</span>
         </div>
         <h3 class="engine-title" data-i18n="engine2_name">Automovie Pro - FB Business Manager & Ad Automation Engine</h3>
         <p class="engine-desc" data-i18n="engine2_desc">
@@ -367,12 +373,15 @@ $broadcastLinkText = setting($pdo, 'broadcast_link_text', '');
         <div class="engine-card-top">
           <div class="engine-brand-emblem-wrap">
             <img src="/assets/img/logo_profile_page-128.png?v=<?= filemtime(__DIR__ . '/assets/img/logo_profile_page-128.png') ?>" alt="Profile Page Engine Logo" class="engine-brand-emblem" width="44" height="44" loading="lazy">
-            <span class="engine-top-badge badge-emerald">📱 প্রোফাইল ও পেজ অটো-পাইলট</span>
           </div>
+          <span class="engine-top-badge badge-emerald">📱 প্রোফাইল ও পেজ অটো-পাইলট</span>
+        </div>
+        <div class="engine-price-row">
           <div class="engine-pricing-badge">
             <span class="current-price">৳১,৯৯৯</span>
             <span class="old-price">৳৬,৫০০</span>
           </div>
+          <span class="engine-billing-sub">এককালীন লাইফটাইম ডিল</span>
         </div>
         <h3 class="engine-title" data-i18n="engine3_name">Automovie Pro - FB Profile & Page Post Automation Engine</h3>
         <p class="engine-desc" data-i18n="engine3_desc">
@@ -396,12 +405,15 @@ $broadcastLinkText = setting($pdo, 'broadcast_link_text', '');
         <div class="engine-card-top">
           <div class="engine-brand-emblem-wrap">
             <img src="/assets/img/logo_wa_marketing-128.png?v=<?= filemtime(__DIR__ . '/assets/img/logo_wa_marketing-128.png') ?>" alt="WhatsApp Marketing Suite Logo" class="engine-brand-emblem" width="44" height="44" loading="lazy">
-            <span class="engine-top-badge badge-green">💬 WhatsApp মার্কেটিং পাওয়ারহাউজ</span>
           </div>
+          <span class="engine-top-badge badge-green">💬 WhatsApp পাওয়ারহাউজ</span>
+        </div>
+        <div class="engine-price-row">
           <div class="engine-pricing-badge">
             <span class="current-price">৳৯৯৯</span>
             <span class="old-price">৳৫,৫০০</span>
           </div>
+          <span class="engine-billing-sub">১ বছর (৳৯৯৯) / ৩ বছর (৳১,৯৯৯)</span>
         </div>
         <h3 class="engine-title">WAManager Pro — Official WhatsApp Marketing & CRM Suite</h3>
         <p class="engine-desc">
@@ -690,7 +702,7 @@ $broadcastLinkText = setting($pdo, 'broadcast_link_text', '');
       </div>
 
       <!-- Pricing Plans -->
-      <div class="gpro-plans-grid" style="grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));">
+      <div class="gpro-plans-grid">
         <!-- Test Account (1 Month) -->
         <div class="gpro-plan-card">
           <div>

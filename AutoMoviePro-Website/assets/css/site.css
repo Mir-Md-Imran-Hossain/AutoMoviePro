@@ -682,17 +682,31 @@ section .lead {
 
 .gpro-plans-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: 1.75rem;
-  max-width: 1040px;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1.25rem;
+  max-width: 1320px;
   margin: 0 auto;
+}
+
+@media (max-width: 1199px) {
+  .gpro-plans-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.25rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .gpro-plans-grid {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
 }
 
 .gpro-plan-card {
   background: rgba(15, 23, 42, 0.85);
   border: 1px solid rgba(51, 65, 85, 0.7);
   border-radius: var(--radius-lg);
-  padding: 2.25rem 1.75rem;
+  padding: 1.85rem 1.25rem;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -2350,16 +2364,17 @@ input:focus, textarea:focus, select:focus {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-bottom: 1.25rem;
-  gap: 0.5rem;
+  margin-bottom: 0.85rem;
+  width: 100%;
 }
 
 .engine-top-badge {
-  font-size: 0.78rem;
+  font-size: 0.74rem;
   font-weight: 700;
-  padding: 4px 12px;
+  padding: 4px 10px;
   border-radius: 999px;
   letter-spacing: 0.2px;
+  white-space: nowrap;
 }
 
 .engine-top-badge.badge-cyan {
@@ -2386,6 +2401,19 @@ input:focus, textarea:focus, select:focus {
   border: 1px solid rgba(37, 211, 102, 0.4);
 }
 
+.engine-price-row {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 6px;
+  padding: 0.65rem 0.85rem;
+  background: rgba(15, 23, 42, 0.65);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: var(--radius-md);
+  margin-bottom: 1rem;
+}
+
 .engine-pricing-badge {
   display: flex;
   align-items: baseline;
@@ -2393,15 +2421,22 @@ input:focus, textarea:focus, select:focus {
 }
 
 .engine-pricing-badge .current-price {
-  font-size: 1.25rem;
+  font-size: 1.35rem;
   font-weight: 900;
   color: #f8fafc;
 }
 
 .engine-pricing-badge .old-price {
-  font-size: 0.82rem;
+  font-size: 0.85rem;
   color: #94a3b8;
   text-decoration: line-through;
+}
+
+.engine-billing-sub {
+  font-size: 0.74rem;
+  font-weight: 600;
+  color: #94a3b8;
+  letter-spacing: 0.2px;
 }
 
 .engine-title {
@@ -3454,6 +3489,161 @@ input:focus, textarea:focus, select:focus {
   background: linear-gradient(135deg, #a855f7, #6366f1);
   border-color: #c084fc;
   box-shadow: 0 0 20px rgba(168, 85, 247, 0.4);
+}
+
+/* ==========================================================================
+   Industrial-Grade Mobile UX & Responsive Polish (<= 768px and <= 480px)
+   ========================================================================== */
+@media (max-width: 768px) {
+  /* Prevent any horizontal overflow */
+  html, body {
+    overflow-x: hidden;
+    max-width: 100vw;
+  }
+
+  /* Swipeable Ecosystem Pill Filter */
+  .ecosystem-tabs-bar {
+    justify-content: flex-start;
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    padding: 0.5rem 0.75rem 1rem;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+    margin: 1rem -1rem 1.75rem;
+  }
+  .ecosystem-tabs-bar::-webkit-scrollbar {
+    display: none;
+  }
+  .ecosystem-tab-btn {
+    flex-shrink: 0;
+    font-size: 0.82rem;
+    padding: 0.55rem 0.95rem;
+    white-space: nowrap;
+  }
+
+  /* Engine Cards Mobile Polish */
+  .engine-display-card {
+    padding: 1.35rem 1.15rem;
+    border-radius: 18px;
+  }
+  .engine-card-top {
+    margin-bottom: 0.75rem;
+  }
+  .engine-title {
+    font-size: 1.15rem;
+    line-height: 1.4;
+    margin-bottom: 0.5rem;
+  }
+  .engine-desc {
+    font-size: 0.88rem;
+    line-height: 1.5;
+    margin-bottom: 0.85rem;
+  }
+  .engine-feature-bullets li {
+    font-size: 0.84rem;
+    line-height: 1.45;
+  }
+  .engine-card-actions {
+    flex-direction: column;
+    gap: 0.65rem;
+    margin-top: 1.25rem;
+  }
+  .engine-card-actions .btn {
+    width: 100%;
+    text-align: center;
+    justify-content: center;
+    padding: 0.75rem 1rem;
+    font-size: 0.92rem;
+  }
+
+  /* Google Pro Plans Mobile Polish */
+  .gpro-plans-grid {
+    grid-template-columns: 1fr;
+    gap: 1.25rem;
+  }
+  .gpro-plan-card {
+    padding: 1.5rem 1.25rem;
+  }
+
+  /* Workflow Boxes */
+  .workflow-engine-box {
+    padding: 1.35rem 1rem;
+    border-radius: 18px;
+  }
+  .wf-box-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.75rem;
+  }
+  .wf-box-title-group h3 {
+    font-size: 1.2rem;
+  }
+  .flow-step-card {
+    padding: 1.15rem 1rem;
+  }
+
+  /* Floating Support Launcher */
+  .amp-chat {
+    bottom: 14px;
+    right: 14px;
+  }
+  .amp-chat-launcher {
+    padding: 6px 12px 6px 6px;
+    gap: 8px;
+  }
+  .launcher-avatar-wrap {
+    width: 38px;
+    height: 38px;
+  }
+  .launcher-title {
+    font-size: 0.84rem;
+  }
+  .launcher-sub {
+    display: none;
+  }
+  .amp-choice-card {
+    width: calc(100vw - 28px);
+    right: -6px;
+    bottom: 60px;
+    border-radius: 16px;
+  }
+  .amp-chat-panel {
+    width: calc(100vw - 28px);
+    right: -6px;
+    bottom: 60px;
+    height: 80vh;
+    border-radius: 16px;
+  }
+}
+
+@media (max-width: 480px) {
+  .site-header {
+    padding: 0.65rem 3vw;
+  }
+  .hero-tagline {
+    font-size: 0.76rem;
+    padding: 4px 10px;
+  }
+  .hero h1 {
+    font-size: 1.65rem;
+    line-height: 1.3;
+  }
+  .hero-lead-text {
+    font-size: 0.92rem;
+  }
+  .section-head h2 {
+    font-size: 1.5rem;
+    line-height: 1.3;
+  }
+  .engine-price-row .current-price {
+    font-size: 1.65rem;
+  }
+  .engine-price-row .old-price {
+    font-size: 0.95rem;
+  }
+  .engine-billing-sub {
+    font-size: 0.75rem;
+  }
 }
 
 
