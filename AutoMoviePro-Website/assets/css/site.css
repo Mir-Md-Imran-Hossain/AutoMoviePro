@@ -1875,7 +1875,7 @@ input:focus, textarea:focus, select:focus {
   padding: 24px;
   text-align: center;
   z-index: 50;
-  transition: opacity 0.35s ease;
+  transition: opacity 0.2s ease;
 }
 
 .connecting-spinner-wrap {

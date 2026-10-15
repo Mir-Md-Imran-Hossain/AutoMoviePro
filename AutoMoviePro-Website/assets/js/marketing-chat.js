@@ -660,20 +660,21 @@
         idx++;
         log.scrollTop = log.scrollHeight;
 
-        // Human reading synchronization: 24ms - 32ms per character
-        let delay = Math.floor(Math.random() * 9) + 24;
+        // Realistic deliberate human Bengali typing pace (slower, organic letter-by-letter)
+        // Average keystroke delay: 52ms - 72ms per character
+        let delay = Math.floor(Math.random() * 21) + 52;
 
-        // Spacebar pause between words: 60ms - 80ms (word separation rhythm)
+        // Spacebar pause between words: +80ms - 130ms (so total ~130ms - 190ms)
         if (currentChar === " ") {
-          delay += Math.floor(Math.random() * 20) + 40;
+          delay += Math.floor(Math.random() * 51) + 80;
         }
-        // Brief comma/dash pause: 100ms - 130ms
+        // Brief comma/dash pause: +160ms - 220ms (so total ~220ms - 280ms)
         else if (currentChar === "," || currentChar === "—" || currentChar === "-" || currentChar === ":") {
-          delay += Math.floor(Math.random() * 30) + 75;
+          delay += Math.floor(Math.random() * 61) + 160;
         }
-        // Sentence ending pause (দাঁড়ি '।', '?', '!', newline): 160ms - 220ms
+        // Sentence ending pause (দাঁড়ি '।', '?', '!', newline): +280ms - 380ms (so total ~340ms - 440ms)
         else if (currentChar === "।" || currentChar === "?" || currentChar === "!" || currentChar === "\n") {
-          delay += Math.floor(Math.random() * 50) + 130;
+          delay += Math.floor(Math.random() * 101) + 280;
         }
 
         setTimeout(typeNextChar, delay);
@@ -747,7 +748,7 @@
     } else {
       thinking = document.createElement("div");
       thinking.className = "amp-chat-bubble amp-chat-bot amp-chat-typing-indicator";
-      thinking.innerHTML = "<span>" + esc(currentAgent.name) + " যুক্ত হচ্ছেন…</span> <span class=\"typing-dots\"><span></span><span></span><span></span></span>";
+      thinking.innerHTML = "<span>" + esc(currentAgent.name) + " লিখছেন…</span> <span class=\"typing-dots\"><span></span><span></span><span></span></span>";
       const log = document.getElementById("ampChatLog");
       if (log) {
         log.appendChild(thinking);
@@ -787,7 +788,7 @@
       // 0 - 1000ms: "পাঠানো হয়েছে" -> then "দেখা হয়েছে"
       // 1050ms - 1750ms: "নীরব লিখছেন…" indicator plays
       // 1750ms: live letter-by-letter typing simulation begins on screen!
-      const minDelay = isGreet ? 250 : 1750;
+      const minDelay = isGreet ? 200 : 1750;
       const elapsed = Date.now() - sendTime;
       const remainingWait = Math.max(50, minDelay - elapsed);
 
@@ -962,46 +963,32 @@
       overlay.style.opacity = "1";
 
       if (isReturningVisitor) {
-        if (prog) prog.style.width = "25%";
-        if (title) title.textContent = "পূর্ববর্তী সেশন রিকল হচ্ছে…";
-        if (desc) desc.textContent = "🔄 আপনার পূর্বের কথোপকথন ও প্যাকেজ পছন্দ উদ্ধার করা হচ্ছে...";
+        if (prog) prog.style.width = "40%";
+        if (title) title.textContent = agent.name + " পুনরায় যুক্ত হচ্ছেন…";
+        if (desc) desc.textContent = "👤 আপনার পূর্বের কনসালট্যান্ট " + agent.name + " (" + agent.role + ") সরাসরি যুক্ত হচ্ছেন...";
 
-        // Step 2: Agent Reconnection (700ms)
-        setTimeout(function () {
-          if (prog) prog.style.width = "70%";
-          if (title) title.textContent = agent.name + " পুনরায় যুক্ত হচ্ছেন…";
-          if (desc) desc.textContent = "👤 আপনার পূর্বের কনসালট্যান্ট " + agent.name + " (" + agent.role + ") সরাসরি যুক্ত হচ্ছেন...";
-        }, 700);
-
-        // Step 3: Connection Restored (1400ms)
+        // Step 2: Connection Restored (450ms)
         setTimeout(function () {
           if (prog) prog.style.width = "100%";
           if (title) title.textContent = "✅ লাইভ সংযোগ সক্রিয়!";
-          if (desc) desc.textContent = "আপনার সাথে পুনরায় যুক্ত হতে পেরে আমরা আনন্দিত...";
+          if (desc) desc.textContent = agent.name + " আপনার সাথে সংযুক্ত হয়েছেন...";
           AmpChatAudio.playConnected();
-        }, 1400);
+        }, 450);
       } else {
-        if (prog) prog.style.width = "15%";
-        if (title) title.textContent = "লাইভ সাপোর্ট সক্রিয় হচ্ছে…";
-        if (desc) desc.textContent = "🔄 আপনার জন্য একজন কাস্টমার কনসালট্যান্ট নির্ধারণ করা হচ্ছে...";
+        if (prog) prog.style.width = "40%";
+        if (title) title.textContent = agent.name + " যুক্ত হচ্ছেন…";
+        if (desc) desc.textContent = "👤 আপনার কাস্টমার কনসালট্যান্ট " + agent.name + " (" + agent.role + ") যুক্ত হচ্ছেন...";
 
-        // Step 2: Agent Assigned (700ms)
-        setTimeout(function () {
-          if (prog) prog.style.width = "65%";
-          if (title) title.textContent = agent.name + " দায়িত্ব নিচ্ছেন…";
-          if (desc) desc.textContent = "👤 " + agent.name + " (" + agent.role + ") আপনার চ্যাটের দায়িত্ব গ্রহণ করেছেন...";
-        }, 700);
-
-        // Step 3: Connection Established (1400ms)
+        // Step 2: Connection Established (450ms)
         setTimeout(function () {
           if (prog) prog.style.width = "100%";
-          if (title) title.textContent = "✅ লাইভ সংযোগ স্থাপিত!";
-          if (desc) desc.textContent = "এখনই চ্যাট শুরু হচ্ছে...";
+          if (title) title.textContent = "✅ লাইভ সংযোগ সক্রিয়!";
+          if (desc) desc.textContent = agent.name + " আপনার সাথে সরাসরি সংযুক্ত হয়েছেন...";
           AmpChatAudio.playConnected();
-        }, 1400);
+        }, 450);
       }
 
-      // Step 4: Fade out and greet (1750ms)
+      // Step 3: Fast smooth fade out (800ms total wait, 200ms fade)
       setTimeout(function () {
         overlay.style.opacity = "0";
         setTimeout(function () {
@@ -1013,8 +1000,8 @@
           const inp = document.getElementById("ampChatInput");
           if (inp) inp.focus();
           if (onComplete) onComplete();
-        }, 350);
-      }, 1750);
+        }, 200);
+      }, 800);
     }
 
     function openLiveChat() {
