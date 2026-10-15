@@ -96,7 +96,7 @@ try {
     $pastLogs = array_reverse($logsStmt->fetchAll() ?: []);
 } catch (\Throwable $e) {}
 
-if ($visitorProfile || !empty($pastLogs)) {
+if ($visitorProfile || !empty($pastLogs) || !empty($data['is_returning'])) {
     $isReturning = true;
 }
 
@@ -135,6 +135,9 @@ if (!$pastPackage && !empty($pastLogs)) {
         } elseif (preg_match('/(1999|১,৯৯৯|প্রোফাইল|profile_page)/iu', $blob)) {
             $pastPackage = 'profile_page';
             break;
+        } elseif (preg_match('/(wamanager|wa_marketing|whatsapp|হোয়াটসঅ্যাপ|হোয়াটসঅ্যাপ|বাল্ক|999|৯৯৯)/iu', $blob)) {
+            $pastPackage = 'wa_marketing';
+            break;
         }
     }
 }
@@ -143,6 +146,7 @@ $pastPkgLabel = match ($pastPackage) {
     'video_studio' => '৩,৯৯৯ টাকার ফুল ভিডিও অটোমেশন স্টুডিও প্যাকেজ',
     'fb_business' => '২,৯৯৯ টাকার ফেসবুক বিজনেস ও অ্যাড অটোমেশন প্যাকেজ',
     'profile_page' => '১,৯৯৯ টাকার ফেসবুক প্রোফাইল ও পেজ অটো পাইলট প্যাকেজ',
+    'wa_marketing' => 'WAManager Pro হোয়াটসঅ্যাপ মার্কেটিং সফটওয়্যার (৳৯৯৯/৳১,৯৯৯)',
     default => 'AutoMovie Pro সফটওয়্যার প্যাকেজ'
 };
 
@@ -161,11 +165,32 @@ if (!$pastTopic && !empty($pastLogs)) {
 }
 
 $pastObjection = $visitorProfile['last_objection'] ?? '';
-$visitCount = (int) (($visitorProfile['visit_count'] ?? 1) + 1);
+$clientVisitCount = (int) ($data['visit_count'] ?? 0);
+$serverVisitCount = (int) ($visitorProfile['visit_count'] ?? 0);
+if ($isReturning) {
+    $visitCount = max(2, $clientVisitCount, $serverVisitCount + 1);
+} else {
+    $visitCount = 1;
+}
+
+$ordinalMap = [
+    1 => 'প্রথমবার',
+    2 => 'দ্বিতীয়বার',
+    3 => 'তৃতীয়বার',
+    4 => 'চতুর্থবার',
+    5 => 'পঞ্চমবার',
+    6 => 'ষষ্ঠবার',
+    7 => 'সপ্তমবার',
+    8 => 'অষ্টমবার',
+    9 => 'নবমবার',
+    10 => 'দশমবার',
+];
+$visitOrdinal = $ordinalMap[$visitCount] ?? ($visitCount . 'তম বার');
 
 $returningContext = [
     'is_returning' => $isReturning,
     'visit_count' => $visitCount,
+    'visit_ordinal' => $visitOrdinal,
     'past_package' => $pastPackage,
     'past_package_label' => $pastPkgLabel,
     'past_topic' => $pastTopic,
@@ -209,13 +234,18 @@ if ($isPoreOrDiscount && $discountAllowed) {
 // ---------------------------------------------------------------------------
 if ($action === 'greet' || $message === '') {
     if ($isReturning) {
-        $greetUser = "You are {$agentName}. The customer has RETURNED to the website for visit #{$visitCount}! Previously you two talked about {$pastPkgLabel} (" . ($pastTopic ?: "their automation goals") . "). Warmly welcome them back as their recognized consultant without introducing yourself like a stranger. Remind them of what you discussed, address any lingering doubts they might have, and offer helpful decision support so they can confidently choose their package today.";
+        $greetUser = "You are {$agentName}. The customer has RETURNED to our website for their {$visitOrdinal} visit (Visit #{$visitCount})!
+        MANDATORY GREETING FORMULA:
+        Greet them respectfully addressing them as 'স্যার' and explicitly welcoming them for their {$visitOrdinal} visit in Bengali:
+        'আসসালামু আলাইকুম স্যার! আপনাকে {$visitOrdinal} আমাদের ওয়েবসাইটে আন্তরিক স্বাগতম। আপনি তো এর আগেও কিছু বিষয় আমাদের এখানে জানতে চেয়েছিলেন। আজ নতুন আর কী বিষয়ে আপনাকে সহযোগিতা করতে পারি স্যার? আমাকে বলুন, আমি একদম সহজে বুঝিয়ে বলছি। 😊'
+        (If you remember they discussed {$pastPkgLabel}, you can warmly acknowledge: 'আপনি তো এর আগেও আমাদের {$pastPkgLabel} নিয়ে কিছু বিষয় জানতে চেয়েছিলেন। আজ নতুন আর কী বিষয়ে আপনাকে সহযোগিতা করতে পারি স্যার? আমাকে বলুন, আমি একদম সহজে বুঝিয়ে বলছি। 😊').
+        Keep it warm, polite, and human. Do not sound like a robot. Do not re-introduce yourself like a stranger.";
     } else {
         $greetUser = match ($lang) {
             'en' => "Say a short warm hello as {$agentName}, the AutoMovie Pro sales consultant and ask how you can help (features, pricing, packages, or order). Always address the customer respectfully as Sir.",
             'bn' => "আপনি {$agentName}, AutoMovie Pro টিমের একজন আন্তরিক প্রতিনিধি। অত্যন্ত সংক্ষেপে 'আসসালামু আলাইকুম স্যার, আমি AutoMoviePro টিম থেকে {$agentName} বলছি, আপনাকে কীভাবে সহযোগিতা করতে পারি?' বলুন। কোনো অতিরিক্ত লম্বা কথা বলবেন না।",
             'hi' => 'छोटा सा गर्मजोशी भरा नमस्ते दो और पूछो कैसे मदद कर सकते हो सर।',
-            'ur' => 'مختصر گرم جو شی سے سلام کہو اور پوچھো کیسے مدد کر سکتے ہو سر۔',
+            'ur' => 'مختصر گرم جو شی سے سلام کہو اور پوچھো کیسے مدد কর سکتے ہو سر।',
             'ta' => 'சுருக்கமான அன்பான வணக்கம் சொல்லி எப்படி உதவலாம் என்று கேள்.',
             'ml' => 'ചെറിയ ഊഷ്മള നമസ്കാരം പറഞ്ഞ് എങ്ങനെ സഹായിക്കാമെന്ന് ചോദിക്കൂ.',
             default => 'Greet briefly and offer help to Sir.',
@@ -251,19 +281,19 @@ if ($llm === null || $llm === '') {
     if ($action === 'greet' || $message === '') {
         if ($isReturning) {
             if ($pastPackage === 'video_studio') {
-                $reply = "আসসালামু আলাইকুম স্যার! আপনাকে আবার স্বাগতম। আমি আপনার কনসালট্যান্ট {$agentName}। আগের চ্যাটে আপনি ৩,৯৯৯ টাকার ভিডিও অটোমেশন স্টুডিও প্যাকেজটি নিয়ে কথা বলেছিলেন। আজ কি লাইসেন্সটি সক্রিয় করতে সাহায্য করতে পারি স্যার?";
-                $suggestions = ['৩,৯৯৯ টাকার প্যাকেজটি অর্ডার করব', 'কুপনটি কি প্রযোজ্য?', 'সরাসরি WhatsApp-এ কথা বলব'];
+                $reply = "আসসালামু আলাইকুম স্যার! আপনাকে {$visitOrdinal} আমাদের ওয়েবসাইটে আন্তরিক স্বাগতম। আপনি তো এর আগেও আমাদের ৩,৯৯৯ টাকার ভিডিও অটোমেশন স্টুডিও প্যাকেজটি নিয়ে কিছু বিষয় জানতে চেয়েছিলেন। আজ নতুন আর কী বিষয়ে আপনাকে সহযোগিতা করতে পারি স্যার? আমাকে বলুন, আমি একদম সহজে বুঝিয়ে বলছি। 😊";
+                $suggestions = ['৩,৯৯৯ টাকার প্যাকেজটি অর্ডার করব', '৳৫০০ ডিসকাউন্ট কুপন দিন', 'সরাসরি WhatsApp-এ কথা বলব'];
             } elseif ($pastPackage === 'fb_business') {
-                $reply = "আসসালামু আলাইকুম স্যার! আপনাকে আবারও স্বাগতম। আমি আপনার কনসালট্যান্ট {$agentName}। পূর্বে ২,৯৯৯ টাকার ফেসবুক বিজনেস ও অ্যাড অটোমেশন নিয়ে আলোচনা হয়েছিল। এই প্যাকেজে কি আজ সহযোগিতা প্রয়োজন স্যার?";
+                $reply = "আসসালামু আলাইকুম স্যার! আপনাকে {$visitOrdinal} আমাদের ওয়েবসাইটে আন্তরিক স্বাগতম। আপনি তো এর আগেও আমাদের ২,৯৯৯ টাকার ফেসবুক বিজনেস ও অ্যাড অটোমেশন নিয়ে কিছু বিষয় জানতে চেয়েছিলেন। আজ নতুন আর কী বিষয়ে আপনাকে সহযোগিতা করতে পারি স্যার? আমাকে বলুন, আমি একদম সহজে বুঝিয়ে বলছি। 😊";
                 $suggestions = ['২,৯৯৯ টাকার প্যাকেজ অর্ডার করব', 'ভিডিও ডেমো দেখতে চাই', 'বিকাশে পেমেন্ট করব'];
             } elseif ($pastPackage === 'profile_page') {
-                $reply = "আসসালামু আলাইকুম স্যার! আপনাকে আবার পেয়ে ভালো লাগলো। আমি আপনার কনসালট্যান্ট {$agentName}। আগের চ্যাটে ১,৯৯৯ টাকার ফেসবুক প্রোফাইল ও পেজ অটো পাইলট প্যাকেজ নিয়ে কথা হয়েছিল। এই বিষয়ে কি সিদ্ধান্ত নিয়েছেন স্যার?";
+                $reply = "আসসালামু আলাইকুম স্যার! আপনাকে {$visitOrdinal} আমাদের ওয়েবসাইটে আন্তরিক স্বাগতম। আপনি তো এর আগেও আমাদের ১,৯৯৯ টাকার ফেসবুক প্রোফাইল ও পেজ অটো পাইলট প্যাকেজ নিয়ে কিছু বিষয় জানতে চেয়েছিলেন। আজ নতুন আর কী বিষয়ে আপনাকে সহযোগিতা করতে পারি স্যার? আমাকে বলুন, আমি একদম সহজে বুঝিয়ে বলছি। 😊";
                 $suggestions = ['১,৯৯৯ টাকার প্যাকেজ অর্ডার করব', 'পেমেন্ট নম্বর দিন', 'অন্য প্যাকেজ সম্পর্কে বলুন'];
             } elseif ($pastPackage === 'wa_marketing') {
-                $reply = "আসসালামু আলাইকুম স্যার! আপনাকে আবারও স্বাগতম। আমি আপনার কনসালট্যান্ট {$agentName}। আগের চ্যাটে আপনি WAManager Pro হোয়াটসঅ্যাপ মার্কেটিং সফটওয়্যারটি নিয়ে কথা বলেছিলেন। আজ কি এর সাবস্ক্রিপশনটি সক্রিয় করতে সাহায্য করতে পারি স্যার?";
+                $reply = "আসসালামু আলাইকুম স্যার! আপনাকে {$visitOrdinal} আমাদের ওয়েবসাইটে আন্তরিক স্বাগতম। আপনি তো এর আগেও আমাদের WAManager Pro হোয়াটসঅ্যাপ মার্কেটিং সফটওয়্যারটি নিয়ে কিছু বিষয় জানতে চেয়েছিলেন। আজ নতুন আর কী বিষয়ে আপনাকে সহযোগিতা করতে পারি স্যার? আমাকে বলুন, আমি একদম সহজে বুঝিয়ে বলছি। 😊";
                 $suggestions = ['৯৯৯ টাকার ১ বছর সাবস্ক্রিপশন নেব', '১৯৯৯ টাকার ৩ বছর সাবস্ক্রিপশন নেব', 'সরাসরি WhatsApp-এ কথা বলব'];
             } else {
-                $reply = "আসসালামু আলাইকুম স্যার! আপনাকে আবারও আমাদের AutoMovie Pro-তে স্বাগতম। আমি আপনার পূর্বের কনসালট্যান্ট {$agentName}। আপনাকে আজ কীভাবে সহযোগিতা করতে পারি স্যার?";
+                $reply = "আসসালামু আলাইকুম স্যার! আপনাকে {$visitOrdinal} আমাদের ওয়েবসাইটে আন্তরিক স্বাগতম। আপনি তো এর আগেও কিছু বিষয় আমাদের এখানে জানতে চেয়েছিলেন। আজ নতুন আর কী বিষয়ে আপনাকে সহযোগিতা করতে পারি স্যার? আমাকে বলুন, আমি একদম সহজে বুঝিয়ে বলছি। 😊";
                 $suggestions = ['৪টি সফটওয়্যারের পার্থক্য বলুন', '৩,৯৯৯ টাকার ভিডিও প্যাকেজ নেব', 'সরাসরি WhatsApp-এ কথা বলব'];
             }
         } else {
@@ -271,8 +301,8 @@ if ($llm === null || $llm === '') {
             $suggestions = ['প্যাকেজগুলোর দাম কত?', 'ভিডিও কীভাবে তৈরি করে?', 'WhatsApp মার্কেটিং সফটওয়্যার আছে?'];
         }
     } elseif ($userPhone) {
-        $reply = "অনেক ধন্যবাদ স্যার! আপনার WhatsApp নম্বরটি ({$userPhone}) সেভ করা হয়েছে। আমাদের টিম থেকে এখনই আপনার WhatsApp-এ লাইভ ভিডিও ডেমো এবং স্পেশাল ইনস্টলেশন ভাউচার পাঠিয়ে দেওয়া হচ্ছে। 😊\n\nআপনি কি এখনই লাইসেন্স অর্ডার করতে আগ্রহী স্যার?";
-        $suggestions = ['হ্যাঁ, এখনই অর্ডার করতে চাই', 'প্যাকেজের মূল্য কত?'];
+        $reply = "অনেক ধন্যবাদ স্যার! আপনার WhatsApp নম্বরটি ({$userPhone}) আমাদের ভিআইপি ডিরেক্টরিতে সেভ করা হয়েছে এবং আমাদের কনসালট্যান্ট টিম থেকে এখনই সম্পূর্ণ ভিডিও ডেমো ও ইনস্টলেশন গাইডলাইন পাঠিয়ে দেওয়া হচ্ছে। 😊\n\nস্যার, আপনি মূলত কোন কাজের জন্য সফটওয়্যার খুঁজছেন — ইউটিউব/ফেসবুক থেকে ভিডিও বানিয়ে ইনকাম (৳৩,৯৯৯), ফেসবুক বিজনেস ও সেলস অটোমেশন (৳২,৯৯৯), নাকি আনলিমিটেড হোয়াটসঅ্যাপ মার্কেটিং (৳৯৯৯)? আমাকে বলুন, আমি আপনাকে সেরা প্যাকেজটি বেছে নিতে সাহায্য করছি।";
+        $suggestions = ['৩,৯৯৯ টাকার ভিডিও প্যাকেজ নেব', '৯৯৯ টাকার WhatsApp প্যাকেজ নেব', '২,৯৯৯ টাকার বিজনেস প্যাকেজ নেব', '৳৫০০ ডিসকাউন্ট কুপন দিন'];
     } elseif (preg_match('/(apnar nam|tomar nam|nam ki|nam kii|naam ki|who are you|who is this|ke bolchen|ke apni|tumi k|apni k|নাম কি|নাম কী|কে বলছেন|আপনার নাম|তোমার নাম)/iu', $msgLower)) {
         $reply = "জি স্যার, আমার নাম {$agentName}। আমি AutoMovie Pro টিম থেকে বলছি। আপনাকে কীভাবে সহযোগিতা করতে পারি স্যার?";
         $suggestions = ['প্যাকেজগুলোর দাম কত?', 'সফটওয়্যার কীভাবে কাজ করে?', 'সরাসরি WhatsApp-এ কথা বলব'];
@@ -437,6 +467,8 @@ function amp_record_visitor_chat_turn(
             $detectedPkg = 'fb_business';
         } elseif (preg_match('/(1999|১,৯৯৯|profile|প্রোফাইল|profile_page)/iu', $combinedText)) {
             $detectedPkg = 'profile_page';
+        } elseif (preg_match('/(wamanager|wa_marketing|whatsapp|হোয়াটসঅ্যাপ|হোয়াটসঅ্যাপ|বাল্ক|লিড স্ক্র্যাপার|999|৯৯৯)/iu', $combinedText)) {
+            $detectedPkg = 'wa_marketing';
         }
 
         // 1. Insert chat log

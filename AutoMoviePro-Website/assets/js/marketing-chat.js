@@ -308,9 +308,35 @@
     } catch (e) {}
   }
 
+  const STORAGE_KEY_VISIT_COUNT = "amp_chat_visit_count";
+  function getVisitorVisitCount() {
+    let count = 1;
+    try {
+      count = parseInt(localStorage.getItem(STORAGE_KEY_VISIT_COUNT) || "1", 10);
+    } catch (e) {}
+    return count;
+  }
+
+  function incrementVisitorVisitCount() {
+    try {
+      let count = getVisitorVisitCount();
+      const hasHistory = loadSavedChatHistory().length > 0;
+      if (hasHistory) {
+        count = Math.max(2, count + 1);
+      } else {
+        count = 1;
+      }
+      localStorage.setItem(STORAGE_KEY_VISIT_COUNT, String(count));
+      return count;
+    } catch (e) {
+      return 1;
+    }
+  }
+
   function clearSavedHistory() {
     try {
       localStorage.removeItem(STORAGE_KEY_HISTORY);
+      localStorage.setItem(STORAGE_KEY_VISIT_COUNT, "1");
     } catch (e) {}
   }
 
@@ -646,10 +672,10 @@
       div.appendChild(statusMeta);
 
       // Natural Human Reading Latency:
-      // Agent receives and reads the message in 2.0 - 2.4 seconds (2200ms)
+      // Status flips to "দেখা হয়েছে" at 1600ms (1.6s)
       setTimeout(function () {
         statusMeta.innerHTML = '<span class="status-tick is-seen">✓✓</span> <span class="status-label">দেখা হয়েছে</span>';
-      }, 2200);
+      }, 1600);
 
       if (onComplete) onComplete();
       return;
@@ -774,7 +800,6 @@
 
     const sendTime = Date.now();
     let thinking = null;
-    let thinkingTimer = null;
 
     function showThinkingIndicator() {
       if (thinking) return;
@@ -790,26 +815,19 @@
     }
 
     function removeThinkingIndicator() {
-      if (thinkingTimer) {
-        clearTimeout(thinkingTimer);
-        thinkingTimer = null;
-      }
       if (thinking && thinking.parentNode) {
         thinking.remove();
         thinking = null;
       }
     }
 
-    if (isGreet) {
-      showThinkingIndicator();
-    } else {
-      // Natural human reading latency: If response takes longer than 2.2s, show typing indicator after seen (2300ms)
-      thinkingTimer = setTimeout(function () {
-        showThinkingIndicator();
-      }, 2300);
-    }
+    // Do NOT show thinking indicator while fetch is ongoing in background!
+    // It will ONLY be shown for 1.1s once the reply has arrived and is ready to type!
 
     try {
+      const isRet = !!options.isReturning || (loadSavedChatHistory().length > 0);
+      const vCount = options.visitCount || getVisitorVisitCount();
+
       const res = await fetch("/api/marketing-chat.php", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
@@ -823,6 +841,8 @@
           agent_role: currentAgent.role,
           session_id: getChatSessionId(),
           history: history.slice(-8),
+          is_returning: isRet,
+          visit_count: vCount,
         }),
       });
       const data = await res.json();
@@ -837,46 +857,55 @@
       }
 
       // Timing choreography:
-      // 1. Reading time: ~2200ms (message marked "দেখা হয়েছে")
-      // 2. Typing indicator: brief 800ms - 950ms warm-up (never frozen!)
-      // 3. Immediately begins live letter-by-letter typing!
-      const elapsed = Date.now() - sendTime;
-      let startTypingDelay = 50;
-
+      // When response is received and ready:
+      // 1. If not greet, make sure at least 1500ms has passed since send so "দেখা হয়েছে" is visible.
+      // 2. Then show "নীরব লিখছেন..." for EXACTLY 1.1s (1100ms) - crisp transition, never frozen!
+      // 3. Right at 1100ms, remove it and start typing the message live!
       if (isGreet) {
-        startTypingDelay = Math.max(50, 300 - elapsed);
+        showThinkingIndicator();
+        setTimeout(function () {
+          removeThinkingIndicator();
+          appendChat("bot", reply, function () {
+            if (data.suggestions && data.suggestions.length) {
+              addSuggestions(data.suggestions);
+            } else {
+              addSuggestions([
+                t("agent_suggestion_1"),
+                t("agent_suggestion_2"),
+                t("agent_suggestion_3"),
+              ]);
+            }
+          }, data.checkout_url);
+          history.push({ role: "assistant", content: reply });
+          const replyTime = new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
+          appendToSavedHistory({ role: "bot", content: reply, time: replyTime, checkoutUrl: data.checkout_url || null });
+        }, 1100);
       } else {
-        if (elapsed < 2200) {
-          const waitBeforeThinking = 2200 - elapsed;
-          setTimeout(function () {
-            showThinkingIndicator();
-          }, waitBeforeThinking);
-          startTypingDelay = waitBeforeThinking + 850;
-        } else if (!thinking) {
-          showThinkingIndicator();
-          startTypingDelay = 800;
-        } else {
-          startTypingDelay = 350;
-        }
-      }
+        const elapsed = Date.now() - sendTime;
+        const delayBeforeIndicator = Math.max(0, 1500 - elapsed);
 
-      setTimeout(function () {
-        removeThinkingIndicator();
-        appendChat("bot", reply, function () {
-          if (data.suggestions && data.suggestions.length) {
-            addSuggestions(data.suggestions);
-          } else {
-            addSuggestions([
-              t("agent_suggestion_1"),
-              t("agent_suggestion_2"),
-              t("agent_suggestion_3"),
-            ]);
-          }
-        }, data.checkout_url);
-        history.push({ role: "assistant", content: reply });
-        const replyTime = new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
-        appendToSavedHistory({ role: "bot", content: reply, time: replyTime, checkoutUrl: data.checkout_url || null });
-      }, startTypingDelay);
+        setTimeout(function () {
+          showThinkingIndicator();
+          // "নীরব লিখছেন..." stays on screen for strictly 1.1 seconds (1100ms)
+          setTimeout(function () {
+            removeThinkingIndicator();
+            appendChat("bot", reply, function () {
+              if (data.suggestions && data.suggestions.length) {
+                addSuggestions(data.suggestions);
+              } else {
+                addSuggestions([
+                  t("agent_suggestion_1"),
+                  t("agent_suggestion_2"),
+                  t("agent_suggestion_3"),
+                ]);
+              }
+            }, data.checkout_url);
+            history.push({ role: "assistant", content: reply });
+            const replyTime = new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
+            appendToSavedHistory({ role: "bot", content: reply, time: replyTime, checkoutUrl: data.checkout_url || null });
+          }, 1100);
+        }, delayBeforeIndicator);
+      }
 
       if (data.open_whatsapp && data.whatsapp_url) {
         setTimeout(function () {
@@ -1011,6 +1040,10 @@
 
       const savedList = loadSavedChatHistory();
       const isReturningVisitor = savedList.length > 0;
+      let currentVisitCount = 1;
+      if (isReturningVisitor) {
+        currentVisitCount = incrementVisitorVisitCount();
+      }
 
       // Render saved history to UI before greeting
       renderSavedHistoryToUI();
@@ -1019,7 +1052,7 @@
         if (overlay) overlay.style.display = "none";
         if (!panel.dataset.greeted) {
           panel.dataset.greeted = "1";
-          sendChat("", { greet: true, agent: agent, isReturning: isReturningVisitor });
+          sendChat("", { greet: true, agent: agent, isReturning: isReturningVisitor, visitCount: currentVisitCount });
         }
         const inp = document.getElementById("ampChatInput");
         if (inp) setTimeout(function () { inp.focus(); }, 150);
@@ -1063,7 +1096,7 @@
           overlay.style.display = "none";
           if (!panel.dataset.greeted) {
             panel.dataset.greeted = "1";
-            sendChat("", { greet: true, agent: agent, isReturning: isReturningVisitor });
+            sendChat("", { greet: true, agent: agent, isReturning: isReturningVisitor, visitCount: currentVisitCount });
           }
           const inp = document.getElementById("ampChatInput");
           if (inp) inp.focus();
