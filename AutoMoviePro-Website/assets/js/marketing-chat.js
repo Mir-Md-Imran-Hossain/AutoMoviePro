@@ -17,36 +17,361 @@
       name: "আয়েশা (Ayesha)",
       role: "সিনিয়র কাস্টমার কনসালট্যান্ট",
       avatar: "/assets/img/agents/ayesha.png",
-      greet: "আসসালামু আলাইকুম! আমি আয়েশা, AutoMovie Pro টিম থেকে বলছি। আপনাদের কীভাবে সাহায্য করতে পারি? আমাদের ৩টি প্যাকেজ, স্পেশাল অফার বা যেকোনো ফিচার সম্পর্কে জানতে চাইলে বলুন।"
+      greet: "আসসালামু আলাইকুম স্যার, আমি AutoMoviePro টিম থেকে আয়েশা বলছি, আপনাকে কীভাবে সহযোগিতা করতে পারি?"
     },
     {
       id: "nirob",
       name: "নীরব (Nirob)",
       role: "টেকনিক্যাল ও প্রোডাক্ট স্পেশালিস্ট",
       avatar: "/assets/img/agents/nirob.png",
-      greet: "আসসালামু আলাইকুম! আমি নীরব, AutoMovie Pro টেকনিক্যাল সাপোর্ট থেকে বলছি। ইউটিউব, ফেসবুক বা টিকটক অটোমেশন সফটওয়্যার নিয়ে আপনার যেকোনো প্রশ্ন থাকলে বলুন, আমি বুঝিয়ে দিচ্ছি।"
+      greet: "আসসালামু আলাইকুম স্যার, আমি AutoMoviePro টিম থেকে নীরব বলছি, আপনাকে কীভাবে সহযোগিতা করতে পারি?"
     },
     {
       id: "tania",
       name: "তানিয়া (Tania)",
       role: "অনবোর্ডিং ও লাইসেন্স ম্যানেজার",
       avatar: "/assets/img/agents/tania.png",
-      greet: "আসসালামু আলাইকুম! আমি তানিয়া। AutoMovie Pro লাইফটাইম লাইসেন্স প্যাকেজ, ডিসকাউন্ট কুপন বা পেমেন্ট ভেরিফিকেশন নিয়ে যেকোনো তথ্য জানতে আমাকে বলতে পারেন।"
+      greet: "আসসালামু আলাইকুম স্যার, আমি AutoMoviePro টিম থেকে তানিয়া বলছি, আপনাকে কীভাবে সহযোগিতা করতে পারি?"
     }
   ];
 
+  const STORAGE_KEY_HISTORY = "amp_chat_history";
+  const STORAGE_KEY_VID = "amp_visitor_id";
+  const STORAGE_KEY_AGENT = "amp_assigned_agent_id";
+  const MAX_SAVED_HISTORY = 40;
+
+  // ---------------------------------------------------------------------------
+  // Web Audio API Sound Effects Engine (Zero Latency, Pure Native Synthesis)
+  // ---------------------------------------------------------------------------
+  const AmpChatAudio = (function () {
+    let ctx = null;
+    let isMuted = false;
+
+    try {
+      isMuted = localStorage.getItem("amp_chat_muted") === "1";
+    } catch (e) {}
+
+    function getAudioContext() {
+      if (!ctx) {
+        const AudioCtx = window.AudioContext || window.webkitAudioContext;
+        if (AudioCtx) {
+          ctx = new AudioCtx();
+        }
+      }
+      if (ctx && ctx.state === "suspended") {
+        ctx.resume().catch(function () {});
+      }
+      return ctx;
+    }
+
+    // Auto-unlock on first user interaction to satisfy browser autoplay policy
+    function unlock() {
+      const c = getAudioContext();
+      if (c && c.state === "suspended") {
+        c.resume().catch(function () {});
+      }
+    }
+    ["click", "keydown", "touchstart"].forEach(function (evt) {
+      window.addEventListener(evt, unlock, { once: true, passive: true });
+    });
+
+    function toggleMute() {
+      isMuted = !isMuted;
+      try {
+        localStorage.setItem("amp_chat_muted", isMuted ? "1" : "0");
+      } catch (e) {}
+      updateSoundButtonUI();
+      return isMuted;
+    }
+
+    function updateSoundButtonUI() {
+      const btn = document.getElementById("ampChatSoundToggle");
+      if (btn) {
+        btn.textContent = isMuted ? "🔇" : "🔊";
+        btn.title = isMuted ? "সাউন্ড আনমিউট করুন" : "সাউন্ড মিউট করুন";
+        if (isMuted) {
+          btn.classList.add("is-muted");
+        } else {
+          btn.classList.remove("is-muted");
+        }
+      }
+    }
+
+    // 1. Message Sent: Crisp upward ramp (420Hz -> 840Hz, 120ms)
+    function playSent() {
+      if (isMuted) return;
+      const c = getAudioContext();
+      if (!c) return;
+      try {
+        const now = c.currentTime;
+        const osc = c.createOscillator();
+        const gain = c.createGain();
+
+        osc.type = "sine";
+        osc.frequency.setValueAtTime(420, now);
+        osc.frequency.exponentialRampToValueAtTime(840, now + 0.10);
+
+        gain.gain.setValueAtTime(0.14, now);
+        gain.gain.exponentialRampToValueAtTime(0.001, now + 0.12);
+
+        osc.connect(gain);
+        gain.connect(c.destination);
+
+        osc.start(now);
+        osc.stop(now + 0.13);
+      } catch (e) {}
+    }
+
+    // 2. Typing Started: Soft pleasant double-tap bubble sound (320Hz & 380Hz, 80ms)
+    function playTypingStart() {
+      if (isMuted) return;
+      const c = getAudioContext();
+      if (!c) return;
+      try {
+        const now = c.currentTime;
+
+        const osc1 = c.createOscillator();
+        const gain1 = c.createGain();
+        osc1.type = "sine";
+        osc1.frequency.setValueAtTime(320, now);
+        osc1.frequency.exponentialRampToValueAtTime(220, now + 0.04);
+        gain1.gain.setValueAtTime(0.09, now);
+        gain1.gain.exponentialRampToValueAtTime(0.001, now + 0.05);
+        osc1.connect(gain1);
+        gain1.connect(c.destination);
+        osc1.start(now);
+        osc1.stop(now + 0.05);
+
+        const osc2 = c.createOscillator();
+        const gain2 = c.createGain();
+        osc2.type = "sine";
+        osc2.frequency.setValueAtTime(380, now + 0.06);
+        osc2.frequency.exponentialRampToValueAtTime(260, now + 0.10);
+        gain2.gain.setValueAtTime(0.09, now + 0.06);
+        gain2.gain.exponentialRampToValueAtTime(0.001, now + 0.11);
+        osc2.connect(gain2);
+        gain2.connect(c.destination);
+        osc2.start(now + 0.06);
+        osc2.stop(now + 0.12);
+      } catch (e) {}
+    }
+
+    // 3. Message Received: Crystal two-tone notification chime (E5 659Hz -> A5 880Hz, 320ms)
+    function playReceived() {
+      if (isMuted) return;
+      const c = getAudioContext();
+      if (!c) return;
+      try {
+        const now = c.currentTime;
+
+        // Note 1: E5 (659Hz)
+        const osc1 = c.createOscillator();
+        const gain1 = c.createGain();
+        osc1.type = "sine";
+        osc1.frequency.setValueAtTime(659.25, now);
+        gain1.gain.setValueAtTime(0.15, now);
+        gain1.gain.exponentialRampToValueAtTime(0.001, now + 0.22);
+        osc1.connect(gain1);
+        gain1.connect(c.destination);
+        osc1.start(now);
+        osc1.stop(now + 0.23);
+
+        // Note 2: A5 (880Hz)
+        const osc2 = c.createOscillator();
+        const gain2 = c.createGain();
+        osc2.type = "sine";
+        osc2.frequency.setValueAtTime(880, now + 0.08);
+        gain2.gain.setValueAtTime(0.18, now + 0.08);
+        gain2.gain.exponentialRampToValueAtTime(0.001, now + 0.32);
+        osc2.connect(gain2);
+        gain2.connect(c.destination);
+        osc2.start(now + 0.08);
+        osc2.stop(now + 0.33);
+      } catch (e) {}
+    }
+
+    // 4. Agent Handshake / Connected: Harmonic triad flourish (C5 -> E5 -> G5, 300ms)
+    function playConnected() {
+      if (isMuted) return;
+      const c = getAudioContext();
+      if (!c) return;
+      try {
+        const now = c.currentTime;
+        const notes = [523.25, 659.25, 783.99]; // C5, E5, G5
+        notes.forEach(function (freq, i) {
+          const osc = c.createOscillator();
+          const gain = c.createGain();
+          const noteStart = now + (i * 0.08);
+
+          osc.type = "triangle";
+          osc.frequency.setValueAtTime(freq, noteStart);
+
+          gain.gain.setValueAtTime(0.12, noteStart);
+          gain.gain.exponentialRampToValueAtTime(0.001, noteStart + 0.22);
+
+          osc.connect(gain);
+          gain.connect(c.destination);
+
+          osc.start(noteStart);
+          osc.stop(noteStart + 0.24);
+        });
+      } catch (e) {}
+    }
+
+    return {
+      unlock: unlock,
+      isMuted: function () { return isMuted; },
+      toggleMute: toggleMute,
+      updateSoundButtonUI: updateSoundButtonUI,
+      playSent: playSent,
+      playTypingStart: playTypingStart,
+      playReceived: playReceived,
+      playConnected: playConnected
+    };
+  })();
+
+  function getVisitorId() {
+    let vid = "";
+    try {
+      vid = localStorage.getItem(STORAGE_KEY_VID) || "";
+    } catch (e) {}
+
+    if (!vid) {
+      const match = document.cookie.match(/(?:^|;\s*)amp_vid=([^;]+)/);
+      if (match && match[1]) {
+        vid = decodeURIComponent(match[1]);
+      }
+    }
+
+    if (!vid) {
+      vid = "vid_" + Date.now().toString(36) + "_" + Math.random().toString(36).substring(2, 10);
+    }
+
+    try {
+      localStorage.setItem(STORAGE_KEY_VID, vid);
+      const d = new Date();
+      d.setTime(d.getTime() + (365 * 24 * 60 * 60 * 1000));
+      document.cookie = "amp_vid=" + encodeURIComponent(vid) + "; expires=" + d.toUTCString() + "; path=/; SameSite=Lax";
+    } catch (e) {}
+
+    return vid;
+  }
+
   function getAssignedAgent() {
-    let savedId = localStorage.getItem("amp_assigned_agent_id");
+    let savedId = null;
+    try {
+      savedId = localStorage.getItem(STORAGE_KEY_AGENT);
+    } catch (e) {}
+
     let agent = SUPPORT_TEAM.find(function (a) { return a.id === savedId; });
     if (!agent) {
-      // Pick random agent from team for this visitor
+      // Pick random agent from team for fresh visitor
       const idx = Math.floor(Math.random() * SUPPORT_TEAM.length);
       agent = SUPPORT_TEAM[idx];
       try {
-        localStorage.setItem("amp_assigned_agent_id", agent.id);
+        localStorage.setItem(STORAGE_KEY_AGENT, agent.id);
       } catch (e) {}
     }
     return agent;
+  }
+
+  function setAssignedAgent(agentId) {
+    if (!agentId) return null;
+    const agent = SUPPORT_TEAM.find(function (a) { return a.id === agentId; });
+    if (agent) {
+      try {
+        localStorage.setItem(STORAGE_KEY_AGENT, agent.id);
+      } catch (e) {}
+      applyAgentToUI(agent);
+      return agent;
+    }
+    return null;
+  }
+
+  function loadSavedChatHistory() {
+    try {
+      const raw = localStorage.getItem(STORAGE_KEY_HISTORY);
+      if (!raw) return [];
+      const parsed = JSON.parse(raw);
+      return Array.isArray(parsed) ? parsed : [];
+    } catch (e) {
+      return [];
+    }
+  }
+
+  function appendToSavedHistory(item) {
+    try {
+      const list = loadSavedChatHistory();
+      list.push(item);
+      const trimmed = list.slice(-MAX_SAVED_HISTORY);
+      localStorage.setItem(STORAGE_KEY_HISTORY, JSON.stringify(trimmed));
+    } catch (e) {}
+  }
+
+  function clearSavedHistory() {
+    try {
+      localStorage.removeItem(STORAGE_KEY_HISTORY);
+    } catch (e) {}
+  }
+
+  let hasRenderedSavedHistory = false;
+  function renderSavedHistoryToUI() {
+    if (hasRenderedSavedHistory) return;
+    const log = document.getElementById("ampChatLog");
+    if (!log) return;
+
+    const saved = loadSavedChatHistory();
+    if (!saved || saved.length === 0) return;
+
+    saved.forEach(function (item) {
+      const div = document.createElement("div");
+      div.className = "amp-chat-bubble amp-chat-" + (item.role === "user" ? "user" : "bot") + " amp-chat-saved-msg";
+
+      if (item.role === "user") {
+        const textSpan = document.createElement("div");
+        textSpan.textContent = item.content || item.text || "";
+        div.appendChild(textSpan);
+
+        const statusMeta = document.createElement("div");
+        statusMeta.className = "msg-status-meta";
+        statusMeta.innerHTML = '<span class="status-tick is-seen">✓✓</span> <span class="status-label">' + esc(item.time || "সংরক্ষিত") + '</span>';
+        div.appendChild(statusMeta);
+      } else {
+        const textSpan = document.createElement("div");
+        textSpan.textContent = item.content || item.text || "";
+        div.appendChild(textSpan);
+
+        if (item.checkoutUrl) {
+          const ctaWrap = document.createElement("div");
+          ctaWrap.style.cssText = "margin-top:10px; padding-top:8px; border-top:1px dashed rgba(255,255,255,0.2);";
+          const ctaBtn = document.createElement("a");
+          ctaBtn.href = item.checkoutUrl;
+          ctaBtn.className = "amp-chat-cta-btn";
+          ctaBtn.style.cssText = "display:inline-flex; align-items:center; gap:6px; background:linear-gradient(135deg, #10b981, #059669); color:#ffffff; font-weight:700; font-size:0.85rem; padding:8px 14px; border-radius:6px; text-decoration:none; box-shadow:0 2px 8px rgba(16,185,129,0.3);";
+          ctaBtn.innerHTML = "🎟️ ৳৫০০ নগদ ছাড়ে এখনই অর্ডার করুন →";
+          ctaWrap.appendChild(ctaBtn);
+          div.appendChild(ctaWrap);
+        }
+
+        if (item.time) {
+          const timeTag = document.createElement("span");
+          timeTag.className = "amp-chat-time-tag";
+          timeTag.textContent = item.time;
+          div.appendChild(timeTag);
+        }
+      }
+
+      log.appendChild(div);
+      history.push({ role: item.role === "user" ? "user" : "assistant", content: item.content || item.text || "" });
+    });
+
+    const divider = document.createElement("div");
+    divider.className = "amp-chat-divider";
+    divider.innerHTML = "<span>🕒 পূর্ববর্তী কথোপকথন সংরক্ষিত</span>";
+    log.appendChild(divider);
+    log.scrollTop = log.scrollHeight;
+
+    hasRenderedSavedHistory = true;
   }
 
   function applyAgentToUI(agent) {
@@ -144,15 +469,21 @@
   const ENGINE_PLANS = {
     video_studio: {
       price: 3999,
-      title: "AutoMovie Pro - Social Media Content Automation Engine (Lifetime License)"
+      title: "AutoMovie Pro - Social Media Content Automation Engine (Lifetime License)",
+      displayTitle: "১. Social Media Content Automation Engine",
+      note: "Social Media Engine — লাইফটাইম লাইসেন্স (ইংরেজি + ১টি ব্যক্তিগত ভাষা অন্তর্ভুক্ত)"
     },
     fb_business: {
       price: 2999,
-      title: "AutoMovie Pro - FB Business Manager & Ad Automation Engine (Lifetime License)"
+      title: "AutoMovie Pro - FB Business Manager & Ad Automation Engine (Lifetime License)",
+      displayTitle: "২. FB Business Manager & Ad Automation Engine",
+      note: "FB Business Manager & Ad Engine — লাইফটাইম লাইসেন্স (আনলিমিটেড প্রোডাক্ট ও সেলস ব্যানার)"
     },
     profile_page: {
       price: 1999,
-      title: "AutoMovie Pro - FB Profile & Page Post Automation Engine (Lifetime License)"
+      title: "AutoMovie Pro - FB Profile & Page Post Automation Engine (Lifetime License)",
+      displayTitle: "৩. FB Profile & Page Post Automation Engine",
+      note: "FB Profile & Page Post Engine — লাইফটাইম লাইসেন্স (১০০% হিউম্যান সিমুলেশন পোস্টিং)"
     }
   };
 
@@ -200,6 +531,7 @@
     const baseEl = document.getElementById("baseLangs");
     const addonEl = document.getElementById("addonLangs");
     const heroPriceEl = document.getElementById("heroSelectedPrice");
+    const heroPlanNameEl = document.getElementById("heroSelectedPlanName");
     const heroPlanNoteEl = document.getElementById("heroSelectedPlanNote");
 
     if (amountEl) amountEl.value = String(total);
@@ -208,17 +540,8 @@
     const formattedPrice = formatMoney(total);
     if (totalEl) totalEl.textContent = formattedPrice;
     if (heroPriceEl) heroPriceEl.textContent = formattedPrice;
-
-    if (heroPlanNoteEl) {
-      const radio = document.querySelector('input[name="product_type"]:checked');
-      const val = radio ? radio.value : "video_studio";
-      const notes = {
-        video_studio: "Social Media Engine — লাইফটাইম লাইসেন্স (ইংরেজি + ১টি ব্যক্তিগত ভাষা অন্তর্ভুক্ত)",
-        fb_business: "FB Business Manager & Ad Engine — লাইফটাইম লাইসেন্স (আনলিমিটেড প্রোডাক্ট ও অ্যাড)",
-        profile_page: "FB Profile & Page Post Engine — লাইফটাইম লাইসেন্স (১০০% হিউম্যান সিমুলেশন পোস্টিং)"
-      };
-      heroPlanNoteEl.textContent = notes[val] || "লাইফটাইম লাইসেন্স — এককালীন ওয়ান-টাইম ফি";
-    }
+    if (heroPlanNameEl) heroPlanNameEl.textContent = engine.displayTitle;
+    if (heroPlanNoteEl) heroPlanNoteEl.textContent = engine.note;
 
     if (baseEl) baseEl.value = "en," + personalCode;
     if (addonEl) addonEl.value = extras.join(",");
@@ -233,6 +556,13 @@
           card.classList.add("active");
         } else {
           card.classList.remove("active");
+        }
+      });
+      document.querySelectorAll(".tier-summary-chip").forEach(function (chip) {
+        if (chip.getAttribute("data-engine-pill") === engineVal) {
+          chip.classList.add("is-active");
+        } else {
+          chip.classList.remove("is-active");
         }
       });
       calcTotal();
@@ -270,47 +600,82 @@
       statusMeta.innerHTML = '<span class="status-tick">✓</span> <span class="status-label">পাঠানো হয়েছে</span>';
       div.appendChild(statusMeta);
 
-      // Simulate human seen receipt after 750ms
+      // Simulate seen status quickly (350ms)
       setTimeout(function () {
         statusMeta.innerHTML = '<span class="status-tick is-seen">✓✓</span> <span class="status-label">দেখা হয়েছে</span>';
-      }, 750);
+      }, 350);
 
       if (onComplete) onComplete();
       return;
     }
 
-    // Realistic human word-by-word typing effect for bot replies
-    const words = text.split(/(\s+)/);
-    let idx = 0;
+    // Realistic human word-by-word typing simulation (Snappy, visible cadence without long waiting)
+    AmpChatAudio.playReceived();
+    const textSpan = document.createElement("span");
+    textSpan.className = "bot-msg-text";
+    div.appendChild(textSpan);
+
+    const cursor = document.createElement("span");
+    cursor.className = "typing-cursor";
+    div.appendChild(cursor);
+
+    // Split text into word tokens preserving whitespace and newlines
+    const words = text.match(/(\S+\s*|\n+)/g) || [text];
+    let wordIdx = 0;
+    let isFinished = false;
+
+    function finishTyping() {
+      if (isFinished) return;
+      isFinished = true;
+      textSpan.textContent = text;
+      if (cursor && cursor.parentNode) cursor.remove();
+      log.scrollTop = log.scrollHeight;
+
+      if (checkoutUrl) {
+        const ctaWrap = document.createElement("div");
+        ctaWrap.style.cssText = "margin-top:10px; padding-top:8px; border-top:1px dashed rgba(255,255,255,0.2);";
+        const ctaBtn = document.createElement("a");
+        ctaBtn.href = checkoutUrl;
+        ctaBtn.className = "amp-chat-cta-btn";
+        ctaBtn.style.cssText = "display:inline-flex; align-items:center; gap:6px; background:linear-gradient(135deg, #10b981, #059669); color:#ffffff; font-weight:700; font-size:0.85rem; padding:8px 14px; border-radius:6px; text-decoration:none; box-shadow:0 2px 8px rgba(16,185,129,0.3);";
+        ctaBtn.innerHTML = "🎟️ ৳৫০০ নগদ ছাড়ে এখনই অর্ডার করুন →";
+        ctaWrap.appendChild(ctaBtn);
+        div.appendChild(ctaWrap);
+        log.scrollTop = log.scrollHeight;
+      }
+      if (onComplete) onComplete();
+    }
+
+    // Allow user to click bubble to instantly complete typing
+    div.addEventListener("click", function () {
+      if (!isFinished) {
+        finishTyping();
+      }
+    });
 
     function typeNextWord() {
-      if (idx < words.length) {
-        div.textContent += words[idx];
-        idx++;
+      if (isFinished) return;
+      if (wordIdx < words.length) {
+        textSpan.textContent += words[wordIdx];
+        const currentWord = words[wordIdx];
+        wordIdx++;
         log.scrollTop = log.scrollHeight;
 
-        let delay = Math.floor(Math.random() * 22) + 18;
-        const last = words[idx - 1];
-        if (last && (last.includes("।") || last.includes("?") || last.includes("!") || last.includes("\n"))) {
-          delay += 110;
-        } else if (last && (last.includes(",") || last.includes(";"))) {
+        // Snappy word typing speed: 50ms - 80ms per word
+        let delay = Math.floor(Math.random() * 30) + 50;
+
+        // Minor breath pause at punctuation (100ms)
+        if (/[,\-—:]/.test(currentWord)) {
           delay += 60;
         }
+        // Brief pause at sentence end (160ms)
+        else if (/[।?!]|\n/.test(currentWord)) {
+          delay += 100;
+        }
+
         setTimeout(typeNextWord, delay);
       } else {
-        if (checkoutUrl) {
-          const ctaWrap = document.createElement("div");
-          ctaWrap.style.cssText = "margin-top:10px; padding-top:8px; border-top:1px dashed rgba(255,255,255,0.2);";
-          const ctaBtn = document.createElement("a");
-          ctaBtn.href = checkoutUrl;
-          ctaBtn.className = "amp-chat-cta-btn";
-          ctaBtn.style.cssText = "display:inline-flex; align-items:center; gap:6px; background:linear-gradient(135deg, #10b981, #059669); color:#ffffff; font-weight:700; font-size:0.85rem; padding:8px 14px; border-radius:6px; text-decoration:none; box-shadow:0 2px 8px rgba(16,185,129,0.3);";
-          ctaBtn.innerHTML = "🎟️ ৳৫০০ নগদ ছাড়ে এখনই অর্ডার করুন →";
-          ctaWrap.appendChild(ctaBtn);
-          div.appendChild(ctaWrap);
-          log.scrollTop = log.scrollHeight;
-        }
-        if (onComplete) onComplete();
+        finishTyping();
       }
     }
 
@@ -343,20 +708,25 @@
     const input = document.getElementById("ampChatInput");
     const msg = (text || (input && input.value) || "").trim();
     const isGreet = !!options.greet;
-    const currentAgent = options.agent || getAssignedAgent();
+    let currentAgent = options.agent || getAssignedAgent();
+
+    renderSavedHistoryToUI();
 
     if (!isGreet && !msg) return;
     if (input && !isGreet) input.value = "";
     if (!isGreet) {
       appendChat("user", msg);
+      AmpChatAudio.playSent();
       history.push({ role: "user", content: msg });
+      const nowTime = new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
+      appendToSavedHistory({ role: "user", content: msg, time: nowTime });
     }
 
     const sendTime = Date.now();
     let thinking = null;
 
     if (!isGreet) {
-      // Realistic human reaction delay before typing starts (after 750ms seen mark)
+      // 1. Typing indicator starts after quick realistic delay (300ms)
       setTimeout(function () {
         if (!thinking) {
           thinking = document.createElement("div");
@@ -367,8 +737,9 @@
             log.appendChild(thinking);
             log.scrollTop = log.scrollHeight;
           }
+          AmpChatAudio.playTypingStart();
         }
-      }, 800);
+      }, 300);
     } else {
       thinking = document.createElement("div");
       thinking.className = "amp-chat-bubble amp-chat-bot amp-chat-typing-indicator";
@@ -378,6 +749,7 @@
         log.appendChild(thinking);
         log.scrollTop = log.scrollHeight;
       }
+      AmpChatAudio.playTypingStart();
     }
 
     try {
@@ -388,6 +760,7 @@
           message: isGreet ? "" : msg,
           action: isGreet ? "greet" : "chat",
           lang: uiLang(),
+          visitor_id: getVisitorId(),
           agent_id: currentAgent.id,
           agent_name: currentAgent.name,
           agent_role: currentAgent.role,
@@ -398,9 +771,18 @@
       const data = await res.json();
       const reply = data.reply || (isGreet ? currentAgent.greet : "…");
 
-      const minDelay = isGreet ? 400 : 1350;
+      if (data.visitor_id) {
+        try { localStorage.setItem(STORAGE_KEY_VID, data.visitor_id); } catch (e) {}
+      }
+      if (data.assigned_agent_id && data.assigned_agent_id !== currentAgent.id) {
+        const syncedAgent = setAssignedAgent(data.assigned_agent_id);
+        if (syncedAgent) currentAgent = syncedAgent;
+      }
+
+      // Snappy reaction time: start typing response quickly (350-450ms)
+      const minDelay = isGreet ? 150 : 450;
       const elapsed = Date.now() - sendTime;
-      const remainingWait = Math.max(200, minDelay - elapsed);
+      const remainingWait = Math.max(80, minDelay - elapsed);
 
       setTimeout(function () {
         if (thinking && thinking.parentNode) thinking.remove();
@@ -416,6 +798,8 @@
           }
         }, data.checkout_url);
         history.push({ role: "assistant", content: reply });
+        const replyTime = new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
+        appendToSavedHistory({ role: "bot", content: reply, time: replyTime, checkoutUrl: data.checkout_url || null });
       }, remainingWait);
 
       if (data.open_whatsapp && data.whatsapp_url) {
@@ -549,11 +933,17 @@
       const desc = document.getElementById("ampConnectingDesc");
       const prog = document.getElementById("ampConnectingProgress");
 
+      const savedList = loadSavedChatHistory();
+      const isReturningVisitor = savedList.length > 0;
+
+      // Render saved history to UI before greeting
+      renderSavedHistoryToUI();
+
       if (!overlay || panel.dataset.greeted) {
         if (overlay) overlay.style.display = "none";
         if (!panel.dataset.greeted) {
           panel.dataset.greeted = "1";
-          sendChat("", { greet: true, agent: agent });
+          sendChat("", { greet: true, agent: agent, isReturning: isReturningVisitor });
         }
         const inp = document.getElementById("ampChatInput");
         if (inp) setTimeout(function () { inp.focus(); }, 150);
@@ -563,23 +953,46 @@
 
       overlay.style.display = "flex";
       overlay.style.opacity = "1";
-      if (prog) prog.style.width = "15%";
-      if (title) title.textContent = "লাইভ সাপোর্ট সক্রিয় হচ্ছে…";
-      if (desc) desc.textContent = "🔄 আপনার জন্য একজন কাস্টমার কনসালট্যান্ট নির্ধারণ করা হচ্ছে...";
 
-      // Step 2: Agent Assigned (700ms)
-      setTimeout(function () {
-        if (prog) prog.style.width = "65%";
-        if (title) title.textContent = agent.name + " দায়িত্ব নিচ্ছেন…";
-        if (desc) desc.textContent = "👤 " + agent.name + " (" + agent.role + ") আপনার চ্যাটের দায়িত্ব গ্রহণ করেছেন...";
-      }, 700);
+      if (isReturningVisitor) {
+        if (prog) prog.style.width = "25%";
+        if (title) title.textContent = "পূর্ববর্তী সেশন রিকল হচ্ছে…";
+        if (desc) desc.textContent = "🔄 আপনার পূর্বের কথোপকথন ও প্যাকেজ পছন্দ উদ্ধার করা হচ্ছে...";
 
-      // Step 3: Connection Established (1400ms)
-      setTimeout(function () {
-        if (prog) prog.style.width = "100%";
-        if (title) title.textContent = "✅ লাইভ সংযোগ স্থাপিত!";
-        if (desc) desc.textContent = "এখনই চ্যাট শুরু হচ্ছে...";
-      }, 1400);
+        // Step 2: Agent Reconnection (700ms)
+        setTimeout(function () {
+          if (prog) prog.style.width = "70%";
+          if (title) title.textContent = agent.name + " পুনরায় যুক্ত হচ্ছেন…";
+          if (desc) desc.textContent = "👤 আপনার পূর্বের কনসালট্যান্ট " + agent.name + " (" + agent.role + ") সরাসরি যুক্ত হচ্ছেন...";
+        }, 700);
+
+        // Step 3: Connection Restored (1400ms)
+        setTimeout(function () {
+          if (prog) prog.style.width = "100%";
+          if (title) title.textContent = "✅ লাইভ সংযোগ সক্রিয়!";
+          if (desc) desc.textContent = "আপনার সাথে পুনরায় যুক্ত হতে পেরে আমরা আনন্দিত...";
+          AmpChatAudio.playConnected();
+        }, 1400);
+      } else {
+        if (prog) prog.style.width = "15%";
+        if (title) title.textContent = "লাইভ সাপোর্ট সক্রিয় হচ্ছে…";
+        if (desc) desc.textContent = "🔄 আপনার জন্য একজন কাস্টমার কনসালট্যান্ট নির্ধারণ করা হচ্ছে...";
+
+        // Step 2: Agent Assigned (700ms)
+        setTimeout(function () {
+          if (prog) prog.style.width = "65%";
+          if (title) title.textContent = agent.name + " দায়িত্ব নিচ্ছেন…";
+          if (desc) desc.textContent = "👤 " + agent.name + " (" + agent.role + ") আপনার চ্যাটের দায়িত্ব গ্রহণ করেছেন...";
+        }, 700);
+
+        // Step 3: Connection Established (1400ms)
+        setTimeout(function () {
+          if (prog) prog.style.width = "100%";
+          if (title) title.textContent = "✅ লাইভ সংযোগ স্থাপিত!";
+          if (desc) desc.textContent = "এখনই চ্যাট শুরু হচ্ছে...";
+          AmpChatAudio.playConnected();
+        }, 1400);
+      }
 
       // Step 4: Fade out and greet (1750ms)
       setTimeout(function () {
@@ -588,7 +1001,7 @@
           overlay.style.display = "none";
           if (!panel.dataset.greeted) {
             panel.dataset.greeted = "1";
-            sendChat("", { greet: true, agent: agent });
+            sendChat("", { greet: true, agent: agent, isReturning: isReturningVisitor });
           }
           const inp = document.getElementById("ampChatInput");
           if (inp) inp.focus();
@@ -599,6 +1012,8 @@
 
     function openLiveChat() {
       if (!panel) return;
+      AmpChatAudio.unlock();
+      AmpChatAudio.updateSoundButtonUI();
       if (choiceCard) {
         choiceCard.classList.add("is-hidden");
         choiceCard.style.display = "none";
@@ -614,6 +1029,7 @@
     if (launcher) {
       launcher.onclick = function (e) {
         e.stopPropagation();
+        AmpChatAudio.unlock();
         const isChoiceOpen = choiceCard && !choiceCard.classList.contains("is-hidden") && choiceCard.style.display !== "none";
         const isPanelOpen = panel && !panel.classList.contains("is-hidden") && panel.style.display !== "none";
         if (isChoiceOpen || isPanelOpen) {
@@ -649,6 +1065,35 @@
       chatClose.onclick = function (e) {
         e.stopPropagation();
         closeAll();
+      };
+    }
+
+    const soundToggleBtn = document.getElementById("ampChatSoundToggle");
+    if (soundToggleBtn) {
+      AmpChatAudio.updateSoundButtonUI();
+      soundToggleBtn.onclick = function (e) {
+        e.stopPropagation();
+        AmpChatAudio.unlock();
+        AmpChatAudio.toggleMute();
+      };
+    }
+
+    const resetBtn = document.getElementById("ampChatReset");
+    if (resetBtn) {
+      resetBtn.onclick = function (e) {
+        e.stopPropagation();
+        if (confirm("আপনি কি পূর্ববর্তী চ্যাট মুছে ফেলে নতুন করে কথা শুরু করতে চান?")) {
+          clearSavedHistory();
+          history.length = 0;
+          hasRenderedSavedHistory = false;
+          const log = document.getElementById("ampChatLog");
+          if (log) log.innerHTML = "";
+          delete panel.dataset.greeted;
+          try {
+            sessionStorage.removeItem("amp_chat_sid");
+          } catch (err) {}
+          startConnectingSequence(getAssignedAgent());
+        }
       };
     }
 

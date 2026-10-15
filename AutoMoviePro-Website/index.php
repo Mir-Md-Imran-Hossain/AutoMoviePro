@@ -157,6 +157,7 @@ $broadcastLinkText = setting($pdo, 'broadcast_link_text', '');
         </p>
         <div class="cta-row cta-row-single-line">
           <a class="btn btn-hero" href="#buy" data-i18n="buy_now">এখনই লাইসেন্স নিন</a>
+          <a class="btn btn-hero btn-ghost" href="#demo-video" data-i18n="see_demo_video">🎬 লাইভ ডেমো ভিডিও দেখুন</a>
           <a class="btn btn-hero btn-ghost" href="#features" data-i18n="see_features">সব ফিচার এক্সপ্লোর করুন</a>
           <a class="btn btn-hero btn-wa" href="<?= e($waLink) ?>" target="_blank" rel="noopener" data-i18n="chat_whatsapp">WhatsApp পরামর্শ</a>
         </div>
@@ -183,6 +184,59 @@ $broadcastLinkText = setting($pdo, 'broadcast_link_text', '');
           <div class="hero-telemetry-chip chip-bottom">
             <span>⚡</span>
             <span data-i18n="studio_badge_channels">⚡ ১৮টি মাল্টি-চ্যানেল অটো স্ট্রিম</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Live Walkthrough & Demo Video Section -->
+  <section id="demo-video" class="reveal demo-video-section">
+    <div class="demo-video-container">
+      <div class="section-head">
+        <span class="video-pill">🎬 অফিসিয়াল ভিডিও ওয়াকথ্রু ও লাইভ ডেমো</span>
+        <h2 data-i18n="video_section_title">AutoMovie Pro সফটওয়্যার কীভাবে কাজ করে — সরাসরি দেখুন</h2>
+        <p class="lead" data-i18n="video_section_lead">স্ক্রিপ্ট তৈরি থেকে শুরু করে ভয়েসওভার, সিনেমাটিক সিন, সাবটাইটেল কম্পোজিশন এবং স্বয়ংক্রিয় ১৮টি চ্যানেলে আপলোড — সফটওয়্যারটির সকল কার্যক্রমের পুঙ্খানুপুঙ্খ বিবরণ সরাসরি এই ভিডিওতে দেখুন।</p>
+      </div>
+
+      <!-- Modern Cinematic Video Player Box -->
+      <div class="video-player-wrapper">
+        <div class="video-player-frame">
+          <video id="ampWalkthroughVideo" controls playsinline preload="metadata" poster="/assets/img/hero-studio.png">
+            <source src="/assets/video/automovie_pro_walkthrough.mp4" type="video/mp4">
+            আপনার ব্রাউজার ভিডিওটি প্লে করতে পারছে না।
+          </video>
+        </div>
+
+        <!-- Video Highlights Bar -->
+        <div class="video-highlights-grid">
+          <div class="video-highlight-card">
+            <div class="vh-icon">⚡</div>
+            <div class="vh-text">
+              <strong>১-ক্লিকে ফুল ভিডিও তৈরি</strong>
+              <span>স্ক্রিপ্ট, ভয়েস, ব্যাকগ্রাউন্ড মিউজিক ও সিনেমাটিক সিন স্বয়ংক্রিয়ভাবে তৈরি হয়</span>
+            </div>
+          </div>
+          <div class="video-highlight-card">
+            <div class="vh-icon">🌐</div>
+            <div class="vh-text">
+              <strong>বহুভাষিক অটো-ট্রান্সলেশন</strong>
+              <span>একটি ভিডিও ৬টিরও বেশি আন্তর্জাতিক ভাষায় নিখুঁত লোকাল টিউন সহ রূপান্তর</span>
+            </div>
+          </div>
+          <div class="video-highlight-card">
+            <div class="vh-icon">📱</div>
+            <div class="vh-text">
+              <strong>১৮টি চ্যানেলে অটো-পোস্টিং</strong>
+              <span>ইউটিউব, ফেসবুক ও টিকটকে শিডিউল অনুযায়ী স্বয়ংক্রিয় আপলোড ও অ্যানসার</span>
+            </div>
+          </div>
+          <div class="video-highlight-card">
+            <div class="vh-icon">💻</div>
+            <div class="vh-text">
+              <strong>১০০% লোকাল পিসি সিকিউরিটি</strong>
+              <span>কোনো ক্লাউড সাবস্ক্রিপশন নেই, লাইফটাইম লাইসেন্স আপনার নিজের কম্পিউটারে</span>
+            </div>
           </div>
         </div>
       </div>
@@ -885,12 +939,24 @@ $broadcastLinkText = setting($pdo, 'broadcast_link_text', '');
   <!-- Core Software Purchase Form -->
   <section id="buy" class="reveal">
     <div class="purchase-wrapper">
-      <div class="section-head" style="margin-bottom: 2rem;">
-        <h2 data-i18n="purchase">অর্ডার ও লাইসেন্সিং</h2>
-        <div class="price-block">
-          <div class="amount" id="heroSelectedPrice">৳৩,৯৯৯</div>
-          <div class="lead" id="heroSelectedPlanNote" data-i18n="price_base_note">লাইফটাইম লাইসেন্স — ইংরেজি + আপনার পছন্দের ১টি ভাষা অন্তর্ভুক্ত</div>
-          <p class="addon-note" data-i18n="price_addon_note" data-i18n-vars='<?= e(json_encode(["n" => (int) $addonPrice], JSON_UNESCAPED_UNICODE)) ?>'>অতিরিক্ত প্রতি ভাষা মাত্র ৳<?= (int) $addonPrice ?></p>
+      <div class="section-head" style="margin-bottom: 1.5rem;">
+        <h2 data-i18n="purchase">অর্ডার ও লাইসেন্সিং (লাইফটাইম লাইসেন্স)</h2>
+        <p class="lead" style="max-width: 780px; margin: 0.5rem auto 1rem; color: #94a3b8; font-size: 1rem;">
+          আমাদের ৩টি স্বতন্ত্র অটোমেশন ইঞ্জিনের মধ্যে আপনার প্রয়োজন ও বাজেট অনুযায়ী যেকোনো প্যাকেজ বেছে নিন। এককালীন ওয়ান-টাইম ফি, কোনো মাসিক সাবস্ক্রিপশন চার্জ নেই — আজীবন ফ্রি আপডেট সহ লাইফটাইম লাইসেন্স।
+        </p>
+        <div class="packages-tier-summary-bar">
+          <span class="tier-summary-chip is-active" data-engine-pill="video_studio" onclick="window.selectEngineRadio('video_studio')">
+            <span>🎬 ১. Social Media Engine</span>
+            <span class="chip-price">৳৩,৯৯৯</span>
+          </span>
+          <span class="tier-summary-chip" data-engine-pill="fb_business" onclick="window.selectEngineRadio('fb_business')">
+            <span>💼 ২. FB Business & Ads</span>
+            <span class="chip-price">৳২,৯৯৯</span>
+          </span>
+          <span class="tier-summary-chip" data-engine-pill="profile_page" onclick="window.selectEngineRadio('profile_page')">
+            <span>📱 ৩. Profile & Page Pilot</span>
+            <span class="chip-price">৳১,৯৯৯</span>
+          </span>
         </div>
       </div>
 
@@ -913,7 +979,7 @@ $broadcastLinkText = setting($pdo, 'broadcast_link_text', '');
                   <span class="engine-select-price">৳৩,৯৯৯</span>
                 </div>
                 <h4 data-i18n="engine1_radio_title">১. Social Media Content Automation Engine</h4>
-                <p>সম্পূর্ণ এআই ভিডিও তৈরি, ট্রান্সলেশন এবং YouTube, Facebook ও TikTok-এ অটোমেটিক আপলোড।</p>
+                <p>সম্পূর্ণ এআই ভিডিও তৈরি, বহুভাষিক ট্রান্সলেশন এবং YouTube, Facebook ও TikTok-এ ১৮টি চ্যানেলে অটো আপলোড।</p>
               </div>
             </label>
 
@@ -925,7 +991,7 @@ $broadcastLinkText = setting($pdo, 'broadcast_link_text', '');
                   <span class="engine-select-price">৳২,৯৯৯</span>
                 </div>
                 <h4 data-i18n="engine2_radio_title">২. FB Business Manager & Ad Automation Engine</h4>
-                <p>সেলস ব্যানার, বিজ্ঞাপন ভিডিও, গ্রুপে অর্গানিক শেয়ার ও মেসেঞ্জারে ২৪/৭ স্মার্ট সেলস রিপ্লাই।</p>
+                <p>সেলস ব্যানার, প্রমোশনাল বিজ্ঞাপন ভিডিও, গ্রুপ সমূহে অর্গানিক শেয়ার ও মেসেঞ্জারে ২৪/৭ স্মার্ট সেলস রিপ্লাই।</p>
               </div>
             </label>
 
@@ -942,6 +1008,17 @@ $broadcastLinkText = setting($pdo, 'broadcast_link_text', '');
             </label>
           </div>
         </fieldset>
+
+        <!-- Dynamic Selected Plan Details Card -->
+        <div class="selected-plan-summary-box" id="selectedPlanSummaryBox">
+          <div class="spsb-header">
+            <span class="spsb-badge">বর্তমানে নির্বাচিত ইঞ্জিন ও লাইসেন্স</span>
+            <div class="spsb-price" id="heroSelectedPrice">৳৩,৯৯৯</div>
+          </div>
+          <h3 class="spsb-title" id="heroSelectedPlanName">১. Social Media Content Automation Engine</h3>
+          <p class="spsb-desc" id="heroSelectedPlanNote">Social Media Engine — লাইফটাইম লাইসেন্স (ইংরেজি + ১টি ব্যক্তিগত ভাষা অন্তর্ভুক্ত)</p>
+          <div class="spsb-addon-hint" id="addonNoteDisplay">💡 অতিরিক্ত প্রতি ভাষা মাত্র ৳<?= (int) $addonPrice ?> (নিচে থেকে বেছে নিতে পারেন)</div>
+        </div>
 
         <div class="form-group">
           <label><span data-i18n="name">আপনার পূর্ণ নাম</span></label>
@@ -1208,6 +1285,8 @@ $broadcastLinkText = setting($pdo, 'broadcast_link_text', '');
           </div>
         </div>
         <div class="amp-chat-head-actions">
+          <button type="button" class="amp-chat-sound" id="ampChatSoundToggle" title="সাউন্ড মিউট / আনমিউট">🔊</button>
+          <button type="button" class="amp-chat-reset" id="ampChatReset" title="নতুন চ্যাট শুরু করুন">🔄</button>
           <button type="button" class="amp-chat-back" id="ampChatBack" title="মেনুতে ফিরুন">↩</button>
           <button type="button" class="amp-chat-close" id="ampChatClose" aria-label="Close">✕</button>
         </div>

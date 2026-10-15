@@ -229,6 +229,7 @@ function ensure_amp_migrations(PDO $pdo): void
             $pdo->exec(
                 "CREATE TABLE IF NOT EXISTS customer_chat_logs (
                   id INTEGER PRIMARY KEY AUTOINCREMENT,
+                  visitor_id VARCHAR(64) NULL,
                   session_id VARCHAR(64) NULL,
                   customer_ip VARCHAR(64) NULL,
                   lang VARCHAR(8) NOT NULL DEFAULT 'bn',
@@ -236,7 +237,27 @@ function ensure_amp_migrations(PDO $pdo): void
                   agent_name VARCHAR(64) NOT NULL DEFAULT 'আয়েশা (Ayesha)',
                   user_message TEXT NULL,
                   bot_reply TEXT NULL,
+                  chosen_package VARCHAR(64) NULL,
                   whatsapp_handoff TINYINT(1) NOT NULL DEFAULT 0,
+                  created_at DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP
+                )"
+            );
+            try { $pdo->exec("ALTER TABLE customer_chat_logs ADD COLUMN visitor_id VARCHAR(64) NULL"); } catch (\Throwable $e) {}
+            try { $pdo->exec("ALTER TABLE customer_chat_logs ADD COLUMN chosen_package VARCHAR(64) NULL"); } catch (\Throwable $e) {}
+
+            $pdo->exec(
+                "CREATE TABLE IF NOT EXISTS customer_visitor_profiles (
+                  visitor_id VARCHAR(64) PRIMARY KEY,
+                  customer_name VARCHAR(120) NULL,
+                  customer_phone VARCHAR(32) NULL,
+                  first_seen_at DATETIME NOT NULL,
+                  last_seen_at DATETIME NOT NULL,
+                  visit_count INT NOT NULL DEFAULT 1,
+                  assigned_agent_id VARCHAR(32) NOT NULL DEFAULT 'ayesha',
+                  assigned_agent_name VARCHAR(64) NOT NULL DEFAULT 'আয়েশা (Ayesha)',
+                  last_interested_package VARCHAR(64) NULL,
+                  last_objection VARCHAR(120) NULL,
+                  conversation_summary TEXT NULL,
                   created_at DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP
                 )"
             );
@@ -244,6 +265,7 @@ function ensure_amp_migrations(PDO $pdo): void
             $pdo->exec(
                 "CREATE TABLE IF NOT EXISTS customer_chat_logs (
                   id BIGINT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
+                  visitor_id VARCHAR(64) NULL,
                   session_id VARCHAR(64) NULL,
                   customer_ip VARCHAR(64) NULL,
                   lang VARCHAR(8) NOT NULL DEFAULT 'bn',
@@ -251,10 +273,33 @@ function ensure_amp_migrations(PDO $pdo): void
                   agent_name VARCHAR(64) NOT NULL DEFAULT 'আয়েশা (Ayesha)',
                   user_message TEXT NULL,
                   bot_reply TEXT NULL,
+                  chosen_package VARCHAR(64) NULL,
                   whatsapp_handoff TINYINT(1) NOT NULL DEFAULT 0,
                   created_at DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
+                  INDEX (visitor_id),
                   INDEX (session_id),
                   INDEX (created_at)
+                ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4"
+            );
+            try { $pdo->exec("ALTER TABLE customer_chat_logs ADD COLUMN visitor_id VARCHAR(64) NULL"); } catch (\Throwable $e) {}
+            try { $pdo->exec("ALTER TABLE customer_chat_logs ADD COLUMN chosen_package VARCHAR(64) NULL"); } catch (\Throwable $e) {}
+
+            $pdo->exec(
+                "CREATE TABLE IF NOT EXISTS customer_visitor_profiles (
+                  visitor_id VARCHAR(64) PRIMARY KEY,
+                  customer_name VARCHAR(120) NULL,
+                  customer_phone VARCHAR(32) NULL,
+                  first_seen_at DATETIME NOT NULL,
+                  last_seen_at DATETIME NOT NULL,
+                  visit_count INT NOT NULL DEFAULT 1,
+                  assigned_agent_id VARCHAR(32) NOT NULL DEFAULT 'ayesha',
+                  assigned_agent_name VARCHAR(64) NOT NULL DEFAULT 'আয়েশা (Ayesha)',
+                  last_interested_package VARCHAR(64) NULL,
+                  last_objection VARCHAR(120) NULL,
+                  conversation_summary TEXT NULL,
+                  created_at DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
+                  INDEX (assigned_agent_id),
+                  INDEX (last_seen_at)
                 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4"
             );
         }

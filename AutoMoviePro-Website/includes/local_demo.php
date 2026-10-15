@@ -264,6 +264,40 @@ function amp_local_demo_schema(PDO $pdo): void
           created_at TEXT
         )"
     );
+    $pdo->exec(
+        "CREATE TABLE IF NOT EXISTS customer_chat_logs (
+          id INTEGER PRIMARY KEY AUTOINCREMENT,
+          visitor_id TEXT NULL,
+          session_id TEXT NULL,
+          customer_ip TEXT NULL,
+          lang TEXT NOT NULL DEFAULT 'bn',
+          agent_id TEXT NOT NULL DEFAULT 'ayesha',
+          agent_name TEXT NOT NULL DEFAULT 'আয়েশা (Ayesha)',
+          user_message TEXT NULL,
+          bot_reply TEXT NULL,
+          chosen_package TEXT NULL,
+          whatsapp_handoff INTEGER NOT NULL DEFAULT 0,
+          created_at TEXT DEFAULT CURRENT_TIMESTAMP
+        )"
+    );
+    try { $pdo->exec("ALTER TABLE customer_chat_logs ADD COLUMN visitor_id TEXT NULL"); } catch (\Throwable $e) {}
+    try { $pdo->exec("ALTER TABLE customer_chat_logs ADD COLUMN chosen_package TEXT NULL"); } catch (\Throwable $e) {}
+    $pdo->exec(
+        "CREATE TABLE IF NOT EXISTS customer_visitor_profiles (
+          visitor_id TEXT PRIMARY KEY,
+          customer_name TEXT NULL,
+          customer_phone TEXT NULL,
+          first_seen_at TEXT NOT NULL,
+          last_seen_at TEXT NOT NULL,
+          visit_count INTEGER NOT NULL DEFAULT 1,
+          assigned_agent_id TEXT NOT NULL DEFAULT 'ayesha',
+          assigned_agent_name TEXT NOT NULL DEFAULT 'আয়েশা (Ayesha)',
+          last_interested_package TEXT NULL,
+          last_objection TEXT NULL,
+          conversation_summary TEXT NULL,
+          created_at TEXT DEFAULT CURRENT_TIMESTAMP
+        )"
+    );
 }
 
 function amp_local_demo_seed(PDO $pdo): void
