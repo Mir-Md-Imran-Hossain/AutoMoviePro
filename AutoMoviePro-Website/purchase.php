@@ -54,6 +54,20 @@ if ($productType === 'fb_business' || str_contains($plan, 'FB Business')) {
     $plan = 'AutoMovie Pro - FB Profile & Page Post Automation Engine (Lifetime License)';
     $baseLangs = 'en,' . $personal;
     $addonLangs = implode(',', $addonCodes);
+} elseif ($productType === 'wa_marketing' || str_contains($plan, 'WhatsApp') || str_contains($plan, 'WAManager')) {
+    $productType = 'wa_marketing';
+    $waChoice = (int) ($_POST['wa_plan_choice'] ?? ($durationMonths >= 36 || $durationMonths === 3 ? 3 : 1));
+    if ($waChoice === 3 || $durationMonths === 36 || $durationMonths === 3) {
+        $durationMonths = 36;
+        $amount = 1999.0;
+        $plan = 'WAManager Pro — WhatsApp Marketing & CRM Suite (৩ বছর সাবস্ক্রিপশন + নিয়মিত ফিচার আপডেট)';
+    } else {
+        $durationMonths = 12;
+        $amount = 999.0;
+        $plan = 'WAManager Pro — WhatsApp Marketing & CRM Suite (১ বছর সাবস্ক্রিপশন + নিয়মিত ফিচার আপডেট)';
+    }
+    $baseLangs = 'all';
+    $addonLangs = 'wa_bulk_autoreply_leads_crm';
 } elseif ($productType === 'google_pro' || str_contains($plan, 'Google AI Pro') || str_contains($plan, 'Gemini Pro')) {
     $productType = 'google_pro';
     if ($durationMonths === 24) {

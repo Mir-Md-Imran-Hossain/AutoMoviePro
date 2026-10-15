@@ -18,10 +18,12 @@ $waLink = amp_whatsapp_sales_link('Hi! I want to order AutoMovie Pro.');
 $error = !empty($_GET['error']);
 ?>
 <!DOCTYPE html>
-<html lang="<?= e($uiLang) ?>"<?= $uiLang === 'ur' ? ' dir="rtl"' : '' ?>>
+<html lang="<?= e($uiLang) ?>" class="notranslate" translate="no"<?= $uiLang === 'ur' ? ' dir="rtl"' : '' ?>>
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="google" content="notranslate">
+  <meta name="googlebot" content="notranslate">
   <title><?= e($brand) ?> — Checkout</title>
   <meta name="robots" content="noindex">
   <link rel="icon" type="image/png" href="/assets/img/favicon.png">
@@ -37,7 +39,7 @@ $error = !empty($_GET['error']);
     };
   </script>
 </head>
-<body>
+<body class="notranslate" translate="no">
   <header class="site-header">
     <a class="logo-link" href="/?lang=<?= e($uiLang) ?>">
       <img class="logo-img" src="/assets/img/logo.png?v=<?= filemtime(__DIR__ . '/assets/img/logo.png') ?>" alt="<?= e($brand) ?>" width="40" height="40">
@@ -57,13 +59,22 @@ $error = !empty($_GET['error']);
 
   <?php
   $reqProduct = strtolower(trim((string) ($_GET['product'] ?? 'video_studio')));
-  if (!in_array($reqProduct, ['video_studio', 'fb_business', 'profile_page', 'google_pro'], true)) {
+  if (!in_array($reqProduct, ['video_studio', 'fb_business', 'profile_page', 'wa_marketing', 'google_pro'], true)) {
       $reqProduct = 'video_studio';
   }
   $reqPlan = (int) ($_GET['plan'] ?? 1);
   $isGooglePro = ($reqProduct === 'google_pro');
 
-  if ($isGooglePro) {
+  if ($reqProduct === 'wa_marketing') {
+      if ($reqPlan === 3 || $reqPlan === 36) {
+          $initialPrice = 1999;
+          $initialPlanName = 'WAManager Pro — WhatsApp Marketing & CRM Suite (৩ বছর সাবস্ক্রিপশন)';
+      } else {
+          $reqPlan = 1;
+          $initialPrice = 999;
+          $initialPlanName = 'WAManager Pro — WhatsApp Marketing & CRM Suite (১ বছর সাবস্ক্রিপশন)';
+      }
+  } elseif ($isGooglePro) {
       if ($reqPlan === 24) $initialPrice = 1999;
       elseif ($reqPlan === 18) $initialPrice = 1299;
       elseif ($reqPlan === 12) $initialPrice = 999;
@@ -94,9 +105,9 @@ $error = !empty($_GET['error']);
         </p>
       <?php endif; ?>
 
-      <!-- Product Selection Tabs (4 Distinct Products) -->
+      <!-- Product Selection Tabs (5 Distinct Products) -->
       <div style="display: flex; gap: 0.65rem; justify-content: center; margin-bottom: 2rem; flex-wrap: wrap;">
-        <button type="button" id="tabVideoStudioBtn" class="btn <?= ($reqProduct === 'video_studio' || (!$isGooglePro && $reqProduct !== 'fb_business' && $reqProduct !== 'profile_page')) ? '' : 'btn-ghost' ?>" style="border-radius: var(--radius-full); font-size: 0.92rem;">
+        <button type="button" id="tabVideoStudioBtn" class="btn <?= ($reqProduct === 'video_studio') ? '' : 'btn-ghost' ?>" style="border-radius: var(--radius-full); font-size: 0.92rem;">
           🎬 ১. Social Media Engine (৳৩,৯৯৯)
         </button>
         <button type="button" id="tabFbBusinessBtn" class="btn <?= ($reqProduct === 'fb_business') ? '' : 'btn-ghost' ?>" style="border-radius: var(--radius-full); font-size: 0.92rem;">
@@ -105,8 +116,11 @@ $error = !empty($_GET['error']);
         <button type="button" id="tabProfilePageBtn" class="btn <?= ($reqProduct === 'profile_page') ? '' : 'btn-ghost' ?>" style="border-radius: var(--radius-full); font-size: 0.92rem;">
           📝 ৩. FB Profile Engine (৳১,৯৯৯)
         </button>
+        <button type="button" id="tabWaMarketingBtn" class="btn <?= ($reqProduct === 'wa_marketing') ? '' : 'btn-ghost' ?>" style="border-radius: var(--radius-full); font-size: 0.92rem; border-color:#25D366; color:<?= ($reqProduct === 'wa_marketing') ? '#000' : '#25D366' ?>; <?= ($reqProduct === 'wa_marketing') ? 'background:#25D366;' : '' ?>">
+          📱 ৪. WhatsApp মার্কেটিং (৳৯৯৯/৳১,৯৯৯)
+        </button>
         <button type="button" id="tabGoogleProBtn" class="btn <?= $isGooglePro ? '' : 'btn-ghost' ?>" style="border-radius: var(--radius-full); font-size: 0.92rem;">
-          🚀 ৪. Special Gemini Pro API
+          🚀 ৫. Special Gemini Pro API
         </button>
       </div>
 
@@ -176,7 +190,52 @@ $error = !empty($_GET['error']);
         </div>
       </div>
 
-      <!-- 4. Google Pro Price Block & Highlights -->
+      <!-- 4. WAManager Pro WhatsApp Marketing Block -->
+      <div id="waMarketingBlock" style="<?= ($reqProduct === 'wa_marketing') ? '' : 'display:none;' ?> background: rgba(11, 21, 40, 0.85); border: 2px solid #25D366; border-radius: var(--radius-lg); padding: 1.75rem; margin-bottom: 2rem; box-shadow: 0 0 30px rgba(37, 211, 102, 0.15);">
+        <div style="text-align: center; margin-bottom: 1.25rem;">
+          <span class="gpro-pill" style="background: rgba(37, 211, 102, 0.2); border: 1px solid #25D366; color: #25D366;">📱 WhatsApp মার্কেটিং ও সিআরএম স্যুট</span>
+          <h3 style="color: #25D366; font-size: 1.4rem; margin-top: 0.75rem; margin-bottom: 0.35rem;">
+            WAManager Pro — Official WhatsApp Marketing Suite
+          </h3>
+          <p style="color: #cbd5e1; font-size: 0.92rem;">
+            আনলিমিটেড বাল্ক মেসেজিং, অ্যান্টি-ব্যান স্পিনট্যাক্স, ইন্টেলিজেন্ট অটো-রিপ্লাই বট, বি২বি বিজনেস লিড স্ক্র্যাপার এবং রিয়েল-টাইম লাইভ চ্যাট ইনবক্স।
+          </p>
+        </div>
+
+        <div style="background: rgba(15, 23, 42, 0.7); border: 1px solid rgba(37, 211, 102, 0.3); border-radius: var(--radius-md); padding: 1.25rem; font-size: 0.9rem; color: #86efac; display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 0.85rem; margin-bottom: 1.5rem;">
+          <div>✓ আনলিমিটেড বাল্ক ক্যাম্পেইন ও হিউম্যান-লাইক অ্যান্টি-ব্যান ডিলে</div>
+          <div>✓ কিওয়ার্ড ও এআই-ভিত্তিক অটো-রিপ্লাই বট রুলস</div>
+          <div>✓ Google Maps ও ওয়েবসাইট থেকে আনলিমিটেড B2B লিড স্ক্র্যাপার</div>
+          <div>✓ হোয়াটসঅ্যাপ গ্রুপ মেম্বার এক্সট্রাক্টর ও কন্টাক্ট ফিল্টারিং</div>
+          <div>✓ লাইভ চ্যাট ইনবক্স, মেসেজ স্টুডিও ও লাইভ ফোন প্রিভিউ</div>
+          <div>✓ নিয়মিত নতুন নতুন ফিচার রিলিজ ও সফটওয়্যার আপডেট</div>
+        </div>
+
+        <fieldset style="border: 1px solid var(--border-subtle); border-radius: var(--radius-md); padding: 1.25rem; margin: 0 0 1rem; background: rgba(15, 23, 42, 0.6);">
+          <legend style="color: #25D366; font-weight: 700; font-size: 0.95rem; padding: 0 8px;">সাবস্ক্রিপশন মেয়াদ নির্বাচন করুন</legend>
+          <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 1rem;">
+            <label class="chip" style="cursor: pointer; display: flex; align-items: center; gap: 10px; padding: 0.85rem; background: rgba(30, 41, 59, 0.8); border-radius: var(--radius-md); border: 1px solid #475569;">
+              <input type="radio" name="wa_plan_choice" value="1" <?= ($reqProduct !== 'wa_marketing' || $reqPlan !== 3) ? 'checked' : '' ?>>
+              <div>
+                <strong style="color: #fff; display: block;">১ বছর সাবস্ক্রিপশন (1 Year License)</strong>
+                <span style="color: #25D366; font-weight: 800; font-size: 1.2rem;">৯৯৯ ৳</span>
+                <span style="font-size: 0.8rem; color: #94a3b8; display: block;">১২ মাস নিয়মিত আপডেট + স্ট্যান্ডার্ড সাপোর্ট</span>
+              </div>
+            </label>
+
+            <label class="chip" style="cursor: pointer; display: flex; align-items: center; gap: 10px; padding: 0.85rem; background: rgba(30, 41, 59, 0.8); border-radius: var(--radius-md); border: 2px solid #25D366;">
+              <input type="radio" name="wa_plan_choice" value="3" <?= ($reqProduct === 'wa_marketing' && ($reqPlan === 3 || $reqPlan === 36)) ? 'checked' : '' ?>>
+              <div>
+                <strong style="color: #fff; display: block;">৩ বছর সাবস্ক্রিপশন (3 Years License)</strong>
+                <span style="color: #25D366; font-weight: 800; font-size: 1.2rem;">১,৯৯৯ ৳</span>
+                <span style="font-size: 0.8rem; color: #86efac; display: block;">৩৬ মাস নিয়মিত নতুন ফিচার আপডেট + ভিআইপি প্রায়োরিটি</span>
+              </div>
+            </label>
+          </div>
+        </fieldset>
+      </div>
+
+      <!-- 5. Google Pro Price Block & Highlights -->
       <div id="googleProBlock" style="<?= $isGooglePro ? '' : 'display:none;' ?> background: rgba(11, 21, 40, 0.8); border: 2px solid rgba(168, 85, 247, 0.5); border-radius: var(--radius-lg); padding: 1.75rem; margin-bottom: 2rem;">
         <div style="text-align: center; margin-bottom: 1.5rem;">
           <span class="gpro-pill" style="background: rgba(168, 85, 247, 0.2); border: 1px solid #c084fc; color: #c084fc;">⚡ স্পেশাল এআই সার্ভিস</span>
@@ -322,11 +381,13 @@ $error = !empty($_GET['error']);
       const tabVideoStudioBtn = document.getElementById('tabVideoStudioBtn');
       const tabFbBusinessBtn = document.getElementById('tabFbBusinessBtn');
       const tabProfilePageBtn = document.getElementById('tabProfilePageBtn');
+      const tabWaMarketingBtn = document.getElementById('tabWaMarketingBtn');
       const tabGoogleProBtn = document.getElementById('tabGoogleProBtn');
 
       const videoStudioBlock = document.getElementById('videoStudioBlock');
       const fbBusinessBlock = document.getElementById('fbBusinessBlock');
       const profilePageBlock = document.getElementById('profilePageBlock');
+      const waMarketingBlock = document.getElementById('waMarketingBlock');
       const googleProBlock = document.getElementById('googleProBlock');
 
       const softwareLangPickers = document.getElementById('softwareLangPickers');
@@ -343,7 +404,19 @@ $error = !empty($_GET['error']);
         let base = 3999;
         let pName = 'AutoMovie Pro - Social Media Content Automation Engine';
 
-        if (prod === 'fb_business') {
+        if (prod === 'wa_marketing') {
+          const choice = document.querySelector('input[name="wa_plan_choice"]:checked');
+          const years = choice ? parseInt(choice.value, 10) : 1;
+          if (years === 3) {
+            base = 1999;
+            planDurationField.value = '36';
+            pName = 'WAManager Pro — WhatsApp Marketing & CRM Suite (৩ বছর সাবস্ক্রিপশন)';
+          } else {
+            base = 999;
+            planDurationField.value = '12';
+            pName = 'WAManager Pro — WhatsApp Marketing & CRM Suite (১ বছর সাবস্ক্রিপশন)';
+          }
+        } else if (prod === 'fb_business') {
           base = 2999;
           pName = 'AutoMovie Pro - FB Business Manager & Ad Automation Engine';
         } else if (prod === 'profile_page') {
@@ -376,11 +449,15 @@ $error = !empty($_GET['error']);
         productTypeField.value = mode;
 
         // Reset all tabs
-        [tabVideoStudioBtn, tabFbBusinessBtn, tabProfilePageBtn, tabGoogleProBtn].forEach(b => b?.classList.add('btn-ghost'));
+        [tabVideoStudioBtn, tabFbBusinessBtn, tabProfilePageBtn, tabWaMarketingBtn, tabGoogleProBtn].forEach(b => b?.classList.add('btn-ghost'));
         // Hide all blocks
-        [videoStudioBlock, fbBusinessBlock, profilePageBlock, googleProBlock].forEach(b => { if (b) b.style.display = 'none'; });
+        [videoStudioBlock, fbBusinessBlock, profilePageBlock, waMarketingBlock, googleProBlock].forEach(b => { if (b) b.style.display = 'none'; });
 
-        if (mode === 'google_pro') {
+        if (mode === 'wa_marketing') {
+          tabWaMarketingBtn?.classList.remove('btn-ghost');
+          if (waMarketingBlock) waMarketingBlock.style.display = 'block';
+          if (softwareLangPickers) softwareLangPickers.style.display = 'none';
+        } else if (mode === 'google_pro') {
           tabGoogleProBtn?.classList.remove('btn-ghost');
           if (googleProBlock) googleProBlock.style.display = 'block';
           if (softwareLangPickers) softwareLangPickers.style.display = 'none';
@@ -408,7 +485,16 @@ $error = !empty($_GET['error']);
       tabVideoStudioBtn?.addEventListener('click', () => setProduct('video_studio'));
       tabFbBusinessBtn?.addEventListener('click', () => setProduct('fb_business'));
       tabProfilePageBtn?.addEventListener('click', () => setProduct('profile_page'));
+      tabWaMarketingBtn?.addEventListener('click', () => setProduct('wa_marketing'));
       tabGoogleProBtn?.addEventListener('click', () => setProduct('google_pro'));
+
+      document.querySelectorAll('input[name="wa_plan_choice"]').forEach(r => {
+        r.addEventListener('change', () => {
+          if (productTypeField.value === 'wa_marketing') {
+            calculateTotal();
+          }
+        });
+      });
 
       document.querySelectorAll('input[name="google_plan_choice"]').forEach(r => {
         r.addEventListener('change', () => {

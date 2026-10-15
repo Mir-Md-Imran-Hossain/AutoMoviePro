@@ -342,6 +342,89 @@ def build_social_autopilot_logo(master_img: Image.Image) -> Image.Image:
 
     return img
 
+def build_whatsapp_marketing_logo(master_img: Image.Image) -> Image.Image:
+    """
+    Product 4: WAManager Pro — WhatsApp Marketing & CRM Suite (৳999/৳1,999)
+    WhatsApp Emerald Green & Cyber Teal.
+    Centerpiece: 3D WhatsApp Chat Bubble with Phone, Dynamic Broadcast Waves & Anti-Ban Shield.
+    """
+    img = recolor_master_badge(master_img, "emerald").resize((1024, 1024), Image.Resampling.LANCZOS)
+    overlay = Image.new("RGBA", (1024, 1024), (0, 0, 0, 0))
+    draw = ImageDraw.Draw(overlay)
+    cx, cy = 512, 455
+
+    # Dark inner circle
+    draw.ellipse([cx - 210, cy - 210, cx + 210, cy + 210], fill=(4, 28, 18, 235))
+    # Glowing cyber circles
+    draw.ellipse([cx - 188, cy - 188, cx + 188, cy + 188], outline=(37, 211, 102, 190), width=3)
+    draw.ellipse([cx - 135, cy - 135, cx + 135, cy + 135], outline=(18, 140, 126, 150), width=2)
+
+    # 3D Chat Bubble with Tail
+    bubble_r = 100
+    bubble_cx, bubble_cy = cx - 5, cy - 10
+    draw.ellipse([bubble_cx - bubble_r, bubble_cy - bubble_r, bubble_cx + bubble_r, bubble_cy + bubble_r],
+                 fill=(18, 140, 126, 245), outline=(37, 211, 102, 255), width=5)
+    
+    # Bubble pointer tail (bottom-left)
+    tail_poly = [
+        (bubble_cx - 50, bubble_cy + 75),
+        (bubble_cx - 95, bubble_cy + 120),
+        (bubble_cx - 15, bubble_cy + 95)
+    ]
+    draw.polygon(tail_poly, fill=(18, 140, 126, 245), outline=(37, 211, 102, 255))
+    # Fill seam
+    draw.ellipse([bubble_cx - bubble_r + 4, bubble_cy - bubble_r + 4, bubble_cx + bubble_r - 4, bubble_cy + bubble_r - 4],
+                 fill=(37, 211, 102, 245))
+
+    # Inner WhatsApp Phone Icon silhouette
+    phone_color = (255, 255, 255, 255)
+    # Curved handset representation
+    draw.arc([bubble_cx - 55, bubble_cy - 55, bubble_cx + 55, bubble_cy + 55], start=45, end=225, fill=phone_color, width=16)
+    # Earpiece & Mouthpiece
+    draw.ellipse([bubble_cx - 55, bubble_cy - 20, bubble_cx - 25, bubble_cy + 15], fill=phone_color)
+    draw.ellipse([bubble_cx + 20, bubble_cy + 25, bubble_cx + 52, bubble_cy + 60], fill=phone_color)
+
+    # Broadcast signal waves radiating outward top-right
+    for dist, w, alpha in [(125, 4, 210), (150, 3, 160), (175, 2, 110)]:
+        bbox = [bubble_cx - dist + 60, bubble_cy - dist - 40, bubble_cx + dist + 60, bubble_cy + dist - 40]
+        draw.arc(bbox, start=300, end=350, fill=(37, 211, 102, alpha), width=w)
+
+    # Composite overlay
+    img = Image.alpha_composite(img, overlay)
+    draw = ImageDraw.Draw(img)
+
+    # Draw bottom pill badge ribbon: "WHATSAPP MARKETING SUITE"
+    badge_w, badge_h = 620, 84
+    bx0, by0 = cx - badge_w // 2, int(1024 * 0.77)
+    bx1, by1 = bx0 + badge_w, by0 + badge_h
+
+    draw_pill_badge(draw, [bx0, by0, bx1, by1],
+                    fill_color=(4, 28, 18, 245),
+                    border_color=(37, 211, 102, 255),
+                    glow_color=(18, 140, 126, 90),
+                    border_width=4)
+
+    # Text "WHATSAPP MARKETING SUITE"
+    font = get_font(36)
+    text = "WHATSAPP MARKETING SUITE"
+    bbox = draw.textbbox((0, 0), text, font=font)
+    tw = bbox[2] - bbox[0]
+    th = bbox[3] - bbox[1]
+    tx = cx - tw // 2
+    ty = by0 + (badge_h - th) // 2 - 4
+
+    draw.text((tx + 2, ty + 2), text, font=font, fill=(0, 25, 15, 220))
+    draw.text((tx, ty), text, font=font, fill=(255, 255, 255, 255))
+
+    # Top mini label: "✦ BULK BROADCAST & 24/7 AI BOT ✦"
+    sub_font = get_font(19)
+    sub_text = "✦ BULK BROADCAST & 24/7 AI BOT ✦"
+    s_bbox = draw.textbbox((0, 0), sub_text, font=sub_font)
+    stw = s_bbox[2] - s_bbox[0]
+    draw.text((cx - stw // 2, by0 - 32), sub_text, font=sub_font, fill=(37, 211, 102, 240))
+
+    return img
+
 def main():
     print("[LOGO GENERATOR] Loading master logo:", MASTER_LOGO_PATH)
     master_img = Image.open(MASTER_LOGO_PATH).convert("RGBA")
@@ -355,10 +438,14 @@ def main():
     print("[LOGO GENERATOR] Creating Product 3: Social AutoPilot Engine...")
     p3 = build_social_autopilot_logo(master_img)
 
+    print("[LOGO GENERATOR] Creating Product 4: WhatsApp Marketing Suite...")
+    p4 = build_whatsapp_marketing_logo(master_img)
+
     products = [
         ("logo_video_studio.png", p1),
         ("logo_fb_business.png", p2),
         ("logo_profile_page.png", p3),
+        ("logo_wa_marketing.png", p4),
     ]
 
     # Save to AutoMoviePro-Website/assets/img/

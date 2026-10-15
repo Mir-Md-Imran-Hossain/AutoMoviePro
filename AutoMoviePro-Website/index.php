@@ -44,10 +44,13 @@ $broadcastLink = setting($pdo, 'broadcast_link', '');
 $broadcastLinkText = setting($pdo, 'broadcast_link_text', '');
 ?>
 <!DOCTYPE html>
-<html lang="<?= e($uiLang) ?>"<?= $uiLang === 'ur' ? ' dir="rtl"' : '' ?>>
+<html lang="<?= e($uiLang) ?>" class="notranslate" translate="no"<?= $uiLang === 'ur' ? ' dir="rtl"' : '' ?>>
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="google" content="notranslate">
+  <meta name="google" value="notranslate">
+  <meta name="googlebot" content="notranslate">
   <title><?= e($metaTitle) ?></title>
   <meta name="description" content="<?= e($metaDesc) ?>">
   <meta property="og:title" content="<?= e($metaTitle) ?>">
@@ -94,7 +97,7 @@ $broadcastLinkText = setting($pdo, 'broadcast_link_text', '');
     };
   </script>
 </head>
-<body>
+<body class="notranslate" translate="no">
   <?php if ($broadcastActive && !empty($broadcastText)): 
     $bBg = match ($broadcastType) {
         'offer' => 'linear-gradient(90deg, #064e3b, #047857)',
@@ -272,17 +275,42 @@ $broadcastLinkText = setting($pdo, 'broadcast_link_text', '');
   <section id="engines" class="reveal engines-showcase-section">
     <div class="section-head">
       <span class="gpro-pill" style="background: rgba(56, 189, 248, 0.15); border: 1px solid #38bdf8; color: #38bdf8; margin-bottom: 0.85rem;">
-        ⚡ পাওয়ারফুল তিনটি অটোনমাস ইঞ্জিন
+        ⚡ অটোমেশন ও মার্কেটিং ইকোসিস্টেম
       </span>
-      <h2 data-i18n="engines_title">Automovie Pro এর অটোমেশন ইঞ্জিন সমূহ</h2>
-      <p class="lead" data-i18n="engines_lead">আপনার প্রয়োজন অনুযায়ী ৩টি ডেডিকেটেড স্বয়ংক্রিয় এআই ইঞ্জিন — যা আপনার সোশ্যাল মিডিয়া, ব্যবসা ও প্রোফাইল পরিচালনা করবে মানুষের কোনো হস্তক্ষেপ ছাড়াই।</p>
+      <h2 data-i18n="engines_title">Automovie Pro এর ৪টি স্বয়ংক্রিয় এআই ইঞ্জিন</h2>
+      <p class="lead" data-i18n="engines_lead">আপনার প্রয়োজন ও লক্ষ্য অনুযায়ী সেরা ইঞ্জিনটি বেছে নিন — মানুষের স্পর্শ ছাড়াই ভিডিও তৈরি, বিজনেস প্রমোশন, ফেসবুক অটোপাইলট ও WhatsApp মার্কেটিং।</p>
     </div>
 
-    <div class="engines-grid">
+    <!-- Interactive Ecosystem Filter Switcher (Zero Clutter) -->
+    <div class="ecosystem-tabs-bar">
+      <button type="button" class="ecosystem-tab-btn active" id="btnEcoAll" onclick="window.filterEcosystem('all')">
+        ✨ সব ইঞ্জিন (All 4 Engines)
+      </button>
+      <button type="button" class="ecosystem-tab-btn" id="btnEcoVideo" onclick="window.filterEcosystem('video_studio')">
+        🎬 ১. Social Media Engine (৳৩,৯৯৯)
+      </button>
+      <button type="button" class="ecosystem-tab-btn tab-business" id="btnEcoBusiness" onclick="window.filterEcosystem('fb_business')">
+        💼 ২. FB Business & Ads (৳২,৯৯৯)
+      </button>
+      <button type="button" class="ecosystem-tab-btn tab-profile" id="btnEcoProfile" onclick="window.filterEcosystem('profile_page')">
+        📱 ৩. Profile & Page Pilot (৳১,৯৯৯)
+      </button>
+      <button type="button" class="ecosystem-tab-btn tab-wa" id="btnEcoWa" onclick="window.filterEcosystem('wa_marketing')">
+        💬 ৪. WhatsApp মার্কেটিং (৳৯৯৯/৳১,৯৯৯)
+      </button>
+      <button type="button" class="ecosystem-tab-btn tab-gpro" id="btnEcoGpro" onclick="window.filterEcosystem('google_pro')">
+        ⚡ ৫. Special Gemini Pro API
+      </button>
+    </div>
+
+    <div class="engines-grid" id="enginesGrid">
       <!-- Engine 1 -->
-      <div class="engine-display-card engine-card-video">
+      <div class="engine-display-card engine-card-video" data-engine-card="video_studio">
         <div class="engine-card-top">
-          <span class="engine-top-badge badge-cyan">🎬 ফুল কন্টেন্ট পাওয়ারহাউজ</span>
+          <div class="engine-brand-emblem-wrap">
+            <img src="/assets/img/logo_video_studio-128.png?v=<?= filemtime(__DIR__ . '/assets/img/logo_video_studio-128.png') ?>" alt="Social Media Content Engine Logo" class="engine-brand-emblem" width="44" height="44" loading="lazy">
+            <span class="engine-top-badge badge-cyan">🎬 ফুল কন্টেন্ট পাওয়ারহাউজ</span>
+          </div>
           <div class="engine-pricing-badge">
             <span class="current-price">৳৩,৯৯৯</span>
             <span class="old-price">৳১০,০০০</span>
@@ -301,14 +329,17 @@ $broadcastLinkText = setting($pdo, 'broadcast_link_text', '');
         </ul>
         <div class="engine-card-actions">
           <button type="button" class="btn btn-ghost btn-engine-details" onclick="window.switchWorkflowTab('engine_social')" data-i18n="engine_see_steps">ফিচার ও ধাপসমূহ দেখুন</button>
-          <a href="#buy" class="btn btn-engine-order" onclick="window.selectEngineRadio('video_studio')" data-i18n="engine1_order_btn">অর্ডার করুন (৳৩,৯৯৯)</a>
+          <a href="/order.php?product=video_studio" class="btn btn-engine-order" data-i18n="engine1_order_btn">অর্ডার করুন (৳৩,৯৯৯)</a>
         </div>
       </div>
 
       <!-- Engine 2 -->
-      <div class="engine-display-card engine-card-business">
+      <div class="engine-display-card engine-card-business" data-engine-card="fb_business">
         <div class="engine-card-top">
-          <span class="engine-top-badge badge-amber">💼 বিজনেস ও সেলস ম্যানেজার</span>
+          <div class="engine-brand-emblem-wrap">
+            <img src="/assets/img/logo_fb_business-128.png?v=<?= filemtime(__DIR__ . '/assets/img/logo_fb_business-128.png') ?>" alt="FB Business Engine Logo" class="engine-brand-emblem" width="44" height="44" loading="lazy">
+            <span class="engine-top-badge badge-amber">💼 বিজনেস ও সেলস ম্যানেজার</span>
+          </div>
           <div class="engine-pricing-badge">
             <span class="current-price">৳২,৯৯৯</span>
             <span class="old-price">৳৮,৫০০</span>
@@ -327,14 +358,17 @@ $broadcastLinkText = setting($pdo, 'broadcast_link_text', '');
         </ul>
         <div class="engine-card-actions">
           <button type="button" class="btn btn-ghost btn-engine-details" onclick="window.switchWorkflowTab('engine_business')" data-i18n="engine_see_steps">ফিচার ও ধাপসমূহ দেখুন</button>
-          <a href="#buy" class="btn btn-engine-order btn-amber" onclick="window.selectEngineRadio('fb_business')" data-i18n="engine2_order_btn">অর্ডার করুন (৳২,৯৯৯)</a>
+          <a href="/order.php?product=fb_business" class="btn btn-engine-order btn-amber" data-i18n="engine2_order_btn">অর্ডার করুন (৳২,৯৯৯)</a>
         </div>
       </div>
 
       <!-- Engine 3 -->
-      <div class="engine-display-card engine-card-profile">
+      <div class="engine-display-card engine-card-profile" data-engine-card="profile_page">
         <div class="engine-card-top">
-          <span class="engine-top-badge badge-emerald">📱 প্রোফাইল ও পেজ অটো-পাইলট</span>
+          <div class="engine-brand-emblem-wrap">
+            <img src="/assets/img/logo_profile_page-128.png?v=<?= filemtime(__DIR__ . '/assets/img/logo_profile_page-128.png') ?>" alt="Profile Page Engine Logo" class="engine-brand-emblem" width="44" height="44" loading="lazy">
+            <span class="engine-top-badge badge-emerald">📱 প্রোফাইল ও পেজ অটো-পাইলট</span>
+          </div>
           <div class="engine-pricing-badge">
             <span class="current-price">৳১,৯৯৯</span>
             <span class="old-price">৳৬,৫০০</span>
@@ -353,20 +387,50 @@ $broadcastLinkText = setting($pdo, 'broadcast_link_text', '');
         </ul>
         <div class="engine-card-actions">
           <button type="button" class="btn btn-ghost btn-engine-details" onclick="window.switchWorkflowTab('engine_profile')" data-i18n="engine_see_steps">ফিচার ও ধাপসমূহ দেখুন</button>
-          <a href="#buy" class="btn btn-engine-order btn-emerald" onclick="window.selectEngineRadio('profile_page')" data-i18n="engine3_order_btn">অর্ডার করুন (৳১,৯৯৯)</a>
+          <a href="/order.php?product=profile_page" class="btn btn-engine-order btn-emerald" data-i18n="engine3_order_btn">অর্ডার করুন (৳১,৯৯৯)</a>
+        </div>
+      </div>
+
+      <!-- Engine 4: WAManager Pro WhatsApp Marketing Suite -->
+      <div class="engine-display-card engine-card-whatsapp" data-engine-card="wa_marketing">
+        <div class="engine-card-top">
+          <div class="engine-brand-emblem-wrap">
+            <img src="/assets/img/logo_wa_marketing-128.png?v=<?= filemtime(__DIR__ . '/assets/img/logo_wa_marketing-128.png') ?>" alt="WhatsApp Marketing Suite Logo" class="engine-brand-emblem" width="44" height="44" loading="lazy">
+            <span class="engine-top-badge badge-green">💬 WhatsApp মার্কেটিং পাওয়ারহাউজ</span>
+          </div>
+          <div class="engine-pricing-badge">
+            <span class="current-price">৳৯৯৯</span>
+            <span class="old-price">৳৫,৫০০</span>
+          </div>
+        </div>
+        <h3 class="engine-title">WAManager Pro — Official WhatsApp Marketing & CRM Suite</h3>
+        <p class="engine-desc">
+          আনলিমিটেড বাল্ক মেসেজিং, অ্যান্টি-ব্যান স্পিনট্যাক্স, কিওয়ার্ড ও এআই অটো-রিপ্লাই বট, বি২বি লিড স্ক্র্যাপার এবং গ্রুপ মেম্বার এক্সট্রাক্টর।
+        </p>
+        <ul class="engine-feature-bullets">
+          <li>✓ আনলিমিটেড বাল্ক ক্যাম্পেইন ও হিউম্যান-লাইক অ্যান্টি-ব্যান ডিলে</li>
+          <li>✓ কিওয়ার্ড ও এআই-ভিত্তিক অটো-রিপ্লাই বট রুলস</li>
+          <li>✓ Google Maps ও ওয়েবসাইট থেকে আনলিমিটেড B2B লিড স্ক্র্যাপার</li>
+          <li>✓ হোয়াটসঅ্যাপ গ্রুপ মেম্বার এক্সট্রাক্টর ও কন্টাক্ট ফিল্টারিং</li>
+          <li>✓ লাইভ চ্যাট ইনবক্স, মেসেজ স্টুডিও ও লাইভ ফোন প্রিভিউ</li>
+          <li>✓ নিয়মিত নতুন নতুন ফিচার রিলিজ ও সফটওয়্যার আপডেট</li>
+        </ul>
+        <div class="engine-card-actions">
+          <button type="button" class="btn btn-ghost btn-engine-details" onclick="window.switchWorkflowTab('engine_whatsapp')">ফিচার ও ধাপসমূহ দেখুন</button>
+          <a href="/order.php?product=wa_marketing" class="btn btn-engine-order btn-whatsapp">অর্ডার করুন (৳৯৯৯ / ৳১,৯৯৯)</a>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- How It Works Section (Dedicated Workflows for All 3 Engines - Zero Tabs) -->
+  <!-- How It Works Section (Dedicated Workflows for All 4 Engines - Zero Tabs) -->
   <section id="how" class="reveal">
     <div class="section-head">
-      <h2 data-i18n="how_section_title">৩টি স্বতন্ত্র অটোমেশন ইঞ্জিনের স্বয়ংক্রিয় কার্যপ্রণালী</h2>
+      <h2 data-i18n="how_section_title">৪টি স্বতন্ত্র অটোমেশন ইঞ্জিনের স্বয়ংক্রিয় কার্যপ্রণালী</h2>
       <p class="lead" data-i18n="how_section_lead">একবার নিশ ও চ্যানেল কানেক্ট করলেই প্রতিটি ইঞ্জিন মানুষের কোনো হস্তক্ষেপ ছাড়াই স্বয়ংক্রিয়ভাবে কাজ করে। নিচে প্রতিটি সফটওয়্যারের ধাপসমূহ বিস্তারিত দেখুন:</p>
     </div>
 
-    <!-- 3 Dedicated Workflow Boxes (Zero Tab Clicks Required) -->
+    <!-- 4 Dedicated Workflow Boxes (Zero Tab Clicks Required) -->
     <div class="engine-workflows-container">
       <!-- Workflow Box 1: Social Media Content Automation Engine (9 Steps) -->
       <div class="workflow-engine-box wf-box-social" id="wfBoxSocial">
@@ -501,6 +565,45 @@ $broadcastLinkText = setting($pdo, 'broadcast_link_text', '');
             <div class="step-num">05</div>
             <h4 data-i18n="e3_step5_title">নিশভিত্তিক কমিউনিটি গ্রুপে অর্গানিক শেয়ারিং</h4>
             <p data-i18n="e3_step5_desc">প্রোফাইল বা পেজের ফলোয়ার ও রিচ বাড়ানোর জন্য ইসলামিক ও জ্ঞানমূলক ফেসবুক গ্রুপগুলোতে পোস্ট পৌঁছে দেয়।</p>
+          </li>
+        </ol>
+      </div>
+
+      <!-- Workflow Box 4: WAManager Pro WhatsApp Marketing Suite (5 Steps) -->
+      <div class="workflow-engine-box wf-box-whatsapp" id="wfBoxWhatsApp">
+        <div class="wf-box-header">
+          <div class="wf-box-title-group">
+            <span class="engine-pill" style="background:rgba(37,211,102,0.18); border:1px solid rgba(37,211,102,0.4); color:#25D366;">💬 WhatsApp মার্কেটিং পাওয়ারহাউজ • ৳৯৯৯ / ৳১,৯৯৯</span>
+            <h3>৪. WAManager Pro — WhatsApp Marketing & CRM Suite (৫টি ধাপ)</h3>
+            <p>৫টি সুপার-পাওয়ারফুল পদক্ষেপে বি২বি লিড সংগ্রহ, অ্যান্টি-ব্যান স্পিনট্যাক্স ব্রডকাস্ট এবং এআই চ্যাটবট অটোমেশন।</p>
+          </div>
+          <a href="#buy" class="btn btn-sm btn-engine-order btn-whatsapp" onclick="window.selectEngineRadio('wa_marketing')">অর্ডার করুন (৳৯৯৯ / ৳১,৯৯৯)</a>
+        </div>
+        <ol class="flow-steps-grid steps-grid-5">
+          <li class="step-card">
+            <div class="step-num">01</div>
+            <h4>B2B ও গ্রুপ মেম্বার লিড স্ক্র্যাপার</h4>
+            <p>Google Maps, ওয়েবসাইট ও যেকোনো হোয়াটসঅ্যাপ গ্রুপ থেকে সরাসরি ১-ক্লিকে আনলিমিটেড ভেরিফাইড ফোন নম্বর ও নাম সংগ্রহ করে।</p>
+          </li>
+          <li class="step-card">
+            <div class="step-num">02</div>
+            <h4>স্মার্ট মেসেজ স্টুডিও ও ডায়নামিক ভ্যারিয়েবল</h4>
+            <p>কাস্টমারের নাম, অর্ডার আইডি ও অফার কোড সহ প্রতিটি মেসেজকে স্বতন্ত্র ও পার্সোনালাইজড করে সাজিয়ে নেয়।</p>
+          </li>
+          <li class="step-card">
+            <div class="step-num">03</div>
+            <h4>অ্যান্টি-ব্যান স্পিনট্যাক্স ও হিউম্যান ডিলে</h4>
+            <p>অ্যাকাউন্ট সুরক্ষিত রাখতে স্বয়ংক্রিয় স্পিনট্যাক্স টেক্সট ভ্যারিয়েশন ও র্যান্ডম টাইম গ্যাপিং প্রয়োগ করে।</p>
+          </li>
+          <li class="step-card">
+            <div class="step-num">04</div>
+            <h4>স্বয়ংক্রিয় হাই-স্পিড বাল্ক ক্যাম্পেইন ব্রডকাস্ট</h4>
+            <p>হাজার হাজার কাস্টমারের কাছে নির্ধারিত শিডিউলে ছবি, ভিডিও, পিডিএফ ব্রোশিউর ও টেক্সট স্বয়ংক্রিয়ভাবে সেন্ড করে।</p>
+          </li>
+          <li class="step-card">
+            <div class="step-num">05</div>
+            <h4>২৪/৭ এআই অটো-রিপ্লাই বট ও লাইভ সিআরএম</h4>
+            <p>কাস্টমারের যেকোনো প্রশ্ন বা কীওয়ার্ডের সাথে সাথে তাৎক্ষণিক উত্তর দেয় এবং লাইভ চ্যাট ইনবক্সে লিড ম্যানেজ করে।</p>
           </li>
         </ol>
       </div>
@@ -658,15 +761,15 @@ $broadcastLinkText = setting($pdo, 'broadcast_link_text', '');
     </div>
   </section>
 
-  <!-- Feature Cards & 3-Column Suite (Zero Tabs, 100% Direct Visibility) -->
+  <!-- Feature Cards & 4-Column Suite (Zero Tabs, 100% Direct Visibility) -->
   <section id="features" class="reveal">
     <div class="section-head">
-      <h2 data-i18n="features_suite_title">৩টি সফটওয়্যার প্যাকেজের পূর্ণাঙ্গ ফিচার ও সুবিধাসমূহ</h2>
-      <p class="lead" data-i18n="features_suite_lead">কোনো ক্লিক বা ফিল্টার ছাড়াই ৩টি সফটওয়্যারের প্রতিটি ফিচার ও অনন্য সুবিধাসমূহ পাশাপাশি তুলনা করে দেখুন।</p>
+      <h2 data-i18n="features_suite_title">৪টি সফটওয়্যার প্যাকেজের পূর্ণাঙ্গ ফিচার ও সুবিধাসমূহ</h2>
+      <p class="lead" data-i18n="features_suite_lead">কোনো ক্লিক বা ফিল্টার ছাড়াই ৪টি সফটওয়্যারের প্রতিটি ফিচার ও অনন্য সুবিধাসমূহ পাশাপাশি তুলনা করে দেখুন।</p>
     </div>
 
-    <!-- 3-Column Modern Feature & Capabilities Suite (Zero Tabs, All Direct) -->
-    <div class="feature-suite-3col-grid">
+    <!-- 4-Column Modern Feature & Capabilities Suite (Zero Tabs, All Direct) -->
+    <div class="feature-suite-4col-grid feature-suite-3col-grid">
       <!-- Box 1: Social Media Content Automation Engine -->
       <div class="feat-box feat-box-video">
         <div class="feat-box-top">
@@ -855,7 +958,71 @@ $broadcastLinkText = setting($pdo, 'broadcast_link_text', '');
           </li>
         </ul>
         <div class="feat-box-footer">
-          <a href="#buy" class="btn btn-engine-order btn-emerald" onclick="window.selectEngineRadio('profile_page')">অর্ডার করুন (৳১,৯৯৯)</a>
+          <a href="/order.php?product=profile_page" class="btn btn-engine-order btn-emerald">অর্ডার করুন (৳১,৯৯৯)</a>
+        </div>
+      </div>
+
+      <!-- Box 4: WAManager Pro WhatsApp Marketing Suite -->
+      <div class="feat-box feat-box-whatsapp">
+        <div class="feat-box-top">
+          <div class="feat-box-identity">
+            <img src="/assets/img/logo_wa_marketing.png?v=<?= filemtime(__DIR__ . '/assets/img/logo_wa_marketing.png') ?>" alt="WhatsApp Marketing Suite Logo" class="feat-product-logo">
+            <span class="engine-top-badge badge-green">📱 WhatsApp মার্কেটিং পাওয়ারহাউজ</span>
+          </div>
+          <div class="feat-box-price-wrap">
+            <span class="feat-current-price">৳৯৯৯ / ৳১,৯৯৯</span>
+            <span class="feat-old-price">৳৫,৫০০</span>
+            <span class="feat-license-tag">১ বছর বা ৩ বছর সাবস্ক্রিপশন • নিয়মিত আপডেট</span>
+          </div>
+        </div>
+        <h3 class="feat-box-title">৪. WAManager Pro — WhatsApp Marketing & CRM Suite</h3>
+        <p class="feat-box-lead">গ্রাহকদের সাথে স্বয়ংক্রিয় সম্পর্ক রক্ষা, বাল্ক প্রমোশন, লিড জেনারেশন ও স্মার্ট এআই সেলস অ্যাসিস্ট্যান্ট।</p>
+        
+        <div class="feat-box-checklist-title">✨ অন্তর্ভুক্ত সকল ফিচার ও সুবিধাসমূহ:</div>
+        <ul class="feat-box-checklist">
+          <li>
+            <span class="feat-chk">✓</span>
+            <div><strong>আনলিমিটেড বাল্ক মেসেজিং ক্যাম্পেইন:</strong> কাস্টমার তালিকা আপলোড করে এক ক্লিকে পার্সোনালাইজড মেসেজ পাঠান।</div>
+          </li>
+          <li>
+            <span class="feat-chk">✓</span>
+            <div><strong>অ্যান্টি-ব্যান ডায়নামিক স্পিনট্যাক্স ও র‍্যান্ডম ডিলে:</strong> মেসেজ ভ্যারিয়েশন ও হিউম্যান পেসিংয়ের মাধ্যমে অ্যাকাউন্ট সম্পূর্ণ নিরাপদ থাকে।</div>
+          </li>
+          <li>
+            <span class="feat-chk">✓</span>
+            <div><strong>ইন্টেলিজেন্ট অটো-রিপ্লাই বট রুলস:</strong> কাস্টমারের নির্দিষ্ট কীওয়ার্ড বা প্রশ্নের সাথে সাথে স্বয়ংক্রিয় নিখুঁত উত্তর প্রদান।</div>
+          </li>
+          <li>
+            <span class="feat-chk">✓</span>
+            <div><strong>Google Maps ও লোকাল বি২বি লিড ফাইন্ডার:</strong> এলাকা ও ক্যাটাগরি অনুযায়ী ফোন নম্বর, ইমেইল ও অ্যাড্রেস স্ক্র্যাপ করার সুবিধা।</div>
+          </li>
+          <li>
+            <span class="feat-chk">✓</span>
+            <div><strong>হোয়াটসঅ্যাপ গ্রুপ মেম্বার এক্সট্রাক্টর:</strong> যেকোনো গ্রুপ থেকে সব অ্যাক্টিভ কন্টাক্ট এক ক্লিকে এক্সপোর্ট ও গ্রুপে সাজানো।</div>
+          </li>
+          <li>
+            <span class="feat-chk">✓</span>
+            <div><strong>লাইভ চ্যাট ইনবক্স ও মেসেজ স্টুডিও:</strong> সফটওয়্যারের ভেতর থেকেই কাস্টমারের সাথে সরাসরি কথা বলা ও মেসেজ ড্রাফট করা।</div>
+          </li>
+          <li>
+            <span class="feat-chk">✓</span>
+            <div><strong>Gemini এআই কপিরাইটার ইন্টিগ্রেশন:</strong> আকর্ষণীয় বিক্রয় কপি, সেলস হুক ও অফার টেমপ্লেট স্বয়ংক্রিয়ভাবে তৈরি।</div>
+          </li>
+          <li>
+            <span class="feat-chk">✓</span>
+            <div><strong>ইনভ্যালিড নম্বর ফিল্টারিং টুল:</strong> মেসেজ পাঠানোর আগে কোন নম্বরগুলোতে হোয়াটসঅ্যাপ আছে তা স্বয়ংক্রিয় যাচাই।</div>
+          </li>
+          <li>
+            <span class="feat-chk">✓</span>
+            <div><strong>অ্যাকাউন্ট ওয়ার্ম-আপ বট:</strong> নতুন নম্বরে ব্যান এড়াতে স্বয়ংক্রিয় কনভারসেশন সিমুলেশন।</div>
+          </li>
+          <li>
+            <span class="feat-chk">✓</span>
+            <div><strong>নিয়মিত নতুন ফিচার আপডেট:</strong> প্রতি মাসেই নতুন কার্যকারিতা ও অ্যালগরিদম আপডেট সরাসরি সফটওয়্যারে পুশ হবে।</div>
+          </li>
+        </ul>
+        <div class="feat-box-footer">
+          <a href="/order.php?product=wa_marketing" class="btn btn-engine-order btn-whatsapp">অর্ডার করুন (৳৯৯৯ / ৳১,৯৯৯)</a>
         </div>
       </div>
     </div>
@@ -864,7 +1031,8 @@ $broadcastLinkText = setting($pdo, 'broadcast_link_text', '');
     $catalogByTier = [
         'video_studio' => [],
         'fb_business' => [],
-        'profile_page' => []
+        'profile_page' => [],
+        'wa_marketing' => []
     ];
     foreach ($catalog as $feat) {
         $t = $feat['tier'] ?? 'video_studio';
@@ -942,6 +1110,28 @@ $broadcastLinkText = setting($pdo, 'broadcast_link_text', '');
           <?php endforeach; ?>
         </div>
       </div>
+
+      <!-- Section 4: WhatsApp Marketing Suite Gallery -->
+      <div class="feat-gallery-section">
+        <h4 class="gallery-subheading" style="color:#25D366;">💬 ৪. WAManager Pro — WhatsApp Marketing & CRM Suite — ভিজ্যুয়াল ফিচারসমূহ</h4>
+        <div class="feature-grid">
+          <?php foreach ($catalogByTier['wa_marketing'] as $feat):
+              $f = amp_feature_for_lang($feat, $uiLang);
+              $img = '/assets/img/' . rawurlencode($f['image']);
+              ?>
+            <article class="feature-card" data-feat-id="<?= e($f['id']) ?>" data-tier="wa_marketing">
+              <div class="feature-img-wrap">
+                <span class="tier-pill" style="background:rgba(37,211,102,0.2); border:1px solid rgba(37,211,102,0.4); color:#25D366;">💬 WhatsApp Suite (৳৯৯৯)</span>
+                <img class="feature-img" src="<?= e($img) ?>" alt="<?= e($f['title']) ?>" loading="lazy" width="800" height="450">
+              </div>
+              <div class="feature-card-body">
+                <h3 class="feature-title"><?= e($f['title']) ?></h3>
+                <p class="feature-detail"><?= e($f['detail']) ?></p>
+              </div>
+            </article>
+          <?php endforeach; ?>
+        </div>
+      </div>
     </div>
   </section>
 
@@ -949,9 +1139,9 @@ $broadcastLinkText = setting($pdo, 'broadcast_link_text', '');
   <section id="buy" class="reveal">
     <div class="purchase-wrapper">
       <div class="section-head" style="margin-bottom: 1.5rem;">
-        <h2 data-i18n="purchase">অর্ডার ও লাইসেন্সিং (লাইফটাইম লাইসেন্স)</h2>
+        <h2 data-i18n="purchase">অর্ডার ও লাইসেন্সিং (লাইফটাইম ও সাবস্ক্রিপশন)</h2>
         <p class="lead" style="max-width: 780px; margin: 0.5rem auto 1rem; color: #94a3b8; font-size: 1rem;">
-          আমাদের ৩টি স্বতন্ত্র অটোমেশন ইঞ্জিনের মধ্যে আপনার প্রয়োজন ও বাজেট অনুযায়ী যেকোনো প্যাকেজ বেছে নিন। এককালীন ওয়ান-টাইম ফি, কোনো মাসিক সাবস্ক্রিপশন চার্জ নেই — আজীবন ফ্রি আপডেট সহ লাইফটাইম লাইসেন্স।
+          আমাদের ৪টি স্বতন্ত্র অটোমেশন ইঞ্জিনের মধ্যে আপনার প্রয়োজন ও বাজেট অনুযায়ী যেকোনো প্যাকেজ বেছে নিন। লাইফটাইম লাইসেন্স অথবা সহজ সাবস্ক্রিপশন — সবসময় ফ্রি আপডেট ও ফুল কাস্টমার সাপোর্ট।
         </p>
         <div class="packages-tier-summary-bar">
           <span class="tier-summary-chip is-active" data-engine-pill="video_studio" onclick="window.selectEngineRadio('video_studio')">
@@ -966,6 +1156,10 @@ $broadcastLinkText = setting($pdo, 'broadcast_link_text', '');
             <span>📱 ৩. Profile & Page Pilot</span>
             <span class="chip-price">৳১,৯৯৯</span>
           </span>
+          <span class="tier-summary-chip" data-engine-pill="wa_marketing" onclick="window.selectEngineRadio('wa_marketing')">
+            <span>💬 ৪. WhatsApp Suite</span>
+            <span class="chip-price">৳৯৯৯</span>
+          </span>
         </div>
       </div>
 
@@ -976,7 +1170,7 @@ $broadcastLinkText = setting($pdo, 'broadcast_link_text', '');
         <input type="hidden" name="base_langs" id="baseLangs" value="en,bn">
         <input type="hidden" name="addon_langs" id="addonLangs" value="">
 
-        <!-- 3 Distinct Software Engines Selection Cards -->
+        <!-- 4 Distinct Software Engines Selection Cards -->
         <fieldset class="engine-picker-fieldset">
           <legend data-i18n="select_software_package">আপনার প্রয়োজনীয় AutoMovie Pro ইঞ্জিনটি নির্বাচন করুন</legend>
           <div class="engine-selector-grid">
@@ -1013,6 +1207,18 @@ $broadcastLinkText = setting($pdo, 'broadcast_link_text', '');
                 </div>
                 <h4 data-i18n="engine3_radio_title">৩. FB Profile & Page Post Automation Engine</h4>
                 <p>ইসলামিক হাদিস/উক্তি ব্যানার তৈরি, টাইমলাইনে অটো পোস্ট এবং গ্রুপ সমূহে নিরাপদ অর্গানিক শেয়ারিং।</p>
+              </div>
+            </label>
+
+            <label class="engine-select-card" data-engine="wa_marketing">
+              <input type="radio" name="product_type" value="wa_marketing" data-base-price="999" data-plan-title="WAManager Pro — WhatsApp Marketing Suite (১ বছর সাবস্ক্রিপশন + নিয়মিত ফিচার আপডেট)">
+              <div class="engine-select-inner">
+                <div class="engine-select-top">
+                  <span class="engine-pill" style="background:rgba(37,211,102,0.18); border:1px solid rgba(37,211,102,0.4); color:#25D366;">📱 WhatsApp মার্কেটিং</span>
+                  <span class="engine-select-price">৳৯৯৯</span>
+                </div>
+                <h4>৪. WAManager Pro — WhatsApp Marketing Suite</h4>
+                <p>আনলিমিটেড বাল্ক মেসেজিং, অ্যান্টি-ব্যান স্পিনট্যাক্স, অটো-রিপ্লাই বট ও বি২বি লিড স্ক্র্যাপার (১ বছর বা ৩ বছর মেয়াদ)।</p>
               </div>
             </label>
           </div>

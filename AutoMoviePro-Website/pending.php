@@ -58,16 +58,18 @@ $prefill = 'AutoMovie Pro payment — Order #' . $order['id']
 $waLink = amp_whatsapp_sales_link($prefill);
 ?>
 <!DOCTYPE html>
-<html lang="<?= e($uiLang) ?>"<?= $uiLang === 'ur' ? ' dir="rtl"' : '' ?>>
+<html lang="<?= e($uiLang) ?>" class="notranslate" translate="no"<?= $uiLang === 'ur' ? ' dir="rtl"' : '' ?>>
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="google" content="notranslate">
+  <meta name="googlebot" content="notranslate">
   <title><?= e($brand) ?> — <?= $isApproved ? 'Account Activated' : 'Pending Verification' ?></title>
   <link rel="icon" type="image/png" href="/assets/img/favicon.png">
   <link rel="stylesheet" href="/assets/css/site.css">
   <meta name="robots" content="noindex">
 </head>
-<body>
+<body class="notranslate" translate="no">
   <header class="site-header">
     <a class="logo-link" href="/?lang=<?= e($uiLang) ?>">
       <img class="logo-img" src="/assets/img/logo.png?v=<?= filemtime(__DIR__ . '/assets/img/logo.png') ?>" alt="<?= e($brand) ?>" width="40" height="40">

@@ -1,10 +1,12 @@
 <!DOCTYPE html>
-<html lang="bn">
+<html lang="bn" class="notranslate" translate="no">
 <head>
   <meta charset="UTF-8">
+  <meta name="google" content="notranslate">
+  <meta name="googlebot" content="notranslate">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
   <title>AutoMovie Pro — Mobile Admin Control</title>
-  <meta name="theme-color" content="#ef4444">
+  <meta name="theme-color" content="#090d16">
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
   <link rel="manifest" href="manifest.json">
@@ -13,67 +15,291 @@
     :root {
       --bg: #090d16;
       --card: #111827;
+      --card-hover: #1e293b;
       --border: #1f2937;
       --danger: #ef4444;
       --success: #10b981;
       --accent: #38bdf8;
+      --wa: #25D366;
+      --wa-dark: #128C7E;
       --text: #f9fafb;
       --muted: #9ca3af;
     }
     * { box-sizing: border-box; margin: 0; padding: 0; font-family: system-ui, -apple-system, sans-serif; }
-    body { background: var(--bg); color: var(--text); padding: 1rem; padding-bottom: 5rem; }
-    header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 1.25rem; }
-    .card { background: var(--card); border: 1px solid var(--border); border-radius: 14px; padding: 1.25rem; margin-bottom: 1rem; }
-    .rev-val { font-size: 2rem; font-weight: 800; color: var(--success); }
-    .btn { background: var(--accent); color: #000; border: none; padding: 0.75rem 1rem; border-radius: 8px; font-weight: bold; cursor: pointer; }
+    body { background: var(--bg); color: var(--text); padding: 1rem; padding-bottom: 5.5rem; }
+    header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 1rem; }
+    .card { background: var(--card); border: 1px solid var(--border); border-radius: 14px; padding: 1.15rem; margin-bottom: 1rem; box-shadow: 0 4px 16px rgba(0,0,0,0.3); }
+    .rev-val { font-size: 1.85rem; font-weight: 800; color: var(--success); }
+    .btn { background: var(--accent); color: #000; border: none; padding: 0.75rem 1rem; border-radius: 8px; font-weight: bold; cursor: pointer; display: inline-flex; align-items: center; justify-content: center; gap: 6px; text-decoration: none; }
     .btn-danger { background: var(--danger); color: #fff; }
     .btn-success { background: var(--success); color: #fff; }
+    .btn-wa { background: var(--wa); color: #000; }
     .cust-row { display: flex; justify-content: space-between; align-items: center; padding: 0.75rem 0; border-bottom: 1px solid var(--border); }
-    input { width: 100%; padding: 0.75rem; border-radius: 8px; background: #1e293b; border: 1px solid #334155; color: #fff; margin-bottom: 0.75rem; font-size: 0.9rem; }
+    input, textarea, select { width: 100%; padding: 0.75rem; border-radius: 8px; background: #1e293b; border: 1px solid #334155; color: #fff; margin-bottom: 0.75rem; font-size: 0.9rem; }
+    
+    /* Top / Bottom Navigation */
+    .mobile-tab-nav {
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      height: 60px;
+      background: rgba(17, 24, 39, 0.96);
+      border-top: 1px solid var(--border);
+      backdrop-filter: blur(10px);
+      display: flex;
+      justify-content: space-around;
+      align-items: center;
+      z-index: 999;
+      padding: 0 4px;
+    }
+    .mobile-tab-item {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 3px;
+      color: var(--muted);
+      font-size: 0.7rem;
+      text-decoration: none;
+      cursor: pointer;
+      flex: 1;
+      height: 100%;
+      transition: all 0.2s ease;
+    }
+    .mobile-tab-item.active {
+      color: var(--accent);
+      font-weight: bold;
+    }
+    .mobile-tab-item.active.wa-item {
+      color: var(--wa);
+    }
+    .mobile-tab-item span.icon {
+      font-size: 1.25rem;
+    }
+    .tab-view {
+      display: none;
+    }
+    .tab-view.active {
+      display: block;
+      animation: fadeIn 0.2s ease-in-out;
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(4px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    .badge {
+      display: inline-block;
+      padding: 2px 7px;
+      border-radius: 10px;
+      font-size: 0.72rem;
+      font-weight: 700;
+    }
+    .badge-success { background: rgba(16, 185, 129, 0.2); color: #34d399; }
+    .badge-danger { background: rgba(239, 68, 68, 0.2); color: #f87171; }
+    .badge-wa { background: rgba(37, 211, 102, 0.2); color: #25D366; }
+    .chip-btn {
+      background: #1e293b;
+      border: 1px solid #334155;
+      color: #cbd5e1;
+      padding: 4px 8px;
+      border-radius: 6px;
+      font-size: 0.75rem;
+      cursor: pointer;
+      margin-right: 4px;
+      margin-bottom: 6px;
+      white-space: nowrap;
+    }
   </style>
 </head>
-<body>
+<body class="notranslate" translate="no">
   <header>
-    <div>
-      <h2>AutoMovie Pro</h2>
-      <span style="font-size: 0.85rem; color: var(--muted);">মাস্টার অ্যাডমিন মোবাইল প্যানেল</span>
+    <div style="display: flex; align-items: center; gap: 8px;">
+      <div style="width: 32px; height: 32px; background: linear-gradient(135deg, #0284c7, #25D366); border-radius: 8px; display: flex; align-items: center; justify-content: center; font-size: 16px;">⚡</div>
+      <div>
+        <h2 style="font-size: 1.15rem; line-height: 1.2;">AutoMovie Pro</h2>
+        <span style="font-size: 0.75rem; color: var(--muted);">অ্যাডমিন কন্ট্রোল সেন্টার</span>
+      </div>
     </div>
-    <span style="background: #1e293b; padding: 4px 10px; border-radius: 12px; font-size: 0.75rem; color: var(--accent);">Admin: Imran</span>
+    <span style="background: #1e293b; padding: 4px 10px; border-radius: 12px; font-size: 0.75rem; color: var(--accent); border: 1px solid #334155;">Admin: Imran</span>
   </header>
 
   <!-- Server Endpoint setting -->
-  <div class="card" style="padding: 0.75rem 1rem; font-size: 0.85rem; display: flex; gap: 0.5rem; align-items: center;">
-    <span style="color: var(--muted); white-space: nowrap;">ওয়েবসাইট:</span>
+  <div class="card" style="padding: 0.6rem 0.85rem; font-size: 0.8rem; display: flex; gap: 0.5rem; align-items: center; margin-bottom: 0.85rem;">
+    <span style="color: var(--muted); white-space: nowrap;">API সার্ভার:</span>
     <input type="text" id="siteUrl" value="http://127.0.0.1:8080" style="flex: 1; background: #1e293b; border: 1px solid #334155; color: #fff; padding: 4px 8px; border-radius: 6px; font-size: 0.8rem; margin: 0;">
     <button style="background: var(--accent); color: #000; border: none; padding: 4px 10px; border-radius: 6px; font-weight: bold; cursor: pointer;" onclick="loadMetrics()">সিঙ্ক</button>
   </div>
 
-  <div class="card">
-    <div style="font-size: 0.9rem; color: var(--muted);">মোট লাইফটাইম অনুমোদিত সেলস</div>
-    <div class="rev-val" id="totalRev">৳ ০.০০</div>
-    <div style="font-size: 0.85rem; color: #34d399; margin-top: 4px;" id="todayRev">আজকের সংগ্রহ: ৳ ০</div>
-    <div style="font-size: 0.8rem; color: var(--muted); margin-top: 2px;" id="custStats">মোট গ্রাহক: ০ | পেন্ডিং অর্ডার: ০</div>
-  </div>
+  <!-- ==========================================
+       TAB VIEW 1: DASHBOARD
+       ========================================== -->
+  <div id="view-dashboard" class="tab-view active">
+    <div class="card" style="background: linear-gradient(135deg, rgba(16,185,129,0.12) 0%, rgba(17,24,39,0.95) 100%); border-color: rgba(16,185,129,0.3);">
+      <div style="font-size: 0.85rem; color: var(--muted);">মোট লাইফটাইম অনুমোদিত সেলস</div>
+      <div class="rev-val" id="totalRev">৳ ০.০০</div>
+      <div style="font-size: 0.85rem; color: #34d399; margin-top: 4px;" id="todayRev">আজকের সংগ্রহ: ৳ ০</div>
+      <div style="font-size: 0.8rem; color: var(--muted); margin-top: 4px;" id="custStats">মোট গ্রাহক: ০ | পেন্ডিং অর্ডার: ০</div>
+    </div>
 
-  <!-- Kill switch -->
-  <div class="card">
-    <h3 style="margin-bottom: 0.75rem; font-size: 1.05rem;">⚡ ১-ক্লিক রিমোট কিল-সুইচ (গ্রাহক নিয়ন্ত্রণ)</h3>
-    <div id="customerListContainer">
-      <p style="color: var(--muted); font-size: 0.85rem;">গ্রাহক তালিকা লোড হচ্ছে...</p>
+    <!-- WhatsApp Quick Stats Banner -->
+    <div class="card" style="background: linear-gradient(135deg, rgba(37,211,102,0.12) 0%, rgba(17,24,39,0.95) 100%); border-color: rgba(37,211,102,0.3);">
+      <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:8px;">
+        <div style="font-size: 0.9rem; font-weight:bold; color: #25D366; display:flex; align-items:center; gap:6px;">
+          💬 WhatsApp মার্কেটিং অবস্থা
+        </div>
+        <button class="chip-btn" onclick="switchTab('whatsapp')" style="border-color:#25D366; color:#25D366;">ম্যানেজ করুন →</button>
+      </div>
+      <div style="display:grid; grid-template-columns: repeat(3, 1fr); gap:6px; text-align:center;">
+        <div style="background:rgba(0,0,0,0.3); padding:8px; border-radius:8px;">
+          <div style="font-size:0.7rem; color:var(--muted);">কন্টাক্ট</div>
+          <div id="dashWaContacts" style="font-size:1.05rem; font-weight:bold; color:#38bdf8;">০</div>
+        </div>
+        <div style="background:rgba(0,0,0,0.3); padding:8px; border-radius:8px;">
+          <div style="font-size:0.7rem; color:var(--muted);">প্রেরিত</div>
+          <div id="dashWaSent" style="font-size:1.05rem; font-weight:bold; color:#10b981;">০</div>
+        </div>
+        <div style="background:rgba(0,0,0,0.3); padding:8px; border-radius:8px;">
+          <div style="font-size:0.7rem; color:var(--muted);">অপঠিত ইনবক্স</div>
+          <div id="dashWaUnread" style="font-size:1.05rem; font-weight:bold; color:#f59e0b;">০</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Quick Shortcuts Card -->
+    <div class="card">
+      <div style="font-size: 0.95rem; font-weight: bold; margin-bottom: 0.75rem;">⚡ কুইক শর্টকাট</div>
+      <div style="display:grid; grid-template-columns: 1fr 1fr; gap:8px;">
+        <button class="btn btn-wa" style="padding:0.7rem;" onclick="switchTab('whatsapp')">
+          💬 WhatsApp মেসেজ
+        </button>
+        <button class="btn" style="padding:0.7rem;" onclick="switchTab('customers')">
+          👥 গ্রাহক নিয়ন্ত্রণ
+        </button>
+      </div>
     </div>
   </div>
 
-  <!-- Broadcast Notice -->
-  <div class="card">
-    <h3 style="margin-bottom: 0.75rem; font-size: 1.05rem;">📢 লাইভ স্ক্রোলিং নোটিশ ব্রডকাস্ট</h3>
-    <p style="font-size: 0.8rem; color: var(--muted); margin-bottom: 0.5rem;">এটি লিখলে তাৎক্ষণিকভাবে সকল সক্রিয় গ্রাহকের পিসি ড্যাশবোর্ডে লাল/নীল স্ক্রোলিং বারে প্রদর্শিত হবে।</p>
-    <input type="text" id="noticeInput" placeholder="সকল ইউজারের পিসিতে যা স্ক্রোল হবে...">
-    <button class="btn" style="width: 100%;" onclick="broadcastNotice()">
-      সরাসরি প্রচার করুন (Broadcast to All PCs)
-    </button>
+  <!-- ==========================================
+       TAB VIEW 2: WHATSAPP MARKETING
+       ========================================== -->
+  <div id="view-whatsapp" class="tab-view">
+    <!-- WhatsApp Mobile Top Stats -->
+    <div class="card" style="background: linear-gradient(135deg, rgba(37,211,102,0.15) 0%, rgba(17,24,39,0.9) 100%); border-color: rgba(37,211,102,0.4);">
+      <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:8px;">
+        <span style="font-size:0.95rem; font-weight:bold; color:#25D366;">📱 WAManager Pro Mobile</span>
+        <span class="badge badge-wa">অফিসিয়াল গেটওয়ে</span>
+      </div>
+      <div style="display:grid; grid-template-columns: repeat(4, 1fr); gap:6px; text-align:center;">
+        <div style="background:rgba(0,0,0,0.35); padding:8px; border-radius:8px;">
+          <div style="font-size:0.65rem; color:var(--muted);">কন্টাক্ট</div>
+          <div id="waContactsVal" style="font-size:1rem; font-weight:bold; color:#38bdf8;">০</div>
+        </div>
+        <div style="background:rgba(0,0,0,0.35); padding:8px; border-radius:8px;">
+          <div style="font-size:0.65rem; color:var(--muted);">সফল</div>
+          <div id="waSentVal" style="font-size:1rem; font-weight:bold; color:#10b981;">০</div>
+        </div>
+        <div style="background:rgba(0,0,0,0.35); padding:8px; border-radius:8px;">
+          <div style="font-size:0.65rem; color:var(--muted);">কিউ</div>
+          <div id="waQueuedVal" style="font-size:1rem; font-weight:bold; color:#a855f7;">০</div>
+        </div>
+        <div style="background:rgba(0,0,0,0.35); padding:8px; border-radius:8px;">
+          <div style="font-size:0.65rem; color:var(--muted);">অপঠিত</div>
+          <div id="waUnreadVal" style="font-size:1rem; font-weight:bold; color:#f59e0b;">০</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Quick Message Dispatcher -->
+    <div class="card">
+      <h3 style="margin-bottom: 0.75rem; font-size: 1rem; color:#fff; display:flex; align-items:center; gap:6px;">
+        ⚡ মোবাইল থেকে দ্রুত WhatsApp পাঠান
+      </h3>
+      <input type="text" id="waMobilePhone" placeholder="গ্রাহকের ফোন নম্বর (যেমন: 01968111593)">
+      
+      <!-- Quick Template Chips -->
+      <div style="margin-bottom: 0.5rem; overflow-x: auto; white-space: nowrap; padding-bottom: 4px;">
+        <button type="button" class="chip-btn" onclick="applyWaChip('order_conf')">অর্ডার কনফার্ম</button>
+        <button type="button" class="chip-btn" onclick="applyWaChip('pay_remind')">পেমেন্ট রিমাইন্ডার</button>
+        <button type="button" class="chip-btn" onclick="applyWaChip('demo_hook')">সফটওয়্যার ডেমো</button>
+        <button type="button" class="chip-btn" onclick="applyWaChip('wam_offer')">WAManager অফার</button>
+      </div>
+
+      <textarea id="waMobileBody" rows="4" placeholder="মেসেজ লিখুন..."></textarea>
+      <button class="btn btn-wa" style="width: 100%; font-weight: bold;" onclick="sendMobileWaMessage()">
+        💬 সরাসরি WhatsApp পাঠান
+      </button>
+    </div>
+
+    <!-- Recent WhatsApp Leads List -->
+    <div class="card">
+      <h3 style="margin-bottom: 0.75rem; font-size: 1rem; color:#fff;">👥 সাম্প্রতিক WhatsApp লিডস</h3>
+      <div id="waLeadsContainer">
+        <p style="color: var(--muted); font-size: 0.85rem;">লিডস লোড হচ্ছে...</p>
+      </div>
+    </div>
+
+    <!-- Link to Desktop Suite -->
+    <div class="card" style="text-align:center; padding:1.25rem;">
+      <p style="font-size:0.85rem; color:var(--muted); margin-bottom:0.75rem;">
+        ক্যাম্পেইন ব্রডকাস্ট, গ্রুপ গ্র্যাবার ও নম্বর ফিল্টারের মতো অ্যাডভান্সড ফিচারের জন্য:
+      </p>
+      <button class="btn" style="width:100%; background:#1e293b; color:#38bdf8; border:1px solid #38bdf8;" onclick="openDesktopWaSuite()">
+        💻 সম্পূর্ণ WAManager Pro ডেস্কটপ খুলুন ↗
+      </button>
+    </div>
   </div>
 
-  <div id="pwaInstallBanner" style="display:none; position:fixed; bottom:15px; left:15px; right:15px; background:#1e293b; border:1px solid #ef4444; padding:12px; border-radius:12px; z-index:999; text-align:center;">
+  <!-- ==========================================
+       TAB VIEW 3: CUSTOMERS & KILL-SWITCH
+       ========================================== -->
+  <div id="view-customers" class="tab-view">
+    <div class="card">
+      <h3 style="margin-bottom: 0.75rem; font-size: 1.05rem;">⚡ ১-ক্লিক রিমোট কিল-সুইচ (গ্রাহক নিয়ন্ত্রণ)</h3>
+      <p style="font-size:0.8rem; color:var(--muted); margin-bottom:0.75rem;">যেকোনো ব্যবহারকারীর লাইসেন্স এক ক্লিকে রিমোটলি ব্লক বা পুনরায় সক্রিয় করুন।</p>
+      <div id="customerListContainer">
+        <p style="color: var(--muted); font-size: 0.85rem;">গ্রাহক তালিকা লোড হচ্ছে...</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- ==========================================
+       TAB VIEW 4: BROADCAST NOTICE
+       ========================================== -->
+  <div id="view-notice" class="tab-view">
+    <div class="card">
+      <h3 style="margin-bottom: 0.75rem; font-size: 1.05rem;">📢 লাইভ স্ক্রোলিং নোটিশ ব্রডকাস্ট</h3>
+      <p style="font-size: 0.8rem; color: var(--muted); margin-bottom: 0.75rem;">
+        এটি লিখলে তাৎক্ষণিকভাবে সকল সক্রিয় গ্রাহকের পিসি ড্যাশবোর্ডে লাল/নীল স্ক্রোলিং বারে প্রদর্শিত হবে।
+      </p>
+      <input type="text" id="noticeInput" placeholder="সকল ইউজারের পিসিতে যা স্ক্রোল হবে...">
+      <button class="btn" style="width: 100%;" onclick="broadcastNotice()">
+        সরাসরি প্রচার করুন (Broadcast to All PCs)
+      </button>
+    </div>
+  </div>
+
+  <!-- Mobile Tab Navigation Bar -->
+  <nav class="mobile-tab-nav">
+    <div class="mobile-tab-item active" onclick="switchTab('dashboard')" id="nav-dashboard">
+      <span class="icon">📊</span>
+      <span>ড্যাশবোর্ড</span>
+    </div>
+    <div class="mobile-tab-item wa-item" onclick="switchTab('whatsapp')" id="nav-whatsapp">
+      <span class="icon">💬</span>
+      <span>WhatsApp</span>
+    </div>
+    <div class="mobile-tab-item" onclick="switchTab('customers')" id="nav-customers">
+      <span class="icon">👥</span>
+      <span>গ্রাহক</span>
+    </div>
+    <div class="mobile-tab-item" onclick="switchTab('notice')" id="nav-notice">
+      <span class="icon">📢</span>
+      <span>নোটিশ</span>
+    </div>
+  </nav>
+
+  <div id="pwaInstallBanner" style="display:none; position:fixed; bottom:70px; left:15px; right:15px; background:#1e293b; border:1px solid #ef4444; padding:12px; border-radius:12px; z-index:999; text-align:center;">
     <div style="font-size:0.9rem; font-weight:bold; margin-bottom:6px;">📲 হোম স্ক্রিনে অ্যাপ ইনস্টল করুন</div>
     <button class="btn" id="pwaInstallBtn" style="padding:6px 12px; font-size:0.85rem; background:#ef4444; color:#fff;">ইনস্টল করুন (Add to Home)</button>
   </div>
@@ -82,6 +308,19 @@
     function getEndpoint() {
       const v = document.getElementById('siteUrl').value.trim();
       return v.replace(/\/+$/, '');
+    }
+
+    function switchTab(tabName) {
+      document.querySelectorAll('.tab-view').forEach(el => el.classList.remove('active'));
+      document.querySelectorAll('.mobile-tab-item').forEach(el => el.classList.remove('active'));
+
+      const targetView = document.getElementById('view-' + tabName);
+      const targetNav = document.getElementById('nav-' + tabName);
+
+      if (targetView) targetView.classList.add('active');
+      if (targetNav) targetNav.classList.add('active');
+
+      window.scrollTo({ top: 0, behavior: 'smooth' });
     }
 
     async function loadMetrics() {
@@ -95,11 +334,27 @@
           document.getElementById('todayRev').innerText = 'আজকের সংগ্রহ: ৳ ' + Number(m.today_revenue).toLocaleString('en-IN');
           document.getElementById('custStats').innerText = `মোট গ্রাহক: ${m.customer_count} জন | পেন্ডিং অর্ডার: ${m.pending_orders}টি`;
           
+          // WhatsApp stats
+          const waCont = m.wa_contacts || 0;
+          const waSent = m.wa_sent || 0;
+          const waQueue = m.wa_queued || 0;
+          const waUnread = m.wa_unread || 0;
+
+          document.getElementById('dashWaContacts').innerText = waCont;
+          document.getElementById('dashWaSent').innerText = waSent;
+          document.getElementById('dashWaUnread').innerText = waUnread;
+
+          document.getElementById('waContactsVal').innerText = waCont;
+          document.getElementById('waSentVal').innerText = waSent;
+          document.getElementById('waQueuedVal').innerText = waQueue;
+          document.getElementById('waUnreadVal').innerText = waUnread;
+
           if (m.broadcast_notice && !document.getElementById('noticeInput').value) {
             document.getElementById('noticeInput').value = m.broadcast_notice;
           }
 
           renderCustomers(data.customers);
+          renderWaLeads(data.wa_leads);
         }
       } catch (e) {
         console.log('Admin offline load');
@@ -115,14 +370,89 @@
       cont.innerHTML = custs.map(c => `
         <div class="cust-row">
           <div>
-            <div style="font-weight: 600;">${c.name} (${c.whatsapp || c.email || 'N/A'})</div>
-            <div style="font-size: 0.8rem; color: var(--muted);">প্ল্যান: ${c.plan || 'Standard'} | আইডি: #${c.id} | স্ট্যাটাস: <b style="color:${c.status === 'banned' ? '#ef4444' : '#34d399'}">${c.status}</b></div>
+            <div style="font-weight: 600;">${escapeHtml(c.name)} (${escapeHtml(c.whatsapp || c.email || 'N/A')})</div>
+            <div style="font-size: 0.8rem; color: var(--muted);">প্ল্যান: ${escapeHtml(c.plan || 'Standard')} | আইডি: #${c.id} | স্ট্যাটাস: <b style="color:${c.status === 'banned' ? '#ef4444' : '#34d399'}">${escapeHtml(c.status)}</b></div>
           </div>
           <button class="btn ${c.status === 'banned' ? 'btn-success' : 'btn-danger'}" style="padding: 6px 12px; font-size: 0.8rem;" onclick="toggleKillswitch(${c.id}, '${c.status === 'banned' ? 'active' : 'banned'}')">
-            ${c.status === 'banned' ? 'আনব্লক করুন' : 'রিমোট ব্লক'}
+            ${c.status === 'banned' ? 'আনব্লক' : 'রিমোট ব্লক'}
           </button>
         </div>
       `).join('');
+    }
+
+    function renderWaLeads(leads) {
+      const cont = document.getElementById('waLeadsContainer');
+      if (!leads || leads.length === 0) {
+        cont.innerHTML = '<p style="color: var(--muted); font-size:0.85rem;">কোনো সাম্প্রতিক লিড পাওয়া যায়নি।</p>';
+        return;
+      }
+      cont.innerHTML = leads.map(l => `
+        <div class="cust-row">
+          <div>
+            <div style="font-weight: 600; color:#fff;">${escapeHtml(l.name)}</div>
+            <div style="font-size: 0.8rem; color: #25D366;">+${escapeHtml(l.phone)}</div>
+          </div>
+          <div style="display:flex; gap:6px;">
+            <button class="chip-btn" style="margin:0;" onclick="loadLeadToSender('${escapeHtml(l.phone)}', '${escapeHtml(l.name)}')">লোড</button>
+            <a href="https://wa.me/${escapeHtml(l.phone)}" target="_blank" class="btn btn-wa" style="padding: 5px 10px; font-size: 0.75rem; text-decoration:none;">
+              চ্যাট ↗
+            </a>
+          </div>
+        </div>
+      `).join('');
+    }
+
+    function loadLeadToSender(phone, name) {
+      document.getElementById('waMobilePhone').value = phone;
+      document.getElementById('waMobileBody').value = `আসসালামু আলাইকুম ${name}!\n\nAutoMovie Pro এবং WAManager Pro সম্পর্কিত আপনার অনুরোধের প্রেক্ষিতে যোগাযোগ করছি।`;
+      window.scrollTo({ top: 120, behavior: 'smooth' });
+    }
+
+    function applyWaChip(type) {
+      const body = document.getElementById('waMobileBody');
+      if (type === 'order_conf') {
+        body.value = "আসসালামু আলাইকুম!\n\nঅভিনন্দন! আপনার সফটওয়্যার অর্ডারটি অনুমোদিত হয়েছে। 🎉\n\nডাউনলোড পোর্টাল লিংক:\nhttps://automoviepro.com/download.php\n\nধন্যবাদ!";
+      } else if (type === 'pay_remind') {
+        body.value = "আসসালামু আলাইকুম,\n\nআপনি সম্প্রতি AutoMovie Pro সফটওয়্যারটির জন্য অর্ডার সাবমিট করেছিলেন। আপনার অর্ডারটি সম্পন্ন করতে পেমেন্ট সম্পন্ন করে TrxID কনফার্ম করুন।\n\nযেকোনো প্রয়োজনে সরাসরি রিপ্লাই দিন।";
+      } else if (type === 'demo_hook') {
+        body.value = "আসসালামু আলাইকুম!\n\nপ্রতিদিন সোশ্যাল মিডিয়ায় স্বয়ংক্রিয়ভাবে ভিডিও ও রিলস বানিয়ে প্রকাশ করতে চান? AutoMovie Pro-এর লাইভ ডেমো দেখতে ভিজিট করুন:\n👉 https://automoviepro.com";
+      } else if (type === 'wam_offer') {
+        body.value = "আসসালামু আলাইকুম!\n\nবিজনেসের জন্য প্রফেশনাল WhatsApp মার্কেটিং সফটওয়্যার খুঁজছেন? WAManager Pro দিয়ে আনলিমিটেড বাল্ক মেসেজ, অ্যান্টি-ব্যান স্পিনট্যাক্স ও B2B লিড স্ক্র্যাপ করুন!\n\n১ বছর মাত্র ৯৯৯/- টাকা!\n👉 https://automoviepro.com/whatsapp-marketing.php";
+      }
+    }
+
+    async function sendMobileWaMessage() {
+      const base = getEndpoint();
+      const phone = document.getElementById('waMobilePhone').value.trim();
+      const msg = document.getElementById('waMobileBody').value.trim();
+
+      if (!phone || !msg) {
+        alert('ফোন নম্বর ও মেসেজ উভয়ই পূরণ করুন।');
+        return;
+      }
+
+      try {
+        const res = await fetch(`${base}/api/admin_mobile.php?action=wa_send`, {
+          method: 'POST',
+          headers: {'Content-Type': 'application/json'},
+          body: JSON.stringify({ phone: phone, message: msg })
+        });
+        const d = await res.json();
+        if (d.ok) {
+          alert(d.message || 'মেসেজ পাঠানো সম্পন্ন হয়েছে!');
+          document.getElementById('waMobileBody').value = '';
+          loadMetrics();
+        } else {
+          alert('ত্রুটি: ' + (d.error || 'পাঠানো যায়নি'));
+        }
+      } catch (e) {
+        alert('সার্ভার রিকোয়েস্ট ব্যর্থ: ' + e.message);
+      }
+    }
+
+    function openDesktopWaSuite() {
+      const base = getEndpoint();
+      window.open(`${base}/admin/whatsapp_marketing.php`, '_blank');
     }
 
     async function toggleKillswitch(cid, newStatus) {
@@ -160,6 +490,13 @@
       } catch (e) {
         alert('ব্রডকাস্ট ব্যর্থ: ' + e.message);
       }
+    }
+
+    function escapeHtml(text) {
+      if (!text) return '';
+      return String(text).replace(/[&<>"']/g, function(m) {
+        return {'&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#039;'}[m];
+      });
     }
 
     // Initial load

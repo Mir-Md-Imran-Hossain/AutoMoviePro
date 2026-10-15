@@ -2243,8 +2243,8 @@ input:focus, textarea:focus, select:focus {
    ========================================================================== */
 .engines-grid {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 1.75rem;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1.25rem;
   margin-top: 2.5rem;
 }
 
@@ -2252,7 +2252,7 @@ input:focus, textarea:focus, select:focus {
   background: linear-gradient(135deg, rgba(15, 23, 42, 0.95), rgba(30, 41, 59, 0.75));
   border: 1px solid rgba(255, 255, 255, 0.1);
   border-radius: var(--radius-xl);
-  padding: 2rem 1.75rem;
+  padding: 1.75rem 1.35rem;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -2260,6 +2260,37 @@ input:focus, textarea:focus, select:focus {
   box-shadow: 0 12px 35px rgba(0, 0, 0, 0.5);
   position: relative;
   overflow: hidden;
+}
+
+.engine-brand-emblem-wrap {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.engine-brand-emblem {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  object-fit: contain;
+  filter: drop-shadow(0 0 10px rgba(56, 189, 248, 0.4));
+  transition: transform 0.3s ease;
+}
+
+.engine-display-card:hover .engine-brand-emblem {
+  transform: scale(1.1) rotate(4deg);
+}
+
+.engine-card-business .engine-brand-emblem {
+  filter: drop-shadow(0 0 10px rgba(245, 158, 11, 0.45));
+}
+
+.engine-card-profile .engine-brand-emblem {
+  filter: drop-shadow(0 0 10px rgba(16, 185, 129, 0.45));
+}
+
+.engine-card-whatsapp .engine-brand-emblem {
+  filter: drop-shadow(0 0 10px rgba(37, 211, 102, 0.45));
 }
 
 .engine-display-card::before {
@@ -2307,6 +2338,14 @@ input:focus, textarea:focus, select:focus {
   box-shadow: 0 20px 45px rgba(0, 0, 0, 0.7), 0 0 30px rgba(16, 185, 129, 0.35);
 }
 
+.engine-card-whatsapp {
+  border-color: rgba(37, 211, 102, 0.45);
+}
+.engine-card-whatsapp:hover {
+  border-color: #25D366;
+  box-shadow: 0 20px 45px rgba(0, 0, 0, 0.7), 0 0 35px rgba(37, 211, 102, 0.35);
+}
+
 .engine-card-top {
   display: flex;
   justify-content: space-between;
@@ -2339,6 +2378,12 @@ input:focus, textarea:focus, select:focus {
   background: rgba(16, 185, 129, 0.15);
   color: #10b981;
   border: 1px solid rgba(16, 185, 129, 0.35);
+}
+
+.engine-top-badge.badge-green {
+  background: rgba(37, 211, 102, 0.18);
+  color: #25D366;
+  border: 1px solid rgba(37, 211, 102, 0.4);
 }
 
 .engine-pricing-badge {
@@ -2455,7 +2500,24 @@ input:focus, textarea:focus, select:focus {
   box-shadow: 0 6px 22px rgba(5, 150, 105, 0.6);
 }
 
-@media (max-width: 980px) {
+.btn-engine-order.btn-whatsapp {
+  background: linear-gradient(135deg, #10b981, #059669);
+  box-shadow: 0 4px 15px rgba(37, 211, 102, 0.4);
+  color: #fff;
+}
+.btn-engine-order.btn-whatsapp:hover {
+  background: linear-gradient(135deg, #25D366, #10b981);
+  box-shadow: 0 6px 22px rgba(37, 211, 102, 0.6);
+}
+
+@media (max-width: 1199px) {
+  .engines-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
+  }
+}
+
+@media (max-width: 768px) {
   .engines-grid {
     grid-template-columns: 1fr;
     gap: 1.5rem;
@@ -2463,7 +2525,7 @@ input:focus, textarea:focus, select:focus {
 }
 
 /* ==========================================================================
-   How It Works — 3 Dedicated Engine Workflow Boxes (No Tabs Needed)
+   How It Works — 4 Dedicated Engine Workflow Boxes (No Tabs Needed)
    ========================================================================== */
 .engine-workflows-container {
   display: flex;
@@ -2514,6 +2576,23 @@ input:focus, textarea:focus, select:focus {
   position: absolute;
   top: 0; left: 0; right: 0; height: 4px;
   background: linear-gradient(90deg, #059669, #34d399, #10b981);
+}
+
+.workflow-engine-box.wf-box-whatsapp {
+  border-color: rgba(37, 211, 102, 0.35);
+  box-shadow: 0 10px 40px rgba(37, 211, 102, 0.1);
+}
+.workflow-engine-box.wf-box-whatsapp::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0; height: 4px;
+  background: linear-gradient(90deg, #059669, #25D366, #10b981);
+}
+
+.wf-box-whatsapp .step-num {
+  color: #25D366;
+  background: rgba(37, 211, 102, 0.1);
+  border: 1px solid rgba(37, 211, 102, 0.3);
 }
 
 .wf-box-header {
@@ -2580,10 +2659,11 @@ input:focus, textarea:focus, select:focus {
 /* ==========================================================================
    3-Column Industrial Comparative Feature Suite (#features)
    ========================================================================== */
-.feature-suite-3col-grid {
+.feature-suite-3col-grid,
+.feature-suite-4col-grid {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 2rem;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1.25rem;
   margin: 2.5rem 0 4rem;
   align-items: stretch;
 }
@@ -2592,7 +2672,7 @@ input:focus, textarea:focus, select:focus {
   background: linear-gradient(145deg, rgba(15, 23, 42, 0.95), rgba(30, 41, 59, 0.85));
   border: 1px solid rgba(255, 255, 255, 0.12);
   border-radius: var(--radius-xl);
-  padding: 2.25rem 1.85rem;
+  padding: 1.85rem 1.35rem;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -2627,6 +2707,15 @@ input:focus, textarea:focus, select:focus {
 }
 .feat-box.feat-box-profile:hover {
   box-shadow: 0 22px 55px rgba(16, 185, 129, 0.25);
+}
+
+.feat-box.feat-box-whatsapp {
+  border-color: rgba(37, 211, 102, 0.45);
+  box-shadow: 0 15px 45px rgba(37, 211, 102, 0.12);
+}
+.feat-box.feat-box-whatsapp:hover {
+  border-color: #25D366;
+  box-shadow: 0 22px 55px rgba(37, 211, 102, 0.3);
 }
 
 .feat-box-top {
@@ -2801,15 +2890,19 @@ input:focus, textarea:focus, select:focus {
   gap: 10px;
 }
 
-@media (max-width: 1024px) {
-  .feature-suite-3col-grid {
+@media (max-width: 1199px) {
+  .feature-suite-3col-grid,
+  .feature-suite-4col-grid {
     grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
   }
 }
 
 @media (max-width: 768px) {
-  .feature-suite-3col-grid {
+  .feature-suite-3col-grid,
+  .feature-suite-4col-grid {
     grid-template-columns: 1fr;
+    gap: 1.5rem;
   }
   .feat-box {
     padding: 1.75rem 1.25rem;
@@ -2817,7 +2910,7 @@ input:focus, textarea:focus, select:focus {
 }
 
 /* ==========================================================================
-   Order Form 3-Engine Radio Selector Cards (#buy)
+   Order Form 4-Engine Radio Selector Cards (#buy)
    ========================================================================== */
 .engine-picker-fieldset {
   border: 1px solid rgba(56, 189, 248, 0.25);
@@ -2836,7 +2929,7 @@ input:focus, textarea:focus, select:focus {
 
 .engine-selector-grid {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(4, 1fr);
   gap: 1rem;
   margin-top: 0.5rem;
 }
@@ -2925,9 +3018,17 @@ input:focus, textarea:focus, select:focus {
   line-height: 1.4;
 }
 
+@media (max-width: 1199px) {
+  .engine-selector-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+  }
+}
+
 @media (max-width: 768px) {
   .engine-selector-grid {
     grid-template-columns: 1fr;
+    gap: 1rem;
   }
 }
 
@@ -3297,6 +3398,62 @@ input:focus, textarea:focus, select:focus {
 @keyframes cursorBlink {
   0%, 100% { opacity: 0; }
   50% { opacity: 1; }
+}
+
+/* Ecosystem Switcher Tabs */
+.ecosystem-tabs-bar {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0.65rem;
+  margin: 1.5rem auto 2.5rem;
+  flex-wrap: wrap;
+  max-width: 1000px;
+}
+.ecosystem-tab-btn {
+  padding: 0.75rem 1.25rem;
+  border-radius: 999px;
+  background: rgba(15, 23, 42, 0.85);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  color: #94a3b8;
+  font-weight: 600;
+  font-size: 0.92rem;
+  cursor: pointer;
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+.ecosystem-tab-btn:hover {
+  border-color: rgba(255, 255, 255, 0.3);
+  color: #fff;
+  transform: translateY(-2px);
+}
+.ecosystem-tab-btn.active {
+  background: linear-gradient(135deg, #0ea5e9, #2563eb);
+  border-color: #38bdf8;
+  color: #fff;
+  box-shadow: 0 0 20px rgba(14, 165, 233, 0.4);
+}
+.ecosystem-tab-btn.active.tab-wa {
+  background: linear-gradient(135deg, #10b981, #059669);
+  border-color: #25D366;
+  box-shadow: 0 0 20px rgba(37, 211, 102, 0.4);
+}
+.ecosystem-tab-btn.active.tab-business {
+  background: linear-gradient(135deg, #d97706, #b45309);
+  border-color: #f59e0b;
+  box-shadow: 0 0 20px rgba(245, 158, 11, 0.4);
+}
+.ecosystem-tab-btn.active.tab-profile {
+  background: linear-gradient(135deg, #059669, #047857);
+  border-color: #10b981;
+  box-shadow: 0 0 20px rgba(16, 185, 129, 0.4);
+}
+.ecosystem-tab-btn.active.tab-gpro {
+  background: linear-gradient(135deg, #a855f7, #6366f1);
+  border-color: #c084fc;
+  box-shadow: 0 0 20px rgba(168, 85, 247, 0.4);
 }
 
 

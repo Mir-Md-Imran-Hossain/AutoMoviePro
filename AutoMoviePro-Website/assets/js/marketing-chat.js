@@ -484,6 +484,12 @@
       title: "AutoMovie Pro - FB Profile & Page Post Automation Engine (Lifetime License)",
       displayTitle: "৩. FB Profile & Page Post Automation Engine",
       note: "FB Profile & Page Post Engine — লাইফটাইম লাইসেন্স (১০০% হিউম্যান সিমুলেশন পোস্টিং)"
+    },
+    wa_marketing: {
+      price: 999,
+      title: "WAManager Pro — WhatsApp Marketing Suite (১ বছর সাবস্ক্রিপশন + নিয়মিত ফিচার আপডেট)",
+      displayTitle: "৪. WAManager Pro — WhatsApp Marketing & CRM Suite",
+      note: "WhatsApp Marketing Suite — ১ বছর সাবস্ক্রিপশন (আনলিমিটেড বাল্ক মেসেজিং, বট ও বি২বি লিডস)"
     }
   };
 
@@ -573,13 +579,52 @@
     const targetMap = {
       engine_social: "wfBoxSocial",
       engine_business: "wfBoxBusiness",
-      engine_profile: "wfBoxProfile"
+      engine_profile: "wfBoxProfile",
+      engine_whatsapp: "wfBoxWhatsApp"
     };
     const targetId = targetMap[engineKey] || "how";
     const el = document.getElementById(targetId);
     if (el) {
       el.scrollIntoView({ behavior: "smooth", block: "start" });
     }
+  };
+
+  window.filterEcosystem = function (filterKey) {
+    document.querySelectorAll(".ecosystem-tab-btn").forEach(function (btn) {
+      btn.classList.remove("active");
+    });
+    const activeBtnMap = {
+      all: "btnEcoAll",
+      video_studio: "btnEcoVideo",
+      fb_business: "btnEcoBusiness",
+      profile_page: "btnEcoProfile",
+      wa_marketing: "btnEcoWa",
+      google_pro: "btnEcoGpro"
+    };
+    const targetBtn = document.getElementById(activeBtnMap[filterKey]);
+    if (targetBtn) targetBtn.classList.add("active");
+
+    if (filterKey === 'google_pro') {
+      const gproSection = document.getElementById('google-pro');
+      if (gproSection) gproSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      return;
+    }
+
+    const cards = document.querySelectorAll("#enginesGrid [data-engine-card]");
+    cards.forEach(function (card) {
+      const cardType = card.getAttribute("data-engine-card");
+      if (filterKey === "all" || cardType === filterKey) {
+        card.style.display = "flex";
+        if (filterKey !== "all") {
+          card.style.transform = "scale(1.02)";
+          card.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+        } else {
+          card.style.transform = "";
+        }
+      } else {
+        card.style.display = "none";
+      }
+    });
   };
 
   function appendChat(role, text, onComplete, checkoutUrl) {

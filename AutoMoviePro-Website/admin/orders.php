@@ -73,8 +73,12 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && csrf_verify($_POST['csrf'] ?? null)
                 $siteUrl = rtrim((string)($config['site_url'] ?? 'https://automoviepro.com'), '/');
                 $dlToken = $res['download_token'] ?? amp_create_download_token($pdo, $orderId, (int)($order['customer_id'] ?? 0));
                 $dlLink = $res['download_url'] ?? ($siteUrl . '/download.php?token=' . $dlToken);
+                $isWaMarketing = (($order['plan'] ?? '') === 'wa_marketing' || ($order['product_slug'] ?? '') === 'wa_marketing');
+                $prodTitle = $isWaMarketing ? "WAManager Pro (হোয়াটসঅ্যাপ মার্কেটিং স্যুট)" : "AutoMovie Pro";
+                $durationText = $isWaMarketing ? (((float)$order['amount'] >= 1500) ? "৩ বছর মেয়াদের (36 Months)" : "১ বছর মেয়াদের (12 Months)") : "আজীবন মেয়াদের (Lifetime)";
+
                 $waMsg = "আসসালামু আলাইকুম {$order['name']},\n\n"
-                       . "আপনার AutoMovie Pro অর্ডার #{$orderId} সফলভাবে অ্যাপ্রুভ করা হয়েছে এবং আজীবন মেয়াদের (Lifetime) লাইসেন্স সক্রিয় করা হয়েছে! 🎉\n\n"
+                       . "আপনার {$prodTitle} অর্ডার #{$orderId} সফলভাবে অ্যাপ্রুভ করা হয়েছে এবং {$durationText} লাইসেন্স সক্রিয় করা হয়েছে! 🎉\n\n"
                        . "আপনার লগইন তথ্য:\n"
                        . "👤 Login ID: {$res['login_id']}\n"
                        . "🔑 Password: {$res['password']}\n"

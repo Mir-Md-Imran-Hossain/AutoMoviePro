@@ -75,19 +75,23 @@ if ($token !== '' && $isDownloadAction) {
 
 $product = strtolower(trim((string) ($_GET['product'] ?? ($tokenCheck['record']['product'] ?? 'software'))));
 $isFBSuite = ($product === 'omnisocial' || $product === 'fbsuite' || $product === 'business');
+$isWAMarketing = ($product === 'wa_marketing' || $product === 'whatsapp' || $product === 'wamanager');
 $brand = setting($pdo, 'hero_brand', 'AutoMovie Pro');
-$waSupport = amp_whatsapp_sales_link('Hi, I need assistance regarding my AutoMovie Pro download link.');
+$waSupport = amp_whatsapp_sales_link('Hi, I need assistance regarding my software download link.');
 ?><!DOCTYPE html>
-<html lang="bn">
+<html lang="bn" class="notranslate" translate="no">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title><?= $isFBSuite ? 'AutoMovie Pro FB Suite ডাউনলোড' : 'AutoMovie Pro — সিকিউর ডাউনলোড' ?></title>
+  <meta name="google" content="notranslate">
+  <meta name="google" value="notranslate">
+  <meta name="googlebot" content="notranslate">
+  <title><?= $isWAMarketing ? 'WAManager Pro — সিকিউর ডাউনলোড' : ($isFBSuite ? 'AutoMovie Pro FB Suite ডাউনলোড' : 'AutoMovie Pro — সিকিউর ডাউনলোড') ?></title>
   <link rel="stylesheet" href="/assets/css/site.css">
   <link rel="icon" type="image/png" href="/assets/img/logo.png">
   <meta name="robots" content="noindex, nofollow">
 </head>
-<body style="background: radial-gradient(circle at top center, #0f172a 0%, #020617 100%); min-height: 100vh; color: #f8fafc; font-family: system-ui, -apple-system, sans-serif;">
+<body class="notranslate" translate="no" style="background: radial-gradient(circle at top center, #0f172a 0%, #020617 100%); min-height: 100vh; color: #f8fafc; font-family: system-ui, -apple-system, sans-serif;">
   
   <header style="padding: 1.5rem 1rem; border-bottom: 1px solid rgba(255,255,255,0.08); text-align: center;">
     <a href="/" style="text-decoration: none; color: #fff; display: inline-flex; align-items: center; gap: 10px; font-weight: 700; font-size: 1.25rem;">
@@ -173,7 +177,7 @@ $waSupport = amp_whatsapp_sales_link('Hi, I need assistance regarding my AutoMov
           🔒 ক্রিপ্টোগ্রাফিক ওয়ান-টাইম সিকিউর টোকেন অ্যাক্টিভ
         </span>
         <h1 style="font-size: 1.8rem; color: #fff; margin-bottom: 0.5rem;">
-          <?= $isFBSuite ? '🤖 AutoMovie Pro FB Suite ডাউনলোড' : '🎬 AutoMovie Pro ডাউনলোড' ?>
+          <?= $isWAMarketing ? '💬 WAManager Pro (হোয়াটসঅ্যাপ মার্কেটিং স্যুট) ডাউনলোড' : ($isFBSuite ? '🤖 AutoMovie Pro FB Suite ডাউনলোড' : '🎬 AutoMovie Pro ডাউনলোড') ?>
         </h1>
         <p style="color: #94a3b8; font-size: 0.95rem;">পেমেন্ট অনুমোদনের জন্য ধন্যবাদ! নিচের সুরক্ষিত বাটন থেকে সফটওয়্যার সংগ্রহ করুন।</p>
       </div>

@@ -16,10 +16,12 @@ if (admin_logged_in()) {
 }
 ?>
 <!DOCTYPE html>
-<html lang="bn">
+<html lang="bn" class="notranslate" translate="no">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="google" content="notranslate">
+  <meta name="googlebot" content="notranslate">
   <title>অ্যাডমিন লগইন — AutoMovie Pro Master Suite</title>
   <link rel="icon" type="image/png" href="/assets/img/favicon.png">
   <style>

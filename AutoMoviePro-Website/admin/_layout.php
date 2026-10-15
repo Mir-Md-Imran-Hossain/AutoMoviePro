@@ -39,10 +39,12 @@ function admin_header(string $title, string $active = ''): void
     ];
     ?>
 <!DOCTYPE html>
-<html lang="bn">
+<html lang="bn" class="notranslate" translate="no">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="google" content="notranslate">
+  <meta name="googlebot" content="notranslate">
   <title><?= e($title) ?> — AutoMovie Pro Master Admin</title>
   <link rel="icon" type="image/png" href="/assets/img/favicon.png">
   <link rel="stylesheet" href="/assets/css/admin.css">
@@ -68,7 +70,7 @@ function admin_header(string $title, string $active = ''): void
     }
   </style>
 </head>
-<body class="admin-body">
+<body class="admin-body notranslate" translate="no">
   <div class="sidebar-backdrop" id="sidebarBackdrop" onclick="toggleAdminSidebar()"></div>
   <div class="admin-shell">
     

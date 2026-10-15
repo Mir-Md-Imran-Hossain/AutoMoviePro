@@ -233,6 +233,185 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $message = "গ্রুপটি মুছে ফেলা হয়েছে।";
         }
 
+        // 5.1 Add Account
+        elseif ($action === 'add_account') {
+            $accName = trim((string) ($postData['account_name'] ?? ''));
+            $accPhone = trim((string) ($postData['account_phone'] ?? ''));
+            $provType = trim((string) ($postData['provider_type'] ?? 'cloud_api'));
+            $accToken = trim((string) ($postData['access_token'] ?? ''));
+            $phoneId = trim((string) ($postData['phone_number_id'] ?? ''));
+            $wabaId = trim((string) ($postData['business_account_id'] ?? ''));
+
+            $cleanPhone = preg_replace('/\D+/', '', $accPhone) ?? '';
+            if (str_starts_with($cleanPhone, '01')) $cleanPhone = '88' . $cleanPhone;
+
+            if ($accName !== '') {
+                $accId = 'acc_' . uniqid('', true);
+                $apiConfig = json_encode([
+                    'access_token' => $accToken,
+                    'phone_number_id' => $phoneId,
+                    'business_account_id' => $wabaId
+                ]);
+                $st = $pdo->prepare("INSERT INTO wa_accounts (id, name, phone, provider_type, status, api_config, created_at, updated_at) VALUES (?, ?, ?, ?, 'connected', ?, NOW(), NOW())");
+                $st->execute([$accId, $accName, $cleanPhone, $provType, $apiConfig]);
+                $message = "নতুন WhatsApp অ্যাকাউন্ট '{$accName}' সফলভাবে যুক্ত হয়েছে!";
+            } else {
+                $error = 'অ্যাকাউন্টের নাম ও তথ্য পূরণ করুন।';
+            }
+        }
+
+        // 5.2 Delete Account
+        elseif ($action === 'delete_account') {
+            $accId = trim((string) ($postData['account_id'] ?? ''));
+            if ($accId !== 'primary_cloud_api') {
+                $pdo->prepare("DELETE FROM wa_accounts WHERE id = ?")->execute([$accId]);
+                $message = "অ্যাকাউন্টটি মুছে ফেলা হয়েছে।";
+            } else {
+                $error = 'প্রাইমারি ক্লাউড এপিআই অ্যাকাউন্ট মুছে ফেলা যাবে না।';
+            }
+        }
+
+        // 5.3 Save Template
+        elseif ($action === 'save_template') {
+            $tplKey = trim((string) ($postData['template_key'] ?? 'tpl_' . uniqid()));
+            $tplTitle = trim((string) ($postData['title'] ?? ''));
+            $tplCat = trim((string) ($postData['category'] ?? 'general'));
+            $tplBody = trim((string) ($postData['body'] ?? ''));
+
+            if ($tplTitle !== '' && $tplBody !== '') {
+                $st = $pdo->prepare("INSERT INTO whatsapp_templates (template_key, title, category, body, is_active, created_at, updated_at)
+                                     VALUES (?, ?, ?, ?, 1, NOW(), NOW())
+                                     ON DUPLICATE KEY UPDATE title = VALUES(title), category = VALUES(category), body = VALUES(body), updated_at = NOW()");
+                $st->execute([$tplKey, $tplTitle, $tplCat, $tplBody]);
+                $message = "টেমপ্লেট '{$tplTitle}' সফলভাবে সংরক্ষিত হয়েছে!";
+            } else {
+                $error = 'টেমপ্লেটের শিরোনাম ও মেসেজ বডি লিখুন।';
+            }
+        }
+
+        // 5.4 Delete Template
+        elseif ($action === 'delete_template') {
+            $tplId = (int) ($postData['template_id'] ?? 0);
+            if ($tplId > 0) {
+                $pdo->prepare("DELETE FROM whatsapp_templates WHERE id = ?")->execute([$tplId]);
+                $message = "টেমপ্লেটটি মুছে ফেলা হয়েছে।";
+            }
+        }
+
+        // 5.5 Save Grabbed Group Members
+        elseif ($action === 'save_grabbed_members') {
+            $rawMembers = trim((string) ($postData['members_text'] ?? ''));
+            $targetGroup = trim((string) ($postData['target_group_id'] ?? ''));
+            $groupName = trim((string) ($postData['group_source_name'] ?? 'WhatsApp Group'));
+            $saved = 0;
+
+            if ($rawMembers !== '') {
+                $lines = explode("\n", str_replace("\r", "", $rawMembers));
+                foreach ($lines as $line) {
+                    $line = trim($line);
+                    if ($line === '') continue;
+                    $parts = array_map('trim', explode(',', $line));
+                    $phone = $parts[0] ?? '';
+                    $name = (!empty($parts[1])) ? $parts[1] : 'গ্রুপ মেম্বার';
+                    $clean = preg_replace('/\D+/', '', $phone);
+                    if (str_starts_with($clean, '01')) $clean = '88' . $clean;
+                    if (strlen($clean) >= 10) {
+                        $cid = 'cnt_' . uniqid('', true);
+                        try {
+                            $pdo->prepare("INSERT INTO wa_contacts (id, name, phone, country_code, business_name, source, consent_status, created_at, updated_at)
+                                           VALUES (?, ?, ?, '880', ?, 'group_grabber', 'opted_in', NOW(), NOW())
+                                           ON DUPLICATE KEY UPDATE updated_at = NOW()")->execute([$cid, $name, $clean, $groupName]);
+                            if ($targetGroup !== '') {
+                                $pdo->prepare("INSERT IGNORE INTO wa_group_members (group_id, contact_id, added_at) VALUES (?, ?, NOW())")->execute([$targetGroup, $cid]);
+                            }
+                            $saved++;
+                        } catch (\Throwable $e) {}
+                    }
+                }
+                $message = "গ্রুপ গ্র্যাবার থেকে {$saved} জন মেম্বার সফলভাবে কন্টাক্ট ডেটাবেসে যুক্ত হয়েছে!";
+            }
+        }
+
+        // 5.6 Number Filter & Validator
+        elseif ($action === 'filter_numbers') {
+            $rawNumbers = trim((string) ($postData['raw_numbers'] ?? ''));
+            $saveToGroup = trim((string) ($postData['target_group_id'] ?? ''));
+            $autoSave = !empty($postData['auto_save_valid']);
+
+            $valid = [];
+            $invalid = [];
+            $duplicates = 0;
+            $seen = [];
+
+            if ($rawNumbers !== '') {
+                $lines = preg_split('/[\r\n,;]+/', $rawNumbers);
+                foreach ($lines as $line) {
+                    $item = trim($line);
+                    if ($item === '') continue;
+                    $digits = preg_replace('/\D+/', '', $item);
+                    if (str_starts_with($digits, '01') && strlen($digits) === 11) {
+                        $digits = '88' . $digits;
+                    } elseif (str_starts_with($digits, '1') && strlen($digits) === 10) {
+                        $digits = '880' . $digits;
+                    }
+
+                    $isValidBd = preg_match('/^8801[3-9]\d{8}$/', $digits);
+                    $isValidIntl = (strlen($digits) >= 10 && strlen($digits) <= 15);
+
+                    if ($isValidBd || $isValidIntl) {
+                        if (isset($seen[$digits])) {
+                            $duplicates++;
+                            continue;
+                        }
+                        $seen[$digits] = true;
+                        $carrier = 'International';
+                        if ($isValidBd) {
+                            $pfx = substr($digits, 4, 1);
+                            $carrier = match($pfx) {
+                                '7', '3' => 'Grameenphone',
+                                '9', '4' => 'Banglalink',
+                                '8' => 'Robi',
+                                '6' => 'Airtel',
+                                '5' => 'Teletalk',
+                                default => 'Mobile BD'
+                            };
+                        }
+                        $valid[] = ['number' => $digits, 'carrier' => $carrier, 'original' => $item];
+
+                        if ($autoSave) {
+                            $cid = 'cnt_' . uniqid('', true);
+                            try {
+                                $pdo->prepare("INSERT INTO wa_contacts (id, name, phone, country_code, business_name, source, consent_status, created_at, updated_at)
+                                               VALUES (?, 'ভ্যালিডেটেড কন্টাক্ট', ?, '880', ?, 'number_filter', 'opted_in', NOW(), NOW())
+                                               ON DUPLICATE KEY UPDATE updated_at = NOW()")->execute([$cid, $digits, $carrier]);
+                                if ($saveToGroup !== '') {
+                                    $pdo->prepare("INSERT IGNORE INTO wa_group_members (group_id, contact_id, added_at) VALUES (?, ?, NOW())")->execute([$saveToGroup, $cid]);
+                                }
+                            } catch (\Throwable $e) {}
+                        }
+                    } else {
+                        $invalid[] = ['number' => $item, 'reason' => 'অকার্যকর দৈর্ঘ্য বা ডায়াল কোড'];
+                    }
+                }
+            }
+
+            if ($isAjax) {
+                header('Content-Type: application/json');
+                echo json_encode([
+                    'ok' => true,
+                    'total' => count($valid) + count($invalid) + $duplicates,
+                    'valid_count' => count($valid),
+                    'invalid_count' => count($invalid),
+                    'duplicate_count' => $duplicates,
+                    'valid' => $valid,
+                    'invalid' => $invalid
+                ]);
+                exit;
+            } else {
+                $message = "নম্বর ফিল্টারিং সম্পন্ন! মোট " . count($valid) . " টি ভ্যালিড WhatsApp নম্বর সনাক্ত হয়েছে।";
+            }
+        }
+
         // 6. Instant Single Message Dispatch
         elseif ($action === 'send_instant_message') {
             $toPhone = trim((string) ($postData['phone'] ?? ''));
@@ -926,6 +1105,133 @@ admin_header('WAManager Pro — হোয়াটসঅ্যাপ মার�
     </div>
 
   <!-- =========================================================
+       TAB: ACCOUNTS (মাল্টি-অ্যাকাউন্ট ব্যবস্থাপনা)
+       ========================================================= -->
+  <?php elseif ($activeTab === 'accounts'): ?>
+    <div style="display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:1rem; margin-bottom:1.5rem;">
+      <div>
+        <h3 style="margin:0; color:#fff; font-size:1.25rem;">📱 WhatsApp অ্যাকাউন্ট ও গেটওয়ে ব্যবস্থাপনা</h3>
+        <p style="margin:4px 0 0 0; color:var(--admin-text-muted); font-size:0.85rem;">
+          মেটা ক্লাউড এপিআই বা কিউআর কোড সেশনের মাধ্যমে একাধিক অ্যাকাউন্ট কানেক্ট করুন ও সেন্ট্রালি পরিচালনা করুন।
+        </p>
+      </div>
+      <button class="btn btn-primary" onclick="document.getElementById('addAccountModal').style.display='block'" style="background:#25D366; border-color:#128c7e;">
+        ➕ নতুন WhatsApp অ্যাকাউন্ট যুক্ত করুন
+      </button>
+    </div>
+
+    <!-- Accounts Cards Grid -->
+    <div style="display:grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap:1.25rem;">
+      <?php if (empty($accounts)): ?>
+        <div class="admin-card" style="grid-column: 1 / -1; text-align:center; padding:2.5rem;">
+          <p style="color:var(--admin-text-muted);">কোনো সক্রিয় WhatsApp অ্যাকাউন্ট পাওয়া যায়নি। উপরে ক্লিক করে নতুন অ্যাকাউন্ট যুক্ত করুন।</p>
+        </div>
+      <?php else: foreach ($accounts as $acc): 
+          $isPrimary = ($acc['id'] === 'primary_cloud_api');
+          $cfg = json_decode((string)($acc['api_config'] ?? '{}'), true) ?: [];
+      ?>
+        <div class="admin-card" style="border:1px solid rgba(255,255,255,0.08); position:relative; overflow:hidden;">
+          <div style="display:flex; justify-content:space-between; align-items:flex-start; margin-bottom:1rem;">
+            <div style="display:flex; align-items:center; gap:10px;">
+              <div style="width:40px; height:40px; border-radius:10px; background:rgba(37,211,102,0.15); border:1px solid rgba(37,211,102,0.3); display:flex; align-items:center; justify-content:center; font-size:1.25rem;">
+                📱
+              </div>
+              <div>
+                <h4 style="margin:0; font-size:1rem; color:#fff; display:flex; align-items:center; gap:6px;">
+                  <?= e($acc['name']) ?>
+                  <?php if ($isPrimary): ?>
+                    <span style="font-size:0.65rem; background:#25D366; color:#0b141a; font-weight:800; padding:1px 6px; border-radius:10px;">PRIMARY</span>
+                  <?php endif; ?>
+                </h4>
+                <div style="font-size:0.8rem; color:#25D366; margin-top:2px;">
+                  +<?= e($acc['phone'] ?: '8801968111593') ?>
+                </div>
+              </div>
+            </div>
+            <span class="badge badge-success" style="display:inline-flex; align-items:center; gap:5px;">
+              <span style="width:6px; height:6px; border-radius:50%; background:#10b981; display:inline-block; animation: pulse 2s infinite;"></span>
+              <?= e($acc['status'] ?? 'connected') ?>
+            </span>
+          </div>
+
+          <div style="background:rgba(0,0,0,0.25); border-radius:8px; padding:10px 12px; margin-bottom:1rem; font-size:0.8rem; display:flex; flex-direction:column; gap:6px;">
+            <div style="display:flex; justify-content:space-between;">
+              <span style="color:var(--admin-text-muted);">প্রোভাইডার টাইপ:</span>
+              <strong style="color:#e2e8f0;"><?= $acc['provider_type'] === 'cloud_api' ? 'Official Cloud API' : 'QR Session' ?></strong>
+            </div>
+            <div style="display:flex; justify-content:space-between;">
+              <span style="color:var(--admin-text-muted);">ফোন নম্বর আইডি:</span>
+              <span style="color:var(--admin-cyan); font-family:monospace;"><?= e(substr((string)($cfg['phone_number_id'] ?? '—'), 0, 14)) ?>...</span>
+            </div>
+            <div style="display:flex; justify-content:space-between;">
+              <span style="color:var(--admin-text-muted);">সর্বশেষ সক্রিয়:</span>
+              <span style="color:#cbd5e1;"><?= e(substr((string)($acc['updated_at'] ?? $acc['created_at']), 0, 16)) ?></span>
+            </div>
+          </div>
+
+          <div style="display:flex; gap:8px; justify-content:flex-end;">
+            <a href="?tab=dashboard" class="btn btn-secondary btn-sm" style="text-decoration:none;">
+              ⚡ টেস্ট পিং
+            </a>
+            <?php if (!$isPrimary): ?>
+              <form method="POST" action="whatsapp_marketing.php?tab=accounts" onsubmit="return confirm('এই অ্যাকাউন্টটি মুছে ফেলতে চান?');" style="margin:0;">
+                <?= csrf_field() ?>
+                <input type="hidden" name="action" value="delete_account">
+                <input type="hidden" name="account_id" value="<?= e($acc['id']) ?>">
+                <button type="submit" class="btn btn-danger btn-sm">মুছে ফেলুন</button>
+              </form>
+            <?php endif; ?>
+          </div>
+        </div>
+      <?php endforeach; endif; ?>
+    </div>
+
+    <!-- Modal: Add New Account -->
+    <div id="addAccountModal" style="display:none; position:fixed; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.7); z-index:9999; backdrop-filter:blur(4px);">
+      <div class="admin-card" style="max-width:520px; margin:5% auto; position:relative; max-height:90vh; overflow-y:auto;">
+        <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:1.25rem;">
+          <h3 style="margin:0; color:#fff;">➕ নতুন WhatsApp অ্যাকাউন্ট যুক্ত করুন</h3>
+          <button onclick="document.getElementById('addAccountModal').style.display='none'" style="background:none; border:none; color:var(--admin-text-muted); font-size:1.5rem; cursor:pointer;">&times;</button>
+        </div>
+        <form method="POST" action="whatsapp_marketing.php?tab=accounts">
+          <?= csrf_field() ?>
+          <input type="hidden" name="action" value="add_account">
+          <div class="form-group">
+            <label>অ্যাকাউন্টের নাম / লেবেল</label>
+            <input type="text" name="account_name" class="form-control" placeholder="যেমন: সেলস হটলাইন ২" required>
+          </div>
+          <div class="form-group">
+            <label>WhatsApp ফোন নম্বর</label>
+            <input type="text" name="account_phone" class="form-control" placeholder="+8801968111593" required>
+          </div>
+          <div class="form-group">
+            <label>কানেকশন মোড</label>
+            <select name="provider_type" class="form-control">
+              <option value="cloud_api">Meta Cloud API (অফিসিয়াল এন্টারপ্রাইজ — প্রস্তাবিত)</option>
+              <option value="baileys_qr">WhatsApp Web / Baileys QR সেশন</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label>Phone Number ID (Meta Graph API)</label>
+            <input type="text" name="phone_number_id" class="form-control" placeholder="যেমন: 1048291829102">
+          </div>
+          <div class="form-group">
+            <label>WhatsApp Business Account ID (WABA ID)</label>
+            <input type="text" name="business_account_id" class="form-control" placeholder="যেমন: 839201928301">
+          </div>
+          <div class="form-group">
+            <label>পার্মানেন্ট সিস্টেম ইউজার অ্যাক্সেস টোকেন</label>
+            <input type="password" name="access_token" class="form-control" placeholder="EAAG...">
+          </div>
+          <div style="display:flex; justify-content:flex-end; gap:8px; margin-top:1.5rem;">
+            <button type="button" class="btn btn-secondary" onclick="document.getElementById('addAccountModal').style.display='none'">বাতিল</button>
+            <button type="submit" class="btn btn-primary" style="background:#25D366; border-color:#128c7e;">অ্যাকাউন্ট যুক্ত করুন</button>
+          </div>
+        </form>
+      </div>
+    </div>
+
+  <!-- =========================================================
        TAB: CONTACTS
        ========================================================= -->
   <?php elseif ($activeTab === 'contacts'): 
@@ -1075,6 +1381,123 @@ admin_header('WAManager Pro — হোয়াটসঅ্যাপ মার�
           <div style="display:flex; justify-content:flex-end; gap:8px;">
             <button type="button" class="btn btn-secondary" onclick="document.getElementById('importContactsModal').style.display='none'">বাতিল</button>
             <button type="submit" class="btn btn-primary">ইমপোর্ট শুরু করুন</button>
+          </div>
+        </form>
+      </div>
+    </div>
+
+  <!-- =========================================================
+       TAB: GROUPS (কন্টাক্ট গ্রুপস ও অডিয়েন্স সেগমেন্টেশন)
+       ========================================================= -->
+  <?php elseif ($activeTab === 'groups'): ?>
+    <div style="display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:1rem; margin-bottom:1.5rem;">
+      <div>
+        <h3 style="margin:0; color:#fff; font-size:1.25rem;">🏷️ কন্টাক্ট গ্রুপস ও অডিয়েন্স সেগমেন্টেশন</h3>
+        <p style="margin:4px 0 0 0; color:var(--admin-text-muted); font-size:0.85rem;">
+          টার্গেটেড ক্যাম্পেইন পরিচালনার জন্য গ্রাহকদের বিভিন্ন ক্যাটাগরি ও গ্রুপে ভাগ করুন।
+        </p>
+      </div>
+      <button class="btn btn-primary" onclick="document.getElementById('createGroupModal').style.display='block'" style="background:#25D366; border-color:#128c7e;">
+        ➕ নতুন কন্টাক্ট গ্রুপ তৈরি করুন
+      </button>
+    </div>
+
+    <div style="display:grid; grid-template-columns: 2fr 1fr; gap:1.5rem; align-items:start;">
+      <!-- Groups Table -->
+      <div class="admin-card">
+        <h4 style="margin-top:0; color:#fff; font-size:1.1rem; display:flex; justify-content:space-between; align-items:center;">
+          <span>কন্টাক্ট গ্রুপ তালিকা (<?= count($groups) ?>টি)</span>
+        </h4>
+        <div class="admin-table-wrap">
+          <table class="admin-table">
+            <thead>
+              <tr>
+                <th>গ্রুপের নাম</th>
+                <th>বিবরণ</th>
+                <th>সদস্য সংখ্যা</th>
+                <th>তৈরির তারিখ</th>
+                <th>অ্যাকশন</th>
+              </tr>
+            </thead>
+            <tbody>
+              <?php if (empty($groups)): ?>
+                <tr><td colspan="5" style="text-align:center; color:var(--admin-text-muted);">এখনও কোনো গ্রুপ তৈরি করা হয়নি।</td></tr>
+              <?php else: foreach ($groups as $g): ?>
+                <tr>
+                  <td>
+                    <strong style="color:#fff; display:flex; align-items:center; gap:6px;">
+                      🏷️ <?= e($g['name']) ?>
+                    </strong>
+                  </td>
+                  <td style="color:var(--admin-text-muted); font-size:0.85rem; max-width:200px;"><?= e($g['description'] ?: '—') ?></td>
+                  <td>
+                    <span class="badge badge-info" style="font-weight:700;">
+                      <?= number_format((int)$g['member_count']) ?> জন
+                    </span>
+                  </td>
+                  <td style="font-size:0.85rem; color:var(--admin-text-muted);"><?= e(substr((string)$g['created_at'], 0, 10)) ?></td>
+                  <td>
+                    <div style="display:flex; gap:6px;">
+                      <a href="?tab=campaigns&group_id=<?= urlencode($g['id']) ?>" class="btn btn-primary btn-sm" style="background:#25D366; border-color:#128c7e; text-decoration:none;" title="ক্যাম্পেইন শুরু করুন">
+                        📢 ব্রডকাস্ট
+                      </a>
+                      <form method="POST" action="whatsapp_marketing.php?tab=groups" onsubmit="return confirm('এই গ্রুপটি মুছে ফেলতে চান? গ্রুপের মেম্বাররা সংরক্ষিত থাকবে।');" style="margin:0;">
+                        <?= csrf_field() ?>
+                        <input type="hidden" name="action" value="delete_group">
+                        <input type="hidden" name="group_id" value="<?= e($g['id']) ?>">
+                        <button type="submit" class="btn btn-danger btn-sm" title="গ্রুপ মুছুন">🗑️</button>
+                      </form>
+                    </div>
+                  </td>
+                </tr>
+              <?php endforeach; endif; ?>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <!-- Quick Group Creation Side Card -->
+      <div class="admin-card">
+        <h4 style="margin-top:0; color:#fff; font-size:1.05rem;">⚡ দ্রুত গ্রুপ তৈরি</h4>
+        <form method="POST" action="whatsapp_marketing.php?tab=groups">
+          <?= csrf_field() ?>
+          <input type="hidden" name="action" value="create_group">
+          <div class="form-group">
+            <label>গ্রুপের নাম</label>
+            <input type="text" name="group_name" class="form-control" placeholder="যেমন: VIP কাস্টমারস" required>
+          </div>
+          <div class="form-group">
+            <label>বিবরণ (ঐচ্ছিক)</label>
+            <textarea name="group_description" class="form-control" rows="3" placeholder="এই গ্রুপের বিশেষ বৈশিষ্ট্য বা নোট..."></textarea>
+          </div>
+          <button type="submit" class="btn btn-primary" style="width:100%; background:#25D366; border-color:#128c7e;">
+            💾 গ্রুপ সংরক্ষণ করুন
+          </button>
+        </form>
+      </div>
+    </div>
+
+    <!-- Modal: Create Group -->
+    <div id="createGroupModal" style="display:none; position:fixed; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.7); z-index:9999; backdrop-filter:blur(4px);">
+      <div class="admin-card" style="max-width:480px; margin:10% auto; position:relative;">
+        <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:1.25rem;">
+          <h3 style="margin:0; color:#fff;">➕ নতুন কন্টাক্ট গ্রুপ</h3>
+          <button onclick="document.getElementById('createGroupModal').style.display='none'" style="background:none; border:none; color:var(--admin-text-muted); font-size:1.5rem; cursor:pointer;">&times;</button>
+        </div>
+        <form method="POST" action="whatsapp_marketing.php?tab=groups">
+          <?= csrf_field() ?>
+          <input type="hidden" name="action" value="create_group">
+          <div class="form-group">
+            <label>গ্রুপের নাম</label>
+            <input type="text" name="group_name" class="form-control" placeholder="যেমন: নতুন লিডস অক্টোবর ২০২৬" required>
+          </div>
+          <div class="form-group">
+            <label>গ্রুপের বিবরণ</label>
+            <textarea name="group_description" class="form-control" rows="4" placeholder="বিবরণ লিখুন..."></textarea>
+          </div>
+          <div style="display:flex; justify-content:flex-end; gap:8px; margin-top:1.5rem;">
+            <button type="button" class="btn btn-secondary" onclick="document.getElementById('createGroupModal').style.display='none'">বাতিল</button>
+            <button type="submit" class="btn btn-primary" style="background:#25D366; border-color:#128c7e;">গ্রুপ তৈরি করুন</button>
           </div>
         </form>
       </div>
@@ -1365,6 +1788,193 @@ AutoMovie Pro-তে আপনাকে স্বাগতম। আপনি �
     </div>
 
   <!-- =========================================================
+       TAB: GROUP GRABBER (হোয়াটসঅ্যাপ গ্রুপ মেম্বার এক্সট্র্যাক্টর)
+       ========================================================= -->
+  <?php elseif ($activeTab === 'groupgrabber'): ?>
+    <div class="admin-card" style="margin-bottom:1.5rem; border:1px solid rgba(37,211,102,0.3); background:linear-gradient(135deg, rgba(37,211,102,0.08) 0%, rgba(15,23,42,0.6) 100%);">
+      <div style="display:flex; align-items:center; gap:12px;">
+        <div style="font-size:2rem; background:rgba(37,211,102,0.2); width:50px; height:50px; border-radius:12px; display:flex; align-items:center; justify-content:center;">
+          ⚡
+        </div>
+        <div>
+          <h3 style="margin:0; color:#fff; font-size:1.25rem;">WhatsApp গ্রুপ মেম্বার এক্সট্র্যাক্টর (Group Grabber)</h3>
+          <p style="margin:4px 0 0 0; color:var(--admin-text-muted); font-size:0.85rem;">
+            যেকোনো WhatsApp গ্রুপ থেকে মেম্বার লিস্ট বা নম্বর পেস্ট করুন। সিস্টেম অটোমেটিক মোবাইল নম্বর এক্সট্র্যাক্ট করে সঠিক E.164 ফরম্যাটে কন্টাক্ট গ্রুপে যুক্ত করবে।
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <div style="display:grid; grid-template-columns: 1.5fr 1fr; gap:1.5rem; align-items:start;">
+      <!-- Grabber Input Form -->
+      <div class="admin-card">
+        <h4 style="margin-top:0; color:#fff; font-size:1.05rem;">📥 গ্রুপ মেম্বার ডেটা ইনপুট</h4>
+        <form method="POST" action="whatsapp_marketing.php?tab=groupgrabber">
+          <?= csrf_field() ?>
+          <input type="hidden" name="action" value="save_grabbed_members">
+          
+          <div style="display:grid; grid-template-columns: 1fr 1fr; gap:1rem; margin-bottom:1rem;">
+            <div class="form-group">
+              <label>সোর্স গ্রুপের নাম / উৎস</label>
+              <input type="text" name="group_source_name" class="form-control" placeholder="যেমন: BD E-Commerce Entrepreneurs" required>
+            </div>
+            <div class="form-group">
+              <label>টার্গেট কন্টাক্ট গ্রুপ নির্বাচন করুন</label>
+              <select name="target_group_id" class="form-control">
+                <option value="">-- কোনো নির্দিষ্ট গ্রুপ ছাড়া সেভ করুন --</option>
+                <?php foreach ($groups as $g): ?>
+                  <option value="<?= e($g['id']) ?>"><?= e($g['name']) ?></option>
+                <?php endforeach; ?>
+              </select>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:6px;">
+              <label style="margin:0;">মেম্বারদের টেক্সট বা ফোন নম্বর লিস্ট পেস্ট করুন</label>
+              <span id="grabberCounter" style="font-size:0.8rem; color:#25D366; font-weight:600;">০ টি নম্বর সনাক্ত</span>
+            </div>
+            <textarea id="grabberInput" name="members_text" class="form-control" rows="10" placeholder="+880 1968-111593, তানভীর আহমেদ&#10;+880 1711-223344&#10;01812345678, সাকিব&#10;01900000000" oninput="updateGrabberCount()" required></textarea>
+            <small style="color:var(--admin-text-muted); font-size:0.75rem; margin-top:4px; display:block;">
+              ফরম্যাট: প্রতি লাইনে একটি নম্বর, বা "নম্বর, নাম" আকারে পেস্ট করতে পারেন। বন্ধনী, স্পেস বা হাইফেন স্বয়ংক্রিয়ভাবে ক্লিন করা হবে।
+            </small>
+          </div>
+
+          <div style="display:flex; justify-content:space-between; align-items:center; margin-top:1.5rem;">
+            <button type="button" class="btn btn-secondary" onclick="document.getElementById('grabberInput').value=''; updateGrabberCount();">
+              রিসেট
+            </button>
+            <button type="submit" class="btn btn-primary" style="background:#25D366; border-color:#128c7e; font-weight:700;">
+              ⚡ এক্সট্র্যাক্ট ও কন্টাক্টে সেভ করুন
+            </button>
+          </div>
+        </form>
+      </div>
+
+      <!-- Grabber Guide Card -->
+      <div class="admin-card">
+        <h4 style="margin-top:0; color:#fff; font-size:1.05rem;">📖 গ্রুপ মেম্বার এক্সপোর্ট করার নিয়ম</h4>
+        <ol style="color:var(--admin-text-muted); font-size:0.85rem; padding-left:1.2rem; line-height:1.7; margin-bottom:1.5rem;">
+          <li>আপনার কম্পিউটারে <strong>WhatsApp Web</strong> ওপেন করুন।</li>
+          <li>টার্গেট WhatsApp গ্রুপে ঢুকে উপরের গ্রুপ শিরোনামে ক্লিক করুন (Group Info)।</li>
+          <li>মেম্বার তালিকার ওপর মাউস রেখে নম্বরগুলো সিলেক্ট করে <strong>Copy (Ctrl+C)</strong> করুন।</li>
+          <li>বাম পাশের টেক্সট বক্সে <strong>Paste (Ctrl+V)</strong> করুন।</li>
+          <li>সিস্টেম স্বয়ংক্রিয়ভাবে সব অতিরিক্ত ক্যারেক্টার ক্লিন করে বৈধ নম্বর ডাটাবেসে সেভ করবে।</li>
+        </ol>
+
+        <div style="background:rgba(255,255,255,0.04); border-radius:8px; padding:12px; border-left:3px solid #25D366;">
+          <strong style="color:#25D366; font-size:0.85rem;">💡 স্প্যাম-প্রটেকশন টিপ:</strong>
+          <p style="margin:4px 0 0 0; color:var(--admin-text-muted); font-size:0.8rem; line-height:1.5;">
+            নতুন মেম্বারদের কাছে সরাসরি সেলস পিচ না পাঠিয়ে প্রথমে সালাম ও পরিচিতিমূলক মেসেজ পাঠান।
+          </p>
+        </div>
+      </div>
+    </div>
+
+  <!-- =========================================================
+       TAB: NUMBER FILTER (নম্বর ফিল্টার ও ভ্যালিডেটর)
+       ========================================================= -->
+  <?php elseif ($activeTab === 'numberfilter'): ?>
+    <div class="admin-card" style="margin-bottom:1.5rem; border:1px solid rgba(56,189,248,0.3); background:linear-gradient(135deg, rgba(56,189,248,0.08) 0%, rgba(15,23,42,0.6) 100%);">
+      <div style="display:flex; align-items:center; gap:12px;">
+        <div style="font-size:2rem; background:rgba(56,189,248,0.2); width:50px; height:50px; border-radius:12px; display:flex; align-items:center; justify-content:center;">
+          🛡️
+        </div>
+        <div>
+          <h3 style="margin:0; color:#fff; font-size:1.25rem;">WhatsApp নম্বর ফিল্টার ও ভ্যালিডেটর</h3>
+          <p style="margin:4px 0 0 0; color:var(--admin-text-muted); font-size:0.85rem;">
+            বাল্ক ফোন নম্বর পরীক্ষা করে কার্যকর WhatsApp ও মোবাইল অপারেটর (GP, Robi, BL, Airtel, Teletalk) সনাক্ত করুন এবং অকার্যকর বা ডুপ্লিকেট নম্বর দূর করুন।
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <div style="display:grid; grid-template-columns: 1.2fr 1.8fr; gap:1.5rem; align-items:start;">
+      <!-- Filter Input Form -->
+      <div class="admin-card">
+        <h4 style="margin-top:0; color:#fff; font-size:1.05rem;">📋 নম্বর যাচাই ও ইনপুট</h4>
+        <form id="filterNumbersForm" onsubmit="event.preventDefault(); runNumberFilter();">
+          <div class="form-group">
+            <label>ফোন নম্বর লিস্ট পেস্ট করুন</label>
+            <textarea id="filterRawInput" class="form-control" rows="9" placeholder="01711223344&#10;+8801968111593&#10;01812345678&#10;01555555555&#10;invalid123" required></textarea>
+            <small style="color:var(--admin-text-muted); font-size:0.75rem; margin-top:4px; display:block;">
+              প্রতি লাইনে একটি বা কমা দিয়ে একাধিক নম্বর দিতে পারেন।
+            </small>
+          </div>
+
+          <div class="form-group">
+            <label>ভ্যালিড নম্বর স্বয়ংক্রিয়ভাবে সেভ করতে গ্রুপ বাছুন</label>
+            <select id="filterTargetGroup" class="form-control">
+              <option value="">-- ডেটাবেসে সেভ না করে শুধু যাচাই করুন --</option>
+              <?php foreach ($groups as $g): ?>
+                <option value="<?= e($g['id']) ?>"><?= e($g['name']) ?></option>
+              <?php endforeach; ?>
+            </select>
+          </div>
+
+          <div class="form-group" style="display:flex; align-items:center; gap:8px;">
+            <input type="checkbox" id="filterAutoSave" style="width:18px; height:18px; accent-color:#10b981;">
+            <label for="filterAutoSave" style="margin:0; font-size:0.85rem; color:#cbd5e1; cursor:pointer;">
+              ভ্যালিড নম্বরগুলোকে সরাসরি কন্টাক্ট তালিকায় সেভ করুন
+            </label>
+          </div>
+
+          <button type="submit" id="btnRunFilter" class="btn btn-primary" style="width:100%; background:#0284c7; border-color:#0369a1; font-weight:700;">
+            🔍 নম্বর যাচাই ও ফিল্টার করুন
+          </button>
+        </form>
+      </div>
+
+      <!-- Filter Results Display -->
+      <div class="admin-card">
+        <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:1rem;">
+          <h4 style="margin:0; color:#fff; font-size:1.05rem;">📊 ফিল্টারিং ফলাফল</h4>
+          <button id="btnCopyValid" class="btn btn-secondary btn-sm" onclick="copyValidNumbers()" style="display:none;">
+            📋 ভ্যালিড নম্বর কপি
+          </button>
+        </div>
+
+        <!-- Metrics Chips -->
+        <div style="display:grid; grid-template-columns: repeat(4, 1fr); gap:8px; margin-bottom:1.25rem;">
+          <div style="background:rgba(255,255,255,0.05); padding:10px; border-radius:8px; text-align:center;">
+            <div style="font-size:0.75rem; color:var(--admin-text-muted);">মোট নম্বর</div>
+            <div id="statTotalFilter" style="font-size:1.15rem; font-weight:700; color:#fff;">০</div>
+          </div>
+          <div style="background:rgba(16,185,129,0.15); border:1px solid rgba(16,185,129,0.3); padding:10px; border-radius:8px; text-align:center;">
+            <div style="font-size:0.75rem; color:#6ee7b7;">ভ্যালিড</div>
+            <div id="statValidFilter" style="font-size:1.15rem; font-weight:700; color:#10b981;">০</div>
+          </div>
+          <div style="background:rgba(245,158,11,0.15); border:1px solid rgba(245,158,11,0.3); padding:10px; border-radius:8px; text-align:center;">
+            <div style="font-size:0.75rem; color:#fde68a;">ডুপ্লিকেট</div>
+            <div id="statDupFilter" style="font-size:1.15rem; font-weight:700; color:#f59e0b;">০</div>
+          </div>
+          <div style="background:rgba(244,63,94,0.15); border:1px solid rgba(244,63,94,0.3); padding:10px; border-radius:8px; text-align:center;">
+            <div style="font-size:0.75rem; color:#fca5a5;">অকার্যকর</div>
+            <div id="statInvalidFilter" style="font-size:1.15rem; font-weight:700; color:#f43f5e;">০</div>
+          </div>
+        </div>
+
+        <div id="filterResultsPlaceholder" style="text-align:center; padding:2.5rem 1rem; color:var(--admin-text-muted); font-size:0.9rem;">
+          বাম পাশের বক্সে নম্বর পেস্ট করে "নম্বর যাচাই ও ফিল্টার করুন" বাটনে চাপুন।
+        </div>
+
+        <div id="filterResultsTableWrap" style="display:none; max-height:360px; overflow-y:auto;" class="admin-table-wrap">
+          <table class="admin-table">
+            <thead>
+              <tr>
+                <th>ফোন নম্বর</th>
+                <th>অপারেটর / টাইপ</th>
+                <th>স্ট্যাটাস</th>
+                <th>অ্যাকশন</th>
+              </tr>
+            </thead>
+            <tbody id="filterResultsTbody"></tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+
+  <!-- =========================================================
        TAB: LIVE INBOX
        ========================================================= -->
   <?php elseif ($activeTab === 'inbox'): 
@@ -1482,6 +2092,151 @@ AutoMovie Pro-তে আপনাকে স্বাগতম। আপনি �
             <textarea name="response_text" class="form-control" rows="5" placeholder="আসসালামু আলাইকুম! আমাদের ৩টি প্যাকেজ রয়েছে..." required></textarea>
           </div>
           <button type="submit" class="btn btn-primary" style="width:100%;">রুল সংরক্ষণ করুন</button>
+        </form>
+      </div>
+    </div>
+
+  <!-- =========================================================
+       TAB: TEMPLATES (মেসেজ টেমপ্লেট লাইব্রেরি)
+       ========================================================= -->
+  <?php elseif ($activeTab === 'templates'): 
+      // Seed fallback templates for display if DB has few
+      $defaultSeedTemplates = [
+          [
+              'title' => 'অর্ডার কনফার্মেশন ও লাইসেন্স ডেলিভারি',
+              'category' => 'অর্ডার',
+              'body' => "আসসালামু আলাইকুম {{name}}!\n\nঅভিনন্দন! AutoMovie Pro-তে আপনার অর্ডারটি সফলভাবে অনুমোদিত হয়েছে। 🎉\n\nআপনার লাইসেন্স কী ও ডাউনলোড পোর্টাল লিংক নিচে দেওয়া হলো:\n🔗 https://automoviepro.com/download.php\n\nযেকোনো টেকনিক্যাল সাপোর্টের জন্য এই WhatsApp নম্বরে আমাদের সাথে কথা বলতে পারবেন। ধন্যবাদ!"
+          ],
+          [
+              'title' => 'পেমেন্ট রিমাইন্ডার (পেন্ডিং অর্ডার)',
+              'category' => 'রিমাইন্ডার',
+              'body' => "আসসালামু আলাইকুম {{name}},\n\nআপনি সম্প্রতি AutoMovie Pro সফটওয়্যারটির জন্য অর্ডার সাবমিট করেছিলেন। আপনার অর্ডারটি সম্পূর্ণ করতে পেমেন্ট সম্পন্ন করে TrxID কনফার্ম করুন।\n\nসাহায্যের প্রয়োজন হলে সরাসরি রিপ্লাই দিন অথবা কল করুন: +8801968111593"
+          ],
+          [
+              'title' => 'AutoMovie Pro মেগা সেলস ডেমো',
+              'category' => 'প্রমোশন',
+              'body' => "প্রিয় {{name}},\n\nপ্রতিদিন সোশ্যাল মিডিয়ায় কনটেন্ট বানাতে কি আপনার ঘণ্টার পর ঘণ্টা সময় অপচয় হচ্ছে?\n\nAutoMovie Pro এখন ১-ক্লিকে ফুল এইচডি ভিডিও, রিলস, ফেসবুক পোস্ট ও ব্যানার তৈরি করে স্বয়ংক্রিয়ভাবে পাবলিশ করে।\n\n🎬 লাইভ ডেমো ও বিস্তারিত দেখুন:\n👉 https://automoviepro.com"
+          ],
+          [
+              'title' => 'WAManager Pro অফিসিয়াল লঞ্চ অফার',
+              'category' => 'অফার',
+              'body' => "আসসালামু আলাইকুম {{name}},\n\nআপনার বিজনেসের জন্য প্রফেশনাল WhatsApp মার্কেটিং সফটওয়্যার খুঁজছেন?\n\n🚀 WAManager Pro দিয়ে আনলিমিটেড বাল্ক মেসেজ, অ্যান্টি-ব্যান স্পিনট্যাক্স, এআই অটো-রিপ্লাই ও গুগল ম্যাপস থেকে B2B লিড সংগ্রহ করুন!\n\n🔥 আজকের স্পেশাল অফারে ১ বছর মাত্র ৯৯৯/- এবং ৩ বছর ১৯৯৯/- টাকা!\n👉 অর্ডার লিংক: https://automoviepro.com/whatsapp-marketing.php"
+          ],
+          [
+              'title' => 'কাস্টমার ফিডব্যাক ও সাপোর্ট চেক',
+              'category' => 'সাপোর্ট',
+              'body' => "কেমন আছেন {{name}}?\n\nআমাদের সফটওয়্যার ব্যবহারে আপনার অভিজ্ঞতা কেমন হচ্ছে? কোনো প্রশ্ন বা টেকনিক্যাল সমস্যা থাকলে নির্দ্বিধায় আমাকে জানান। আমাদের সাপোর্ট টিম সবসময় প্রস্তুত।"
+          ]
+      ];
+  ?>
+    <div style="display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:1rem; margin-bottom:1.5rem;">
+      <div>
+        <h3 style="margin:0; color:#fff; font-size:1.25rem;">📝 মেসেজ টেমপ্লেট লাইব্রেরি</h3>
+        <p style="margin:4px 0 0 0; color:var(--admin-text-muted); font-size:0.85rem;">
+          ঘন ঘন ব্যবহৃত সেলস পিচ, অর্ডার নোটিফিকেশন ও সাপোর্ট বার্তাগুলো আগে থেকে প্রস্তুত রাখুন।
+        </p>
+      </div>
+      <button class="btn btn-primary" onclick="document.getElementById('addTemplateModal').style.display='block'" style="background:#25D366; border-color:#128c7e;">
+        ➕ নতুন টেমপ্লেট যুক্ত করুন
+      </button>
+    </div>
+
+    <div style="display:grid; grid-template-columns: repeat(auto-fill, minmax(340px, 1fr)); gap:1.25rem;">
+      <!-- Database Stored Templates -->
+      <?php if (!empty($templates)): foreach ($templates as $tpl): ?>
+        <div class="admin-card" style="border:1px solid rgba(255,255,255,0.08); display:flex; flex-direction:column; justify-content:space-between;">
+          <div>
+            <div style="display:flex; justify-content:space-between; align-items:flex-start; margin-bottom:8px;">
+              <h4 style="margin:0; font-size:1rem; color:#fff;"><?= e($tpl['title']) ?></h4>
+              <span class="badge badge-info"><?= e($tpl['category']) ?></span>
+            </div>
+            <div style="background:rgba(0,0,0,0.3); border-radius:8px; padding:10px; font-size:0.82rem; color:#cbd5e1; white-space:pre-wrap; max-height:140px; overflow-y:auto; line-height:1.5; margin-bottom:1rem;">
+              <?= e($tpl['body']) ?>
+            </div>
+          </div>
+          <div style="display:flex; justify-content:space-between; align-items:center; border-top:1px solid rgba(255,255,255,0.06); padding-top:10px;">
+            <button class="btn btn-primary btn-sm" onclick="loadTemplateToStudio(<?= htmlspecialchars(json_encode($tpl['body']), ENT_QUOTES, 'UTF-8') ?>)" style="background:#25D366; border-color:#128c7e;">
+              🎨 স্টুডিওতে লোড
+            </button>
+            <form method="POST" action="whatsapp_marketing.php?tab=templates" onsubmit="return confirm('এই টেমপ্লেটটি মুছে ফেলতে চান?');" style="margin:0;">
+              <?= csrf_field() ?>
+              <input type="hidden" name="action" value="delete_template">
+              <input type="hidden" name="template_id" value="<?= (int)$tpl['id'] ?>">
+              <button type="submit" class="btn btn-danger btn-sm">মুছে ফেলুন</button>
+            </form>
+          </div>
+        </div>
+      <?php endforeach; endif; ?>
+
+      <!-- Pre-seeded Enterprise Templates -->
+      <?php foreach ($defaultSeedTemplates as $stpl): ?>
+        <div class="admin-card" style="border:1px dashed rgba(37,211,102,0.3); background:rgba(37,211,102,0.02); display:flex; flex-direction:column; justify-content:space-between;">
+          <div>
+            <div style="display:flex; justify-content:space-between; align-items:flex-start; margin-bottom:8px;">
+              <h4 style="margin:0; font-size:1rem; color:#fff; display:flex; align-items:center; gap:6px;">
+                ⭐ <?= e($stpl['title']) ?>
+              </h4>
+              <span class="badge badge-success"><?= e($stpl['category']) ?></span>
+            </div>
+            <div style="background:rgba(0,0,0,0.3); border-radius:8px; padding:10px; font-size:0.82rem; color:#cbd5e1; white-space:pre-wrap; max-height:140px; overflow-y:auto; line-height:1.5; margin-bottom:1rem;">
+              <?= e($stpl['body']) ?>
+            </div>
+          </div>
+          <div style="display:flex; justify-content:space-between; align-items:center; border-top:1px solid rgba(255,255,255,0.06); padding-top:10px;">
+            <button class="btn btn-primary btn-sm" onclick="loadTemplateToStudio(<?= htmlspecialchars(json_encode($stpl['body']), ENT_QUOTES, 'UTF-8') ?>)" style="background:#25D366; border-color:#128c7e;">
+              🎨 স্টুডিওতে লোড
+            </button>
+            <form method="POST" action="whatsapp_marketing.php?tab=templates" style="margin:0;">
+              <?= csrf_field() ?>
+              <input type="hidden" name="action" value="save_template">
+              <input type="hidden" name="title" value="<?= e($stpl['title']) ?>">
+              <input type="hidden" name="category" value="<?= e($stpl['category']) ?>">
+              <input type="hidden" name="body" value="<?= e($stpl['body']) ?>">
+              <button type="submit" class="btn btn-secondary btn-sm" title="ডেটাবেসে সংরক্ষণ">💾 সেভ করুন</button>
+            </form>
+          </div>
+        </div>
+      <?php endforeach; ?>
+    </div>
+
+    <!-- Modal: Add New Template -->
+    <div id="addTemplateModal" style="display:none; position:fixed; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.7); z-index:9999; backdrop-filter:blur(4px);">
+      <div class="admin-card" style="max-width:540px; margin:5% auto; position:relative;">
+        <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:1.25rem;">
+          <h3 style="margin:0; color:#fff;">➕ নতুন মেসেজ টেমপ্লেট</h3>
+          <button onclick="document.getElementById('addTemplateModal').style.display='none'" style="background:none; border:none; color:var(--admin-text-muted); font-size:1.5rem; cursor:pointer;">&times;</button>
+        </div>
+        <form method="POST" action="whatsapp_marketing.php?tab=templates">
+          <?= csrf_field() ?>
+          <input type="hidden" name="action" value="save_template">
+          <div class="form-group">
+            <label>টেমপ্লেটের নাম / শিরোনাম</label>
+            <input type="text" name="title" class="form-control" placeholder="যেমন: ঈদ স্পেশাল সেলস অফার" required>
+          </div>
+          <div class="form-group">
+            <label>ক্যাটাগরি</label>
+            <select name="category" class="form-control">
+              <option value="প্রমোশন">প্রমোশন (Promotion)</option>
+              <option value="অর্ডার">অর্ডার (Order)</option>
+              <option value="রিমাইন্ডার">রিমাইন্ডার (Reminder)</option>
+              <option value="সাপোর্ট">সাপোর্ট (Support)</option>
+              <option value="সাধারণ">সাধারণ (General)</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label>মেসেজ বডি</label>
+            <div style="display:flex; gap:6px; margin-bottom:6px;">
+              <button type="button" class="btn btn-secondary btn-sm" onclick="insertTplVar('{{name}}')">{{name}}</button>
+              <button type="button" class="btn btn-secondary btn-sm" onclick="insertTplVar('{{phone}}')">{{phone}}</button>
+              <button type="button" class="btn btn-secondary btn-sm" onclick="insertTplVar('https://automoviepro.com')">Website Link</button>
+              <button type="button" class="btn btn-secondary btn-sm" onclick="insertTplVar('+8801968111593')">WhatsApp No</button>
+            </div>
+            <textarea id="tplBodyInput" name="body" class="form-control" rows="7" placeholder="আসসালামু আলাইকুম {{name}}!..." required></textarea>
+          </div>
+          <div style="display:flex; justify-content:flex-end; gap:8px; margin-top:1.5rem;">
+            <button type="button" class="btn btn-secondary" onclick="document.getElementById('addTemplateModal').style.display='none'">বাতিল</button>
+            <button type="submit" class="btn btn-primary" style="background:#25D366; border-color:#128c7e;">টেমপ্লেট সংরক্ষণ করুন</button>
+          </div>
         </form>
       </div>
     </div>
@@ -1865,6 +2620,128 @@ function escapeHtml(text) {
   return text.replace(/[&<>"']/g, function(m) {
     return {'&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#039;'}[m];
   });
+}
+
+// Group Grabber Counter
+function updateGrabberCount() {
+  const el = document.getElementById('grabberInput');
+  const counter = document.getElementById('grabberCounter');
+  if (!el || !counter) return;
+  const lines = el.value.split(/\r?\n/).filter(l => l.trim().length > 0);
+  counter.textContent = lines.length + ' টি নম্বর সনাক্ত';
+}
+
+// Number Filter & Validator Logic
+let validFilteredList = [];
+async function runNumberFilter() {
+  const rawText = document.getElementById('filterRawInput').value;
+  const targetGroup = document.getElementById('filterTargetGroup').value;
+  const autoSave = document.getElementById('filterAutoSave').checked ? 1 : 0;
+  const btn = document.getElementById('btnRunFilter');
+
+  if (!rawText.trim()) {
+    alert('যাচাই করার জন্য ফোন নম্বর পেস্ট করুন।');
+    return;
+  }
+
+  btn.textContent = '⏳ নম্বর যাচাই করা হচ্ছে...';
+  btn.disabled = true;
+
+  try {
+    const fd = new FormData();
+    fd.append('action', 'filter_numbers');
+    fd.append('raw_numbers', rawText);
+    fd.append('target_group_id', targetGroup);
+    fd.append('auto_save_valid', autoSave);
+    fd.append('csrf', '<?= csrf_token() ?>');
+
+    const res = await fetch('whatsapp_marketing.php?tab=numberfilter', {
+      method: 'POST',
+      body: fd,
+      headers: {'X-Requested-With': 'XMLHttpRequest'}
+    });
+    const data = await res.json();
+
+    if (data.ok) {
+      document.getElementById('statTotalFilter').textContent = data.total;
+      document.getElementById('statValidFilter').textContent = data.valid_count;
+      document.getElementById('statDupFilter').textContent = data.duplicate_count;
+      document.getElementById('statInvalidFilter').textContent = data.invalid_count;
+
+      validFilteredList = data.valid ? data.valid.map(v => v.number) : [];
+
+      const placeholder = document.getElementById('filterResultsPlaceholder');
+      const tableWrap = document.getElementById('filterResultsTableWrap');
+      const tbody = document.getElementById('filterResultsTbody');
+      const btnCopy = document.getElementById('btnCopyValid');
+
+      placeholder.style.display = 'none';
+      tableWrap.style.display = 'block';
+      if (validFilteredList.length > 0 && btnCopy) {
+        btnCopy.style.display = 'inline-block';
+      }
+
+      tbody.innerHTML = '';
+
+      if (data.valid) {
+        data.valid.forEach(v => {
+          const tr = document.createElement('tr');
+          tr.innerHTML = `
+            <td><strong style="color:#25D366;">+${escapeHtml(v.number)}</strong></td>
+            <td><span class="badge badge-info">${escapeHtml(v.carrier)}</span></td>
+            <td><span class="badge badge-success">সক্রিয় / ভ্যালিড</span></td>
+            <td>
+              <a href="https://wa.me/${escapeHtml(v.number)}" target="_blank" class="btn btn-secondary btn-sm" style="color:#25D366; text-decoration:none;">
+                💬 চ্যাট ↗
+              </a>
+            </td>
+          `;
+          tbody.appendChild(tr);
+        });
+      }
+
+      if (data.invalid) {
+        data.invalid.forEach(inv => {
+          const tr = document.createElement('tr');
+          tr.innerHTML = `
+            <td style="color:#f43f5e;">${escapeHtml(inv.number)}</td>
+            <td>—</td>
+            <td><span class="badge badge-danger">${escapeHtml(inv.reason)}</span></td>
+            <td>—</td>
+          `;
+          tbody.appendChild(tr);
+        });
+      }
+    }
+  } catch(e) {
+    alert('নম্বর ফিল্টারিং প্রক্রিয়ায় সমস্যা হয়েছে।');
+  } finally {
+    btn.textContent = '🔍 নম্বর যাচাই ও ফিল্টার করুন';
+    btn.disabled = false;
+  }
+}
+
+function copyValidNumbers() {
+  if (validFilteredList.length === 0) return;
+  navigator.clipboard.writeText(validFilteredList.join('\n')).then(() => {
+    alert('মোট ' + validFilteredList.length + ' টি ভ্যালিড WhatsApp নম্বর ক্লিপবোর্ডে কপি হয়েছে!');
+  });
+}
+
+// Template Loader Functions
+function loadTemplateToStudio(text) {
+  sessionStorage.setItem('wam_draft_msg', text);
+  window.location.href = '?tab=studio';
+}
+
+function insertTplVar(tag) {
+  const textarea = document.getElementById('tplBodyInput');
+  if (!textarea) return;
+  const start = textarea.selectionStart;
+  const end = textarea.selectionEnd;
+  textarea.value = textarea.value.substring(0, start) + tag + textarea.value.substring(end);
+  textarea.focus();
+  textarea.selectionStart = textarea.selectionEnd = start + tag.length;
 }
 
 document.addEventListener('DOMContentLoaded', () => {
