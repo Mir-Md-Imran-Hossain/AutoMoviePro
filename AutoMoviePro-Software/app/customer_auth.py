@@ -105,19 +105,22 @@ def ensure_session_columns() -> None:
     with store.db() as conn:
         conn.execute("""
             CREATE TABLE IF NOT EXISTS session (
-                token TEXT PRIMARY KEY,
-                customer_id TEXT,
+                id INTEGER PRIMARY KEY CHECK (id = 1),
                 login_id TEXT,
-                email TEXT,
-                whatsapp TEXT,
-                name TEXT,
-                tier TEXT,
-                plan TEXT,
-                created_at TEXT
+                token TEXT,
+                customer_json TEXT,
+                api_base_url TEXT,
+                updated_at TEXT
             )
         """)
         cols = {r[1] for r in conn.execute("PRAGMA table_info(session)").fetchall()}
         for name, typ in (
+            ("id", "INTEGER"),
+            ("login_id", "TEXT"),
+            ("token", "TEXT"),
+            ("customer_json", "TEXT"),
+            ("api_base_url", "TEXT"),
+            ("updated_at", "TEXT"),
             ("expires_at", "TEXT"),
             ("account_state", "TEXT"),
             ("entitlement_state", "TEXT"),

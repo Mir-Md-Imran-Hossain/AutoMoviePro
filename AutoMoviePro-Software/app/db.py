@@ -418,16 +418,20 @@ def save_session(login_id: str, token: str, customer: Dict[str, Any], api_base: 
 
 def get_session() -> Optional[Dict[str, Any]]:
     with db() as conn:
-        row = conn.execute("SELECT * FROM session WHERE id = 1").fetchone()
+        cols = {r[1] for r in conn.execute("PRAGMA table_info(session)").fetchall()}
+        if "id" in cols:
+            row = conn.execute("SELECT * FROM session WHERE id = 1").fetchone()
+        else:
+            row = conn.execute("SELECT * FROM session LIMIT 1").fetchone()
         if not row:
             return None
         keys = set(row.keys())
         out: Dict[str, Any] = {
-            "login_id": row["login_id"],
-            "token": row["token"],
-            "customer": json.loads(row["customer_json"] or "{}"),
-            "api_base_url": row["api_base_url"],
-            "updated_at": row["updated_at"],
+            "login_id": row["login_id"] if "login_id" in keys else "",
+            "token": row["token"] if "token" in keys else "",
+            "customer": json.loads(row["customer_json"] or "{}") if "customer_json" in keys else {},
+            "api_base_url": row["api_base_url"] if "api_base_url" in keys else "",
+            "updated_at": row["updated_at"] if "updated_at" in keys else "",
         }
         # C02 soft-migrated columns (present after ensure_session_columns)
         for col in ("expires_at", "account_state", "entitlement_state", "auth_mode"):
