@@ -165,11 +165,11 @@ try {
             $customerId = (int) ($order['customer_id'] ?? 0) ?: null;
 
             // ১. গ্রাহকের হোয়াটসঅ্যাপে জিমেইল চাওয়ার মেসেজ
-            $custVerifyMsg = "ধন্যবাদ {$custName}! আপনার Google AI Pro অর্ডারের (#{$orderId}) পেমেন্ট তথ্য গৃহীত হয়েছে। ট্রানজেকশন: {$txnId}। আপনার ১৫০ জিবি ক্লাউড স্টোরেজ ভল্ট ও এআই এপিআই অবিলম্বে সক্রিয় করতে আপনার সচল Gmail Address টি লিখে রিপ্লাই দিন অথবা 01684355055 এ জানান।";
+            $custVerifyMsg = "ধন্যবাদ {$custName}! আপনার Google AI Pro অর্ডারের (#{$orderId}) পেমেন্ট তথ্য গৃহীত হয়েছে। ট্রানজেকশন: {$txnId}। আপনার ১৫০ জিবি ক্লাউড স্টোরেজ ভল্ট ও এআই এপিআই অবিলম্বে সক্রিয় করতে আপনার সচল Gmail Address টি লিখে রিপ্লাই দিন অথবা 01968111593 এ জানান।";
             whatsapp_queue($pdo, $config, $custWhatsapp, $custVerifyMsg, $customerId);
 
-            // ২. অ্যাডমিনের হোয়াটসঅ্যাপে (01684355055) বিস্তারিত অর্ডার নোটিফিকেশন
-            $adminWhatsapp = '01684355055';
+            // ২. অ্যাডমিনের হোয়াটসঅ্যাপে (01968111593) বিস্তারিত অর্ডার নোটিফিকেশন
+            $adminWhatsapp = '01968111593';
             $adminVerifyMsg = "💰 Google AI Pro পেমেন্ট নোটিফিকেশন!\nঅর্ডার: #{$orderId}\nনাম: {$custName}\nমোবাইল: {$custWhatsapp}\nমেথড: {$method}\nTxnID: {$txnId}\nস্ট্যাটাস: {$newStatus}\nঅনুগ্রহ করে গ্রাহকের জিমেইল নিশ্চিত করে ১৫০ জিবি ক্লাউড ভল্ট ও এআই এক্সেস কনফিগার করুন।";
             whatsapp_queue($pdo, $config, $adminWhatsapp, $adminVerifyMsg, $customerId);
         } catch (\Throwable $eNotice) {
@@ -180,7 +180,7 @@ try {
     $dlToken = amp_create_download_token($pdo, $orderId, (int) ($order['customer_id'] ?? 0));
     $dlLink = '/download.php?token=' . $dlToken;
     $waHandoffMsg = "আমার Google AI Pro অর্ডার আইডি: #{$orderId}, নাম: " . ($order['name'] ?? '') . "। আমার জিমেইল আইডি হলো: [এখানে আপনার জিমেইল লিখুন]। অনুগ্রহ করে আমার ১৫০ জিবি ক্লাউড স্টোরেজ ও এপিআই এক্সেস কনফিগার করে দিন।";
-    $waHandoffUrl = "https://wa.me/8801684355055?text=" . urlencode($waHandoffMsg);
+    $waHandoffUrl = "https://wa.me/8801968111593?text=" . urlencode($waHandoffMsg);
 
     echo json_encode([
         'ok' => true,

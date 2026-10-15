@@ -775,7 +775,7 @@ admin_header('হোয়াটসঅ্যাপ মার্কেটিং �
 <?php elseif ($tab === 'settings'): 
     $curToken = setting($pdo, 'whatsapp_token', '');
     $curPhoneId = setting($pdo, 'whatsapp_phone_id', '');
-    $curAdminWa = setting($pdo, 'admin_notify_whatsapp', '8801684355055');
+    $curAdminWa = setting($pdo, 'admin_notify_whatsapp', '8801968111593');
     $curAutoWelcome = setting($pdo, 'wa_auto_welcome_chat', '1') === '1';
     $curAutoOrder = setting($pdo, 'wa_auto_order_placed', '1') === '1';
     ?>
@@ -813,7 +813,7 @@ admin_header('হোয়াটসঅ্যাপ মার্কেটিং �
 
         <div class="form-group" style="margin-top:1.5rem;">
           <label class="form-label">অ্যাডমিনের নিজস্ব WhatsApp নম্বর (অর্ডার এলার্টের জন্য)</label>
-          <input type="text" name="admin_notify_whatsapp" class="form-input" value="<?= e($curAdminWa) ?>" placeholder="যেমন: 8801684355055" style="font-weight:700; color:#f59e0b;">
+          <input type="text" name="admin_notify_whatsapp" class="form-input" value="<?= e($curAdminWa) ?>" placeholder="যেমন: 8801968111593" style="font-weight:700; color:#f59e0b;">
           <small style="color:#64748b; font-size:0.75rem;">ওয়েবসাইটে নতুন অর্ডার বা গুগল প্রো সাবস্ক্রিপশন আসলে এই নম্বরে তাৎক্ষণিক নোটিফিকেশন যাবে।</small>
         </div>
       </div>

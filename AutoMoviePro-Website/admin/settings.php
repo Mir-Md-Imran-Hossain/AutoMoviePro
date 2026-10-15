@@ -9,10 +9,10 @@ $error = '';
 
 $settingDefinitions = [
     // Payment Numbers
-    'bkash_personal_number' => ['label' => 'বিকাশ পার্সোনাল নম্বর (bKash Personal)', 'default' => '01684355055', 'category' => 'payment', 'hint' => 'কাস্টমার সেন্ড মানি বা ক্যাশ-ইন করার জন্য দেখতে পাবে।'],
-    'bkash_agent_number' => ['label' => 'বিকাশ এজেন্ট নম্বর (bKash Agent)', 'default' => '01684355055', 'category' => 'payment', 'hint' => 'ক্যাশ-আউটের জন্য নম্বর।'],
-    'nagad_agent_number' => ['label' => 'নগদ এজেন্ট নম্বর (Nagad Agent)', 'default' => '01684355055', 'category' => 'payment', 'hint' => 'নগদ পেমেন্ট ক্যাশ-আউটের নম্বর।'],
-    'rocket_agent_number' => ['label' => 'রকেট এজেন্ট নম্বর (Rocket Agent)', 'default' => '01684355055', 'category' => 'payment', 'hint' => 'রকেট পেমেন্ট ক্যাশ-আউটের নম্বর।'],
+    'bkash_personal_number' => ['label' => 'বিকাশ পার্সোনাল নম্বর (bKash Personal)', 'default' => '01968111593', 'category' => 'payment', 'hint' => 'কাস্টমার সেন্ড মানি বা ক্যাশ-ইন করার জন্য দেখতে পাবে।'],
+    'bkash_agent_number' => ['label' => 'বিকাশ এজেন্ট নম্বর (bKash Agent)', 'default' => '01968111593', 'category' => 'payment', 'hint' => 'ক্যাশ-আউটের জন্য নম্বর।'],
+    'nagad_agent_number' => ['label' => 'নগদ এজেন্ট নম্বর (Nagad Agent)', 'default' => '01968111593', 'category' => 'payment', 'hint' => 'নগদ পেমেন্ট ক্যাশ-আউটের নম্বর।'],
+    'rocket_agent_number' => ['label' => 'রকেট এজেন্ট নম্বর (Rocket Agent)', 'default' => '01968111593', 'category' => 'payment', 'hint' => 'রকেট পেমেন্ট ক্যাশ-আউটের নম্বর।'],
     'binance_pay_id' => ['label' => 'Binance Payee Name / Pay ID', 'default' => 'ChatEarly Ai', 'category' => 'payment', 'hint' => 'আন্তর্জাতিক বা ক্রিপ্টো পেমেন্টের অ্যাকাউন্ট নেম।'],
 
     // Pricing
@@ -22,7 +22,7 @@ $settingDefinitions = [
     'language_addon_price' => ['label' => 'অতিরিক্ত ভাষা অ্যাড-অন মূল্য (৳)', 'default' => '499', 'category' => 'pricing', 'hint' => 'প্রতিটি অতিরিক্ত আন্তর্জাতিক ভাষার ফি।'],
 
     // Support Contacts
-    'whatsapp_number' => ['label' => 'সেলস ও কাস্টমার সাপোর্ট WhatsApp নম্বর', 'default' => '8801684355055', 'category' => 'support', 'hint' => 'কান্ট্রি কোড সহ (যেমন: 8801684355055)। ওয়েবসাইটে wa.me লিংকে ব্যবহৃত হয়।'],
+    'whatsapp_number' => ['label' => 'সেলস ও কাস্টমার সাপোর্ট WhatsApp নম্বর', 'default' => '8801968111593', 'category' => 'support', 'hint' => 'কান্ট্রি কোড সহ (যেমন: 8801968111593)। ওয়েবসাইটে wa.me লিংকে ব্যবহৃত হয়।'],
     'support_email' => ['label' => 'অফিশিয়াল সাপোর্ট ইমেইল', 'default' => 'support@automoviepro.com', 'category' => 'support', 'hint' => 'কাস্টমার ইনভয়েস ও যোগাযোগের জন্য ইমেইল।'],
 ];
 
@@ -31,7 +31,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && csrf_verify($_POST['csrf'] ?? null)
         if (isset($_POST[$key])) {
             $val = trim((string) $_POST[$key]);
             if ($key === 'whatsapp_number') {
-                $val = preg_replace('/\D+/', '', $val) ?: '8801684355055';
+                $val = preg_replace('/\D+/', '', $val) ?: '8801968111593';
             }
             set_setting($pdo, $key, $val);
         }

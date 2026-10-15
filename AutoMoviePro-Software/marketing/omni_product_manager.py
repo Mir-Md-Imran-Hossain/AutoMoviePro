@@ -123,8 +123,8 @@ class OmniProductManager:
                 "offer_price": "৳৩,৯৯৯",
                 "currency": "BDT",
                 "contact_info": {
-                    "phone": "+8801700000000",
-                    "whatsapp": "+8801700000000",
+                    "phone": "+8801968111593",
+                    "whatsapp": "+8801968111593",
                     "email": "support@automoviepro.com",
                     "website": "https://automoviepro.com",
                     "social_handles": {
@@ -160,8 +160,8 @@ class OmniProductManager:
                 "offer_price": "৳২,৯৯৯",
                 "currency": "BDT",
                 "contact_info": {
-                    "phone": "+8801700000000",
-                    "whatsapp": "+8801700000000",
+                    "phone": "+8801968111593",
+                    "whatsapp": "+8801968111593",
                     "email": "business@automoviepro.com",
                     "website": "https://automoviepro.com",
                     "social_handles": {

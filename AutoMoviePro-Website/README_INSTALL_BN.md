@@ -13,7 +13,7 @@
 2. File Manager → `public_html` → ZIP আপলোড → Extract। ডিফল্ট `index.html` মুছুন।
 3. ব্রাউজার: `https://automoviepro.com/install/`
 4. DB তথ্য দিন। **Site URL:** `https://automoviepro.com`
-5. অ্যাডমিন ইউজার/পাস, WhatsApp (`8801684355055`) → **ইনস্টল করুন**।
+5. অ্যাডমিন ইউজার/পাস, WhatsApp (`8801968111593`) → **ইনস্টল করুন**।
 6. `/admin/login.php` দিয়ে লগইন।
 7. `install/` ফোল্ডার ডিলিট করুন।
 8. চেক: `https://automoviepro.com/api/health.php` → `"ok": true`

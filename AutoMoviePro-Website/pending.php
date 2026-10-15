@@ -35,7 +35,7 @@ try {
 } catch (\Throwable) {}
 
 $gmailHandoffMsg = "আমার Google AI Pro অর্ডার আইডি: #{$order['id']}, নাম: {$order['name']}। আমার জিমেইল আইডি হলো: [এখানে আপনার জিমেইল লিখুন]। অনুগ্রহ করে আমার ১৫০ জিবি ক্লাউড স্টোরেজ ও এপিআই এক্সেস কনফিগার করে দিন।";
-$gmailWaLink = 'https://wa.me/8801684355055?text=' . rawurlencode($gmailHandoffMsg);
+$gmailWaLink = 'https://wa.me/8801968111593?text=' . rawurlencode($gmailHandoffMsg);
 
 $isApproved = in_array((string)($order['status'] ?? ''), ['approved', 'active'], true);
 $customer = null;

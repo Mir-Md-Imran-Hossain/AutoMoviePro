@@ -307,7 +307,7 @@ if (admin_logged_in()) {
 
       <div class="login-footer">
         পাসওয়ার্ড ভুলে গেলে বা কোনো সমস্যা হলে <br>
-        <a href="https://wa.me/8801684355055" target="_blank" rel="noopener">📱 WhatsApp সাপোর্টে যোগাযোগ করুন</a>
+        <a href="https://wa.me/8801968111593" target="_blank" rel="noopener">📱 WhatsApp সাপোর্টে যোগাযোগ করুন</a>
       </div>
     </div>
   </div>

@@ -19,7 +19,7 @@ return [
     // WhatsApp Business Cloud API (optional — leave empty to log only)
     'whatsapp_token' => '',
     'whatsapp_phone_id' => '',
-    'whatsapp_admin_number' => '8801684355055',
+    'whatsapp_admin_number' => '8801968111593',
 
     // API token lifetime (days)
     'api_token_days' => 30,

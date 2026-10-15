@@ -53,7 +53,7 @@ $config = [
 $now = amp_sql_now($pdo);
 $pdo->prepare(
     "INSERT INTO customers (name, whatsapp, email, status, created_at)
-     VALUES ('Test Buyer', '8801684355055', 't@example.com', 'pending', {$now})"
+     VALUES ('Test Buyer', '8801968111593', 't@example.com', 'pending', {$now})"
 )->execute();
 $cid = (int) $pdo->lastInsertId();
 
@@ -65,7 +65,7 @@ $langsJson = json_encode([
 
 $pdo->prepare(
     "INSERT INTO orders (customer_id, name, whatsapp, email, plan_name, amount, status, languages_json, base_langs, addon_langs, created_at)
-     VALUES (?, 'Test Buyer', '8801684355055', 't@example.com', 'Lifetime Core', 3497, 'pending_payment', ?, 'en,bn', 'hi', {$now})"
+     VALUES (?, 'Test Buyer', '8801968111593', 't@example.com', 'Lifetime Core', 3497, 'pending_payment', ?, 'en,bn', 'hi', {$now})"
 )->execute([$cid, $langsJson]);
 $orderId = (int) $pdo->lastInsertId();
 

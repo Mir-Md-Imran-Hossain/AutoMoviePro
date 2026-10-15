@@ -60,7 +60,7 @@ def test_support_ticket_submission_with_72h_promise():
 
         res = client.post("/api/support/ticket", json={
             "type": "New Feature Suggestion",
-            "contact": "01684355055",
+            "contact": "01968111593",
             "message": "আমাদের একটি স্পোর্টস ড্রামা শর্টস থিম যুক্ত করার পরামর্শ।"
         })
         assert res.status_code == 200

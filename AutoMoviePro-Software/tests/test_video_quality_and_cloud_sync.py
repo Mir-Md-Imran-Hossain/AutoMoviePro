@@ -286,8 +286,8 @@ class TestWebsiteWhatsAppAlerts(unittest.TestCase):
         # 1. Customer Gmail request message
         self.assertIn("জিমেইল (Gmail)", content)
         self.assertIn("১৫০ জিবি", content)
-        # 2. Admin WhatsApp alert to 01684355055
-        self.assertIn("01684355055", content)
+        # 2. Admin WhatsApp alert to 01968111593
+        self.assertIn("01968111593", content)
         self.assertIn("adminMsg", content)
 
     def test_verify_payment_php_has_2way_whatsapp_alerts(self):
@@ -296,7 +296,7 @@ class TestWebsiteWhatsAppAlerts(unittest.TestCase):
         content = verify_php.read_text(encoding="utf-8")
 
         self.assertIn("includes/whatsapp.php", content)
-        self.assertIn("01684355055", content)
+        self.assertIn("01968111593", content)
         self.assertIn("whatsapp_handoff_url", content)
 
     def test_pending_php_has_prominent_green_whatsapp_button(self):
@@ -304,8 +304,8 @@ class TestWebsiteWhatsAppAlerts(unittest.TestCase):
         self.assertTrue(pending_php.exists())
         content = pending_php.read_text(encoding="utf-8")
 
-        self.assertIn("01684355055", content)
-        self.assertIn("wa.me/8801684355055", content)
+        self.assertIn("01968111593", content)
+        self.assertIn("wa.me/8801968111593", content)
         self.assertIn("হোয়াটসঅ্যাপে আপনার জিমেইল আইডি পাঠান", content)
         # Verify prominent green styling
         self.assertIn("#10b981", content)

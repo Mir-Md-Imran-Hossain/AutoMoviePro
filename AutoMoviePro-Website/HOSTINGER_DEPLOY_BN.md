@@ -65,7 +65,7 @@ ZIP: `AutoMoviePro-Website/dist/automoviepro-website-hostinger.zip` (প্য�
    - Site URL: `https://automoviepro.com`
    - Admin Username: `admin` (বা আপনার পছন্দ)
    - Admin Password: শক্ত পাসওয়ার্ড
-   - WhatsApp: `8801684355055`
+   - WhatsApp: `8801968111593`
 3. **ইনস্টল করুন** চাপুন।
 4. সফল হলে **অ্যাডমিন লগইন** লিংকে যান: `/admin/login.php`
 

@@ -10,7 +10,7 @@ Covers:
    - Plan 3 (Special / 18 months): 1299 BDT
 3. Automated WhatsApp Messages triggered upon payment approval:
    - Customer notification text asking for their Gmail for 150 GB Drive Vault & API setup.
-   - Admin alert to WhatsApp number 01684355055 with order ID, customer name, mobile, and plan details.
+   - Admin alert to WhatsApp number 01968111593 with order ID, customer name, mobile, and plan details.
 4. Pending activation WhatsApp action button with prefilled wa.me URL.
 5. Admin manual delivery & activation flow updating target Gmail and Google Pro Key.
 """
@@ -90,7 +90,7 @@ def test_customer_and_admin_whatsapp_message_templates():
     assert "জিমেইল (Gmail) অ্যাকাউন্টে" in customer_msg
 
     # 2. Admin WhatsApp Alert Template
-    admin_number = "01684355055"
+    admin_number = "01968111593"
     admin_msg = (
         f"🚨 নতুন Google AI Pro অর্ডার! অর্ডার আইডি: #{order_id}, গ্রাহকের নাম: {name}, "
         f"মোবাইল: {whatsapp}, প্ল্যান: {duration_months} মাস ({price} ৳)। "
@@ -99,13 +99,13 @@ def test_customer_and_admin_whatsapp_message_templates():
 
     assert "🚨 নতুন Google AI Pro অর্ডার!" in admin_msg
     assert f"#{order_id}" in admin_msg
-    assert admin_number == "01684355055"
+    assert admin_number == "01968111593"
     assert f"{duration_months} মাস" in admin_msg
     assert f"{price} ৳" in admin_msg
 
 
 def test_pending_page_whatsapp_link_generation():
-    admin_phone = "8801684355055"
+    admin_phone = "8801968111593"
     order_id = 8820
     name = "রফিকুল ইসলাম"
     target_email = "rafiq.creator@gmail.com"
@@ -114,7 +114,7 @@ def test_pending_page_whatsapp_link_generation():
     encoded = urllib.parse.quote(text)
     url = f"https://wa.me/{admin_phone}?text={encoded}"
 
-    assert url.startswith("https://wa.me/8801684355055?text=")
+    assert url.startswith("https://wa.me/8801968111593?text=")
     assert "8820" in urllib.parse.unquote(url)
     assert target_email in urllib.parse.unquote(url)
 

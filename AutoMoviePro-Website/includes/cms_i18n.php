@@ -137,7 +137,7 @@ function amp_mymemory_translate(string $text, string $from, string $to): string
 
 function amp_whatsapp_sales_link(string $prefill = ''): string
 {
-    $num = '8801684355055';
+    $num = '8801968111593';
     $q = $prefill !== '' ? ('?text=' . rawurlencode($prefill)) : '';
     return 'https://wa.me/' . $num . $q;
 }

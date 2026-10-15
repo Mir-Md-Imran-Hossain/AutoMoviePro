@@ -191,7 +191,7 @@ try {
             whatsapp_queue($pdo, $config, $whatsapp, $custMsg, $customerId);
 
             // ২. অ্যাডমিনের হোয়াটসঅ্যাপ নম্বরে বিস্তারিত অর্ডার নোটিফিকেশন
-            $adminWhatsapp = setting($pdo, 'admin_notify_whatsapp', '8801684355055');
+            $adminWhatsapp = setting($pdo, 'admin_notify_whatsapp', '8801968111593');
             $adminMsg = "🚨 নতুন Google AI Pro অর্ডার! অর্ডার আইডি: #{$orderId}, গ্রাহকের নাম: {$name}, মোবাইল: {$whatsapp}, প্ল্যান: {$plan} (৳" . (int)$amount . ")। গ্রাহককে জিমেইল চেয়ে ম্যানুয়ালি ১৫০ জিবি ক্লাউড ভল্ট ও এপিআই এক্সেস বুঝিয়ে দিন।";
             whatsapp_queue($pdo, $config, $adminWhatsapp, $adminMsg, $customerId);
         } catch (\Throwable $eNotice) {
@@ -231,7 +231,7 @@ try {
                 whatsapp_queue($pdo, $config, $whatsapp, $custMsg, $customerId);
 
                 $adminMsg = "🚨 নতুন Google AI Pro অর্ডার! অর্ডার আইডি: #{$orderId}, নাম: {$name}, মোবাইল: {$whatsapp}, প্ল্যান: {$plan} (৳" . (int)$amount . ")।";
-                whatsapp_queue($pdo, $config, '01684355055', $adminMsg, $customerId);
+                whatsapp_queue($pdo, $config, '01968111593', $adminMsg, $customerId);
             } catch (\Throwable) {}
         }
     } catch (Throwable $e2) {

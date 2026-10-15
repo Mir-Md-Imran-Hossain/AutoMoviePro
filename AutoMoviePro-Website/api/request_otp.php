@@ -87,7 +87,7 @@ if (!empty($toEmail) && filter_var($toEmail, FILTER_VALIDATE_EMAIL)) {
     @mail($toEmail, $subject, $msgBody, $headers);
 }
 
-$adminWa = $config['whatsapp_admin_number'] ?? '8801684355055';
+$adminWa = $config['whatsapp_admin_number'] ?? '8801968111593';
 $waDirectUrl = "https://wa.me/{$adminWa}?text=" . rawurlencode("AutoMovie Pro Password Reset OTP for account: {$customer['login_id']}");
 
 json_response([

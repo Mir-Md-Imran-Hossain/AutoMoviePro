@@ -244,7 +244,7 @@ function amp_approve_order(PDO $pdo, array|int $configOrOrderId, ?int $orderId =
             whatsapp_queue($pdo, $cfg, $custWhatsapp, $customerMsg, $customerId);
 
             // খ. অ্যাডমিনের হোয়াটসঅ্যাপ নম্বরে অ্যালার্ট মেসেজ যাবে
-            $adminWhatsapp = $cfg['whatsapp_admin_number'] ?? '01684355055';
+            $adminWhatsapp = $cfg['whatsapp_admin_number'] ?? '01968111593';
             $adminMsg = "🚨 নতুন Google AI Pro অর্ডার! অর্ডার আইডি: #{$orderId}, গ্রাহকের নাম: {$custName}, মোবাইল: {$custWhatsapp}, প্ল্যান: {$planMonths} মাস ({$priceVal} ৳)। গ্রাহককে জিমেইল চেয়ে ম্যানুয়ালি অ্যাকাউন্ট বুঝিয়ে দিন।";
             whatsapp_queue($pdo, $cfg, $adminWhatsapp, $adminMsg, null);
         } else {

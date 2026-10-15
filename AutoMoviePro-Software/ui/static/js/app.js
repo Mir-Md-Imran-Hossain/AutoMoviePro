@@ -2596,7 +2596,7 @@ function initSupportAndAuthModals() {
     if (waBtn) {
       const email = (document.getElementById("googlePaidOrderEmail")?.value || "").trim();
       const txt = encodeURIComponent(`আসসালামু আলাইকুম অ্যাডমিন, আমি AutoMovie Pro এর Google AI Pro প্যাকেজের [${name} - ${price} ৳] নিতে চাই।${email ? ' জিমেইল: ' + email : ''}`);
-      waBtn.href = `https://wa.me/8801684355055?text=${txt}`;
+      waBtn.href = `https://wa.me/8801968111593?text=${txt}`;
     }
   };
 
@@ -2685,7 +2685,7 @@ function initSupportAndAuthModals() {
           msgBox.style.color = "#ecfdf5";
           msgBox.innerHTML = `✅ <strong>অর্ডার গ্রহণ করা হয়েছে! (#${data.order?.order_id})</strong><br>`
             + `আমাদের টিম আপনার জিমেইল অ্যাকাউন্টটি ম্যানুয়ালি কানেক্ট করে অর্ডার এক্সেপ্ট করলেই সফটওয়্যারে ১টি এপিআই স্লট স্বয়ংক্রিয়ভাবে আনলক হয়ে যাবে।<br>`
-            + `<a href="https://wa.me/8801684355055?text=${encodeURIComponent('Hello Admin, I placed Google Pro Order #' + (data.order?.order_id || '') + ' for ' + email)}" target="_blank" style="color:#6ee7b7; font-weight:bold; text-decoration:underline;">এখানে ক্লিক করে অ্যাডমিনকে হোয়াটসঅ্যাপে জানান 💬</a>`;
+            + `<a href="https://wa.me/8801968111593?text=${encodeURIComponent('Hello Admin, I placed Google Pro Order #' + (data.order?.order_id || '') + ' for ' + email)}" target="_blank" style="color:#6ee7b7; font-weight:bold; text-decoration:underline;">এখানে ক্লিক করে অ্যাডমিনকে হোয়াটসঅ্যাপে জানান 💬</a>`;
 
           // Refresh order list in modal
           window.openGooglePaidModal();

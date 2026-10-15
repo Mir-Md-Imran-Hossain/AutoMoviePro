@@ -37,7 +37,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && csrf_verify($_POST['csrf'] ?? null)
             if (isset($_POST[$k])) {
                 $val = (string) $_POST[$k];
                 if ($k === 'whatsapp_number') {
-                    $val = preg_replace('/\D+/', '', $val) ?: '8801684355055';
+                    $val = preg_replace('/\D+/', '', $val) ?: '8801968111593';
                 }
                 set_setting($pdo, $k, $val);
             }
@@ -109,7 +109,7 @@ if (!empty($_GET['saved'])): ?>
   <input type="hidden" name="action" value="save_global">
   <?php foreach ($globalKeys as $k => $label): ?>
     <label><?= e($label) ?>
-      <input name="<?= e($k) ?>" value="<?= e(setting($pdo, $k, $k === 'price_amount' ? '2998' : ($k === 'language_addon_price' ? '499' : '8801684355055'))) ?>">
+      <input name="<?= e($k) ?>" value="<?= e(setting($pdo, $k, $k === 'price_amount' ? '3999' : ($k === 'language_addon_price' ? '499' : '8801968111593'))) ?>">
     </label>
   <?php endforeach; ?>
   <button class="btn" type="submit">গ্লোবাল সেভ</button>

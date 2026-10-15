@@ -446,7 +446,7 @@ function ensure_amp_migrations(PDO $pdo): void
         'wa_auto_welcome_chat' => '1',
         'wa_auto_order_placed' => '1',
         'wa_auto_order_approved' => '1',
-        'admin_notify_whatsapp' => '8801684355055'
+        'admin_notify_whatsapp' => '8801968111593'
     ];
 
     try {
