@@ -752,6 +752,41 @@ function ensure_wamanager_migrations(PDO $pdo): void
                 created_at DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
                 INDEX (action),
                 INDEX (created_at)
+            ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4",
+
+        'wamanager_licenses' => $isSqlite ?
+            "CREATE TABLE IF NOT EXISTS wamanager_licenses (
+                id VARCHAR(64) PRIMARY KEY,
+                license_key VARCHAR(64) NOT NULL UNIQUE,
+                customer_name VARCHAR(120) NOT NULL,
+                customer_phone VARCHAR(32) NOT NULL,
+                customer_email VARCHAR(120) NULL,
+                hardware_id VARCHAR(100) NULL,
+                machine_name VARCHAR(120) NULL,
+                plan_tier VARCHAR(64) NOT NULL DEFAULT 'wamanager_pro',
+                status VARCHAR(32) NOT NULL DEFAULT 'active',
+                max_devices INT DEFAULT 1,
+                activated_at DATETIME NULL,
+                expires_at DATETIME NULL,
+                created_at DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP
+            )" :
+            "CREATE TABLE IF NOT EXISTS wamanager_licenses (
+                id VARCHAR(64) PRIMARY KEY,
+                license_key VARCHAR(64) NOT NULL UNIQUE,
+                customer_name VARCHAR(120) NOT NULL,
+                customer_phone VARCHAR(32) NOT NULL,
+                customer_email VARCHAR(120) NULL,
+                hardware_id VARCHAR(100) NULL,
+                machine_name VARCHAR(120) NULL,
+                plan_tier VARCHAR(64) NOT NULL DEFAULT 'wamanager_pro',
+                status VARCHAR(32) NOT NULL DEFAULT 'active',
+                max_devices INT DEFAULT 1,
+                activated_at DATETIME NULL,
+                expires_at DATETIME NULL,
+                created_at DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
+                INDEX (license_key),
+                INDEX (hardware_id),
+                INDEX (status)
             ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4"
     ];
 

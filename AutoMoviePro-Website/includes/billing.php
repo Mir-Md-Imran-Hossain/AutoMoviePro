@@ -108,6 +108,10 @@ function amp_determine_order_tier(array $order): string
     $amt = (float) ($order['amount'] ?? 0);
     $plan = strtolower((string) ($order['plan_name'] ?? ''));
 
+    // WAManager Pro WhatsApp Suite
+    if (str_contains($plan, 'wamanager') || str_contains($plan, 'whatsapp marketing') || abs($amt - 2499.0) < 50) {
+        return 'wamanager_pro';
+    }
     // ৳3,999 -> video_studio (Social Media Content Automation Engine)
     if (abs($amt - 3999.0) < 50 || str_contains($plan, 'content automation') || str_contains($plan, 'video') || str_contains($plan, 'social media') || str_contains($plan, 'omni social') || str_contains($plan, 'studio')) {
         return 'video_studio';
