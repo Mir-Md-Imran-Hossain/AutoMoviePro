@@ -946,3 +946,51 @@ input:focus, textarea:focus, select:focus {
     justify-content: center;
     margin: 10px 0;
 }
+
+/* ========================================================
+   STUDIO HERO, VIDEO LIBRARY, AND PRODUCTS & ADS STYLING
+   ======================================================== */
+.studio-hero-deck {
+    transition: all 0.3s ease;
+}
+.topic-chip {
+    transition: all 0.2s ease;
+    user-select: none;
+}
+.topic-chip:hover {
+    background: #0284c7 !important;
+    color: #fff !important;
+    border-color: #38bdf8 !important;
+}
+.video-card:hover {
+    transform: translateY(-4px);
+    border-color: #38bdf8 !important;
+    box-shadow: 0 12px 30px rgba(2, 132, 199, 0.25) !important;
+}
+.product-card:hover {
+    transform: translateY(-4px);
+    border-color: #10b981 !important;
+    box-shadow: 0 12px 30px rgba(16, 185, 129, 0.2) !important;
+}
+.filter-btn {
+    transition: all 0.2s ease;
+}
+.filter-btn:hover {
+    background: #334155 !important;
+    color: #fff !important;
+}
+.filter-btn.active {
+    background: #0284c7 !important;
+    color: #fff !important;
+}
+.advanced-workflow-drawer {
+    transition: all 0.3s ease;
+}
+.advanced-workflow-drawer summary::-webkit-details-marker {
+    color: #38bdf8;
+}
+.advanced-workflow-drawer[open] summary {
+    color: #38bdf8;
+    margin-bottom: 0.5rem;
+}
+

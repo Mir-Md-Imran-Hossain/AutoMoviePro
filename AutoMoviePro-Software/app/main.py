@@ -16,7 +16,7 @@ from fastapi.responses import HTMLResponse, JSONResponse
 from fastapi.staticfiles import StaticFiles
 
 from app.api_client import LicenseClient
-from app.config import ASSETS_DIR, UI_DIR, settings
+from app.config import ASSETS_DIR, OUTPUT_DIR, UI_DIR, settings
 from app import db as store
 from app.scheduler_service import SchedulerService
 
@@ -37,6 +37,10 @@ if UI_DIR.exists():
 
 if ASSETS_DIR.exists():
     app.mount("/assets", StaticFiles(directory=str(ASSETS_DIR)), name="assets")
+
+OUTPUT_DIR.mkdir(parents=True, exist_ok=True)
+if OUTPUT_DIR.exists():
+    app.mount("/output", StaticFiles(directory=str(OUTPUT_DIR)), name="output")
 
 
 @app.on_event("startup")
@@ -4348,6 +4352,78 @@ def api_generate_product_ad(product_id: str, payload: Dict[str, Any] = Body(...)
     except Exception as e:
         return JSONResponse(status_code=500, content={"ok": False, "error": str(e)})
 
+
+@app.get("/api/videos/library")
+def api_videos_library(folder: str = "all", limit: int = 80) -> Any:
+    """Returns all rendered videos from OUTPUT_DIR with metadata and direct stream URLs."""
+    from datetime import datetime
+    videos = []
+    if not OUTPUT_DIR.exists():
+        return {"ok": True, "videos": [], "count": 0, "total_disk_mb": 0}
+
+    for f in OUTPUT_DIR.rglob("*.mp4"):
+        try:
+            rel = f.relative_to(OUTPUT_DIR).as_posix()
+            stat = f.stat()
+            name_lower = f.name.lower()
+            is_short = ("short" in name_lower or "reel" in name_lower or "9_16" in name_lower)
+            folder_name = f.parent.name if f.parent != OUTPUT_DIR else "Root"
+
+            if folder == "short" and not is_short:
+                continue
+            if folder == "long" and is_short:
+                continue
+            if folder not in ("all", "short", "long") and folder.lower() != folder_name.lower():
+                continue
+
+            videos.append({
+                "filename": f.name,
+                "relative_path": rel,
+                "url": f"/output/{rel}",
+                "folder": folder_name,
+                "size_bytes": stat.st_size,
+                "size_mb": round(stat.st_size / (1024 * 1024), 2),
+                "created_at": datetime.fromtimestamp(stat.st_mtime).strftime("%Y-%m-%d %H:%M:%S"),
+                "is_short": is_short,
+                "type": "Shorts / Reel (9:16)" if is_short else "Long Video (16:9)",
+            })
+        except Exception:
+            continue
+
+    videos.sort(key=lambda x: x["created_at"], reverse=True)
+    return {
+        "ok": True,
+        "videos": videos[:limit],
+        "count": len(videos),
+        "total_disk_mb": round(sum(v["size_mb"] for v in videos), 2)
+    }
+
+
+@app.post("/api/open-folder")
+def api_open_folder(payload: Dict[str, Any] = Body(default_factory=dict)) -> Any:
+    """Opens Windows explorer or file manager for the output folder."""
+    import platform
+    import subprocess
+    import os
+
+    target = OUTPUT_DIR
+    sub = payload.get("folder") or payload.get("path")
+    if sub:
+        candidate = (OUTPUT_DIR / sub).resolve()
+        if candidate.exists():
+            target = candidate
+
+    try:
+        sys_name = platform.system()
+        if sys_name == "Windows":
+            os.startfile(str(target))
+        elif sys_name == "Darwin":
+            subprocess.Popen(["open", str(target)])
+        else:
+            subprocess.Popen(["xdg-open", str(target)])
+        return {"ok": True, "opened": str(target)}
+    except Exception as e:
+        return JSONResponse(status_code=500, content={"ok": False, "error": str(e)})
 
 
 def main() -> None:

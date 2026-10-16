@@ -192,7 +192,7 @@ class AutoMovieInstallerApp:
             self.status_items["fonts"][1].config(text="! মিসিং", fg="#f87171")
 
         # Dirs
-        for d in ["Output", "data", "_quota_state", "assets/audio/voice_cues", "assets/fonts"]:
+        for d in ["output", "data", "_quota_state", "assets/audio/voice_cues", "assets/fonts"]:
             (BASE_DIR / d).mkdir(parents=True, exist_ok=True)
         self.status_items["dirs"][1].config(text="✓ অল রেডি", fg="#4ade80")
         self.log("[OK] Directories verified and ensured.")
@@ -223,11 +223,27 @@ class AutoMovieInstallerApp:
             return
         bat_file = BASE_DIR / "Start_AutoMovie_Pro.bat"
         shortcut_file = desktop / "AutoMovie Pro.bat"
+        lnk_file = desktop / "AutoMovie Pro.lnk"
         try:
+            # Create standard Windows .lnk shortcut via VBScript
+            vbs_code = f'Set oWS = WScript.CreateObject("WScript.Shell")\n' \
+                       f'sLinkFile = "{str(lnk_file)}"\n' \
+                       f'Set oLink = oWS.CreateShortcut(sLinkFile)\n' \
+                       f'oLink.TargetPath = "{str(bat_file)}"\n' \
+                       f'oLink.WorkingDirectory = "{str(BASE_DIR)}"\n' \
+                       f'oLink.Description = "AutoMovie Pro - Industrial AI Automation"\n' \
+                       f'oLink.Save\n'
+            vbs_tmp = BASE_DIR / "temp_create_shortcut.vbs"
+            vbs_tmp.write_text(vbs_code, encoding="utf-8")
+            subprocess.run(["cscript", "//nologo", str(vbs_tmp)], capture_output=True)
+            if vbs_tmp.exists():
+                vbs_tmp.unlink()
+
+            # Also create backup launcher .bat on Desktop
             with open(shortcut_file, "w", encoding="utf-8") as f:
                 f.write(f'@echo off\ncd /d "{BASE_DIR}"\ncall "Start_AutoMovie_Pro.bat"\n')
-            messagebox.showinfo("শর্টকাট তৈরি", f"ডেস্কটপে শর্টকাট সফলভাবে তৈরি করা হয়েছে:\n{shortcut_file}")
-            self.log(f"[OK] Shortcut created on Desktop: {shortcut_file}")
+            messagebox.showinfo("শর্টকাট তৈরি", f"ডেস্কটপে সফলভাবে AutoMovie Pro শর্টকাট তৈরি হয়েছে!\n{lnk_file}")
+            self.log(f"[OK] Windows Shortcut created on Desktop: {lnk_file}")
         except Exception as e:
             messagebox.showerror("Error", f"Failed to create shortcut: {e}")
 

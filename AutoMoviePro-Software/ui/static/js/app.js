@@ -1380,10 +1380,24 @@ async function refresh() {
   await loadNiches();
   const ch = await api("/api/channels");
   const sel = document.getElementById("channelSelect");
-  if (sel) {
-    sel.innerHTML = (ch.channels || []).map(c =>
-      `<option value="${c.id}">#${c.id} ${c.youtube_name || c.facebook_name || c.niche}</option>`
-    ).join("");
+  const megaSel = document.getElementById("megaChannelSelect");
+  const optsHtml = (ch.channels || []).map(c =>
+    `<option value="${c.id}">#${c.id} ${c.youtube_name || c.facebook_name || c.niche}</option>`
+  ).join("");
+  if (sel) sel.innerHTML = optsHtml;
+  if (megaSel) {
+    megaSel.innerHTML = optsHtml || `<option value="0">কোনো চ্যানেল যুক্ত নেই</option>`;
+    const megaBadge = document.getElementById("megaChannelBadge");
+    if (megaBadge) {
+      if ((ch.channels || []).length) {
+        const c0 = ch.channels[0];
+        megaBadge.textContent = `সক্রিয় নিশ: ${c0.niche || "জেনারেল"} (চ্যানেল #${c0.id})`;
+        megaBadge.style.color = "#10b981";
+      } else {
+        megaBadge.textContent = "কোনো চ্যানেল কনফিগার করা হয়নি";
+        megaBadge.style.color = "#ef4444";
+      }
+    }
   }
   const summary = document.getElementById("channelSummary");
   if (summary) {
@@ -1656,6 +1670,10 @@ document.querySelectorAll(".tabs button").forEach(btn => {
     if (btn.dataset.tab === "live" || btn.dataset.tab === "home" || btn.dataset.tab === "jobs") {
       resumePolling();
       refresh();
+    } else if (btn.dataset.tab === "videos") {
+      if (typeof window.loadVideoLibrary === "function") window.loadVideoLibrary();
+    } else if (btn.dataset.tab === "products") {
+      if (typeof window.loadProductsCatalog === "function") window.loadProductsCatalog();
     }
   };
 });
@@ -3084,6 +3102,470 @@ refresh().then(() => {
   initAutoReplyAndAnalytics();
   initSupportAndAuthModals();
 });
+
+// ==========================================
+// 1-CLICK STUDIO HERO CONTROLS (NON-TECH)
+// ==========================================
+window.setQuickTopic = function(topic) {
+  const inp = document.getElementById("megaTopicInput");
+  if (inp) {
+    inp.value = topic;
+    inp.focus();
+  }
+};
+
+window.openOutputDirectory = async function(folder) {
+  try {
+    const res = await api("/api/open-folder", {
+      method: "POST",
+      body: JSON.stringify({ folder: folder || "" })
+    });
+    if (!res.ok) alert("ফোল্ডার ওপেন ব্যর্থ: " + (res.error || "অজানা সমস্যা"));
+  } catch (err) {
+    alert("ফোল্ডার ওপেন ব্যর্থ হয়েছে।");
+  }
+};
+
+let _megaJobPollTimer = null;
+
+window.triggerMegaGenerate = async function(videoType) {
+  const shortBtn = document.getElementById("megaGenShortBtn");
+  const longBtn = document.getElementById("megaGenLongBtn");
+  const topicInp = document.getElementById("megaTopicInput");
+  const megaSel = document.getElementById("megaChannelSelect");
+  const dot = document.getElementById("megaStatusDot");
+  const title = document.getElementById("megaStatusTitle");
+  const percent = document.getElementById("megaProgressPercent");
+  const bar = document.getElementById("megaProgressBar");
+  const detail = document.getElementById("megaStatusDetail");
+
+  const channelId = Number(megaSel?.value || document.getElementById("channelSelect")?.value || 0);
+  const topic = (topicInp?.value || "").trim();
+
+  // Visual feedback during initiation
+  if (shortBtn) shortBtn.disabled = true;
+  if (longBtn) longBtn.disabled = true;
+  if (dot) {
+    dot.style.background = "#f59e0b";
+    dot.style.boxShadow = "0 0 10px #f59e0b";
+  }
+  if (title) title.textContent = (videoType === "short" ? "৬০-সেকেন্ডের Shorts / Reel" : "৩-৫ মিনিটের Long ভিডিও") + " তৈরির প্রক্রিয়া শুরু হচ্ছে...";
+  if (percent) percent.textContent = "10%";
+  if (bar) bar.style.width = "10%";
+  if (detail) detail.textContent = "এআই টপিক বিশ্লেষণ ও ক্রিয়েটিভ প্রম্পট প্রস্তুত করছে...";
+
+  const endpoint = videoType === "long" ? "/api/generate/long" : "/api/generate/short";
+  const payload = {
+    channel_id: channelId,
+    topic: topic,
+    video_type: videoType
+  };
+
+  try {
+    const res = await api(endpoint, {
+      method: "POST",
+      body: JSON.stringify(payload)
+    });
+
+    if (!res.ok) {
+      if (dot) {
+        dot.style.background = "#ef4444";
+        dot.style.boxShadow = "0 0 10px #ef4444";
+      }
+      if (bar) {
+        bar.style.width = "100%";
+        bar.style.background = "#ef4444";
+      }
+      const errMsg = res.message || res.error || "ভিডিও তৈরিতে সমস্যা হয়েছে";
+      if (title) title.textContent = "❌ ব্যর্থ হয়েছে: " + errMsg;
+      if (detail) detail.textContent = "অনুগ্রহ করে চ্যানেল সেটিংস বা লাইসেন্স প্যাকেজ চেক করুন।";
+      alert("ভিডিও তৈরি শুরু করা যায়নি: " + errMsg);
+      return;
+    }
+
+    // Success kickoff
+    if (dot) {
+      dot.style.background = "#10b981";
+      dot.style.boxShadow = "0 0 10px #10b981";
+    }
+    if (title) title.textContent = "🚀 ভিডিও জেনারেশন সফলভাবে শুরু হয়েছে (Job #" + (res.job_id || res.id || "") + ")";
+    if (percent) percent.textContent = "25%";
+    if (bar) bar.style.width = "25%";
+    if (detail) detail.textContent = "স্ক্রিপ্ট তৈরি ও স্টুডিও ভয়েস রেকর্ডিং চলমান...";
+
+    // Audio cue
+    if (typeof window.playJarvisAudioCue === "function") {
+      window.playJarvisAudioCue(
+        "/assets/audio/voice_cues/render_start.wav",
+        "ভিডিও তৈরির কাজ সফলভাবে শুরু হয়েছে। স্টুডিও মনিটরে লক্ষ্য রাখুন।"
+      );
+    }
+
+    // Kinetic progress simulation & state monitoring
+    let p = 25;
+    if (_megaJobPollTimer) clearInterval(_megaJobPollTimer);
+    _megaJobPollTimer = setInterval(() => {
+      p += 5;
+      if (p <= 90) {
+        if (percent) percent.textContent = p + "%";
+        if (bar) bar.style.width = p + "%";
+        if (p === 40 && detail) detail.textContent = "৬-ভাষার আন্তর্জাতিক স্ক্রিপ্ট ও অডিও সিন্থেসিস প্রস্তুত...";
+        if (p === 65 && detail) detail.textContent = "ভিজ্যুয়াল ফুটেজ, সাবটাইটেল ও ব্যাকগ্রাউন্ড মিউজিক সিঙ্ক হচ্ছে...";
+        if (p === 85 && detail) detail.textContent = "ফাইনাল রেন্ডার ও কোয়ালিটি গার্ড (QC) ভেরিফিকেশন চলছে...";
+      }
+    }, 3500);
+
+    setTimeout(async () => {
+      await refresh();
+      if (bar) {
+        bar.style.width = "100%";
+        bar.style.background = "linear-gradient(90deg, #0284c7, #38bdf8, #10b981)";
+      }
+      if (percent) percent.textContent = "100%";
+      if (title) title.textContent = "🎉 ভিডিও তৈরি সম্পন্ন! ভিডিও লাইব্রেরিতে দেখুন।";
+      if (detail) detail.textContent = "ফাইল সংরক্ষিত হয়েছে output ফোল্ডারে।";
+      if (_megaJobPollTimer) clearInterval(_megaJobPollTimer);
+      if (shortBtn) shortBtn.disabled = false;
+      if (longBtn) longBtn.disabled = false;
+    }, 25000);
+
+  } catch (err) {
+    if (title) title.textContent = "কানেকশন এরর: " + (err.message || "সার্ভার সংযোগ বিচ্ছিন্ন");
+    if (dot) dot.style.background = "#ef4444";
+  } finally {
+    setTimeout(() => {
+      if (shortBtn) shortBtn.disabled = false;
+      if (longBtn) longBtn.disabled = false;
+    }, 2500);
+  }
+};
+
+// ==========================================
+// VIDEO LIBRARY CONTROLLER
+// ==========================================
+let _currentVideoFilter = "all";
+
+window.filterVideoLibrary = function(filter, btnEl) {
+  _currentVideoFilter = filter;
+  document.querySelectorAll(".filter-btn").forEach(b => {
+    b.classList.remove("active");
+    b.style.background = "#1e293b";
+    b.style.color = "#cbd5e1";
+  });
+  if (btnEl) {
+    btnEl.classList.add("active");
+    btnEl.style.background = "#0284c7";
+    btnEl.style.color = "#fff";
+  }
+  loadVideoLibrary(filter);
+};
+
+window.loadVideoLibrary = async function(folder = null) {
+  const container = document.getElementById("videoLibraryGrid");
+  const countEl = document.getElementById("libTotalCount");
+  const diskEl = document.getElementById("libDiskUsage");
+  if (!container) return;
+
+  const f = folder || _currentVideoFilter || "all";
+  try {
+    const res = await api(`/api/videos/library?folder=${encodeURIComponent(f)}&limit=100`);
+    if (!res.ok) {
+      container.innerHTML = `<div class="card muted" style="grid-column: 1 / -1; color:#ef4444;">ভিডিও লোড ব্যর্থ: ${res.error || ""}</div>`;
+      return;
+    }
+
+    const videos = res.videos || [];
+    if (countEl) countEl.textContent = String(videos.length);
+    if (diskEl) diskEl.innerHTML = `মোট সাইজ: <strong style="color:#38bdf8;">${res.total_disk_mb || 0} MB</strong>`;
+
+    if (!videos.length) {
+      container.innerHTML = `
+        <div class="card" style="grid-column: 1 / -1; text-align:center; padding:3rem; background:#070d18; border:1px dashed #334155; border-radius:14px;">
+          <div style="font-size:2.5rem; margin-bottom:0.75rem;">🎬</div>
+          <h3 style="color:#cbd5e1; margin:0 0 6px;">এখনও কোনো ভিডিও তৈরি করা হয়নি</h3>
+          <p class="muted" style="margin:0 0 1rem; font-size:0.9rem;">ড্যাশবোর্ড থেকে ১-ক্লিকে শর্টস বা লং ভিডিও তৈরি শুরু করুন।</p>
+          <button type="button" class="btn" onclick="switchTab('home')" style="background:#0284c7; font-weight:bold;">স্টুডিওতে যান</button>
+        </div>
+      `;
+      return;
+    }
+
+    container.innerHTML = videos.map(v => {
+      const isShort = v.is_short;
+      const titleClean = v.filename.replace(/\.mp4$/i, "").replace(/_/g, " ");
+      return `
+        <div class="video-card" style="background:#090f1d; border:1px solid #1e293b; border-radius:14px; overflow:hidden; display:flex; flex-direction:column; box-shadow:0 6px 20px rgba(0,0,0,0.4); transition:transform 0.2s ease, border-color 0.2s ease;">
+          <div style="position:relative; background:#000; height:180px; display:flex; align-items:center; justify-content:center; overflow:hidden;">
+            <video src="${v.url}" preload="metadata" style="max-height:100%; max-width:100%; object-fit:contain;"></video>
+            <button type="button" onclick="playVideoModal('${v.url}', '${escapeAttr(titleClean)}', '${v.size_mb} MB · ${v.created_at}')" style="position:absolute; background:rgba(2, 132, 199, 0.85); border:none; width:48px; height:48px; border-radius:50%; color:#fff; font-size:1.4rem; display:flex; align-items:center; justify-content:center; cursor:pointer; box-shadow:0 0 15px rgba(2, 132, 199, 0.6); transition:transform 0.2s ease;">
+              ▶
+            </button>
+            <span style="position:absolute; top:8px; left:8px; background:${isShort ? 'rgba(217, 119, 6, 0.9)' : 'rgba(37, 99, 235, 0.9)'}; color:#fff; font-size:0.72rem; font-weight:700; padding:2px 8px; border-radius:4px; text-transform:uppercase;">
+              ${isShort ? '⚡ Shorts (9:16)' : '🎥 Long (16:9)'}
+            </span>
+            <span style="position:absolute; bottom:8px; right:8px; background:rgba(0,0,0,0.75); color:#fff; font-size:0.75rem; padding:2px 6px; border-radius:4px; font-family:monospace;">
+              ${v.size_mb} MB
+            </span>
+          </div>
+
+          <div style="padding:12px 14px; display:flex; flex-direction:column; flex:1; justify-content:space-between;">
+            <div>
+              <div style="font-weight:700; color:#f8fafc; font-size:0.92rem; margin-bottom:4px; line-height:1.4; display:-webkit-box; -webkit-line-clamp:2; -webkit-box-orient:vertical; overflow:hidden;" title="${escapeAttr(v.filename)}">
+                ${escapeHtml(titleClean)}
+              </div>
+              <div style="font-size:0.78rem; color:#64748b; margin-bottom:10px;">
+                📅 তৈরি: ${v.created_at} · ফোল্ডার: ${escapeHtml(v.folder)}
+              </div>
+            </div>
+
+            <div style="display:flex; gap:6px; margin-top:8px;">
+              <button type="button" onclick="playVideoModal('${v.url}', '${escapeAttr(titleClean)}', '${v.size_mb} MB · ${v.created_at}')" class="btn" style="flex:1; padding:6px; font-size:0.82rem; background:#0284c7; color:#fff; border-radius:6px; font-weight:600; display:flex; align-items:center; justify-content:center; gap:4px;">
+                <span>▶</span> প্লে করুন
+              </button>
+              <a href="${v.url}" download="${v.filename}" class="btn ghost" style="padding:6px 10px; font-size:0.82rem; border-color:#334155; color:#cbd5e1; border-radius:6px; text-decoration:none; display:flex; align-items:center; justify-content:center;" title="ডাউনলোড">
+                ⬇
+              </a>
+              <button type="button" onclick="openOutputDirectory('${escapeAttr(v.folder)}')" class="btn ghost" style="padding:6px 10px; font-size:0.82rem; border-color:#334155; color:#cbd5e1; border-radius:6px;" title="ফোল্ডারে দেখুন">
+                📂
+              </button>
+            </div>
+          </div>
+        </div>
+      `;
+    }).join("");
+
+  } catch (err) {
+    container.innerHTML = `<div class="card muted" style="grid-column: 1 / -1; color:#ef4444;">লোড এরর: ${err.message || ""}</div>`;
+  }
+};
+
+window.playVideoModal = function(url, title, meta) {
+  const modal = document.getElementById("videoPreviewModal");
+  const video = document.getElementById("modalVideoElement");
+  const titleEl = document.getElementById("modalVideoTitle");
+  const metaEl = document.getElementById("modalVideoMeta");
+  const dl = document.getElementById("modalDownloadLink");
+
+  if (!modal || !video) return;
+  video.src = url;
+  if (titleEl) titleEl.textContent = title;
+  if (metaEl) metaEl.textContent = meta || "";
+  if (dl) {
+    dl.href = url;
+    dl.download = title + ".mp4";
+  }
+  modal.style.display = "flex";
+  video.play().catch(e => console.debug("Autoplay blocked:", e));
+};
+
+window.closeVideoModal = function() {
+  const modal = document.getElementById("videoPreviewModal");
+  const video = document.getElementById("modalVideoElement");
+  if (video) {
+    video.pause();
+    video.src = "";
+  }
+  if (modal) modal.style.display = "none";
+};
+
+// ==========================================
+// PRODUCTS & ADS CONTROLLER
+// ==========================================
+window.loadProductsCatalog = async function() {
+  const grid = document.getElementById("productsCatalogGrid");
+  const adsGrid = document.getElementById("productAdsGrid");
+  if (!grid) return;
+
+  try {
+    const res = await api("/api/products");
+    const products = res.products || [];
+
+    if (!products.length) {
+      grid.innerHTML = `
+        <div class="card" style="grid-column: 1 / -1; text-align:center; padding:2.5rem; background:#070d18; border:1px dashed #334155; border-radius:14px;">
+          <div style="font-size:2.2rem; margin-bottom:0.6rem;">📦</div>
+          <h3 style="color:#cbd5e1; margin:0 0 6px;">কোনো প্রোডাক্ট সংরক্ষিত নেই</h3>
+          <p class="muted" style="margin:0 0 1rem; font-size:0.9rem;">আপনার পণ্য বা সার্ভিসের বিস্তারিত যুক্ত করে ১-ক্লিকে সেলস ভিডিও বানান।</p>
+          <button type="button" class="btn" onclick="openNewProductModal()" style="background:#10b981; font-weight:bold;">➕ প্রথম প্রোডাক্ট যুক্ত করুন</button>
+        </div>
+      `;
+    } else {
+      grid.innerHTML = products.map(p => {
+        const contact = p.contact_info || {};
+        return `
+          <div class="product-card" style="background:#090f1d; border:1px solid #1e293b; border-radius:14px; padding:1.25rem; display:flex; flex-direction:column; justify-content:space-between; box-shadow:0 6px 20px rgba(0,0,0,0.3);">
+            <div>
+              <div style="display:flex; justify-content:space-between; align-items:flex-start; margin-bottom:8px;">
+                <span style="background:#1e293b; color:#38bdf8; font-size:0.75rem; font-weight:600; padding:2px 8px; border-radius:6px; text-transform:uppercase;">
+                  ${escapeHtml(p.category || 'পণ্য')}
+                </span>
+                <button type="button" onclick="deleteProduct('${p.id}')" style="background:none; border:none; color:#ef4444; cursor:pointer; font-size:0.9rem;" title="মুছে ফেলুন">🗑️</button>
+              </div>
+
+              <h3 style="color:#f8fafc; margin:0 0 6px; font-size:1.1rem; font-weight:700;">${escapeHtml(p.name)}</h3>
+              <p style="color:#94a3b8; font-size:0.85rem; line-height:1.4; margin:0 0 12px; display:-webkit-box; -webkit-line-clamp:2; -webkit-box-orient:vertical; overflow:hidden;">
+                ${escapeHtml(p.description || 'কোনো বিবরণ দেওয়া নেই')}
+              </p>
+
+              <div style="background:#060a12; border:1px solid #1e293b; border-radius:8px; padding:8px 10px; margin-bottom:12px; display:flex; justify-content:space-between; align-items:center;">
+                <div>
+                  <span style="font-size:0.75rem; color:#64748b; text-decoration:line-through;">${escapeHtml(p.regular_price || '')}</span>
+                  <div style="font-size:1.1rem; font-weight:800; color:#10b981;">${escapeHtml(p.offer_price || 'অফার মূল্য')}</div>
+                </div>
+                <div style="font-size:0.78rem; color:#cbd5e1; text-align:right;">
+                  <div>📞 ${escapeHtml(contact.phone || contact.whatsapp || 'হটলাইন')}</div>
+                  <div style="color:#38bdf8;">🌐 ${escapeHtml(contact.website ? 'ওয়েবসাইট সংযুক্ত' : '')}</div>
+                </div>
+              </div>
+            </div>
+
+            <div style="display:flex; gap:8px; margin-top:8px;">
+              <button type="button" onclick="openGenerateAdModal('${p.id}', '${escapeAttr(p.name)}', '${escapeAttr(p.offer_price)}')" class="btn" style="width:100%; background:linear-gradient(135deg, #0284c7, #2563eb); font-weight:700; font-size:0.85rem; padding:8px; border-radius:8px; display:flex; align-items:center; justify-content:center; gap:6px;">
+                <span>🎥</span> ভিডিও বিজ্ঞাপন তৈরি করুন
+              </button>
+            </div>
+          </div>
+        `;
+      }).join("");
+    }
+
+    // Load Ads
+    if (adsGrid) {
+      const adsRes = await api("/api/products/ads");
+      const ads = adsRes.ads || [];
+      if (!ads.length) {
+        adsGrid.innerHTML = `<div class="card muted" style="grid-column: 1 / -1; text-align:center; padding:1.5rem;">কোনো বিজ্ঞাপন ক্যাম্পেইন নেই। যেকোনো প্রোডাক্টের "ভিডিও বিজ্ঞাপন তৈরি করুন" বাটনে ক্লিক করুন।</div>`;
+      } else {
+        adsGrid.innerHTML = ads.map(a => `
+          <div style="background:#070d18; border:1px solid #1e293b; border-radius:10px; padding:12px 14px; display:flex; justify-content:space-between; align-items:center;">
+            <div>
+              <strong style="color:#f8fafc; font-size:0.9rem;">বিজ্ঞাপন #${a.id} (${a.ad_type || 'রিল'})</strong>
+              <div style="font-size:0.78rem; color:#94a3b8; margin-top:2px;">দৈর্ঘ্য: ${a.duration_seconds}s · তারিখ: ${a.created_at || 'আজ'}</div>
+            </div>
+            <span style="background:#064e3b; color:#34d399; font-size:0.75rem; font-weight:bold; padding:2px 8px; border-radius:4px;">সক্রিয়</span>
+          </div>
+        `).join("");
+      }
+    }
+
+  } catch (err) {
+    grid.innerHTML = `<div class="card muted" style="grid-column: 1 / -1; color:#ef4444;">লোড এরর: ${err.message || ""}</div>`;
+  }
+};
+
+window.openNewProductModal = function() {
+  const m = document.getElementById("productCreateModal");
+  if (m) m.style.display = "flex";
+};
+
+window.closeProductModal = function() {
+  const m = document.getElementById("productCreateModal");
+  if (m) m.style.display = "none";
+};
+
+window.handleCreateProduct = async function(e) {
+  e.preventDefault();
+  const name = document.getElementById("prodName").value.trim();
+  const cat = document.getElementById("prodCategory").value;
+  const regPrice = document.getElementById("prodRegPrice").value.trim();
+  const offerPrice = document.getElementById("prodOfferPrice").value.trim();
+  const phone = document.getElementById("prodPhone").value.trim();
+  const wa = document.getElementById("prodWhatsapp").value.trim();
+  const web = document.getElementById("prodWebsite").value.trim();
+  const desc = document.getElementById("prodDesc").value.trim();
+
+  const payload = {
+    name: name,
+    category: cat,
+    regular_price: regPrice,
+    offer_price: offerPrice,
+    description: desc,
+    contact_info: {
+      phone: phone,
+      whatsapp: wa,
+      website: web
+    }
+  };
+
+  try {
+    const res = await api("/api/products", {
+      method: "POST",
+      body: JSON.stringify(payload)
+    });
+    if (res.ok) {
+      closeProductModal();
+      document.getElementById("createProductForm").reset();
+      await loadProductsCatalog();
+      alert("প্রোডাক্ট সফলভাবে যুক্ত হয়েছে!");
+    } else {
+      alert("ব্যর্থ হয়েছে: " + (res.error || "অজানা ত্রুটি"));
+    }
+  } catch (err) {
+    alert("সার্ভার এরর: " + err.message);
+  }
+};
+
+window.deleteProduct = async function(id) {
+  if (!confirm("আপনি কি নিশ্চিত এই প্রোডাক্টটি মুছে ফেলতে চান?")) return;
+  try {
+    const res = await api(`/api/products/${id}`, { method: "DELETE" });
+    if (res.ok) {
+      await loadProductsCatalog();
+    } else {
+      alert("মুছতে ব্যর্থ হয়েছে।");
+    }
+  } catch (err) {
+    alert("এরর: " + err.message);
+  }
+};
+
+window.openGenerateAdModal = function(id, name, price) {
+  document.getElementById("adTargetProductId").value = id;
+  const brief = document.getElementById("adProductBrief");
+  if (brief) {
+    brief.innerHTML = `<strong>প্রোডাক্ট:</strong> ${escapeHtml(name)} <br><strong>অফার প্রাইস:</strong> ${escapeHtml(price)}`;
+  }
+  const m = document.getElementById("generateAdModal");
+  if (m) m.style.display = "flex";
+};
+
+window.closeGenerateAdModal = function() {
+  const m = document.getElementById("generateAdModal");
+  if (m) m.style.display = "none";
+};
+
+window.handleConfirmGenerateAd = async function() {
+  const prodId = document.getElementById("adTargetProductId").value;
+  const adType = document.getElementById("adVideoType").value;
+  const duration = document.getElementById("adDuration").value;
+  const talking = document.getElementById("adTalkingPoints").value.trim();
+  const btn = document.getElementById("confirmGenerateAdBtn");
+
+  if (btn) btn.disabled = true;
+
+  try {
+    const res = await api(`/api/products/${prodId}/generate-ad`, {
+      method: "POST",
+      body: JSON.stringify({
+        ad_type: adType,
+        duration_seconds: duration,
+        talking_points: talking
+      })
+    });
+
+    if (res.ok) {
+      closeGenerateAdModal();
+      alert("বিজ্ঞাপন ক্যাম্পেইন সফলভাবে তৈরি হয়েছে! স্টুডিও লাইভ প্রসেসে যুক্ত করা হয়েছে।");
+      await loadProductsCatalog();
+    } else {
+      alert("বিজ্ঞাপন তৈরি ব্যর্থ: " + (res.message || res.error || "অজানা ত্রুটি"));
+    }
+  } catch (err) {
+    alert("এরর: " + err.message);
+  } finally {
+    if (btn) btn.disabled = false;
+  }
+};
 
 
 

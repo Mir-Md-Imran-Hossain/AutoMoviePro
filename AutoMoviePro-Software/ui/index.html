@@ -103,11 +103,13 @@
       </div>
 
       <nav class="tabs">
-        <button data-tab="home" class="active" data-i18n="tab_home">ড্যাশবোর্ড</button>
+        <button data-tab="home" class="active" data-i18n="tab_home">ড্যাশবোর্ড (Studio)</button>
+        <button data-tab="videos" data-i18n="tab_videos">🎬 ভিডিও লাইব্রেরি</button>
+        <button data-tab="products" data-i18n="tab_products">📦 প্রোডাক্ট ও বিজ্ঞাপন</button>
         <button data-tab="live" data-i18n="tab_live">লাইভ কার্যক্রম</button>
         <button data-tab="channel" data-i18n="tab_channel">চ্যানেল সেটআপ</button>
         <button data-tab="jobs" data-i18n="tab_jobs">জব লগ</button>
-        <button data-tab="settings" data-i18n="tab_settings">সেটিংস</button>
+        <button data-tab="settings" data-i18n="tab_settings">সেটিংস ও ভল্ট</button>
       </nav>
 
       <!-- FUTURISTIC JARVIS VOICE & LIVE PIPELINE HUD WIDGET -->
@@ -204,7 +206,126 @@
       </div>
 
       <div id="tab-home" class="tab">
-        <section class="ws-section" id="ws-dashboard">
+        <!-- ========================================== -->
+        <!-- NON-TECHNICAL 1-CLICK STUDIO HERO CONTROL  -->
+        <!-- ========================================== -->
+        <div class="studio-hero-deck" style="background: linear-gradient(135deg, #0b1329 0%, #0d1b3e 50%, #071026 100%); border: 1px solid #1e3a8a; border-radius: 16px; padding: 1.5rem; margin-bottom: 2rem; box-shadow: 0 10px 30px rgba(0,0,0,0.5);">
+          
+          <div style="display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:1rem; margin-bottom:1.25rem; border-bottom: 1px solid rgba(56,189,248,0.15); padding-bottom: 1rem;">
+            <div>
+              <div style="display:flex; align-items:center; gap:8px;">
+                <span style="font-size:1.5rem;">🎬</span>
+                <h2 style="margin:0; font-size:1.35rem; color:#f8fafc; font-weight:800; letter-spacing:0.3px;">AutoMovie Pro — ১-ক্লিক ভিডিও স্টুডিও</h2>
+                <span class="badge" style="background:#0284c7; color:#fff; font-size:0.75rem; font-weight:700; padding:3px 10px; border-radius:12px;">ইন্ডাস্ট্রিয়াল এডিশন</span>
+              </div>
+              <p class="muted" style="margin:4px 0 0; font-size:0.9rem; color:#94a3b8;">
+                কোনো ভিডিও এডিটিং বা টেকনিক্যাল জ্ঞানের প্রয়োজন নেই। কেবল চ্যানেল বেছে নিয়ে ১-ক্লিকে বাটনে চাপুন—বাকি সব এআই স্বয়ংক্রিয়ভাবে সম্পন্ন করবে।
+              </p>
+            </div>
+            
+            <div style="display:flex; gap:8px; align-items:center;">
+              <button type="button" class="btn ghost" onclick="openOutputDirectory()" style="border-color:#38bdf8; color:#38bdf8; font-size:0.85rem; padding:6px 14px; border-radius:8px; display:inline-flex; align-items:center; gap:6px;">
+                <span>📂</span> ভিডিও ফোল্ডার খুলুন
+              </button>
+              <button type="button" class="btn" onclick="switchTab('videos'); loadVideoLibrary();" style="background:#2563eb; color:#fff; font-size:0.85rem; padding:6px 14px; border-radius:8px; display:inline-flex; align-items:center; gap:6px;">
+                <span>🎬</span> ভিডিও লাইব্রেরি দেখুন
+              </button>
+            </div>
+          </div>
+
+          <!-- 3-STEP NON-TECH WORKFLOW GRID -->
+          <div style="display:grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1rem; margin-bottom: 1.5rem;">
+            
+            <!-- STEP 1 -->
+            <div style="background: rgba(15, 23, 42, 0.7); border: 1px solid #1e293b; border-radius: 12px; padding: 1rem; position: relative;">
+              <div style="display:flex; align-items:center; gap:8px; margin-bottom: 0.6rem;">
+                <span style="background: #0284c7; color:#fff; border-radius: 50%; width: 24px; height: 24px; display:flex; align-items:center; justify-content:center; font-size:0.8rem; font-weight:bold;">১</span>
+                <strong style="color:#e2e8f0; font-size: 0.95rem;">চ্যানেল বা পেজ নির্বাচন</strong>
+              </div>
+              <label style="margin:0; font-size:0.82rem; color:#94a3b8;">কোন চ্যানেলের জন্য ভিডিও তৈরি করতে চান:</label>
+              <select id="megaChannelSelect" style="width:100%; margin-top:6px; padding:8px 10px; background:#0b1120; border:1px solid #334155; border-radius:8px; color:#f8fafc; font-size:0.9rem;"></select>
+              <span id="megaChannelBadge" style="display:inline-block; margin-top:6px; font-size:0.75rem; color:#38bdf8;">ডিফল্ট চ্যানেল সক্রিয়</span>
+            </div>
+
+            <!-- STEP 2 -->
+            <div style="background: rgba(15, 23, 42, 0.7); border: 1px solid #1e293b; border-radius: 12px; padding: 1rem;">
+              <div style="display:flex; align-items:center; gap:8px; margin-bottom: 0.6rem;">
+                <span style="background: #0284c7; color:#fff; border-radius: 50%; width: 24px; height: 24px; display:flex; align-items:center; justify-content:center; font-size:0.8rem; font-weight:bold;">২</span>
+                <strong style="color:#e2e8f0; font-size: 0.95rem;">বিষয় / টপিক লিখুন (ঐচ্ছিক)</strong>
+              </div>
+              <label style="margin:0; font-size:0.82rem; color:#94a3b8;">খালি রাখলে এআই স্বয়ংক্রিয় ভাইরাল টপিক বেছে নিবে:</label>
+              <input type="text" id="megaTopicInput" placeholder="যেমন: রহস্যময় প্রাচীন বিশ্ব বা এআই টেকনোলজি..." style="width:100%; margin-top:6px; padding:8px 10px; background:#0b1120; border:1px solid #334155; border-radius:8px; color:#f8fafc; font-size:0.9rem;">
+              <div style="display:flex; gap:5px; flex-wrap:wrap; margin-top:8px;">
+                <span class="topic-chip" onclick="setQuickTopic('রহস্যময় প্রাচীন ইতিহাস')" style="cursor:pointer; background:#1e293b; color:#cbd5e1; font-size:0.75rem; padding:2px 8px; border-radius:6px; border:1px solid #334155;">🏛️ প্রাচীন ইতিহাস</span>
+                <span class="topic-chip" onclick="setQuickTopic('এআই ও ভবিষ্যৎ টেকনোলজি')" style="cursor:pointer; background:#1e293b; color:#cbd5e1; font-size:0.75rem; padding:2px 8px; border-radius:6px; border:1px solid #334155;">🤖 এআই টেকনোলজি</span>
+                <span class="topic-chip" onclick="setQuickTopic('সফলতার মোটিভেশন ও অনুপ্রেরণা')" style="cursor:pointer; background:#1e293b; color:#cbd5e1; font-size:0.75rem; padding:2px 8px; border-radius:6px; border:1px solid #334155;">💡 মোটিভেশন</span>
+                <span class="topic-chip" onclick="setQuickTopic('অজানা রোমাঞ্চকর তথ্য')" style="cursor:pointer; background:#1e293b; color:#cbd5e1; font-size:0.75rem; padding:2px 8px; border-radius:6px; border:1px solid #334155;">🌌 অজানা তথ্য</span>
+              </div>
+            </div>
+
+            <!-- STEP 3 -->
+            <div style="background: rgba(15, 23, 42, 0.7); border: 1px solid #1e293b; border-radius: 12px; padding: 1rem; display:flex; flex-direction:column; justify-content:space-between;">
+              <div>
+                <div style="display:flex; align-items:center; gap:8px; margin-bottom: 0.6rem;">
+                  <span style="background: #10b981; color:#fff; border-radius: 50%; width: 24px; height: 24px; display:flex; align-items:center; justify-content:center; font-size:0.8rem; font-weight:bold;">৩</span>
+                  <strong style="color:#e2e8f0; font-size: 0.95rem;">১-ক্লিকে অ্যাকশন নিন</strong>
+                </div>
+                <p style="margin:0 0 10px; font-size:0.82rem; color:#94a3b8;">যে ধরনের ভিডিও বানাতে চান বাটনে ক্লিক করুন:</p>
+              </div>
+
+              <div style="display:flex; flex-direction:column; gap:8px;">
+                <button type="button" id="megaGenShortBtn" onclick="triggerMegaGenerate('short')" class="btn" style="width:100%; padding:10px 14px; font-weight:800; font-size:0.95rem; background:linear-gradient(135deg, #0284c7, #2563eb); border:none; border-radius:8px; box-shadow:0 4px 15px rgba(2,132,199,0.4); display:flex; align-items:center; justify-content:center; gap:8px; cursor:pointer;">
+                  <span>⚡</span> <span>৬০-সেকেন্ডের Shorts / Reel তৈরি করুন</span>
+                </button>
+                <button type="button" id="megaGenLongBtn" onclick="triggerMegaGenerate('long')" class="btn" style="width:100%; padding:10px 14px; font-weight:800; font-size:0.95rem; background:linear-gradient(135deg, #7c3aed, #4f46e5); border:none; border-radius:8px; box-shadow:0 4px 15px rgba(124,58,237,0.3); display:flex; align-items:center; justify-content:center; gap:8px; cursor:pointer;">
+                  <span>🎥</span> <span>৩-৫ মিনিটের Long ভিডিও তৈরি করুন</span>
+                </button>
+              </div>
+            </div>
+
+          </div>
+
+          <!-- LIVE STATUS & KINETIC PROGRESS BAR -->
+          <div id="megaProgressCard" style="background: #060b14; border: 1px solid #1e293b; border-radius: 12px; padding: 1rem;">
+            <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:8px; flex-wrap:wrap; gap:6px;">
+              <div style="display:flex; align-items:center; gap:8px;">
+                <span id="megaStatusDot" style="width:10px; height:10px; border-radius:50%; background:#10b981; display:inline-block; box-shadow:0 0 8px #10b981;"></span>
+                <strong id="megaStatusTitle" style="color:#f8fafc; font-size:0.92rem;">স্টুডিও রেডি — ভিডিও তৈরির জন্য যেকোনো বাটনে ক্লিক করুন</strong>
+              </div>
+              <span id="megaProgressPercent" style="color:#38bdf8; font-weight:bold; font-size:0.9rem;">0%</span>
+            </div>
+
+            <div style="background:#0f172a; height:10px; border-radius:6px; overflow:hidden; border:1px solid #1e293b; position:relative;">
+              <div id="megaProgressBar" style="width:0%; height:100%; background:linear-gradient(90deg, #0284c7, #38bdf8, #10b981); transition:width 0.4s ease; border-radius:6px;"></div>
+            </div>
+
+            <!-- STEP STAGES VISUAL -->
+            <div style="display:flex; justify-content:space-between; margin-top:10px; font-size:0.78rem; color:#64748b; flex-wrap:wrap; gap:4px;">
+              <span id="stepTag-topic" style="padding:2px 6px; border-radius:4px;">১. টপিক</span>
+              <span>➔</span>
+              <span id="stepTag-script" style="padding:2px 6px; border-radius:4px;">২. স্ক্রিপ্ট</span>
+              <span>➔</span>
+              <span id="stepTag-voice" style="padding:2px 6px; border-radius:4px;">৩. স্টুডিও ভয়েস</span>
+              <span>➔</span>
+              <span id="stepTag-render" style="padding:2px 6px; border-radius:4px;">৪. সিন রেন্ডার</span>
+              <span>➔</span>
+              <span id="stepTag-compose" style="padding:2px 6px; border-radius:4px;">৫. ফাইনাল ভিডিও</span>
+            </div>
+
+            <div id="megaStatusDetail" style="margin-top:8px; font-size:0.83rem; color:#94a3b8; font-family:monospace;">
+              সিস্টেম স্বাভাবিক রয়েছে। কোনো ত্রুটি নেই।
+            </div>
+          </div>
+
+        </div>
+
+        <!-- ADVANCED / DEVELOPER WORKFLOW DRAWER -->
+        <details class="advanced-workflow-drawer" style="margin-top: 1.5rem; border: 1px solid #1e293b; border-radius: 12px; background: #070d18; padding: 14px 18px;">
+          <summary style="cursor: pointer; font-weight: 700; color: #94a3b8; font-size: 0.92rem; display: flex; align-items: center; gap: 8px; user-select: none;">
+            <span>⚙️ বিস্তারিত ওয়ার্কফ্লো ও ডেভেলপার ভেরিফিকেশন প্যানেল (Advanced Controls)</span>
+          </summary>
+          <div style="margin-top: 1rem; border-top: 1px solid #1e293b; padding-top: 1rem;">
+            <section class="ws-section" id="ws-dashboard">
           <h2>Customer Dashboard</h2>
           <div id="dashWelcome" class="card muted">Loading…</div>
           <div id="dashOnboarding" class="card muted"></div>
@@ -414,6 +535,83 @@
           <h3>Failure / Recovery</h3>
           <div id="jobFailurePanel" class="card muted">—</div>
         </section>
+          </div>
+        </details>
+      </div>
+
+      <!-- ========================================== -->
+      <!-- TAB: VIDEO LIBRARY (Rendered Videos)       -->
+      <!-- ========================================== -->
+      <div id="tab-videos" class="tab hidden">
+        <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:1.25rem; flex-wrap:wrap; gap:1rem;">
+          <div>
+            <h2 style="margin:0; color:#f8fafc; display:flex; align-items:center; gap:8px;">
+              <span>🎬</span> <span>ভিডিও লাইব্রেরি (Video Library)</span>
+            </h2>
+            <p class="muted" style="margin:4px 0 0; font-size:0.88rem;">
+              আপনার তৈরি করা সকল শর্টস ও লং ভিডিও এখানে সরাসরি প্লে করুন, ডাউনলোড করুন এবং ফোল্ডারে দেখুন।
+            </p>
+          </div>
+          <div style="display:flex; gap:8px; align-items:center;">
+            <button type="button" class="btn ghost" onclick="openOutputDirectory()" style="border-color:#38bdf8; color:#38bdf8; font-size:0.85rem; padding:6px 14px; border-radius:8px; display:inline-flex; align-items:center; gap:6px;">
+              <span>📂</span> ফোল্ডারে ওপেন করুন
+            </button>
+            <button type="button" class="btn" onclick="loadVideoLibrary()" style="background:#0284c7; color:#fff; font-size:0.85rem; padding:6px 14px; border-radius:8px; display:inline-flex; align-items:center; gap:6px;">
+              <span>🔄</span> রিফ্রেশ
+            </button>
+          </div>
+        </div>
+
+        <!-- Filter Pills & Summary -->
+        <div style="display:flex; justify-content:space-between; align-items:center; background:#0b1120; border:1px solid #1e293b; border-radius:10px; padding:10px 14px; margin-bottom:1.5rem; flex-wrap:wrap; gap:10px;">
+          <div style="display:flex; gap:8px; flex-wrap:wrap;">
+            <button type="button" class="filter-btn active" onclick="filterVideoLibrary('all', this)" style="padding:4px 12px; font-size:0.82rem; border-radius:6px; background:#0284c7; color:#fff; border:none; cursor:pointer; font-weight:600;">সব ভিডিও (<span id="libTotalCount">০</span>)</button>
+            <button type="button" class="filter-btn" onclick="filterVideoLibrary('short', this)" style="padding:4px 12px; font-size:0.82rem; border-radius:6px; background:#1e293b; color:#cbd5e1; border:none; cursor:pointer; font-weight:600;">⚡ শর্টস / রিল (9:16)</button>
+            <button type="button" class="filter-btn" onclick="filterVideoLibrary('long', this)" style="padding:4px 12px; font-size:0.82rem; border-radius:6px; background:#1e293b; color:#cbd5e1; border:none; cursor:pointer; font-weight:600;">🎥 লং ভিডিও (16:9)</button>
+          </div>
+          <div id="libDiskUsage" style="font-size:0.85rem; color:#94a3b8;">
+            মোট সাইজ: <strong style="color:#38bdf8;">০ MB</strong>
+          </div>
+        </div>
+
+        <!-- Videos Grid -->
+        <div id="videoLibraryGrid" style="display:grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap:1.25rem;">
+          <div class="card muted" style="grid-column: 1 / -1; text-align:center; padding:2rem;">ভিডিও লোড হচ্ছে...</div>
+        </div>
+      </div>
+
+      <!-- ========================================== -->
+      <!-- TAB: PRODUCTS & ADS (Promotional Videos)   -->
+      <!-- ========================================== -->
+      <div id="tab-products" class="tab hidden">
+        <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:1.25rem; flex-wrap:wrap; gap:1rem;">
+          <div>
+            <h2 style="margin:0; color:#f8fafc; display:flex; align-items:center; gap:8px;">
+              <span>📦</span> <span>প্রোডাক্ট ও বিজ্ঞাপন ম্যানেজার (Products & Ads)</span>
+            </h2>
+            <p class="muted" style="margin:4px 0 0; font-size:0.88rem;">
+              আপনার যেকোনো পণ্য বা সার্ভিসের জন্য ১-ক্লিকে সেলস ব্যানার ও ভাইরাল ভিডিও বিজ্ঞাপন তৈরি করুন।
+            </p>
+          </div>
+          <button type="button" class="btn" onclick="openNewProductModal()" style="background:linear-gradient(135deg, #10b981, #059669); color:#fff; font-size:0.85rem; padding:8px 16px; border-radius:8px; display:inline-flex; align-items:center; gap:6px; font-weight:bold;">
+            <span>➕</span> নতুন প্রোডাক্ট যুক্ত করুন
+          </button>
+        </div>
+
+        <!-- Product Cards Container -->
+        <div id="productsCatalogGrid" style="display:grid; grid-template-columns: repeat(auto-fill, minmax(340px, 1fr)); gap:1.25rem; margin-bottom:2rem;">
+          <div class="card muted" style="grid-column: 1 / -1; text-align:center; padding:2rem;">প্রোডাক্ট লোড হচ্ছে...</div>
+        </div>
+
+        <!-- Generated Ads Campaigns Section -->
+        <div style="border-top:1px solid #1e293b; padding-top:1.5rem;">
+          <h3 style="color:#38bdf8; margin-bottom:1rem; display:flex; align-items:center; gap:8px;">
+            <span>🎥</span> তৈরি হওয়া প্রমোশনাল বিজ্ঞাপনসমূহ (Active Ad Campaigns)
+          </h3>
+          <div id="productAdsGrid" style="display:grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap:1.25rem;">
+            <div class="card muted" style="grid-column: 1 / -1; text-align:center; padding:1.5rem;">কোনো বিজ্ঞাপন ক্যাম্পেইন নেই।</div>
+          </div>
+        </div>
       </div>
 
       <div id="tab-live" class="tab hidden">
@@ -1091,6 +1289,105 @@
           </button>
         </div>
         <div id="googlePaidActivationMsg" style="display:none; margin-top:8px; font-size:0.85rem; padding:8px; border-radius:6px;"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- VIDEO PREVIEW MODAL -->
+  <div id="videoPreviewModal" style="display:none; position:fixed; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.85); z-index:9999; align-items:center; justify-content:center; backdrop-filter:blur(6px); padding:1rem;">
+    <div style="background:#0b1120; border:1px solid #1e3a8a; border-radius:14px; max-width:850px; width:100%; overflow:hidden; box-shadow:0 10px 40px rgba(0,0,0,0.8);">
+      <div style="display:flex; justify-content:space-between; align-items:center; padding:12px 18px; border-bottom:1px solid #1e293b; background:#070d18;">
+        <strong id="modalVideoTitle" style="color:#f8fafc; font-size:0.95rem; white-space:nowrap; overflow:hidden; text-overflow:ellipsis; max-width:80%;">ভিডিও প্লেয়ার</strong>
+        <button type="button" onclick="closeVideoModal()" style="background:none; border:none; color:#94a3b8; font-size:1.5rem; cursor:pointer; line-height:1;">✕</button>
+      </div>
+      <div style="background:#000; text-align:center; max-height:550px; display:flex; align-items:center; justify-content:center;">
+        <video id="modalVideoElement" controls autoplay style="max-width:100%; max-height:520px; outline:none;"></video>
+      </div>
+      <div style="display:flex; justify-content:space-between; align-items:center; padding:12px 18px; background:#070d18; border-top:1px solid #1e293b;">
+        <span id="modalVideoMeta" style="color:#94a3b8; font-size:0.85rem;">—</span>
+        <div style="display:flex; gap:8px;">
+          <a id="modalDownloadLink" href="#" download class="btn" style="background:#0284c7; color:#fff; text-decoration:none; padding:6px 14px; border-radius:6px; font-size:0.85rem; font-weight:bold;">⬇ ডাউনলোড</a>
+          <button type="button" onclick="closeVideoModal()" class="btn ghost" style="padding:6px 14px; border-radius:6px; font-size:0.85rem;">বন্ধ করুন</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- CREATE PRODUCT MODAL -->
+  <div id="productCreateModal" style="display:none; position:fixed; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.8); z-index:9999; align-items:center; justify-content:center; backdrop-filter:blur(5px); padding:1rem;">
+    <div style="background:#0f172a; border:1px solid #334155; border-radius:14px; max-width:620px; width:100%; max-height:90vh; overflow-y:auto; padding:1.5rem; box-shadow:0 10px 40px rgba(0,0,0,0.8);">
+      <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:1.25rem;">
+        <h3 style="margin:0; color:#38bdf8; display:flex; align-items:center; gap:8px;">
+          <span>📦</span> <span>নতুন প্রোডাক্ট যুক্ত করুন</span>
+        </h3>
+        <button type="button" onclick="closeProductModal()" style="background:none; border:none; color:#94a3b8; font-size:1.5rem; cursor:pointer;">✕</button>
+      </div>
+      <form id="createProductForm" onsubmit="handleCreateProduct(event)" class="grid" style="gap:10px;">
+        <label><span>প্রোডাক্টের নাম *</span> <input id="prodName" required placeholder="যেমন: AutoMovie Pro সফটওয়্যার বা কাশ্মীরি শাল"></label>
+        <div class="grid" style="grid-template-columns:1fr 1fr; gap:10px;">
+          <label><span>ক্যাটেগরি</span> 
+            <select id="prodCategory">
+              <option value="software">সফটওয়্যার / টেকনোলজি</option>
+              <option value="ecommerce">ই-কমার্স / পণ্য</option>
+              <option value="clothing">পোশাক ও ফ্যাশন</option>
+              <option value="course">কোর্স ও এডুকেশন</option>
+              <option value="service">সার্ভিস / এজেন্সি</option>
+              <option value="food">খাবার ও রেস্তোরাঁ</option>
+            </select>
+          </label>
+          <label><span>রেগুলার মূল্য (৳)</span> <input id="prodRegPrice" placeholder="যেমন: ৳৪,৯৯৯"></label>
+        </div>
+        <div class="grid" style="grid-template-columns:1fr 1fr; gap:10px;">
+          <label><span>অফার / ডিসকাউন্ট মূল্য (৳) *</span> <input id="prodOfferPrice" required placeholder="যেমন: ৳১,৯৯৯"></label>
+          <label><span>হটলাইন মোবাইল নম্বর</span> <input id="prodPhone" placeholder="01968111593"></label>
+        </div>
+        <div class="grid" style="grid-template-columns:1fr 1fr; gap:10px;">
+          <label><span>WhatsApp নম্বর</span> <input id="prodWhatsapp" placeholder="01968111593"></label>
+          <label><span>ওয়েবসাইট লিংক</span> <input id="prodWebsite" placeholder="https://automoviepro.com"></label>
+        </div>
+        <label><span>প্রোডাক্টের সংক্ষিপ্ত বিবরণ ও অফারের আকর্ষণ</span> 
+          <textarea id="prodDesc" rows="3" placeholder="এই প্রোডাক্টের বিশেষত্ব কি, কাস্টমার কেন এখনই অর্ডার করবে..."></textarea>
+        </label>
+        <div style="display:flex; justify-content:flex-end; gap:8px; margin-top:1rem;">
+          <button type="button" onclick="closeProductModal()" class="btn ghost">বাতিল</button>
+          <button type="submit" class="btn" style="background:#10b981; font-weight:bold;">সেভ করুন</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- GENERATE AD MODAL -->
+  <div id="generateAdModal" style="display:none; position:fixed; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.8); z-index:9999; align-items:center; justify-content:center; backdrop-filter:blur(5px); padding:1rem;">
+    <div style="background:#0f172a; border:1px solid #1e3a8a; border-radius:14px; max-width:540px; width:100%; padding:1.5rem; box-shadow:0 10px 40px rgba(0,0,0,0.8);">
+      <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:1.25rem;">
+        <h3 style="margin:0; color:#38bdf8; display:flex; align-items:center; gap:8px;">
+          <span>🎥</span> <span>ভিডিও বিজ্ঞাপন তৈরি করুন</span>
+        </h3>
+        <button type="button" onclick="closeGenerateAdModal()" style="background:none; border:none; color:#94a3b8; font-size:1.5rem; cursor:pointer;">✕</button>
+      </div>
+      <input type="hidden" id="adTargetProductId" value="">
+      <div id="adProductBrief" style="background:#070d18; border:1px solid #1e293b; border-radius:8px; padding:10px; margin-bottom:1rem; font-size:0.88rem; color:#cbd5e1;"></div>
+      <div class="grid" style="gap:10px;">
+        <label><span>বিজ্ঞাপনের অনুপাত (Format)</span>
+          <select id="adVideoType">
+            <option value="reel_9_16">⚡ ভাইরাল রিল / শর্টস বিজ্ঞাপন (9:16 - মোবাইল ফ্রেন্ডলি)</option>
+            <option value="landscape_16_9">🎥 ল্যান্ডস্কেপ ভিডিও বিজ্ঞাপন (16:9 - ফেসবুক / ইউটিউব)</option>
+          </select>
+        </label>
+        <label><span>ভিডিও দৈর্ঘ্য</span>
+          <select id="adDuration">
+            <option value="30">৩০ সেকেন্ড (হাই-কনভার্ট স্পট)</option>
+            <option value="45">৪৫ সেকেন্ড (ফুল ফিচার ডেমো)</option>
+            <option value="60">৬০ সেকেন্ড (ডিটেইলড সেলস স্টোরিবোর্ড)</option>
+          </select>
+        </label>
+        <label><span>টকিং পয়েন্ট বা বিশেষ অফার মেসেজ (ঐচ্ছিক)</span>
+          <textarea id="adTalkingPoints" rows="3" placeholder="যেমন: 'আজকের অর্ডারে ৫০% ছাড়! ফ্রি ডেলিভারি সারা বাংলাদেশে...'"></textarea>
+        </label>
+      </div>
+      <div style="display:flex; justify-content:flex-end; gap:8px; margin-top:1.25rem;">
+        <button type="button" onclick="closeGenerateAdModal()" class="btn ghost">বাতিল</button>
+        <button type="button" id="confirmGenerateAdBtn" onclick="handleConfirmGenerateAd()" class="btn" style="background:linear-gradient(135deg, #0284c7, #2563eb); font-weight:bold;">🚀 ১-ক্লিকে বিজ্ঞাপন তৈরি করুন</button>
       </div>
     </div>
   </div>

@@ -14,7 +14,6 @@ import tempfile
 import unittest
 from pathlib import Path
 from PIL import Image, ImageDraw
-import numpy as np
 
 from pipeline.compose import (
     ffprobe_dimensions,
@@ -46,18 +45,14 @@ class TestCinematicLogoBranding(unittest.TestCase):
         clean = preprocess_logo_for_branding(logo_path, out_path, opacity=0.82, remove_bg=True)
 
         self.assertTrue(clean.is_file())
-        res_img = Image.open(clean)
-        self.assertEqual(res_img.mode, "RGBA")
-
-        # Corner should be completely transparent (alpha 0)
-        alpha_data = np.array(res_img)[:, :, 3]
-        self.assertEqual(alpha_data[0, 0], 0)
-        self.assertEqual(alpha_data[0, -1], 0)
-
-        # Center should be opaque red adjusted by 0.82 opacity
-        center_y, center_x = alpha_data.shape[0] // 2, alpha_data.shape[1] // 2
-        self.assertGreater(alpha_data[center_y, center_x], 190)
-        self.assertLessEqual(alpha_data[center_y, center_x], int(255 * 0.82) + 2)
+        with Image.open(clean) as res_img:
+            self.assertEqual(res_img.mode, "RGBA")
+            alpha = res_img.split()[3]
+            self.assertEqual(alpha.getpixel((0, 0)), 0)
+            self.assertEqual(alpha.getpixel((res_img.width - 1, 0)), 0)
+            center_alpha = alpha.getpixel((res_img.width // 2, res_img.height // 2))
+            self.assertGreater(center_alpha, 190)
+            self.assertLessEqual(center_alpha, int(255 * 0.82) + 2)
 
     def test_preprocess_black_background_logo(self):
         """Solid black background is eliminated and core emblem is preserved."""
@@ -69,13 +64,12 @@ class TestCinematicLogoBranding(unittest.TestCase):
         img.save(logo_path)
 
         clean = preprocess_logo_for_branding(logo_path, opacity=0.80, remove_bg=True)
-        res_img = Image.open(clean)
-        alpha_data = np.array(res_img)[:, :, 3]
-
-        # Corners should be transparent
-        self.assertEqual(alpha_data[0, 0], 0)
-        # Center should have opacity
-        self.assertGreater(alpha_data[100, 100], 180)
+        with Image.open(clean) as res_img:
+            alpha = res_img.split()[3]
+            # Corners should be transparent
+            self.assertEqual(alpha.getpixel((0, 0)), 0)
+            # Center should have opacity
+            self.assertGreater(alpha.getpixel((100, 100)), 180)
 
     def test_preprocess_preserves_existing_alpha(self):
         """Existing transparent PNGs have their alpha channel respected without distortion."""
@@ -86,11 +80,11 @@ class TestCinematicLogoBranding(unittest.TestCase):
         img.save(logo_path)
 
         clean = preprocess_logo_for_branding(logo_path, opacity=0.85)
-        res_img = Image.open(clean)
-        alpha_data = np.array(res_img)[:, :, 3]
-        self.assertEqual(alpha_data[0, 0], 0)
-        center_alpha = alpha_data[alpha_data.shape[0] // 2, alpha_data.shape[1] // 2]
-        self.assertGreater(center_alpha, 200)
+        with Image.open(clean) as res_img:
+            alpha = res_img.split()[3]
+            self.assertEqual(alpha.getpixel((0, 0)), 0)
+            center_alpha = alpha.getpixel((res_img.width // 2, res_img.height // 2))
+            self.assertGreater(center_alpha, 200)
 
     def test_overlay_logo_vertical_shorts_safe_zone(self):
         """In 9:16 Shorts, logo is responsively scaled and placed in top-left safe zone."""

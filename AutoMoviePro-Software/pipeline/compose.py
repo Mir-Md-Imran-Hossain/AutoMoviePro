@@ -537,48 +537,88 @@ def preprocess_logo_for_branding(
 
     try:
         from PIL import Image
-        import numpy as np
 
         src = Path(logo_path)
-        img = Image.open(src).convert("RGBA")
-        arr = np.array(img, dtype=np.float32)
-        h, w = arr.shape[:2]
+        with Image.open(src) as opened_img:
+            img = opened_img.convert("RGBA")
+        w, h = img.size
         if h <= 2 or w <= 2:
             return logo_path
 
-        alpha_channel = arr[:, :, 3]
-        has_transparency = bool(np.any(alpha_channel < 250))
+        r, g, b, a = img.split()
+        extrema = a.getextrema()
+        has_transparency = bool(extrema[0] < 250)
 
-        if remove_bg and not has_transparency:
-            # Sample 4 corners to detect solid background canvas
-            corners = np.array([
-                arr[0, 0, :3],
-                arr[0, -1, :3],
-                arr[-1, 0, :3],
-                arr[-1, -1, :3],
-            ])
-            corner_mean = np.mean(corners, axis=0)
-            corner_std = np.std(corners, axis=0)
-
-            # If corners have low color variance (< 30) or are near pure white/black
-            is_uniform_corners = bool(np.max(corner_std) < 30.0)
-            is_near_white = bool(np.all(corner_mean > 225.0))
-            is_near_black = bool(np.all(corner_mean < 30.0))
-
-            if is_uniform_corners or is_near_white or is_near_black:
-                # Euclidean color distance from detected background
-                diff = np.linalg.norm(arr[:, :, :3] - corner_mean, axis=2)
-                # Soft feathering between inner and outer threshold
-                inner_thresh = 18.0
-                outer_thresh = 52.0
-                ramp = np.clip((diff - inner_thresh) / (outer_thresh - inner_thresh), 0.0, 1.0)
-                arr[:, :, 3] = ramp * 255.0
-
-        # Apply target opacity
         clamped_opacity = max(0.1, min(1.0, float(opacity)))
-        arr[:, :, 3] = arr[:, :, 3] * clamped_opacity
 
-        out_img = Image.fromarray(np.uint8(np.round(arr)), mode="RGBA")
+        try:
+            import numpy as np
+            has_np = True
+        except ImportError:
+            has_np = False
+
+        if has_np:
+            arr = np.array(img, dtype=np.float32)
+            if remove_bg and not has_transparency:
+                corners = np.array([
+                    arr[0, 0, :3],
+                    arr[0, -1, :3],
+                    arr[-1, 0, :3],
+                    arr[-1, -1, :3],
+                ])
+                corner_mean = np.mean(corners, axis=0)
+                corner_std = np.std(corners, axis=0)
+                is_uniform_corners = bool(np.max(corner_std) < 30.0)
+                is_near_white = bool(np.all(corner_mean > 225.0))
+                is_near_black = bool(np.all(corner_mean < 30.0))
+
+                if is_uniform_corners or is_near_white or is_near_black:
+                    diff = np.linalg.norm(arr[:, :, :3] - corner_mean, axis=2)
+                    inner_thresh = 18.0
+                    outer_thresh = 52.0
+                    ramp = np.clip((diff - inner_thresh) / (outer_thresh - inner_thresh), 0.0, 1.0)
+                    arr[:, :, 3] = ramp * 255.0
+
+            arr[:, :, 3] = arr[:, :, 3] * clamped_opacity
+            out_img = Image.fromarray(np.uint8(np.round(arr)), mode="RGBA")
+        else:
+            # Pure PIL processing without numpy
+            if remove_bg and not has_transparency:
+                c_tl = img.getpixel((0, 0))[:3]
+                c_tr = img.getpixel((w - 1, 0))[:3]
+                c_bl = img.getpixel((0, h - 1))[:3]
+                c_br = img.getpixel((w - 1, h - 1))[:3]
+                bg_r = (c_tl[0] + c_tr[0] + c_bl[0] + c_br[0]) // 4
+                bg_g = (c_tl[1] + c_tr[1] + c_bl[1] + c_br[1]) // 4
+                bg_b = (c_tl[2] + c_tr[2] + c_bl[2] + c_br[2]) // 4
+
+                is_near_white = (bg_r > 225 and bg_g > 225 and bg_b > 225)
+                is_near_black = (bg_r < 30 and bg_g < 30 and bg_b < 30)
+
+                pix = img.load()
+                alpha_bytes = bytearray(w * h)
+                idx = 0
+                for y in range(h):
+                    for x in range(w):
+                        pr, pg, pb, _ = pix[x, y]
+                        dr, dg, db = pr - bg_r, pg - bg_g, pb - bg_b
+                        dist = (dr * dr + dg * dg + db * db) ** 0.5
+                        if dist <= 18:
+                            val = 0
+                        elif dist >= 52:
+                            val = int(255 * clamped_opacity)
+                        else:
+                            ramp = (dist - 18) / (52 - 18)
+                            val = int(ramp * 255 * clamped_opacity)
+                        alpha_bytes[idx] = val
+                        idx += 1
+                new_alpha = Image.frombytes("L", (w, h), bytes(alpha_bytes))
+                img.putalpha(new_alpha)
+            else:
+                if clamped_opacity < 1.0:
+                    new_a = a.point(lambda p: int(p * clamped_opacity))
+                    img.putalpha(new_a)
+            out_img = img
 
         # Auto-crop to non-transparent bounding box so scale is accurate
         if autocrop:
