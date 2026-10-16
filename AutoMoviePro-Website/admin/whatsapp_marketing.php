@@ -971,7 +971,7 @@ admin_header('WAManager Pro — অফিসিয়াল হোয়াটসঅ�
           <div style="display:flex; justify-content:space-between; align-items:center; margin-top:8px; padding-top:8px; border-top:1px solid rgba(255,255,255,0.05);">
             <span style="font-size:0.75rem; color:#94a3b8;">টাইপ: <strong><?= strtoupper(str_replace('_', ' ', $acc['provider_type'])) ?></strong></span>
             <form method="POST" onsubmit="return confirm('আপনি কি এই নম্বরটি রোটেশন পুল থেকে সরাতে চান?');" style="margin:0;">
-              <?= csrf_field() ?>
+              <input type="hidden" name="csrf" value="<?= e(csrf_token()) ?>">
               <input type="hidden" name="action" value="delete_account">
               <input type="hidden" name="account_id" value="<?= e($acc['id']) ?>">
               <button type="submit" class="btn-wam-danger">অপসারণ</button>
@@ -994,7 +994,7 @@ admin_header('WAManager Pro — অফিসিয়াল হোয়াটসঅ�
     </div>
 
     <form method="POST">
-      <?= csrf_field() ?>
+      <input type="hidden" name="csrf" value="<?= e(csrf_token()) ?>">
       <input type="hidden" name="action" value="save_agents">
 
       <div class="wam-agents-grid">
@@ -1135,7 +1135,7 @@ admin_header('WAManager Pro — অফিসিয়াল হোয়াটসঅ�
     </div>
 
     <form method="POST">
-      <?= csrf_field() ?>
+      <input type="hidden" name="csrf" value="<?= e(csrf_token()) ?>">
       <input type="hidden" name="action" value="save_antiban">
 
       <div class="wam-form-grid">
@@ -1259,7 +1259,7 @@ admin_header('WAManager Pro — অফিসিয়াল হোয়াটসঅ�
         </div>
 
         <form method="POST" class="wam-crm-chat-foot">
-          <?= csrf_field() ?>
+          <input type="hidden" name="csrf" value="<?= e(csrf_token()) ?>">
           <input type="hidden" name="action" value="crm_reply">
           <input type="hidden" name="lead_phone" id="crmInputPhone" value="8801715894521">
 
@@ -1290,7 +1290,7 @@ admin_header('WAManager Pro — অফিসিয়াল হোয়াটসঅ�
     </div>
 
     <form method="POST">
-      <?= csrf_field() ?>
+      <input type="hidden" name="csrf" value="<?= e(csrf_token()) ?>">
       <input type="hidden" name="action" value="broadcast_campaign">
 
       <div class="wam-form-grid">
@@ -1374,7 +1374,7 @@ admin_header('WAManager Pro — অফিসিয়াল হোয়াটসঅ�
     <div style="background:#080d14; border:1px solid #1e293b; border-radius:14px; padding:1.5rem; margin-bottom:1.5rem;">
       <h3 style="color:#ffffff; margin:0 0 12px; font-size:1.05rem;">⚡ ম্যানুয়াল কাস্টমার ডিসপ্যাচ টেস্ট</h3>
       <form method="POST">
-        <?= csrf_field() ?>
+        <input type="hidden" name="csrf" value="<?= e(csrf_token()) ?>">
         <input type="hidden" name="action" value="quick_dispatch">
 
         <div class="wam-form-grid">
@@ -1467,7 +1467,7 @@ admin_header('WAManager Pro — অফিসিয়াল হোয়াটসঅ�
       <button type="button" onclick="closeAddAccountModal()" style="background:none; border:none; color:#94a3b8; font-size:1.4rem; cursor:pointer;">&times;</button>
     </div>
     <form method="POST" style="padding:1.5rem;">
-      <?= csrf_field() ?>
+      <input type="hidden" name="csrf" value="<?= e(csrf_token()) ?>">
       <input type="hidden" name="action" value="add_account">
 
       <div class="wam-form-group" style="margin-bottom:1rem;">

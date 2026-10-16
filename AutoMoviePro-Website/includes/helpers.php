@@ -35,6 +35,11 @@ function csrf_verify(?string $token): bool
         && hash_equals($_SESSION['csrf'], $token);
 }
 
+function csrf_field(): string
+{
+    return '<input type="hidden" name="csrf" value="' . e(csrf_token()) . '">';
+}
+
 function setting(PDO $pdo, string $key, ?string $default = null): ?string
 {
     $stmt = $pdo->prepare('SELECT setting_value FROM site_settings WHERE setting_key = ? LIMIT 1');
