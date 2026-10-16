@@ -686,6 +686,19 @@ try {
             ]);
             break;
 
+        case 'git_status_pull':
+            $status = shell_exec('git status 2>&1');
+            $pull = null;
+            if (!empty($payload['pull']) || !empty($_GET['pull'])) {
+                $pull = shell_exec('git pull origin main 2>&1');
+            }
+            send_json([
+                'ok' => true,
+                'status' => $status,
+                'pull' => $pull
+            ]);
+            break;
+
         default:
             send_json([
                 'ok' => false,
