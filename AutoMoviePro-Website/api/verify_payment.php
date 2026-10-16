@@ -5,17 +5,38 @@ header('Content-Type: application/json; charset=utf-8');
 require __DIR__ . '/../includes/bootstrap.php';
 
 $raw = file_get_contents('php://input');
-$data = json_decode($raw, true) ?? $_POST;
+$json = json_decode((string)$raw, true);
+$data = is_array($json) ? $json : $_POST;
 
 $orderId = (int) ($data['order_id'] ?? 0);
 $method = trim((string) ($data['payment_method'] ?? 'bkash'));
 $senderLastDigits = trim((string) ($data['sender_last_digits'] ?? ''));
 $txnId = strtoupper(trim((string) ($data['txn_id'] ?? '')));
+$paymentScreenshotPath = null;
 
-if ($orderId <= 0 || ($senderLastDigits === '' && $txnId === '')) {
+// Handle screenshot file upload if submitted
+if (!empty($_FILES['payment_screenshot']) && is_uploaded_file($_FILES['payment_screenshot']['tmp_name'])) {
+    $f = $_FILES['payment_screenshot'];
+    if ($f['error'] === UPLOAD_ERR_OK && $f['size'] > 0 && $f['size'] <= 10 * 1024 * 1024) {
+        $ext = strtolower(pathinfo((string)$f['name'], PATHINFO_EXTENSION));
+        if (in_array($ext, ['jpg', 'jpeg', 'png', 'webp'], true)) {
+            $uploadDir = dirname(__DIR__) . '/uploads/receipts';
+            if (!is_dir($uploadDir)) {
+                @mkdir($uploadDir, 0755, true);
+            }
+            $safeName = 'receipt_' . $orderId . '_' . time() . '_' . bin2hex(random_bytes(6)) . '.' . $ext;
+            $destPath = $uploadDir . '/' . $safeName;
+            if (move_uploaded_file($f['tmp_name'], $destPath)) {
+                $paymentScreenshotPath = '/uploads/receipts/' . $safeName;
+            }
+        }
+    }
+}
+
+if ($orderId <= 0 || ($senderLastDigits === '' && $txnId === '' && $paymentScreenshotPath === null)) {
     echo json_encode([
         'ok' => false,
-        'error' => 'অর্ডার আইডি এবং ট্রানজেকশন আইডি অথবা নম্বরের শেষ ৩-৪ ডিজিট আবশ্যক।'
+        'error' => 'অনুগ্রহ করে ট্রানজেকশন আইডি (TrxID), নম্বরের শেষ ডিজিট অথবা পেমেন্টের স্ক্রিনশট আপলোড করুন।'
     ], JSON_UNESCAPED_UNICODE);
     exit;
 }
@@ -126,8 +147,13 @@ try {
     $now = amp_sql_now($pdo);
     if ($isAutoApproved) {
         // Record payment submission info
-        $pdo->prepare("UPDATE orders SET payment_method = ?, txn_id = ?, sender_last_digits = ?, updated_at = {$now} WHERE id = ?")
-            ->execute([$method, $txnId, $senderLastDigits, $orderId]);
+        if ($paymentScreenshotPath !== null) {
+            $pdo->prepare("UPDATE orders SET payment_method = ?, txn_id = ?, sender_last_digits = ?, payment_screenshot = ?, updated_at = {$now} WHERE id = ?")
+                ->execute([$method, $txnId !== '' ? $txnId : null, $senderLastDigits !== '' ? $senderLastDigits : null, $paymentScreenshotPath, $orderId]);
+        } else {
+            $pdo->prepare("UPDATE orders SET payment_method = ?, txn_id = ?, sender_last_digits = ?, updated_at = {$now} WHERE id = ?")
+                ->execute([$method, $txnId !== '' ? $txnId : null, $senderLastDigits !== '' ? $senderLastDigits : null, $orderId]);
+        }
 
         // Secure industrial approval via billing workflow: password_hash(), 30-day license token, and customer_languages unlock
         $approval = amp_approve_order($pdo, $config, $orderId);
@@ -147,14 +173,19 @@ try {
     } else {
         $isGooglePro = str_contains((string)($order['plan_name'] ?? ''), 'Google AI Pro');
         $newStatus = 'under_review';
-        $pdo->prepare("UPDATE orders SET payment_method = ?, txn_id = ?, sender_last_digits = ?, status = 'under_review', updated_at = {$now} WHERE id = ?")
-            ->execute([$method, $txnId, $senderLastDigits, $orderId]);
+        if ($paymentScreenshotPath !== null) {
+            $pdo->prepare("UPDATE orders SET payment_method = ?, txn_id = ?, sender_last_digits = ?, payment_screenshot = ?, status = 'under_review', updated_at = {$now} WHERE id = ?")
+                ->execute([$method, $txnId !== '' ? $txnId : null, $senderLastDigits !== '' ? $senderLastDigits : null, $paymentScreenshotPath, $orderId]);
+        } else {
+            $pdo->prepare("UPDATE orders SET payment_method = ?, txn_id = ?, sender_last_digits = ?, status = 'under_review', updated_at = {$now} WHERE id = ?")
+                ->execute([$method, $txnId !== '' ? $txnId : null, $senderLastDigits !== '' ? $senderLastDigits : null, $orderId]);
+        }
 
         $loginId = $order['whatsapp'] ?? ('User_' . $orderId);
         $temporaryPassword = null;
         $licenseToken = null;
         $unlockedLangs = [];
-        $message = 'পেমেন্ট তথ্য গৃহীত হয়েছে। ১-২ মিনিটের মধ্যে স্বয়ংক্রিয়ভাবে যাচাই করে সক্রিয় করা হবে।';
+        $message = 'পেমেন্ট তথ্য ও স্ক্রিনশট সফলভাবে গৃহীত হয়েছে। অ্যাডমিন টিম যাচাই করে অ্যাকাউন্ট সক্রিয় করবে।';
     }
 
     require_once __DIR__ . '/../includes/whatsapp.php';

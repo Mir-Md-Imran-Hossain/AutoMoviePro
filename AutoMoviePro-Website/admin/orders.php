@@ -348,13 +348,20 @@ if ($message): ?><p class="ok"><?= e($message) ?></p><?php endif; ?>
           TrxID: <code style="background:#0f172a; color:#38bdf8; padding:2px 6px; border-radius:4px; font-weight:bold;"><?= e($o['txn_id']) ?></code><br>
         <?php endif; ?>
         <?php if (!empty($o['sender_last_digits'])): ?>
-          <small style="color:#94a3b8;">প্রেরক শেষ ডিজিট: <strong><?= e($o['sender_last_digits']) ?></strong></small>
+          <small style="color:#94a3b8;">প্রেরক শেষ ডিজিট: <strong><?= e($o['sender_last_digits']) ?></strong></small><br>
+        <?php endif; ?>
+        <?php if (!empty($o['payment_screenshot'])): ?>
+          <div style="margin-top:4px;">
+            <a href="<?= e($o['payment_screenshot']) ?>" target="_blank" rel="noopener" style="display:inline-flex; align-items:center; gap:4px; background:#0284c7; color:#fff; padding:3px 8px; border-radius:4px; font-size:0.75rem; text-decoration:none; font-weight:bold;">
+              📸 স্ক্রিনশট দেখুন
+            </a>
+          </div>
         <?php endif; ?>
       </td>
       <td>
         <?php if ($isReview): ?>
           <span class="badge" style="background:#f59e0b; color:#000; font-weight:bold; font-size:0.8rem; padding:4px 8px; border-radius:6px;">
-            ⚡ TrxID জমা দিয়েছে (যাচাই করুন)
+            ⚡ পেমেন্ট প্রমাণ জমা দিয়েছে
           </span>
         <?php else: ?>
           <span class="badge" style="background:#475569; color:#cbd5e1; font-size:0.8rem; padding:4px 8px; border-radius:6px;">
@@ -444,6 +451,9 @@ if ($message): ?><p class="ok"><?= e($message) ?></p><?php endif; ?>
       <td>
         <?= e($o['payment_method'] ?? '—') ?>
         <?= !empty($o['txn_id']) ? ' — <code>' . e($o['txn_id']) . '</code>' : '' ?>
+        <?php if (!empty($o['payment_screenshot'])): ?>
+          <a href="<?= e($o['payment_screenshot']) ?>" target="_blank" rel="noopener" style="display:inline-block; margin-left:6px; background:#0284c7; color:#fff; padding:2px 6px; border-radius:3px; font-size:0.75rem; text-decoration:none;">📸 রসিদ</a>
+        <?php endif; ?>
       </td>
       <td>
         <span class="badge" style="<?= $o['status'] === 'approved' ? 'background:#10b981; color:#fff;' : 'background:#ef4444; color:#fff;' ?>">

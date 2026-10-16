@@ -131,6 +131,33 @@ $languagesJson = json_encode([
     'discount' => $discount > 0 ? $discount : 0,
 ], JSON_UNESCAPED_UNICODE);
 
+$paymentMethod = strtolower(trim((string) ($_POST['payment_method'] ?? 'bkash')));
+$senderLastDigits = trim((string) ($_POST['sender_last_digits'] ?? ''));
+$txnId = strtoupper(trim((string) ($_POST['txn_id'] ?? '')));
+$paymentScreenshotPath = null;
+
+// Handle screenshot file upload if submitted
+if (!empty($_FILES['payment_screenshot']) && is_uploaded_file($_FILES['payment_screenshot']['tmp_name'])) {
+    $f = $_FILES['payment_screenshot'];
+    if ($f['error'] === UPLOAD_ERR_OK && $f['size'] > 0 && $f['size'] <= 10 * 1024 * 1024) {
+        $ext = strtolower(pathinfo((string)$f['name'], PATHINFO_EXTENSION));
+        if (in_array($ext, ['jpg', 'jpeg', 'png', 'webp'], true)) {
+            $uploadDir = __DIR__ . '/uploads/receipts';
+            if (!is_dir($uploadDir)) {
+                @mkdir($uploadDir, 0755, true);
+            }
+            $safeName = 'receipt_' . time() . '_' . bin2hex(random_bytes(6)) . '.' . $ext;
+            $destPath = $uploadDir . '/' . $safeName;
+            if (move_uploaded_file($f['tmp_name'], $destPath)) {
+                $paymentScreenshotPath = '/uploads/receipts/' . $safeName;
+            }
+        }
+    }
+}
+
+// If TrxID or screenshot or sender digits provided, mark under_review, otherwise pending_payment
+$initialStatus = ($txnId !== '' || $paymentScreenshotPath !== null || $senderLastDigits !== '') ? 'under_review' : 'pending_payment';
+
 if ($name === '' || strlen($whatsapp) < 10) {
     redirect('/?error=1#buy');
 }
@@ -150,8 +177,8 @@ try {
     $stmt = $pdo->prepare(
         "INSERT INTO orders (
             customer_id, name, whatsapp, email, plan_name, amount, status,
-            languages_json, base_langs, addon_langs, created_at
-         ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, {$nowSql})"
+            languages_json, base_langs, addon_langs, payment_method, sender_last_digits, txn_id, payment_screenshot, created_at
+         ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, {$nowSql})"
     );
     $stmt->execute([
         $customerId,
@@ -160,10 +187,14 @@ try {
         $email !== '' ? $email : null,
         $plan,
         $amount,
-        'pending_payment',
+        $initialStatus,
         $languagesJson,
         $baseLangs,
         $addonLangs !== '' ? $addonLangs : null,
+        $paymentMethod,
+        $senderLastDigits !== '' ? $senderLastDigits : null,
+        $txnId !== '' ? $txnId : null,
+        $paymentScreenshotPath,
     ]);
     $orderId = (int) $pdo->lastInsertId();
 

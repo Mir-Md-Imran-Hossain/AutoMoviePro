@@ -28,6 +28,10 @@ try {
     $recentPending = $stmt ? $stmt->fetchAll(PDO::FETCH_ASSOC) : [];
 } catch (\Throwable $e) {}
 
+// 4. Active Consultant Persona
+$activePersona = setting($pdo, 'agent_primary_persona', 'nirob');
+$personaDisplay = $activePersona === 'nirob' ? 'নীরব (Nirob)' : ($activePersona === 'tania' ? 'তানিয়া (Tania)' : 'আয়েশা (Ayesha)');
+
 admin_header('মাস্টার ড্যাশবোর্ড', 'dashboard');
 ?>
 
@@ -68,7 +72,7 @@ admin_header('মাস্টার ড্যাশবোর্ড', 'dashboard'
     <div>
       <div class="kpi-label">আজকের কাস্টমার চ্যাট</div>
       <div class="kpi-val" style="color:var(--admin-purple);"><?= $todayChats ?></div>
-      <div class="kpi-sub">আয়েশা (Ayesha) হ্যান্ডেল করছে</div>
+      <div class="kpi-sub"><?= e($personaDisplay) ?> হ্যান্ডেল করছে</div>
     </div>
     <div class="kpi-icon-bubble">💬</div>
   </div>
@@ -203,7 +207,7 @@ admin_header('মাস্টার ড্যাশবোর্ড', 'dashboard'
     </div>
     <div class="hud-item">
       <div class="hud-label">এআই সাপোর্ট কনসালট্যান্ট</div>
-      <div class="hud-val" style="color:#c084fc;">আয়েশা (Ayesha Live)</div>
+      <div class="hud-val" style="color:#c084fc;"><?= e($personaDisplay) ?> (Live)</div>
     </div>
     <div class="hud-item">
       <div class="hud-label">সার্ভার আইপি</div>

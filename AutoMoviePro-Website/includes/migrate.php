@@ -46,6 +46,9 @@ function ensure_amp_migrations(PDO $pdo): void
         $pdo->exec("ALTER TABLE orders ADD COLUMN updated_at DATETIME NULL");
     } catch (\Throwable $e) {}
     try {
+        $pdo->exec("ALTER TABLE orders ADD COLUMN payment_screenshot VARCHAR(255) NULL");
+    } catch (\Throwable $e) {}
+    try {
         $pdo->exec("ALTER TABLE orders MODIFY COLUMN status VARCHAR(32) NOT NULL DEFAULT 'pending_payment'");
     } catch (\Throwable $e) {}
 

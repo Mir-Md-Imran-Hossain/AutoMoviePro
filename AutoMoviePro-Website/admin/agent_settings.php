@@ -10,7 +10,7 @@ $error = '';
 
 // Setting Definitions
 $agentSettings = [
-    'agent_primary_persona' => ['default' => 'ayesha'],
+    'agent_primary_persona' => ['default' => 'nirob'],
     'agent_chat_active' => ['default' => '1'],
     'agent_custom_instructions' => ['default' => ''],
     'agent_followup_reminder_hours' => ['default' => '24'],
@@ -129,11 +129,11 @@ admin_header('এআই চ্যাট এজেন্ট ও ডিসকা�
       <div class="form-group">
         <label class="form-label">সক্রিয় প্রধান সেলস কনসালট্যান্ট নির্বাচন করুন</label>
         <div style="display:grid; grid-template-columns: repeat(3, 1fr); gap:12px; margin-top:6px;">
-          <label style="border:2px solid <?= $activePersona === 'ayesha' ? '#38bdf8' : 'rgba(255,255,255,0.1)' ?>; background:rgba(0,0,0,0.3); border-radius:10px; padding:12px; text-align:center; cursor:pointer; transition:all 0.2s;">
-            <input type="radio" name="agent_primary_persona" value="ayesha" <?= $activePersona === 'ayesha' ? 'checked' : '' ?> style="display:none;" onchange="this.form.submit()">
-            <img src="/assets/img/agents/ayesha.png" style="width:48px; height:48px; border-radius:50%; margin:0 auto 8px; display:block; object-fit:cover; border:2px solid #38bdf8;">
-            <strong style="color:#f8fafc; font-size:0.9rem; display:block;">আয়েশা</strong>
-            <small style="color:#94a3b8; font-size:0.75rem;">সিনিয়র কনসালট্যান্ট</small>
+          <label style="border:2px solid <?= $activePersona === 'nirob' ? '#38bdf8' : 'rgba(255,255,255,0.1)' ?>; background:rgba(0,0,0,0.3); border-radius:10px; padding:12px; text-align:center; cursor:pointer; transition:all 0.2s;">
+            <input type="radio" name="agent_primary_persona" value="nirob" <?= $activePersona === 'nirob' ? 'checked' : '' ?> style="display:none;" onchange="this.form.submit()">
+            <img src="/assets/img/agents/nirob.png" style="width:48px; height:48px; border-radius:50%; margin:0 auto 8px; display:block; object-fit:cover; border:2px solid #10b981;">
+            <strong style="color:#f8fafc; font-size:0.9rem; display:block;">নীরব</strong>
+            <small style="color:#94a3b8; font-size:0.75rem;">টেকনিক্যাল লিড</small>
           </label>
           <label style="border:2px solid <?= $activePersona === 'tania' ? '#38bdf8' : 'rgba(255,255,255,0.1)' ?>; background:rgba(0,0,0,0.3); border-radius:10px; padding:12px; text-align:center; cursor:pointer; transition:all 0.2s;">
             <input type="radio" name="agent_primary_persona" value="tania" <?= $activePersona === 'tania' ? 'checked' : '' ?> style="display:none;" onchange="this.form.submit()">
@@ -141,11 +141,11 @@ admin_header('এআই চ্যাট এজেন্ট ও ডিসকা�
             <strong style="color:#f8fafc; font-size:0.9rem; display:block;">তানিয়া</strong>
             <small style="color:#94a3b8; font-size:0.75rem;">অনবোর্ডিং স্পেশালিস্ট</small>
           </label>
-          <label style="border:2px solid <?= $activePersona === 'nirob' ? '#38bdf8' : 'rgba(255,255,255,0.1)' ?>; background:rgba(0,0,0,0.3); border-radius:10px; padding:12px; text-align:center; cursor:pointer; transition:all 0.2s;">
-            <input type="radio" name="agent_primary_persona" value="nirob" <?= $activePersona === 'nirob' ? 'checked' : '' ?> style="display:none;" onchange="this.form.submit()">
-            <img src="/assets/img/agents/nirob.png" style="width:48px; height:48px; border-radius:50%; margin:0 auto 8px; display:block; object-fit:cover; border:2px solid #10b981;">
-            <strong style="color:#f8fafc; font-size:0.9rem; display:block;">নীরব</strong>
-            <small style="color:#94a3b8; font-size:0.75rem;">টেকনিক্যাল লিড</small>
+          <label style="border:2px solid <?= $activePersona === 'ayesha' ? '#38bdf8' : 'rgba(255,255,255,0.1)' ?>; background:rgba(0,0,0,0.3); border-radius:10px; padding:12px; text-align:center; cursor:pointer; transition:all 0.2s;">
+            <input type="radio" name="agent_primary_persona" value="ayesha" <?= $activePersona === 'ayesha' ? 'checked' : '' ?> style="display:none;" onchange="this.form.submit()">
+            <img src="/assets/img/agents/ayesha.png" style="width:48px; height:48px; border-radius:50%; margin:0 auto 8px; display:block; object-fit:cover; border:2px solid #38bdf8;">
+            <strong style="color:#f8fafc; font-size:0.9rem; display:block;">আয়েশা</strong>
+            <small style="color:#94a3b8; font-size:0.75rem;">সিনিয়র কনসালট্যান্ট</small>
           </label>
         </div>
       </div>

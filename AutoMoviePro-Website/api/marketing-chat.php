@@ -44,7 +44,7 @@ $maxDiscount = (float) setting($pdo, 'agent_max_discount_amount', '1000');
 $cfgCouponCode = strtoupper(trim(setting($pdo, 'agent_coupon_prefix', 'VIP500')) ?: 'VIP500');
 $freeAddon = setting($pdo, 'agent_free_addon_lang', '1') === '1';
 $validityHours = (int) setting($pdo, 'agent_followup_reminder_hours', '24');
-$configuredPersona = setting($pdo, 'agent_primary_persona', 'ayesha');
+$configuredPersona = setting($pdo, 'agent_primary_persona', 'nirob');
 
 // ---------------------------------------------------------------------------
 // 1. Persistent Visitor Detection & Recall via Browser / Cookie

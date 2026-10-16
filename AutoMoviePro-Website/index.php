@@ -126,7 +126,7 @@ $broadcastLinkText = setting($pdo, 'broadcast_link_text', '');
   <header class="site-header">
     <a class="logo-link" href="/?lang=<?= e($uiLang) ?>">
       <img class="logo-img" src="/assets/img/logo.png?v=<?= filemtime(__DIR__ . '/assets/img/logo.png') ?>" alt="<?= e($brand) ?>" width="42" height="42">
-      <div class="logo"><?= e($brand) ?> <span>SAAS</span></div>
+      <div class="logo"><?= e($brand) ?></div>
     </a>
     <div class="header-actions">
        <div class="lang-selector-pill">
@@ -1449,7 +1449,7 @@ $broadcastLinkText = setting($pdo, 'broadcast_link_text', '');
     <!-- 1. Sleek Floating Launcher Button -->
     <button type="button" class="amp-chat-launcher" id="ampChatLauncher" aria-label="Open Live Support">
       <div class="launcher-avatar-wrap">
-        <img src="/assets/img/agents/ayesha.png" id="ampLauncherAvatar" alt="Support Agent">
+        <img src="/assets/img/agents/nirob.png" id="ampLauncherAvatar" alt="Support Agent">
         <span class="online-dot"></span>
       </div>
       <div class="launcher-label">
@@ -1464,7 +1464,7 @@ $broadcastLinkText = setting($pdo, 'broadcast_link_text', '');
       <div class="choice-header">
         <div class="choice-agent-preview">
           <div class="choice-avatar-wrap">
-            <img src="/assets/img/agents/ayesha.png" id="ampChoiceAvatar" alt="Support Agent">
+            <img src="/assets/img/agents/nirob.png" id="ampChoiceAvatar" alt="Support Agent">
             <span class="online-dot" style="width:7px; height:7px;"></span>
           </div>
           <div>
@@ -1504,11 +1504,11 @@ $broadcastLinkText = setting($pdo, 'broadcast_link_text', '');
       <header class="amp-chat-head">
         <div class="amp-chat-agent-info">
           <div class="amp-chat-avatar" id="ampChatAvatar">
-            <img src="/assets/img/agents/ayesha.png" id="ampChatAvatarImg" alt="Support Agent">
+            <img src="/assets/img/agents/nirob.png" id="ampChatAvatarImg" alt="Support Agent">
           </div>
           <div class="amp-chat-name">
-            <strong id="ampChatAgentName">আয়েশা (Ayesha)</strong>
-            <span><span class="online-dot" style="width:6px; height:6px;"></span> <span id="ampChatAgentStatus">সিনিয়র কাস্টমার কনসালট্যান্ট</span></span>
+            <strong id="ampChatAgentName">নীরব (Nirob)</strong>
+            <span><span class="online-dot" style="width:6px; height:6px;"></span> <span id="ampChatAgentStatus">টেকনিক্যাল ও প্রোডাক্ট স্পেশালিস্ট</span></span>
           </div>
         </div>
         <div class="amp-chat-head-actions">
@@ -1524,7 +1524,7 @@ $broadcastLinkText = setting($pdo, 'broadcast_link_text', '');
         <div class="connecting-spinner-wrap">
           <div class="connecting-pulse-ring"></div>
           <div class="connecting-avatar-wrap">
-            <img src="/assets/img/agents/ayesha.png" id="ampConnectingAvatar" class="connecting-avatar" alt="Agent">
+            <img src="/assets/img/agents/nirob.png" id="ampConnectingAvatar" class="connecting-avatar" alt="Agent">
           </div>
         </div>
         <div class="connecting-status-title" id="ampConnectingTitle">লাইভ কনসালট্যান্ট নির্ধারণ হচ্ছে…</div>

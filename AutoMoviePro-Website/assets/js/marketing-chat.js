@@ -13,13 +13,6 @@
   // ---------------------------------------------------------------------------
   const SUPPORT_TEAM = [
     {
-      id: "ayesha",
-      name: "আয়েশা (Ayesha)",
-      role: "সিনিয়র কাস্টমার কনসালট্যান্ট",
-      avatar: "/assets/img/agents/ayesha.png",
-      greet: "আসসালামু আলাইকুম স্যার, আমি AutoMoviePro টিম থেকে আয়েশা বলছি, আপনাকে কীভাবে সহযোগিতা করতে পারি?"
-    },
-    {
       id: "nirob",
       name: "নীরব (Nirob)",
       role: "টেকনিক্যাল ও প্রোডাক্ট স্পেশালিস্ট",
@@ -32,6 +25,13 @@
       role: "অনবোর্ডিং ও লাইসেন্স ম্যানেজার",
       avatar: "/assets/img/agents/tania.png",
       greet: "আসসালামু আলাইকুম স্যার, আমি AutoMoviePro টিম থেকে তানিয়া বলছি, আপনাকে কীভাবে সহযোগিতা করতে পারি?"
+    },
+    {
+      id: "ayesha",
+      name: "আয়েশা (Ayesha)",
+      role: "সিনিয়র কাস্টমার কনসালট্যান্ট",
+      avatar: "/assets/img/agents/ayesha.png",
+      greet: "আসসালামু আলাইকুম স্যার, আমি AutoMoviePro টিম থেকে আয়েশা বলছি, আপনাকে কীভাবে সহযোগিতা করতে পারি?"
     }
   ];
 
@@ -265,9 +265,8 @@
 
     let agent = SUPPORT_TEAM.find(function (a) { return a.id === savedId; });
     if (!agent) {
-      // Pick random agent from team for fresh visitor
-      const idx = Math.floor(Math.random() * SUPPORT_TEAM.length);
-      agent = SUPPORT_TEAM[idx];
+      // Default to Nirob as primary lead technical consultant
+      agent = SUPPORT_TEAM.find(function (a) { return a.id === "nirob"; }) || SUPPORT_TEAM[0];
       try {
         localStorage.setItem(STORAGE_KEY_AGENT, agent.id);
       } catch (e) {}

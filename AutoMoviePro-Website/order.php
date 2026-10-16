@@ -43,7 +43,7 @@ $error = !empty($_GET['error']);
   <header class="site-header">
     <a class="logo-link" href="/?lang=<?= e($uiLang) ?>">
       <img class="logo-img" src="/assets/img/logo.png?v=<?= filemtime(__DIR__ . '/assets/img/logo.png') ?>" alt="<?= e($brand) ?>" width="40" height="40">
-      <div class="logo"><?= e($brand) ?> <span>SAAS</span></div>
+      <div class="logo"><?= e($brand) ?></div>
     </a>
     <div class="header-actions">
        <div class="mech-switch-container">
@@ -292,7 +292,7 @@ $error = !empty($_GET['error']);
         </fieldset>
       </div>
 
-      <form class="purchase" method="post" action="/purchase.php" id="purchaseForm">
+      <form class="purchase" method="post" action="/purchase.php" id="purchaseForm" enctype="multipart/form-data">
         <input type="hidden" name="csrf" value="<?= e(csrf_token()) ?>">
         <input type="hidden" name="product_type" id="productTypeField" value="<?= e($reqProduct) ?>">
         <input type="hidden" name="plan_duration_months" id="planDurationField" value="<?= $reqPlan ?>">
@@ -363,12 +363,152 @@ $error = !empty($_GET['error']);
           <div id="couponStatusMsg" class="coupon-msg"></div>
         </div>
 
-        <div class="total-line">
+        <!-- Payment Information & Proof Section -->
+        <div class="payment-method-section" style="margin-top: 1.75rem; background: rgba(15, 23, 42, 0.85); border: 1.5px solid #0284c7; border-radius: var(--radius-lg); padding: 1.5rem; box-shadow: 0 4px 25px rgba(2, 132, 199, 0.2);">
+          <div style="display:flex; align-items:center; gap:8px; margin-bottom: 0.75rem;">
+            <span style="font-size:1.4rem;">💳</span>
+            <h3 style="color:#38bdf8; font-size:1.2rem; margin:0; font-weight:700;">পেমেন্ট মেথড ও লেনদেন নির্দেশিকা</h3>
+          </div>
+          
+          <p style="color:#cbd5e1; font-size:0.92rem; line-height:1.6; margin-bottom: 1.25rem;">
+            নিচের যেকোনো একটি অনুমোদিত নম্বরে <strong>ক্যাশ আউট (Cash Out)</strong> করে পেমেন্ট সম্পন্ন করুন। নম্বর কপি করতে বাটনে ক্লিক করুন:
+          </p>
+
+          <!-- Interactive Payment Cards Grid -->
+          <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 0.85rem; margin-bottom: 1.5rem;">
+            <!-- bKash Agent -->
+            <div style="background: rgba(30, 41, 59, 0.95); border: 1.5px solid #e11d48; border-radius: var(--radius-md); padding: 1rem; position: relative;">
+              <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.35rem;">
+                <strong style="color: #fda4af; font-size: 0.95rem;">বিকাশ এজেন্ট</strong>
+                <span style="background: #e11d48; color: #fff; font-size: 0.72rem; padding: 2px 7px; border-radius: 4px; font-weight: 700;">ক্যাশ আউট</span>
+              </div>
+              <div style="font-family: monospace; font-size: 1.2rem; color: #fff; font-weight: 800; letter-spacing: 0.5px; margin: 4px 0 2px;">
+                01756160993
+              </div>
+              <small style="color: #94a3b8; font-size: 0.75rem; display: block; margin-bottom: 8px;">(Zahid Pharmacy)</small>
+              <button type="button" class="btn btn-sm copy-btn" onclick="navigator.clipboard.writeText('01756160993'); this.innerText='কপি হয়েছে ✓'; setTimeout(()=>this.innerText='নম্বর কপি করুন', 2000);" style="width: 100%; padding: 6px 8px; font-size: 0.82rem; background: #e11d48; color: #fff; border: none; border-radius: 6px; cursor: pointer; font-weight:600;">
+                নম্বর কপি করুন
+              </button>
+            </div>
+
+            <!-- Nagad Agent -->
+            <div style="background: rgba(30, 41, 59, 0.95); border: 1.5px solid #ea580c; border-radius: var(--radius-md); padding: 1rem; position: relative;">
+              <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.35rem;">
+                <strong style="color: #fdba74; font-size: 0.95rem;">নগদ এজেন্ট</strong>
+                <span style="background: #ea580c; color: #fff; font-size: 0.72rem; padding: 2px 7px; border-radius: 4px; font-weight: 700;">ক্যাশ আউট</span>
+              </div>
+              <div style="font-family: monospace; font-size: 1.2rem; color: #fff; font-weight: 800; letter-spacing: 0.5px; margin: 4px 0 2px;">
+                01611-824811
+              </div>
+              <small style="color: #94a3b8; font-size: 0.75rem; display: block; margin-bottom: 8px;">(Simi Drug House)</small>
+              <button type="button" class="btn btn-sm copy-btn" onclick="navigator.clipboard.writeText('01611824811'); this.innerText='কপি হয়েছে ✓'; setTimeout(()=>this.innerText='নম্বর কপি করুন', 2000);" style="width: 100%; padding: 6px 8px; font-size: 0.82rem; background: #ea580c; color: #fff; border: none; border-radius: 6px; cursor: pointer; font-weight:600;">
+                নম্বর কপি করুন
+              </button>
+            </div>
+
+            <!-- Rocket Agent -->
+            <div style="background: rgba(30, 41, 59, 0.95); border: 1.5px solid #8b5cf6; border-radius: var(--radius-md); padding: 1rem; position: relative;">
+              <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.35rem;">
+                <strong style="color: #c4b5fd; font-size: 0.95rem;">রকেট এজেন্ট</strong>
+                <span style="background: #8b5cf6; color: #fff; font-size: 0.72rem; padding: 2px 7px; border-radius: 4px; font-weight: 700;">ক্যাশ আউট</span>
+              </div>
+              <div style="font-family: monospace; font-size: 1.2rem; color: #fff; font-weight: 800; letter-spacing: 0.5px; margin: 4px 0 2px;">
+                01756160993-5
+              </div>
+              <small style="color: #94a3b8; font-size: 0.75rem; display: block; margin-bottom: 8px;">(এজেন্ট ক্যাশ আউট)</small>
+              <button type="button" class="btn btn-sm copy-btn" onclick="navigator.clipboard.writeText('017561609935'); this.innerText='কপি হয়েছে ✓'; setTimeout(()=>this.innerText='নম্বর কপি করুন', 2000);" style="width: 100%; padding: 6px 8px; font-size: 0.82rem; background: #8b5cf6; color: #fff; border: none; border-radius: 6px; cursor: pointer; font-weight:600;">
+                নম্বর কপি করুন
+              </button>
+            </div>
+
+            <!-- Binance Pay / USDT -->
+            <div style="background: rgba(30, 41, 59, 0.95); border: 1.5px solid #f59e0b; border-radius: var(--radius-md); padding: 1rem; position: relative;">
+              <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.35rem;">
+                <strong style="color: #fde68a; font-size: 0.95rem;">Binance Pay</strong>
+                <span style="background: #f59e0b; color: #000; font-size: 0.72rem; padding: 2px 7px; border-radius: 4px; font-weight: 700;">USDT</span>
+              </div>
+              <div style="font-family: monospace; font-size: 1.1rem; color: #fff; font-weight: 800; letter-spacing: 0.5px; margin: 4px 0 2px;">
+                ChatEarly Ai
+              </div>
+              <small style="color: #94a3b8; font-size: 0.75rem; display: block; margin-bottom: 8px;">(Binance Pay ID / QR)</small>
+              <button type="button" class="btn btn-sm copy-btn" onclick="navigator.clipboard.writeText('ChatEarly Ai'); this.innerText='কপি হয়েছে ✓'; setTimeout(()=>this.innerText='আইডি কপি করুন', 2000);" style="width: 100%; padding: 6px 8px; font-size: 0.82rem; background: #f59e0b; color: #000; font-weight:700; border: none; border-radius: 6px; cursor: pointer;">
+                আইডি কপি করুন
+              </button>
+            </div>
+          </div>
+
+          <!-- Payment Input Fields: Method, Sender Digits, TrxID, and Screenshot Upload -->
+          <div style="background: rgba(15, 23, 42, 0.95); border: 1px solid #334155; border-radius: var(--radius-md); padding: 1.25rem;">
+            <div style="margin-bottom: 1rem;">
+              <label style="display: block; color: #cbd5e1; font-size: 0.88rem; font-weight: 600; margin-bottom: 0.4rem;">
+                পেমেন্ট মেথড নির্বাচন করুন:
+              </label>
+              <div style="display: flex; flex-wrap: wrap; gap: 0.85rem;">
+                <label style="cursor: pointer; display: inline-flex; align-items: center; gap: 6px; color: #fff; font-size: 0.9rem;">
+                  <input type="radio" name="payment_method" value="bkash" checked> বিকাশ (bKash)
+                </label>
+                <label style="cursor: pointer; display: inline-flex; align-items: center; gap: 6px; color: #fff; font-size: 0.9rem;">
+                  <input type="radio" name="payment_method" value="nagad"> নগদ (Nagad)
+                </label>
+                <label style="cursor: pointer; display: inline-flex; align-items: center; gap: 6px; color: #fff; font-size: 0.9rem;">
+                  <input type="radio" name="payment_method" value="rocket"> রকেট (Rocket)
+                </label>
+                <label style="cursor: pointer; display: inline-flex; align-items: center; gap: 6px; color: #fff; font-size: 0.9rem;">
+                  <input type="radio" name="payment_method" value="binance"> Binance Pay
+                </label>
+                <label style="cursor: pointer; display: inline-flex; align-items: center; gap: 6px; color: #fff; font-size: 0.9rem;">
+                  <input type="radio" name="payment_method" value="bank"> ব্যাংক (Bank)
+                </label>
+              </div>
+            </div>
+
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 1rem; margin-bottom: 1rem;">
+              <div>
+                <label style="display: block; color: #cbd5e1; font-size: 0.85rem; margin-bottom: 0.35rem;">
+                  প্রেরক নম্বরের শেষ ৩-৪ ডিজিট <span style="color:#94a3b8; font-weight:normal;">(যদি পেমেন্ট করে থাকেন)</span>:
+                </label>
+                <input type="text" name="sender_last_digits" placeholder="যেমন: 0998" maxlength="10" style="width:100%; padding:0.75rem; border-radius:8px; background:#1e293b; color:#fff; border:1px solid #475569;">
+              </div>
+              <div>
+                <label style="display: block; color: #cbd5e1; font-size: 0.85rem; margin-bottom: 0.35rem;">
+                  ট্রানজেকশন আইডি (TrxID) <span style="color:#94a3b8; font-weight:normal;">(যদি পেমেন্ট করে থাকেন)</span>:
+                </label>
+                <input type="text" name="txn_id" id="checkoutTxnId" placeholder="যেমন: BL92KA871X" maxlength="24" style="width:100%; padding:0.75rem; border-radius:8px; background:#1e293b; color:#fff; border:1px solid #475569; text-transform:uppercase; font-family:monospace; font-weight:600;" oninput="this.value = this.value.toUpperCase().replace(/[^A-Z0-9]/g, '');">
+              </div>
+            </div>
+
+            <!-- Payment Screenshot Upload -->
+            <div style="margin-top: 1rem;">
+              <label style="display: block; color: #cbd5e1; font-size: 0.88rem; font-weight: 600; margin-bottom: 0.35rem;">
+                📸 পেমেন্টের স্ক্রিনশট আপলোড করুন <span style="color:#94a3b8; font-weight:normal;">(ছবি / মানি রসিদ, ঐচ্ছিক কিন্তু দ্রুত অ্যাক্টিভেশনে সহায়ক)</span>:
+              </label>
+              <div style="border: 2px dashed #0284c7; border-radius: 8px; padding: 1.25rem; text-align: center; background: rgba(30, 41, 59, 0.5); cursor: pointer; transition: all 0.2s;" onclick="document.getElementById('paymentScreenshotInput').click();">
+                <input type="file" id="paymentScreenshotInput" name="payment_screenshot" accept="image/*" style="display: none;" onchange="previewScreenshot(this)">
+                <div id="uploadPrompt">
+                  <span style="font-size: 2rem;">📎</span>
+                  <p style="margin: 6px 0 2px; color: #38bdf8; font-size: 0.95rem; font-weight: 600;">পেমেন্টের স্ক্রিনশট সিলেক্ট করতে এখানে ক্লিক করুন</p>
+                  <small style="color: #94a3b8; font-size: 0.78rem;">JPG, PNG, WEBP ফরম্যাট (সর্বোচ্চ 10MB)</small>
+                </div>
+                <div id="screenshotPreviewWrap" style="display: none; margin-top: 8px;">
+                  <img id="screenshotPreviewImg" src="" alt="Screenshot Preview" style="max-height: 160px; max-width:100%; border-radius: 6px; border: 1.5px solid #38bdf8; box-shadow: 0 4px 12px rgba(0,0,0,0.4);">
+                  <p id="screenshotFileName" style="color: #34d399; font-size: 0.85rem; margin-top: 6px; font-weight: 600;"></p>
+                </div>
+              </div>
+            </div>
+
+            <div style="margin-top: 1rem; background: rgba(56, 189, 248, 0.12); border: 1px solid rgba(56, 189, 248, 0.3); border-radius: 8px; padding: 0.75rem 1rem; font-size: 0.85rem; color: #93c5fd; display: flex; align-items: center; gap: 8px;">
+              <span style="font-size:1.1rem;">💡</span>
+              <span>আপনি চাইলে এখনই পেমেন্ট করে TrxID বা স্ক্রিনশট দিয়ে একবারে অর্ডার সাবমিট করতে পারেন, অথবা এখনই ফর্ম সাবমিট করে পরবর্তী পেজেও পেমেন্ট সম্পন্ন করতে পারবেন।</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="total-line" style="margin-top:1.5rem;">
           <span data-i18n="total_due">সর্বমোট পরিশোধযোগ্য</span>
           <strong id="totalDisplay">৳<?= (int) $initialPrice ?></strong>
         </div>
 
-        <button class="btn" type="submit" style="width:100%; font-size:1.1rem; padding:1rem;" data-i18n="pay_now">অর্ডার কনফার্ম করুন</button>
+        <button class="btn" type="submit" style="width:100%; font-size:1.15rem; padding:1.1rem; background:linear-gradient(135deg, #0284c7, #2563eb); font-weight:700; border-radius:10px;" data-i18n="pay_now">অর্ডার কনফার্ম করুন</button>
         <p style="text-align:center; margin-top:1rem;">
           <a class="btn-wa-inline" href="<?= e($waLink) ?>" target="_blank" rel="noopener" data-i18n="or_whatsapp">অথবা WhatsApp-এ সরাসরি অর্ডার সম্পন্ন করুন</a>
         </p>
@@ -547,31 +687,127 @@ $error = !empty($_GET['error']);
 
       window.AMP_RECALC = calculateTotal;
     });
+
+    function previewScreenshot(input) {
+      if (input.files && input.files[0]) {
+        const file = input.files[0];
+        const reader = new FileReader();
+        reader.onload = function(e) {
+          const promptEl = document.getElementById('uploadPrompt');
+          const wrap = document.getElementById('screenshotPreviewWrap');
+          const img = document.getElementById('screenshotPreviewImg');
+          const nameEl = document.getElementById('screenshotFileName');
+          if (promptEl) promptEl.style.display = 'none';
+          if (img) img.src = e.target.result;
+          if (nameEl) nameEl.textContent = '✓ ' + file.name + ' (' + (file.size / 1024).toFixed(0) + ' KB)';
+          if (wrap) wrap.style.display = 'block';
+        };
+        reader.readAsDataURL(file);
+      }
+    }
   </script>
 
-  <!-- Floating AI Sales Consultant Widget ("আয়েশা") -->
+  <!-- Floating AI Sales Consultant Widget (Defaulting to Nirob) -->
   <div id="ampChat" class="amp-chat" aria-live="polite">
-    <button type="button" class="amp-chat-toggle" id="ampChatToggle">
-      <span class="online-dot"></span>
-      <span data-i18n="agent_toggle_btn">👩‍💼 আয়েশা (লাইভ সেলস কনসালট্যান্ট)</span>
+    <!-- 1. Sleek Floating Launcher Button -->
+    <button type="button" class="amp-chat-launcher" id="ampChatLauncher" aria-label="Open Live Support">
+      <div class="launcher-avatar-wrap">
+        <img src="/assets/img/agents/nirob.png" id="ampLauncherAvatar" alt="Support Agent">
+        <span class="online-dot"></span>
+      </div>
+      <div class="launcher-label">
+        <span class="launcher-title">লাইভ সাপোর্ট</span>
+        <span class="launcher-sub">অনলাইন • কথা বলুন</span>
+      </div>
+      <span class="launcher-close-icon" id="ampLauncherCloseIcon" style="display:none;">✕</span>
     </button>
-    <div class="amp-chat-panel" id="ampChatPanel" hidden>
-      <header class="amp-chat-head">
-        <div class="amp-chat-agent-info">
-          <div class="amp-chat-avatar">👩‍💼</div>
-          <div class="amp-chat-name">
-            <strong data-i18n="agent_name">আয়েশা (Ayesha)</strong>
-            <span><span class="online-dot" style="width:6px; height:6px;"></span> <span data-i18n="agent_status">অনলাইন কনসালট্যান্ট</span></span>
+
+    <!-- 2. Choice Card (WhatsApp vs Live Agent) -->
+    <div class="amp-choice-card is-hidden" id="ampChoiceCard" style="display: none;">
+      <div class="choice-header">
+        <div class="choice-agent-preview">
+          <div class="choice-avatar-wrap">
+            <img src="/assets/img/agents/nirob.png" id="ampChoiceAvatar" alt="Support Agent">
+            <span class="online-dot" style="width:7px; height:7px;"></span>
+          </div>
+          <div>
+            <strong>AutoMovie Pro সাপোর্ট টিম</strong>
+            <span class="choice-status-text">🟢 সক্রিয় • ১ মিনিটে রিপ্লাই</span>
           </div>
         </div>
-        <button type="button" class="amp-chat-close" id="ampChatClose" aria-label="Close">×</button>
+        <button type="button" class="choice-close-btn" id="ampChoiceClose" aria-label="Close">✕</button>
+      </div>
+      <div class="choice-body">
+        <p class="choice-lead">আসসালামু আলাইকুম! আপনার পছন্দের সাপোর্ট মাধ্যম বেছে নিন:</p>
+        
+        <!-- Option 1: Live Agent -->
+        <button type="button" class="choice-option-btn primary-live" id="ampStartLiveAgentBtn">
+          <div class="choice-icon-wrap live-icon">💬</div>
+          <div class="choice-text">
+            <strong>একজন লাইভ এজেন্টের সাথে কথা বলুন</strong>
+            <span>ওয়েবসাইটে সরাসরি তাৎক্ষণিক চ্যাট শুরু করুন</span>
+          </div>
+          <span class="choice-badge">অনলাইন</span>
+        </button>
+
+        <!-- Option 2: Direct WhatsApp -->
+        <a href="<?= e($waLink) ?>" target="_blank" rel="noopener" class="choice-option-btn whatsapp-link" id="ampDirectWaBtn">
+          <div class="choice-icon-wrap wa-icon">📱</div>
+          <div class="choice-text">
+            <strong>WhatsApp-এ সরাসরি যোগাযোগ করুন</strong>
+            <span>আমাদের অফিশিয়াল WhatsApp ইনবক্সে মেসেজ পাঠান</span>
+          </div>
+          <span class="choice-arrow">➔</span>
+        </a>
+      </div>
+    </div>
+
+    <!-- 3. Active Chat Panel -->
+    <div class="amp-chat-panel is-hidden" id="ampChatPanel" style="display: none;">
+      <header class="amp-chat-head">
+        <div class="amp-chat-agent-info">
+          <div class="amp-chat-avatar" id="ampChatAvatar">
+            <img src="/assets/img/agents/nirob.png" id="ampChatAvatarImg" alt="Support Agent">
+          </div>
+          <div class="amp-chat-name">
+            <strong id="ampChatAgentName">নীরব (Nirob)</strong>
+            <span><span class="online-dot" style="width:6px; height:6px;"></span> <span id="ampChatAgentStatus">টেকনিক্যাল ও প্রোডাক্ট স্পেশালিস্ট</span></span>
+          </div>
+        </div>
+        <div class="amp-chat-head-actions">
+          <button type="button" class="amp-chat-sound" id="ampChatSoundToggle" title="সাউন্ড মিউট / আনমিউট">🔊</button>
+          <button type="button" class="amp-chat-reset" id="ampChatReset" title="নতুন চ্যাট শুরু করুন">🔄</button>
+          <button type="button" class="amp-chat-back" id="ampChatBack" title="মেনুতে ফিরুন">↩</button>
+          <button type="button" class="amp-chat-close" id="ampChatClose" aria-label="Close">✕</button>
+        </div>
       </header>
+
+      <!-- Connecting Overlay -->
+      <div class="amp-connecting-overlay" id="ampConnectingOverlay" style="display: none;">
+        <div class="connecting-spinner-wrap">
+          <div class="connecting-pulse-ring"></div>
+          <div class="connecting-avatar-wrap">
+            <img src="/assets/img/agents/nirob.png" id="ampConnectingAvatar" class="connecting-avatar" alt="Agent">
+          </div>
+        </div>
+        <div class="connecting-status-title" id="ampConnectingTitle">লাইভ কনসালট্যান্ট নির্ধারণ হচ্ছে…</div>
+        <div class="connecting-status-desc" id="ampConnectingDesc">আপনার চ্যাটের জন্য একজন সাপোর্ট এজেন্ট যুক্ত করা হচ্ছে</div>
+        <div class="connecting-progress-bar">
+          <div class="connecting-progress-fill" id="ampConnectingProgress"></div>
+        </div>
+      </div>
+
+      <!-- Chat Log -->
       <div class="amp-chat-log" id="ampChatLog"></div>
+
+      <!-- Chat Form -->
       <form class="amp-chat-form" id="ampChatForm">
-        <input type="text" id="ampChatInput" placeholder="প্যাকেজ, ফিচার বা অফার নিয়ে প্রশ্ন করুন…" data-i18n-placeholder="agent_placeholder" maxlength="800" autocomplete="off">
-        <button type="submit" data-i18n="agent_send">পাঠান</button>
+        <input type="text" id="ampChatInput" placeholder="প্যাকেজ, ফিচার বা অফার নিয়ে প্রশ্ন করুন…" maxlength="800" autocomplete="off">
+        <button type="submit">পাঠান</button>
       </form>
-      <a class="amp-chat-wa" id="ampChatWa" href="<?= e($waLink) ?>" target="_blank" rel="noopener" data-i18n="agent_wa_link">📱 সরাসরি WhatsApp-এ বিস্তারিত কথা বলুন</a>
+
+      <!-- Bottom WhatsApp quicklink -->
+      <a class="amp-chat-wa" id="ampChatWa" href="<?= e($waLink) ?>" target="_blank" rel="noopener">📱 সরাসরি WhatsApp-এ কথা বলতে এখানে ক্লিক করুন</a>
     </div>
   </div>
 

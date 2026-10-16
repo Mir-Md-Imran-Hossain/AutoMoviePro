@@ -23,7 +23,27 @@ function whatsapp_queue(
     $outboxId = (int) $pdo->lastInsertId();
 
     $token = trim((string) ($config['whatsapp_token'] ?? ''));
+    if ($token === '') {
+        $token = trim((string) setting($pdo, 'whatsapp_token', ''));
+    }
     $phoneId = trim((string) ($config['whatsapp_phone_id'] ?? ''));
+    if ($phoneId === '') {
+        $phoneId = trim((string) setting($pdo, 'whatsapp_phone_id', ''));
+    }
+
+    if ($token === '' || $phoneId === '') {
+        try {
+            $accStmt = $pdo->query("SELECT api_config FROM wa_accounts WHERE (status = 'connected' OR status = 'active') AND api_config IS NOT NULL ORDER BY id ASC LIMIT 1");
+            if ($accStmt && ($accRow = $accStmt->fetch(PDO::FETCH_ASSOC))) {
+                $accCfg = json_decode((string) ($accRow['api_config'] ?? ''), true);
+                if (is_array($accCfg)) {
+                    if (empty($token) && !empty($accCfg['access_token'])) $token = trim((string) $accCfg['access_token']);
+                    if (empty($phoneId) && !empty($accCfg['phone_number_id'])) $phoneId = trim((string) $accCfg['phone_number_id']);
+                }
+            }
+        } catch (\Throwable $eAcc) {}
+    }
+
     if ($token === '' || $phoneId === '') {
         $pdo->prepare('UPDATE whatsapp_outbox SET status = ? WHERE id = ?')
             ->execute(['logged_only', $outboxId]);
