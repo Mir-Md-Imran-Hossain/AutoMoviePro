@@ -1249,7 +1249,7 @@ $broadcastLinkText = setting($pdo, 'broadcast_link_text', '');
 
         <div class="form-group">
           <label><span data-i18n="name">আপনার পূর্ণ নাম</span></label>
-          <input name="name" required maxlength="120" autocomplete="name" placeholder="John Doe">
+          <input name="name" required maxlength="120" autocomplete="name" placeholder="যেমন: মোঃ তানভীর হাসান">
         </div>
 
         <div class="form-group">

@@ -337,7 +337,7 @@ $waProofLink = 'https://wa.me/8801968111593?text=' . rawurlencode($waPrefill);
 
             <div>
               <label style="display:block; color:#cbd5e1; font-size:0.88rem; font-weight:600; margin-bottom:0.35rem;">প্রেরক নম্বরের শেষ ৩-৪ ডিজিট</label>
-              <input type="text" name="sender_last_digits" value="<?= e($order['sender_last_digits'] ?? '') ?>" placeholder="যেমন: 0998" style="width:100%; padding:0.75rem; border-radius:8px; background:#1e293b; color:#fff; border:1px solid #475569;">
+              <input type="text" name="sender_last_digits" value="<?= e($order['sender_last_digits'] ?? '') ?>" placeholder="যেমন: 1234 বা 0000" style="width:100%; padding:0.75rem; border-radius:8px; background:#1e293b; color:#fff; border:1px solid #475569;">
             </div>
 
             <div style="grid-column:1 / -1;">

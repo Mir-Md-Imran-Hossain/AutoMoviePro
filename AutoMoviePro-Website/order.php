@@ -304,7 +304,7 @@ $error = !empty($_GET['error']);
 
         <div class="form-group">
           <label><span data-i18n="name">আপনার পূর্ণ নাম</span></label>
-          <input name="name" required maxlength="120" autocomplete="name" placeholder="John Doe">
+          <input name="name" required maxlength="120" autocomplete="name" placeholder="যেমন: মোঃ তানভীর হাসান">
         </div>
 
         <div class="form-group">
@@ -467,7 +467,7 @@ $error = !empty($_GET['error']);
                 <label style="display: block; color: #cbd5e1; font-size: 0.85rem; margin-bottom: 0.35rem;">
                   প্রেরক নম্বরের শেষ ৩-৪ ডিজিট <span style="color:#94a3b8; font-weight:normal;">(যদি পেমেন্ট করে থাকেন)</span>:
                 </label>
-                <input type="text" name="sender_last_digits" placeholder="যেমন: 0998" maxlength="10" style="width:100%; padding:0.75rem; border-radius:8px; background:#1e293b; color:#fff; border:1px solid #475569;">
+                <input type="text" name="sender_last_digits" placeholder="যেমন: 1234 বা 0000" maxlength="10" style="width:100%; padding:0.75rem; border-radius:8px; background:#1e293b; color:#fff; border:1px solid #475569;">
               </div>
               <div>
                 <label style="display: block; color: #cbd5e1; font-size: 0.85rem; margin-bottom: 0.35rem;">
