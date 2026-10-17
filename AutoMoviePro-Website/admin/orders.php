@@ -88,6 +88,14 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && csrf_verify($_POST['csrf'] ?? null)
                        . "সফটওয়্যারটি ডাউনলোড করে রান করুন এবং উপরোক্ত Login ID ও Password দিয়ে লগইন করুন। কোনো সমস্যায় এই হোয়াটসঅ্যাপে যোগাযোগ করুন। ধন্যবাদ!";
                 $waShareUrl = "https://wa.me/{$cleanWa}?text=" . rawurlencode($waMsg);
 
+                // Auto dispatch through WhatsApp gateway and register in WAManager Request Dispatcher
+                whatsapp_queue($pdo, $config, $cleanWa, $waMsg, (int)($order['customer_id'] ?? 0));
+                try {
+                    $dispId = 'disp_' . round(microtime(true) * 1000) . '_' . mt_rand(100, 999);
+                    $pdo->prepare("INSERT INTO request_dispatches (id, trigger_type, customer_name, phone, order_id, package_name, message_content, status, sent_at, created_at) VALUES (?, 'order_approved', ?, ?, ?, ?, ?, 'sent', CURRENT_TIMESTAMP, CURRENT_TIMESTAMP)")
+                        ->execute([$dispId, $order['name'], '+' . $cleanWa, (string)$orderId, $prodTitle, $waMsg]);
+                } catch (\Throwable $eDisp) {}
+
                 $approvedCard = [
                     'order_id' => $orderId,
                     'name' => $order['name'],

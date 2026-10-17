@@ -223,8 +223,22 @@ try {
         if (setting($pdo, 'wa_auto_order_placed', '1') === '1' && $productType !== 'google_pro') {
             $bkashAgent = setting($pdo, 'bkash_agent_number', '01756160993');
             $nagadAgent = setting($pdo, 'nagad_agent_number', '01611-824811');
-            $orderMsg = "আসসালামু আলাইকুম {$name}!\n\nAutoMovie Pro-তে আপনার অর্ডার #{$orderId} সফলভাবে প্লেস হয়েছে।\nনির্বাচিত প্যাকেজ: {$plan}\nমোট প্রদেয়: ৳" . (int)$amount . "\n\nপেমেন্ট সম্পন্ন করতে বিকাশ এজেন্ট ({$bkashAgent}) বা নগদ এজেন্ট ({$nagadAgent})-এ ক্যাশ আউট করে ট্রানজেকশন আইডি ওয়েবসাইটে সাবমিট করুন অথবা সরাসরি এই WhatsApp-এ জানিয়ে দিন। ধন্যবাদ!";
             whatsapp_queue($pdo, $config, $whatsapp, $orderMsg, $customerId);
+
+            try {
+                $dispId = 'disp_' . round(microtime(true) * 1000) . '_' . mt_rand(100, 999);
+                $pdo->prepare("INSERT INTO request_dispatches (id, trigger_type, customer_name, phone, order_id, package_name, message_content, status, sent_at, created_at) VALUES (?, 'order_placed', ?, ?, ?, ?, ?, 'sent', CURRENT_TIMESTAMP, CURRENT_TIMESTAMP)")
+                    ->execute([$dispId, $name, $whatsapp, (string)$orderId, $plan, $orderMsg]);
+
+                $cleanDig = preg_replace('/\D+/', '', $whatsapp);
+                if (str_starts_with($cleanDig, '01')) $cleanDig = '880' . substr($cleanDig, 1);
+                $normPhone = '+' . $cleanDig;
+                $cId = 'cnt_' . round(microtime(true) * 1000) . '_' . mt_rand(100, 999);
+                $pdo->prepare("INSERT OR REPLACE INTO contacts (id, name, phone, country_code, source, consent_status, created_at, updated_at) VALUES (?, ?, ?, '880', 'website_order', 'opted_in', CURRENT_TIMESTAMP, CURRENT_TIMESTAMP)")
+                    ->execute([$cId, $name, $normPhone]);
+                $pdo->prepare("INSERT OR IGNORE INTO contact_group_members (group_id, contact_id, added_at) VALUES ('pending_leads', ?, CURRENT_TIMESTAMP)")
+                    ->execute([$cId]);
+            } catch (\Throwable $eReg) {}
         }
     } catch (\Throwable $eLead) {}
 

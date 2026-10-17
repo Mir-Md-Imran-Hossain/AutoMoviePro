@@ -38,6 +38,7 @@ require_once __DIR__ . '/features_catalog.php';
 
 if ($useLocalDemo || !empty($config['local_demo'])) {
     $pdo = amp_local_demo_pdo();
+    ensure_amp_migrations($pdo);
     ensure_cms_i18n_table($pdo);
 } else {
     $pdo = db_connect($config);

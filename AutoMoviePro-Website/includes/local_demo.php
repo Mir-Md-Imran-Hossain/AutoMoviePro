@@ -92,6 +92,10 @@ function amp_local_demo_schema(PDO $pdo): void
     );
     try { $pdo->exec("ALTER TABLE customers ADD COLUMN tier TEXT DEFAULT 'video_studio'"); } catch (\Throwable $e) {}
     try { $pdo->exec("ALTER TABLE customers ADD COLUMN plan TEXT DEFAULT 'video_studio'"); } catch (\Throwable $e) {}
+    try { $pdo->exec("ALTER TABLE customers ADD COLUMN hardware_id TEXT"); } catch (\Throwable $e) {}
+    try { $pdo->exec("ALTER TABLE customers ADD COLUMN hardware_locked_at TEXT"); } catch (\Throwable $e) {}
+    try { $pdo->exec("ALTER TABLE customers ADD COLUMN otp_code TEXT"); } catch (\Throwable $e) {}
+    try { $pdo->exec("ALTER TABLE customers ADD COLUMN otp_expires_at TEXT"); } catch (\Throwable $e) {}
     $pdo->exec(
         "CREATE TABLE IF NOT EXISTS orders (
           id INTEGER PRIMARY KEY AUTOINCREMENT,

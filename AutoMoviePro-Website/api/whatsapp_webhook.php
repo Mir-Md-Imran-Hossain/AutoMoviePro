@@ -88,13 +88,24 @@ foreach ($entries as $entry) {
 
                 if ($senderPhone === '' || $body === '') continue;
 
-                // 1. Store in wa_inbox_messages
+                // 1. Store in wa_inbox_messages and inbound_messages (WAManager Pro)
                 try {
                     $insInbox = $pdo->prepare(
                         "INSERT INTO wa_inbox_messages (id, account_id, direction, sender_phone, recipient_phone, sender_name, message_body, status, is_read, timestamp)
-                         VALUES (?, 'primary_cloud_api', 'inbound', ?, 'business', ?, ?, 'delivered', 0, NOW())"
+                         VALUES (?, 'primary_cloud_api', 'inbound', ?, 'business', ?, ?, 'delivered', 0, CURRENT_TIMESTAMP)"
                     );
                     $insInbox->execute([$msgId, $senderPhone, $contactName, $body]);
+
+                    $cleanDigits = preg_replace('/\D+/', '', $senderPhone);
+                    if (str_starts_with($cleanDigits, '01')) $cleanDigits = '880' . substr($cleanDigits, 1);
+                    $normPhone = '+' . $cleanDigits;
+
+                    $pdo->prepare("INSERT OR REPLACE INTO inbound_messages (id, account_id, sender_phone, sender_name, message_body, is_read, timestamp) VALUES (?, 'primary_cloud_api', ?, ?, ?, 0, CURRENT_TIMESTAMP)")
+                        ->execute([$msgId, $normPhone, $contactName, $body]);
+
+                    $cId = 'cnt_' . round(microtime(true) * 1000) . '_' . mt_rand(100, 999);
+                    $pdo->prepare("INSERT OR REPLACE INTO contacts (id, name, phone, country_code, source, consent_status, created_at, updated_at) VALUES (?, ?, ?, '880', 'whatsapp_inbound', 'opted_in', CURRENT_TIMESTAMP, CURRENT_TIMESTAMP)")
+                        ->execute([$cId, $contactName, $normPhone]);
                 } catch (\Throwable $e) {}
 
                 // 2. Also register or update in whatsapp_leads
