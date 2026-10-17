@@ -137,10 +137,19 @@ def post_to_facebook(text_content, img_path):
         return
     try:
         try:
+            if r"E:\AI Assistant\Automations" not in sys.path:
+                sys.path.append(r"E:\AI Assistant\Automations")
             from omni_chrome_watchdog import terminate_chrome_gracefully
             terminate_chrome_gracefully(timeout_seconds=30, reason="AutoMovie Pro অটোমেটেড মার্কেটিং পোস্টিং")
         except Exception:
-            os.system("taskkill /F /IM chrome.exe >nul 2>&1")
+            si = None
+            cflags = 0
+            if sys.platform == "win32":
+                si = subprocess.STARTUPINFO()
+                si.dwFlags |= subprocess.STARTF_USESHOWWINDOW
+                si.wShowWindow = 0
+                cflags = subprocess.CREATE_NO_WINDOW
+            subprocess.run(["taskkill", "/F", "/IM", "chrome.exe"], stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL, startupinfo=si, creationflags=cflags)
         time.sleep(1)
         
         user_data_dir = r"E:\AI Assistant\Automation Workspace\Social_Media_Profiles\Facebook_AssunnahPath"

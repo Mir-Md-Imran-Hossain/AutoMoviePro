@@ -5,10 +5,37 @@ require dirname(__DIR__) . '/includes/bootstrap.php';
 require __DIR__ . '/_layout.php';
 require_once dirname(__DIR__) . '/includes/whatsapp.php';
 require_once dirname(__DIR__) . '/includes/agent_llm.php';
+require_once dirname(__DIR__) . '/includes/marketing_master_agent.php';
 
 require_admin();
 
 ensure_amp_migrations($pdo);
+
+// -----------------------------------------------------------------------------
+// AJAX SIMULATION ENDPOINT (Zero-latency Master AI Sandbox)
+// -----------------------------------------------------------------------------
+if (isset($_GET['ajax']) && $_GET['ajax'] === 'simulate_ai') {
+    header('Content-Type: application/json; charset=utf-8');
+    $rawInput = file_get_contents('php://input');
+    $payload = json_decode((string)$rawInput, true) ?: $_POST;
+    $userMsg = trim((string)($payload['user_message'] ?? ''));
+    $agentReq = trim((string)($payload['requested_agent'] ?? 'auto'));
+    $leadName = trim((string)($payload['lead_name'] ?? 'সম্মানিত অতিথি'));
+
+    $res = MarketingMasterBrain::process($pdo, $config, [
+        'channel' => 'whatsapp_crm',
+        'user_message' => $userMsg,
+        'requested_agent' => $agentReq,
+        'lead_name' => $leadName,
+    ]);
+
+    echo json_encode([
+        'ok' => true,
+        'reply' => $res['reply'],
+        'meta' => $res['meta']
+    ]);
+    exit;
+}
 
 $message = '';
 $error = '';
@@ -61,6 +88,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 $accId = 'acc_' . time() . '_' . mt_rand(100, 999);
                 $ins = $pdo->prepare("INSERT INTO accounts (id, name, phone, provider_type, status, session_health, daily_limit, daily_sent_today, messages_sent_count, last_active_at, created_at) VALUES (?, ?, ?, ?, 'connected', 100, ?, 0, 0, CURRENT_TIMESTAMP, CURRENT_TIMESTAMP)");
                 $ins->execute([$accId, $accName, '+' . $cleanPhone, $provType, $dailyLimit]);
+                try {
+                    $pdo->prepare("INSERT OR REPLACE INTO wa_accounts (id, name, phone, provider_type, status, session_health, daily_limit, daily_sent_today, messages_sent_count, last_active_at, created_at) VALUES (?, ?, ?, ?, 'connected', 100, ?, 0, 0, CURRENT_TIMESTAMP, CURRENT_TIMESTAMP)")
+                        ->execute([$accId, $accName, '+' . $cleanPhone, $provType, $dailyLimit]);
+                } catch (\Throwable $e) {}
                 $message = "নতুন নম্বর '{$accName}' (+{$cleanPhone}) সফলভাবে রোটেশন পুলে যুক্ত হয়েছে!";
                 $activeTab = 'accounts';
             }
@@ -71,24 +102,181 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $accId = trim((string) ($_POST['account_id'] ?? ''));
             if ($accId !== '') {
                 $pdo->prepare("DELETE FROM accounts WHERE id = ?")->execute([$accId]);
+                try { $pdo->prepare("DELETE FROM wa_accounts WHERE id = ?")->execute([$accId]); } catch (\Throwable $e) {}
                 $message = 'হোয়াটসঅ্যাপ অ্যাকাউন্টটি রোটেশন পুল থেকে সফলভাবে অপসারিত হয়েছে!';
                 $activeTab = 'accounts';
             }
         }
 
-        // 4. TOGGLE OR SAVE AGENT SETTINGS
-        elseif ($action === 'save_agents') {
+        // 4. GROUP CONTACTS GRABBER / EXTRACTOR
+        elseif ($action === 'grab_group_contacts') {
+            $rawText = (string) ($_POST['raw_group_text'] ?? '');
+            $targetGroupId = trim((string) ($_POST['target_group_id'] ?? ''));
+            $newGroupName = trim((string) ($_POST['new_group_name'] ?? ''));
+
+            if ($targetGroupId === 'new' && $newGroupName !== '') {
+                $targetGroupId = 'grp_' . round(microtime(true) * 1000) . '_' . mt_rand(100, 999);
+                $pdo->prepare("INSERT INTO contact_groups (id, name, description, created_at) VALUES (?, ?, 'Extracted from WhatsApp Group', CURRENT_TIMESTAMP)")->execute([$targetGroupId, $newGroupName]);
+                try { $pdo->prepare("INSERT INTO wa_contact_groups (id, name, description, created_at) VALUES (?, ?, 'Extracted from WhatsApp Group', CURRENT_TIMESTAMP)")->execute([$targetGroupId, $newGroupName]); } catch (\Throwable $e) {}
+            }
+
+            preg_match_all('/(\+?8801[3-9]\d{8}|01[3-9]\d{8}|\+?[1-9]\d{9,14})/', $rawText, $matches);
+            $rawNumbers = array_unique($matches[0] ?? []);
+            $savedCount = 0;
+
+            foreach ($rawNumbers as $num) {
+                $clean = whatsapp_clean_phone($num, true);
+                if (strlen($clean) >= 10) {
+                    $cId = 'cnt_' . round(microtime(true) * 1000) . '_' . mt_rand(100, 999);
+                    $ins = $pdo->prepare("INSERT INTO contacts (id, name, phone, tags, status, created_at) VALUES (?, 'Group Member', ?, 'group_extracted', 'active', CURRENT_TIMESTAMP)");
+                    try {
+                        $ins->execute([$cId, '+' . $clean]);
+                        $savedCount++;
+                        if ($targetGroupId !== '' && $targetGroupId !== 'new') {
+                            $mId = 'gm_' . round(microtime(true) * 1000) . '_' . mt_rand(100, 999);
+                            $pdo->prepare("INSERT INTO contact_group_members (id, group_id, contact_id, created_at) VALUES (?, ?, ?, CURRENT_TIMESTAMP)")->execute([$mId, $targetGroupId, $cId]);
+                        }
+                    } catch (\Throwable $e) {}
+                }
+            }
+
+            $message = "গ্রুপ থেকে সফলভাবে {$savedCount}টি সক্রিয় ফোন নম্বর এক্সট্র্যাক্ট করে ডাটাবেজে সংরক্ষণ করা হয়েছে!";
+            $activeTab = 'grabber';
+        }
+
+        // 5. BULK NUMBER FILTER & VALIDATOR
+        elseif ($action === 'filter_numbers') {
+            $rawInputList = (string) ($_POST['raw_numbers_to_filter'] ?? '');
+            $saveValid = isset($_POST['save_valid_to_group']);
+            $targetGroup = trim((string) ($_POST['filter_target_group'] ?? ''));
+
+            $lines = preg_split('/[\r\n,;]+/', $rawInputList);
+            $validList = [];
+            $invalidList = [];
+
+            foreach ($lines as $ln) {
+                $clean = preg_replace('/\D+/', '', trim($ln));
+                if (str_starts_with($clean, '01') && strlen($clean) === 11) {
+                    $validList[] = '+88' . $clean;
+                } elseif (str_starts_with($clean, '8801') && strlen($clean) === 13) {
+                    $validList[] = '+' . $clean;
+                } elseif (strlen($clean) >= 10 && strlen($clean) <= 15) {
+                    $validList[] = '+' . $clean;
+                } else {
+                    if (trim($ln) !== '') $invalidList[] = trim($ln);
+                }
+            }
+
+            $validList = array_values(array_unique($validList));
+            $savedValidCount = 0;
+
+            if ($saveValid && !empty($validList)) {
+                foreach ($validList as $vPhone) {
+                    $cId = 'cnt_' . round(microtime(true) * 1000) . '_' . mt_rand(100, 999);
+                    try {
+                        $pdo->prepare("INSERT INTO contacts (id, name, phone, tags, status, created_at) VALUES (?, 'Validated Lead', ?, 'number_validator', 'active', CURRENT_TIMESTAMP)")->execute([$cId, $vPhone]);
+                        $savedValidCount++;
+                        if ($targetGroup !== '') {
+                            $mId = 'gm_' . round(microtime(true) * 1000) . '_' . mt_rand(100, 999);
+                            $pdo->prepare("INSERT INTO contact_group_members (id, group_id, contact_id, created_at) VALUES (?, ?, ?, CURRENT_TIMESTAMP)")->execute([$mId, $targetGroup, $cId]);
+                        }
+                    } catch (\Throwable $e) {}
+                }
+            }
+
+            $_SESSION['filter_results'] = [
+                'total' => count($lines),
+                'valid_count' => count($validList),
+                'invalid_count' => count($invalidList),
+                'valid_list' => array_slice($validList, 0, 50),
+                'invalid_list' => array_slice($invalidList, 0, 50),
+                'saved_count' => $savedValidCount
+            ];
+            $message = "নম্বর ফিল্টারিং সম্পন্ন: " . count($validList) . "টি ভ্যালিড এবং " . count($invalidList) . "টি ইনভ্যালিড নম্বর সনাক্ত হয়েছে!";
+            $activeTab = 'filter';
+        }
+
+        // 6. CREATE CONTACT GROUP
+        elseif ($action === 'create_contact_group') {
+            $gName = trim((string) ($_POST['group_name'] ?? ''));
+            $gDesc = trim((string) ($_POST['group_desc'] ?? ''));
+            if ($gName !== '') {
+                $gId = 'grp_' . round(microtime(true) * 1000) . '_' . mt_rand(100, 999);
+                $pdo->prepare("INSERT INTO contact_groups (id, name, description, created_at) VALUES (?, ?, ?, CURRENT_TIMESTAMP)")->execute([$gId, $gName, $gDesc]);
+                try { $pdo->prepare("INSERT INTO wa_contact_groups (id, name, description, created_at) VALUES (?, ?, ?, CURRENT_TIMESTAMP)")->execute([$gId, $gName, $gDesc]); } catch (\Throwable $e) {}
+                $message = "নতুন অডিয়েন্স গ্রুপ '{$gName}' সফলভাবে তৈরি হয়েছে!";
+            }
+            $activeTab = 'contacts';
+        }
+
+        // 7. ADD MANUAL NUMBERS TO GROUP
+        elseif ($action === 'add_manual_numbers_to_group') {
+            $gId = trim((string) ($_POST['group_id'] ?? ''));
+            $rawNumbers = (string) ($_POST['manual_numbers'] ?? '');
+            $lines = preg_split('/[\r\n,;]+/', $rawNumbers);
+            $added = 0;
+
+            foreach ($lines as $ln) {
+                $clean = whatsapp_clean_phone($ln, true);
+                if (strlen($clean) >= 10) {
+                    $cId = 'cnt_' . round(microtime(true) * 1000) . '_' . mt_rand(100, 999);
+                    try {
+                        $pdo->prepare("INSERT INTO contacts (id, name, phone, tags, status, created_at) VALUES (?, 'Manual Contact', ?, 'manual_add', 'active', CURRENT_TIMESTAMP)")->execute([$cId, '+' . $clean]);
+                        if ($gId !== '') {
+                            $mId = 'gm_' . round(microtime(true) * 1000) . '_' . mt_rand(100, 999);
+                            $pdo->prepare("INSERT INTO contact_group_members (id, group_id, contact_id, created_at) VALUES (?, ?, ?, CURRENT_TIMESTAMP)")->execute([$mId, $gId, $cId]);
+                        }
+                        $added++;
+                    } catch (\Throwable $e) {}
+                }
+            }
+            $message = "গ্রুপে সফলভাবে {$added}টি নম্বর অন্তর্ভুক্ত করা হয়েছে!";
+            $activeTab = 'contacts';
+        }
+
+        // 8. CREATE / UPDATE CONVERSION TEMPLATE
+        elseif ($action === 'create_template') {
+            $tTitle = trim((string) ($_POST['template_title'] ?? ''));
+            $tCat = trim((string) ($_POST['template_category'] ?? 'General'));
+            $tContent = trim((string) ($_POST['template_content'] ?? ''));
+
+            if ($tTitle !== '' && $tContent !== '') {
+                $tId = 'tpl_' . round(microtime(true) * 1000) . '_' . mt_rand(100, 999);
+                $vars = json_encode(['name', 'package', 'link', 'coupon', 'login_id']);
+                $pdo->prepare("INSERT INTO message_templates (id, title, category, content, variables, created_at) VALUES (?, ?, ?, ?, ?, CURRENT_TIMESTAMP)")->execute([$tId, $tTitle, $tCat, $tContent, $vars]);
+                try {
+                    $pdo->prepare("INSERT INTO whatsapp_templates (template_key, title, category, body, is_active, created_at) VALUES (?, ?, ?, ?, 1, CURRENT_TIMESTAMP)")->execute([$tId, $tTitle, $tCat, $tContent]);
+                } catch (\Throwable $e) {}
+                $message = "নতুন কনভার্সন টেমপ্লেট '{$tTitle}' সফলভাবে সংরক্ষিত হয়েছে!";
+            }
+            $activeTab = 'templates';
+        }
+
+        // 9. DELETE TEMPLATE
+        elseif ($action === 'delete_template') {
+            $tId = trim((string) ($_POST['template_id'] ?? ''));
+            if ($tId !== '') {
+                $pdo->prepare("DELETE FROM message_templates WHERE id = ?")->execute([$tId]);
+                try { $pdo->prepare("DELETE FROM whatsapp_templates WHERE template_key = ?")->execute([$tId]); } catch (\Throwable $e) {}
+                $message = "টেমপ্লেটটি সফলভাবে অপসারিত হয়েছে!";
+            }
+            $activeTab = 'templates';
+        }
+
+        // 10. SAVE MASTER AI SETTINGS
+        elseif ($action === 'save_master_ai') {
             set_setting($pdo, 'agent_ayesha_active', isset($_POST['agent_ayesha_active']) ? '1' : '0');
             set_setting($pdo, 'agent_nirob_active', isset($_POST['agent_nirob_active']) ? '1' : '0');
             set_setting($pdo, 'agent_tania_active', isset($_POST['agent_tania_active']) ? '1' : '0');
             if (isset($_POST['ayesha_prompt'])) set_setting($pdo, 'ayesha_custom_prompt', trim((string)$_POST['ayesha_prompt']));
             if (isset($_POST['nirob_prompt'])) set_setting($pdo, 'nirob_custom_prompt', trim((string)$_POST['nirob_prompt']));
             if (isset($_POST['tania_prompt'])) set_setting($pdo, 'tania_custom_prompt', trim((string)$_POST['tania_prompt']));
-            $message = '৩ জন এআই এজেন্টের সক্রিয়তা ও প্রম্পট কনফিগারেশন সফলভাবে আপডেট হয়েছে!';
+            if (isset($_POST['master_discount_coupon'])) set_setting($pdo, 'agent_discount_coupon', trim((string)$_POST['master_discount_coupon']));
+            $message = 'চিফ মার্কেটিং ডিরেক্টর ও ৩ জন এআই এজেন্টের সেটিংস সফলভাবে আপডেট হয়েছে!';
             $activeTab = 'agents';
         }
 
-        // 5. QUICK DISPATCH TRIGGER (Order Approved, Demo, Check-in, Update)
+        // 11. QUICK CUSTOMER DISPATCH
         elseif ($action === 'quick_dispatch') {
             $triggerType = trim((string) ($_POST['trigger_type'] ?? 'order_approved'));
             $cName = trim((string) ($_POST['customer_name'] ?? 'সম্মানিত গ্রাহক'));
@@ -119,20 +307,17 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                     $msgContent = $customNote ?: "Assalamu Alaikum {$cName}!\nAutoMovie Pro টিম থেকে শুভেচ্ছা।";
                 }
 
-                // Dispatch using Anti-Ban Sentinel with priority bypass for urgent triggers
                 $priority = in_array($triggerType, ['order_approved', 'customer_inquiry'], true) ? 'high' : 'normal';
                 $dispRes = whatsapp_antiban_dispatch($pdo, $config, $cleanPhone, $msgContent, $priority, $triggerType);
-
                 $delayNote = $dispRes['delay_applied'] > 0 ? " ({$dispRes['delay_applied']}s অ্যান্টি-ব্যান জিটার প্রয়োগ)" : " (০ সেকেন্ড জরুরি বাইপাস)";
                 $message = "গ্রাহক {$cName} ({$dispRes['phone']})-এর কাছে {$dispRes['account_used']} নম্বর দিয়ে বার্তা প্রেরণ করা হয়েছে{$delayNote}!";
                 $activeTab = 'dispatch';
             }
         }
 
-        // 6. BROADCAST CAMPAIGN DISPATCH
+        // 12. BROADCAST CAMPAIGN DISPATCH
         elseif ($action === 'broadcast_campaign') {
             $targetAudience = trim((string) ($_POST['target_audience'] ?? 'all_leads'));
-            $campTopic = trim((string) ($_POST['campaign_topic'] ?? 'marketing_notice'));
             $campMessage = trim((string) ($_POST['campaign_message'] ?? ''));
 
             if (empty($campMessage)) {
@@ -143,6 +328,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                     $contacts = $pdo->query("SELECT name, clean_phone as phone, interest_package as pkg FROM whatsapp_leads ORDER BY id DESC LIMIT 50")->fetchAll(PDO::FETCH_ASSOC);
                 } elseif ($targetAudience === 'all_paid') {
                     $contacts = $pdo->query("SELECT name, whatsapp as phone, plan_name as pkg FROM orders WHERE status IN ('approved', 'active') GROUP BY whatsapp LIMIT 50")->fetchAll(PDO::FETCH_ASSOC);
+                } elseif (str_starts_with($targetAudience, 'group_')) {
+                    $targetGid = substr($targetAudience, 6);
+                    $stmt = $pdo->prepare("SELECT c.name, c.phone, '' as pkg FROM contacts c JOIN contact_group_members m ON c.id = m.contact_id WHERE m.group_id = ? LIMIT 50");
+                    $stmt->execute([$targetGid]);
+                    $contacts = $stmt->fetchAll(PDO::FETCH_ASSOC);
                 } else {
                     $contacts = $pdo->query("SELECT name, phone, tags as pkg FROM contacts LIMIT 50")->fetchAll(PDO::FETCH_ASSOC);
                 }
@@ -158,8 +348,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                         $p = whatsapp_clean_phone($c['phone'] ?? '', true);
                         if (strlen($p) < 10) continue;
                         $persText = str_replace(
-                            ['{name}', '{package}', '{login_id}'],
-                            [$c['name'] ?: 'সম্মানিত গ্রাহক', $c['pkg'] ?: 'AutoMovie Pro', 'amp_' . mt_rand(1000, 9999)],
+                            ['{name}', '{package}', '{login_id}', '{coupon}', '{link}'],
+                            [$c['name'] ?: 'সম্মানিত গ্রাহক', $c['pkg'] ?: 'AutoMovie Pro', 'amp_' . mt_rand(1000, 9999), 'SPECIAL500', 'https://automoviepro.com/order.php'],
                             $campMessage
                         );
                         whatsapp_antiban_dispatch($pdo, $config, $p, $persText, 'normal', 'campaign_broadcast');
@@ -171,7 +361,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             }
         }
 
-        // 7. CRM INBOX LIVE REPLY
+        // 13. CRM INBOX LIVE REPLY
         elseif ($action === 'crm_reply') {
             $leadPhone = trim((string) ($_POST['lead_phone'] ?? ''));
             $replyText = trim((string) ($_POST['reply_text'] ?? ''));
@@ -190,7 +380,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 }
 
 // -----------------------------------------------------------------------------
-// DATA FETCHING FOR DESKTOP SUITE
+// DATA FETCHING FOR FULL DESKTOP SUITE
 // -----------------------------------------------------------------------------
 $accountsPool = whatsapp_get_accounts_pool($pdo);
 $totalActiveAccounts = 0;
@@ -207,9 +397,71 @@ $totalOrders = (int) $pdo->query("SELECT COUNT(*) FROM orders WHERE status IN ('
 $totalDispatches = (int) $pdo->query("SELECT COUNT(*) FROM request_dispatches")->fetchColumn();
 $recentDispatches = $pdo->query("SELECT * FROM request_dispatches ORDER BY created_at DESC LIMIT 15")->fetchAll(PDO::FETCH_ASSOC);
 
+// Contact groups
+$contactGroups = [];
+try {
+    $contactGroups = $pdo->query("
+        SELECT g.id, g.name, g.description, g.created_at, COUNT(m.contact_id) as member_count
+        FROM contact_groups g
+        LEFT JOIN contact_group_members m ON g.id = m.group_id
+        GROUP BY g.id, g.name, g.description, g.created_at
+        ORDER BY g.created_at DESC
+    ")->fetchAll(PDO::FETCH_ASSOC);
+} catch (\Throwable $e) {}
+
+$totalContacts = 0;
+try {
+    $totalContacts = (int) $pdo->query("SELECT COUNT(*) FROM contacts")->fetchColumn();
+} catch (\Throwable $e) {}
+
+// Conversion Templates
+$savedTemplates = [];
+try {
+    $savedTemplates = $pdo->query("SELECT * FROM message_templates ORDER BY created_at DESC")->fetchAll(PDO::FETCH_ASSOC);
+} catch (\Throwable $e) {}
+
+// Pre-seeded elite conversion templates if empty
+$defaultEliteTemplates = [
+    [
+        'id' => 'hormozi_grand_slam',
+        'title' => '👑 Alex Hormozi: Grand Slam Offer (No-Brainer Deal + Guarantee)',
+        'category' => 'Hormozi Persuasion',
+        'content' => "Assalamu Alaikum {name}!\n\nআপনি কি কোনো ভিডিও এডিটিং দক্ষতা ছাড়াই দিনে ৩-৫টি ভাইরাল ভিডিও বানিয়ে প্যাসিভ ইনকাম শুরু করতে চান?\n\nAutoMovie Pro-এর আজকের গ্র্যান্ড স্ল্যাম অফার:\n• ৩,৯৯৯ টাকার ফুল ভিডিও স্টুডিও কিনলে সাথে পাচ্ছেন রেডি-মেড ১০০+ ভাইরাল স্ক্রিপ্ট ভল্ট সম্পূর্ণ ফ্রি।\n• ১৮টি চ্যানেলে স্বয়ংক্রিয় শিডিউলিং ও লোকাল পিসি সিকিউরিটি।\n• ১০০% রিপ্লেসমেন্ট ও মানি-ব্যাক ওয়ারেন্টি গ্যারান্টি!\n\nঅর্ডার করতে ভিজিট করুন: {link}\nকুপন কোড: {coupon}",
+    ],
+    [
+        'id' => 'brunson_epiphany',
+        'title' => '🚀 Russell Brunson: Hook-Story-Offer (Epiphany Bridge)',
+        'category' => 'Brunson Conversion',
+        'content' => "প্রতিদিন ৫-৬ ঘণ্টা বসে ভিডিও এডিট করতে করতে ক্লান্ত?\n\nসম্মানিত {name}, আমিও ঠিক এই সমস্যার মধ্যে ছিলাম—যতক্ষণ না AutoMovie Pro ব্যবহার শুরু করলাম! এখন মাত্র ১-ক্লিকে স্ক্রিপ্ট থেকে শুরু করে মানুষের মতো ভয়েসওভার ও সিনেমাটিক সাবটাইটেল তৈরি হয়ে যায়।\n\nআপনার মূল্যবান সময় বাঁচান এবং আজই অটোমেশনের শক্তি উপভোগ করুন:\n👉 {link}",
+    ],
+    [
+        'id' => 'scarcity_countdown',
+        'title' => '⏳ Scarcity & Urgency: ৫০% মেগা ডিসকাউন্ট ফ্ল্যাশ ডিল',
+        'category' => 'Urgency Deal',
+        'content' => "🔥 মেগা ফ্ল্যাশ ডিল এলার্ট!\n\nসম্মানিত {name}, আগামী ২৪ ঘণ্টার জন্য আমাদের লাইফটাইম ভিডিও স্টুডিও ও মেটা বিজনেস লাইসেন্সে বিশেষ ৫০০ টাকা ছাড় চলছে!\n\nসিক্রেট কুপন কোড: {coupon}\nসরাসরি অর্ডার লিংক: https://automoviepro.com/order.php?coupon={coupon}\n\nস্টক সীমিত, সময় শেষ হওয়ার আগেই আপনার অ্যাক্টিভেশন নিশ্চিত করুন।",
+    ],
+    [
+        'id' => 'demo_video_guide',
+        'title' => '🎬 1-Click Video Demo & Non-Tech Setup Guide',
+        'category' => 'Product Demo',
+        'content' => "Assalamu Alaikum {name}!\n\nAutoMovie Pro কীভাবে কোনো কোডিং বা এডিটিং ছাড়া মাত্র ২ মিনিটে ফুল 4K ভিডিও রেন্ডার করে, তা নিজের চোখে দেখতে নিচের ভিডিও ডেমোটি চেক করুন:\n👉 https://automoviepro.com/#features\n\nআপনার পিসিতে Windows 10/11 ও 4GB RAM থাকলেই অনায়াসে চলবে। কোনো প্রশ্ন থাকলে সরাসরি জানান!",
+    ],
+    [
+        'id' => 'vip_onboarding',
+        'title' => '💎 Post-Purchase VIP Onboarding & License Key',
+        'category' => 'VIP Delivery',
+        'content' => "অভিনন্দন {name}! আপনার AutoMovie Pro লাইসেন্স সফলভাবে অ্যাক্টিভ করা হয়েছে। 🎉\n\n🔑 লগইন আইডি: {login_id}\n📥 ডাউনলোড লিংক: {link}\n📖 সেটআপ নির্দেশিকা: https://automoviepro.com/guide.html\n\nআমাদের ২৪/৭ অফিশিয়াল হোয়াটসঅ্যাপ সাপোর্ট সর্বদা আপনার পাশে রয়েছে। শুভকামনা!",
+    ]
+];
+
 // CRM Threads
-$crmThreads = $pdo->query("SELECT * FROM whatsapp_leads ORDER BY updated_at DESC LIMIT 20")->fetchAll(PDO::FETCH_ASSOC);
-$recentInbound = $pdo->query("SELECT * FROM inbound_messages ORDER BY timestamp DESC LIMIT 10")->fetchAll(PDO::FETCH_ASSOC);
+$crmThreads = [];
+try {
+    $crmThreads = $pdo->query("SELECT * FROM whatsapp_leads ORDER BY updated_at DESC LIMIT 20")->fetchAll(PDO::FETCH_ASSOC);
+} catch (\Throwable $e) {}
+
+$filterResults = $_SESSION['filter_results'] ?? null;
+unset($_SESSION['filter_results']);
 
 admin_header('WAManager Pro — অফিসিয়াল হোয়াটসঅ্যাপ মার্কেটিং ও এআই সিআরএম স্যুট', 'whatsapp');
 ?>
@@ -239,13 +491,12 @@ admin_header('WAManager Pro — অফিসিয়াল হোয়াটসঅ�
     padding-bottom: 3rem;
   }
 
-  /* TOP MASTER HUD */
+  /* MASTER HUD */
   .wam-master-hud {
-    background: linear-gradient(135deg, rgba(15, 23, 42, 0.95), rgba(2, 6, 23, 0.98));
+    background: linear-gradient(135deg, rgba(16, 185, 129, 0.12), rgba(6, 182, 212, 0.08), rgba(15, 23, 42, 0.95));
     border: 1px solid var(--wam-border-glow);
     border-radius: 16px;
     padding: 1.25rem 1.75rem;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.6), 0 0 25px rgba(16, 185, 129, 0.12);
     display: flex;
     flex-wrap: wrap;
     align-items: center;
@@ -318,40 +569,40 @@ admin_header('WAManager Pro — অফিসিয়াল হোয়াটসঅ�
     border-radius: 20px;
     font-size: 0.78rem;
     font-weight: 600;
-    color: #e2e8f0;
+    color: #cbd5e1;
   }
 
   .wam-pill.secure {
-    border-color: rgba(16, 185, 129, 0.4);
-    background: rgba(16, 185, 129, 0.1);
-    color: #6ee7b7;
+    background: rgba(16, 185, 129, 0.15);
+    border-color: rgba(16, 185, 129, 0.35);
+    color: #34d399;
   }
 
   .wam-pill.ai-live {
-    border-color: rgba(6, 182, 212, 0.4);
-    background: rgba(6, 182, 212, 0.1);
-    color: #67e8f9;
+    background: rgba(6, 182, 212, 0.15);
+    border-color: rgba(6, 182, 212, 0.35);
+    color: #38bdf8;
   }
 
   .wam-pulse {
     width: 8px;
     height: 8px;
     border-radius: 50%;
-    background: var(--wam-primary);
-    box-shadow: 0 0 10px var(--wam-primary);
+    background: #10b981;
+    box-shadow: 0 0 10px #10b981;
     animation: pulse 1.8s infinite;
   }
 
   @keyframes pulse {
-    0% { transform: scale(0.95); opacity: 0.7; }
-    50% { transform: scale(1.15); opacity: 1; }
-    100% { transform: scale(0.95); opacity: 0.7; }
+    0% { transform: scale(0.9); opacity: 0.8; }
+    50% { transform: scale(1.3); opacity: 1; }
+    100% { transform: scale(0.9); opacity: 0.8; }
   }
 
   /* METRICS STRIP */
   .wam-metrics-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(170px, 1fr));
     gap: 1rem;
   }
 
@@ -399,7 +650,7 @@ admin_header('WAManager Pro — অফিসিয়াল হোয়াটসঅ�
   .wam-tabs-deck {
     display: flex;
     align-items: center;
-    gap: 8px;
+    gap: 6px;
     background: #0f172a;
     padding: 6px;
     border-radius: 12px;
@@ -411,14 +662,14 @@ admin_header('WAManager Pro — অফিসিয়াল হোয়াটসঅ�
     background: transparent;
     border: none;
     color: #94a3b8;
-    font-size: 0.88rem;
+    font-size: 0.85rem;
     font-weight: 700;
-    padding: 10px 18px;
+    padding: 9px 15px;
     border-radius: 8px;
     cursor: pointer;
     display: inline-flex;
     align-items: center;
-    gap: 8px;
+    gap: 7px;
     white-space: nowrap;
     transition: all 0.2s ease;
     text-decoration: none;
@@ -459,13 +710,15 @@ admin_header('WAManager Pro — অফিসিয়াল হোয়াটসঅ�
     display: flex;
     align-items: center;
     justify-content: space-between;
-    margin-bottom: 1.25rem;
-    padding-bottom: 0.75rem;
+    flex-wrap: wrap;
+    gap: 1rem;
+    padding-bottom: 1.25rem;
     border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    margin-bottom: 1.25rem;
   }
 
   .wam-section-header h2 {
-    font-size: 1.15rem;
+    font-size: 1.2rem;
     font-weight: 800;
     color: #ffffff;
     margin: 0;
@@ -475,36 +728,37 @@ admin_header('WAManager Pro — অফিসিয়াল হোয়াটসঅ�
   }
 
   .wam-section-header p {
-    font-size: 0.82rem;
+    font-size: 0.85rem;
     color: var(--wam-text-muted);
     margin: 4px 0 0;
   }
 
-  /* BUTTONS & FORMS */
+  /* BUTTONS */
   .btn-wam-primary {
     background: linear-gradient(135deg, var(--wam-primary), var(--wam-primary-dark));
     color: #ffffff;
     font-weight: 700;
-    font-size: 0.85rem;
-    padding: 9px 18px;
+    font-size: 0.88rem;
+    padding: 10px 18px;
     border-radius: 8px;
     border: none;
     cursor: pointer;
+    box-shadow: 0 4px 15px rgba(16, 185, 129, 0.35);
     display: inline-flex;
     align-items: center;
-    gap: 6px;
-    box-shadow: 0 4px 14px rgba(16, 185, 129, 0.3);
-    transition: all 0.2s ease;
+    gap: 8px;
+    text-decoration: none;
+    transition: transform 0.15s ease, box-shadow 0.15s ease;
   }
 
   .btn-wam-primary:hover {
     transform: translateY(-1px);
-    box-shadow: 0 6px 20px rgba(16, 185, 129, 0.4);
+    box-shadow: 0 6px 20px rgba(16, 185, 129, 0.45);
   }
 
   .btn-wam-secondary {
     background: #1e293b;
-    color: #cbd5e1;
+    color: #e2e8f0;
     font-weight: 600;
     font-size: 0.85rem;
     padding: 8px 14px;
@@ -514,7 +768,8 @@ admin_header('WAManager Pro — অফিসিয়াল হোয়াটসঅ�
     display: inline-flex;
     align-items: center;
     gap: 6px;
-    transition: all 0.2s ease;
+    text-decoration: none;
+    transition: background 0.15s ease;
   }
 
   .btn-wam-secondary:hover {
@@ -524,23 +779,23 @@ admin_header('WAManager Pro — অফিসিয়াল হোয়াটসঅ�
 
   .btn-wam-danger {
     background: rgba(239, 68, 68, 0.15);
-    color: #f87171;
     border: 1px solid rgba(239, 68, 68, 0.3);
-    font-size: 0.8rem;
+    color: #f87171;
+    font-size: 0.78rem;
     font-weight: 600;
-    padding: 6px 10px;
+    padding: 5px 10px;
     border-radius: 6px;
     cursor: pointer;
   }
 
   .btn-wam-danger:hover {
-    background: #ef4444;
-    color: #ffffff;
+    background: rgba(239, 68, 68, 0.25);
   }
 
+  /* FORM STYLES */
   .wam-form-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
     gap: 1.25rem;
   }
 
@@ -653,12 +908,12 @@ admin_header('WAManager Pro — অফিসিয়াল হোয়াটসঅ�
   .wam-agent-avatar-deck {
     display: flex;
     align-items: center;
-    gap: 14px;
+    gap: 12px;
   }
 
   .wam-agent-avatar-img {
-    width: 68px;
-    height: 68px;
+    width: 60px;
+    height: 60px;
     border-radius: 50%;
     object-fit: cover;
     border: 2px solid var(--wam-primary);
@@ -667,22 +922,22 @@ admin_header('WAManager Pro — অফিসিয়াল হোয়াটসঅ�
 
   .wam-agent-details h3 {
     margin: 0;
-    font-size: 1.15rem;
-    color: #ffffff;
+    font-size: 1.05rem;
     font-weight: 800;
+    color: #ffffff;
   }
 
   .wam-agent-role {
     font-size: 0.78rem;
     color: var(--wam-cyan);
-    font-weight: 700;
+    font-weight: 600;
     margin-top: 2px;
   }
 
   /* LIVE WHATSAPP PHONE PREVIEW */
   .wam-phone-mockup {
     width: 100%;
-    max-width: 380px;
+    max-width: 420px;
     background: #0b141a;
     border-radius: 24px;
     border: 3px solid #2a3942;
@@ -765,11 +1020,12 @@ admin_header('WAManager Pro — অফিসিয়াল হোয়াটসঅ�
     padding: 12px 14px;
     border-bottom: 1px solid rgba(255, 255, 255, 0.05);
     cursor: pointer;
-    transition: background 0.2s ease;
+    transition: background 0.15s ease;
   }
 
   .wam-thread-item:hover, .wam-thread-item.active {
-    background: rgba(16, 185, 129, 0.12);
+    background: rgba(16, 185, 129, 0.1);
+    border-left: 3px solid var(--wam-primary);
   }
 
   .wam-crm-main {
@@ -785,15 +1041,16 @@ admin_header('WAManager Pro — অফিসিয়াল হোয়াটসঅ�
     flex: 1;
     padding: 1.25rem;
     overflow-y: auto;
-    background: #080d14;
     display: flex;
     flex-direction: column;
-    gap: 10px;
+    gap: 12px;
+    background-image: radial-gradient(#1e293b 1px, transparent 1px);
+    background-size: 16px 16px;
   }
 
   .wam-crm-chat-foot {
-    background: #111827;
     padding: 12px 16px;
+    background: #111827;
     border-top: 1px solid var(--wam-border);
     display: flex;
     gap: 10px;
@@ -825,6 +1082,44 @@ admin_header('WAManager Pro — অফিসিয়াল হোয়াটসঅ�
   .wam-table tr:hover td {
     background: rgba(255, 255, 255, 0.02);
   }
+
+  /* TEMPLATE CARDS */
+  .wam-templates-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 1.25rem;
+    margin-top: 1rem;
+  }
+
+  .wam-template-card {
+    background: #0f172a;
+    border: 1px solid var(--wam-border);
+    border-radius: 14px;
+    padding: 1.25rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: 12px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+  }
+
+  .wam-template-card:hover {
+    border-color: rgba(16, 185, 129, 0.35);
+  }
+
+  /* BADGES */
+  .badge-framework {
+    font-size: 0.7rem;
+    padding: 3px 8px;
+    border-radius: 4px;
+    font-weight: 700;
+    text-transform: uppercase;
+    display: inline-block;
+  }
+  .badge-hormozi { background: rgba(245, 158, 11, 0.2); color: #fbbf24; border: 1px solid rgba(245, 158, 11, 0.4); }
+  .badge-brunson { background: rgba(139, 92, 246, 0.2); color: #c084fc; border: 1px solid rgba(139, 92, 246, 0.4); }
+  .badge-urgency { background: rgba(239, 68, 68, 0.2); color: #f87171; border: 1px solid rgba(239, 68, 68, 0.4); }
+  .badge-demo { background: rgba(6, 182, 212, 0.2); color: #38bdf8; border: 1px solid rgba(6, 182, 212, 0.4); }
 </style>
 
 <div class="wam-desktop-wrapper">
@@ -846,23 +1141,26 @@ admin_header('WAManager Pro — অফিসিয়াল হোয়াটসঅ�
     <div class="wam-brand-area">
       <div class="wam-brand-badge-icon">📱</div>
       <div class="wam-brand-titles">
-        <h1>WAManager <span class="wam-brand-tag">PRO DESKTOP</span></h1>
-        <p class="wam-brand-sub">হোয়াটসঅ্যাপ মার্কেটিং, মাল্টি-অ্যাকাউন্ট রোটেশন ও এআই সেলস সিআরএম স্যুট</p>
+        <h1>WAManager <span class="wam-brand-tag">PRO DESKTOP SUITE</span></h1>
+        <p class="wam-brand-sub">হোয়াটসঅ্যাপ মার্কেটিং, গ্রুপ গ্র্যাবার, ফিল্টার, মাল্টি-রোটেশন ও এআই সেলস ব্রেইন</p>
       </div>
     </div>
 
-    <!-- LIVE STATUS PILLS -->
+    <!-- LIVE STATUS PILLS & FULLSCREEN DESKTOP LAUNCHER -->
     <div class="wam-system-pills">
       <div class="wam-pill secure">
         <span class="wam-pulse"></span>
         <span>🛡️ অ্যান্টি-ব্যান শিল্ড: সক্রিয় (100% নিরাপদ)</span>
       </div>
       <div class="wam-pill ai-live">
-        <span>🤖 ৩ জন এআই এজেন্ট: অনলাইন</span>
+        <span>🧠 চিফ মার্কেটিং এআই: অনলাইন</span>
       </div>
       <div class="wam-pill">
-        <span>🔄 স্মার্ট রোটেশন: <?= $totalActiveAccounts ?>টি নম্বর পুল</span>
+        <span>🔄 রোটেশন পুল: <?= $totalActiveAccounts ?>টি নম্বর</span>
       </div>
+      <a href="/assets/wamanager/index.html" target="_blank" class="btn-wam-secondary" style="border-color:#10b981; color:#34d399; font-weight:700;">
+        🖥️ ফুলস্ক্রিন ডেস্কটপ মোড (SPA)
+      </a>
     </div>
   </div>
 
@@ -879,61 +1177,82 @@ admin_header('WAManager Pro — অফিসিয়াল হোয়াটসঅ�
 
     <div class="wam-metric-card">
       <div class="wam-metric-label">
-        <span>আজকের নিরাপদ কোটা</span>
-        <span>🛡️</span>
-      </div>
-      <div class="wam-metric-num" style="color:var(--wam-cyan);"><?= $totalDailyRemaining ?> <span style="font-size:0.9rem; color:#64748b;">বাকি</span></div>
-      <div class="wam-metric-sub">আজকে পাঠানো হয়েছে: <?= $totalDailySent ?> টি</div>
-    </div>
-
-    <div class="wam-metric-card">
-      <div class="wam-metric-label">
-        <span>মোট লিড ও কাস্টমার</span>
+        <span>কন্টাক্ট ডাটাবেজ</span>
         <span>👥</span>
       </div>
-      <div class="wam-metric-num" style="color:var(--wam-purple);"><?= number_format($totalLeads + $totalOrders) ?></div>
-      <div class="wam-metric-sub">লিড: <?= $totalLeads ?> | কাস্টমার: <?= $totalOrders ?></div>
+      <div class="wam-metric-num" style="color:var(--wam-cyan);"><?= $totalContacts ?></div>
+      <div class="wam-metric-sub">ভ্যালিড কন্টাক্ট ও লিড</div>
     </div>
 
     <div class="wam-metric-card">
       <div class="wam-metric-label">
-        <span>অটো লাইসেন্স ডেলিভারি</span>
-        <span>⚡</span>
+        <span>অডিয়েন্স গ্রুপস</span>
+        <span>📁</span>
       </div>
-      <div class="wam-metric-num" style="color:var(--wam-amber);"><?= number_format($totalDispatches) ?></div>
-      <div class="wam-metric-sub">১০০% তাৎক্ষণিক ডেলিভার্ড</div>
+      <div class="wam-metric-num" style="color:var(--wam-purple);"><?= count($contactGroups) ?></div>
+      <div class="wam-metric-sub">কাস্টম টার্গেটেড সেগমেন্ট</div>
+    </div>
+
+    <div class="wam-metric-card">
+      <div class="wam-metric-label">
+        <span>টু-ওয়ে লাইভ লিড</span>
+        <span>💬</span>
+      </div>
+      <div class="wam-metric-num" style="color:var(--wam-amber);"><?= $totalLeads ?></div>
+      <div class="wam-metric-sub">চ্যাট ও ফলো-আপ কিউ</div>
+    </div>
+
+    <div class="wam-metric-card">
+      <div class="wam-metric-label">
+        <span>আজকের ডেলিভারি কোটা</span>
+        <span>🛡️</span>
+      </div>
+      <div class="wam-metric-num" style="color:#ffffff;"><?= $totalDailySent ?> / <?= ($totalDailySent + $totalDailyRemaining) ?></div>
+      <div class="wam-metric-sub">অবশিষ্ট কোটা: <?= $totalDailyRemaining ?>টি</div>
     </div>
   </div>
 
-  <!-- NAVIGATION TABS -->
+  <!-- 10 COMPREHENSIVE CYBER TABS MATCHING DESKTOP SUITE -->
   <div class="wam-tabs-deck">
     <button type="button" class="wam-tab-btn <?= $activeTab === 'accounts' ? 'active' : '' ?>" onclick="switchWamTab('accounts')">
-      <span>📱</span> <span>মাল্টি-অ্যাকাউন্ট ও রোটেশন পুল</span>
+      <span>📱</span> <span>অ্যাকাউন্ট ও কিউআর</span>
     </button>
-    <button type="button" class="wam-tab-btn <?= $activeTab === 'agents' ? 'active' : '' ?>" onclick="switchWamTab('agents')">
-      <span>🤖</span> <span>৩ জন এআই এজেন্ট ও ট্রেইনিং</span>
+    <button type="button" class="wam-tab-btn <?= $activeTab === 'grabber' ? 'active' : '' ?>" onclick="switchWamTab('grabber')">
+      <span>👥</span> <span>গ্রুপ গ্র্যাবার</span>
     </button>
-    <button type="button" class="wam-tab-btn <?= $activeTab === 'antiban' ? 'active' : '' ?>" onclick="switchWamTab('antiban')">
-      <span>🛡️</span> <span>অ্যান্টি-ব্যান সেন্টিনেল ও ডেলিভারি গার্ড</span>
+    <button type="button" class="wam-tab-btn <?= $activeTab === 'filter' ? 'active' : '' ?>" onclick="switchWamTab('filter')">
+      <span>🔍</span> <span>নম্বর ফিল্টার</span>
     </button>
-    <button type="button" class="wam-tab-btn <?= $activeTab === 'crm' ? 'active' : '' ?>" onclick="switchWamTab('crm')">
-      <span>💬</span> <span>টু-ওয়ে লাইভ সিআরএম ও চ্যাট</span>
+    <button type="button" class="wam-tab-btn <?= $activeTab === 'contacts' ? 'active' : '' ?>" onclick="switchWamTab('contacts')">
+      <span>📁</span> <span>কন্টাক্ট ও গ্রুপস</span>
+    </button>
+    <button type="button" class="wam-tab-btn <?= $activeTab === 'templates' ? 'active' : '' ?>" onclick="switchWamTab('templates')">
+      <span>📜</span> <span>টেমপ্লেট লাইব্রেরি</span>
     </button>
     <button type="button" class="wam-tab-btn <?= $activeTab === 'broadcast' ? 'active' : '' ?>" onclick="switchWamTab('broadcast')">
-      <span>📢</span> <span>স্মার্ট ক্যাম্পেইন ও ব্রডকাস্টার</span>
+      <span>📢</span> <span>স্মার্ট ব্রডকাস্ট</span>
+    </button>
+    <button type="button" class="wam-tab-btn <?= $activeTab === 'crm' ? 'active' : '' ?>" onclick="switchWamTab('crm')">
+      <span>💬</span> <span>লাইভ সিআরএম</span>
+    </button>
+    <button type="button" class="wam-tab-btn <?= $activeTab === 'agents' ? 'active' : '' ?>" onclick="switchWamTab('agents')">
+      <span>🧠</span> <span>চিফ এআই ডিরেক্টর</span>
+    </button>
+    <button type="button" class="wam-tab-btn <?= $activeTab === 'antiban' ? 'active' : '' ?>" onclick="switchWamTab('antiban')">
+      <span>🛡️</span> <span>অ্যান্টি-ব্যান সেন্টিনেল</span>
     </button>
     <button type="button" class="wam-tab-btn <?= $activeTab === 'dispatch' ? 'active' : '' ?>" onclick="switchWamTab('dispatch')">
-      <span>⚡</span> <span>কাস্টমার অটো-ডিসপ্যাচ ও হিস্ট্রি</span>
+      <span>⚡</span> <span>অটো-ডিসপ্যাচ</span>
     </button>
   </div>
 
   <!-- ========================================================================= -->
-  <!-- TAB 1: MULTI-ACCOUNT & SMART ROTATION POOL -->
+  <!-- TAB 1: ACCOUNTS & QR MULTI-DEVICE ROTATION -->
   <!-- ========================================================================= -->
   <div class="wam-panel <?= $activeTab === 'accounts' ? 'active' : '' ?>" id="tab-accounts">
     <div class="wam-section-header">
       <div>
-        <h2><span>📱</span> মাল্টি-অ্যাকাউন্ট ও স্মার্ট রোটেশন পুল (৩-৪ নম্বর সংযোগ)</h2>
+        <h2><span>📱</span> মাল্টি-অ্যাকাউন্ট ও কিউআর রোটেশন পুল (Anti-Ban Multi-Device)</h2>
         <p>একাধিক হোয়াটসঅ্যাপ নম্বর যুক্ত থাকলে স্বয়ংক্রিয়ভাবে একটির পর একটি নম্বর থেকে মেসেজ পাঠানো হয়, যার ফলে কোনো নম্বরে ব্যান হওয়ার ঝুঁকি থাকে না।</p>
       </div>
       <button type="button" class="btn-wam-primary" onclick="openAddAccountModal()">
@@ -983,225 +1302,357 @@ admin_header('WAManager Pro — অফিসিয়াল হোয়াটসঅ�
   </div>
 
   <!-- ========================================================================= -->
-  <!-- TAB 2: 3 AI AGENTS & SIMULATOR -->
+  <!-- TAB 2: WHATSAPP GROUP CONTACTS GRABBER -->
   <!-- ========================================================================= -->
-  <div class="wam-panel <?= $activeTab === 'agents' ? 'active' : '' ?>" id="tab-agents">
+  <div class="wam-panel <?= $activeTab === 'grabber' ? 'active' : '' ?>" id="tab-grabber">
     <div class="wam-section-header">
       <div>
-        <h2><span>🤖</span> ৩ জন এআই এজেন্ট ও ট্রেইনিং সেন্ট্রাল (Ayesha, Nirob, Tania)</h2>
-        <p>গ্রাহকের যে ধরণের প্রশ্নই আসুক, সংশ্লিষ্ট দক্ষ এজেন্ট স্বয়ংক্রিয়ভাবে প্রফেশনাল ও নির্ভুল উত্তর প্রদান করবে।</p>
+        <h2><span>👥</span> হোয়াটসঅ্যাপ গ্রুপ কন্টাক্ট গ্র্যাবার (Group Contacts Extractor)</h2>
+        <p>যেকোনো জয়েন করা হোয়াটসঅ্যাপ গ্রুপ থেকে মেম্বারদের ফোন নম্বর ১-ক্লিকে এক্সট্র্যাক্ট করে অডিয়েন্স গ্রুপে সেভ করুন।</p>
+      </div>
+    </div>
+
+    <div style="display:grid; grid-template-columns:1fr 340px; gap:1.5rem;">
+      <div>
+        <form method="POST">
+          <input type="hidden" name="csrf" value="<?= e(csrf_token()) ?>">
+          <input type="hidden" name="action" value="grab_group_contacts">
+
+          <div class="wam-form-group" style="margin-bottom:1rem;">
+            <label>টার্গেট গ্রুপ নির্বাচন করুন (অথবা নতুন নাম দিন):</label>
+            <select class="wam-form-select" name="target_group_id" id="grabberGroupSelect" onchange="toggleNewGroupInput(this.value)">
+              <option value="new">+ নতুন অডিয়েন্স গ্রুপ তৈরি করুন</option>
+              <?php foreach ($contactGroups as $cg): ?>
+                <option value="<?= e($cg['id']) ?>"><?= e($cg['name']) ?> (<?= $cg['member_count'] ?> জন)</option>
+              <?php endforeach; ?>
+            </select>
+          </div>
+
+          <div class="wam-form-group" id="grabberNewGroupField" style="margin-bottom:1rem;">
+            <label>নতুন গ্রুপের নাম:</label>
+            <input type="text" class="wam-form-input" name="new_group_name" placeholder="যেমন: ফেসবুক মার্কেটার্স গ্রুপ ১">
+          </div>
+
+          <div class="wam-form-group" style="margin-bottom:1rem;">
+            <label style="display:flex; justify-content:space-between;">
+              <span>গ্রুপ মেম্বারদের টেক্সট বা চ্যাট এক্সপোর্ট পেস্ট করুন:</span>
+              <span style="font-size:0.75rem; color:#34d399;">স্মার্ট রেজেক্স অটোমেটিক নম্বর আলাদা করবে</span>
+            </label>
+            <textarea class="wam-form-textarea" rows="10" name="raw_group_text" id="grabberTextInput" placeholder="WhatsApp Web বা মোবাইল থেকে গ্রুপ মেম্বারদের লিস্ট কপি করে এখানে পেস্ট করুন...&#10;যেমন: +8801715894521, 01968111593, +8801811223344" required></textarea>
+          </div>
+
+          <div style="display:flex; gap:10px;">
+            <button type="submit" class="btn-wam-primary">
+              👥 গ্রুপ নম্বরগুলো এক্সট্র্যাক্ট ও সেভ করুন
+            </button>
+            <button type="button" class="btn-wam-secondary" onclick="exportGrabberCsv()">
+              📥 CSV এক্সপোর্ট করুন
+            </button>
+          </div>
+        </form>
+      </div>
+
+      <!-- INSTRUCTIONS CARD -->
+      <div style="background:#080d14; border:1px solid #1e293b; border-radius:14px; padding:1.25rem;">
+        <h4 style="color:#ffffff; margin:0 0 10px; font-size:0.95rem; display:flex; align-items:center; gap:6px;">
+          <span>💡</span> ব্যবহারের সহজ ৩টি ধাপ:
+        </h4>
+        <ol style="font-size:0.82rem; color:#94a3b8; padding-left:18px; line-height:1.6; margin:0 0 1rem;">
+          <li>আপনার কম্পিউটার বা মোবাইলে <strong>WhatsApp Web</strong> খুলুন।</li>
+          <li>টার্গেট গ্রুপের ভেতরে ঢুকে গ্রুপ হেডার/মেম্বার লিস্ট বা চ্যাট কপি করুন।</li>
+          <li>বাম পাশের বক্সে পেস্ট করে <strong>'এক্সট্র্যাক্ট ও সেভ করুন'</strong> চাপুন।</li>
+        </ol>
+        <div style="font-size:0.78rem; color:#38bdf8; background:rgba(6,182,212,0.1); border:1px solid rgba(6,182,212,0.3); padding:10px; border-radius:8px;">
+          🛡️ আমাদের এআই স্বয়ংক্রিয়ভাবে ডুপ্লিকেট নম্বর দূর করে এবং স্ট্যান্ডার্ড <code>+880...</code> ফরম্যাটে সাজিয়ে নেয়।
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ========================================================================= -->
+  <!-- TAB 3: NUMBER FILTER & VALIDATOR -->
+  <!-- ========================================================================= -->
+  <div class="wam-panel <?= $activeTab === 'filter' ? 'active' : '' ?>" id="tab-filter">
+    <div class="wam-section-header">
+      <div>
+        <h2><span>🔍</span> নম্বর ফিল্টার ও ভ্যালিডেটর (Bulk WhatsApp Number Validator)</h2>
+        <p>ক্যাম্পেইনের আগে সক্রিয় হোয়াটসঅ্যাপ নম্বরগুলো যাচাই করুন যাতে কোনো ইনভ্যালিড নম্বরে মেসেজ পাঠাতে গিয়ে নম্বর ব্যান না হয়।</p>
       </div>
     </div>
 
     <form method="POST">
       <input type="hidden" name="csrf" value="<?= e(csrf_token()) ?>">
-      <input type="hidden" name="action" value="save_agents">
+      <input type="hidden" name="action" value="filter_numbers">
 
-      <div class="wam-agents-grid">
-        <!-- AGENT 1: AYESHA -->
-        <div class="wam-agent-card">
-          <div class="wam-agent-avatar-deck">
-            <img class="wam-agent-avatar-img" src="/assets/img/agents/ayesha.png" alt="Ayesha Avatar" onerror="this.src='/assets/img/logo.png'">
-            <div class="wam-agent-details">
-              <h3>আয়েশা (Ayesha)</h3>
-              <div class="wam-agent-role">কাস্টমার রিলেশনশিপ ও সাধারণ সহায়তা প্রধান</div>
-              <label style="font-size:0.75rem; color:#34d399; display:inline-flex; align-items:center; gap:5px; margin-top:4px; cursor:pointer;">
-                <input type="checkbox" name="agent_ayesha_active" value="1" <?= setting($pdo, 'agent_ayesha_active', '1') === '1' ? 'checked' : '' ?>>
-                <span>সক্রিয় রাখুন (Active)</span>
-              </label>
+      <div style="display:grid; grid-template-columns:1fr 340px; gap:1.5rem;">
+        <div>
+          <div class="wam-form-group" style="margin-bottom:1rem;">
+            <label>যাচাই করার জন্য ফোন নম্বরগুলোর লিস্ট পেস্ট করুন (Newline / Comma):</label>
+            <textarea class="wam-form-textarea" rows="8" name="raw_numbers_to_filter" placeholder="01711223344&#10;+8801968111593&#10;01822334455&#10;ভুল নম্বর যেমন 12345" required></textarea>
+          </div>
+
+          <div style="background:#080d14; border:1px solid #1e293b; border-radius:10px; padding:12px; margin-bottom:1rem; display:flex; flex-direction:column; gap:8px;">
+            <label style="font-size:0.85rem; color:#ffffff; display:flex; align-items:center; gap:8px; cursor:pointer;">
+              <input type="checkbox" name="save_valid_to_group" value="1" checked>
+              <span><strong>ভ্যালিড নম্বরগুলো স্বয়ংক্রিয়ভাবে অডিয়েন্স গ্রুপে সেভ করুন</strong></span>
+            </label>
+            <div class="wam-form-group">
+              <label style="font-size:0.78rem;">কোন গ্রুপে সেভ করবেন:</label>
+              <select class="wam-form-select" name="filter_target_group" style="font-size:0.82rem; padding:6px 10px;">
+                <option value="">-- সাধারণ কন্টাক্ট লিস্ট --</option>
+                <?php foreach ($contactGroups as $cg): ?>
+                  <option value="<?= e($cg['id']) ?>"><?= e($cg['name']) ?></option>
+                <?php endforeach; ?>
+              </select>
             </div>
           </div>
-          <p style="font-size:0.82rem; color:#94a3b8; margin:0;">
-            অত্যন্ত মিষ্টি, ভদ্র ও বিনয়ী ভাষায় গ্রাহকের শুভেচ্ছা বিনিময়, সফটওয়্যারের সারসংক্ষেপ ও সাধারণ প্রশ্নের সমাধান করে।
-          </p>
-          <div class="wam-form-group">
-            <label>কাস্টম ইনস্ট্রাকশন / প্রম্পট:</label>
-            <textarea class="wam-form-textarea" rows="3" name="ayesha_prompt" placeholder="আয়েশার আচরণ ও নির্দেশনা..."><?= e(setting($pdo, 'ayesha_custom_prompt', 'সর্বদা সালাম দিয়ে আন্তরিক ও সম্মানজনক ভাষায় কথা বলো। সফটওয়্যার কেনার প্রক্রিয়া সহজভাবে বুঝিয়ে দাও।')) ?></textarea>
-          </div>
+
+          <button type="submit" class="btn-wam-primary">
+            🔍 নম্বরগুলো ফিল্টার ও ভ্যালিডেট করুন
+          </button>
         </div>
 
-        <!-- AGENT 2: NIROB -->
-        <div class="wam-agent-card">
-          <div class="wam-agent-avatar-deck">
-            <img class="wam-agent-avatar-img" src="/assets/img/agents/nirob.png" alt="Nirob Avatar" onerror="this.src='/assets/img/logo.png'">
-            <div class="wam-agent-details">
-              <h3>নীরব (Nirob)</h3>
-              <div class="wam-agent-role">সিনিয়র টেকনিক্যাল স্পেশালিস্ট ও সেটআপ গাইড</div>
-              <label style="font-size:0.75rem; color:#34d399; display:inline-flex; align-items:center; gap:5px; margin-top:4px; cursor:pointer;">
-                <input type="checkbox" name="agent_nirob_active" value="1" <?= setting($pdo, 'agent_nirob_active', '1') === '1' ? 'checked' : '' ?>>
-                <span>সক্রিয় রাখুন (Active)</span>
-              </label>
+        <!-- FILTER STATS -->
+        <div>
+          <?php if ($filterResults): ?>
+            <div style="background:#080d14; border:1px solid var(--wam-border-glow); border-radius:14px; padding:1.25rem;">
+              <h4 style="color:#ffffff; margin:0 0 10px; font-size:0.95rem;">📊 ফিল্টারিং ফলাফল:</h4>
+              <div style="display:flex; flex-direction:column; gap:8px; font-size:0.85rem;">
+                <div style="display:flex; justify-content:space-between; padding:6px 0; border-bottom:1px solid #1e293b;">
+                  <span>মোট স্ক্যান করা হয়েছে:</span>
+                  <strong style="color:#ffffff;"><?= $filterResults['total'] ?> টি</strong>
+                </div>
+                <div style="display:flex; justify-content:space-between; padding:6px 0; border-bottom:1px solid #1e293b;">
+                  <span>সক্রিয় ও ভ্যালিড WhatsApp:</span>
+                  <strong style="color:#34d399;"><?= $filterResults['valid_count'] ?> টি</strong>
+                </div>
+                <div style="display:flex; justify-content:space-between; padding:6px 0; border-bottom:1px solid #1e293b;">
+                  <span>ইনভ্যালিড / বাতিল:</span>
+                  <strong style="color:#f87171;"><?= $filterResults['invalid_count'] ?> টি</strong>
+                </div>
+                <div style="display:flex; justify-content:space-between; padding:6px 0;">
+                  <span>ডাটাবেজে সংরক্ষিত:</span>
+                  <strong style="color:#38bdf8;"><?= $filterResults['saved_count'] ?> টি</strong>
+                </div>
+              </div>
             </div>
-          </div>
-          <p style="font-size:0.82rem; color:#94a3b8; margin:0;">
-            পিসির কনফিগারেশন (RAM, Windows, FFmpeg), ইনস্টলেশন গাইড, এরর সমাধান ও লোকাল রেন্ডারিং নিয়ে স্পষ্ট গাইড প্রদান করে।
-          </p>
-          <div class="wam-form-group">
-            <label>কাস্টম ইনস্ট্রাকশন / প্রম্পট:</label>
-            <textarea class="wam-form-textarea" rows="3" name="nirob_prompt" placeholder="নীরবের টেকনিক্যাল ইনস্ট্রাকশন..."><?= e(setting($pdo, 'nirob_custom_prompt', 'Windows 10/11 64-bit ও 4GB RAM হলে অনায়াসে চলবে। কোনো GPU দরকার নেই। ইনস্টলেশন ফাইল আনজিপ করে ব্যাচ ফাইল চালালেই সেটআপ শেষ।')) ?></textarea>
-          </div>
-        </div>
-
-        <!-- AGENT 3: TANIA -->
-        <div class="wam-agent-card">
-          <div class="wam-agent-avatar-deck">
-            <img class="wam-agent-avatar-img" src="/assets/img/agents/tania.png" alt="Tania Avatar" onerror="this.src='/assets/img/logo.png'">
-            <div class="wam-agent-details">
-              <h3>তানিয়া (Tania)</h3>
-              <div class="wam-agent-role">অনবোর্ডিং ও সেলস কনভার্সন স্পেশালিস্ট</div>
-              <label style="font-size:0.75rem; color:#34d399; display:inline-flex; align-items:center; gap:5px; margin-top:4px; cursor:pointer;">
-                <input type="checkbox" name="agent_tania_active" value="1" <?= setting($pdo, 'agent_tania_active', '1') === '1' ? 'checked' : '' ?>>
-                <span>সক্রিয় রাখুন (Active)</span>
-              </label>
+          <?php else: ?>
+            <div style="background:#080d14; border:1px solid #1e293b; border-radius:14px; padding:1.25rem; color:#94a3b8; font-size:0.85rem;">
+              <h4 style="color:#ffffff; margin:0 0 8px;">🛡️ ভ্যালিডেশনের নিয়মাবলী:</h4>
+              <p style="margin:0 0 6px;">আমাদের ভ্যালিডেটর বাংলাদেশ ও আন্তর্জাতিক সব অপারেটর (+88013, 014, 015, 016, 017, 018, 019) স্বয়ংক্রিয়ভাবে চেক করে।</p>
+              <p style="margin:0;">ভ্যালিড নম্বরগুলো ফিল্টার করে নিলে ক্যাম্পেইনের ডেলিভারি রেট ৯৯.৮% নিশ্চিত হয়।</p>
             </div>
-          </div>
-          <p style="font-size:0.82rem; color:#94a3b8; margin:0;">
-            নতুন আগ্রহী লিডদের ফলো-আপ, প্যাকেজের মূল্যছাড় ও স্পেশাল 'VIP500' ডিসকাউন্ট অফার দিয়ে সেলস ক্লোজ করে।
-          </p>
-          <div class="wam-form-group">
-            <label>কাস্টম ইনস্ট্রাকশন / প্রম্পট:</label>
-            <textarea class="wam-form-textarea" rows="3" name="tania_prompt" placeholder="তানিয়ার সেলস ইনস্ট্রাকশন..."><?= e(setting($pdo, 'tania_custom_prompt', 'প্যাকেজের মূল্য ৩,৯৯৯ টাকা, ২,৯৯৯ টাকা ও ১,৯৯৯ টাকা। আগ্রহী ক্রেতাকে VIP500 কুপন কোড অফার করে দ্রুত অর্ডার সম্পন্ন করতে সহায়তা করো।')) ?></textarea>
-          </div>
+          <?php endif; ?>
         </div>
-      </div>
-
-      <div style="margin-top:1.25rem; display:flex; justify-content:flex-end;">
-        <button type="submit" class="btn-wam-primary">💾 এআই এজেন্টদের সেটিংস সংরক্ষণ করুন</button>
       </div>
     </form>
+  </div>
 
-    <!-- INTERACTIVE AGENT SIMULATOR -->
-    <div style="margin-top:2rem; background:#080d14; border:1px solid #1e293b; border-radius:14px; padding:1.5rem;">
-      <h3 style="color:#ffffff; margin:0 0 10px; font-size:1.05rem; display:flex; align-items:center; gap:8px;">
-        <span>⚡</span> এআই অটো-রিপ্লাই সিমুলেটর (Live Interactive Test)
-      </h3>
-      <p style="font-size:0.85rem; color:#94a3b8; margin:0 0 1rem;">
-        নিচে যেকোনো একটি কাস্টমার প্রশ্ন লিখে টেস্ট করে দেখতে পারেন আমাদের এআই এজেন্টরা কীভাবে স্বয়ংক্রিয়ভাবে হোয়াটসঅ্যাপে উত্তর প্রদান করবে:
-      </p>
+  <!-- ========================================================================= -->
+  <!-- TAB 4: CONTACT GROUPS & AUDIENCE MANAGER -->
+  <!-- ========================================================================= -->
+  <div class="wam-panel <?= $activeTab === 'contacts' ? 'active' : '' ?>" id="tab-contacts">
+    <div class="wam-section-header">
+      <div>
+        <h2><span>📁</span> কন্টাক্ট ও অডিয়েন্স গ্রুপ ম্যানেজার (Audience Segmentation)</h2>
+        <p>গ্রাহকদের বিভিন্ন সেগমেন্টে ভাগ করুন (যেমন: ভিআইপি ক্রেতা, নতুন লিড, ইউটিউবারস) এবং আলাদা ক্যাম্পেইন পরিচালনা করুন।</p>
+      </div>
+      <button type="button" class="btn-wam-primary" onclick="openCreateGroupModal()">
+        + নতুন অডিয়েন্স গ্রুপ তৈরি করুন
+      </button>
+    </div>
+
+    <div class="wam-templates-grid">
+      <?php if (empty($contactGroups)): ?>
+        <div style="grid-column:1/-1; padding:20px; text-align:center; color:#64748b;">
+          কোনো অডিয়েন্স গ্রুপ তৈরি করা হয়নি। নতুন গ্রুপ তৈরি করুন।
+        </div>
+      <?php else: ?>
+        <?php foreach ($contactGroups as $cg): ?>
+          <div class="wam-template-card">
+            <div>
+              <div style="display:flex; justify-content:space-between; align-items:flex-start;">
+                <h3 style="margin:0; font-size:1rem; color:#ffffff;"><?= e($cg['name']) ?></h3>
+                <span class="wam-pill secure" style="font-size:0.72rem;">
+                  <?= $cg['member_count'] ?> জন মেম্বার
+                </span>
+              </div>
+              <p style="font-size:0.82rem; color:#94a3b8; margin:6px 0 0;">
+                <?= e($cg['description'] ?: 'কোনো বিবরণ দেওয়া নেই') ?>
+              </p>
+            </div>
+
+            <div style="display:flex; justify-content:space-between; align-items:center; border-top:1px solid rgba(255,255,255,0.05); padding-top:10px;">
+              <button type="button" class="btn-wam-secondary" onclick="openAddNumbersModal('<?= e($cg['id']) ?>', '<?= e($cg['name']) ?>')" style="font-size:0.78rem;">
+                + নম্বর যোগ করুন
+              </button>
+              <a href="?tab=broadcast&target=group_<?= e($cg['id']) ?>" class="btn-wam-primary" style="font-size:0.78rem; padding:6px 12px;">
+                📢 ক্যাম্পেইন পাঠান
+              </a>
+            </div>
+          </div>
+        <?php endforeach; ?>
+      <?php endif; ?>
+    </div>
+  </div>
+
+  <!-- ========================================================================= -->
+  <!-- TAB 5: PERSUASION TEMPLATES LIBRARY -->
+  <!-- ========================================================================= -->
+  <div class="wam-panel <?= $activeTab === 'templates' ? 'active' : '' ?>" id="tab-templates">
+    <div class="wam-section-header">
+      <div>
+        <h2><span>📜</span> হাই-কনভার্সন পারসুয়েশন টেমপ্লেট লাইব্রেরি (Direct Response Vault)</h2>
+        <p>অ্যালেক্স হরমুজি, রাসেল ব্রানসন ও রবার্ট সিয়ালদিনির শীর্ষস্থানীয় সেলস ফ্রেমওয়ার্কে সাজানো রেডি-মেড কপিরাইটিং টেমপ্লেট।</p>
+      </div>
+      <button type="button" class="btn-wam-primary" onclick="openCreateTemplateModal()">
+        + নতুন কাস্টম টেমপ্লেট যোগ করুন
+      </button>
+    </div>
+
+    <div class="wam-templates-grid">
+      <!-- DEFAULT PRE-SEEDED ELITE TEMPLATES -->
+      <?php foreach ($defaultEliteTemplates as $dt): ?>
+        <div class="wam-template-card">
+          <div>
+            <div style="display:flex; justify-content:space-between; align-items:flex-start; gap:8px;">
+              <h3 style="margin:0; font-size:0.95rem; color:#ffffff;"><?= e($dt['title']) ?></h3>
+              <span class="badge-framework badge-hormozi"><?= e($dt['category']) ?></span>
+            </div>
+            <div style="margin-top:10px; background:#080d14; border:1px solid #1e293b; border-radius:8px; padding:10px; font-size:0.8rem; color:#cbd5e1; max-height:160px; overflow-y:auto; white-space:pre-wrap;">
+              <?= e($dt['content']) ?>
+            </div>
+          </div>
+          <div style="display:flex; justify-content:space-between; align-items:center; border-top:1px solid rgba(255,255,255,0.05); padding-top:10px;">
+            <button type="button" class="btn-wam-secondary" onclick="copyTemplateText(<?= json_encode($dt['content']) ?>)" style="font-size:0.75rem;">
+              📋 কপি করুন
+            </button>
+            <button type="button" class="btn-wam-primary" onclick="useTemplateInBroadcast(<?= json_encode($dt['content']) ?>)" style="font-size:0.75rem; padding:6px 12px;">
+              📢 ব্রডকাস্টে ব্যবহার করুন
+            </button>
+          </div>
+        </div>
+      <?php endforeach; ?>
+
+      <!-- USER SAVED TEMPLATES -->
+      <?php foreach ($savedTemplates as $st): ?>
+        <div class="wam-template-card">
+          <div>
+            <div style="display:flex; justify-content:space-between; align-items:flex-start; gap:8px;">
+              <h3 style="margin:0; font-size:0.95rem; color:#ffffff;"><?= e($st['title']) ?></h3>
+              <span class="badge-framework badge-brunson"><?= e($st['category'] ?? 'Custom') ?></span>
+            </div>
+            <div style="margin-top:10px; background:#080d14; border:1px solid #1e293b; border-radius:8px; padding:10px; font-size:0.8rem; color:#cbd5e1; max-height:160px; overflow-y:auto; white-space:pre-wrap;">
+              <?= e($st['content']) ?>
+            </div>
+          </div>
+          <div style="display:flex; justify-content:space-between; align-items:center; border-top:1px solid rgba(255,255,255,0.05); padding-top:10px;">
+            <form method="POST" onsubmit="return confirm('টেমপ্লেটটি মুছে ফেলতে চান?');" style="margin:0;">
+              <input type="hidden" name="csrf" value="<?= e(csrf_token()) ?>">
+              <input type="hidden" name="action" value="delete_template">
+              <input type="hidden" name="template_id" value="<?= e($st['id']) ?>">
+              <button type="submit" class="btn-wam-danger">মুছুন</button>
+            </form>
+            <button type="button" class="btn-wam-primary" onclick="useTemplateInBroadcast(<?= json_encode($st['content']) ?>)" style="font-size:0.75rem; padding:6px 12px;">
+              📢 ব্রডকাস্টে ব্যবহার করুন
+            </button>
+          </div>
+        </div>
+      <?php endforeach; ?>
+    </div>
+  </div>
+
+  <!-- ========================================================================= -->
+  <!-- TAB 6: SMART CAMPAIGN & BROADCASTER -->
+  <!-- ========================================================================= -->
+  <div class="wam-panel <?= $activeTab === 'broadcast' ? 'active' : '' ?>" id="tab-broadcast">
+    <div class="wam-section-header">
+      <div>
+        <h2><span>📢</span> স্মার্ট ক্যাম্পেইন ও ব্রডকাস্টার (Anti-Ban Safe Broadcast)</h2>
+        <p>নিরাপদ সময় বিরতি ও স্মার্ট রোটেশন বজায় রেখে হাজার হাজার গ্রাহকের কাছে মেসেজ ব্রডকাস্ট করুন।</p>
+      </div>
+    </div>
+
+    <form method="POST">
+      <input type="hidden" name="csrf" value="<?= e(csrf_token()) ?>">
+      <input type="hidden" name="action" value="broadcast_campaign">
 
       <div class="wam-form-grid">
         <div class="wam-form-group">
-          <label>এজেন্ট নির্বাচন করুন:</label>
-          <select class="wam-form-select" id="simAgentSelect">
-            <option value="ayesha">আয়েশা (Ayesha) — কাস্টমার কেয়ার ও ওয়েলকাম</option>
-            <option value="nirob">নীরব (Nirob) — টেকনিক্যাল ও সেটআপ সাপোর্ট</option>
-            <option value="tania">তানিয়া (Tania) — সেলস, প্রাইস ও ডিসকাউন্ট অফার</option>
+          <label>টার্গেট অডিয়েন্স নির্বাচন করুন:</label>
+          <select class="wam-form-select" name="target_audience" id="campAudienceSelect">
+            <option value="all_leads">🎯 সকল নতুন লিড ও ভিজিটর (<?= $totalLeads ?> জন)</option>
+            <option value="all_paid">💼 সকল অনুমোদিত পেইড কাস্টমার (<?= $totalOrders ?> জন)</option>
+            <?php foreach ($contactGroups as $cg): ?>
+              <option value="group_<?= e($cg['id']) ?>">📁 <?= e($cg['name']) ?> (<?= $cg['member_count'] ?> জন)</option>
+            <?php endforeach; ?>
+            <option value="contacts">📂 সংরক্ষিত সাধারণ কন্টাক্ট ডাটাবেজ (<?= $totalContacts ?> জন)</option>
           </select>
         </div>
 
         <div class="wam-form-group">
-          <label>গ্রাহকের প্রশ্ন / মেসেজ:</label>
-          <input type="text" class="wam-form-input" id="simUserMessage" value="আমার পিসিতে 4GB RAM, এটা দিয়ে কি ফুল 4K ভিডিও বানানো যাবে?" placeholder="গ্রাহকের প্রশ্ন লিখুন...">
+          <label>প্রেরক অ্যাকাউন্ট:</label>
+          <select class="wam-form-select" name="sending_account">
+            <option value="smart_rotation">🔄 স্মার্ট রোটেশন পুল (৪টি নম্বর ব্যালেন্সিং - অ্যান্টি-ব্যান)</option>
+            <?php foreach ($accountsPool as $acc): ?>
+              <option value="<?= e($acc['id']) ?>"><?= e($acc['name']) ?> (<?= e($acc['phone']) ?>)</option>
+            <?php endforeach; ?>
+          </select>
         </div>
       </div>
 
-      <div style="margin-top:10px;">
-        <button type="button" class="btn-wam-primary" onclick="runAgentSimulation()">
-          ⚡ তাৎক্ষণিক এআই উত্তর জেনারেট করুন
-        </button>
-      </div>
+      <div style="display:grid; grid-template-columns:1fr 380px; gap:1.5rem; margin-top:1.25rem;">
+        <div>
+          <div class="wam-form-group">
+            <label style="display:flex; justify-content:space-between;">
+              <span>বার্তা কম্পোজার (Dynamic Tags: {name}, {package}, {link}, {coupon}):</span>
+              <span style="font-size:0.75rem; color:#38bdf8;">ট্যাগগুলো স্বয়ংক্রিয়ভাবে প্রতিস্থাপিত হবে</span>
+            </label>
+            <textarea class="wam-form-textarea" rows="10" name="campaign_message" id="campMsgInput" oninput="updatePhoneMockup()"></textarea>
+          </div>
 
-      <div id="simResultBox" style="margin-top:1rem; display:none;">
-        <div class="wam-phone-mockup" style="max-width:550px;">
-          <div class="wam-phone-header">
-            <div style="width:36px; height:36px; border-radius:50%; background:#10B981; display:flex; align-items:center; justify-content:center; font-weight:800;" id="simHeaderAvatar">A</div>
-            <div>
-              <div style="font-weight:700; font-size:0.9rem;" id="simHeaderName">Ayesha Support</div>
-              <div style="font-size:0.7rem; color:#34d399;">Active Now • AutoMovie Pro Official</div>
+          <div style="margin-top:1rem; background:rgba(245,158,11,0.1); border:1px solid rgba(245,158,11,0.3); border-radius:10px; padding:12px; font-size:0.82rem; color:#fde68a;">
+            🛡️ <strong>অ্যান্টি-ব্যান সুরক্ষা সক্রিয়:</strong> প্রতিটি মেসেজের মাঝে ২৫ থেকে ৫৫ সেকেন্ডের জিটার বিরতি থাকবে এবং প্রতি ১৫টি মেসেজ পর ৮ মিনিটের কুলডাউন রেস্ট বজায় রাখা হবে।
+          </div>
+
+          <div style="margin-top:1.25rem;">
+            <button type="submit" class="btn-wam-primary" onclick="return confirm('আপনি কি নিশ্চিত যে অ্যান্টি-ব্যান মোডে এই ক্যাম্পেইনটি শুরু করতে চান?');">
+              🚀 অ্যান্টি-ব্যান মোডে শিডিউল ডিসপ্যাচ করুন
+            </button>
+          </div>
+        </div>
+
+        <!-- LIVE SMARTPHONE PREVIEW -->
+        <div>
+          <div style="text-align:center; font-size:0.8rem; font-weight:700; color:#94a3b8; margin-bottom:8px;">
+            📱 লাইভ হোয়াটসঅ্যাপ প্রিভিউ (গ্রাহক যেভাবে দেখবে)
+          </div>
+          <div class="wam-phone-mockup">
+            <div class="wam-phone-header">
+              <div style="width:36px; height:36px; border-radius:50%; background:#10B981; display:flex; align-items:center; justify-content:center; font-weight:800;">A</div>
+              <div>
+                <div style="font-weight:700; font-size:0.85rem;">AutoMovie Pro Official</div>
+                <div style="font-size:0.7rem; color:#34d399;">Business Account • Verified</div>
+              </div>
+            </div>
+            <div class="wam-phone-body">
+              <div class="wam-bubble-out" id="phoneMockupText">
+                মেসেজ লোড হচ্ছে...
+              </div>
             </div>
           </div>
-          <div class="wam-phone-body">
-            <div class="wam-bubble-in" id="simUserBubble">
-              আমার পিসিতে 4GB RAM, এটা দিয়ে কি ফুল 4K ভিডিও বানানো যাবে?
-            </div>
-            <div class="wam-bubble-out" id="simAgentBubble">
-              জেনারেট হচ্ছে...
-            </div>
-          </div>
         </div>
-      </div>
-    </div>
-  </div>
-
-  <!-- ========================================================================= -->
-  <!-- TAB 3: ANTI-BAN SENTINEL & DELIVERY GUARD -->
-  <!-- ========================================================================= -->
-  <div class="wam-panel <?= $activeTab === 'antiban' ? 'active' : '' ?>" id="tab-antiban">
-    <div class="wam-section-header">
-      <div>
-        <h2><span>🛡️</span> অ্যান্টি-ব্যান অটোনোমাস সেন্টিনেল ও ডেলিভারি গার্ড সেটিংস</h2>
-        <p>মেটা ও হোয়াটসঅ্যাপের পলিসি শতভাগ মেনে চলতে অ্যালগরিদম ভিত্তিক রোটেশন, জৈবিক জিটার ডিলে ও ব্যাচ কুলডাউন নিয়ন্ত্রণ করুন।</p>
-      </div>
-    </div>
-
-    <form method="POST">
-      <input type="hidden" name="csrf" value="<?= e(csrf_token()) ?>">
-      <input type="hidden" name="action" value="save_antiban">
-
-      <div class="wam-form-grid">
-        <div class="wam-form-group">
-          <label>ইন্টার-মেসেজ মিনিমাম ডিলে (সেকেন্ড):</label>
-          <input type="number" class="wam-form-input" name="antiban_delay_min" value="<?= $antiban['antiban_delay_min'] ?>" min="15" max="60" required>
-          <span style="font-size:0.75rem; color:#64748b;">মেসেজের মাঝে সর্বনিম্ন বিরতি (ডিফল্ট: ২৫ সেকেন্ড)</span>
-        </div>
-
-        <div class="wam-form-group">
-          <label>ইন্টার-মেসেজ ম্যাক্সিমাম ডিলে (সেকেন্ড):</label>
-          <input type="number" class="wam-form-input" name="antiban_delay_max" value="<?= $antiban['antiban_delay_max'] ?>" min="30" max="120" required>
-          <span style="font-size:0.75rem; color:#64748b;">মেসেজের মাঝে সর্বোচ্চ বিরতি (ডিফল্ট: ৫৫ সেকেন্ড)</span>
-        </div>
-
-        <div class="wam-form-group">
-          <label>ব্যাচ সাইজ (কয়টি মেসেজ পর কুলডাউন বিরতি):</label>
-          <input type="number" class="wam-form-input" name="antiban_batch_size" value="<?= $antiban['antiban_batch_size'] ?>" min="5" max="30" required>
-          <span style="font-size:0.75rem; color:#64748b;">নির্দিষ্ট সংখ্যক মেসেজ পাঠানোর পর লম্বা বিরতি (ডিফল্ট: ১৫টি)</span>
-        </div>
-
-        <div class="wam-form-group">
-          <label>ব্যাচ কুলডাউন বিরতির সময় (সেকেন্ড):</label>
-          <input type="number" class="wam-form-input" name="antiban_batch_pause_seconds" value="<?= $antiban['antiban_batch_pause_seconds'] ?>" min="120" max="1800" required>
-          <span style="font-size:0.75rem; color:#64748b;">৪৮০ সেকেন্ড = ৮ মিনিট কুলডাউন বিরতি</span>
-        </div>
-
-        <div class="wam-form-group">
-          <label>দৈনিক সর্বোচ্চ আউটবাউন্ড কোটা (প্রতি নম্বর):</label>
-          <input type="number" class="wam-form-input" name="antiban_daily_cap_per_number" value="<?= $antiban['antiban_daily_cap_per_number'] ?>" min="20" max="100" required>
-          <span style="font-size:0.75rem; color:#64748b;">প্রতিটি নম্বরে দিনে নিরাপদ মেসেজ সীমা (ডিফল্ট: ৬৫টি)</span>
-        </div>
-      </div>
-
-      <div style="margin-top:1.5rem; background:#080d14; border:1px solid #1e293b; border-radius:12px; padding:1.25rem; display:flex; flex-direction:column; gap:12px;">
-        <h4 style="color:#ffffff; margin:0 0 6px; font-size:0.95rem;">🚨 স্মার্ট সুরক্ষামূলক সুইচ ও বাইপাস পলিসি:</h4>
-
-        <label style="font-size:0.85rem; color:#e2e8f0; display:flex; align-items:center; gap:8px; cursor:pointer;">
-          <input type="checkbox" name="antiban_priority_bypass" value="1" <?= $antiban['antiban_priority_bypass'] ? 'checked' : '' ?>>
-          <span><strong>ইনবাউন্ড গ্রাহক প্রায়োরিটি বাইপাস (Inbound & Emergency Priority Bypass):</strong> দৈনিক কোটা শেষ হলেও বা কুলডাউন চলাকালেও কোনো কাস্টমার প্রশ্ন করলে বা অর্ডার অনুমোদিত হলে সাথে সাথে ০ সেকেন্ড ডিলেতে উত্তর পাঠানো হবে।</span>
-        </label>
-
-        <label style="font-size:0.85rem; color:#e2e8f0; display:flex; align-items:center; gap:8px; cursor:pointer;">
-          <input type="checkbox" name="antiban_smart_rotation" value="1" <?= $antiban['antiban_smart_rotation'] ? 'checked' : '' ?>>
-          <span><strong>স্মার্ট মাল্টি-নম্বর রোটেশন পুল (Smart Multi-Number Rotation):</strong> একটি নম্বরে লিমিট শেষ হলে স্বয়ংক্রিয়ভাবে পরবর্তী উপলব্ধ নম্বর থেকে মেসেজ পাঠানো হবে।</span>
-        </label>
-
-        <label style="font-size:0.85rem; color:#e2e8f0; display:flex; align-items:center; gap:8px; cursor:pointer;">
-          <input type="checkbox" name="antiban_human_jitter" value="1" <?= $antiban['antiban_human_jitter'] ? 'checked' : '' ?>>
-          <span><strong>হিউম্যান টাইপিং ও দৈবচয়ন জিটার (Organic Human Jitter):</strong> রোবোটিক আচরণ এড়াতে প্রতিটি মেসেজের সময়ে ২ থেকে ৮ সেকেন্ডের মানুষের মত অনিয়মিত গ্যাপ যুক্ত করা।</span>
-        </label>
-      </div>
-
-      <div style="margin-top:1.25rem; display:flex; justify-content:flex-end;">
-        <button type="submit" class="btn-wam-primary">🛡️ অ্যান্টি-ব্যান সেটিংস কার্যকর করুন</button>
       </div>
     </form>
   </div>
 
   <!-- ========================================================================= -->
-  <!-- TAB 4: TWO-WAY LIVE CRM & CHAT -->
+  <!-- TAB 7: TWO-WAY LIVE CRM & CHAT -->
   <!-- ========================================================================= -->
   <div class="wam-panel <?= $activeTab === 'crm' ? 'active' : '' ?>" id="tab-crm">
     <div class="wam-section-header">
       <div>
-        <h2><span>💬</span> টু-ওয়ে লাইভ সিআরএম ও চ্যাট ইনবক্স</h2>
+        <h2><span>💬</span> টু-ওয়ে লাইভ সিআরএম ও চ্যাট ইনবক্স (Live 2-Way CRM)</h2>
         <p>গ্রাহকের সাথে সরাসরি হোয়াটসঅ্যাপ চ্যাট পরিচালনা করুন এবং এআই এজেন্টের মাধ্যমে স্মার্ট উত্তর পাঠান।</p>
       </div>
     </div>
@@ -1279,88 +1730,248 @@ admin_header('WAManager Pro — অফিসিয়াল হোয়াটসঅ�
   </div>
 
   <!-- ========================================================================= -->
-  <!-- TAB 5: SMART CAMPAIGN & BROADCASTER -->
+  <!-- TAB 8: CENTRAL MARKETING AI DIRECTOR STUDIO & LIVE SANDBOX -->
   <!-- ========================================================================= -->
-  <div class="wam-panel <?= $activeTab === 'broadcast' ? 'active' : '' ?>" id="tab-broadcast">
+  <div class="wam-panel <?= $activeTab === 'agents' ? 'active' : '' ?>" id="tab-agents">
     <div class="wam-section-header">
       <div>
-        <h2><span>📢</span> স্মার্ট ক্যাম্পেইন ও নোটিফিকেশন ব্রডকাস্টার (Anti-Ban Safe Broadcast)</h2>
-        <p>হাজার হাজার গ্রাহক বা লিডের কাছে নিরাপদ সময় বিরতি বজায় রেখে সফটওয়্যার আপডেট, অফার বা ওয়েলফেয়ার মেসেজ ব্রডকাস্ট করুন।</p>
+        <h2><span>🧠</span> চিফ মার্কেটিং ও সেলস ডিরেক্টর এআই স্টুডিও (Central Persuasion Brain)</h2>
+        <p>ওয়েবসাইট চ্যাট, হোয়াটসঅ্যাপ ও ফেসবুকের সকল যোগাযোগ পরিচালনার কেন্দ্রীয় মার্কেটিং ডিরেক্টর ও ৩ জন সাব-এজেন্ট।</p>
+      </div>
+    </div>
+
+    <!-- PERSUASION FRAMEWORKS ARCHITECTURE BANNER -->
+    <div style="background:linear-gradient(135deg, rgba(16,185,129,0.1), rgba(139,92,246,0.1)); border:1px solid rgba(139,92,246,0.3); border-radius:14px; padding:1.25rem; margin-bottom:1.5rem;">
+      <h3 style="color:#ffffff; font-size:1rem; margin:0 0 8px; display:flex; align-items:center; gap:8px;">
+        <span>🌐</span> গ্লোবাল ৫টি শীর্ষস্থানীয় পারসুয়েশন ও সেলস ফ্রেমওয়ার্ক অন্তর্নির্মিত:
+      </h3>
+      <div style="display:flex; flex-wrap:wrap; gap:8px; margin-top:8px;">
+        <span class="badge-framework badge-hormozi">Alex Hormozi ($100M Value Eq & Risk Reversal)</span>
+        <span class="badge-framework badge-brunson">Russell Brunson (Hook-Story-Offer Bridge)</span>
+        <span class="badge-framework badge-demo">Eugene Schwartz (5 Stages of Customer Awareness)</span>
+        <span class="badge-framework badge-urgency">Robert Cialdini (Influence & Social Proof)</span>
+        <span class="badge-framework" style="background:rgba(16,185,129,0.2); color:#34d399; border:1px solid rgba(16,185,129,0.4);">Chris Voss (Tactical Empathy & Black Swan)</span>
       </div>
     </div>
 
     <form method="POST">
       <input type="hidden" name="csrf" value="<?= e(csrf_token()) ?>">
-      <input type="hidden" name="action" value="broadcast_campaign">
+      <input type="hidden" name="action" value="save_master_ai">
 
-      <div class="wam-form-grid">
-        <div class="wam-form-group">
-          <label>টার্গেট অডিয়েন্স নির্বাচন করুন:</label>
-          <select class="wam-form-select" name="target_audience" id="campAudienceSelect" onchange="updateCampTemplate()">
-            <option value="all_leads">🎯 সকল নতুন লিড ও ভিজিটর (<?= $totalLeads ?> জন)</option>
-            <option value="all_paid">💼 সকল অনুমোদিত পেইড কাস্টমার (<?= $totalOrders ?> জন)</option>
-            <option value="contacts">📂 সংরক্ষিত কন্টাক্ট ডাটাবেজ</option>
-          </select>
+      <div class="wam-agents-grid">
+        <!-- AGENT 1: AYESHA -->
+        <div class="wam-agent-card">
+          <div class="wam-agent-avatar-deck">
+            <img class="wam-agent-avatar-img" src="/assets/img/agents/ayesha.png" alt="Ayesha Avatar" onerror="this.src='/assets/img/logo.png'">
+            <div class="wam-agent-details">
+              <h3>আয়েশা (Ayesha)</h3>
+              <div class="wam-agent-role">কাস্টমার রিলেশনশিপ ও সাধারণ সহায়তা প্রধান</div>
+              <label style="font-size:0.75rem; color:#34d399; display:inline-flex; align-items:center; gap:5px; margin-top:4px; cursor:pointer;">
+                <input type="checkbox" name="agent_ayesha_active" value="1" <?= setting($pdo, 'agent_ayesha_active', '1') === '1' ? 'checked' : '' ?>>
+                <span>সক্রিয় রাখুন (Active)</span>
+              </label>
+            </div>
+          </div>
+          <p style="font-size:0.82rem; color:#94a3b8; margin:0;">
+            অত্যন্ত মিষ্টি, ভদ্র ও বিনয়ী ভাষায় গ্রাহকের শুভেচ্ছা বিনিময়, সফটওয়্যারের সারসংক্ষেপ ও সাধারণ প্রশ্নের সমাধান করে।
+          </p>
+          <div class="wam-form-group">
+            <label>কাস্টম ইনস্ট্রাকশন / প্রম্পট:</label>
+            <textarea class="wam-form-textarea" rows="3" name="ayesha_prompt" placeholder="আয়েশার আচরণ ও নির্দেশনা..."><?= e(setting($pdo, 'ayesha_custom_prompt', 'সর্বদা সালাম দিয়ে আন্তরিক ও সম্মানজনক ভাষায় কথা বলো। সফটওয়্যার কেনার প্রক্রিয়া সহজভাবে বুঝিয়ে দাও।')) ?></textarea>
+          </div>
         </div>
 
-        <div class="wam-form-group">
-          <label>ক্যাম্পেইন টেমপ্লেট প্রিসেট:</label>
-          <select class="wam-form-select" name="campaign_topic" id="campTopicSelect" onchange="updateCampTemplate()">
-            <option value="version_update">🚀 নতুন সফটওয়্যার ভার্সন আপডেট নোটিফিকেশন</option>
-            <option value="price_discount">🏷️ স্পেশাল অফার ও ৫০০ টাকা ডিসকাউন্ট নোটিশ</option>
-            <option value="care_checkin">🤝 কাস্টমার ওয়েলফেয়ার ও নিয়মিত চেক-ইন</option>
-            <option value="faceless_tips">💡 ফেসলেস চ্যানেল আর্নিং টিপস ও গাইড</option>
-          </select>
+        <!-- AGENT 2: NIROB -->
+        <div class="wam-agent-card">
+          <div class="wam-agent-avatar-deck">
+            <img class="wam-agent-avatar-img" src="/assets/img/agents/nirob.png" alt="Nirob Avatar" onerror="this.src='/assets/img/logo.png'">
+            <div class="wam-agent-details">
+              <h3>নীরব (Nirob)</h3>
+              <div class="wam-agent-role">সিনিয়র টেকনিক্যাল স্পেশালিস্ট ও সেটআপ গাইড</div>
+              <label style="font-size:0.75rem; color:#34d399; display:inline-flex; align-items:center; gap:5px; margin-top:4px; cursor:pointer;">
+                <input type="checkbox" name="agent_nirob_active" value="1" <?= setting($pdo, 'agent_nirob_active', '1') === '1' ? 'checked' : '' ?>>
+                <span>সক্রিয় রাখুন (Active)</span>
+              </label>
+            </div>
+          </div>
+          <p style="font-size:0.82rem; color:#94a3b8; margin:0;">
+            পিসির কনফিগারেশন (RAM, Windows, FFmpeg), ইনস্টলেশন গাইড, এরর সমাধান ও লোকাল রেন্ডারিং নিয়ে স্পষ্ট গাইড প্রদান করে।
+          </p>
+          <div class="wam-form-group">
+            <label>কাস্টম ইনস্ট্রাকশন / প্রম্পট:</label>
+            <textarea class="wam-form-textarea" rows="3" name="nirob_prompt" placeholder="নীরবের টেকনিক্যাল ইনস্ট্রাকশন..."><?= e(setting($pdo, 'nirob_custom_prompt', 'Windows 10/11 64-bit ও 4GB RAM হলে অনায়াসে চলবে। কোনো GPU দরকার নেই। ইনস্টলেশন ফাইল আনজিপ করে ব্যাচ ফাইল চালালেই সেটআপ শেষ।')) ?></textarea>
+          </div>
+        </div>
+
+        <!-- AGENT 3: TANIA -->
+        <div class="wam-agent-card">
+          <div class="wam-agent-avatar-deck">
+            <img class="wam-agent-avatar-img" src="/assets/img/agents/tania.png" alt="Tania Avatar" onerror="this.src='/assets/img/logo.png'">
+            <div class="wam-agent-details">
+              <h3>তানিয়া (Tania)</h3>
+              <div class="wam-agent-role">অনবোর্ডিং ও সেলস কনভার্সন স্পেশালিস্ট</div>
+              <label style="font-size:0.75rem; color:#34d399; display:inline-flex; align-items:center; gap:5px; margin-top:4px; cursor:pointer;">
+                <input type="checkbox" name="agent_tania_active" value="1" <?= setting($pdo, 'agent_tania_active', '1') === '1' ? 'checked' : '' ?>>
+                <span>সক্রিয় রাখুন (Active)</span>
+              </label>
+            </div>
+          </div>
+          <p style="font-size:0.82rem; color:#94a3b8; margin:0;">
+            নতুন আগ্রহী লিডদের ফলো-আপ, প্যাকেজের মূল্যছাড় ও স্পেশাল 'SPECIAL500' ডিসকাউন্ট অফার দিয়ে সেলস ক্লোজ করে।
+          </p>
+          <div class="wam-form-group">
+            <label>কাস্টম ইনস্ট্রাকশন / প্রম্পট:</label>
+            <textarea class="wam-form-textarea" rows="3" name="tania_prompt" placeholder="তানিয়ার সেলস ইনস্ট্রাকশন..."><?= e(setting($pdo, 'tania_custom_prompt', 'প্যাকেজের মূল্য ৩,৯৯৯ টাকা, ২,৯৯৯ টাকা ও ১,৯৯৯ টাকা। আগ্রহী ক্রেতাকে SPECIAL500 কুপন কোড অফার করে দ্রুত বিকাশ/নগদে অর্ডার সম্পন্ন করতে সহায়তা করো।')) ?></textarea>
+          </div>
         </div>
       </div>
 
-      <div style="display:grid; grid-template-columns:1fr 380px; gap:1.5rem; margin-top:1.25rem;">
-        <div>
-          <div class="wam-form-group">
-            <label style="display:flex; justify-content:space-between;">
-              <span>বার্তা কম্পোজার (Dynamic Tags: {name}, {package}, {login_id}):</span>
-              <span style="font-size:0.75rem; color:#38bdf8;">ট্যাগগুলো স্বয়ংক্রিয়ভাবে প্রতিস্থাপিত হবে</span>
-            </label>
-            <textarea class="wam-form-textarea" rows="10" name="campaign_message" id="campMsgInput" oninput="updatePhoneMockup()"></textarea>
-          </div>
+      <div style="margin-top:1.25rem; display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:10px;">
+        <div style="display:flex; align-items:center; gap:8px;">
+          <label style="font-size:0.85rem; color:#cbd5e1; font-weight:700;">মাস্টার ডিসকাউন্ট কুপন কোড:</label>
+          <input type="text" class="wam-form-input" style="width:160px; font-weight:800; color:#34d399; text-transform:uppercase;" name="master_discount_coupon" value="<?= e(setting($pdo, 'agent_discount_coupon', 'SPECIAL500')) ?>">
+        </div>
+        <button type="submit" class="btn-wam-primary">💾 এআই সেটিংস সংরক্ষণ করুন</button>
+      </div>
+    </form>
 
-          <div style="margin-top:1rem; background:rgba(245,158,11,0.1); border:1px solid rgba(245,158,11,0.3); border-radius:10px; padding:12px; font-size:0.82rem; color:#fde68a;">
-            🛡️ <strong>অ্যান্টি-ব্যান সুরক্ষা সক্রিয়:</strong> প্রতিটি মেসেজের মাঝে ২৫ থেকে ৫৫ সেকেন্ডের জিটার গ্যাপ দেওয়া হবে এবং প্রতি ১৫টি মেসেজ পর ৮ মিনিটের কুলডাউন রেস্ট বজায় রাখা হবে। আপনার সংযুক্ত ৪টি নম্বরে সমানভাবে ট্র্যাফিক রোটেশন করা হবে।
-          </div>
+    <!-- INTERACTIVE MASTER AI LIVE SIMULATION SANDBOX -->
+    <div style="margin-top:2rem; background:#080d14; border:1px solid var(--wam-border-glow); border-radius:14px; padding:1.5rem;">
+      <h3 style="color:#ffffff; margin:0 0 10px; font-size:1.05rem; display:flex; align-items:center; gap:8px;">
+        <span>⚡</span> সেন্ট্রাল এআই সাইকোলজিক্যাল সিমুলেটর (Live Interactive Sandbox)
+      </h3>
+      <p style="font-size:0.85rem; color:#94a3b8; margin:0 0 1rem;">
+        যেকোনো গ্রাহকের আপত্তি বা প্রশ্ন লিখে টেস্ট করুন। সেন্ট্রাল এআই গ্রাহকের অ্যাওয়ারনেস স্টেজ চিহ্নিত করে স্বয়ংক্রিয়ভাবে সঠিক ফ্রেমওয়ার্কে কনভার্সন রেসপন্স তৈরি করবে:
+      </p>
 
-          <div style="margin-top:1.25rem;">
-            <button type="submit" class="btn-wam-primary" onclick="return confirm('আপনি কি নিশ্চিত যে অ্যান্টি-ব্যান মোডে এই ক্যাম্পেইনটি শুরু করতে চান?');">
-              🚀 অ্যান্টি-ব্যান মোডে শিডিউল ডিসপ্যাচ করুন
-            </button>
+      <div class="wam-form-grid">
+        <div class="wam-form-group">
+          <label>এজেন্ট রাউটিং:</label>
+          <select class="wam-form-select" id="simAgentSelect">
+            <option value="auto">🤖 অটো রাউটিং (Master Brain স্বয়ংক্রিয় সিদ্ধান্ত নেবে)</option>
+            <option value="ayesha">🌸 আয়েশা (Ayesha) — কাস্টমার কেয়ার ও ওয়েলকাম</option>
+            <option value="nirob">💻 নীরব (Nirob) — টেকনিক্যাল ও সেটআপ সাপোর্ট</option>
+            <option value="tania">🔥 তানিয়া (Tania) — সেলস ক্লোজার ও অফার</option>
+          </select>
+        </div>
+
+        <div class="wam-form-group">
+          <label>গ্রাহকের প্রশ্ন বা আপত্তি (Customer Input):</label>
+          <input type="text" class="wam-form-input" id="simUserMessage" value="আমার পিসিতে 4GB RAM, এটা দিয়ে কি ফুল 4K ভিডিও বানিয়ে প্যাসিভ ইনকাম করা যাবে?" placeholder="গ্রাহকের প্রশ্ন লিখুন...">
+        </div>
+      </div>
+
+      <div style="margin-top:12px; display:flex; gap:10px;">
+        <button type="button" class="btn-wam-primary" id="simSubmitBtn" onclick="runLiveMasterAISimulation()">
+          ⚡ এআই রেসপন্স জেনারেট করুন
+        </button>
+      </div>
+
+      <!-- SIMULATION RESULT BOX -->
+      <div id="simResultBox" style="margin-top:1.5rem; display:none;">
+        <div style="background:#0f172a; border:1px solid #1e293b; border-radius:12px; padding:1rem; margin-bottom:1rem; display:flex; flex-wrap:wrap; gap:15px; font-size:0.82rem;">
+          <div>🎯 সনাক্তকৃত স্টেজ: <strong style="color:#38bdf8;" id="simDetectedStage">Problem Aware</strong></div>
+          <div>💡 ফ্রেমওয়ার্ক: <strong style="color:#fbbf24;" id="simAppliedFramework">Hormozi Value Eq</strong></div>
+          <div>👤 নির্বাচিত স্পেশালিস্ট: <strong style="color:#34d399;" id="simSelectedAgent">Ayesha Support</strong></div>
+        </div>
+
+        <div class="wam-phone-mockup" style="max-width:550px;">
+          <div class="wam-phone-header">
+            <div style="width:36px; height:36px; border-radius:50%; background:#10B981; display:flex; align-items:center; justify-content:center; font-weight:800;" id="simHeaderAvatar">A</div>
+            <div>
+              <div style="font-weight:700; font-size:0.9rem;" id="simHeaderName">Ayesha Support</div>
+              <div style="font-size:0.7rem; color:#34d399;">Active Now • AutoMovie Pro Official</div>
+            </div>
+          </div>
+          <div class="wam-phone-body">
+            <div class="wam-bubble-in" id="simUserBubble">
+              আমার পিসিতে 4GB RAM...
+            </div>
+            <div class="wam-bubble-out" id="simAgentBubble">
+              জেনারেট হচ্ছে...
+            </div>
           </div>
         </div>
 
-        <!-- LIVE SMARTPHONE PREVIEW -->
-        <div>
-          <div style="text-align:center; font-size:0.8rem; font-weight:700; color:#94a3b8; margin-bottom:8px;">
-            📱 লাইভ হোয়াটসঅ্যাপ প্রিভিউ (গ্রাহক যেভাবে দেখবে)
-          </div>
-          <div class="wam-phone-mockup">
-            <div class="wam-phone-header">
-              <div style="width:36px; height:36px; border-radius:50%; background:#10B981; display:flex; align-items:center; justify-content:center; font-weight:800;">A</div>
-              <div>
-                <div style="font-weight:700; font-size:0.85rem;">AutoMovie Pro Official</div>
-                <div style="font-size:0.7rem; color:#34d399;">Business Account • Verified</div>
-              </div>
-            </div>
-            <div class="wam-phone-body">
-              <div class="wam-bubble-out" id="phoneMockupText">
-                মেসেজ লোড হচ্ছে...
-              </div>
-            </div>
-          </div>
+        <div id="simSuggestionsDeck" style="margin-top:12px; display:flex; flex-wrap:wrap; gap:8px; justify-content:center;"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ========================================================================= -->
+  <!-- TAB 9: ANTI-BAN SENTINEL & DELIVERY GUARD -->
+  <!-- ========================================================================= -->
+  <div class="wam-panel <?= $activeTab === 'antiban' ? 'active' : '' ?>" id="tab-antiban">
+    <div class="wam-section-header">
+      <div>
+        <h2><span>🛡️</span> অ্যান্টি-ব্যান অটোনোমাস সেন্টিনেল ও ডেলিভারি গার্ড সেটিংস</h2>
+        <p>মেটা ও হোয়াটসঅ্যাপের পলিসি শতভাগ মেনে চলতে অ্যালগরিদম ভিত্তিক রোটেশন, জৈবিক জিটার ডিলে ও ব্যাচ কুলডাউন নিয়ন্ত্রণ করুন।</p>
+      </div>
+    </div>
+
+    <form method="POST">
+      <input type="hidden" name="csrf" value="<?= e(csrf_token()) ?>">
+      <input type="hidden" name="action" value="save_antiban">
+
+      <div class="wam-form-grid">
+        <div class="wam-form-group">
+          <label>ইন্টার-মেসেজ মিনিমাম ডিলে (সেকেন্ড):</label>
+          <input type="number" class="wam-form-input" name="antiban_delay_min" value="<?= $antiban['antiban_delay_min'] ?>" min="15" max="60" required>
+          <span style="font-size:0.75rem; color:#64748b;">মেসেজের মাঝে সর্বনিম্ন বিরতি (ডিফল্ট: ২৫ সেকেন্ড)</span>
         </div>
+
+        <div class="wam-form-group">
+          <label>ইন্টার-মেসেজ ম্যাক্সিমাম ডিলে (সেকেন্ড):</label>
+          <input type="number" class="wam-form-input" name="antiban_delay_max" value="<?= $antiban['antiban_delay_max'] ?>" min="30" max="120" required>
+          <span style="font-size:0.75rem; color:#64748b;">মেসেজের মাঝে সর্বোচ্চ বিরতি (ডিফল্ট: ৫৫ সেকেন্ড)</span>
+        </div>
+
+        <div class="wam-form-group">
+          <label>ব্যাচ সাইজ (কয়টি মেসেজ পর কুলডাউন বিরতি):</label>
+          <input type="number" class="wam-form-input" name="antiban_batch_size" value="<?= $antiban['antiban_batch_size'] ?>" min="5" max="30" required>
+          <span style="font-size:0.75rem; color:#64748b;">নির্দিষ্ট সংখ্যক মেসেজ পাঠানোর পর লম্বা বিরতি (ডিফল্ট: ১৫টি)</span>
+        </div>
+
+        <div class="wam-form-group">
+          <label>ব্যাচ কুলডাউন বিরতির সময় (সেকেন্ড):</label>
+          <input type="number" class="wam-form-input" name="antiban_batch_pause_seconds" value="<?= $antiban['antiban_batch_pause_seconds'] ?>" min="120" max="1800" required>
+          <span style="font-size:0.75rem; color:#64748b;">৪৮০ সেকেন্ড = ৮ মিনিট কুলডাউন বিরতি</span>
+        </div>
+
+        <div class="wam-form-group">
+          <label>দৈনিক সর্বোচ্চ আউটবাউন্ড কোটা (প্রতি নম্বর):</label>
+          <input type="number" class="wam-form-input" name="antiban_daily_cap_per_number" value="<?= $antiban['antiban_daily_cap_per_number'] ?>" min="20" max="100" required>
+          <span style="font-size:0.75rem; color:#64748b;">প্রতিটি নম্বরে দিনে নিরাপদ মেসেজ সীমা (ডিফল্ট: ৬৫টি)</span>
+        </div>
+      </div>
+
+      <div style="margin-top:1.5rem; background:#080d14; border:1px solid #1e293b; border-radius:12px; padding:1.25rem; display:flex; flex-direction:column; gap:12px;">
+        <h4 style="color:#ffffff; margin:0 0 6px; font-size:0.95rem;">🚨 স্মার্ট সুরক্ষামূলক সুইচ ও বাইপাস পলিসি:</h4>
+
+        <label style="font-size:0.85rem; color:#e2e8f0; display:flex; align-items:center; gap:8px; cursor:pointer;">
+          <input type="checkbox" name="antiban_priority_bypass" value="1" <?= $antiban['antiban_priority_bypass'] ? 'checked' : '' ?>>
+          <span><strong>ইনবাউন্ড গ্রাহক প্রায়োরিটি বাইপাস (Inbound & Emergency Priority Bypass):</strong> দৈনিক কোটা শেষ হলেও বা কুলডাউন চলাকালেও কোনো কাস্টমার প্রশ্ন করলে বা অর্ডার অনুমোদিত হলে সাথে সাথে ০ সেকেন্ড ডিলেতে উত্তর পাঠানো হবে।</span>
+        </label>
+
+        <label style="font-size:0.85rem; color:#e2e8f0; display:flex; align-items:center; gap:8px; cursor:pointer;">
+          <input type="checkbox" name="antiban_smart_rotation" value="1" <?= $antiban['antiban_smart_rotation'] ? 'checked' : '' ?>>
+          <span><strong>স্মার্ট মাল্টি-নম্বর রোটেশন পুল (Smart Multi-Number Rotation):</strong> একটি নম্বরে লিমিট শেষ হলে স্বয়ংক্রিয়ভাবে পরবর্তী উপলব্ধ নম্বর থেকে মেসেজ পাঠানো হবে।</span>
+        </label>
+
+        <label style="font-size:0.85rem; color:#e2e8f0; display:flex; align-items:center; gap:8px; cursor:pointer;">
+          <input type="checkbox" name="antiban_human_jitter" value="1" <?= $antiban['antiban_human_jitter'] ? 'checked' : '' ?>>
+          <span><strong>হিউম্যান টাইপিং ও দৈবচয়ন জিটার (Organic Human Jitter):</strong> রোবোটিক আচরণ এড়াতে প্রতিটি মেসেজের সময়ে ২ থেকে ৮ সেকেন্ডের মানুষের মত অনিয়মিত গ্যাপ যুক্ত করা।</span>
+        </label>
+      </div>
+
+      <div style="margin-top:1.25rem; display:flex; justify-content:flex-end;">
+        <button type="submit" class="btn-wam-primary">🛡️ অ্যান্টি-ব্যান সেটিংস কার্যকর করুন</button>
       </div>
     </form>
   </div>
 
   <!-- ========================================================================= -->
-  <!-- TAB 6: INSTANT TRIGGERS & DISPATCH HISTORY -->
+  <!-- TAB 10: INSTANT TRIGGERS & DISPATCH HISTORY -->
   <!-- ========================================================================= -->
   <div class="wam-panel <?= $activeTab === 'dispatch' ? 'active' : '' ?>" id="tab-dispatch">
     <div class="wam-section-header">
@@ -1456,8 +2067,10 @@ admin_header('WAManager Pro — অফিসিয়াল হোয়াটসঅ�
 </div>
 
 <!-- ========================================================================= -->
-<!-- MODAL: ADD NEW NUMBER TO ROTATION POOL -->
+<!-- MODALS: ADD ACCOUNT, CREATE GROUP, ADD NUMBERS, CREATE TEMPLATE -->
 <!-- ========================================================================= -->
+
+<!-- 1. ADD NEW NUMBER MODAL -->
 <div id="addAccountModal" style="display:none; position:fixed; inset:0; background:rgba(0,0,0,0.8); z-index:99999; align-items:center; justify-content:center; padding:1.5rem;">
   <div style="background:#0f172a; border:1px solid var(--wam-border-glow); border-radius:18px; width:100%; max-width:550px; overflow:hidden; box-shadow:0 25px 60px rgba(0,0,0,0.8);">
     <div style="background:#1e293b; padding:1.25rem 1.5rem; display:flex; justify-content:space-between; align-items:center;">
@@ -1501,59 +2114,247 @@ admin_header('WAManager Pro — অফিসিয়াল হোয়াটসঅ�
   </div>
 </div>
 
+<!-- 2. CREATE GROUP MODAL -->
+<div id="createGroupModal" style="display:none; position:fixed; inset:0; background:rgba(0,0,0,0.8); z-index:99999; align-items:center; justify-content:center; padding:1.5rem;">
+  <div style="background:#0f172a; border:1px solid var(--wam-border-glow); border-radius:18px; width:100%; max-width:500px; overflow:hidden;">
+    <div style="background:#1e293b; padding:1.25rem 1.5rem; display:flex; justify-content:space-between; align-items:center;">
+      <h3 style="margin:0; font-size:1.05rem; color:#ffffff;">📁 নতুন অডিয়েন্স গ্রুপ তৈরি করুন</h3>
+      <button type="button" onclick="closeCreateGroupModal()" style="background:none; border:none; color:#94a3b8; font-size:1.4rem; cursor:pointer;">&times;</button>
+    </div>
+    <form method="POST" style="padding:1.5rem;">
+      <input type="hidden" name="csrf" value="<?= e(csrf_token()) ?>">
+      <input type="hidden" name="action" value="create_contact_group">
+
+      <div class="wam-form-group" style="margin-bottom:1rem;">
+        <label>গ্রুপের নাম:</label>
+        <input type="text" class="wam-form-input" name="group_name" placeholder="যেমন: ভিআইপি ইউটিউবারস" required>
+      </div>
+
+      <div class="wam-form-group" style="margin-bottom:1.5rem;">
+        <label>বিবরণ (ঐচ্ছিক):</label>
+        <textarea class="wam-form-textarea" rows="3" name="group_desc" placeholder="গ্রুপের উদ্দেশ্য বা অডিয়েন্স বিবরণ..."></textarea>
+      </div>
+
+      <div style="display:flex; justify-content:flex-end; gap:10px;">
+        <button type="button" class="btn-wam-secondary" onclick="closeCreateGroupModal()">বাতিল</button>
+        <button type="submit" class="btn-wam-primary">তৈরি করুন</button>
+      </div>
+    </form>
+  </div>
+</div>
+
+<!-- 3. ADD NUMBERS TO GROUP MODAL -->
+<div id="addNumbersModal" style="display:none; position:fixed; inset:0; background:rgba(0,0,0,0.8); z-index:99999; align-items:center; justify-content:center; padding:1.5rem;">
+  <div style="background:#0f172a; border:1px solid var(--wam-border-glow); border-radius:18px; width:100%; max-width:520px; overflow:hidden;">
+    <div style="background:#1e293b; padding:1.25rem 1.5rem; display:flex; justify-content:space-between; align-items:center;">
+      <h3 style="margin:0; font-size:1.05rem; color:#ffffff;" id="addNumbersModalTitle">গ্রুপে নম্বর যোগ করুন</h3>
+      <button type="button" onclick="closeAddNumbersModal()" style="background:none; border:none; color:#94a3b8; font-size:1.4rem; cursor:pointer;">&times;</button>
+    </div>
+    <form method="POST" style="padding:1.5rem;">
+      <input type="hidden" name="csrf" value="<?= e(csrf_token()) ?>">
+      <input type="hidden" name="action" value="add_manual_numbers_to_group">
+      <input type="hidden" name="group_id" id="addNumbersModalGid" value="">
+
+      <div class="wam-form-group" style="margin-bottom:1.5rem;">
+        <label>ফোন নম্বরগুলো পেস্ট করুন (প্রতি লাইনে একটি বা কমা দিয়ে):</label>
+        <textarea class="wam-form-textarea" rows="8" name="manual_numbers" placeholder="01711223344&#10;+8801968111593&#10;01822334455" required></textarea>
+      </div>
+
+      <div style="display:flex; justify-content:flex-end; gap:10px;">
+        <button type="button" class="btn-wam-secondary" onclick="closeAddNumbersModal()">বাতিল</button>
+        <button type="submit" class="btn-wam-primary">নম্বর যোগ করুন</button>
+      </div>
+    </form>
+  </div>
+</div>
+
+<!-- 4. CREATE TEMPLATE MODAL -->
+<div id="createTemplateModal" style="display:none; position:fixed; inset:0; background:rgba(0,0,0,0.8); z-index:99999; align-items:center; justify-content:center; padding:1.5rem;">
+  <div style="background:#0f172a; border:1px solid var(--wam-border-glow); border-radius:18px; width:100%; max-width:580px; overflow:hidden;">
+    <div style="background:#1e293b; padding:1.25rem 1.5rem; display:flex; justify-content:space-between; align-items:center;">
+      <h3 style="margin:0; font-size:1.05rem; color:#ffffff;">📜 নতুন কনভার্সন টেমপ্লেট তৈরি করুন</h3>
+      <button type="button" onclick="closeCreateTemplateModal()" style="background:none; border:none; color:#94a3b8; font-size:1.4rem; cursor:pointer;">&times;</button>
+    </div>
+    <form method="POST" style="padding:1.5rem;">
+      <input type="hidden" name="csrf" value="<?= e(csrf_token()) ?>">
+      <input type="hidden" name="action" value="create_template">
+
+      <div class="wam-form-grid" style="margin-bottom:1rem;">
+        <div class="wam-form-group">
+          <label>টেমপ্লেটের নাম:</label>
+          <input type="text" class="wam-form-input" name="template_title" placeholder="যেমন: উইকেন্ড স্পেশাল অফার" required>
+        </div>
+        <div class="wam-form-group">
+          <label>ক্যাটাগরি:</label>
+          <select class="wam-form-select" name="template_category">
+            <option value="Hormozi Offer">Hormozi Offer</option>
+            <option value="Brunson Bridge">Brunson Bridge</option>
+            <option value="Urgency Flash">Urgency Flash</option>
+            <option value="Customer Care">Customer Care</option>
+            <option value="General">General</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="wam-form-group" style="margin-bottom:1.5rem;">
+        <label>মেসেজ কনটেন্ট (ট্যাগ: {name}, {package}, {link}, {coupon}):</label>
+        <textarea class="wam-form-textarea" rows="7" name="template_content" placeholder="Assalamu Alaikum {name}! আপনার জন্য বিশেষ অফার..." required></textarea>
+      </div>
+
+      <div style="display:flex; justify-content:flex-end; gap:10px;">
+        <button type="button" class="btn-wam-secondary" onclick="closeCreateTemplateModal()">বাতিল</button>
+        <button type="submit" class="btn-wam-primary">টেমপ্লেট সেভ করুন</button>
+      </div>
+    </form>
+  </div>
+</div>
+
 <script>
   // Tab Switching
   function switchWamTab(tabId) {
     document.querySelectorAll('.wam-tab-btn').forEach(b => b.classList.remove('active'));
     document.querySelectorAll('.wam-panel').forEach(p => p.classList.remove('active'));
     
-    event.currentTarget.classList.add('active');
+    const clickedBtn = Array.from(document.querySelectorAll('.wam-tab-btn')).find(b => b.getAttribute('onclick')?.includes(tabId));
+    if (clickedBtn) clickedBtn.classList.add('active');
+
     const target = document.getElementById('tab-' + tabId);
     if (target) target.classList.add('active');
+
+    // Update URL without reload
+    const url = new URL(window.location);
+    url.searchParams.set('tab', tabId);
+    window.history.replaceState({}, '', url);
   }
 
-  // Add Account Modal
-  function openAddAccountModal() {
-    const modal = document.getElementById('addAccountModal');
-    if (modal) modal.style.display = 'flex';
+  // Modals
+  function openAddAccountModal() { document.getElementById('addAccountModal').style.display = 'flex'; }
+  function closeAddAccountModal() { document.getElementById('addAccountModal').style.display = 'none'; }
+  function openCreateGroupModal() { document.getElementById('createGroupModal').style.display = 'flex'; }
+  function closeCreateGroupModal() { document.getElementById('createGroupModal').style.display = 'none'; }
+
+  function openAddNumbersModal(gid, gname) {
+    document.getElementById('addNumbersModalGid').value = gid;
+    document.getElementById('addNumbersModalTitle').innerText = gname + ' - এ নম্বর যোগ করুন';
+    document.getElementById('addNumbersModal').style.display = 'flex';
   }
-  function closeAddAccountModal() {
-    const modal = document.getElementById('addAccountModal');
-    if (modal) modal.style.display = 'none';
+  function closeAddNumbersModal() { document.getElementById('addNumbersModal').style.display = 'none'; }
+
+  function openCreateTemplateModal() { document.getElementById('createTemplateModal').style.display = 'flex'; }
+  function closeCreateTemplateModal() { document.getElementById('createTemplateModal').style.display = 'none'; }
+
+  function toggleNewGroupInput(val) {
+    const field = document.getElementById('grabberNewGroupField');
+    if (field) field.style.display = (val === 'new') ? 'flex' : 'none';
   }
 
-  // Live Simulation
-  function runAgentSimulation() {
-    const agent = document.getElementById('simAgentSelect').value;
-    const msg = document.getElementById('simUserMessage').value;
+  // Group Grabber CSV Export
+  function exportGrabberCsv() {
+    const text = document.getElementById('grabberTextInput').value;
+    const matches = text.match(/(\+?8801[3-9]\d{8}|01[3-9]\d{8}|\+?[1-9]\d{9,14})/g) || [];
+    if (matches.length === 0) {
+      alert('এক্সপোর্ট করার মতো কোনো বৈধ ফোন নম্বর পাওয়া যায়নি।');
+      return;
+    }
+    const unique = Array.from(new Set(matches));
+    let csv = "Phone Number\n" + unique.join("\n");
+    const blob = new Blob([csv], { type: 'text/csv;charset=utf-8;' });
+    const link = document.createElement("a");
+    link.href = URL.createObjectURL(blob);
+    link.download = "whatsapp_group_contacts_" + Date.now() + ".csv";
+    link.click();
+  }
+
+  // Template utilities
+  function copyTemplateText(content) {
+    navigator.clipboard.writeText(content).then(() => {
+      alert('টেমপ্লেট সফলভাবে ক্লিপবোর্ডে কপি হয়েছে!');
+    });
+  }
+
+  function useTemplateInBroadcast(content) {
+    switchWamTab('broadcast');
+    document.getElementById('campMsgInput').value = content;
+    updatePhoneMockup();
+    window.scrollTo({ top: document.getElementById('tab-broadcast').offsetTop - 50, behavior: 'smooth' });
+  }
+
+  // LIVE MASTER AI SANDBOX SIMULATION (AJAX Call to MarketingMasterBrain)
+  async function runLiveMasterAISimulation() {
+    const userMsg = document.getElementById('simUserMessage').value.trim();
+    const reqAgent = document.getElementById('simAgentSelect').value;
+    const submitBtn = document.getElementById('simSubmitBtn');
     const resultBox = document.getElementById('simResultBox');
     const userBubble = document.getElementById('simUserBubble');
     const agentBubble = document.getElementById('simAgentBubble');
+    const stageBadge = document.getElementById('simDetectedStage');
+    const fwBadge = document.getElementById('simAppliedFramework');
+    const agentBadge = document.getElementById('simSelectedAgent');
     const headerName = document.getElementById('simHeaderName');
     const headerAvatar = document.getElementById('simHeaderAvatar');
+    const sugDeck = document.getElementById('simSuggestionsDeck');
 
-    userBubble.innerText = msg;
+    if (!userMsg) {
+      alert('অনুগ্রহ করে গ্রাহকের প্রশ্ন লিখুন।');
+      return;
+    }
+
+    userBubble.innerText = userMsg;
+    agentBubble.innerText = 'চিফ মার্কেটিং ডিরেক্টর সাইকোলজিক্যাল রেসপন্স প্রস্তুত করছেন... ⏳';
     resultBox.style.display = 'block';
+    submitBtn.disabled = true;
 
-    if (agent === 'nirob') {
-      headerName.innerText = 'নীরব (Tech Specialist)';
-      headerAvatar.innerText = 'N';
-      headerAvatar.style.background = '#06b6d4';
-      agentBubble.innerText = "আসসালামু আলাইকুম ভাই! আমি নীরব, AutoMovie Pro-এর টেকনিক্যাল স্পেশালিস্ট। 💻\n\nকোনো চিন্তা করবেন না, 4GB র‍্যামেই চমৎকারভাবে সফটওয়্যারটি চলবে। কোনো ডেডিকেটেড গ্রাফিক্স কার্ডের প্রয়োজন নেই। সফটওয়্যারটি সম্পূর্ণ লোকাল পিসিতে অফলাইনে প্রসেস হয়, তাই ভিডিও তৈরির সময় ইন্টারনেটও লাগে না!";
-    } else if (agent === 'tania') {
-      headerName.innerText = 'তানিয়া (Onboarding & Sales)';
-      headerAvatar.innerText = 'T';
-      headerAvatar.style.background = '#8b5cf6';
-      agentBubble.innerText = "আসসালামু আলাইকুম! আমি তানিয়া, AutoMovie Pro টিম থেকে। 🌟\n\nআজকের স্পেশাল অফারে আপনি 'VIP500' কুপন কোড ব্যবহার করে সাথে সাথে ৫০০ টাকা ডিসকাউন্ট পাবেন!\n🎬 ফুল ভিডিও স্টুডিও লাইসেন্স প্যাকেজ: মাত্র ৳৩,৯৯৯ (অফার মূল্য: ৳৩,৪৯৯)।\n👉 এখনই অর্ডার সম্পন্ন করতে ভিজিট করুন: https://automoviepro.com/order.php";
-    } else {
-      headerName.innerText = 'আয়েশা (Customer Care)';
-      headerAvatar.innerText = 'A';
-      headerAvatar.style.background = '#10b981';
-      agentBubble.innerText = "আসসালামু আলাইকুম! আমি আয়েশা, AutoMovie Pro কাস্টমার সাপোর্ট থেকে বলছি। 🌸\n\nAutoMovie Pro-তে আপনাকে স্বাগতম। আপনি কোনো ফেস বা ভয়েস না দেখিয়েই স্বয়ংক্রিয়ভাবে ভাইরাল ভিডিও ও পোস্ট তৈরি করতে পারবেন। আপনি কি আমাদের ৩টি প্যাকেজের ফিচার সম্পর্কে জানতে চাচ্ছেন?";
+    try {
+      const resp = await fetch('?ajax=simulate_ai', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          user_message: userMsg,
+          requested_agent: reqAgent,
+          lead_name: 'কাস্টমার'
+        })
+      });
+
+      const data = await resp.json();
+      if (data && data.ok) {
+        agentBubble.innerText = data.reply;
+        const meta = data.meta || {};
+        stageBadge.innerText = meta.awareness_stage || 'Problem Aware';
+        fwBadge.innerText = meta.persuasion_framework || 'Hormozi Value Eq + Cialdini';
+        
+        const agentName = meta.selected_agent === 'nirob' ? 'নীরব (Tech Specialist)' : (meta.selected_agent === 'tania' ? 'তানিয়া (Sales Closer)' : 'আয়েশা (Customer Care)');
+        agentBadge.innerText = agentName;
+        headerName.innerText = agentName;
+        headerAvatar.innerText = meta.selected_agent === 'nirob' ? 'N' : (meta.selected_agent === 'tania' ? 'T' : 'A');
+        headerAvatar.style.background = meta.selected_agent === 'nirob' ? '#06b6d4' : (meta.selected_agent === 'tania' ? '#8b5cf6' : '#10b981');
+
+        sugDeck.innerHTML = '';
+        if (meta.suggestions && Array.isArray(meta.suggestions)) {
+          meta.suggestions.forEach(s => {
+            const btn = document.createElement('button');
+            btn.type = 'button';
+            btn.className = 'btn-wam-secondary';
+            btn.style.fontSize = '0.75rem';
+            btn.innerText = s;
+            btn.onclick = () => {
+              document.getElementById('simUserMessage').value = s;
+              runLiveMasterAISimulation();
+            };
+            sugDeck.appendChild(btn);
+          });
+        }
+      } else {
+        agentBubble.innerText = 'দুঃখিত, সিমুলেশন রেসপন্স জেনারেট করা যায়নি।';
+      }
+    } catch (e) {
+      console.error(e);
+      agentBubble.innerText = 'সার্ভার যোগাযোগে সাময়িক ত্রুটি। অনুগ্রহ করে আবার চেষ্টা করুন।';
+    } finally {
+      submitBtn.disabled = false;
     }
   }
 
-  // CRM Thread selection
+  // CRM Thread Selection
   function selectCrmThread(name, phone, pkg, msg) {
     document.getElementById('crmActiveName').innerText = name;
     document.getElementById('crmActivePhone').innerText = phone;
@@ -1563,31 +2364,18 @@ admin_header('WAManager Pro — অফিসিয়াল হোয়াটসঅ�
     document.getElementById('crmDirectWaBtn').href = 'https://wa.me/' + phone.replace(/[^0-9]/g, '');
   }
 
-  // Campaign templates
-  function updateCampTemplate() {
-    const topic = document.getElementById('campTopicSelect').value;
-    const msgBox = document.getElementById('campMsgInput');
-
-    if (topic === 'version_update') {
-      msgBox.value = "📢 AutoMovie Pro নতুন আপডেট রিলিজ (v4.5.2)!\n\nসম্মানিত গ্রাহক {name},\nআমাদের ভিডিও স্টুডিওতে নতুন সুপার-ফাস্ট 4K রেন্ডারিং ইঞ্জিন ও ফেসবুক অটো-রিলস শিডিউলার যুক্ত হয়েছে।\n\nআপনার পিসিতে সফটওয়্যারটি চালু করলেই স্বয়ংক্রিয়ভাবে আপডেট সক্রিয় হয়ে যাবে।\nযেকোনো সহায়তায় আমাদের সাপোর্ট টিম সর্বদা আপনার পাশে রয়েছে।";
-    } else if (topic === 'price_discount') {
-      msgBox.value = "🎉 বিশেষ অফার: AutoMovie Pro লাইফটাইম লাইসেন্সে ৫০০ টাকা ছাড়!\n\nসম্মানিত {name},\nআপনি যদি ইউটিউব ও ফেসবুকে ফেসলেস ভিডিও বানিয়ে প্যাসিভ ইনকাম শুরু করতে চান, তবে এখনই সেরা সুযোগ!\n\nকুপন কোড: VIP500\nঅর্ডার লিংক: https://automoviepro.com/order.php\nঅফারটি সীমিত সময়ের জন্য প্রযোজ্য।";
-    } else if (topic === 'care_checkin') {
-      msgBox.value = "Assalamu Alaikum {name}!\n\nAutoMovie Pro কাস্টমার রিলেশনশিপ টিম থেকে যোগাযোগ করছি।\nআপনার সফটওয়্যারটি কেমন চলছে? ভিডিও তৈরি বা ফেসবুক অটোমেশনে কোনো প্রকার সমস্যা বা সহায়তা প্রয়োজন কি?\n\nকোনো কিছু জানার থাকলে সরাসরি এই নম্বরে রিপ্লাই করুন, আমরা সাথে সাথে সমাধান করে দেবো।";
-    } else {
-      msgBox.value = "💡 ফেসলেস চ্যানেল আর্নিং টিপস:\n\nসম্মানিত {name},\nAutoMovie Pro ব্যবহার করে প্রতিদিন ২-৩টি হাই-রিটেনশন শর্টস আপলোড করুন।\nআমাদের встроен ট্রেন্ডিং টপিক ফাইন্ডার দিয়ে ভাইরাল স্ক্রিপ্ট জেনারেট করুন।\n\nবিস্তারিত গাইড দেখতে ভিজিট করুন: https://automoviepro.com/guide.html";
-    }
-    updatePhoneMockup();
-  }
-
+  // Phone Mockup update in Broadcast
   function updatePhoneMockup() {
     const text = document.getElementById('campMsgInput').value;
-    document.getElementById('phoneMockupText').innerText = text.replace('{name}', 'তানভীর আহমেদ').replace('{package}', 'Video Studio');
+    document.getElementById('phoneMockupText').innerText = text.replace('{name}', 'তানভীর আহমেদ').replace('{package}', 'Video Studio').replace('{coupon}', 'SPECIAL500').replace('{link}', 'https://automoviepro.com');
   }
 
-  // Initialize on load
   document.addEventListener('DOMContentLoaded', function() {
-    updateCampTemplate();
+    const defaultBroadcastMsg = "Assalamu Alaikum {name}!\n\nআপনি কি কোনো ভিডিও এডিটিং দক্ষতা ছাড়াই দিনে ৩-৫টি ভাইরাল ভিডিও বানিয়ে প্যাসিভ ইনকাম শুরু করতে চান?\n\nAutoMovie Pro-এর আজকের গ্র্যান্ড স্ল্যাম অফার:\n• ৩,৯৯৯ টাকার ফুল ভিডিও স্টুডিও কিনলে সাথে পাচ্ছেন রেডি-মেড ১০০+ ভাইরাল স্ক্রিপ্ট ভল্ট সম্পূর্ণ ফ্রি।\n• ১৮টি চ্যানেলে স্বয়ংক্রিয় শিডিউলিং ও লোকাল পিসি সিকিউরিটি।\n• ১০০% রিপ্লেসমেন্ট ও মানি-ব্যাক ওয়ারেন্টি গ্যারান্টি!\n\nঅর্ডার করতে ভিজিট করুন: https://automoviepro.com/order.php\nকুপন কোড: SPECIAL500";
+    if (document.getElementById('campMsgInput') && !document.getElementById('campMsgInput').value) {
+      document.getElementById('campMsgInput').value = defaultBroadcastMsg;
+      updatePhoneMockup();
+    }
   });
 </script>
 
