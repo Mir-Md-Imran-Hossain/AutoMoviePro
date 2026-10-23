@@ -748,6 +748,7 @@ class MotionGraphicsComposer:
 
     @classmethod
     @classmethod
+    @classmethod
     def compose_motion_scene_clip(
         cls,
         *,
