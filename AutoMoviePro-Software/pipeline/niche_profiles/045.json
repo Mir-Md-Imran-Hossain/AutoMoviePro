@@ -52,23 +52,23 @@
     },
     "bn": {
       "name": "শূন্য ও গণিত",
-      "blurb": "ভিডিও টাইপ: The origin of numbers, especially zero — how mathematics evolved from counting stones to calculus and modern cryptography."
+      "blurb": "সংখ্যার উৎপত্তি এবং পাথর গোনা থেকে ক্যালকুলাস ও আধুনিক ক্রিপ্টোগ্রাফি হয়ে গণিতের অগ্রযাত্রা।"
     },
     "hi": {
       "name": "शून्य और गणित",
-      "blurb": "वीडियो प्रकार: The origin of numbers, especially zero — how mathematics evolved from counting stones to calculus and modern cryptography."
+      "blurb": "संख्याओं और विशेषकर शून्य का इतिहास — कंकड़ गिनने से लेकर कैलकुलस तक गणित का विकास।"
     },
     "ur": {
       "name": "صفر اور ریاضی",
-      "blurb": "ویڈیو کی قسم: The origin of numbers, especially zero — how mathematics evolved from counting stones to calculus and modern cryptography."
+      "blurb": "ہندسوں اور خاص طور پر صفر کی ابتدا — پتھر گننے سے لے کر کیلکولس تک ریاضی کا سفر۔"
     },
     "ta": {
-      "name": "பூஜ்யம் & கணிதம்",
-      "blurb": "வீடியோ வகை: The origin of numbers, especially zero — how mathematics evolved from counting stones to calculus and modern cryptography."
+      "name": "சுழியமும் கணிதமும்",
+      "blurb": "எண்களின் தோற்றம் மற்றும் சுழியத்தின் வரலாறு — கற்களை எண்ணுவதில் தொடங்கி கல்குலஸ் வரை."
     },
     "ml": {
-      "name": "പൂജ്യവും ഗണിതവും",
-      "blurb": "വീഡിയോ തരം: The origin of numbers, especially zero — how mathematics evolved from counting stones to calculus and modern cryptography."
+      "name": "പൂജ്യവും ഗണിതശാസ്ത്രവും",
+      "blurb": "സംഖ്യകളുടെയും പൂജ്യത്തിന്റെയും ഉത്ഭവം — കല്ലുകൾ എണ്ണുന്നതിൽ നിന്ന് കാൽക്കുലസിലേക്കുള്ള വളർച്ച."
     }
   },
   "source": "Nish.Md + deterministic research",

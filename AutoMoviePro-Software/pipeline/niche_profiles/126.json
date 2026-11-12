@@ -51,24 +51,24 @@
       "blurb": "Busting beliefs like \"lightning never strikes twice\" — with scientific evidence and fun animations."
     },
     "bn": {
-      "name": "আবহাওয়ার মিথ",
-      "blurb": "ভিডিও টাইপ: Busting beliefs like \"lightning never strikes twice\" — with scientific evidence and fun animations."
+      "name": "আবহাওয়ার প্রচলিত ভুল ধারণা",
+      "blurb": "\"বজ্রপাত একই স্থানে দুবার পড়ে না\"—এমন ভুল ধারণাগুলো ভাঙুন বিজ্ঞানের আলোয়।"
     },
     "hi": {
-      "name": "मौसम मिथक",
-      "blurb": "वीडियो प्रकार: Busting beliefs like \"lightning never strikes twice\" — with scientific evidence and fun animations."
+      "name": "मौसम से जुड़े भ्रम",
+      "blurb": "\"बिजली एक जगह दोबारा नहीं गिरती\" जैसे भ्रमों का वैज्ञानिक तथ्यात्मक पर्दाफाश।"
     },
     "ur": {
-      "name": "موسمی افسانے",
-      "blurb": "ویڈیو کی قسم: Busting beliefs like \"lightning never strikes twice\" — with scientific evidence and fun animations."
+      "name": "موسم کے بارے میں غلط فہمیاں",
+      "blurb": "\"بجلی ایک جگہ دو بار نہیں گرتی\" جیسے توہمات کا سائنسی بنیادوں پر رد۔"
     },
     "ta": {
-      "name": "வானிலை தொன்மங்கள்",
-      "blurb": "வீடியோ வகை: Busting beliefs like \"lightning never strikes twice\" — with scientific evidence and fun animations."
+      "name": "வானிலை பற்றிய கட்டுக்கதைகள்",
+      "blurb": "\"மின்னல் ஒரே இடத்தில் இரண்டு முறை தாக்காது\" போன்ற நம்பிக்கைகளை அறிவியல் உண்மைகளுடன் ஆராய்தல்."
     },
     "ml": {
-      "name": "കാലാവസ്ഥാ മിഥ്യകൾ",
-      "blurb": "വീഡിയോ തരം: Busting beliefs like \"lightning never strikes twice\" — with scientific evidence and fun animations."
+      "name": "കാലാവസ്ഥാ മിഥ്യാധാരണകൾ",
+      "blurb": "\"മിന്നൽ ഒരേ സ്ഥലത്ത് രണ്ടുതവണ അടിക്കില്ല\" തുടങ്ങിയ തെറ്റായ ധാരണകൾ ശാസ്ത്രീയമായി പരിശോധിക്കുന്നു."
     }
   },
   "source": "Nish.Md + deterministic research",

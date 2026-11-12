@@ -9,13 +9,28 @@ requested for this product line.
 from __future__ import annotations
 
 from typing import Any, Dict, List, Tuple
+import os
+
+# MASTER LOCALIZATION SWITCH
+# User Directive: Temporarily dormant to focus 100% on native Bengali video quality.
+# To re-activate the multi-language pipeline across all 6 languages ("en", "bn", "hi", "ur", "ta", "ml"),
+# set ENABLE_LOCALIZATION = True or export AMP_ENABLE_LOCALIZATION=1.
+ENABLE_LOCALIZATION: bool = os.environ.get("AMP_ENABLE_LOCALIZATION", "0").strip().lower() in ("1", "true", "yes")
+
+def is_localization_enabled() -> bool:
+    """Master toggle state for multi-language dubbing and localization."""
+    return ENABLE_LOCALIZATION or (os.environ.get("AMP_ENABLE_LOCALIZATION", "0").strip().lower() in ("1", "true", "yes"))
 
 # Master generation language (ISO 639-1 + BCP-47 for dubbing APIs)
-SOURCE_LANG = "en"
-SOURCE_LANG_BCP47 = "en-US"
+# When localization is dormant, native master is locked exclusively to Bengali ("bn").
+# When localization is active, English ("en") serves as the master pivot.
+SOURCE_LANG = "en" if is_localization_enabled() else "bn"
+SOURCE_LANG_BCP47 = "en-US" if is_localization_enabled() else "bn-BD"
 
-# Final delivery languages (English first = automatic master)
-TARGET_LANG_CODES: Tuple[str, ...] = ("en", "bn", "hi", "ur", "ta", "ml")
+# Final delivery languages (English first when localization active; Bengali only when dormant)
+TARGET_LANG_CODES: Tuple[str, ...] = (
+    ("en", "bn", "hi", "ur", "ta", "ml") if is_localization_enabled() else ("bn",)
+)
 
 LANG_FOLDERS: Dict[str, str] = {
     "en": "English",
@@ -81,7 +96,7 @@ _DRIFT_VOICES = _FEMALE_GEMINI_VOICES | _DRIFT_MALE_VOICES
 # Edge neural males (quota fallback). Gemini names must never be sent to edge-tts.
 EDGE_VOICES: Dict[str, str] = {
     "en": "en-US-GuyNeural",
-    "bn": "bn-IN-BashkarNeural",
+    "bn": "bn-BD-PradeepNeural",
     "hi": "hi-IN-MadhurNeural",
     "ur": "ur-PK-AsadNeural",
     "ta": "ta-IN-ValluvarNeural",
@@ -90,7 +105,7 @@ EDGE_VOICES: Dict[str, str] = {
 
 EDGE_VOICE_FALLBACKS: Dict[str, Tuple[str, ...]] = {
     "en": ("en-US-GuyNeural", "en-US-DavisNeural", "en-GB-RyanNeural"),
-    "bn": ("bn-IN-BashkarNeural",),
+    "bn": ("bn-BD-PradeepNeural", "bn-BD-NabanitaNeural", "bn-IN-BashkarNeural"),
     "hi": ("hi-IN-MadhurNeural",),
     "ur": ("ur-PK-AsadNeural",),
     "ta": ("ta-IN-ValluvarNeural",),
@@ -325,7 +340,9 @@ def localization_culture_brief(code: str) -> str:
 
 
 def localize_targets(*, include_source: bool = False) -> List[str]:
-    """Languages that need translate+TTS+remux (usually all except source)."""
+    """Languages that need translate+TTS+remux (usually all except source). Returns [] when localization is dormant."""
+    if not is_localization_enabled():
+        return [SOURCE_LANG] if include_source else []
     if include_source:
         return list(TARGET_LANG_CODES)
     return [c for c in TARGET_LANG_CODES if c != SOURCE_LANG]

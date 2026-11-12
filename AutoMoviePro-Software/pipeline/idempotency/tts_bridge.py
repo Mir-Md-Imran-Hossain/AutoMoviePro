@@ -265,7 +265,12 @@ def idempotent_reuse_or_synthesize_tts(
     except Exception:
         pass
 
-    if language_hint in ("bn", "ta", "ml") and google_api_keys:
+    lang_lower = (language_hint or "en").lower().strip()
+    # Commercial policy: English and Hindi strictly use Microsoft Edge-TTS (unlimited, zero-quota, natural)
+    # Bengali (bn) and others use Google AI Studio TTS (Charon / Natural)
+    if lang_lower in ("en", "hi") or lang_lower.startswith(("en-", "hi-")):
+        prefer_edge = True
+    elif lang_lower in ("bn", "ta", "ml"):
         prefer_edge = False
 
     if prefer_edge or (

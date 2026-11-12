@@ -51,24 +51,24 @@
       "blurb": "The theft of masterpieces — the Mona Lisa, The Scream — and the undercover operations that brought them back."
     },
     "bn": {
-      "name": "শিল্পকর্ম চুরি ও উদ্ধার",
-      "blurb": "ভিডিও টাইপ: The theft of masterpieces — the Mona Lisa, The Scream — and the undercover operations that brought them back."
+      "name": "শিল্প চুরি ও উদ্ধার",
+      "blurb": "মোনা লিসা ও দ্য স্ক্রিমের মতো মাস্টারপিস চুরির ইতিহাস এবং সেগুলোকে ফিরিয়ে আনার গোপন অভিযান।"
     },
     "hi": {
       "name": "कला चोरी और बरामदगी",
-      "blurb": "वीडियो प्रकार: The theft of masterpieces — the Mona Lisa, The Scream — and the undercover operations that brought them back."
+      "blurb": "मोनालिसा और द चीख जैसी महान कलाकृतियों की चोरी और उन्हें वापस लाने वाले गुप्त अभियान।"
     },
     "ur": {
-      "name": "آرٹ چوریاں اور بازیابی",
-      "blurb": "ویڈیو کی قسم: The theft of masterpieces — the Mona Lisa, The Scream — and the undercover operations that brought them back."
+      "name": "فن پاروں کی چوری اور بازیابی",
+      "blurb": "مونا لیزا اور دی س کریم جیسے شاہکاروں کی چوری اور انہیں واپس لانے والے خفیہ آپریشن۔"
     },
     "ta": {
-      "name": "கலைத் திருட்டு & மீட்பு",
-      "blurb": "வீடியோ வகை: The theft of masterpieces — the Mona Lisa, The Scream — and the undercover operations that brought them back."
+      "name": "கலை திருட்டும் மீட்பும்",
+      "blurb": "மோனா லிசா போன்ற தலைசிறந்த ஓவியங்களின் திருட்டு மற்றும் அவற்றை மீட்ட ரகசிய நடவடிக்கைகள்."
     },
     "ml": {
-      "name": "കലാ മോഷണങ്ങളും വീണ്ടെടുപ്പും",
-      "blurb": "വീഡിയോ തരം: The theft of masterpieces — the Mona Lisa, The Scream — and the undercover operations that brought them back."
+      "name": "കലാ മോഷ്ടണങ്ങളും വീണ്ടെടുപ്പുകളും",
+      "blurb": "മോണാലിസയുടെ തിരോധാനവും മാസ്റ്റർപീസുകൾ തിരികെ പിടിച്ച രഹസ്യ അന്വേഷണങ്ങളുടെ കഥയും."
     }
   },
   "source": "Nish.Md + deterministic research",

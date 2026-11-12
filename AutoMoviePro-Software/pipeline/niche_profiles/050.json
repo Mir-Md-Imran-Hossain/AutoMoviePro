@@ -1,8 +1,8 @@
 {
   "niche_id": 50,
-  "name": "Mind Control Experiments",
-  "slug": "mind-control-experiments",
-  "style_family": "science",
+  "name": "Logic, IQ & Critical Thinking",
+  "slug": "logic-iq-critical-thinking",
+  "style_family": "motion_graphics",
   "status": "VERIFIED",
   "topic_seeds": [
     "What new evidence reframes the story of Mind Control Experiments The inside Mind Control Experiments",
@@ -43,28 +43,28 @@
   "video_prompt_overlay": "NICHE VISUAL LOCK (Mind Control Experiments / science): Generate a 7–9 second dialogue clip based on the topic `{topic}`. Each dialogue must be disturbing and clinical. For each dialogue, generate: - **Audio Generation Prompt:** Voice — monotone, clinical, with hospital beeps and white noise. - **Video Generation Prompt:** Detailed visual — a sterile lab room or psychiatric ward. Character: a scientist in white coat or a patient in hospital gown. Lighting: harsh fluorescent white. Maintain same room, same coat, same sterile feel. Forbidden: talking-head lip-sync avatar, burned-in captions, watermark, modern meme text, off-niche stock office B-roll. Preferred subjects: lab instrument close-up, diagrammatic mechanism metaphor, field measurement site. Lighting: teal/cyan lab grade, high contrast, shallow DOF. Face policy: no talking-head lip-sync avatar; cinematic B-roll preferred. Dialogue tone: clear explainer; one mechanism per beat. Ambience: clean room tone, soft electronic texture.",
   "i18n": {
     "en": {
-      "name": "Mind Control Experiments",
-      "blurb": "The dark history of MK-Ultra, Project Monarch — government-funded mind-control attempts, and the ethical fallout."
+      "name": "Logic, IQ & Critical Thinking",
+      "blurb": "Deconstructing logical fallacies, cognitive biases, mental models, and decision-making frameworks. Explores Occam's Razor, First Principles Thinking, Confirmation Bias, and how the"
     },
     "bn": {
-      "name": "মন নিয়ন্ত্রণ পরীক্ষা",
-      "blurb": "ভিডিও টাইপ: The dark history of MK-Ultra, Project Monarch — government-funded mind-control attempts, and the ethical fallout."
+      "name": "যুক্তি ও সংকট বিশ্লেষণ",
+      "blurb": "যুক্তির ত্রুটি, পক্ষপাতিত্ব এবং সিদ্ধান্ত গ্রহণের মডেল যেমন ওকামস রেজর ও প্রথম নীতি বিশ্লেষণ।"
     },
     "hi": {
-      "name": "मन नियंत्रण प्रयोग",
-      "blurb": "वीडियो प्रकार: The dark history of MK-Ultra, Project Monarch — government-funded mind-control attempts, and the ethical fallout."
+      "name": "तर्क और आलोचनात्मक सोच",
+      "blurb": "तार्किक भ्रांतियों, पूर्वाग्रहों और निर्णय लेने के मॉडल जैसे ओकॅम रेज़र का विश्लेषण।"
     },
     "ur": {
-      "name": "ذہن کنٹرول تجربات",
-      "blurb": "ویڈیو کی قسم: The dark history of MK-Ultra, Project Monarch — government-funded mind-control attempts, and the ethical fallout."
+      "name": "منطق اور تنقیدی سوچ",
+      "blurb": "منطقی مغالطوں، تعصبات اور فیصلہ سازی کے اصولوں جیسے اوکامز ریزر کا تنقیدی جائزہ۔"
     },
     "ta": {
-      "name": "மனக் கட்டுப்பாட்டு சோதனைகள்",
-      "blurb": "வீடியோ வகை: The dark history of MK-Ultra, Project Monarch — government-funded mind-control attempts, and the ethical fallout."
+      "name": "தர்க்கம் மற்றும் பகுத்தறிவு",
+      "blurb": "தர்க்கப்பிழைகள், சார்புகள் மற்றும் முடிவெடுக்கும் முறைகள் பற்றிய ஆழமான பகுப்பாய்வு."
     },
     "ml": {
-      "name": "മനസ് നിയന്ത്രണ പരീക്ഷണങ്ങൾ",
-      "blurb": "വീഡിയോ തരം: The dark history of MK-Ultra, Project Monarch — government-funded mind-control attempts, and the ethical fallout."
+      "name": "യുക്തിയും വിമർശനാത്മക ചിന്തയും",
+      "blurb": "യുക്തിപരമായ പിശകുകൾ, പക്ഷപാതങ്ങൾ, ഒക്കാംസ് റേസർ തുടങ്ങിയ തീരുമാനമെടുക്കൽ മാതൃകകൾ."
     }
   },
   "source": "Nish.Md + deterministic research",

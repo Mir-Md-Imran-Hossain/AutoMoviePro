@@ -211,6 +211,8 @@ def rewrite_cold_open_hook(text: str, *, topic: str = "") -> str:
             f"Stay for the evidence."
         )
     if clause:
+        if subject.lower() in clause.lower():
+            return f"Why does this matter right now? {clause}. Watch the payoff."
         return (
             f"Why does {subject} matter right now? {clause}. "
             f"Watch the payoff."
@@ -224,6 +226,8 @@ def rewrite_cold_open_hook(text: str, *, topic: str = "") -> str:
 def enforce_opening_hook_on_plan(plan: dict[str, Any] | None) -> dict[str, Any]:
     """Force scene-0 / hook beat into a retention-grade cold open when weak."""
     plan = dict(plan or {})
+    if str(plan.get("video_category") or "").lower() in ("live_news", "news"):
+        return plan
     topic = str(plan.get("topic") or plan.get("title") or "").strip()
     key = "beats" if plan.get("beats") else "scenes"
     rows = list(plan.get(key) or [])
@@ -290,6 +294,8 @@ def _needs_mid_rehook(text: str) -> bool:
 def enforce_retention_cadence_on_plan(plan: dict[str, Any] | None) -> dict[str, Any]:
     """Inject mid-script re-hooks and ending loop-close language when beats are flat."""
     plan = dict(plan or {})
+    if str(plan.get("video_category") or "").lower() in ("live_news", "news"):
+        return plan
     topic = str(plan.get("topic") or plan.get("title") or "").strip()
     key = "beats" if plan.get("beats") else "scenes"
     rows = list(plan.get(key) or [])

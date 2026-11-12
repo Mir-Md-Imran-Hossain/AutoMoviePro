@@ -1,8 +1,8 @@
 {
   "niche_id": 142,
-  "name": "Dream Interpretation",
-  "slug": "dream-interpretation",
-  "style_family": "history",
+  "name": "Marine Ecosystems & Coral Reefs",
+  "slug": "marine-ecosystems-coral-reefs",
+  "style_family": "nature",
   "status": "VERIFIED",
   "topic_seeds": [
     "What new evidence reframes the story of Dream Interpretation Common inside Dream Interpretation",
@@ -47,28 +47,28 @@
   "video_prompt_overlay": "NICHE VISUAL LOCK (Dream Interpretation / history): Generate a 7–9 second dialogue clip based on the topic `{topic}`. Each dialogue must be introspective. For each dialogue, generate: - **Audio Generation Prompt:** Voice — soothing, with wind and soft chime. - **Video Generation Prompt:** Detailed visual — a dreamy cloud or surreal scene. No character — abstract. Lighting: soft, ethereal. Maintain same surreal. Forbidden: talking-head lip-sync avatar, burned-in captions, watermark, modern meme text, modern smartphones, cars, LED screens, sneakers. Preferred subjects: Dream Interpretation documentary subject, period-accurate environment, evidence object close-up. Lighting: warm desert sun / torchlit interiors, high-contrast documentary grade. Face policy: period extras OK if consistent; prefer environment/object hero when possible. Dialogue tone: human documentary narration; specific nouns; 7–9s beats. Ambience: subtle documentary bed; do not overpower voice.",
   "i18n": {
     "en": {
-      "name": "Dream Interpretation",
-      "blurb": "Common dreams — flying, falling, being chased — and what psychologists think they mean."
+      "name": "Marine Ecosystems & Coral Reefs",
+      "blurb": "The vibrant underwater cities of our oceans — the Great Barrier Reef, coral spawning synchronization, clownfish and anemone mutualism, and the critical role of marine phytoplankton"
     },
     "bn": {
-      "name": "স্বপ্নের ব্যাখ্যা",
-      "blurb": "ভিডিও টাইপ: Common dreams — flying, falling, being chased — and what psychologists think they mean."
+      "name": "সামুদ্রিক বাস্তুতন্ত্র ও প্রবাল প্রাচীর",
+      "blurb": "মহাসাগরের তলদেশের বর্ণিল জলজ শহর—গ্রেট ব্যারিয়ার রিফ, ক্লাউনফিশের জীবন এবং প্রবাল পলি জমার বিস্ময়কর জগৎ।"
     },
     "hi": {
-      "name": "स्वप्न व्याख्या",
-      "blurb": "वीडियो प्रकार: Common dreams — flying, falling, being chased — and what psychologists think they mean."
+      "name": "समुद्री पारिस्थितिकी और प्रवाल भित्तियाँ",
+      "blurb": "महासागरों की रंगीन दुनिया—ग्रेट बैरियर रीफ, क्लाउनफिश और समुद्री जीवन का अद्भुत पारिस्थितिकी तंत्र।"
     },
     "ur": {
-      "name": "خواب کی تعبیر",
-      "blurb": "ویڈیو کی قسم: Common dreams — flying, falling, being chased — and what psychologists think they mean."
+      "name": "سمندری ماحولیاتی نظام اور مرجان کی چٹانیں",
+      "blurb": "سمندروں کی رنگ برنگی زیر آب دنیا—گریٹ بیریئر ریف، کلاؤن فش اور ان کی باہم جڑی زندگی کا نظام۔"
     },
     "ta": {
-      "name": "கனவு விளக்கம்",
-      "blurb": "வீடியோ வகை: Common dreams — flying, falling, being chased — and what psychologists think they mean."
+      "name": "கடல் சுற்றுச்சூழல் மற்றும் பவளப்பாறைகள்",
+      "blurb": "பெருங்கடல்களின் வண்ணமயமான நீருக்கடியில் உள்ள உலகங்கள்—கிரேட் பேரியர் ரீஃப் மற்றும் கடல் உயிரினங்களின் ரகசியங்கள்."
     },
     "ml": {
-      "name": "സ്വപ്ന വ്യാഖ്യാനം",
-      "blurb": "വീഡിയോ തരം: Common dreams — flying, falling, being chased — and what psychologists think they mean."
+      "name": "സമുദ്ര ആവാസവ്യവസ്ഥയും പവളപ്പുഴകളും",
+      "blurb": "സമുദ്രങ്ങളുടെ അടിത്തട്ടിലെ വർണ്ണാഭമായ ലോകം—ഗ്രേറ്റ് बैरियर റീഫ്, ക്ലൗൺഫിഷുകൾ എന്നിവയുടെ അതിശയകരമായ ജീവിതരീതികൾ."
     }
   },
   "source": "Nish.Md + deterministic research",

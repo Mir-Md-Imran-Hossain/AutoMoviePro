@@ -18,7 +18,8 @@
     "API budget: prefer local gates+ffmpeg; max 1 Agnes create per scene; skip multimodal critic when self-repair already PASSED; avoid meta-audit spam.",
     "Localization: replace audio+subs only; mild setpts≤1.18 else atempo speech — no stream_loop, no mid-speech freeze.",
     "Master English: Agnes picture + consistent Charon narration when native Agnes pace/cutoff fails; keep pitch consistent across neighboring clips.",
-    "Finish every spoken word at steady documentary pace; leave silence only after last syllable; keep pitch consistent across clips."
+    "Finish every spoken word at steady documentary pace; leave silence only after last syllable; keep pitch consistent across clips.",
+    "After dialogue ends, hold final frame with ~1s silence before cut."
   ],
-  "updated_by": "scene_0_pace_or_cutoff"
+  "updated_by": "scene_11_tail"
 }

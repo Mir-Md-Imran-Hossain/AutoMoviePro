@@ -1,8 +1,8 @@
 {
   "niche_id": 28,
-  "name": "Near-Death Experiences",
-  "slug": "near-death-experiences",
-  "style_family": "history",
+  "name": "Googly & Brain Teaser Riddles",
+  "slug": "googly-brain-teaser-riddles",
+  "style_family": "motion_graphics",
   "status": "VERIFIED",
   "topic_seeds": [
     "What new evidence reframes the story of Near inside Near-Death Experiences",
@@ -47,28 +47,28 @@
   "video_prompt_overlay": "NICHE VISUAL LOCK (Near-Death Experiences / history): Generate a 7–9 second dialogue clip based on the topic `{topic}`. Each dialogue must be serene and transformational. For each dialogue, generate: - **Audio Generation Prompt:** Voice — soft, reflective, with warm ambient drone. - **Video Generation Prompt:** Detailed visual — white light, tunnel, or peaceful garden. Character: patient lying down. Lighting: bright golden light. Maintain same bright soft glow. Forbidden: talking-head lip-sync avatar, burned-in captions, watermark, modern meme text, modern smartphones, cars, LED screens, sneakers. Preferred subjects: Near-Death Experiences documentary subject, period-accurate environment, evidence object close-up. Lighting: warm desert sun / torchlit interiors, high-contrast documentary grade. Face policy: period extras OK if consistent; prefer environment/object hero when possible. Dialogue tone: human documentary narration; specific nouns; 7–9s beats. Ambience: subtle documentary bed; do not overpower voice.",
   "i18n": {
     "en": {
-      "name": "Near-Death Experiences",
-      "blurb": "People who clinically died and came back — their visions, out-of-body sensations, and how their life changed afterward."
+      "name": "Googly & Brain Teaser Riddles",
+      "blurb": "Clever logic riddles, visual brain teasers, and witty Bengali 'Googly' questions that challenge lateral thinking. Features 7-second countdown timers, visual clue animations, and sa"
     },
     "bn": {
-      "name": "মৃত্যুর কাছাকাছি অভিজ্ঞতা",
-      "blurb": "ভিডিও টাইপ: People who clinically died and came back — their visions, out-of-body sensations, and how their life changed afterward."
+      "name": "বুদ্ধির খেলা ও ধাঁধা",
+      "blurb": "চমকপ্রদ লজিক ধাঁধা, ভিজ্যুয়াল ব্রেন টিজার এবং দারুণ সব বাংলা ধাঁধা — যা আপনার চিন্তার জগতকে চ্যালেঞ্জ করবে।"
     },
     "hi": {
-      "name": "मृत्यु-समीप अनुभव",
-      "blurb": "वीडियो प्रकार: People who clinically died and came back — their visions, out-of-body sensations, and how their life changed afterward."
+      "name": "दिमागी पहेलियाँ और गोगली",
+      "blurb": "شاندار منطقی پہیلیاں اور دماغی ورزش کے سوالات جو آپ کی سوچنے کی صلاحیت کو چیلنج کریں۔"
     },
     "ur": {
-      "name": "موت کے قریب تجربات",
-      "blurb": "ویڈیو کی قسم: People who clinically died and came back — their visions, out-of-body sensations, and how their life changed afterward."
+      "name": "ذہانت کی پहेلیاں اور گوگلی",
+      "blurb": "دلچسپ منطقی پہیلیاں، دماغی کھیل اور ایسے سوالات جو آپ کی سوچ کو نئی سمت دیں۔"
     },
     "ta": {
-      "name": "மரணத்திற்கு அருகில் அனுபவங்கள்",
-      "blurb": "வீடியோ வகை: People who clinically died and came back — their visions, out-of-body sensations, and how their life changed afterward."
+      "name": "மூளைக்கு சவால் விடும் புதிர்கள்",
+      "blurb": "புத்திசாலித்தனமான தர்க்கப் புதிர்கள் மற்றும் மூளைக்கு வேலை தரும் சுவாரஸ்யமான கேள்விகள்."
     },
     "ml": {
-      "name": "മരണസമീപ അനുഭവങ്ങൾ",
-      "blurb": "വീഡിയോ തരം: People who clinically died and came back — their visions, out-of-body sensations, and how their life changed afterward."
+      "name": "തലച്ചോറിന് പണിയായ കടങ്കഥകൾ",
+      "blurb": "ബുദ്ധിപരമായ ലോജിക് കടങ്കഥകളും വിഷ്വൽ പസിലുകളും നിങ്ങളുടെ ചിന്താശേഷിയെ ഉണർത്തുന്ന ചോദ്യങ്ങളും."
     }
   },
   "source": "Nish.Md + deterministic research",

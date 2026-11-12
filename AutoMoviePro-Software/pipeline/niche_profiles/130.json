@@ -1,7 +1,7 @@
 {
   "niche_id": 130,
-  "name": "Demonology & Exorcisms",
-  "slug": "demonology-exorcisms",
+  "name": "Historic Inventions That Changed Humanity",
+  "slug": "historic-inventions-that-changed-humanity",
   "style_family": "history",
   "status": "VERIFIED",
   "topic_seeds": [
@@ -47,28 +47,28 @@
   "video_prompt_overlay": "NICHE VISUAL LOCK (Demonology & Exorcisms / history): Generate a 7–9 second dialogue clip based on the topic `{topic}`. Each dialogue must be solemn and intense. For each dialogue, generate: - **Audio Generation Prompt:** Voice — stern, with chanting and rattling. - **Video Generation Prompt:** Detailed visual — a church or bedroom. Characters: priest and afflicted person. Lighting: candlelit. Maintain same room and priest. Forbidden: talking-head lip-sync avatar, burned-in captions, watermark, modern meme text, modern smartphones, cars, LED screens, sneakers. Preferred subjects: Demonology & Exorcisms documentary subject, period-accurate environment, evidence object close-up. Lighting: warm desert sun / torchlit interiors, high-contrast documentary grade. Face policy: period extras OK if consistent; prefer environment/object hero when possible. Dialogue tone: human documentary narration; specific nouns; 7–9s beats. Ambience: subtle documentary bed; do not overpower voice.",
   "i18n": {
     "en": {
-      "name": "Demonology & Exorcisms",
-      "blurb": "Catholic exorcism cases, demonic signs, and the priests who confront the unknown — respectful yet gripping."
+      "name": "Historic Inventions That Changed Humanity",
+      "blurb": "The definitive turning points of human civilization — the printing press, the compass, the steam engine, penicillin, the transistor, and the wheel. Minute-by-minute forensic breakt"
     },
     "bn": {
-      "name": "দানববিদ্যা ও ভূতছাড়া",
-      "blurb": "ভিডিও টাইপ: Catholic exorcism cases, demonic signs, and the priests who confront the unknown — respectful yet gripping."
+      "name": "ইতিহাস পাল্টে দেওয়া আবিষ্কার",
+      "blurb": "প্রিন্টিং প্রেস, বাষ্পীয় ইঞ্জিন ও পেনিসিলিন—মানবসভ্যতা বদলে দেওয়া ঐতিহাসিক মুহূর্তগুলো।"
     },
     "hi": {
-      "name": "दानवविद्या और भूत भगाना",
-      "blurb": "वीडियो प्रकार: Catholic exorcism cases, demonic signs, and the priests who confront the unknown — respectful yet gripping."
+      "name": "इतिहास बदलने वाले महान आविष्कार",
+      "blurb": "प्रिंटिंग प्रेस, भाप का इंजन और पेनिसिलिन—मानव सभ्यता को हमेशा के लिए बदल देने वाले पल।"
     },
     "ur": {
-      "name": "شیطان شناسی اور جن نکالنا",
-      "blurb": "ویڈیو کی قسم: Catholic exorcism cases, demonic signs, and the priests who confront the unknown — respectful yet gripping."
+      "name": "تاریخ بدل دینے والی عظیم ایجادات",
+      "blurb": "پرنٹنگ پریس، بھاپ کا انجن اور پینسلین—انسانی تہذیب کو بدل کر رکھ دینے والے تاریخی کارنامے۔"
     },
     "ta": {
-      "name": "பேயியல் & ஒழிப்பு சடங்குகள்",
-      "blurb": "வீடியோ வகை: Catholic exorcism cases, demonic signs, and the priests who confront the unknown — respectful yet gripping."
+      "name": "வரலாற்றிய முக்கிய கண்டுபிடிப்புகள்",
+      "blurb": "அச்சு இயந்திரம், நீராவி இயந்திரம் மற்றும் பென்சிலின் என மனித நாகரிகத்தை மாற்றிமைத்த வரலாற்றுத் திருப்பங்கள்."
     },
     "ml": {
-      "name": "ദുഷ്ടാത്മവിദ്യയും ഉന്മൂലനവും",
-      "blurb": "വീഡിയോ തരം: Catholic exorcism cases, demonic signs, and the priests who confront the unknown — respectful yet gripping."
+      "name": "ചരിത്രം മാറ്റിയെഴുതിയ കണ്ടുപിടുത്തങ്ങൾ",
+      "blurb": "പ്രിന്റിങ് പ്രസ്സ്, സ്റ്റീം എൻജിൻ, പെൻസിലിൻ തുടങ്ങിയ മനുഷ്യവികസനത്തിന്റെ സുപ്രധാന നാഴികക്കല്ലുകൾ."
     }
   },
   "source": "Nish.Md + deterministic research",

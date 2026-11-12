@@ -1,8 +1,8 @@
 {
   "niche_id": 47,
-  "name": "Mythology Reimagined",
-  "slug": "mythology-reimagined",
-  "style_family": "history",
+  "name": "Splendors of Islamic Architecture",
+  "slug": "splendors-of-islamic-architecture",
+  "style_family": "islamic",
   "status": "VERIFIED",
   "topic_seeds": [
     "How Egyptian Nile flood calendars organized temple labor and harvest taxes",
@@ -49,28 +49,28 @@
   "video_prompt_overlay": "NICHE VISUAL LOCK (Mythology Reimagined / history): Generate a 7–9 second dialogue clip based on the topic `{topic}`. Each dialogue must be mythic and meaningful. For each dialogue, generate: - **Audio Generation Prompt:** Voice — deep, resonating, with distant thunder or harp sounds. - **Video Generation Prompt:** Detailed visual — a mythical landscape (mountains, clouds, or temple ruins). Character: a god or hero in traditional attire (flowing robes, laurel wreath, muscular build). Lighting: golden divine light from above. Camera slow-motion pan around the character. Maintain consistent costume, sky color, and divine glow across clips. Forbidden: talking-head lip-sync avatar, burned-in captions, watermark, modern meme text, modern smartphones, cars, LED screens, sneakers. Preferred subjects: Nile riverbank temple pylons, Indus brick drainage channel, Roman concrete harbor pier, Greek trireme hull detail, Mesopotamian cuneiform tablet, desert excavation trench at dawn. Lighting: warm desert sun / torchlit interiors, high-contrast documentary grade. Face policy: period extras OK if consistent; prefer environment/object hero when possible. Dialogue tone: curious documentary narrator; wonder + concrete fact; no campy adventure slang. Ambience: distant wind over sand/stone, soft temple-room reverb, sparse strings.",
   "i18n": {
     "en": {
-      "name": "Mythology Reimagined",
-      "blurb": "Greek, Norse, Egyptian, and Hindu myths retold with modern psychological insights — explaining why these ancient stories still resonate."
+      "name": "Splendors of Islamic Architecture",
+      "blurb": "Architectural marvels and structural engineering genius of the Islamic world — Alhambra in Spain, Dome of the Rock in Jerusalem, Blue Mosque in Istanbul, Cordoba Mosque-Cathedral,"
     },
     "bn": {
-      "name": "পুরাণ নতুন করে",
-      "blurb": "ভিডিও টাইপ: Greek, Norse, Egyptian, and Hindu myths retold with modern psychological insights — explaining why these ancient stories still resonate."
+      "name": "ইসলামি স্থাপত্যের বৈভব",
+      "blurb": "আলহামব্রা ও ব্লু মস্কের মতো মুসলিম বিশ্বের স্থাপত্য ও কাঠামোগত প্রকৌশলের চমৎকার সব নিদর্শন।"
     },
     "hi": {
-      "name": "पुनर्कल्पित पौराणिक कथाएँ",
-      "blurb": "वीडियो प्रकार: Greek, Norse, Egyptian, and Hindu myths retold with modern psychological insights — explaining why these ancient stories still resonate."
+      "name": "इस्लामी वास्तुकला के वैभव",
+      "blurb": "अल्हम्ब्रा और ब्लू मस्जिद जैसी इस्लामिक दुनिया की अनूठी स्थापत्य कला और इंजीनियरिंग।"
     },
     "ur": {
-      "name": "نئی نظر سے اساطیر",
-      "blurb": "ویڈیو کی قسم: Greek, Norse, Egyptian, and Hindu myths retold with modern psychological insights — explaining why these ancient stories still resonate."
+      "name": "اسلامی فن تعمیر کے شاہکار",
+      "blurb": "الحمرا اور نیلی مسجد جیسے اسلامی دنیا کے شاندار فن تعمیر اور انجینئرنگ کے عجائبات۔"
     },
     "ta": {
-      "name": "மறுகற்பனை தொன்மங்கள்",
-      "blurb": "வீடியோ வகை: Greek, Norse, Egyptian, and Hindu myths retold with modern psychological insights — explaining why these ancient stories still resonate."
+      "name": "இஸ்லாமிய கட்டிடக்கலையின் பெருமைகள்",
+      "blurb": "அல்ஹம்பிரா மற்றும் நீலப் பள்ளிவாசல் போன்ற இஸ்லாமிய உலகின் கட்டிடக்கலை மற்றும் பொறியியல் அதிசயங்கள்."
     },
     "ml": {
-      "name": "പുനർസങ്കല്പിത പുരാണങ്ങൾ",
-      "blurb": "വീഡിയോ തരം: Greek, Norse, Egyptian, and Hindu myths retold with modern psychological insights — explaining why these ancient stories still resonate."
+      "name": "ഇസ്ലാമിക വാസ്തുവിദ്യയുടെ പ്രൗഢി",
+      "blurb": "അൽഹംബ്രയും നീലപ്പള്ളിയും ഉൾപ്പെടെയുള്ള ഇസ്ലാമിക ലോകത്തെ വാസ്തുവിദ്യയുടെയും എഞ്ചിനീയറിംഗിന്റെയും അത്ഭുതങ്ങൾ."
     }
   },
   "source": "Nish.Md + deterministic research",

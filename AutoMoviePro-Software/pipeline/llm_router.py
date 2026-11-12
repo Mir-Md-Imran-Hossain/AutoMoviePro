@@ -20,12 +20,14 @@ logger = logging.getLogger(__name__)
 # Model IDs from C11-B list-models + minimal chat readiness (2026-09-06).
 # Prior llama-* Groq/Cerebras IDs returned 404 model_not_found on this account.
 GROQ_MODELS_SCRIPT = (
-    "qwen/qwen3.6-27b",
     "qwen/qwen3.8-27b",
+    "openai/gpt-oss-120b",
+    "openai/gpt-oss-20b",
 )
 GROQ_MODELS_AGENT = (
     "qwen/qwen3.8-27b",
-    "qwen/qwen3.6-27b",
+    "openai/gpt-oss-120b",
+    "openai/gpt-oss-20b",
 )
 CEREBRAS_MODELS = (
     "qwen-3.8-27b",  # only model listed for account; chat may still 402 if billing locked
@@ -33,20 +35,20 @@ CEREBRAS_MODELS = (
 OPENROUTER_MODELS = (
     "openai/gpt-4o-mini",
     "meta-llama/llama-3.2-3b-instruct",
-    "qwen/qwen3.6-27b",
+    "openai/gpt-oss-20b",
 )
 HF_CHAT_MODELS = (
     "Qwen/Qwen2.5-7B-Instruct",
     "meta-llama/Llama-3.2-3B-Instruct",
-    "HuggingFaceH4/zephyr-7b-beta",
+    
 )
 # Translate / localize prefers models that fit free-tier token caps.
 GROQ_MODELS_TRANSLATE = (
     "qwen/qwen3.8-27b",
-    "qwen/qwen3.6-27b",
+    "openai/gpt-oss-20b",
 )
 FREETHEAI_TEXT_MODELS = ("gpt-4o-mini", "gpt-4o", "eve/gpt-4o-mini")
-GOOGLE_TEXT_MODEL = "gemini-flash-lite-latest"
+GOOGLE_TEXT_MODEL = "gemini-3.5-flash-lite"
 
 
 def is_daily_quota_zero(exc_or_msg) -> bool:
@@ -79,8 +81,8 @@ def prefer_openrouter() -> bool:
         return False
     if os.environ.get("AMP_PREFER_OPENROUTER", "").strip().lower() in ("1", "true", "yes"):
         return True
-    # Default: prefer non-Google text routers (Google reserved for translate)
-    return True
+    # Free-First architecture: Google Free Tier leads text generation
+    return False
 
 
 def _dedupe(keys: List[str]) -> List[str]:
@@ -169,6 +171,7 @@ def openai_compatible_chat(
         for model in model_list:
             try:
                 with httpx.Client(timeout=120.0) as client:
+                    max_tok = int(os.environ.get("AMP_LLM_MAX_TOKENS", "2048"))
                     payload: Dict[str, Any] = {
                         "model": model,
                         "messages": [
@@ -176,6 +179,7 @@ def openai_compatible_chat(
                             {"role": "user", "content": prompt},
                         ],
                         "temperature": temp,
+                        "max_tokens": max_tok,
                     }
                     if json_mode:
                         payload["response_format"] = {"type": "json_object"}
@@ -184,6 +188,7 @@ def openai_compatible_chat(
                         headers={
                             "Authorization": f"Bearer {key}",
                             "Content-Type": "application/json",
+                            "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36",
                         },
                         json=payload,
                     )
@@ -199,10 +204,8 @@ def openai_compatible_chat(
                             r.text[:140],
                         )
                         record_failure(provider, r.text)
-                        if r.status_code in (401, 403):
+                        if r.status_code in (401, 403, 402, 429):
                             break
-                        if r.status_code in (402, 429):
-                            raise last_err
                         continue
                     content = (
                         r.json().get("choices", [{}])[0].get("message", {}).get("content")
@@ -366,6 +369,7 @@ def huggingface_chat(
                         headers={
                             "Authorization": f"Bearer {key}",
                             "Content-Type": "application/json",
+                            "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36",
                         },
                         json={
                             "model": model,
@@ -384,8 +388,9 @@ def huggingface_chat(
                             return text
                     last_err = RuntimeError(f"hf {r.status_code}: {r.text[:200]}")
                     record_failure("huggingface", r.text)
-                    if r.status_code in (402, 429):
-                        raise last_err
+                    if r.status_code in (401, 403, 402, 429):
+                        break
+                    continue
             except Exception as exc:
                 last_err = exc
                 record_failure("huggingface", exc)
@@ -414,19 +419,36 @@ def google_chat(
     contents = prompt
     if (system or "").strip():
         contents = f"{system.strip()}\n\n{prompt}"
-    try:
-        result = gated_generate_content(
-            api_keys=api_keys,
-            contents=contents,
-            model=model,
-            purpose="text",
-            config=cfg,
-        )
-    except GoogleCircuitOpen:
-        raise RuntimeError("google_pool_exhausted") from None
-    if not result.text:
-        raise RuntimeError("Google chat empty response")
-    return result.text
+    fallback_models = ["gemini-3.5-flash-lite", "gemini-3.5-flash", "gemini-3.7-flash", "gemini-3.8-flash"]
+    seen_models = set()
+    candidate_models = []
+    for m in fallback_models:
+        if m and m not in seen_models:
+            seen_models.add(m)
+            candidate_models.append(m)
+
+    last_exc = None
+    for cand_model in candidate_models:
+        try:
+            result = gated_generate_content(
+                api_keys=api_keys,
+                contents=contents,
+                model=cand_model,
+                purpose="text",
+                config=cfg,
+            )
+            if result and result.text:
+                return result.text
+        except GoogleCircuitOpen:
+            raise RuntimeError("google_pool_exhausted") from None
+        except Exception as exc:
+            last_exc = exc
+            if "503" in str(exc) or "UNAVAILABLE" in str(exc) or "429" in str(exc):
+                continue
+            raise
+    if last_exc:
+        raise last_exc
+    raise RuntimeError("Google chat empty response")
 
 
 def chat_text(

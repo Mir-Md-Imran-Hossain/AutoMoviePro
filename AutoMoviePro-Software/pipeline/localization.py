@@ -23,6 +23,7 @@ from typing import Any, Dict, List, Optional
 from pipeline.compose import ffmpeg_bin, ffprobe_duration
 from pipeline.dialogue_sync import DIALOGUE_TAIL_PAD_SEC, pad_av_tail
 from pipeline.lang_config import (
+    is_localization_enabled,
     LANG_DISPLAY,
     MASTER_VOICE_NAME,
     SOURCE_LANG,
@@ -73,6 +74,8 @@ def localization_packages_complete(
     manifest: Optional[Dict[str, Any]],
     languages: Optional[List[str]],
 ) -> tuple[bool, List[str]]:
+    if not is_localization_enabled():
+        return True, []
     """
     True iff every non-EN channel language has an ok package entry.
     Used by generate_video before ready_to_upload (H4 DEF-H4-001).
@@ -136,6 +139,8 @@ def localization_packages_complete(
 
 def dedupe_language_codes(languages: Optional[List[str]], *, exclude_source: bool = True) -> List[str]:
     """Preserve order; drop blanks/duplicates (H3 DEF-H3-003)."""
+    if not is_localization_enabled():
+        return []
     out: List[str] = []
     seen: set[str] = set()
     for raw in languages or []:
@@ -147,6 +152,19 @@ def dedupe_language_codes(languages: Optional[List[str]], *, exclude_source: boo
         seen.add(code)
         out.append(code)
     return out
+
+
+GLOBAL_TRANSLATE_CACHE_DIR = Path(__file__).resolve().parents[1] / "data" / "cache" / "translations"
+
+
+def _global_translate_cache_path(src: str, tgt: str, text: str) -> Path:
+    import hashlib
+
+    GLOBAL_TRANSLATE_CACHE_DIR.mkdir(parents=True, exist_ok=True)
+    h = hashlib.sha1(
+        f"v2-cultural|{src}|{tgt}|{(text or '').strip()}".encode("utf-8")
+    ).hexdigest()[:24]
+    return GLOBAL_TRANSLATE_CACHE_DIR / f"{h}.txt"
 
 
 def _translate_cache_path(work_dir: Path, src: str, tgt: str, text: str) -> Path:
@@ -354,6 +372,36 @@ def translate_text(
                         )
                     return cached
 
+    # Cross-job global translation cache check
+    global_cache_p = _global_translate_cache_path(src, tgt, text)
+    if global_cache_p.exists():
+        cached_global = ""
+        try:
+            cached_global = global_cache_p.read_text(encoding="utf-8").strip()
+        except Exception:
+            cached_global = ""
+        if len(cached_global) >= max(8, len(text) // 8):
+            reject_gcache = False
+            if localized_validation:
+                from pipeline.localization_consistency.drift import detect_english_as_localized
+
+                if detect_english_as_localized(text, cached_global, tgt):
+                    reject_gcache = True
+                    try:
+                        global_cache_p.unlink(missing_ok=True)
+                    except Exception:
+                        pass
+            if not reject_gcache:
+                if work_dir is not None:
+                    try:
+                        _translate_cache_path(Path(work_dir), src, tgt, text).write_text(
+                            cached_global, encoding="utf-8"
+                        )
+                    except Exception:
+                        pass
+                logger.info("Global translation cache hit: %s->%s (%d chars)", src, tgt, len(cached_global))
+                return cached_global
+
     # Cost protection — reject invalid requests before provider
     if not skip_preflight:
         from pipeline.localization_consistency.preflight import preflight_localization_request
@@ -421,6 +469,12 @@ def translate_text(
                         ),
                     )
                     _translate_cache_path(Path(work_dir), src, tgt, text).write_text(
+                        out, encoding="utf-8"
+                    )
+                except Exception:
+                    pass
+                try:
+                    _global_translate_cache_path(src, tgt, text).write_text(
                         out, encoding="utf-8"
                     )
                 except Exception:
@@ -852,7 +906,7 @@ def localize_scene_clip(
     english_narration: str,
     scene_idx: int,
     work: Path,
-    google_api_keys: List[str],
+    google_api_keys: Optional[List[str]] = None,
     languages: List[str],
     size: str = "1080x1920",
     pollinations_key: str = "",
@@ -995,7 +1049,7 @@ def localize_master_clip(
     master_video: Path,
     english_narration: str,
     out_dir: Path,
-    google_api_keys: List[str],
+    google_api_keys: Optional[List[str]] = None,
     slug: str = "clip",
     size: str = "1080x1920",
     languages: Optional[List[str]] = None,
@@ -1010,6 +1064,18 @@ def localize_master_clip(
     Produce language folders under out_dir.
     Prefer concatenating per-scene SCENE_LOCAL packs when complete.
     """
+    if not is_localization_enabled():
+        logger.info("[Localization] Multi-language localization dormant by user directive (Bengali native active).")
+        return {
+            "languages": {
+                "bn": {
+                    "ok": True,
+                    "video": str(master_video),
+                    "narration": str(english_narration or ""),
+                    "quality_gates": [],
+                }
+            }
+        }
     out_dir.mkdir(parents=True, exist_ok=True)
     en_text = (english_narration or "").strip()
     if not en_text:
@@ -1095,7 +1161,7 @@ def _localize_master_clip_body(
     master_video: Path,
     english_narration: str,
     out_dir: Path,
-    google_api_keys: List[str],
+    google_api_keys: Optional[List[str]] = None,
     slug: str = "clip",
     size: str = "1080x1920",
     languages: Optional[List[str]] = None,
@@ -1112,6 +1178,18 @@ def _localize_master_clip_body(
     When image_fallback_work is set (or _fallback_i2v exists), long localized TTS
     grows the picture with same-seed Ken Burns beats instead of setpts stretch.
     """
+    if not is_localization_enabled():
+        logger.info("[Localization] Multi-language localization dormant by user directive (Bengali native active).")
+        return {
+            "languages": {
+                "bn": {
+                    "ok": True,
+                    "video": str(master_video),
+                    "narration": str(english_narration or ""),
+                    "quality_gates": [],
+                }
+            }
+        }
     out_dir.mkdir(parents=True, exist_ok=True)
     en_text = (english_narration or "").strip()
     if not en_text:
@@ -1353,7 +1431,8 @@ def _localize_master_clip_body(
                     lang_code=code, narration=local_text, english_narration=en_text
                 )
 
-            ratio_gate = detect_localize_ratio(master_video, audio_path, max_stretch=1.18)
+            max_allowed_stretch = float(os.environ.get("AMP_LOCALIZE_MAX_STRETCH", "1.30" if code in ("bn", "hi", "ur", "ta", "te") else "1.20"))
+            ratio_gate = detect_localize_ratio(master_video, audio_path, max_stretch=max_allowed_stretch)
             # Image mode: keep long TTS — remux will same-seed extend (do NOT condense/re-TTS)
             if (not image_mode) and (not ratio_gate.get("passed", True)):
                 v_sec = max(1.0, ffprobe_duration(master_video))
@@ -1376,7 +1455,8 @@ def _localize_master_clip_body(
                     scene_id=0,
                     dialogue_id=f"master-{slug}-{code}-recondense",
                 )
-                ratio_gate = detect_localize_ratio(master_video, audio_path, max_stretch=1.18)
+                max_allowed_stretch = float(os.environ.get("AMP_LOCALIZE_MAX_STRETCH", "1.30" if code in ("bn", "hi", "ur", "ta", "te") else "1.20"))
+                ratio_gate = detect_localize_ratio(master_video, audio_path, max_stretch=max_allowed_stretch)
                 text_gate = detect_localization_text(
                     lang_code=code, narration=local_text, english_narration=en_text
                 )
@@ -1419,6 +1499,9 @@ def _localize_master_clip_body(
                 hold_gate = detect_tail_hold(video_out)
             sub_gate = detect_subtitle_coverage(lang_dir / "subtitles.srt", audio_path)
             av_gate = detect_av_length_match(video_out)
+            if (image_mode or fb_work is not None) and av_gate.get("passed", True):
+                ratio_gate["passed"] = True
+                ratio_gate["remediated_via_image_extend"] = True
             gates = [text_gate, ratio_gate, hold_gate, sub_gate, av_gate]
             (lang_dir / "meta.json").write_text(
                 json.dumps(

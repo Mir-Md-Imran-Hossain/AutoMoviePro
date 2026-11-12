@@ -6,7 +6,7 @@ from __future__ import annotations
 import json
 from typing import Any, Dict, List, Optional, Sequence
 
-from pipeline.lang_config import LANG_DISPLAY, LANG_FOLDERS, SOURCE_LANG, TARGET_LANG_CODES
+from pipeline.lang_config import LANG_DISPLAY, LANG_FOLDERS, SOURCE_LANG, TARGET_LANG_CODES, is_localization_enabled
 
 MAX_LANGUAGES = 6
 SETUP_LANGUAGE_COUNT = 2
@@ -73,6 +73,8 @@ def setup_languages(secondary: str) -> List[str]:
 
 
 def channel_languages(channel: Optional[Dict[str, Any]]) -> List[str]:
+    if not is_localization_enabled():
+        return ["bn"]
     ch = channel or {}
     langs = parse_languages(ch.get("languages_json"))
     if len(langs) >= SETUP_LANGUAGE_COUNT:

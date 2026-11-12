@@ -1,8 +1,8 @@
 {
   "niche_id": 83,
-  "name": "Cursed Objects",
-  "slug": "cursed-objects",
-  "style_family": "history",
+  "name": "Ancient Muslim Travelers & Explorers",
+  "slug": "ancient-muslim-travelers-explorers",
+  "style_family": "islamic",
   "status": "VERIFIED",
   "topic_seeds": [
     "What new evidence reframes the story of Cursed Objects The Hope inside Cursed Objects",
@@ -47,28 +47,28 @@
   "video_prompt_overlay": "NICHE VISUAL LOCK (Cursed Objects / history): Generate a 7–9 second dialogue clip based on the topic `{topic}`. Each dialogue must be chilling and fascinating. For each dialogue, generate: - **Audio Generation Prompt:** Voice — eerie, with heartbeat and whisper. - **Video Generation Prompt:** Detailed visual — a museum display or box. No characters — focus on object. Lighting: spotlight on object. Maintain same object and spotlight. Forbidden: talking-head lip-sync avatar, burned-in captions, watermark, modern meme text, modern smartphones, cars, LED screens, sneakers. Preferred subjects: Cursed Objects documentary subject, period-accurate environment, evidence object close-up. Lighting: warm desert sun / torchlit interiors, high-contrast documentary grade. Face policy: period extras OK if consistent; prefer environment/object hero when possible. Dialogue tone: human documentary narration; specific nouns; 7–9s beats. Ambience: subtle documentary bed; do not overpower voice.",
   "i18n": {
     "en": {
-      "name": "Cursed Objects",
-      "blurb": "The Hope Diamond, Tutankhamun's tomb, the Dybbuk box — stories of misfortune attached to seemingly innocent items."
+      "name": "Ancient Muslim Travelers & Explorers",
+      "blurb": "Epic journeys of history's greatest globetrotters — Ibn Battuta (who traveled 73,000 miles across 44 countries), Ibn Fadlan (explorer of Northern Vikings), and Zheng He (admiral of"
     },
     "bn": {
-      "name": "অভিশপ্ত বস্তু",
-      "blurb": "ভিডিও টাইপ: The Hope Diamond, Tutankhamun's tomb, the Dybbuk box — stories of misfortune attached to seemingly innocent items."
+      "name": "প্রাচীন মুসলিম পর্যটক ও অভিযাত্রী",
+      "blurb": "ইতিহাসের সেরা বিশ্বভ্রমণকারীদের মহাকাব্যিক যাত্রা— ইবনে বতুতা, ইবনে ফদলান এবং অ্যাডমিরাল ঝেং হে-র অসাধারণ সব অভিযাত্রার গল্প।"
     },
     "hi": {
-      "name": "शापित वस्तुएँ",
-      "blurb": "वीडियो प्रकार: The Hope Diamond, Tutankhamun's tomb, the Dybbuk box — stories of misfortune attached to seemingly innocent items."
+      "name": "प्राचीन मुस्लिम यात्री और खोजकर्ता",
+      "blurb": "इतिहास के महान विश्वयात्रियों की महागाथाएं— इब्न बतूता, इब्न फदलन और एडमिरल झेंग हे की रोमांचक यात्राओं का अनूठा इतिहास।"
     },
     "ur": {
-      "name": "لعنتی اشیاء",
-      "blurb": "ویڈیو کی قسم: The Hope Diamond, Tutankhamun's tomb, the Dybbuk box — stories of misfortune attached to seemingly innocent items."
+      "name": "قدیم مسلم سیاح اور مہم جو",
+      "blurb": "تاریخ کے عظیم ترین سیاحوں کے شاندار سفر— ابن بطوطہ، ابن فضلان اور ایڈمیرل ژینگ হে کی حیرت انگیز مہم جوئی کی کہانیاں۔"
     },
     "ta": {
-      "name": "சாபமிட்ட பொருட்கள்",
-      "blurb": "வீடியோ வகை: The Hope Diamond, Tutankhamun's tomb, the Dybbuk box — stories of misfortune attached to seemingly innocent items."
+      "name": "பண்டைய முஸ்லிம் பயணியரும் ஆய்வாளர்களும்",
+      "blurb": "வரலாற்றின் சிறந்த உலகப் பயணிகளின் காவியப் பயணங்கள்— இப்னு பது்தா, இப்னு ஃபத்லான் மற்றும் அட்மிரல் ஜெங் ஹே ஆகியோரின் வியக்கத்தக்க சாகசங்கள்."
     },
     "ml": {
-      "name": "ശപിക്കപ്പെട്ട വസ്തുക്കൾ",
-      "blurb": "വീഡിയോ തരം: The Hope Diamond, Tutankhamun's tomb, the Dybbuk box — stories of misfortune attached to seemingly innocent items."
+      "name": "പൗരാണിക മുസ്ലിം സഞ്ചാരികളും പര്യവേക്ഷകരും",
+      "blurb": "ചരിത്രത്തിലെ ഏറ്റവും വലിയ ലോകസഞ്ചാരികളുടെ ഇതിഹാസ യാത്രകൾ— ഇബ്നു ബത്തൂത്ത, ഇബ്നു ഫദ്‌ലാൻ, അഡ്മിറൽ ഷെങ് ഹെ എന്നിവരുടെ സാഹസികതകൾ."
     }
   },
   "source": "Nish.Md + deterministic research",

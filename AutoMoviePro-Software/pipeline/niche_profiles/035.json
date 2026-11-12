@@ -48,23 +48,23 @@
     },
     "bn": {
       "name": "মহাজাগতিক রহস্য",
-      "blurb": "ভিডিও টাইপ: Black holes, dark matter, exoplanets — exploring the universe's most mind-bending puzzles with visual analogies and simple science."
+      "blurb": "ব্ল্যাক হোল, ডার্ক ম্যাটার এবং এক্সোপ্ল্যানেট—সহজ বিজ্ঞান ও দৃষ্টিনন্দন উপমার মাধ্যমে মহাবিশ্বের জটিলতম ধাঁধার অন্বেষণ।"
     },
     "hi": {
       "name": "ब्रह्मांडीय रहस्य",
-      "blurb": "वीडियो प्रकार: Black holes, dark matter, exoplanets — exploring the universe's most mind-bending puzzles with visual analogies and simple science."
+      "blurb": "ब्लैक होल, डार्क मैटर और एक्सोप्लैनेट्स—आसान विज्ञान और दृश्य उदाहरणों के साथ ब्रह्मांड की सबसे कठिन पहेलियां।"
     },
     "ur": {
       "name": "کائناتی اسرار",
-      "blurb": "ویڈیو کی قسم: Black holes, dark matter, exoplanets — exploring the universe's most mind-bending puzzles with visual analogies and simple science."
+      "blurb": "بلیک ہولز، ڈارک میٹر، اور ایکسوپلانٹس—آسان سائنس اور بصری مثالوں کے ساتھ کائنات کی مشکل ترین پہیلیاں۔"
     },
     "ta": {
-      "name": "அண்ட மர்மங்கள்",
-      "blurb": "வீடியோ வகை: Black holes, dark matter, exoplanets — exploring the universe's most mind-bending puzzles with visual analogies and simple science."
+      "name": "அண்டப் புதிர்கள்",
+      "blurb": "கருந்துளைகள், டார்க் மேட்டர் மற்றும் எக்ஸோப்ளானெட்டுகள்—எளிய அறிவியல் மற்றும் காட்சி உவமைகளுடன் பிரபஞ்சத்தின் புதிர்களை ஆராய்தல்."
     },
     "ml": {
       "name": "പ്രപഞ്ച രഹസ്യങ്ങൾ",
-      "blurb": "വീഡിയോ തരം: Black holes, dark matter, exoplanets — exploring the universe's most mind-bending puzzles with visual analogies and simple science."
+      "blurb": "കറുത്ത ഗർത്തങ്ങൾ, ഡാർക്ക് മാറ്റർ, എക്സോപ്ലാനറ്റുകൾ—ലളിതമായ ശാസ്ത്രത്തിലൂടെയും ദൃശ്യങ്ങളിലൂടെയും പ്രപഞ്ചത്തിന്റെ രഹസ്യങ്ങൾ തേടുന്നു."
     }
   },
   "source": "Nish.Md + deterministic research",

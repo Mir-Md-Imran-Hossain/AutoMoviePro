@@ -30,6 +30,8 @@ from typing import Any, Dict, List, Optional, Tuple
 import httpx
 from PIL import Image, ImageDraw
 
+from pipeline.ctr_thumbnail_compositor import CTRThumbnailCompositor, compose_ctr_thumbnail
+
 logger = logging.getLogger(__name__)
 
 
@@ -430,6 +432,20 @@ class MetadataThumbnailEngine:
             effective_style = "minimalist"
         else:
             effective_style = style_norm
+
+        # Wire CTRThumbnailCompositor for rule of thirds and platform safe zone enforcement
+        try:
+            return compose_ctr_thumbnail(
+                out_path=out_path,
+                title=title,
+                niche=niche,
+                width=width,
+                height=height,
+                style=effective_style,
+                badge_text=badge_text,
+            )
+        except Exception as exc:
+            logger.warning("CTRThumbnailCompositor fallback to legacy draw: %s", exc)
 
         base = Image.new("RGBA", (width, height), color=(0, 0, 0, 0))
         draw = ImageDraw.Draw(base)

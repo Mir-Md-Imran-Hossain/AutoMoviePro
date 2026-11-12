@@ -1,8 +1,8 @@
 {
   "niche_id": 36,
-  "name": "Alien & UFO Phenomena",
-  "slug": "alien-ufo-phenomena",
-  "style_family": "mystery",
+  "name": "Pioneering Muslim Scientific Inventions",
+  "slug": "pioneering-muslim-scientific-inventions",
+  "style_family": "islamic",
   "status": "VERIFIED",
   "topic_seeds": [
     "What new evidence reframes the story of Alien inside Alien & UFO Phenomena",
@@ -47,28 +47,28 @@
   "video_prompt_overlay": "NICHE VISUAL LOCK (Alien & UFO Phenomena / mystery): Generate a 7–9 second dialogue clip based on the topic `{topic}`. Each dialogue must be mysterious and questioning. For each dialogue, generate: - **Audio Generation Prompt:** Voice — intrigued, with static and beeping. - **Video Generation Prompt:** Detailed visual — night sky with strange lights. No characters. Lighting: dark with light streaks. Maintain same sky and streak pattern. Forbidden: talking-head lip-sync avatar, burned-in captions, watermark, modern meme text, modern smartphones, cars, LED screens, sneakers. Preferred subjects: Alien & UFO Phenomena documentary subject, period-accurate environment, evidence object close-up. Lighting: dappled fog light, cool teal shadows, slow push-ins. Face policy: no talking-head lip-sync avatar; cinematic B-roll preferred. Dialogue tone: slow, ominous, evidence-first. Ambience: low drone, subtle reverb, sparse percussion.",
   "i18n": {
     "en": {
-      "name": "Alien & UFO Phenomena",
-      "blurb": "Documented UFO sightings, whistleblower testimonies, and the government's secret files — skepticism meets curiosity."
+      "name": "Pioneering Muslim Scientific Inventions",
+      "blurb": "Tribute to the Islamic Golden Age scientists who transformed human civilization — Ibn al-Haytham (Father of Modern Optics), Al-Zahrawi (Father of Modern Surgery), Al-Khwarizmi (Fat"
     },
     "bn": {
-      "name": "এলিয়েন ও ইউএফও ঘটনা",
-      "blurb": "ভিডিও টাইপ: Documented UFO sightings, whistleblower testimonies, and the government's secret files — skepticism meets curiosity."
+      "name": "মুসলিম বিজ্ঞানীদের আবিষ্কার",
+      "blurb": "ইবনে আল-হাইসাম ও আল-খোয়ারিজমির মতো ইসলামিক স্বর্ণযুগের বিজ্ঞানীদের প্রতি শ্রদ্ধা যারা মানব সভ্যতাকে বদলে দিয়েছিলেন।"
     },
     "hi": {
-      "name": "एलियन और यूएफओ घटनाएँ",
-      "blurb": "वीडियो प्रकार: Documented UFO sightings, whistleblower testimonies, and the government's secret files — skepticism meets curiosity."
+      "name": "मुस्लिम वैज्ञानिकों के आविष्कार",
+      "blurb": "इस्लामी स्वर्ण युग के उन वैज्ञानिकों को श्रद्धांजलि जिन्होंने इब्न अल-हाइथम और अल-ख्वारिज्मी जैसे महान कार्यों से दुनिया बदली।"
     },
     "ur": {
-      "name": "ایلین اور یو ایف او مظاہر",
-      "blurb": "ویڈیو کی قسم: Documented UFO sightings, whistleblower testimonies, and the government's secret files — skepticism meets curiosity."
+      "name": "مسلم سائنسدانوں کی ایجادات",
+      "blurb": "اسلامی سنہرے دور کے ان سائنسدانوں کو خراج تحسین جنہوں نے ابن الہیثم اور الخوارزمی جیسے کارناموں سے انسانی تہذیب بدلی۔"
     },
     "ta": {
-      "name": "ஏலியன் & UFO நிகழ்வுகள்",
-      "blurb": "வீடியோ வகை: Documented UFO sightings, whistleblower testimonies, and the government's secret files — skepticism meets curiosity."
+      "name": "முஸ்லிம் விஞ்ஞானிகளின் கண்டுபிடிப்புகள்",
+      "blurb": "இப்னு அல்-ஹைத்தம், அல்-குவாரிஸ்மி போன்ற இஸ்லாமிய பொற்கால விஞ்ஞானிகளுக்கு நாகரிகத்தை மாற்றியமைத்ததற்கான அஞ்சலி."
     },
     "ml": {
-      "name": "ഏലിയൻ & യുഎഫ്ഒ പ്രതിഭാസങ്ങൾ",
-      "blurb": "വീഡിയോ തരം: Documented UFO sightings, whistleblower testimonies, and the government's secret files — skepticism meets curiosity."
+      "name": "മുസ്ലിം ശാസ്ത്രജ്ഞരുടെ സംഭാവനകൾ",
+      "blurb": "ഇബ്നു അൽ-ഹൈതം, അൽ-ഖ്വാരിസ്മി തുടങ്ങിയ ഇസ്ലാമിക സുവർണ്ണ കാലഘട്ടത്തിലെ ശാസ്ത്രപ്രതിഭകൾക്ക് ആദരാഞ്ജലി."
     }
   },
   "source": "Nish.Md + deterministic research",

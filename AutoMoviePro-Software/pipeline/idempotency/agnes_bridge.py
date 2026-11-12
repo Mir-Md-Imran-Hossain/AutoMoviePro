@@ -372,12 +372,13 @@ def idempotent_generate_agnes_beat_result(
             try:
                 from pipeline.custom_pipeline.media_providers import video_kling, video_luma, video_seedance
                 from pipeline.custom_pipeline.session_keys import _env_map, _collect_numbered
+                from pipeline.custom_pipeline.media_call_guard import is_circuit_open
                 w, h = (int(x) for x in size.split("x"))
                 dur = duration_hint or 5.0
                 env = _env_map()
                 
                 # 1. Seedance
-                if _collect_numbered(env, ["SEEDANCE_API_KEY", "REPLICATE_API_TOKEN"], max_n=5):
+                if not is_circuit_open("seedance") and _collect_numbered(env, ["SEEDANCE_API_KEY", "REPLICATE_API_TOKEN"], max_n=5):
                     try:
                         logger.warning("Attempting Seedance fallback...")
                         p = video_seedance(override_prompt or visual_prompt, out_path, w=w, h=h, duration=dur)
@@ -389,7 +390,7 @@ def idempotent_generate_agnes_beat_result(
                         logger.warning("seedance fallback failed: %s", e)
 
                 # 2. Kling
-                if _collect_numbered(env, ["KLING_API_KEY"], max_n=5):
+                if not is_circuit_open("kling") and _collect_numbered(env, ["KLING_API_KEY"], max_n=5):
                     try:
                         logger.warning("Attempting Kling fallback...")
                         p = video_kling(override_prompt or visual_prompt, out_path, w=w, h=h, duration=dur)
@@ -401,7 +402,7 @@ def idempotent_generate_agnes_beat_result(
                         logger.warning("kling fallback failed: %s", e)
 
                 # 3. Luma
-                if _collect_numbered(env, ["LUMA_API_KEY"], max_n=5):
+                if False and not is_circuit_open("luma") and _collect_numbered(env, ["LUMA_API_KEY"], max_n=5):
                     try:
                         logger.warning("Attempting Luma fallback...")
                         p = video_luma(override_prompt or visual_prompt, out_path, w=w, h=h, duration=dur)

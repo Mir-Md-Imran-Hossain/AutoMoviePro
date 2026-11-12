@@ -66,8 +66,13 @@ def prefer_retrieved_stock_for_scene(
                 if "x" in size and int(size.split("x")[1]) > int(size.split("x")[0])
                 else "landscape"
             )
-            for qi, q in enumerate(queries[:3]):
-                urls = fetch_pexels_videos(pexels_api, q, per_page=3, orientation=orient)
+            for qi, raw_q in enumerate(queries[:3]):
+                # Strip out presenter/intro/face triggers to prevent Pexels vertical video influencer spam
+                clean_q = " ".join([
+                    w for w in raw_q.split()
+                    if w.lower() not in {"intro", "outro", "face", "portrait", "person", "man", "woman", "people", "character", "talking", "head"}
+                ]).strip() or f"{topic} hardware technology"
+                urls = fetch_pexels_videos(pexels_api, clean_q, per_page=3, orientation=orient)
                 for ui, url in enumerate(urls or []):
                     try:
                         dest = work / f"montage_stock_{idx:02d}_q{qi}_{ui}.mp4"

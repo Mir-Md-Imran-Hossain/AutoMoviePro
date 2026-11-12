@@ -1,8 +1,8 @@
 {
   "niche_id": 136,
-  "name": "Useless Yet Cool Facts",
-  "slug": "useless-yet-cool-facts",
-  "style_family": "history",
+  "name": "Neuroscience & Human Memory Secrets",
+  "slug": "neuroscience-human-memory-secrets",
+  "style_family": "science",
   "status": "VERIFIED",
   "topic_seeds": [
     "What new evidence reframes the story of Useless Yet Cool Facts inside Useless Yet Cool Facts",
@@ -47,28 +47,28 @@
   "video_prompt_overlay": "NICHE VISUAL LOCK (Useless Yet Cool Facts / history): Generate a 7–9 second dialogue clip based on the topic `{topic}`. Each dialogue must be surprising and light. For each dialogue, generate: - **Audio Generation Prompt:** Voice — cheerful, with a \"ding\" effect. - **Video Generation Prompt:** Detailed visual — a fun infographic or animation. No character — graphic. Lighting: bright, colourful. Maintain same graphic style. Forbidden: talking-head lip-sync avatar, burned-in captions, watermark, modern meme text, modern smartphones, cars, LED screens, sneakers. Preferred subjects: Useless Yet Cool Facts documentary subject, period-accurate environment, evidence object close-up. Lighting: warm desert sun / torchlit interiors, high-contrast documentary grade. Face policy: period extras OK if consistent; prefer environment/object hero when possible. Dialogue tone: human documentary narration; specific nouns; 7–9s beats. Ambience: subtle documentary bed; do not overpower voice.",
   "i18n": {
     "en": {
-      "name": "Useless Yet Cool Facts",
-      "blurb": "Did you know? A day on Venus is longer than its year. Octopuses have three hearts. Quick, bite-sized facts with visual puns."
+      "name": "Neuroscience & Human Memory Secrets",
+      "blurb": "The neural architecture of the human mind — how memories are encoded during sleep, the neuroplasticity that rewires the brain, mnemonic memory palaces, and why humans experience De"
     },
     "bn": {
-      "name": "অকেজো কিন্তু মজার তথ্য",
-      "blurb": "ভিডিও টাইপ: Did you know? A day on Venus is longer than its year. Octopuses have three hearts. Quick, bite-sized facts with visual puns."
+      "name": "স্নায়ুবিজ্ঞান ও মানব স্মৃতির রহস্য",
+      "blurb": "মানব মনের স্নায়বিক গঠন — ঘুমের মধ্যে কীভাবে স্মৃতি তৈরি হয় এবং মস্তিষ্কের প্লাস্টিসিটি।"
     },
     "hi": {
-      "name": "बेकार पर मज़ेदार तथ्य",
-      "blurb": "वीडियो प्रकार: Did you know? A day on Venus is longer than its year. Octopuses have three hearts. Quick, bite-sized facts with visual puns."
+      "name": "तंत्रिका विज्ञान और मानव स्मृति के रहस्य",
+      "blurb": "मानव मस्तिष्क की न्यूरल बनावट — नींद के दौरान यादें कैसे बनती हैं और न्यूरोप्लास्टिसिटी।"
     },
     "ur": {
-      "name": "بیکار مگر دلچسپ حقائق",
-      "blurb": "ویڈیو کی قسم: Did you know? A day on Venus is longer than its year. Octopuses have three hearts. Quick, bite-sized facts with visual puns."
+      "name": "نیورو سائنس اور انسانی یادداشت کے راز",
+      "blurb": "انسانی ذہن کی اعصابی ساخت — نیند کے دوران یادیں کیسے محفوظ ہوتی ہیں اور دماغی لچک۔"
     },
     "ta": {
-      "name": "பயனற்ற ஆனால் அற்புத உண்மைகள்",
-      "blurb": "வீடியோ வகை: Did you know? A day on Venus is longer than its year. Octopuses have three hearts. Quick, bite-sized facts with visual puns."
+      "name": "நரம்பியல் மற்றும் மனித நினைவாற்றல் ரகசியங்கள்",
+      "blurb": "மனித மூளையின் நரம்பியல் அமைப்பு — தூக்கத்தின் போது நினைவுகள் எவ்வாறு சேமிக்கப்படுகின்றன."
     },
     "ml": {
-      "name": "ഉപയോഗശൂന്യമെങ്കിലും രസകരമായ വസ്തുതകൾ",
-      "blurb": "വീഡിയോ തരം: Did you know? A day on Venus is longer than its year. Octopuses have three hearts. Quick, bite-sized facts with visual puns."
+      "name": "ന്യൂറോസയൻസും മനുഷ്യ സ്മൃതിയുടെ രഹസ്യങ്ങളും",
+      "blurb": "മനുഷ്യന്റെ തലച്ചോറിന്റെ ഘടന — ഉറക്കത്തിൽ ഓർമ്മകൾ എങ്ങനെ എൻകോഡ് ചെയ്യപ്പെടുന്നു എന്നതിന്റെ രഹസ്യം."
     }
   },
   "source": "Nish.Md + deterministic research",

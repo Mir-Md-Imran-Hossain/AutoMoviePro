@@ -1,8 +1,8 @@
 {
   "niche_id": 81,
-  "name": "Popular Superstitions",
-  "slug": "popular-superstitions",
-  "style_family": "history",
+  "name": "Miracles of the Human Body",
+  "slug": "miracles-of-the-human-body",
+  "style_family": "science",
   "status": "VERIFIED",
   "topic_seeds": [
     "What new evidence reframes the story of Popular Superstitions Why inside Popular Superstitions",
@@ -47,28 +47,28 @@
   "video_prompt_overlay": "NICHE VISUAL LOCK (Popular Superstitions / history): Generate a 7–9 second dialogue clip based on the topic `{topic}`. Each dialogue must be playful and informative. For each dialogue, generate: - **Audio Generation Prompt:** Voice — witty, with crashing mirror and cat meow. - **Video Generation Prompt:** Detailed visual — a cosy room with objects (mirror, cat). No characters — objects. Lighting: warm, cosy. Maintain same room. Forbidden: talking-head lip-sync avatar, burned-in captions, watermark, modern meme text, modern smartphones, cars, LED screens, sneakers. Preferred subjects: Popular Superstitions documentary subject, period-accurate environment, evidence object close-up. Lighting: warm desert sun / torchlit interiors, high-contrast documentary grade. Face policy: period extras OK if consistent; prefer environment/object hero when possible. Dialogue tone: human documentary narration; specific nouns; 7–9s beats. Ambience: subtle documentary bed; do not overpower voice.",
   "i18n": {
     "en": {
-      "name": "Popular Superstitions",
-      "blurb": "Why black cats, broken mirrors, and Friday the 13th are feared — and their historical origins."
+      "name": "Miracles of the Human Body",
+      "blurb": "Astonishing biological mechanisms inside the human body — the heart pumping 2,000 gallons of blood daily, 37 trillion cells working in perfect harmony, DNA information density, and"
     },
     "bn": {
-      "name": "জনপ্রিয় কুসংস্কার",
-      "blurb": "ভিডিও টাইপ: Why black cats, broken mirrors, and Friday the 13th are feared — and their historical origins."
+      "name": "মানব শরীরের বিস্ময়",
+      "blurb": "আমাদের দেহের ভেতরের অবাক করা সব জৈবিক প্রক্রিয়া— প্রতিদিন দুই হাজার গ্যালন রক্ত পাম্প করা হৃদয় এবং ৩৭ ট্রিলিয়ন কোষের নিখুঁত মেলবন্ধন।"
     },
     "hi": {
-      "name": "लोकप्रिय अंधविश्वास",
-      "blurb": "वीडियो प्रकार: Why black cats, broken mirrors, and Friday the 13th are feared — and their historical origins."
+      "name": "मानव शरीर के चमत्कार",
+      "blurb": "हमारे शरीर की अद्भुत जैविक प्रक्रियाएं—दिल रोजाना दो हजार गैलन खून पंप करता है और 37 खरब कोशिकाएं तालमेल से काम करती हैं।"
     },
     "ur": {
-      "name": "مقبول توہمات",
-      "blurb": "ویڈیو کی قسم: Why black cats, broken mirrors, and Friday the 13th are feared — and their historical origins."
+      "name": "انسانی جسم کے معجزات",
+      "blurb": "ہمارے جسم کے اندر حیرت انگیز حیاتیاتی نظام— دل کا روزانہ دو ہزار گیلن خون پمپ کرنا اور سینتیس ٹریلین خلیات کا بہترین توازن۔"
     },
     "ta": {
-      "name": "பிரபல மூடநம்பிக்கைகள்",
-      "blurb": "வீடியோ வகை: Why black cats, broken mirrors, and Friday the 13th are feared — and their historical origins."
+      "name": "மனித உடலின் அதிசயங்கள்",
+      "blurb": "நமது உடலின் வியக்க வைக்கும் உயிரியல் செயல்பாடுகள்— தினமும் 2,000 காலன் இரத்தத்தை பம்ப் செய்யும் இதயம் மற்றும் 37 டிரில்லியன் செல்களின் வியத்தகு ஒத்துழைப்பு."
     },
     "ml": {
-      "name": "ജനപ്രിയ അന്ധവിശ്വാസങ്ങൾ",
-      "blurb": "വീഡിയോ തരം: Why black cats, broken mirrors, and Friday the 13th are feared — and their historical origins."
+      "name": "മാനവ ശരീരത്തിന്റെ അത്ഭുതങ്ങൾ",
+      "blurb": "നമ്മുടെ ശരീരത്തിലെ അത്ഭുതകരമായ ജൈവപ്രവർത്തനങ്ങൾ— ദിവസവും 2,000 ഗാലൻ രക്തം പമ്പ് ചെയ്യുന്ന ഹൃദയവും 37 ട്രില്യൺ കോശങ്ങളുടെ ഒത്തൊരുമയും."
     }
   },
   "source": "Nish.Md + deterministic research",

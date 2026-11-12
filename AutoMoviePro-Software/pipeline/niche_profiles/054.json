@@ -1,8 +1,8 @@
 {
   "niche_id": 54,
-  "name": "Toxic Relationships",
-  "slug": "toxic-relationships",
-  "style_family": "history",
+  "name": "Ethical Business & Halal Trade",
+  "slug": "ethical-business-halal-trade",
+  "style_family": "business",
   "status": "VERIFIED",
   "topic_seeds": [
     "What new evidence reframes the story of Toxic Relationships Psycho inside Toxic Relationships",
@@ -47,28 +47,28 @@
   "video_prompt_overlay": "NICHE VISUAL LOCK (Toxic Relationships / history): Generate a 7–9 second dialogue clip based on the topic `{topic}`. Each dialogue must be empowering and educational. For each dialogue, generate: - **Audio Generation Prompt:** Voice — firm, clear, with a door closing or footsteps walking away. - **Video Generation Prompt:** Detailed visual — a couple in a room, then one walking out. Characters: two adults (neutral). Lighting: grey, then brighter as one leaves. Maintain same room but lighting shifts. Forbidden: talking-head lip-sync avatar, burned-in captions, watermark, modern meme text, modern smartphones, cars, LED screens, sneakers. Preferred subjects: Toxic Relationships documentary subject, period-accurate environment, evidence object close-up. Lighting: warm desert sun / torchlit interiors, high-contrast documentary grade. Face policy: period extras OK if consistent; prefer environment/object hero when possible. Dialogue tone: human documentary narration; specific nouns; 7–9s beats. Ambience: subtle documentary bed; do not overpower voice.",
   "i18n": {
     "en": {
-      "name": "Toxic Relationships",
-      "blurb": "Psycho-educational narratives about emotional abuse, gaslighting, narcissism — and how victims broke free."
+      "name": "Ethical Business & Halal Trade",
+      "blurb": "Principles of ethical entrepreneurship, interest-free Islamic banking, profit-and-loss sharing models (Mudarabah & Musharakah), and fair-trade commerce. Case studies of visionary e"
     },
     "bn": {
-      "name": "বিষাক্ত সম্পর্ক",
-      "blurb": "ভিডিও টাইপ: Psycho-educational narratives about emotional abuse, gaslighting, narcissism — and how victims broke free."
+      "name": "নৈতিক ব্যবসা ও হালাল বাণিজ্য",
+      "blurb": "সুদমুক্ত ইসলামী ব্যাংকিং, লাভ-ক্ষতির অংশীদারিত্ব এবং নৈতিক উদ্যোক্তা হওয়ার মূলনীতি।"
     },
     "hi": {
-      "name": "विषैले रिश्ते",
-      "blurb": "वीडियो प्रकार: Psycho-educational narratives about emotional abuse, gaslighting, narcissism — and how victims broke free."
+      "name": "नैतिक व्यापार और हलाल वाणिज्य",
+      "blurb": "ब्याज मुक्त इस्लामिक बैंकिंग, लाभ-हानि साझाकरण मॉडल और नैतिक उद्यमिता के सिद्धांत।"
     },
     "ur": {
-      "name": "زہریلے تعلقات",
-      "blurb": "ویڈیو کی قسم: Psycho-educational narratives about emotional abuse, gaslighting, narcissism — and how victims broke free."
+      "name": "اخلاقی کاروبار اور حلال تجارت",
+      "blurb": "سود سے پاک اسلامی بینکنگ، نفع و نقصان کی شراکت اور اخلاقی کاروباری اصول۔"
     },
     "ta": {
-      "name": "நச்சு உறவுகள்",
-      "blurb": "வீடியோ வகை: Psycho-educational narratives about emotional abuse, gaslighting, narcissism — and how victims broke free."
+      "name": "நெறிமுறை வணிகம் மற்றும் ஹலால் வர்த்தகம்",
+      "blurb": "வட்டி இல்லா இஸ்லாமிய வங்கி முறை, லாப-நஷ்ட பகிர்வு மற்றும் நெறிமுறை வணிக நெறிகள்."
     },
     "ml": {
-      "name": "വിഷബന്ധങ്ങൾ",
-      "blurb": "വീഡിയോ തരം: Psycho-educational narratives about emotional abuse, gaslighting, narcissism — and how victims broke free."
+      "name": "ധാർമ്മിക ബിസിനസ്സും ഹലാൽ വാണിജ്യവും",
+      "blurb": "പലിശരഹിത ഇസ്ലാമിക ബാങ്കിംഗ് സംവിധാനങ്ങളും ലാഭനഷ്ട പങ്കാളിത്ത മാതൃകകളും."
     }
   },
   "source": "Nish.Md + deterministic research",

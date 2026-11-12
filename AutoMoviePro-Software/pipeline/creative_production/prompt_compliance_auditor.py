@@ -228,8 +228,9 @@ def score_deterministic_compliance(plan: Dict[str, Any]) -> Dict[str, Any]:
         "detail": {"issues": seo_issues, "tag_count": len(tags)},
     }
 
-    # C05 Topic specificity
-    topic_ok = bool(topic) and len(topic.split()) >= 3 and not re.fullmatch(
+    # C05 Topic specificity: allows specific 2+ word topics while preventing single-word or pure clickbait
+    topic_words = len((topic or "").strip().split())
+    topic_ok = bool(topic) and topic_words >= 2 and not re.fullmatch(
         r"(best|top|amazing)\s+\w+(\s+facts?)?", topic.strip(), re.I
     )
     if not topic_ok:

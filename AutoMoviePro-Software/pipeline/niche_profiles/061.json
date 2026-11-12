@@ -53,24 +53,24 @@
       "blurb": "A traveler's diary — visiting remote villages, bustling metros, and ancient temples — with cultural immersion and personal reflections."
     },
     "bn": {
-      "name": "ভ্রমণপিপাসার জার্নাল",
-      "blurb": "ভিডিও টাইপ: A traveler's diary — visiting remote villages, bustling metros, and ancient temples — with cultural immersion and personal reflections."
+      "name": "ভ্রমণ কথকতা",
+      "blurb": "দূরবর্তী গ্রাম, কোলাহলপূর্ণ শহর আর প্রাচীন মন্দিরে এক ভ্রমণকারীর ব্যক্তিগত ডায়েরি ও সাংস্কৃতিক অভিজ্ঞতা।"
     },
     "hi": {
-      "name": "यात्रा-लालसा डायरी",
-      "blurb": "वीडियो प्रकार: A traveler's diary — visiting remote villages, bustling metros, and ancient temples — with cultural immersion and personal reflections."
+      "name": "घुमक्कड़ डायरी",
+      "blurb": "सुदूर गाँवों, महानगरों और प्राचीन मंदिरों की यात्रा—एक यात्री की व्यक्तिगत डायरी और संस्कृति का अनुभव।"
     },
     "ur": {
-      "name": "سفر کی خواہش کی ڈائری",
-      "blurb": "ویڈیو کی قسم: A traveler's diary — visiting remote villages, bustling metros, and ancient temples — with cultural immersion and personal reflections."
+      "name": "سفر نامے",
+      "blurb": "دور دراز دیہات، ہلچل مچانے والے شہروں اور قدیم مندروں کا سفر—ایک مسافر کی ذاتی ڈائری اور ثقافتی کہانی۔"
     },
     "ta": {
-      "name": "பயண ஆர்வ நாட்குறிப்பு",
-      "blurb": "வீடியோ வகை: A traveler's diary — visiting remote villages, bustling metros, and ancient temples — with cultural immersion and personal reflections."
+      "name": "பயணக் குறிப்புகள்",
+      "blurb": "கிராமங்கள், பெருநகரங்கள் மற்றும் பழமையான கோயில்களில் ஒரு பயணியின் டைரி மற்றும் கலாச்சார அனுபவம்."
     },
     "ml": {
-      "name": "യാത്രാമോഹ ജേണലുകൾ",
-      "blurb": "വീഡിയോ തരം: A traveler's diary — visiting remote villages, bustling metros, and ancient temples — with cultural immersion and personal reflections."
+      "name": "യാത്രാക്കുറിപ്പുകൾ",
+      "blurb": "ഗ്രാമങ്ങൾ, നഗരങ്ങൾ, പ്രാചീന ക്ഷേത്രങ്ങൾ എന്നിവയിലൂടെയുള്ള ഒരു സഞ്ചാരിയുടെ ഡാറിയും സാംസ്കാരിക അനുഭവവും."
     }
   },
   "source": "Nish.Md + deterministic research",

@@ -48,23 +48,23 @@
     },
     "bn": {
       "name": "চরম আবহাওয়ার আপডেট",
-      "blurb": "ভিডিও টাইপ: Real-time-style updates on hurricanes, cyclones, and wildfires — with preparedness tips and science."
+      "blurb": "ঘূর্ণিঝড় ও দাবানলের লাইভ আপডেট, সুরক্ষার জরুরি টিপস এবং আবহাওয়ার বিজ্ঞান জানুন।"
     },
     "hi": {
-      "name": "चरम मौसम अपडेट",
-      "blurb": "वीडियो प्रकार: Real-time-style updates on hurricanes, cyclones, and wildfires — with preparedness tips and science."
+      "name": "खतरनाक मौसम के अपडेट",
+      "blurb": "तूफान और दावानल की लाइव खबरें, बचाव के जरूरी उपाय और मौसम का वैज्ञानिक सच।"
     },
     "ur": {
-      "name": "شدید موسم کی تازہ کاری",
-      "blurb": "ویڈیو کی قسم: Real-time-style updates on hurricanes, cyclones, and wildfires — with preparedness tips and science."
+      "name": "شدید موسم کی تازہ ترین صورتحال",
+      "blurb": "طوفانوں اور جنگل کی آگ کی تازہ ترین خبریں، حفاظتی تدابیر اور ان کا سائنسی پس منظر۔"
     },
     "ta": {
-      "name": "தீவிர வானிலை புதுப்பிப்புகள்",
-      "blurb": "வீடியோ வகை: Real-time-style updates on hurricanes, cyclones, and wildfires — with preparedness tips and science."
+      "name": "தீவிர வானிலை நிலவரங்கள்",
+      "blurb": "புயல்கள் மற்றும் காட்டுத்தீ பற்றிய நேரலைத் தகவல்கள், பாதுகாப்பு முறைகள் மற்றும் அறிவியல் விளக்கம்."
     },
     "ml": {
-      "name": "തീവ്ര കാലാവസ്ഥ അപ്‌ഡേറ്റുകൾ",
-      "blurb": "വീഡിയോ തരം: Real-time-style updates on hurricanes, cyclones, and wildfires — with preparedness tips and science."
+      "name": "കടുത്ത കാലാവസ്ഥാ വിശേഷങ്ങൾ",
+      "blurb": "ചുഴലിക്കാറ്റുകളുടെയും കാട്ടുതീയുടെയും തത്സമയ വിവരങ്ങളും പ്രതിരോധ മാർഗ്ഗങ്ങളും ശാസ്ത്രീയ വിശകലനവും."
     }
   },
   "source": "Nish.Md + deterministic research",

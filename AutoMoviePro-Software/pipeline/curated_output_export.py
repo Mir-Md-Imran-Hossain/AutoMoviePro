@@ -45,7 +45,12 @@ def _copy(src: Path, dest: Path) -> Optional[Path]:
     dest = Path(dest)
     dest.parent.mkdir(parents=True, exist_ok=True)
     if dest.resolve() != Path(src).resolve():
-        shutil.copy2(src, dest)
+        try:
+            if dest.exists():
+                dest.unlink()
+            os.link(src, dest)
+        except Exception:
+            shutil.copy2(src, dest)
     return dest
 
 

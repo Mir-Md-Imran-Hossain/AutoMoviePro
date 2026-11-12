@@ -1,79 +1,64 @@
 {
   "niche_id": 112,
-  "name": "Collaboration Tools",
-  "slug": "collaboration-tools",
-  "style_family": "science",
+  "name": "Cold War Espionage Operations",
+  "slug": "cold-war-espionage-operations",
+  "style_family": "history",
   "status": "VERIFIED",
   "topic_seeds": [
-    "What new evidence reframes the story of Collaboration Tools Miro inside Collaboration Tools",
-    "How Collaboration Tools Miro still shapes public curiosity about Collaboration Tools",
-    "What new evidence reframes the story of Trello inside Collaboration Tools",
-    "How Trello still shapes public curiosity about Collaboration Tools",
-    "What new evidence reframes the story of Slack inside Collaboration Tools",
-    "How Slack still shapes public curiosity about Collaboration Tools"
+    "Key analytical breakdown on Cold War Espionage Operations",
+    "Behind the scenes of major Cold War Espionage Operations events",
+    "Critical evidence and timelines in Cold War Espionage Operations"
   ],
   "seo_angles": [
-    "What new evidence reframes the story of Collaboration Tools Miro inside Collaboration Tools",
-    "How Collaboration Tools Miro still shapes public curiosity about Collaboration Tools",
-    "What new evidence reframes the story of Trello inside Collaboration Tools",
-    "How Trello still shapes public curiosity about Collaboration Tools"
+    "What people misunderstand about Cold War Espionage Operations",
+    "Why this historic moment in Cold War Espionage Operations matters today"
   ],
   "forbidden_visuals": [
     "talking-head lip-sync avatar",
     "burned-in captions",
     "watermark",
     "modern meme text",
-    "off-niche stock office B-roll"
+    "random stock photo cutout"
   ],
   "preferred_subjects": [
-    "lab instrument close-up",
-    "diagrammatic mechanism metaphor",
-    "field measurement site"
+    "high-resolution authentic environments",
+    "data-driven infographics and telemetry",
+    "moody cinematic lighting"
   ],
-  "lighting_default": "teal/cyan lab grade, high contrast, shallow DOF",
-  "face_policy": "no talking-head lip-sync avatar; cinematic B-roll preferred",
-  "dialogue_tone": "clear explainer; one mechanism per beat",
-  "audio_ambience": "clean room tone, soft electronic texture",
+  "lighting_default": "cinematic high-contrast documentary grade",
+  "face_policy": "avoid talking head lip-sync; prefer environmental/tactical/infographic hero",
+  "dialogue_tone": "authoritative, engaging, retention-focused documentary narrative",
+  "audio_ambience": "subtle low-end atmospheric resonance, precise Foley SFX",
   "research_hints": [
-    "Prefer primary evidence and concrete entities for Collaboration Tools",
-    "Avoid generic niche-label topics; require specific place/person/event/mechanism",
-    "7–9 second spoken beats with story continuity across scenes"
+    "Prefer factual, verified data points for Cold War Espionage Operations",
+    "Strong retention hook in opening 3 seconds"
   ],
-  "topic_prompt_overlay": "NICHE LOCK (Collaboration Tools): only propose topics that fit this niche's video type. Video type: Miro, Trello, Slack — free versions for remote teams, with workflow automation ideas. Follow niche topic strategy: Follow remote work news, new collaboration releases, or viral team success stories. Generate a topic about a tool that transformed teamwork.",
-  "video_prompt_overlay": "NICHE VISUAL LOCK (Collaboration Tools / science): Generate a 7–9 second dialogue clip based on the topic `{topic}`. Each dialogue must be collaborative and smooth. For each dialogue, generate: - **Audio Generation Prompt:** Voice — team-like, with notification dings and chat sounds. - **Video Generation Prompt:** Detailed visual — a board or chat window screen. No character — screen. Lighting: clean, neutral. Maintain same board. Forbidden: talking-head lip-sync avatar, burned-in captions, watermark, modern meme text, off-niche stock office B-roll. Preferred subjects: lab instrument close-up, diagrammatic mechanism metaphor, field measurement site. Lighting: teal/cyan lab grade, high contrast, shallow DOF. Face policy: no talking-head lip-sync avatar; cinematic B-roll preferred. Dialogue tone: clear explainer; one mechanism per beat. Ambience: clean room tone, soft electronic texture.",
+  "topic_prompt_overlay": "NICHE LOCK (Cold War Espionage Operations): Unpack iconic declassified intelligence operations (Operation Gold Berlin tunnel, Cambridge Five, Project Azorian Soviet submarine recovery, Farewell Dossier). Focus on tradecraft, high-stakes deception, and geopolitical implications.",
+  "video_prompt_overlay": "NICHE VISUAL LOCK (Cold War Espionage Operations / history): Generate a 7–9 second espionage historical scene for topic {topic}. Visuals: Foggy cobblestone bridge in Cold War Berlin at 3 AM, silhouettes of trench-coated figures under a single sodium streetlamp, black vintage sedan idling with headlamps piercing the mist. Lighting: High-contrast streetlamp backlight through dense river fog, deep wet cobblestone reflections. Camera: Slow ominous push-in past iron bridge girders toward the clandestine meeting point. Ambience: Distant train clatter, idling automobile engine, and tense string tremolo.",
   "i18n": {
     "en": {
-      "name": "Collaboration Tools",
-      "blurb": "Miro, Trello, Slack — free versions for remote teams, with workflow automation ideas."
+      "name": "Cold War Espionage Operations",
+      "blurb": "Declassified chronicles of Cold War intelligence duels — U-2 spy flights, Berlin espionage tunnels, dead-drop communications, microdot photography, and double agent defectors."
     },
     "bn": {
-      "name": "সহযোগিতার টুল",
-      "blurb": "ভিডিও টাইপ: Miro, Trello, Slack — free versions for remote teams, with workflow automation ideas."
+      "name": "স্নায়ুযুদ্ধের গুপ্তচরবৃত্তি অপারেশন",
+      "blurb": "গোপন নথিভিত্তিক স্নায়ুযুদ্ধের গোয়েন্দা দ্বৈরথ—ইউ-টু বিমান, বার্লিন সুড়ঙ্গ এবং দ্বিমুখী গুপ্তচরদের ইতিহাস।"
     },
     "hi": {
-      "name": "सहयोग उपकरण",
-      "blurb": "वीडियो प्रकार: Miro, Trello, Slack — free versions for remote teams, with workflow automation ideas."
+      "name": "शीत युद्ध जासूसी अभियान",
+      "blurb": "शीत युद्ध के जासूसी संघर्षों का दस्तावेजी इतिहास—यू-टू उड़ानें, बर्लिन सुरंगें और दोहरे एजेंट।"
     },
     "ur": {
-      "name": "تعاون کے اوزار",
-      "blurb": "ویڈیو کی قسم: Miro, Trello, Slack — free versions for remote teams, with workflow automation ideas."
+      "name": "سرد جنگ کے جاسوسی آپریشنز",
+      "blurb": "سرد جنگ کے خفیہ مقابلوں کی داستانیں—یو ٹو پروازیں، برلن سرنگیں اور ڈبل ایجنٹ غدار۔"
     },
     "ta": {
-      "name": "இணைந்து பணிபுரியும் கருவிகள்",
-      "blurb": "வீடியோ வகை: Miro, Trello, Slack — free versions for remote teams, with workflow automation ideas."
+      "name": "பனிப்போர் உளவு நடவடிக்கைகள்",
+      "blurb": "பனிப்போர் உளவு மோதல்களின் ஆவணப்படுத்தப்பட்ட கதைகள்—U-2 விமானங்கள், பெர்லின் சுரங்கங்கள் மற்றும் இரட்டை முகவர்கள்."
     },
     "ml": {
-      "name": "സഹകരണ ഉപകരണങ്ങൾ",
-      "blurb": "വീഡിയോ തരം: Miro, Trello, Slack — free versions for remote teams, with workflow automation ideas."
+      "name": "ശീതയുദ്ധ ചാരവൃത്തി പ്രവർത്തനങ്ങൾ",
+      "blurb": "ശീതയുദ്ധകാലത്തെ രഹസ്യാന്വേഷണ പോരാട്ടങ്ങളുടെ കഥകൾ—U-2 ചാരവിമാനങ്ങളും ബെർലിൻ തുരങ്കങ്ങളും."
     }
-  },
-  "source": "Nish.Md + deterministic research",
-  "research_notes": [
-    "Marathon researched at 2026-09-10T08:30:24Z",
-    "Video type length=85",
-    "Topic prompt length=140",
-    "Video prompt length=383",
-    "Seeds=6"
-  ],
-  "verified_at": "2026-09-10T08:30:24Z"
+  }
 }

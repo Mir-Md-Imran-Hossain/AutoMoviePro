@@ -103,13 +103,14 @@ def prefer_image_fallback_default() -> bool:
 def allow_image_fallback_default(channel: Optional[dict] = None) -> bool:
     """
     Channel may set allow_image_fallback.
-    Production default False for VIDEO-first — emergency escape via AMP_ALLOW_IMAGE_FALLBACK=1.
+    Industrial default True (free-first fallback to high-fidelity multi-still / Ken Burns).
+    Can be explicitly disabled via channel or AMP_ALLOW_IMAGE_FALLBACK=0.
     """
-    if _env_flag("AMP_ALLOW_IMAGE_FALLBACK", "0"):
-        return True
+    if os.environ.get("AMP_ALLOW_IMAGE_FALLBACK", "").strip() == "0":
+        return False
     if isinstance(channel, dict) and "allow_image_fallback" in channel:
         return bool(channel.get("allow_image_fallback"))
-    return False
+    return True
 
 
 def require_agnes_for_mode(visual_mode: str, *, allow_image_fallback: bool = False) -> bool:

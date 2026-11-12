@@ -51,24 +51,24 @@
       "blurb": "Real patient stories — schizophrenia, bipolar disorder, OCD — narrated with empathy and clinical accuracy."
     },
     "bn": {
-      "name": "মানসিক ব্যাধি",
-      "blurb": "ভিডিও টাইপ: Real patient stories — schizophrenia, bipolar disorder, OCD — narrated with empathy and clinical accuracy."
+      "name": "মনস্তাত্ত্বিক ব্যাধি",
+      "blurb": "বাস্তব রোগীর গল্প—সিজোফ্রেনিয়া, বাইপোলার বা ওসিডি—সহানুভূতি ও চিকিৎসার নির্ভুল তথ্যে বর্ণিত।"
     },
     "hi": {
-      "name": "मनोवैज्ञानिक विकार",
-      "blurb": "वीडियो प्रकार: Real patient stories — schizophrenia, bipolar disorder, OCD — narrated with empathy and clinical accuracy."
+      "name": "मानसिक विकार",
+      "blurb": "वास्तविक मरीजों की कहानियां—सिजोफ्रेनिया, बाइपोलर और ओसीडी—सहानुभूति और चिकित्सा सटीकता के साथ।"
     },
     "ur": {
-      "name": "نفسیاتی عوارض",
-      "blurb": "ویڈیو کی قسم: Real patient stories — schizophrenia, bipolar disorder, OCD — narrated with empathy and clinical accuracy."
+      "name": "نفسیاتی عارضے",
+      "blurb": "حقیقی مریضوں کی کہانیاں—شیزوفرینیا، بائی پولر اور او سی ڈی—گہری ہمدردی اور طبی درستگی کے ساتھ۔"
     },
     "ta": {
-      "name": "உளவியல் கோளாறுகள்",
-      "blurb": "வீடியோ வகை: Real patient stories — schizophrenia, bipolar disorder, OCD — narrated with empathy and clinical accuracy."
+      "name": "மனநல கோளாறுகள்",
+      "blurb": "உண்மையான நோயாளிகளின் கதைகள்—மனச்சிதைவு நோய், இருமுனை கோளாறு—அனுதாபத்துடனும் மருத்துவ துல்லியத்துடனும்।"
     },
     "ml": {
       "name": "മാനസിക വൈകല്യങ്ങൾ",
-      "blurb": "വീഡിയോ തരം: Real patient stories — schizophrenia, bipolar disorder, OCD — narrated with empathy and clinical accuracy."
+      "blurb": "യഥാർത്ഥ രോഗികളുടെ കഥകൾ—സ്കീസോഫ്രീനിയ, ബൈപോളാർ ഡിസോർഡർ—അനുഭാവത്തോടും കൃത്യതയോടും കൂടി വിവരിക്കുന്നു."
     }
   },
   "source": "Nish.Md + deterministic research",

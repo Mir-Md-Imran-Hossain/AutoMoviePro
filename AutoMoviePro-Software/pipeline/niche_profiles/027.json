@@ -1,8 +1,8 @@
 {
   "niche_id": 27,
-  "name": "Paranormal Encounters",
-  "slug": "paranormal-encounters",
-  "style_family": "mystery",
+  "name": "Scientific Miracles in the Quran",
+  "slug": "scientific-miracles-in-the-quran",
+  "style_family": "islamic",
   "status": "VERIFIED",
   "topic_seeds": [
     "What new evidence reframes the story of Paranormal Encounters First inside Paranormal Encounters",
@@ -47,28 +47,28 @@
   "video_prompt_overlay": "NICHE VISUAL LOCK (Paranormal Encounters / mystery): Generate a 7–9 second dialogue clip based on the topic `{topic}`. Each dialogue must be eerie and suspenseful. For each dialogue, generate: - **Audio Generation Prompt:** Voice — shaky, whispered, with creaking floorboards and wind. - **Video Generation Prompt:** Detailed visual — dark corridor or old bedroom. Character: ghost hunter (casual wear). Lighting: flashlight or candle. Maintain same corridor, same flashlight beam. Forbidden: talking-head lip-sync avatar, burned-in captions, watermark, modern meme text, modern smartphones, cars, LED screens, sneakers. Preferred subjects: Paranormal Encounters documentary subject, period-accurate environment, evidence object close-up. Lighting: dappled fog light, cool teal shadows, slow push-ins. Face policy: no talking-head lip-sync avatar; cinematic B-roll preferred. Dialogue tone: slow, ominous, evidence-first. Ambience: low drone, subtle reverb, sparse percussion.",
   "i18n": {
     "en": {
-      "name": "Paranormal Encounters",
-      "blurb": "First-hand accounts of haunted houses, poltergeists, and demonic possessions — presented with a neutral, investigative tone."
+      "name": "Scientific Miracles in the Quran",
+      "blurb": "Rigorous scientific exploration of cosmological, geological, and biological phenomena described in the Holy Quran 1,400 years ago — embryonic development stages, mountains as stabi"
     },
     "bn": {
-      "name": "অতিপ্রাকৃত সাক্ষাৎ",
-      "blurb": "ভিডিও টাইপ: First-hand accounts of haunted houses, poltergeists, and demonic possessions — presented with a neutral, investigative tone."
+      "name": "পবিত্র কুরআনের বৈজ্ঞানিক নিদর্শন",
+      "blurb": "পবিত্র কুরআনে বর্ণিত ১৪০০ বছরের পুরনো মহাজাগতিক ও জৈবিক সত্যের বৈজ্ঞানিক বিশ্লেষণ এবং মানব সৃষ্টির বিস্ময়।"
     },
     "hi": {
-      "name": "अलौकिक मुठभेड़",
-      "blurb": "वीडियो प्रकार: First-hand accounts of haunted houses, poltergeists, and demonic possessions — presented with a neutral, investigative tone."
+      "name": "कुरआन के वैज्ञानिक चमत्कार",
+      "blurb": "آدھے ہزار سال پہلے پاک قرآن میں بیان کردہ کائناتی اور سائنسی حقائق کی دقیق تحقیق اور تشریح۔"
     },
     "ur": {
-      "name": "ماورائی ملاقاتیں",
-      "blurb": "ویڈیو کی قسم: First-hand accounts of haunted houses, poltergeists, and demonic possessions — presented with a neutral, investigative tone."
+      "name": "قرآن کے سائنسی معجزات",
+      "blurb": "چودہ سو سال پہلے قرآن پاک میں بیان کردہ سائنسی، فلکیاتی اور حیاتیاتی حقائق کی روشن تحقیق۔"
     },
     "ta": {
-      "name": "அமானுஷ்ய சந்திப்புகள்",
-      "blurb": "வீடியோ வகை: First-hand accounts of haunted houses, poltergeists, and demonic possessions — presented with a neutral, investigative tone."
+      "name": "குர்ஆனின் அறிவியல் அற்புதங்கள்",
+      "blurb": "புனித குர்ஆனில் 1,400 ஆண்டுகளுக்கு முன்பு விவரிக்கப்பட்ட வானியல் மற்றும் உயிரியல் உண்மைகளின் அறிவியல் ஆய்வு."
     },
     "ml": {
-      "name": "അമാനുഷിക കണ്ടുമുട്ടലുകൾ",
-      "blurb": "വീഡിയോ തരം: First-hand accounts of haunted houses, poltergeists, and demonic possessions — presented with a neutral, investigative tone."
+      "name": "ഖുർആനിലെ ശാസ്ത്രീയ അത്ഭുതങ്ങൾ",
+      "blurb": "1400 വർഷങ്ങൾക്ക് മുമ്പ് വിശുദ്ധ ഖുർആൻ വിവരിച്ച പ്രപഞ്ച ശാസ്ത്രത്തിന്റെയും ജീവശാസ്ത്രത്തിന്റെയും ആഴത്തിലുള്ള പഠനം."
     }
   },
   "source": "Nish.Md + deterministic research",

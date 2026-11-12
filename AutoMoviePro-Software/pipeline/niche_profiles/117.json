@@ -49,24 +49,24 @@
       "blurb": "Unnoticed AI — from Netflix recommendations to grammar checkers — explaining the algorithms behind daily decisions."
     },
     "bn": {
-      "name": "দৈনন্দিন জীবনে এআই",
-      "blurb": "ভিডিও টাইপ: Unnoticed AI — from Netflix recommendations to grammar checkers — explaining the algorithms behind daily decisions."
+      "name": "দৈনন্দিন জীবনে কৃত্রিম বুদ্ধিমত্তা",
+      "blurb": "অদৃশ্য এআই—Netflix সুপারিশ থেকে ব্যাকরণ পরীক্ষক পর্যন্ত, দৈনন্দিন সিদ্ধান্তের পেছনের অ্যালগরিদম।"
     },
     "hi": {
       "name": "दैनिक जीवन में एआई",
-      "blurb": "वीडियो प्रकार: Unnoticed AI — from Netflix recommendations to grammar checkers — explaining the algorithms behind daily decisions."
+      "blurb": "अनदेखी एआई—नेटफ्लिक्स सुझावों से लेकर व्याकरण जांचकर्ताओं तक, दैनिक निर्णयों के पीछे के एल्गोरिदम।"
     },
     "ur": {
-      "name": "روزمرہ زندگی میں اے آئی",
-      "blurb": "ویڈیو کی قسم: Unnoticed AI — from Netflix recommendations to grammar checkers — explaining the algorithms behind daily decisions."
+      "name": "روزمرہ کی زندگی میں مصنوعی ذہانت",
+      "blurb": "غیر محسوس اے آئی—نیٹ فلکس کی تجویز سے گرائمر چیکر تک، روزمرہ فیصلوں کے پیچھے موجود الگورتھম۔"
     },
     "ta": {
-      "name": "அன்றாட வாழ்வில் AI",
-      "blurb": "வீடியோ வகை: Unnoticed AI — from Netflix recommendations to grammar checkers — explaining the algorithms behind daily decisions."
+      "name": "தினசரி வாழ்வில் செயற்கை நுண்ணறிவு",
+      "blurb": "கவனிக்கப்படாத ஏஐ—நெட்ஃபிக்ஸ் பரிந்துரைகள் முதல் இலக்கண சோதனையாளர்கள் வரை அன்றாட முடிவுகளின் பின்னணி."
     },
     "ml": {
-      "name": "ദൈനംദിന ജീവിതത്തിലെ AI",
-      "blurb": "വീഡിയോ തരം: Unnoticed AI — from Netflix recommendations to grammar checkers — explaining the algorithms behind daily decisions."
+      "name": "ദൈനംദിന ജീവിതത്തിൽ എഐ",
+      "blurb": "മറഞ്ഞിരിക്കുന്ന എഐ—നെറ്റ്ഫ്ലിക്സ് ശുപാർശകൾ മുതൽ ഗ്രാമർ ചെക്കറുകൾ വരെ, തീരുമാനങ്ങൾക്ക് പിന്നിലെ അൽഗോരിതങ്ങൾ."
     }
   },
   "source": "Nish.Md + deterministic research",

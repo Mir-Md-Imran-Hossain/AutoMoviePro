@@ -1,83 +1,64 @@
 {
   "niche_id": 106,
-  "name": "AI Translators",
-  "slug": "ai-translators",
-  "style_family": "history",
+  "name": "Criminal Psychology & Profiling",
+  "slug": "criminal-psychology-profiling",
+  "style_family": "true_crime",
   "status": "VERIFIED",
   "topic_seeds": [
-    "What new evidence reframes the story of Translators inside AI Translators",
-    "How Translators still shapes public curiosity about AI Translators",
-    "What new evidence reframes the story of Google Translate inside AI Translators",
-    "How Google Translate still shapes public curiosity about AI Translators",
-    "What new evidence reframes the story of Check inside AI Translators",
-    "How Check still shapes public curiosity about AI Translators"
+    "Key analytical breakdown on Criminal Psychology & Profiling",
+    "Behind the scenes of major Criminal Psychology & Profiling events",
+    "Critical evidence and timelines in Criminal Psychology & Profiling"
   ],
   "seo_angles": [
-    "What new evidence reframes the story of Translators inside AI Translators",
-    "How Translators still shapes public curiosity about AI Translators",
-    "What new evidence reframes the story of Google Translate inside AI Translators",
-    "How Google Translate still shapes public curiosity about AI Translators"
+    "What people misunderstand about Criminal Psychology & Profiling",
+    "Why this historic moment in Criminal Psychology & Profiling matters today"
   ],
   "forbidden_visuals": [
     "talking-head lip-sync avatar",
     "burned-in captions",
     "watermark",
     "modern meme text",
-    "modern smartphones",
-    "cars",
-    "LED screens",
-    "sneakers",
-    "contemporary skyline"
+    "random stock photo cutout"
   ],
   "preferred_subjects": [
-    "AI Translators documentary subject",
-    "period-accurate environment",
-    "evidence object close-up"
+    "high-resolution authentic environments",
+    "data-driven infographics and telemetry",
+    "moody cinematic lighting"
   ],
-  "lighting_default": "warm desert sun / torchlit interiors, high-contrast documentary grade",
-  "face_policy": "period extras OK if consistent; prefer environment/object hero when possible",
-  "dialogue_tone": "human documentary narration; specific nouns; 7–9s beats",
-  "audio_ambience": "subtle documentary bed; do not overpower voice",
+  "lighting_default": "cinematic high-contrast documentary grade",
+  "face_policy": "avoid talking head lip-sync; prefer environmental/tactical/infographic hero",
+  "dialogue_tone": "authoritative, engaging, retention-focused documentary narrative",
+  "audio_ambience": "subtle low-end atmospheric resonance, precise Foley SFX",
   "research_hints": [
-    "Prefer primary evidence and concrete entities for AI Translators",
-    "Avoid generic niche-label topics; require specific place/person/event/mechanism",
-    "7–9 second spoken beats with story continuity across scenes"
+    "Prefer factual, verified data points for Criminal Psychology & Profiling",
+    "Strong retention hook in opening 3 seconds"
   ],
-  "topic_prompt_overlay": "NICHE LOCK (AI Translators): only propose topics that fit this niche's video type. Video type: DeepL and Google Translate compared — which languages, quality differences, and real-world business use. Follow niche topic strategy: Check language tech news, new translation updates, or viral comparison tests. Generate a topic about a translation tool that outperforms others.",
-  "video_prompt_overlay": "NICHE VISUAL LOCK (AI Translators / history): Generate a 7–9 second dialogue clip based on the topic `{topic}`. Each dialogue must be global and practical. For each dialogue, generate: - **Audio Generation Prompt:** Voice — clear, with languages spoken and keyboard clicks. - **Video Generation Prompt:** Detailed visual — split screen showing two translations. No character — screen. Lighting: neutral. Maintain same split screen. Forbidden: talking-head lip-sync avatar, burned-in captions, watermark, modern meme text, modern smartphones, cars, LED screens, sneakers. Preferred subjects: AI Translators documentary subject, period-accurate environment, evidence object close-up. Lighting: warm desert sun / torchlit interiors, high-contrast documentary grade. Face policy: period extras OK if consistent; prefer environment/object hero when possible. Dialogue tone: human documentary narration; specific nouns; 7–9s beats. Ambience: subtle documentary bed; do not overpower voice.",
+  "topic_prompt_overlay": "NICHE LOCK (Criminal Psychology & Profiling): Unpack behavioral analysis techniques pioneered by the FBI's Behavioral Analysis Unit, landmark interrogation breakthroughs, deception micro-expression detection, and criminal signature forensics.",
+  "video_prompt_overlay": "NICHE VISUAL LOCK (Criminal Psychology & Profiling / true_crime): Generate a 7–9 second psychological profiling scene for topic {topic}. Visuals: Darkened interview room with one-way observation mirror, audio cassette tape recorder turning slowly on a wooden table, handwritten psychological notes, and behavioral profile diagrams. Lighting: Focused overhead cone of warm light against deep room shadows. Camera: Slow rotational zoom circling the interrogation table and tape recorder. Ambience: Subtle hum of an analog tape machine, distant muffled footsteps in a corridor, and low cello tension.",
   "i18n": {
     "en": {
-      "name": "AI Translators",
-      "blurb": "DeepL and Google Translate compared — which languages, quality differences, and real-world business use."
+      "name": "Criminal Psychology & Profiling",
+      "blurb": "Behavioral science investigations into criminal minds, deceptive interrogation techniques, forensic handwriting and linguistic profiling, and serial criminal psychopathy."
     },
     "bn": {
-      "name": "এআই অনুবাদক",
-      "blurb": "ভিডিও টাইপ: DeepL and Google Translate compared — which languages, quality differences, and real-world business use."
+      "name": "অপরাধ মনোবিজ্ঞান ও প্রোফাইলিং",
+      "blurb": "অপরাধী মনস্তত্ত্ব, জটিল জেরা করার কৌশল এবং সাইকোপ্যাথির ওপর আচরণগত বিজ্ঞানভিত্তিক গবেষণা।"
     },
     "hi": {
-      "name": "एआई अनुवादक",
-      "blurb": "वीडियो प्रकार: DeepL and Google Translate compared — which languages, quality differences, and real-world business use."
+      "name": "अपराध मनोविज्ञान और प्रोफाइलिंग",
+      "blurb": "अपराधी मनস্তত্ত্ব, पूछताछ की तकनीकों और सीरियल किलर साइकोपैथी का behavioral विज्ञान।"
     },
     "ur": {
-      "name": "اے آئی مترجم",
-      "blurb": "ویڈیو کی قسم: DeepL and Google Translate compared — which languages, quality differences, and real-world business use."
+      "name": "مجرمانہ نفسیات اور پروفائلنگ",
+      "blurb": "مجرمانہ ذہنوں، تفتیشی تکنیکوں اور سیریل کلر نفسیات پر رویے کی سائنسی تحقیقات۔"
     },
     "ta": {
-      "name": "AI மொழிபெயர்ப்பாளர்கள்",
-      "blurb": "வீடியோ வகை: DeepL and Google Translate compared — which languages, quality differences, and real-world business use."
+      "name": "குற்றவியல் உளவியல் மற்றும் சுயவிவரப் பகுப்பாய்வு",
+      "blurb": "குற்றவாளிகளின் மனநிலை மற்றும் விசாரணை நுட்பங்கள் பற்றிய நடத்தை அறிவியல் ஆய்வுகள்."
     },
     "ml": {
-      "name": "AI വിവർത്തകർ",
-      "blurb": "വീഡിയോ തരം: DeepL and Google Translate compared — which languages, quality differences, and real-world business use."
+      "name": "കുറ്റകൃത്യ മനഃശാസ്ത്രവും പ്രൊഫൈലിംഗും",
+      "blurb": "குറ്റവാളികളുടെ മനസ്സ്, ചോദ്യം ചെയ്യൽ തന്ത്രങ്ങൾ, സൈക്കോപതി എന്നിവയെക്കുറിച്ചുള്ള ശാസ്ത്രീയ പഠനങ്ങൾ."
     }
-  },
-  "source": "Nish.Md + deterministic research",
-  "research_notes": [
-    "Marathon researched at 2026-09-10T08:30:23Z",
-    "Video type length=104",
-    "Topic prompt length=144",
-    "Video prompt length=385",
-    "Seeds=6"
-  ],
-  "verified_at": "2026-09-10T08:30:23Z"
+  }
 }

@@ -1,8 +1,8 @@
 {
   "niche_id": 131,
-  "name": "Midnight Whispers",
-  "slug": "midnight-whispers",
-  "style_family": "mystery",
+  "name": "Language Origins & Linguistic Mysteries",
+  "slug": "language-origins-linguistic-mysteries",
+  "style_family": "history",
   "status": "VERIFIED",
   "topic_seeds": [
     "What new evidence reframes the story of Midnight Whispers Strange inside Midnight Whispers",
@@ -47,28 +47,28 @@
   "video_prompt_overlay": "NICHE VISUAL LOCK (Midnight Whispers / mystery): Generate a 7–9 second dialogue clip based on the topic `{topic}`. Each dialogue must be unsettling. For each dialogue, generate: - **Audio Generation Prompt:** Voice — whispery, with static and white noise. - **Video Generation Prompt:** Detailed visual — a recorder or a dark room. No clear character — focus on audio device. Lighting: dim red. Maintain same device. Forbidden: talking-head lip-sync avatar, burned-in captions, watermark, modern meme text, modern smartphones, cars, LED screens, sneakers. Preferred subjects: Midnight Whispers documentary subject, period-accurate environment, evidence object close-up. Lighting: dappled fog light, cool teal shadows, slow push-ins. Face policy: no talking-head lip-sync avatar; cinematic B-roll preferred. Dialogue tone: slow, ominous, evidence-first. Ambience: low drone, subtle reverb, sparse percussion.",
   "i18n": {
     "en": {
-      "name": "Midnight Whispers",
-      "blurb": "Strange phone calls, mysterious recordings, and EVPs (electronic voice phenomena) from paranormal investigations."
+      "name": "Language Origins & Linguistic Mysteries",
+      "blurb": "The fascinating evolution of human speech, scripts, and phonetics — how ancient proto-languages branched into 7,000 living tongues, the decipherment of the Rosetta Stone, and the u"
     },
     "bn": {
-      "name": "মধ্যরাতের ফিসফিসানি",
-      "blurb": "ভিডিও টাইপ: Strange phone calls, mysterious recordings, and EVPs (electronic voice phenomena) from paranormal investigations."
+      "name": "ভাষার উৎস ও ভাষাতাত্ত্বিক রহস্য",
+      "blurb": "মানুষের কথা বলা, লিপি ও ধ্বনিবিজ্ঞানের আকর্ষণীয় বিবর্তন — কীভাবে প্রাচীন আদি-ভাষা থেকে সাত হাজার জীবিত ভাষার সৃষ্টি হয়েছে।"
     },
     "hi": {
-      "name": "आधी रात की फुसफुसाहट",
-      "blurb": "वीडियो प्रकार: Strange phone calls, mysterious recordings, and EVPs (electronic voice phenomena) from paranormal investigations."
+      "name": "भाषाओं की उत्पत्ति और भाषाई रहस्य",
+      "blurb": "मानव बोली और लिपियों का अद्भुत विकास — कैसे प्राचीन भाषाएं सात हजार जीवित बोलियों में फैलीं।"
     },
     "ur": {
-      "name": "آدھی رات کی سرگوشیاں",
-      "blurb": "ویڈیو کی قسم: Strange phone calls, mysterious recordings, and EVPs (electronic voice phenomena) from paranormal investigations."
+      "name": "زبانوں کا آغاز اور لسانی اسرار",
+      "blurb": "انسانی آواز اور لپی کی دلکش ارتقائی کہانی — کیسے قدیم پرو زبانیں سات ہزار زندہ زبانوں میں بدلیں۔"
     },
     "ta": {
-      "name": "நள்ளிரவு முனகல்கள்",
-      "blurb": "வீடியோ வகை: Strange phone calls, mysterious recordings, and EVPs (electronic voice phenomena) from paranormal investigations."
+      "name": "மொழிகளின் தோற்றம் மற்றும் மொழியியல் ரகசியங்கள்",
+      "blurb": "மனித பேச்சின் கண்கவர் பரிணாம வளர்ச்சி — பண்டைய மூல மொழிகள் எப்படி ஏழாயிரம் மொழிகளாகப் பிரிந்தன."
     },
     "ml": {
-      "name": "അർദ്ധരാത്രി മന്ത്രങ്ങൾ",
-      "blurb": "വീഡിയോ തരം: Strange phone calls, mysterious recordings, and EVPs (electronic voice phenomena) from paranormal investigations."
+      "name": "ഭാഷകളുടെ ഉത്ഭവവും ഭാഷാശാസ്ത്രപരമായ രഹസ്യങ്ങളും",
+      "blurb": "മനുഷ്യ സംസാരത്തിന്റെയും ലിപികളുടെയും വിസ്മയകരമായ പരിണാമം — എങ്ങനെയാണ് പ്രാചീന ഭാഷകൾ വളർന്നത്."
     }
   },
   "source": "Nish.Md + deterministic research",

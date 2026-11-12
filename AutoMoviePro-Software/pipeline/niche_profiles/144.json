@@ -52,23 +52,23 @@
     },
     "bn": {
       "name": "দৈনন্দিন দর্শন",
-      "blurb": "ভিডিও টাইপ: Applying Stoicism, Zen, or Confucianism to modern problems like stress, anger, and procrastination."
+      "blurb": "স্টোয়িকবাদ, জেন কিংবা কনফুসিয়াসের শিক্ষা প্রয়োগ করে আধুনিক জীবনের মানসিক চাপ ও অলসতা দূর করার উপায়।"
     },
     "hi": {
-      "name": "रोज़मर्रा का दर्शन",
-      "blurb": "वीडियो प्रकार: Applying Stoicism, Zen, or Confucianism to modern problems like stress, anger, and procrastination."
+      "name": "दैनिक जीवन का दर्शन",
+      "blurb": "तनाव, क्रोध और टालमटोल जैसी आधुनिक समस्याओं पर स्टोइिसिज़्म और ज़ेन दर्शन का अनुप्रयोग।"
     },
     "ur": {
-      "name": "روزمرہ فلسفہ",
-      "blurb": "ویڈیو کی قسم: Applying Stoicism, Zen, or Confucianism to modern problems like stress, anger, and procrastination."
+      "name": "روزمرہ کا فلسفہ",
+      "blurb": "تناؤ، غصے اور کاہلی جیسے جدید مسائل پر استوائزم اور زین کے اصولوں کا اطلاق۔"
     },
     "ta": {
-      "name": "அன்றாட தத்துவம்",
-      "blurb": "வீடியோ வகை: Applying Stoicism, Zen, or Confucianism to modern problems like stress, anger, and procrastination."
+      "name": "தினசரி தத்துவம்",
+      "blurb": "மன அழுத்தம் மற்றும் கோபம் போன்ற நவீன சவால்களை எதிர்கொள்ள ஸ்டோயியம் மற்றும் ஜென் தத்துவங்களைப் பயன்படுத்துதல்."
     },
     "ml": {
       "name": "ദൈനംദിന തത്ത്വചിന്ത",
-      "blurb": "വീഡിയോ തരം: Applying Stoicism, Zen, or Confucianism to modern problems like stress, anger, and procrastination."
+      "blurb": "സമ്മർദ്ദം, കോപം തുടങ്ങിയ ആധുനിക പ്രശ്നങ്ങളെ നേരിടാൻ സ്റ്റോയിസിസം, സെൻ തത്ത്വങ്ങൾ ജീവിതത്തിൽ പ്രയോഗించడం."
     }
   },
   "source": "Nish.Md + deterministic research",

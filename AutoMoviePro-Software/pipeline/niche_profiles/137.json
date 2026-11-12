@@ -1,81 +1,64 @@
 {
   "niche_id": 137,
-  "name": "Daily Life Hacks",
-  "slug": "daily-life-hacks",
-  "style_family": "gadget",
+  "name": "Philosophy of Stoicism & Mental Toughness",
+  "slug": "philosophy-of-stoicism-mental-toughness",
+  "style_family": "motivation",
   "status": "VERIFIED",
   "topic_seeds": [
-    "What new evidence reframes the story of Daily Life Hacks inside Daily Life Hacks",
-    "How Daily Life Hacks still shapes public curiosity about Daily Life Hacks",
-    "What new evidence reframes the story of Scan inside Daily Life Hacks",
-    "How Scan still shapes public curiosity about Daily Life Hacks",
-    "What new evidence reframes the story of Generate inside Daily Life Hacks",
-    "How Generate still shapes public curiosity about Daily Life Hacks"
+    "Key analytical breakdown on Philosophy of Stoicism & Mental Toughness",
+    "Behind the scenes of major Philosophy of Stoicism & Mental Toughness events",
+    "Critical evidence and timelines in Philosophy of Stoicism & Mental Toughness"
   ],
   "seo_angles": [
-    "What new evidence reframes the story of Daily Life Hacks inside Daily Life Hacks",
-    "How Daily Life Hacks still shapes public curiosity about Daily Life Hacks",
-    "What new evidence reframes the story of Scan inside Daily Life Hacks",
-    "How Scan still shapes public curiosity about Daily Life Hacks"
+    "What people misunderstand about Philosophy of Stoicism & Mental Toughness",
+    "Why this historic moment in Philosophy of Stoicism & Mental Toughness matters today"
   ],
   "forbidden_visuals": [
     "talking-head lip-sync avatar",
     "burned-in captions",
     "watermark",
     "modern meme text",
-    "wrong model phone",
-    "generic unbranded slab",
-    "stock office handshake"
+    "random stock photo cutout"
   ],
   "preferred_subjects": [
-    "exact product hero",
-    "component close-up",
-    "hands with device only"
+    "high-resolution authentic environments",
+    "data-driven infographics and telemetry",
+    "moody cinematic lighting"
   ],
-  "lighting_default": "natural directional key, documentary clarity",
-  "face_policy": "product-only hero; hands OK; no talking-head",
-  "dialogue_tone": "human documentary narration; specific nouns; 7–9s beats",
-  "audio_ambience": "subtle documentary bed; do not overpower voice",
+  "lighting_default": "cinematic high-contrast documentary grade",
+  "face_policy": "avoid talking head lip-sync; prefer environmental/tactical/infographic hero",
+  "dialogue_tone": "authoritative, engaging, retention-focused documentary narrative",
+  "audio_ambience": "subtle low-end atmospheric resonance, precise Foley SFX",
   "research_hints": [
-    "Prefer primary evidence and concrete entities for Daily Life Hacks",
-    "Avoid generic niche-label topics; require specific place/person/event/mechanism",
-    "7–9 second spoken beats with story continuity across scenes"
+    "Prefer factual, verified data points for Philosophy of Stoicism & Mental Toughness",
+    "Strong retention hook in opening 3 seconds"
   ],
-  "topic_prompt_overlay": "NICHE LOCK (Daily Life Hacks): only propose topics that fit this niche's video type. Video type: 1-minute life hacks — how to fold a fitted sheet, remove stains, or charge your phone faster. Follow niche topic strategy: Scan life hack websites, viral video compilations, or new DIY channels. Generate a topic about a hack that solves a common annoyance.",
-  "video_prompt_overlay": "NICHE VISUAL LOCK (Daily Life Hacks / gadget): Generate a 7–9 second dialogue clip based on the topic `{topic}`. Each dialogue must be quick and practical. For each dialogue, generate: - **Audio Generation Prompt:** Voice — instructive, with paper folds and water sounds. - **Video Generation Prompt:** Detailed visual — hands demonstrating the hack. No face — just hands. Lighting: bright kitchen light. Maintain same hands. Forbidden: talking-head lip-sync avatar, burned-in captions, watermark, modern meme text, wrong model phone, generic unbranded slab, stock office handshake. Preferred subjects: exact product hero, component close-up, hands with device only. Lighting: natural directional key, documentary clarity. Face policy: product-only hero; hands OK; no talking-head. Dialogue tone: human documentary narration; specific nouns; 7–9s beats. Ambience: subtle documentary bed; do not overpower voice.",
+  "topic_prompt_overlay": "NICHE LOCK (Philosophy of Stoicism & Mental Toughness): Extract timeless lessons from Stoic texts, historical leaders enduring captivity or crisis, and cognitive resilience strategies. Avoid superficial generic quotes; focus on actionable psychological mental frameworks and rigorous historical context.",
+  "video_prompt_overlay": "NICHE VISUAL LOCK (Philosophy of Stoicism & Mental Toughness / motivation): Generate a 7–9 second contemplative cinematic scene for topic {topic}. Visuals: Weathered marble bust of Marcus Aurelius or a solitary philosopher writing by candlelight inside a tent on a misty military frontier, snow or autumn leaves falling outside. Lighting: Warm flickering candle glow against rough canvas and ancient parchment, cold blue mist outside. Camera: Slow intimate macro tracking across quill pen, inkwell, and weathered marble features. Ambience: Soft crackle of fire, distant wind howling through pine trees, and contemplative acoustic cello.",
   "i18n": {
     "en": {
-      "name": "Daily Life Hacks",
-      "blurb": "1-minute life hacks — how to fold a fitted sheet, remove stains, or charge your phone faster."
+      "name": "Philosophy of Stoicism & Mental Toughness",
+      "blurb": "Classical philosophical principles applied to modern adversity — Marcus Aurelius's battlefront meditations, Seneca's letters on resilience, Epictetus's dichotomy of control, and ps"
     },
     "bn": {
-      "name": "দৈনন্দিন লাইফ হ্যাক",
-      "blurb": "ভিডিও টাইপ: 1-minute life hacks — how to fold a fitted sheet, remove stains, or charge your phone faster."
+      "name": "স্টোয়িক দর্শন ও মানসিক দৃঢ়তা",
+      "blurb": "আধুনিক প্রতিকূলতায় ধ্রুপদী দার্শনিক নীতি — মার্কাস অরেলিয়াসের ধ্যান এবং সেনেকার সহনশীলতা।"
     },
     "hi": {
-      "name": "रोज़मर्रा लाइफ हैक्स",
-      "blurb": "वीडियो प्रकार: 1-minute life hacks — how to fold a fitted sheet, remove stains, or charge your phone faster."
+      "name": "स्टोइक दर्शन और मानसिक दृढ़ता",
+      "blurb": "आधुनिक कठिनाइयों पर लागू होने वाले शास्त्रीय दार्शनिक सिद्धांत और मानसिक मजबूती।"
     },
     "ur": {
-      "name": "روزمرہ لائف ہیکس",
-      "blurb": "ویڈیو کی قسم: 1-minute life hacks — how to fold a fitted sheet, remove stains, or charge your phone faster."
+      "name": "اسٹوئک فلسفہ اور ذہنی پختگی",
+      "blurb": "جدید مشکلات کے خلاف کلاسیکی فلسفے کے اصول — مارکوس اوریلیئس کی فکر اور ذہنی برداشت۔"
     },
     "ta": {
-      "name": "அன்றாட வாழ்க்கை ஹேக்குகள்",
-      "blurb": "வீடியோ வகை: 1-minute life hacks — how to fold a fitted sheet, remove stains, or charge your phone faster."
+      "name": "ஸ்டோயிக் தத்துவமும் மன உறுதியும்",
+      "blurb": "நவீன சவால்களுக்குப் பொருந்தும் பாரம்பரிய தத்துவக் கோட்பாடுகள் மற்றும் மார்க்ஸ் அரேலியஸின் சிந்தனைகள்."
     },
     "ml": {
-      "name": "ദൈനംദിന ലൈഫ് ഹാക്കുകൾ",
-      "blurb": "വീഡിയോ തരം: 1-minute life hacks — how to fold a fitted sheet, remove stains, or charge your phone faster."
+      "name": "സ്റ്റോയിക് തത്ത്വചിന്തയും മാനസിക ദൃഢതയും",
+      "blurb": "ആധുനിക പ്രതിസന്ധികളെ നേരിടാൻ സഹായിക്കുന്ന ക്ലാസിക്കൽ തത്ത്വചിന്താ തത്ത്വങ്ങൾ."
     }
-  },
-  "source": "Nish.Md + deterministic research",
-  "research_notes": [
-    "Marathon researched at 2026-09-10T08:30:29Z",
-    "Video type length=93",
-    "Topic prompt length=133",
-    "Video prompt length=378",
-    "Seeds=6"
-  ],
-  "verified_at": "2026-09-10T08:30:29Z"
+  }
 }

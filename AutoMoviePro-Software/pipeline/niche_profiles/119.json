@@ -50,23 +50,23 @@
     },
     "bn": {
       "name": "ই-বর্জ্য ও পুনর্ব্যবহার",
-      "blurb": "ভিডিও টাইপ: The toxic afterlife of phones and laptops — how to responsibly recycle and why it matters for the planet."
+      "blurb": "ফোন ও ল্যাপটপের বিষাক্ত পরিণতি—কীভাবে দায়িত্বের সাথে পুনর্ব্যবহার করবেন এবং গ্রহের জন্য কেন এটি জরুরি।"
     },
     "hi": {
       "name": "ई-कचरा और रीसाइक्लिंग",
-      "blurb": "वीडियो प्रकार: The toxic afterlife of phones and laptops — how to responsibly recycle and why it matters for the planet."
+      "blurb": "फोन और लैपटॉप का जहरीला अंत—जिम्मेदारी से रीसायकल कैसे करें और यह ग्रह के लिए क्यों महत्वपूर्ण है।"
     },
     "ur": {
       "name": "ای ویسٹ اور ری سائیکلنگ",
-      "blurb": "ویڈیو کی قسم: The toxic afterlife of phones and laptops — how to responsibly recycle and why it matters for the planet."
+      "blurb": "فون اور لیپ ٹاپ کا زہریلا انجام—ذمہ داری سے ری سائیکل کیسے کریں اور کرہ ارض کے لیے یہ کیوں اہم ہے۔"
     },
     "ta": {
-      "name": "மின் கழிவு & மறுசுழற்சி",
-      "blurb": "வீடியோ வகை: The toxic afterlife of phones and laptops — how to responsibly recycle and why it matters for the planet."
+      "name": "மின்-கழிவு & மறுசுழற்சி",
+      "blurb": "போன்கள் மற்றும் மடிக்கணினிகளின் நச்சுப் பின்னணி—பொறுப்புடன் மறுசுழற்சி செய்வது எப்படி மற்றும் அதன் முக்கியத்துவம்."
     },
     "ml": {
-      "name": "ഇ-മാലിന്യവും റീസൈക്ലിംഗും",
-      "blurb": "വീഡിയോ തരം: The toxic afterlife of phones and laptops — how to responsibly recycle and why it matters for the planet."
+      "name": "ഇ-മാലിന്യവും പുനരുപയോഗവും",
+      "blurb": "ഫോണുകളുടെയും ലാപ്‌ടോപ്പുകളുടെയും വിഷാംശമുള്ള ബാക്കിപത്രം—എങ്ങനെ ഉത്തരവാദിത്തത്തോടെ പുനരുപയോഗം ചെയ്യാം."
     }
   },
   "source": "Nish.Md + deterministic research",

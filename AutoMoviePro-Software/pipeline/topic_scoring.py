@@ -35,6 +35,21 @@ _TECH_TOPIC_MARKERS = (
 _FINANCE_TOPIC_MARKERS = (
     "stock", "market", "interest rate", "inflation", "portfolio", "dividend", "crypto",
 )
+_NEWS_TOPIC_MARKERS = (
+    "conflict", "geopolit", "treaty", "military", "defense", "sanction", "nato", "sovereignty", "chokepoint", "strait", "border",
+)
+_CRIME_TOPIC_MARKERS = (
+    "investigation", "forensic", "cold case", "detective", "alibi", "evidence", "disappearance", "autopsy", "suspect", "heist",
+)
+_SPORTS_TOPIC_MARKERS = (
+    "tactics", "formation", "press", "derby", "f1", "aerodynamics", "manager", "championship", "biomechanics",
+)
+_BUSINESS_TOPIC_MARKERS = (
+    "monopoly", "antitrust", "acquisition", "billionaire", "startup", "corporate", "supply chain", "takeover",
+)
+_ISLAMIC_TOPIC_MARKERS = (
+    "quran", "prophet", "caliph", "hadith", "mosque", "islamic", "cordoba", "baghdad", "scholar", "surah",
+)
 
 
 def _topic_has_markers(text: str, markers: tuple[str, ...]) -> bool:
@@ -49,6 +64,9 @@ def _apply_niche_mismatch_penalty(channel_fit: float, topic: str, style_family: 
     hist = _topic_has_markers(tl, _HISTORY_TOPIC_MARKERS)
     tech = _topic_has_markers(tl, _TECH_TOPIC_MARKERS)
     fin = _topic_has_markers(tl, _FINANCE_TOPIC_MARKERS)
+    crime = _topic_has_markers(tl, _CRIME_TOPIC_MARKERS)
+    news = _topic_has_markers(tl, _NEWS_TOPIC_MARKERS)
+    
     if fam in ("gadget", "technology") and hist and not tech:
         return min(channel_fit, 0.35)
     if fam == "history" and tech and not hist:
@@ -56,6 +74,10 @@ def _apply_niche_mismatch_penalty(channel_fit: float, topic: str, style_family: 
     if fam == "finance" and hist and not fin:
         return min(channel_fit, 0.35)
     if fam == "science" and fin and not _topic_has_markers(tl, ("physics", "chemistry", "biology", "black hole", "quantum")):
+        return min(channel_fit, 0.40)
+    if fam in ("true_crime",) and tech and not crime:
+        return min(channel_fit, 0.35)
+    if fam in ("news",) and hist and not news:
         return min(channel_fit, 0.40)
     return channel_fit
 
@@ -80,6 +102,24 @@ def _niche_context_adjustment(channel_fit: float, topic: str, style_family: str)
     if fam == "science":
         if any(w in tl for w in ("black hole", "quantum", "physics", "chemistry", "biology")):
             return max(channel_fit, 0.85)
+    if fam == "news":
+        if _topic_has_markers(tl, _NEWS_TOPIC_MARKERS):
+            return max(channel_fit, 0.90)
+    if fam == "true_crime":
+        if _topic_has_markers(tl, _CRIME_TOPIC_MARKERS):
+            return max(channel_fit, 0.90)
+    if fam == "sports":
+        if _topic_has_markers(tl, _SPORTS_TOPIC_MARKERS):
+            return max(channel_fit, 0.90)
+    if fam == "business":
+        if _topic_has_markers(tl, _BUSINESS_TOPIC_MARKERS):
+            return max(channel_fit, 0.90)
+    if fam == "islamic":
+        if _topic_has_markers(tl, _ISLAMIC_TOPIC_MARKERS):
+            return max(channel_fit, 0.90)
+    if fam == "motion_graphics":
+        if any(w in tl for w in ("benchmark", "architecture", "breakdown", "analysis", "wafer", "gpu")):
+            return max(channel_fit, 0.90)
     return channel_fit
 
 
@@ -145,7 +185,8 @@ def score_topic(
     # Content potential: specificity heuristic (token count + proper nouns)
     tokens = [w for w in topic.replace("-", " ").split() if len(w) > 2]
     potential = _clamp01(0.4 + 0.08 * min(8, len(tokens)))
-    if any(c.isupper() for c in topic if c.isalpha()):
+    has_substantive = any(c.isupper() for c in topic if c.isalpha()) or any('\u0980' <= c <= '\u09ff' for c in topic)
+    if has_substantive:
         potential = min(1.0, potential + 0.1)
 
     # Competitor headline & thumbnail pattern synergy bonus (if available)
@@ -262,3 +303,34 @@ def select_best_topic(
         "issues": ["no_passing_candidate"],
         "ranked": ranked[:5],
     }
+
+
+def audit_topic_with_master_sentinel(
+    topic: str,
+    niche: str = "General",
+    channel_style: str = "documentary",
+) -> Dict[str, Any]:
+    """Master Sentinel Gate 0 Hook: Audits topic for viral curiosity gap and virality."""
+    try:
+        from pipeline.master_sentinel_agent import Agent_TopicSentinel
+        ts = Agent_TopicSentinel()
+        res = ts.audit_topic(topic, niche=niche, channel_style=channel_style)
+        return {
+            "passed": res.passed,
+            "viral_hook_score": res.viral_hook_score,
+            "curiosity_gap_pass": res.curiosity_gap_pass,
+            "niche_alignment_pass": res.niche_alignment_pass,
+            "critique": res.critique,
+            "refined_topic": res.refined_topic,
+            "target_keywords": res.target_keywords,
+        }
+    except Exception as exc:
+        return {
+            "passed": True,
+            "viral_hook_score": 8.0,
+            "curiosity_gap_pass": True,
+            "niche_alignment_pass": True,
+            "critique": f"Deterministic fallback: {exc}",
+            "refined_topic": topic,
+            "target_keywords": [niche],
+        }

@@ -52,23 +52,23 @@
     },
     "bn": {
       "name": "ইন্টারনেটের ইতিহাস",
-      "blurb": "ভিডিও টাইপ: The birth of ARPANET, the World Wide Web, social media, and cybercrime — the pioneers, the dot-com crash, and the digital age explosion."
+      "blurb": "আর্পানেট ও ওয়ার্ল্ড ওয়াইড ওয়েবের জন্ম, ডট-কম ক্র্যাশ এবং ডিজিটাল যুগের বিস্ফোরণের পেছনের চমকপ্রদ গল্প।"
     },
     "hi": {
       "name": "इंटरनेट का इतिहास",
-      "blurb": "वीडियो प्रकार: The birth of ARPANET, the World Wide Web, social media, and cybercrime — the pioneers, the dot-com crash, and the digital age explosion."
+      "blurb": "आरपानेट, वर्ल्ड वाइड वेब, सोशल मीडिया और साइबर अपराध की पैदाइश—डॉट-कॉम क्रैश और डिजिटल युग की शुरुआत।"
     },
     "ur": {
       "name": "انٹرنیٹ کی تاریخ",
-      "blurb": "ویڈیو کی قسم: The birth of ARPANET, the World Wide Web, social media, and cybercrime — the pioneers, the dot-com crash, and the digital age explosion."
+      "blurb": "آرپانیٹ اور ورلڈ وائڈ ویب کی پیدائش، سوشل میڈیا اور سائبر کرائم—ڈট کام کریش اور ڈیجیٹل دور کا دھماکہ۔"
     },
     "ta": {
-      "name": "இணைய வரலாறு",
-      "blurb": "வீடியோ வகை: The birth of ARPANET, the World Wide Web, social media, and cybercrime — the pioneers, the dot-com crash, and the digital age explosion."
+      "name": "இணையத்தின் வரலாறு",
+      "blurb": "ஆர்பানেட், வேர்ல்ட் வைட் வெப் உருவாக்கம், டாட்காம் வீழ்ச்சி மற்றும் டிஜிட்டல் யுகத்தின் எழுச்சி பற்றிய கதை."
     },
     "ml": {
-      "name": "ഇന്റർനെറ്റ് ചരിത്രം",
-      "blurb": "വീഡിയോ തരം: The birth of ARPANET, the World Wide Web, social media, and cybercrime — the pioneers, the dot-com crash, and the digital age explosion."
+      "name": "ഇന്റർനെറ്റിന്റെ ചരിത്രം",
+      "blurb": "ആർപാനെറ്റ്, വേൾഡ് വൈഡ് വെബ്, സോഷ്യൽ മീഡിയ എന്നിവയുടെ പിറവിയും ഡോട്ട് കോം തകർച്ചയും ഡിജിറ്റൽ യുഗത്തിന്റെ തുടക്കവും."
     }
   },
   "source": "Nish.Md + deterministic research",

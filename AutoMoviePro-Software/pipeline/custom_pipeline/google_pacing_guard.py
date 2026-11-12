@@ -33,14 +33,14 @@ logger = logging.getLogger(__name__)
 
 # Modality default random delay ranges in seconds: (min_sec, max_sec)
 DEFAULT_PACING_RANGES: Dict[str, Tuple[float, float]] = {
-    # Video generation: heaviest compute and strictest RPM
-    "video": (45.0, 75.0),
-    # Audio / TTS synthesis: Gemini TTS per-shot / continuous rate limits
-    "audio": (35.0, 65.0),
-    # Image generation: Google Imagen / Flash Image / Workers AI
-    "image": (20.0, 40.0),
-    # General / Text: Localization, script analysis, vision critique
-    "general": (8.0, 16.0),
+    # Video generation
+    "video": (2.0, 4.0),
+    # Audio / TTS synthesis: fast, reliable pacing
+    "audio": (1.0, 2.0),
+    # Image generation: fast parallel throughput
+    "image": (1.0, 2.5),
+    # General / Text: Localization, script analysis
+    "general": (0.5, 1.0),
 }
 
 # Maximum duration (in seconds) the pipeline will automatically sleep to wait for quota refill.

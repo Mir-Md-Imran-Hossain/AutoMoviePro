@@ -50,27 +50,27 @@
   "i18n": {
     "en": {
       "name": "Ancient Civilizations",
-      "blurb": "Documentary-style storytelling about daily life, culture, and mysteries of ancient Egypt, Greece, Rome, Indus Valley, and Mesopotamia. Each episode explores…"
+      "blurb": "Documentary-style storytelling about daily life, culture, and mysteries of ancient Egypt, Greece, Rome, Indus Valley, and Mesopotamia. Each episode explores how these societies ros"
     },
     "bn": {
       "name": "প্রাচীন সভ্যতা",
-      "blurb": "ভিডিও টাইপ: Documentary-style storytelling about daily life, culture, and mysteries of ancient Egypt, Greece, Rome, Indus Valley, and Mesopotamia. Each episode…"
+      "blurb": "প্রাচীন মিশর, গ্রীস ও সিন্ধু সভ্যতার দৈনন্দিন জীবন, সংস্কৃতি এবং রহস্যের এক ডকুমেন্টারি স্টাইলে উন্মোচন।"
     },
     "hi": {
-      "name": "प्राचीन सभ्यताएँ",
-      "blurb": "वीडियो प्रकार: Documentary-style storytelling about daily life, culture, and mysteries of ancient Egypt, Greece, Rome, Indus Valley, and Mesopotamia. Each episode…"
+      "name": "प्राचीन सभ्यताएं",
+      "blurb": "प्राचीन मिस्र, ग्रीस और सिंधु घाटी के दैनिक जीवन, संस्कृति और रहस्यों की रोमांचक दस्तावेजी कहानी।"
     },
     "ur": {
       "name": "قدیم تہذیبیں",
-      "blurb": "ویڈیو کی قسم: Documentary-style storytelling about daily life, culture, and mysteries of ancient Egypt, Greece, Rome, Indus Valley, and Mesopotamia. Each episode…"
+      "blurb": "قدیم مصر، یونان اور سندھ کی تہذیب کے روزمرہ زندگی، ثقافت اور رازوں پر مبنی دستاویزی کہانی۔"
     },
     "ta": {
-      "name": "பண்டைய நாகரிகங்கள்",
-      "blurb": "வீடியோ வகை: Documentary-style storytelling about daily life, culture, and mysteries of ancient Egypt, Greece, Rome, Indus Valley, and Mesopotamia. Each episode…"
+      "name": "தொடக்க கால நாகரிகங்கள்",
+      "blurb": "பண்டைய எகிப்து, கிரேக்கம் மற்றும் சிந்துவெளி நாகரிகங்களின் வாழ்வியல், கலாச்சாரம் மற்றும் ரகசியங்கள்."
     },
     "ml": {
-      "name": "പുരാതന നാഗരികതകൾ",
-      "blurb": "വീഡിയോ തരം: Documentary-style storytelling about daily life, culture, and mysteries of ancient Egypt, Greece, Rome, Indus Valley, and Mesopotamia. Each episode…"
+      "name": "പ്രാചীন സംസ്കാരങ്ങൾ",
+      "blurb": "പുരാതന ഈജിപ്ത്, ഗ്രീസ്, സിന്ധു നദീതട സംസ്കാരങ്ങളുടെ ജീവിതവും സംസ്കാരവും രഹസ്യങ്ങളും വിവരിക്കുന്ന ഡോക്യുമെന്ററി."
     }
   },
   "source": "Nish.Md + deterministic research",

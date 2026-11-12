@@ -1,83 +1,64 @@
 {
   "niche_id": 97,
-  "name": "Forgotten Search Engines",
-  "slug": "forgotten-search-engines",
-  "style_family": "history",
+  "name": "Business Titans & Startup Wars",
+  "slug": "business-titans-startup-wars",
+  "style_family": "business",
   "status": "VERIFIED",
   "topic_seeds": [
-    "What new evidence reframes the story of Forgotten Search Engines inside Forgotten Search Engines",
-    "How Forgotten Search Engines still shapes public curiosity about Forgotten Search Engines",
-    "What new evidence reframes the story of Ecosia inside Forgotten Search Engines",
-    "How Ecosia still shapes public curiosity about Forgotten Search Engines",
-    "What new evidence reframes the story of Startpage inside Forgotten Search Engines",
-    "How Startpage still shapes public curiosity about Forgotten Search Engines"
+    "Key analytical breakdown on Business Titans & Startup Wars",
+    "Behind the scenes of major Business Titans & Startup Wars events",
+    "Critical evidence and timelines in Business Titans & Startup Wars"
   ],
   "seo_angles": [
-    "What new evidence reframes the story of Forgotten Search Engines inside Forgotten Search Engines",
-    "How Forgotten Search Engines still shapes public curiosity about Forgotten Search Engines",
-    "What new evidence reframes the story of Ecosia inside Forgotten Search Engines",
-    "How Ecosia still shapes public curiosity about Forgotten Search Engines"
+    "What people misunderstand about Business Titans & Startup Wars",
+    "Why this historic moment in Business Titans & Startup Wars matters today"
   ],
   "forbidden_visuals": [
     "talking-head lip-sync avatar",
     "burned-in captions",
     "watermark",
     "modern meme text",
-    "modern smartphones",
-    "cars",
-    "LED screens",
-    "sneakers",
-    "contemporary skyline"
+    "random stock photo cutout"
   ],
   "preferred_subjects": [
-    "Forgotten Search Engines documentary subject",
-    "period-accurate environment",
-    "evidence object close-up"
+    "high-resolution authentic environments",
+    "data-driven infographics and telemetry",
+    "moody cinematic lighting"
   ],
-  "lighting_default": "warm desert sun / torchlit interiors, high-contrast documentary grade",
-  "face_policy": "period extras OK if consistent; prefer environment/object hero when possible",
-  "dialogue_tone": "human documentary narration; specific nouns; 7–9s beats",
-  "audio_ambience": "subtle documentary bed; do not overpower voice",
+  "lighting_default": "cinematic high-contrast documentary grade",
+  "face_policy": "avoid talking head lip-sync; prefer environmental/tactical/infographic hero",
+  "dialogue_tone": "authoritative, engaging, retention-focused documentary narrative",
+  "audio_ambience": "subtle low-end atmospheric resonance, precise Foley SFX",
   "research_hints": [
-    "Prefer primary evidence and concrete entities for Forgotten Search Engines",
-    "Avoid generic niche-label topics; require specific place/person/event/mechanism",
-    "7–9 second spoken beats with story continuity across scenes"
+    "Prefer factual, verified data points for Business Titans & Startup Wars",
+    "Strong retention hook in opening 3 seconds"
   ],
-  "topic_prompt_overlay": "NICHE LOCK (Forgotten Search Engines): only propose topics that fit this niche's video type. Video type: DuckDuckGo, Ecosia, Startpage — their privacy policies, eco-initiatives, and why people switch from Google. Follow niche topic strategy: Check tech news, new search engine features, or viral privacy debates. Generate a topic about a search engine with a unique mission.",
-  "video_prompt_overlay": "NICHE VISUAL LOCK (Forgotten Search Engines / history): Generate a 7–9 second dialogue clip based on the topic `{topic}`. Each dialogue must be curious and introspective. For each dialogue, generate: - **Audio Generation Prompt:** Voice — conversational, with clicking and birdsong. - **Video Generation Prompt:** Detailed visual — a clean search page. No character — screen. Lighting: bright, neutral. Maintain same neutral screen. Forbidden: talking-head lip-sync avatar, burned-in captions, watermark, modern meme text, modern smartphones, cars, LED screens, sneakers. Preferred subjects: Forgotten Search Engines documentary subject, period-accurate environment, evidence object close-up. Lighting: warm desert sun / torchlit interiors, high-contrast documentary grade. Face policy: period extras OK if consistent; prefer environment/object hero when possible. Dialogue tone: human documentary narration; specific nouns; 7–9s beats. Ambience: subtle documentary bed; do not overpower voice.",
+  "topic_prompt_overlay": "NICHE LOCK (Business Titans & Startup Wars): Examine ruthless corporate battles (Apple vs Microsoft, Boeing vs Airbus, Coke vs Pepsi, Uber vs Taxi cartels), dramatic downfall of unicorn startups, predatory patent wars, or logistics dominance. Craft topics around pivotal strategic blunders or visionary gambles that created multi-trillion dollar industries.",
+  "video_prompt_overlay": "NICHE VISUAL LOCK (Business Titans & Startup Wars / business): Generate a 7–9 second corporate documentary scene for topic {topic}. Visuals: Sleek executive boardroom high above Manhattan or Tokyo at twilight, glass conference table reflecting financial ticker graphs, stock crash candlestick visualizations, and corporate balance sheet infographics. Lighting: Cool blue executive ambient lighting contrasted with warm amber city skyline bokeh outside floor-to-ceiling glass. Camera: Slow lateral slider glide past leather chairs toward floor-to-ceiling panoramic windows. Ambience: Subtle financial news ticker chimes, heavy boardroom door latch, and low executive suspense strings.",
   "i18n": {
     "en": {
-      "name": "Forgotten Search Engines",
-      "blurb": "DuckDuckGo, Ecosia, Startpage — their privacy policies, eco-initiatives, and why people switch from Google."
+      "name": "Business Titans & Startup Wars",
+      "blurb": "High-stakes corporate sagas, bitter billionaire rivalries, hostile corporate acquisitions, supply chain triumphs, and catastrophic corporate bankruptcies. Features sleek financial"
     },
     "bn": {
-      "name": "বিস্মৃত সার্চ ইঞ্জিন",
-      "blurb": "ভিডিও টাইপ: DuckDuckGo, Ecosia, Startpage — their privacy policies, eco-initiatives, and why people switch from Google."
+      "name": "ব্যবসায়িক মহারথী ও স্টার্টআপ যুদ্ধ",
+      "blurb": "বিশ্বের শীর্ষ ব্যবসায়িক সাম্রাজ্যগুলোর উত্থান, পতন এবং বিলিয়নেয়ারদের তীব্র প্রতিদ্বন্দ্বিতা।"
     },
     "hi": {
-      "name": "भूले हुए सर्च इंजन",
-      "blurb": "वीडियो प्रकार: DuckDuckGo, Ecosia, Startpage — their privacy policies, eco-initiatives, and why people switch from Google."
+      "name": "बिजनेस टाइटन्स और स्टार्टअप युद्ध",
+      "blurb": "दिग्गज कंपनियों के संघर्ष, अरबपतियों की प्रतिद्वंद्विता और कॉर्पोरेट जगत की बड़ी कहानियां।"
     },
     "ur": {
-      "name": "بھولے ہوئے سرچ انجن",
-      "blurb": "ویڈیو کی قسم: DuckDuckGo, Ecosia, Startpage — their privacy policies, eco-initiatives, and why people switch from Google."
+      "name": "کاروباری ٹائٹنز اور اسٹارٹ اپ جنگیں",
+      "blurb": "بڑے کارپوریٹ اداروں کے عروج و زوال اور ارب پتیوں کی سخت تجارتی مسابقت کی کہانیاں۔"
     },
     "ta": {
-      "name": "மறக்கப்பட்ட தேடுபொறிகள்",
-      "blurb": "வீடியோ வகை: DuckDuckGo, Ecosia, Startpage — their privacy policies, eco-initiatives, and why people switch from Google."
+      "name": "வணிக ஜாம்பவான்களும் ஸ்டார்ட்அப் போர்களும்",
+      "blurb": "பெருநிறுவனங்களின் எழுச்சி, வீழ்ச்சி மற்றும் கோடீஸ்வரர்களின் வணிகப் போட்டி பற்றிய கதைகள்."
     },
     "ml": {
-      "name": "മറക്കപ്പെട്ട സെർച്ച് എഞ്ചിനുകൾ",
-      "blurb": "വീഡിയോ തരം: DuckDuckGo, Ecosia, Startpage — their privacy policies, eco-initiatives, and why people switch from Google."
+      "name": "വ്യവസായ ഭീമന്മാരും സ്റ്റാർട്ടപ്പ് യുദ്ധങ്ങളും",
+      "blurb": "വൻകിട കോർപ്പറേറ്റുകളുടെ വളർച്ചയും തകർച്ചയും ശതകോടീശ്വരന്മാരുടെ മത്സരങ്ങളും."
     }
-  },
-  "source": "Nish.Md + deterministic research",
-  "research_notes": [
-    "Marathon researched at 2026-09-10T08:30:22Z",
-    "Video type length=107",
-    "Topic prompt length=132",
-    "Video prompt length=376",
-    "Seeds=6"
-  ],
-  "verified_at": "2026-09-10T08:30:22Z"
+  }
 }

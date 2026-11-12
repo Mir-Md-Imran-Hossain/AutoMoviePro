@@ -1,79 +1,64 @@
 {
   "niche_id": 98,
-  "name": "Citizen Science Platforms",
-  "slug": "citizen-science-platforms",
-  "style_family": "science",
+  "name": "Macroeconomics & Global Finance",
+  "slug": "macroeconomics-global-finance",
+  "style_family": "finance",
   "status": "VERIFIED",
   "topic_seeds": [
-    "What new evidence reframes the story of Citizen Science Platforms Zooniverse inside Citizen Science Platforms",
-    "How Citizen Science Platforms Zooniverse still shapes public curiosity about Citizen Science Platforms",
-    "What new evidence reframes the story of Check inside Citizen Science Platforms",
-    "How Check still shapes public curiosity about Citizen Science Platforms",
-    "What new evidence reframes the story of Generate inside Citizen Science Platforms",
-    "How Generate still shapes public curiosity about Citizen Science Platforms"
+    "Key analytical breakdown on Macroeconomics & Global Finance",
+    "Behind the scenes of major Macroeconomics & Global Finance events",
+    "Critical evidence and timelines in Macroeconomics & Global Finance"
   ],
   "seo_angles": [
-    "What new evidence reframes the story of Citizen Science Platforms Zooniverse inside Citizen Science Platforms",
-    "How Citizen Science Platforms Zooniverse still shapes public curiosity about Citizen Science Platforms",
-    "What new evidence reframes the story of Check inside Citizen Science Platforms",
-    "How Check still shapes public curiosity about Citizen Science Platforms"
+    "What people misunderstand about Macroeconomics & Global Finance",
+    "Why this historic moment in Macroeconomics & Global Finance matters today"
   ],
   "forbidden_visuals": [
     "talking-head lip-sync avatar",
     "burned-in captions",
     "watermark",
     "modern meme text",
-    "off-niche stock office B-roll"
+    "random stock photo cutout"
   ],
   "preferred_subjects": [
-    "lab instrument close-up",
-    "diagrammatic mechanism metaphor",
-    "field measurement site"
+    "high-resolution authentic environments",
+    "data-driven infographics and telemetry",
+    "moody cinematic lighting"
   ],
-  "lighting_default": "teal/cyan lab grade, high contrast, shallow DOF",
-  "face_policy": "no talking-head lip-sync avatar; cinematic B-roll preferred",
-  "dialogue_tone": "clear explainer; one mechanism per beat",
-  "audio_ambience": "clean room tone, soft electronic texture",
+  "lighting_default": "cinematic high-contrast documentary grade",
+  "face_policy": "avoid talking head lip-sync; prefer environmental/tactical/infographic hero",
+  "dialogue_tone": "authoritative, engaging, retention-focused documentary narrative",
+  "audio_ambience": "subtle low-end atmospheric resonance, precise Foley SFX",
   "research_hints": [
-    "Prefer primary evidence and concrete entities for Citizen Science Platforms",
-    "Avoid generic niche-label topics; require specific place/person/event/mechanism",
-    "7–9 second spoken beats with story continuity across scenes"
+    "Prefer factual, verified data points for Macroeconomics & Global Finance",
+    "Strong retention hook in opening 3 seconds"
   ],
-  "topic_prompt_overlay": "NICHE LOCK (Citizen Science Platforms): only propose topics that fit this niche's video type. Video type: Zooniverse, iNaturalist — how volunteers classify galaxies, track bird migrations, and contribute to real research. Follow niche topic strategy: Check science community news, new platform features, or viral citizen science stories. Generate a topic about a successful public research project.",
-  "video_prompt_overlay": "NICHE VISUAL LOCK (Citizen Science Platforms / science): Generate a 7–9 second dialogue clip based on the topic `{topic}`. Each dialogue must be collaborative and exciting. For each dialogue, generate: - **Audio Generation Prompt:** Voice — engaged, with keyboard and nature sounds. - **Video Generation Prompt:** Detailed visual — a laptop in a garden or home. Character: volunteer (casual). Lighting: bright daylight. Maintain same character and light. Forbidden: talking-head lip-sync avatar, burned-in captions, watermark, modern meme text, off-niche stock office B-roll. Preferred subjects: lab instrument close-up, diagrammatic mechanism metaphor, field measurement site. Lighting: teal/cyan lab grade, high contrast, shallow DOF. Face policy: no talking-head lip-sync avatar; cinematic B-roll preferred. Dialogue tone: clear explainer; one mechanism per beat. Ambience: clean room tone, soft electronic texture.",
+  "topic_prompt_overlay": "NICHE LOCK (Macroeconomics & Global Finance): Explore macro market liquidity, currency reserve shifts (de-dollarization, Petrodollar), yield curve inversions, real estate credit bubbles, and historical hyperinflations. Formulate topics explaining complex financial phenomena in gripping, easily digestible visual narratives.",
+  "video_prompt_overlay": "NICHE VISUAL LOCK (Macroeconomics & Global Finance / finance): Generate a 7–9 second financial explainer scene for topic {topic}. Visuals: 3D animated financial balance scale or kinetic currency flow pipeline, overlaid with historical purchasing power charts, interest rate trend vectors, and central bank vault imagery. Lighting: Rich emerald and gold tones over slate grey backdrop. Camera: Smooth push-in tracking shot across 3D macroeconomic bar charts. Ambience: Deep rhythmic bass pulse, mechanical cash-counter rhythm, and subtle trading floor chatter.",
   "i18n": {
     "en": {
-      "name": "Citizen Science Platforms",
-      "blurb": "Zooniverse, iNaturalist — how volunteers classify galaxies, track bird migrations, and contribute to real research."
+      "name": "Macroeconomics & Global Finance",
+      "blurb": "Comprehensive breakdowns of central banking interest rate cycles, sovereign debt crises, inflation mechanics, gold standards, and global currency debasements using clear animated f"
     },
     "bn": {
-      "name": "নাগরিক বিজ্ঞান প্ল্যাটফর্ম",
-      "blurb": "ভিডিও টাইপ: Zooniverse, iNaturalist — how volunteers classify galaxies, track bird migrations, and contribute to real research."
+      "name": "ম্যাক্রোইকোনমিক্স ও বৈশ্বিক অর্থায়ন",
+      "blurb": "কেন্দ্রীয় ব্যাংকের মুদ্রানীতি, মূল্যস্ফীতি এবং বৈশ্বিক অর্থনৈতিক সংকটের সহজবোধ্য বিশ্লেষণ।"
     },
     "hi": {
-      "name": "नागरिक विज्ञान प्लेटफ़ॉर्म",
-      "blurb": "वीडियो प्रकार: Zooniverse, iNaturalist — how volunteers classify galaxies, track bird migrations, and contribute to real research."
+      "name": "मैक्रोइकॉनॉमिक्स और वैश्विक वित्त",
+      "blurb": "ब्याज दरों, मुद्रास्फीति और वैश्विक आर्थिक संकटों का स्पष्ट और एनिमेशन आधारित विश्लेषण।"
     },
     "ur": {
-      "name": "شہری سائنس پلیٹ فارمز",
-      "blurb": "ویڈیو کی قسم: Zooniverse, iNaturalist — how volunteers classify galaxies, track bird migrations, and contribute to real research."
+      "name": "میکرو اکنامکس اور عالمی فنانس",
+      "blurb": "شرح سود کے چکر، مہنگائی اور عالمی مالیاتی بحران کا آسان انداز میں تجزیہ۔"
     },
     "ta": {
-      "name": "குடிமை அறிவியல் தளங்கள்",
-      "blurb": "வீடியோ வகை: Zooniverse, iNaturalist — how volunteers classify galaxies, track bird migrations, and contribute to real research."
+      "name": "பேரண்டப் பொருளாதாரமும் உலகளாவிய நிதியும்",
+      "blurb": "வட்டி விகித சுழற்சிகள், பணவீக்கம் மற்றும் உலகளாவிய நிதி நெருக்கடிகளின் எளிய விளக்கம்."
     },
     "ml": {
-      "name": "പൗര ശാസ്ത്ര പ്ലാറ്റ്‌ഫോമുകൾ",
-      "blurb": "വീഡിയോ തരം: Zooniverse, iNaturalist — how volunteers classify galaxies, track bird migrations, and contribute to real research."
+      "name": "മാക്രോ ഇക്കണോമിക്സും ആഗോള ധനകാര്യവും",
+      "blurb": "പലിശ നിരക്കുകൾ, നാണ്യപ്പെരുപ്പം, ആഗോള സാമ്പത്തിക പ്രതിസന്ധികൾ എന്നിവയുടെ വിശകലനം."
     }
-  },
-  "source": "Nish.Md + deterministic research",
-  "research_notes": [
-    "Marathon researched at 2026-09-10T08:30:22Z",
-    "Video type length=115",
-    "Topic prompt length=147",
-    "Video prompt length=397",
-    "Seeds=6"
-  ],
-  "verified_at": "2026-09-10T08:30:22Z"
+  }
 }

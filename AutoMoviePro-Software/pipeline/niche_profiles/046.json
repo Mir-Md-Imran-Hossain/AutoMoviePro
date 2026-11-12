@@ -52,23 +52,23 @@
     },
     "bn": {
       "name": "কবিতা ও গদ্যের উৎস",
-      "blurb": "ভিডিও টাইপ: The emotional backstory behind famous poems and novels — how loss, love, or war inspired literature that speaks to all generations."
+      "blurb": "বিখ্যাত সাহিত্যকর্মের পেছনের আবেগঘন ইতিহাস — শোক বা প্রেম কীভাবে অমর সাহিত্য সৃষ্টি করেছে।"
     },
     "hi": {
       "name": "कविता और गद्य की उत्पत्ति",
-      "blurb": "वीडियो प्रकार: The emotional backstory behind famous poems and novels — how loss, love, or war inspired literature that speaks to all generations."
+      "blurb": "प्रसिद्ध उपन्यासों के पीछे की भावनात्मक कहानी — कैसे प्रेम और युद्ध ने अमर साहित्य रचा।"
     },
     "ur": {
       "name": "شاعری اور نثر کی ابتدا",
-      "blurb": "ویڈیو کی قسم: The emotional backstory behind famous poems and novels — how loss, love, or war inspired literature that speaks to all generations."
+      "blurb": "مشہور کہانیوں کے پیچھے چھپے جذباتی پس منظر — محبت اور جنگ نے کیسے ادب کو جنم دیا۔"
     },
     "ta": {
-      "name": "கவிதை & உரைநடை தோற்றம்",
-      "blurb": "வீடியோ வகை: The emotional backstory behind famous poems and novels — how loss, love, or war inspired literature that speaks to all generations."
+      "name": "கவிதை மற்றும் உரைநடையின் தோற்றம்",
+      "blurb": "புகழ்பெற்ற இலக்கியங்களின் உணர்வுபூர்வமான பின்னணி — இழப்பும் காதலும் எவ்வாறு படைப்புகளை உருவாக்கின."
     },
     "ml": {
-      "name": "കവിതയും ഗദ്യവും — ഉത്ഭവം",
-      "blurb": "വീഡിയോ തരം: The emotional backstory behind famous poems and novels — how loss, love, or war inspired literature that speaks to all generations."
+      "name": "കവിതയുടെയും കഥയുടെയും ഉറവിടം",
+      "blurb": "പ്രസിദ്ധമായ നോവലുകൾക്ക് പിന്നിലെ വികാരഭരിതമായ കഥ — നഷ്ടങ്ങളും പ്രണയവും സാഹിത്യത്തെ സ്വാധീനിച്ച രീതി."
     }
   },
   "source": "Nish.Md + deterministic research",

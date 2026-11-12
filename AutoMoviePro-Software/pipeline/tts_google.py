@@ -20,9 +20,9 @@ logger = logging.getLogger(__name__)
 
 # Current Google AI Studio TTS models (newest first)
 TTS_MODELS = [
-    "gemini-3.1-flash-tts-preview",
     "gemini-2.5-flash-preview-tts",
     "gemini-2.5-pro-preview-tts",
+    "gemini-3.1-flash-tts-preview",
 ]
 
 
@@ -107,7 +107,7 @@ def synthesize_narration(
     lang = (language_hint or SOURCE_LANG).lower().strip()
     contract = tts_contract(lang)
     voice = resolve_locked_voice(voice_name, language_hint=lang)
-    if lang[:2] == SOURCE_LANG:
+    if lang[:2] == "en":
         try:
             from pipeline.master_lang import ensure_english_text, looks_like_english_master
 
@@ -530,12 +530,15 @@ def _tts_via_sdk(api_key: str, prompt: str, *, model: str, voice_name: str) -> O
             ),
         )
 
-    with concurrent.futures.ThreadPoolExecutor(max_workers=1) as pool:
-        fut = pool.submit(_call)
-        try:
-            resp = fut.result(timeout=75.0)
-        except concurrent.futures.TimeoutError as exc:
-            raise RuntimeError(f"TTS SDK timeout after 75s model={model}") from exc
+    pool = concurrent.futures.ThreadPoolExecutor(max_workers=1)
+    fut = pool.submit(_call)
+    try:
+        resp = fut.result(timeout=20.0)
+    except concurrent.futures.TimeoutError as exc:
+        pool.shutdown(wait=False, cancel_futures=True)
+        raise RuntimeError(f"TTS SDK timeout after 20s model={model}") from exc
+    else:
+        pool.shutdown(wait=False)
 
     try:
         parts = resp.candidates[0].content.parts
@@ -602,7 +605,7 @@ def _wav_to_m4a(wav: Path, m4a: Path) -> bool:
         "-y",
         "-i",
         str(wav),
-        "-c:a",
+                "-c:a",
         "aac",
         "-b:a",
         "192k",

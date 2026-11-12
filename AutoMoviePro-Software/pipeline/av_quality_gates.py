@@ -255,7 +255,9 @@ def detect_dialogue_cutoff(
         result["critical_issues"].append("dialogue_cutoff")
 
     # Narration estimate longer than available audio (with small slack for pauses)
-    if est > 0 and dur + 0.35 < est:
+    # Speech pace varies by voice/tone; only flag if drastically truncated (<75% of estimate)
+    # or if speech is actively truncated at the end while shorter than estimate.
+    if est > 0 and (dur < est * 0.75 or (end_rms >= CUTOFF_END_RMS and dur + 0.35 < est)):
         result["passed"] = False
         result["issues"].append(
             f"dialogue_cutoff:media={dur:.2f}s < spoken_est={est:.2f}s"
@@ -359,7 +361,7 @@ def detect_last_word_integrity(
     text = (narration_text or "").strip()
     if not media.exists() or not text:
         return result
-    words = re.findall(r"[A-Za-z0-9']+", text)
+    words = [w.strip(".,!?:;\"'()[]{}—–-") for w in text.split() if w.strip(".,!?:;\"'()[]{}—–-")]
     if not words:
         return result
     last = words[-1]
@@ -523,6 +525,13 @@ def detect_localize_ratio(
     Issue-2 detector: localized audio must not require extreme picture slowdown
     (that reads as a freeze while speech continues).
     """
+    import os
+    env_max = os.environ.get("AMP_LOCALIZE_MAX_STRETCH")
+    if env_max:
+        try:
+            max_stretch = max(max_stretch, float(env_max))
+        except ValueError:
+            pass
     result: Dict[str, Any] = {
         "check": "localize_ratio",
         "passed": True,

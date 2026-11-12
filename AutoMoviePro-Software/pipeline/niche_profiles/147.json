@@ -1,8 +1,8 @@
 {
   "niche_id": 147,
-  "name": "Failed Predictions",
-  "slug": "failed-predictions",
-  "style_family": "news",
+  "name": "Optics, Light & The Physics of Vision",
+  "slug": "optics-light-the-physics-of-vision",
+  "style_family": "science",
   "status": "VERIFIED",
   "topic_seeds": [
     "What new evidence reframes the story of Failed Predictions Experts inside Failed Predictions",
@@ -43,28 +43,28 @@
   "video_prompt_overlay": "NICHE VISUAL LOCK (Failed Predictions / news): Generate a 7–9 second dialogue clip based on the topic `{topic}`. Each dialogue must be ironic and funny. For each dialogue, generate: - **Audio Generation Prompt:** Voice — amused, with laugh track. - **Video Generation Prompt:** Detailed visual — a newspaper headline or old video. No character — static. Lighting: natural. Maintain same paper. Forbidden: talking-head lip-sync avatar, burned-in captions, watermark, modern meme text, off-niche stock office B-roll. Preferred subjects: Failed Predictions documentary subject, period-accurate environment, evidence object close-up. Lighting: natural directional key, documentary clarity. Face policy: no talking-head lip-sync avatar; cinematic B-roll preferred. Dialogue tone: human documentary narration; specific nouns; 7–9s beats. Ambience: subtle documentary bed; do not overpower voice.",
   "i18n": {
     "en": {
-      "name": "Failed Predictions",
-      "blurb": "Experts who were spectacularly wrong — \"Horses will stay, cars are a fad\" — with humorous hindsight."
+      "name": "Optics, Light & The Physics of Vision",
+      "blurb": "The fundamental nature of light and vision — photon wave-particle duality, how the human cornea refracts images upside down onto the retina, fiber optic internet transmission, and"
     },
     "bn": {
-      "name": "ব্যর্থ পূর্বাভাস",
-      "blurb": "ভিডিও টাইপ: Experts who were spectacularly wrong — \"Horses will stay, cars are a fad\" — with humorous hindsight."
+      "name": "আলো, অপটিক্স ও দৃষ্টির পদার্থবিদ্যা",
+      "blurb": "আলোর কণা-তরঙ্গ রূপ, চোখের কর্নিয়ায় উল্টো প্রতিবিম্ব সৃষ্টি এবং ফাইবার অপটিক ইন্টারনেট প্রযুক্তির বিজ্ঞান।"
     },
     "hi": {
-      "name": "असफल भविष्यवाणियाँ",
-      "blurb": "वीडियो प्रकार: Experts who were spectacularly wrong — \"Horses will stay, cars are a fad\" — with humorous hindsight."
+      "name": "प्रकाश, ऑप्टिक्स और दृष्टि का भौतिकी",
+      "blurb": "प्रकाश का स्वरूप, आँखों द्वारा छवि को रेटिना पर उल्टा बनाना और फाइबर ऑप्टिक तकनीक का विज्ञान।"
     },
     "ur": {
-      "name": "ناکام پیش گوئیاں",
-      "blurb": "ویڈیو کی قسم: Experts who were spectacularly wrong — \"Horses will stay, cars are a fad\" — with humorous hindsight."
+      "name": "نور، آپٹکس اور بصارت کی طبیعیات",
+      "blurb": "روشنی کی نوعیت، آنکھ کے ذریعے ریٹینا پر الٹی تصویر بننے کا عمل اور فائبر آپٹک انٹرنیٹ کی ٹیکنالوجی۔"
     },
     "ta": {
-      "name": "தோல்வியுற்ற முன்னறிவிப்புகள்",
-      "blurb": "வீடியோ வகை: Experts who were spectacularly wrong — \"Horses will stay, cars are a fad\" — with humorous hindsight."
+      "name": "ஒளியும் பார்வைக் கலையும்",
+      "blurb": "ஒளியின் தன்மை, விழித்திரையில் தலைகீழாக விழும் பிம்பங்கள் மற்றும் ஃபைபர் ஆப்டிக் இணையத் தொழில்நுட்பத்தின் அறிவியல்."
     },
     "ml": {
-      "name": "പരാജയപ്പെട്ട പ്രവചനങ്ങൾ",
-      "blurb": "വീഡിയോ തരം: Experts who were spectacularly wrong — \"Horses will stay, cars are a fad\" — with humorous hindsight."
+      "name": "പ്രകാശവും കാഴ്ചയുടെ ഭൗതികശാസ്ത്രവും",
+      "blurb": "പ്രകാശത്തിന്റെ സ്വഭാവം, കണ്ണിലെ റെറ്റിനയിൽ പ്രതിബിംബം തലതിരിഞ്ഞു വീഴുന്ന വിധം, ഫൈബർ ഒപ്റ്റിക് സാങ്കേതികവിദ്യ."
     }
   },
   "source": "Nish.Md + deterministic research",

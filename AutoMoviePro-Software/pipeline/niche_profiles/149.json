@@ -1,83 +1,64 @@
 {
   "niche_id": 149,
-  "name": "Weekend DIY Projects",
-  "slug": "weekend-diy-projects",
-  "style_family": "history",
+  "name": "Wealth Building & Personal Finance Architecture",
+  "slug": "wealth-building-personal-finance-architecture",
+  "style_family": "finance",
   "status": "VERIFIED",
   "topic_seeds": [
-    "What new evidence reframes the story of Weekend inside Weekend DIY Projects",
-    "How Weekend still shapes public curiosity about Weekend DIY Projects",
-    "What new evidence reframes the story of Projects Build inside Weekend DIY Projects",
-    "How Projects Build still shapes public curiosity about Weekend DIY Projects",
-    "What new evidence reframes the story of Check inside Weekend DIY Projects",
-    "How Check still shapes public curiosity about Weekend DIY Projects"
+    "Key analytical breakdown on Wealth Building & Personal Finance Architecture",
+    "Behind the scenes of major Wealth Building & Personal Finance Architecture events",
+    "Critical evidence and timelines in Wealth Building & Personal Finance Architecture"
   ],
   "seo_angles": [
-    "What new evidence reframes the story of Weekend inside Weekend DIY Projects",
-    "How Weekend still shapes public curiosity about Weekend DIY Projects",
-    "What new evidence reframes the story of Projects Build inside Weekend DIY Projects",
-    "How Projects Build still shapes public curiosity about Weekend DIY Projects"
+    "What people misunderstand about Wealth Building & Personal Finance Architecture",
+    "Why this historic moment in Wealth Building & Personal Finance Architecture matters today"
   ],
   "forbidden_visuals": [
     "talking-head lip-sync avatar",
     "burned-in captions",
     "watermark",
     "modern meme text",
-    "modern smartphones",
-    "cars",
-    "LED screens",
-    "sneakers",
-    "contemporary skyline"
+    "random stock photo cutout"
   ],
   "preferred_subjects": [
-    "Weekend DIY Projects documentary subject",
-    "period-accurate environment",
-    "evidence object close-up"
+    "high-resolution authentic environments",
+    "data-driven infographics and telemetry",
+    "moody cinematic lighting"
   ],
-  "lighting_default": "warm desert sun / torchlit interiors, high-contrast documentary grade",
-  "face_policy": "period extras OK if consistent; prefer environment/object hero when possible",
-  "dialogue_tone": "human documentary narration; specific nouns; 7–9s beats",
-  "audio_ambience": "subtle documentary bed; do not overpower voice",
+  "lighting_default": "cinematic high-contrast documentary grade",
+  "face_policy": "avoid talking head lip-sync; prefer environmental/tactical/infographic hero",
+  "dialogue_tone": "authoritative, engaging, retention-focused documentary narrative",
+  "audio_ambience": "subtle low-end atmospheric resonance, precise Foley SFX",
   "research_hints": [
-    "Prefer primary evidence and concrete entities for Weekend DIY Projects",
-    "Avoid generic niche-label topics; require specific place/person/event/mechanism",
-    "7–9 second spoken beats with story continuity across scenes"
+    "Prefer factual, verified data points for Wealth Building & Personal Finance Architecture",
+    "Strong retention hook in opening 3 seconds"
   ],
-  "topic_prompt_overlay": "NICHE LOCK (Weekend DIY Projects): only propose topics that fit this niche's video type. Video type: Build a table, plant a garden, paint a wall — step-by-step narration with simple material lists. Follow niche topic strategy: Check DIY websites, viral project videos, or home improvement news. Generate a topic about a project using materials under $50.",
-  "video_prompt_overlay": "NICHE VISUAL LOCK (Weekend DIY Projects / history): Generate a 7–9 second dialogue clip based on the topic `{topic}`. Each dialogue must be instructional and satisfying. For each dialogue, generate: - **Audio Generation Prompt:** Voice — step-by-step, with hammering and sawing. - **Video Generation Prompt:** Detailed visual — hands working on material. No face — hands. Lighting: bright workshop. Maintain same hands. Forbidden: talking-head lip-sync avatar, burned-in captions, watermark, modern meme text, modern smartphones, cars, LED screens, sneakers. Preferred subjects: Weekend DIY Projects documentary subject, period-accurate environment, evidence object close-up. Lighting: warm desert sun / torchlit interiors, high-contrast documentary grade. Face policy: period extras OK if consistent; prefer environment/object hero when possible. Dialogue tone: human documentary narration; specific nouns; 7–9s beats. Ambience: subtle documentary bed; do not overpower voice.",
+  "topic_prompt_overlay": "NICHE LOCK (Wealth Building & Personal Finance Architecture): Analyze proven long-term wealth mechanics (Bogleheads index investing, emergency fund safety nets, debt avalanche vs snowball methods, inflation-adjusted retirement timelines). Deliver clear, evidence-based financial education.",
+  "video_prompt_overlay": "NICHE VISUAL LOCK (Wealth Building & Personal Finance Architecture / finance): Generate a 7–9 second financial literacy explainer scene for topic {topic}. Visuals: Elegant 3D kinetic visualization of compounding wealth growth curves, diversifying asset allocation pie charts, and gold-hued financial freedom milestone markers. Lighting: Premium dark navy background with warm amber, champagne gold, and clean white typography. Camera: Dynamic isometric zoom-out revealing exponential asset trajectory curves. Ambience: Gentle uplifting synth melody, crisp digital data counters, and confident rhythmic heartbeat.",
   "i18n": {
     "en": {
-      "name": "Weekend DIY Projects",
-      "blurb": "Build a table, plant a garden, paint a wall — step-by-step narration with simple material lists."
+      "name": "Wealth Building & Personal Finance Architecture",
+      "blurb": "Data-backed financial literacy and wealth accumulation frameworks — compound interest growth curves, asset allocation strategies, index fund philosophy, and tax-efficient portfolio"
     },
     "bn": {
-      "name": "উইকএন্ড ডিআইওয়াই প্রজেক্ট",
-      "blurb": "ভিডিও টাইপ: Build a table, plant a garden, paint a wall — step-by-step narration with simple material lists."
+      "name": "সম্পদ গঠন ও ব্যক্তিগত অর্থ ব্যবস্থাপনা",
+      "blurb": "চক্রবৃদ্ধি সুদ, অ্যাসেট অ্যালোকেশন এবং ইনডেক্স ফান্ডের মাধ্যমে অর্থ সঞ্চয় ও বিনিয়োগের কার্যকর কৌশল।"
     },
     "hi": {
-      "name": "वीकेंड DIY प्रोजेक्ट",
-      "blurb": "वीडियो प्रकार: Build a table, plant a garden, paint a wall — step-by-step narration with simple material lists."
+      "name": "धन सृजन और व्यक्तिगत वित्त वास्तुकला",
+      "blurb": "कंपाउंड इंटरेस्ट, एसेट एलोकेशन और इंडेक्स फंड के माध्यम से वित्तीय साक्षरता और धन संचय।"
     },
     "ur": {
-      "name": "ویک اینڈ DIY پروجیکٹس",
-      "blurb": "ویڈیو کی قسم: Build a table, plant a garden, paint a wall — step-by-step narration with simple material lists."
+      "name": "دولت کی تشکیل اور ذاتی مالیاتی نظام",
+      "blurb": "کمپاؤنڈ انٹرسٹ، اثاثہ جات کی تقسیم اور انڈیکس فنڈز کے ذریعے مالیاتی خوانگیسی اور دولت بڑھانے کے اصول۔"
     },
     "ta": {
-      "name": "வார இறுதி DIY திட்டங்கள்",
-      "blurb": "வீடியோ வகை: Build a table, plant a garden, paint a wall — step-by-step narration with simple material lists."
+      "name": "செல்வச் சேமிப்பும் தனிநபர் நிதிக் மேலாண்மையும்",
+      "blurb": "கூட்டு வட்டி, சொத்து ஒதுக்கீடு மற்றும் இன்டெக்ஸ் ஃபண்டுகள் மூலம் செல்வத்தை பெருக்குவதற்கான வழிகள்."
     },
     "ml": {
-      "name": "വാരാന്ത്യ DIY പ്രോജക്റ്റുകൾ",
-      "blurb": "വീഡിയോ തരം: Build a table, plant a garden, paint a wall — step-by-step narration with simple material lists."
+      "name": "സമ്പത്ത് നിർമ്മാണവും വ്യക്തിഗത ധനകാര്യവും",
+      "blurb": "കൂട്ടുപലിശ, അസറ്റ് അലോക്കേഷൻ, ഇൻഡക്സ് ഫണ്ടുകൾ എന്നിവയിലൂടെയുള്ള സമ്പാദ്യത്തിന്റെയും നിക്ഷേപത്തിന്റെയും വഴികൾ."
     }
-  },
-  "source": "Nish.Md + deterministic research",
-  "research_notes": [
-    "Marathon researched at 2026-09-10T08:30:33Z",
-    "Video type length=96",
-    "Topic prompt length=127",
-    "Video prompt length=367",
-    "Seeds=6"
-  ],
-  "verified_at": "2026-09-10T08:30:34Z"
+  }
 }

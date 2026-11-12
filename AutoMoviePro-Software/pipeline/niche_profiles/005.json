@@ -1,8 +1,8 @@
 {
   "niche_id": 5,
-  "name": "Royal Scandals",
-  "slug": "royal-scandals",
-  "style_family": "science",
+  "name": "General Knowledge & Rapid Quiz",
+  "slug": "general-knowledge-rapid-quiz",
+  "style_family": "motion_graphics",
   "status": "VERIFIED",
   "topic_seeds": [
     "What new evidence reframes the story of Royal Scandals Glamorous inside Royal Scandals",
@@ -43,28 +43,28 @@
   "video_prompt_overlay": "NICHE VISUAL LOCK (Royal Scandals / science): Generate a 7–9 second dialogue clip based on the topic `{topic}`. Each dialogue must feel like a palace whisper. For each dialogue, generate: - **Audio Generation Prompt:** Voice — intimate, hushed, with harpsichord or classical strings in the background. - **Video Generation Prompt:** Detailed visual — lavish palace interior, gold trimmings, candles, velvet drapes. Consistent character: a noblewoman (30s, elaborate gown, pearl necklace) whispering to a servant. Lighting: warm candlelight, flickering. Camera pans slowly across the room. Maintain same gown style, same candle glow, same room layout. Forbidden: talking-head lip-sync avatar, burned-in captions, watermark, modern meme text, off-niche stock office B-roll. Preferred subjects: lab instrument close-up, diagrammatic mechanism metaphor, field measurement site. Lighting: teal/cyan lab grade, high contrast, shallow DOF. Face policy: no talking-head lip-sync avatar; cinematic B-roll preferred. Dialogue tone: clear explainer; one mechanism per beat. Ambience: clean room tone, soft electronic texture.",
   "i18n": {
     "en": {
-      "name": "Royal Scandals",
-      "blurb": "Glamorous yet dark stories of kings, queens, and their secret affairs, illegitimate heirs, poisonous intrigues, and court betrayals that threatened entire…"
+      "name": "General Knowledge & Rapid Quiz",
+      "blurb": "Fast-paced general knowledge questions and answers covering world geography, science, Nobel prizes, world records, and iconic discoveries. Designed with dynamic 5-second countdown"
     },
     "bn": {
-      "name": "রাজকীয় কেলেঙ্কারি",
-      "blurb": "ভিডিও টাইপ: Glamorous yet dark stories of kings, queens, and their secret affairs, illegitimate heirs, poisonous intrigues, and court betrayals that threatened…"
+      "name": "সাধারণ জ্ঞান ও কুইজ",
+      "blurb": "বিশ্ব ভূগোল, বিজ্ঞান এবং নোবেল পুরস্কার নিয়ে দ্রুতগতির ৫ সেকেন্ডের কাউন্টডাউন কুইজ।"
     },
     "hi": {
-      "name": "शाही घोटाले",
-      "blurb": "वीडियो प्रकार: Glamorous yet dark stories of kings, queens, and their secret affairs, illegitimate heirs, poisonous intrigues, and court betrayals that threatened…"
+      "name": "सामान्य ज्ञान और त्वरित क्विज़",
+      "blurb": "विश्व भूगोल, विज्ञान और नोबेल पुरस्कारों पर आधारित तेज गति वाले 5-सेकंड काउंटडाउन क्विज़।"
     },
     "ur": {
-      "name": "شاہی اسکینڈلز",
-      "blurb": "ویڈیو کی قسم: Glamorous yet dark stories of kings, queens, and their secret affairs, illegitimate heirs, poisonous intrigues, and court betrayals that threatened…"
+      "name": "عام معلومات اور کوئز",
+      "blurb": "عالمی جغرافیہ، سائنس اور نوবেল انعام پر مشتمل تیز رفتار 5 سیکنڈ کاؤন্ট ڈاؤن کوئজ۔"
     },
     "ta": {
-      "name": "அரச குடும்ப ஊழல்கள்",
-      "blurb": "வீடியோ வகை: Glamorous yet dark stories of kings, queens, and their secret affairs, illegitimate heirs, poisonous intrigues, and court betrayals that threatened…"
+      "name": "பொது அறிவு மற்றும் வினாடி வினா",
+      "blurb": "உலக புவியியல், அறிவியல் மற்றும் நோபல் பரிசுகள் பற்றிய வேகமான 5 வினாடி கவுண்ட்டவுன் வினாடி வினா."
     },
     "ml": {
-      "name": "രാജകീയ അഴിമതികൾ",
-      "blurb": "വീഡിയോ തരം: Glamorous yet dark stories of kings, queens, and their secret affairs, illegitimate heirs, poisonous intrigues, and court betrayals that threatened…"
+      "name": "പൊതുവിജ്ഞാനവും ക്വിസും",
+      "blurb": "ലോക ഭൂമിശാസ്ത്രം, ശാസ്ത്രം, നൊബേൽ സമ്മാനങ്ങൾ എന്നിവ ഉൾക്കൊള്ളുന്ന 5 സെക്കൻഡ് കൗണ്ട്ഡൗൺ ക്വിസ്."
     }
   },
   "source": "Nish.Md + deterministic research",

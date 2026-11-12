@@ -52,23 +52,23 @@
     },
     "bn": {
       "name": "সঙ্গীত কিংবদন্তি",
-      "blurb": "ভিডিও টাইপ: Biographies of rockstars, rappers, and classical maestros — their rise, addiction, relationships, and mysterious deaths."
+      "blurb": "রকস্টার ও ক্লাসিক্যাল উস্তাদদের জীবনী — তাদের উত্থান, মাদকাসক্তি, সম্পর্ক এবং রহস্যজনক মৃত্যু।"
     },
     "hi": {
-      "name": "संगीत दिग्गज",
-      "blurb": "वीडियो प्रकार: Biographies of rockstars, rappers, and classical maestros — their rise, addiction, relationships, and mysterious deaths."
+      "name": "संगीत के दिग्गज",
+      "blurb": "रॉकस्टार और शास्त्रीय उस्तादों की जीवनकथाएँ — उनका उत्थान, नशे की लत, रिश्ते और रहस्यमयी मौत।"
     },
     "ur": {
-      "name": "موسیقی کے دیو مالائیں",
-      "blurb": "ویڈیو کی قسم: Biographies of rockstars, rappers, and classical maestros — their rise, addiction, relationships, and mysterious deaths."
+      "name": "موسقی کے لیجنڈز",
+      "blurb": "راک سٹارز اور کلاسیکی فنکاروں کی سوانح عمری — ان کا عروج، نشے کی لت، رشتے اور پراسرار اموات۔"
     },
     "ta": {
-      "name": "இசை புராணங்கள்",
-      "blurb": "வீடியோ வகை: Biographies of rockstars, rappers, and classical maestros — their rise, addiction, relationships, and mysterious deaths."
+      "name": "இசை ஜாம்பவான்கள்",
+      "blurb": "ராக் ஸ்டார்கள் மற்றும் பாரம்பரிய இசை மேதைகளின் வாழ்க்கை வரலாறு — எழுச்சி, போதை பழக்கம் மற்றும் மரணம்."
     },
     "ml": {
       "name": "സംഗീത ഇതിഹാസങ്ങൾ",
-      "blurb": "വീഡിയോ തരം: Biographies of rockstars, rappers, and classical maestros — their rise, addiction, relationships, and mysterious deaths."
+      "blurb": "റോക്ക് സ്റ്റാറുകളുടെയും സംഗീതജ്ഞരുടെയും ജീവചരിത്രം — അവരുടെ വളർച്ചയും പ്രണയവും ദുരൂഹ മരണങ്ങളും."
     }
   },
   "source": "Nish.Md + deterministic research",

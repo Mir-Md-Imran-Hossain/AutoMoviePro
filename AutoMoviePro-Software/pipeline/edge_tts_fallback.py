@@ -38,6 +38,9 @@ def synthesize_edge_tts(
     out_path = Path(out_path)
     out_path.parent.mkdir(parents=True, exist_ok=True)
     lang = (language_hint or "en").lower().strip()[:2]
+    # Auto-detect Bengali script in text for 100% natural voice matching
+    if any('\u0980' <= c <= '\u09FF' for c in text):
+        lang = "bn"
     requested = (voice_name or "").strip()
     if honor_voice and requested and "neural" in requested.lower():
         primary = requested
@@ -70,7 +73,7 @@ def synthesize_edge_tts(
         used = voice
 
         async def _run(v: str = voice) -> None:
-            communicate = edge_tts.Communicate(text, v)
+            communicate = edge_tts.Communicate(text, v, rate='+3%', pitch='-1Hz')
             await communicate.save(str(mp3))
 
         try:
@@ -102,7 +105,7 @@ def synthesize_edge_tts(
     try:
         subprocess.run(cmd, check=True, capture_output=True)
         if m4a.exists() and m4a.stat().st_size > 200:
-            logger.info("Edge-TTS OK voice=%s → %s", used, m4a.name)
+            logger.info("Edge-TTS OK voice=%s -> %s", used, m4a.name)
             return m4a
     except Exception as exc:
         logger.warning("edge-tts ffmpeg remux failed: %s", exc)

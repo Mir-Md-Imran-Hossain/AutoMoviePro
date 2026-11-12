@@ -1,8 +1,8 @@
 {
   "niche_id": 135,
-  "name": "Unpopular Opinions",
-  "slug": "unpopular-opinions",
-  "style_family": "history",
+  "name": "Astronomy & Deep Space Explorers",
+  "slug": "astronomy-deep-space-explorers",
+  "style_family": "science",
   "status": "VERIFIED",
   "topic_seeds": [
     "What new evidence reframes the story of Unpopular Opinions Debates inside Unpopular Opinions",
@@ -47,28 +47,28 @@
   "video_prompt_overlay": "NICHE VISUAL LOCK (Unpopular Opinions / history): Generate a 7–9 second dialogue clip based on the topic `{topic}`. Each dialogue must be playful and argumentative. For each dialogue, generate: - **Audio Generation Prompt:** Voice — debating, with laughter and gasps. - **Video Generation Prompt:** Detailed visual — a debate table or group. Characters: debaters (casual). Lighting: bright, neutral. Maintain same group. Forbidden: talking-head lip-sync avatar, burned-in captions, watermark, modern meme text, modern smartphones, cars, LED screens, sneakers. Preferred subjects: Unpopular Opinions documentary subject, period-accurate environment, evidence object close-up. Lighting: warm desert sun / torchlit interiors, high-contrast documentary grade. Face policy: period extras OK if consistent; prefer environment/object hero when possible. Dialogue tone: human documentary narration; specific nouns; 7–9s beats. Ambience: subtle documentary bed; do not overpower voice.",
   "i18n": {
     "en": {
-      "name": "Unpopular Opinions",
-      "blurb": "Debates like \"pineapple on pizza\" or \"milk before cereal\" — with logical arguments and audience polls."
+      "name": "Astronomy & Deep Space Explorers",
+      "blurb": "The farthest reaches of our cosmic frontier — the James Webb Space Telescope capturing the earliest galaxies, Voyager 1 entering interstellar space, and the search for exoplanets i"
     },
     "bn": {
-      "name": "অজনপ্রিয় মতামত",
-      "blurb": "ভিডিও টাইপ: Debates like \"pineapple on pizza\" or \"milk before cereal\" — with logical arguments and audience polls."
+      "name": "জ্যোতির্বিজ্ঞান ও গভীর মহাকাশ অভিযাত্রী",
+      "blurb": "আমাদের মহাজাগতিক সীমানার দূরতম প্রান্ত — আদিম গ্যালাক্সি আবিষ্কারে জেমস ওয়েব টেলিস্কোপের যাত্রা।"
     },
     "hi": {
-      "name": "अप्रिय मत",
-      "blurb": "वीडियो प्रकार: Debates like \"pineapple on pizza\" or \"milk before cereal\" — with logical arguments and audience polls."
+      "name": "खगोल विज्ञान और गहरे अंतरिक्ष के खोज",
+      "blurb": "हमारी ब्रह्मांडीय सीमा के दूर कोने — जेम्स वेब टेलीस्कोप द्वारा शुरुआती आकाशगंगाओं की खोज।"
     },
     "ur": {
-      "name": "غیر مقبول آراء",
-      "blurb": "ویڈیو کی قسم: Debates like \"pineapple on pizza\" or \"milk before cereal\" — with logical arguments and audience polls."
+      "name": "فلکیات اور گہرے خلاء کے مسافر",
+      "blurb": "ہماری کائناتی سرحدوں کے انتہائی دور افتادہ گوشے — جیمز ویب ٹیلی سکوپ کے ذریعے کہکشاؤں کی تلاش۔"
     },
     "ta": {
-      "name": "பிரபலமற்ற கருத்துகள்",
-      "blurb": "வீடியோ வகை: Debates like \"pineapple on pizza\" or \"milk before cereal\" — with logical arguments and audience polls."
+      "name": "வானியலும் ஆழமான விண்வெளி ஆய்வாளர்களும்",
+      "blurb": "நம் பிரபஞ்ச எல்லையின் தொலைதூரப் பகுதிகள் — ஜேம்ஸ் வெப் தொலைநோக்கி படம்பிடிக்கும் கேலக்ஸிகள்."
     },
     "ml": {
-      "name": "ജനപ്രിയമല്ലാത്ത അഭിപ്രായങ്ങൾ",
-      "blurb": "വീഡിയോ തരം: Debates like \"pineapple on pizza\" or \"milk before cereal\" — with logical arguments and audience polls."
+      "name": "ജ്യോതിശാസ്ത്രവും വിദൂര ബഹിരാകാശ പര്യവേക്ഷകരും",
+      "blurb": "നമ്മുടെ പ്രപഞ്ച അതിർത്തികളുടെ ദൂരെയുള്ള കോണുകൾ — ജെയിംസ് വെബ് ദൂരദർശിനി കണ്ടെത്തിയ ഗാലക്സികൾ."
     }
   },
   "source": "Nish.Md + deterministic research",

@@ -1,8 +1,8 @@
 {
   "niche_id": 82,
-  "name": "Occult Sciences",
-  "slug": "occult-sciences",
-  "style_family": "science",
+  "name": "Earth Sciences & Natural Wonders",
+  "slug": "earth-sciences-natural-wonders",
+  "style_family": "nature",
   "status": "VERIFIED",
   "topic_seeds": [
     "What new evidence reframes the story of Occult Sciences Astrology inside Occult Sciences",
@@ -43,28 +43,28 @@
   "video_prompt_overlay": "NICHE VISUAL LOCK (Occult Sciences / science): Generate a 7–9 second dialogue clip based on the topic `{topic}`. Each dialogue must be mystical and thoughtful. For each dialogue, generate: - **Audio Generation Prompt:** Voice — mysterious, with bubbling potion and soft chants. - **Video Generation Prompt:** Detailed visual — an alchemist's lab or astrologer's study. Character: scholar in robe. Lighting: candlelight. Maintain same robe and candle. Forbidden: talking-head lip-sync avatar, burned-in captions, watermark, modern meme text, off-niche stock office B-roll. Preferred subjects: lab instrument close-up, diagrammatic mechanism metaphor, field measurement site. Lighting: teal/cyan lab grade, high contrast, shallow DOF. Face policy: no talking-head lip-sync avatar; cinematic B-roll preferred. Dialogue tone: clear explainer; one mechanism per beat. Ambience: clean room tone, soft electronic texture.",
   "i18n": {
     "en": {
-      "name": "Occult Sciences",
-      "blurb": "Astrology, alchemy, herbal magic — how they were once mainstream sciences and why they faded or persisted."
+      "name": "Earth Sciences & Natural Wonders",
+      "blurb": "The awe-inspiring geological and atmospheric phenomena of planet Earth — geothermal geysers, crystal caves of Naica, bioluminescent tides, tectonic plate collisions, and the physic"
     },
     "bn": {
-      "name": "গুপ্ত বিজ্ঞান",
-      "blurb": "ভিডিও টাইপ: Astrology, alchemy, herbal magic — how they were once mainstream sciences and why they faded or persisted."
+      "name": "ভূত্বক বিজ্ঞান ও প্রাকৃতিক বিস্ময়",
+      "blurb": "আমাদের পৃথিবীর ভূতাত্ত্বিক এবং বায়ুমণ্ডলীয় সব অবিশ্বাস্য ঘটনা— উষ্ণ প্রস্রবণ, নাইকার স্ফটিক গুহা এবং টেকটোনিক প্লেটের সংঘর্ষ।"
     },
     "hi": {
-      "name": "गुप्त विज्ञान",
-      "blurb": "वीडियो प्रकार: Astrology, alchemy, herbal magic — how they were once mainstream sciences and why they faded or persisted."
+      "name": "भू-विज्ञान और प्राकृतिक आश्चर्य",
+      "blurb": "हमारी पृथ्वी की अद्भुत भूवैज्ञानिक और वायुमंडलीय घटनाएं— गीजर, नाइका की क्रिस्टल गुफाएं और टेक्टोनिक प्लेटों की टक्कर।"
     },
     "ur": {
-      "name": "غیب علوم",
-      "blurb": "ویڈیو کی قسم: Astrology, alchemy, herbal magic — how they were once mainstream sciences and why they faded or persisted."
+      "name": "ارضیاتی علوم اور قدرتی عجائبات",
+      "blurb": "ہماری زمین کے ارضیاتی اور فضائی حیرت انگیز مظاہر— گرم پانی کے چشمے، نائیکا کے غار اور ٹیکٹونک پلیٹوں کے تصادم۔"
     },
     "ta": {
-      "name": "மறை அறிவியல்",
-      "blurb": "வீடியோ வகை: Astrology, alchemy, herbal magic — how they were once mainstream sciences and why they faded or persisted."
+      "name": "புவியியல் அறிவியலும் இயற்கையின் அற்புதங்களும்",
+      "blurb": "நம் பூமியின் வியக்க வைக்கும் புவியியல் நிகழ்வுகள்— வெந்நீரூற்றுகள், நைக்காவின் படிகக் குகைகள் மற்றும் டெக்டோனிக் தட்டுகளின் மோதல்கள்."
     },
     "ml": {
-      "name": "ഗൂഢ ശാസ്ത്രങ്ങൾ",
-      "blurb": "വീഡിയോ തരം: Astrology, alchemy, herbal magic — how they were once mainstream sciences and why they faded or persisted."
+      "name": "ഭൂശാസ്ത്രവും പ്രകൃതിയുടെ അത്ഭുതങ്ങളും",
+      "blurb": "നമ്മുടെ ഭൂമിയുടെ അത്ഭുതകരമായ ഭൗമശാസ്ത്ര പ്രതിഭാസങ്ങൾ— ജിയോതെർമൽ ഗീസറുകൾ, നൈക്കയിലെ ക്രിസ്റ്റൽ ഗുഹകൾ, ടെക്റ്റോണിക് പ്ലേറ്റുകളുടെ കൂട്ടിയിടി."
     }
   },
   "source": "Nish.Md + deterministic research",

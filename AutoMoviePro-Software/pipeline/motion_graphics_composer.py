@@ -48,6 +48,8 @@ CACHE_DIR.mkdir(parents=True, exist_ok=True)
 def _resolve_font_file() -> Path:
     """Finds best OpenType/TrueType font file on system across Windows, Linux, and bundled assets."""
     candidates = [
+        FONTS_DIR / "HindSiliguri-Bold.ttf",
+        FONTS_DIR / "NotoSansBengali-Bold.ttf",
         FONTS_DIR / "Kalpurush.ttf",
         FONTS_DIR / "PotroSansBangla-Bold.ttf",
         FONTS_DIR / "vrindab.ttf",
@@ -90,8 +92,22 @@ def draw_shaped_bengali_text(
 
     if not _HARFBUZZ_AVAILABLE or not font_path.exists():
         draw = ImageDraw.Draw(canvas)
-        font = ImageFont.load_default()
-        draw.text(xy, text, font=font, fill=color)
+        try:
+            font = ImageFont.truetype(str(font_path), font_size) if font_path.exists() else ImageFont.load_default()
+        except Exception:
+            font = ImageFont.load_default()
+        if align == "center":
+            bbox = draw.textbbox((0, 0), text, font=font)
+            text_w = bbox[2] - bbox[0]
+            cur_x = xy[0] - text_w // 2
+        else:
+            cur_x = xy[0]
+        if outline_color:
+            for ox in (-outline_width, 0, outline_width):
+                for oy in (-outline_width, 0, outline_width):
+                    if ox or oy:
+                        draw.text((cur_x + ox, xy[1] + oy), text, font=font, fill=outline_color)
+        draw.text((cur_x, xy[1]), text, font=font, fill=color)
         return font_size + 10
 
     try:
@@ -229,7 +245,8 @@ class MotionGraphicsComposer:
             c1 = "0x030712"
             c2 = "0x0f172a"
 
-        # High-performance animated procedural gradient background
+        # High-performance animated procedural dynamic motion background
+        grid_col = "cyan@0.14" if style in ("neon_pulse", "deep_cyber_mesh") else "white@0.10"
         cmd = [
             ffmpeg_bin(),
             "-y",
@@ -237,8 +254,10 @@ class MotionGraphicsComposer:
             "-i", f"gradients=s={w}x{h}:d={dur}:c0={c1}:c1={c2}:x0={w//2}:y0={int(h*0.25)}:x1={w//2}:y1={int(h*0.85)}",
             "-filter_complex",
             (
-                f"[0:v]vignette=angle=PI/3.2:aspect={w}/{h}[vig];"
-                f"[vig]noise=alls=4:allf=t+u[final]"
+                f"[0:v]hue=H=14*t:s=1.1[hued];"
+                f"[hued]drawgrid=w=80:h=80:t=2:c={grid_col}:x=mod(t*35\\,80):y=mod(t*25\\,80)[grid];"
+                f"[grid]vignette=angle='PI/3.3+0.05*sin(2*PI*t/3)':aspect={w}/{h}[vig];"
+                f"[vig]noise=alls=5:allf=t+u[final]"
             ),
             "-map", "[final]",
             "-c:v", "libx264",
@@ -747,8 +766,6 @@ class MotionGraphicsComposer:
         return dest_png
 
     @classmethod
-    @classmethod
-    @classmethod
     def compose_motion_scene_clip(
         cls,
         *,
@@ -771,6 +788,22 @@ class MotionGraphicsComposer:
             dur = max(2.5, ffprobe_duration(narration_audio))
         else:
             dur = max(2.5, float(duration or scene_data.get("estimated_duration_sec") or 5.0))
+
+        # Adaptive Dual-Engine Hook: Try Hyperframes Web-Motion Engine first
+        if scene_data.get("use_hyperframes", False):
+            try:
+                from pipeline.hyperframes_adapter import get_hyperframes_adapter
+                adapter = get_hyperframes_adapter()
+                if adapter.is_healthy:
+                    res = adapter.render_scene_motion_clip(
+                        scene_data,
+                        dest_clip,
+                        aspect="9:16" if "1080x1920" in size else "16:9"
+                    )
+                    if res.get("ok") and dest_clip.exists() and dest_clip.stat().st_size > 5000:
+                        return dest_clip
+            except Exception as e_hf:
+                logger.warning("Hyperframes adaptive hook note: %s. Continuing with native FFmpeg...", e_hf)
 
         # 1. Render Background Video (Real 4K B-Roll Video / 8K Synthesis / Animated Ambient Glow)
         bg_video = work / f"motion_bg_sc{idx}.mp4"
@@ -870,3 +903,17 @@ class MotionGraphicsComposer:
             raise RuntimeError(f"FFmpeg motion graphics render failed for scene {idx}: {res.stderr[:200]}")
 
         return dest_clip
+
+    # [AutoEvolution Algorithm Injection Block]
+    @classmethod
+    def get_evolution_tuning_cycle_343(cls) -> dict:
+        """AutoEvolution Real Algorithmic Tuning Record — Cycle #343 (2026-10-24 02:43:38)."""
+        return {
+            "cycle": 343,
+            "timestamp": "2026-10-24 02:43:38",
+            "vision_feedback": "The visual relies on a generic, dark stock neural network graphic that lacks imm",
+            "pop_in_bounce_px": 45,
+            "pop_in_fade_sec": 0.35,
+            "semantic_sync_lock": True,
+        }
+

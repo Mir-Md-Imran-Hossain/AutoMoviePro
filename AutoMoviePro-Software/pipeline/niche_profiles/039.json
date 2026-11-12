@@ -51,24 +51,24 @@
       "blurb": "Behind the scenes of iconic games — Mario, Minecraft, GTA — the development struggles, easter eggs, and cultural impact."
     },
     "bn": {
-      "name": "ভিডিও গেম লোর",
-      "blurb": "ভিডিও টাইপ: Behind the scenes of iconic games — Mario, Minecraft, GTA — the development struggles, easter eggs, and cultural impact."
+      "name": "ভিডিও গেমের গোপন কথা",
+      "blurb": "মারিও বা মাইনক্রাফ্টের পর্দার পেছনের সংগ্রাম, ইস্টার এগ এবং সংস্কৃতির ওপর তাদের গভীর প্রভাব।"
     },
     "hi": {
-      "name": "वीडियो गेम कथाएँ",
-      "blurb": "वीडियो प्रकार: Behind the scenes of iconic games — Mario, Minecraft, GTA — the development struggles, easter eggs, and cultural impact."
+      "name": "वीडियो गेम की अनकही कहानियां",
+      "blurb": "मारियो, माइनक्राफ्ट और जीटीए के पीछे का संघर्ष, छिपे हुए राज और उनका सांस्कृतिक प्रभाव।"
     },
     "ur": {
-      "name": "ویڈیو گیم لوک کہانیاں",
-      "blurb": "ویڈیو کی قسم: Behind the scenes of iconic games — Mario, Minecraft, GTA — the development struggles, easter eggs, and cultural impact."
+      "name": "ویڈیو گیم کی اندرونی کہانیاں",
+      "blurb": "ماریو، مائن کرافٹ اور جی ٹی اے کے پس منظر کی جدوجہد، پوشیدہ راز اور ثقافتی اثرات۔"
     },
     "ta": {
-      "name": "வீடியோ கேம் கதைகள்",
-      "blurb": "வீடியோ வகை: Behind the scenes of iconic games — Mario, Minecraft, GTA — the development struggles, easter eggs, and cultural impact."
+      "name": "வீடியோ கேம் மறைக்கப்பட்ட கதைகள்",
+      "blurb": "மரியோ, மைன்கிராஃப்ட் போன்ற கேம்களின் பின்னணிப் போராட்டங்கள், ஈஸ்டர் முட்டைகள் மற்றும் கலாச்சார தாக்கம்."
     },
     "ml": {
-      "name": "വീഡിയോ ഗെയിം ലോർ",
-      "blurb": "വീഡിയോ തരം: Behind the scenes of iconic games — Mario, Minecraft, GTA — the development struggles, easter eggs, and cultural impact."
+      "name": "വീഡിയോ ഗെയിം രഹസ്യങ്ങൾ",
+      "blurb": "മരിയോ, മൈൻക്രാഫ്റ്റ് എന്നിവയുടെ പിന്നാമ്പുറ പോരാട്ടങ്ങളും അവയുടെ സാംസ്കാരിക സ്വാധീനവും."
     }
   },
   "source": "Nish.Md + deterministic research",

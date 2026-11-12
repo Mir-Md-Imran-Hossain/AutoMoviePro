@@ -56,11 +56,56 @@ NICHE_TOPIC_POOLS: Dict[str, List[Dict[str, str]]] = {
         {"name": "Sony WF-1000XM5", "why_trending": "Premium ANC earbuds acoustic comparison searches", "search_query": "Sony WF-1000XM5 ANC review", "category": "audio", "source": "fallback"},
         {"name": "DJI Osmo Pocket 3", "why_trending": "Creator vlog 1-inch sensor camera interest", "search_query": "DJI Osmo Pocket 3 review", "category": "camera", "source": "fallback"},
     ],
+    "news": [
+        {"name": "Strait of Malacca Geopolitical Maritime Chokepoint", "why_trending": "Global trade corridor defense and naval strategy", "search_query": "strait of malacca maritime geopolitical chokepoint", "category": "news", "source": "fallback"},
+        {"name": "Fifth-Generation Stealth Fighter Radar Physics", "why_trending": "Radar cross-section reduction and electronic warfare", "search_query": "stealth fighter radar cross section physics", "category": "news", "source": "fallback"},
+        {"name": "Hypersonic Missile Glider Trajectory Defense", "why_trending": "Aerodynamic maneuverability and missile defense shields", "search_query": "hypersonic glide vehicle defense interception", "category": "news", "source": "fallback"},
+        {"name": "Suez Canal Trade Route Security Vulnerabilities", "why_trending": "Red Sea shipping disruption and global supply shock", "search_query": "suez canal maritime trade route security", "category": "news", "source": "fallback"},
+    ],
+    "true_crime": [
+        {"name": "The Cold Case DNA Breakthrough of the Century", "why_trending": "Genetic genealogy solving decades-old mysteries", "search_query": "investigative genetic genealogy cold cases", "category": "true_crime", "source": "fallback"},
+        {"name": "Forensic Ballistics & The Unsolved Museum Heist", "why_trending": "Microscopic toolmark and ballistic reconstruction", "search_query": "forensic ballistics unsolved art heist", "category": "true_crime", "source": "fallback"},
+        {"name": "The Disappearance of Flight 19 Over the Bermuda Triangle", "why_trending": "Avionic compass failure telemetry analysis", "search_query": "flight 19 bermuda triangle avionics disappearance", "category": "true_crime", "source": "fallback"},
+        {"name": "Behavioral Profiling Secrets of the FBI BAU Unit", "why_trending": "Psychological signature detection in criminal cases", "search_query": "fbi behavioral analysis unit criminal profiling", "category": "true_crime", "source": "fallback"},
+    ],
+    "motion_graphics": [
+        {"name": "Frontier AI Compute Clustering & GPU Interconnects", "why_trending": "NVLink bandwidth thresholds and transformer scaling", "search_query": "gpu interconnect nvlink ai compute cluster", "category": "motion_graphics", "source": "fallback"},
+        {"name": "Silicon Transistor Architecture: 2nm Gate-All-Around", "why_trending": "Nanosheet lithography and quantum tunneling prevention", "search_query": "2nm gate all around transistor architecture", "category": "motion_graphics", "source": "fallback"},
+        {"name": "Mega Dam Civil Engineering & Hydraulic Pressure", "why_trending": "Three Gorges Dam tuned mass load distribution", "search_query": "hydroelectric dam structural hydraulic engineering", "category": "motion_graphics", "source": "fallback"},
+        {"name": "Quantum Superposition & Qubit Gate Fidelity", "why_trending": "Superconducting circuits and quantum error correction", "search_query": "quantum computing qubit coherence error correction", "category": "motion_graphics", "source": "fallback"},
+    ],
+    "sports": [
+        {"name": "Guardiola's Inverted Fullback Tactical Evolution", "why_trending": "Positional play and half-space midfield dominance", "search_query": "inverted fullback tactics positional play guardiola", "category": "sports", "source": "fallback"},
+        {"name": "Formula 1 Ground Effect Downforce & Venturi Tunnels", "why_trending": "Underfloor aerodynamics and porpoising physics", "search_query": "formula 1 ground effect aerodynamics venturi", "category": "sports", "source": "fallback"},
+        {"name": "Modern Counter-Pressing Rest Defense Systems", "why_trending": "Gegenpressing transition triggers and compact spacing", "search_query": "gegenpressing rest defense tactics football", "category": "sports", "source": "fallback"},
+        {"name": "Moneyball Baseball Pitch Spin-Rate Biomechanics", "why_trending": "Magnus effect aerodynamic pitching optimization", "search_query": "baseball pitch spin rate magnus effect biomechanics", "category": "sports", "source": "fallback"},
+    ],
+    "business": [
+        {"name": "The Trillion-Dollar Semiconductor Supply Chain Moat", "why_trending": "ASML EUV mirrors and TSMC foundry dominance", "search_query": "asml lithography semiconductor monopoly supply chain", "category": "business", "source": "fallback"},
+        {"name": "How Boeing's Merger Shaped Aerospace History", "why_trending": "Engineering culture vs financialization case study", "search_query": "boeing mcdonnell douglas merger corporate history", "category": "business", "source": "fallback"},
+        {"name": "The Hostile Takeover War for Paramount & Warner", "why_trending": "Streaming media consolidation and debt leverage", "search_query": "media conglomerate hostile takeover consolidation", "category": "business", "source": "fallback"},
+        {"name": "Predatory Pricing & Platform Network Moats", "why_trending": "Antitrust regulations and two-sided market dominance", "search_query": "platform economics network effect antitrust moat", "category": "business", "source": "fallback"},
+    ],
 }
 
 
 def _resolve_niche_key(niche: str) -> str:
     nl = (niche or "").lower()
+    for k in ("news", "geopolit", "conflict", "treaty", "military", "defense", "election"):
+        if k in nl:
+            return "news"
+    for k in ("crime", "murder", "serial", "investigat", "forensic", "detective"):
+        if k in nl:
+            return "true_crime"
+    for k in ("graphic", "benchmark", "breakdown", "analysis", "ui", "ux", "code", "architecture"):
+        if k in nl:
+            return "motion_graphics"
+    for k in ("sport", "football", "cricket", "f1", "tactics", "nba", "championship"):
+        if k in nl:
+            return "sports"
+    for k in ("business", "startup", "titan", "billionaire", "corporate", "company", "monopoly"):
+        if k in nl:
+            return "business"
     for k in ("islam", "deen", "quran", "muslim"):
         if k in nl:
             return "islamic"
@@ -106,6 +151,20 @@ def find_trending_topics(
         topics = _via_gemini(google_api_keys or [], want, exclude_names=exclude, niche=niche)
     except Exception as exc:
         logger.warning("gemini trending search failed: %s", exc)
+
+    if len(topics) < want:
+        try:
+            yt_topics = _via_youtube_autocomplete(niche=niche, limit=want)
+            topics.extend(yt_topics)
+        except Exception as exc:
+            logger.warning("youtube autocomplete search failed: %s", exc)
+
+    if len(topics) < want:
+        try:
+            gt_topics = _via_google_trends_rss(niche=niche, count=want)
+            topics.extend(gt_topics)
+        except Exception as exc:
+            logger.warning("google trends rss failed: %s", exc)
 
     if len(topics) < want:
         try:
@@ -239,6 +298,16 @@ def _via_duckduckgo(count: int, niche: str = "") -> List[Dict[str, str]]:
         queries = ["islamic history wisdom reflections", "golden age islamic science", "prophetic lifestyle lessons"]
     elif niche_key == "history":
         queries = ["archaeological discoveries recent", "unsolved ancient history mysteries", "fascinating historical events"]
+    elif niche_key == "news":
+        queries = ["geopolitical crisis defense 2026", "global conflict intelligence analysis", "breaking international trade news"]
+    elif niche_key == "true_crime":
+        queries = ["unsolved cold cases breakthrough 2026", "forensic mystery criminal investigation", "baffling disappearance documentary"]
+    elif niche_key == "motion_graphics":
+        queries = ["breakthrough semiconductor benchmark 2026", "ai model computing architecture", "engineering marvels analysis"]
+    elif niche_key == "sports":
+        queries = ["tactical masterclass match breakdown", "modern football strategy analysis", "f1 aerodynamics telemetry"]
+    elif niche_key == "business":
+        queries = ["biggest corporate battles downfall", "billionaire startup rivalries", "silicon valley antitrust war"]
     else:
         queries = [
             "most trending tech gadgets 2026",
@@ -276,6 +345,103 @@ def _via_duckduckgo(count: int, niche: str = "") -> List[Dict[str, str]]:
         if len(unique) >= count:
             break
     return unique
+
+
+def _via_google_trends_rss(niche: str = "", count: int = 5, geo: str = "US") -> List[Dict[str, str]]:
+    """Fetches real-time live breakout topics directly from Google Trends RSS."""
+    url = f"https://trends.google.com/trending/rss?geo={geo}"
+    out: List[Dict[str, str]] = []
+    try:
+        import xml.etree.ElementTree as ET
+        with _create_resilient_client(timeout=8.0) as client:
+            r = client.get(url)
+            if r.status_code == 200 and r.text:
+                root = ET.fromstring(r.text)
+                items = root.findall(".//item")
+                niche_key = _resolve_niche_key(niche)
+                for it in items:
+                    t_el = it.find("title")
+                    title = t_el.text.strip() if t_el is not None and t_el.text else ""
+                    if not title or len(title) < 3:
+                        continue
+                    approx_el = it.find("{https://trends.google.com/trending/rss}approx_traffic")
+                    traffic = approx_el.text.strip() if approx_el is not None and approx_el.text else "500+"
+                    news_el = it.find("{https://trends.google.com/trending/rss}news_item_title")
+                    news_title = news_el.text.strip() if news_el is not None and news_el.text else ""
+                    
+                    full_name = f"{title}: {news_title}" if news_title and len(news_title) < 70 else title
+                    out.append({
+                        "name": full_name,
+                        "why_trending": f"Google Trends live viral breakout ({traffic} searches)",
+                        "search_query": title,
+                        "category": niche_key or "general",
+                        "source": "google_trends_rss",
+                        "trend_evidence": "GOOGLE_TRENDS_LIVE",
+                        "score": 0.88,
+                        "source_count": 2,
+                        "google_hits": [],
+                    })
+                    if len(out) >= count:
+                        break
+    except Exception as exc:
+        logger.debug("Google Trends RSS fetch skipped or failed: %s", exc)
+    return out
+
+
+def _via_youtube_autocomplete(niche: str = "", limit: int = 8, lang: str = "en", geo: str = "US") -> List[Dict[str, str]]:
+    """Queries live YouTube real-time search autocomplete for high-demand topics."""
+    niche_key = _resolve_niche_key(niche)
+    query_seed = niche if niche and len(niche) > 2 else "trending documentary"
+    seeds = [query_seed]
+    if niche_key == "news":
+        seeds.extend(["geopolitics crisis 2026", "global conflict explained"])
+    elif niche_key == "true_crime":
+        seeds.extend(["unsolved mystery documentary", "cold case forensic investigation"])
+    elif niche_key == "motion_graphics":
+        seeds.extend(["tech architecture benchmark", "computing breakdown"])
+    elif niche_key == "sports":
+        seeds.extend(["tactical masterclass analysis", "sports strategy breakdown"])
+    elif niche_key == "business":
+        seeds.extend(["company war downfall", "corporate titan documentary"])
+    elif niche_key == "islamic":
+        seeds.extend(["islamic golden age history", "untold islamic mystery"])
+
+    out: List[Dict[str, str]] = []
+    seen = set()
+    for seed in seeds:
+        url = f"https://suggestqueries-clients6.youtube.com/complete/search?client=youtube&hl={lang}&gl={geo}&q={quote_plus(seed)}&ds=yt"
+        try:
+            with _create_resilient_client(timeout=6.0) as client:
+                r = client.get(url)
+                if r.status_code == 200 and r.text:
+                    text = r.text
+                    if text.startswith("window.google.ac.h("):
+                        text = text[len("window.google.ac.h("):-1]
+                    data = json.loads(text)
+                    suggestions = [s[0] for s in data[1]] if len(data) > 1 and isinstance(data[1], list) else []
+                    for s in suggestions:
+                        cleaned = re.sub(r"[|\-:].*", "", s).strip()
+                        if len(cleaned) < 5 or cleaned.lower() in seen:
+                            continue
+                        seen.add(cleaned.lower())
+                        out.append({
+                            "name": cleaned.title(),
+                            "why_trending": f"High-velocity search demand on YouTube for '{seed}'",
+                            "search_query": s,
+                            "category": niche_key or "general",
+                            "source": "youtube_autocomplete",
+                            "trend_evidence": "YOUTUBE_AUTOCOMPLETE",
+                            "score": 0.85,
+                            "source_count": 2,
+                            "google_hits": [],
+                        })
+                        if len(out) >= limit:
+                            break
+        except Exception as exc:
+            logger.debug("YouTube autocomplete error for seed '%s': %s", seed, exc)
+        if len(out) >= limit:
+            break
+    return out
 
 
 def _get_proxy_url() -> Optional[str]:
@@ -447,6 +613,46 @@ class CompetitorPatternAnalyzer:
             "text_banner_style": "futuristic_tech_spec_badge",
             "facial_expression": "eyebrow_raised_tech_skepticism",
             "rule_of_thirds_anchor": "diagonal_hero_tilt_spec_highlight",
+        },
+        "news": {
+            "composition": "satellite_topographic_map_with_breaking_ticker",
+            "contrast_ratio": "tactical_broadcast_alert",
+            "dominant_accents": ["#FF2A2A", "#FFCC00", "#0A192F"],
+            "text_banner_style": "heavy_impact_breaking_headline",
+            "facial_expression": "alert_analytical_urgency",
+            "rule_of_thirds_anchor": "left_satellite_map_right_vector_callout",
+        },
+        "true_crime": {
+            "composition": "evidence_wall_crimson_yarn_forensic_noir",
+            "contrast_ratio": "dark_gritty_chiaroscuro",
+            "dominant_accents": ["#8B0000", "#FFFAF0", "#1C1C1C"],
+            "text_banner_style": "redacted_evidence_stamp_pill",
+            "facial_expression": "chilling_forensic_intrigue",
+            "rule_of_thirds_anchor": "macro_polaroid_evidence_pin_center",
+        },
+        "motion_graphics": {
+            "composition": "3d_isometric_chip_diagram_with_data_callouts",
+            "contrast_ratio": "ultra_sleek_dark_mode",
+            "dominant_accents": ["#00F5D4", "#7B2CBF", "#F72585"],
+            "text_banner_style": "cyber_minimalist_metric_badge",
+            "facial_expression": "none_pure_kinetic_engineering",
+            "rule_of_thirds_anchor": "isometric_3d_silicon_wafer_center",
+        },
+        "sports": {
+            "composition": "tactical_pitch_chalkboard_with_laser_passing_lanes",
+            "contrast_ratio": "stadium_floodlight_high_contrast",
+            "dominant_accents": ["#00FF66", "#FF0033", "#0B132B"],
+            "text_banner_style": "bold_athletic_stacked_typography",
+            "facial_expression": "tactical_mastermind_intensity",
+            "rule_of_thirds_anchor": "wide_angle_tactical_board_hero",
+        },
+        "business": {
+            "composition": "executive_penthouse_candlestick_stock_crash",
+            "contrast_ratio": "premium_corporate_contrast",
+            "dominant_accents": ["#00B4D8", "#FFD166", "#03045E"],
+            "text_banner_style": "all_caps_fortune500_ticker",
+            "facial_expression": "calculating_billionaire_tension",
+            "rule_of_thirds_anchor": "executive_silhouette_skyline_backdrop",
         },
     }
 

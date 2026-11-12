@@ -59,6 +59,7 @@ class VideoCompositionConfig:
     enable_kinetic_graphics: bool = False
     simulate: bool = False
     mode: str = "auto"  # 'auto', 'production', 'simulation'
+    server_ticket: Optional[Dict[str, Any]] = None
 
 
 @dataclass
@@ -333,6 +334,10 @@ class ProductionVideoComposer:
         aspect: str,
         encoder: str,
     ) -> Path:
+        # Strict ticket gate: no segment can be rendered without valid ticket
+        from app.auth.server_ticket import assert_generation_ticket_valid
+        assert_generation_ticket_valid()
+
         out_path.parent.mkdir(parents=True, exist_ok=True)
         w, h = aspect.split("x")
         vf = f"scale={w}:{h}:force_original_aspect_ratio=increase,crop={w}:{h},fps=25,format=yuv420p,setsar=1"
@@ -360,6 +365,16 @@ class ProductionVideoComposer:
                     vf,
                     "-c:v",
                     encoder,
+                    "-b:v",
+                    "4M",
+                    "-maxrate",
+                    "6M",
+                    "-bufsize",
+                    "8M",
+                    "-crf",
+                    "20",
+                    "-preset",
+                    "medium",
                     "-c:a",
                     "aac",
                     "-b:a",
@@ -388,6 +403,16 @@ class ProductionVideoComposer:
                     vf,
                     "-c:v",
                     encoder,
+                    "-b:v",
+                    "4M",
+                    "-maxrate",
+                    "6M",
+                    "-bufsize",
+                    "8M",
+                    "-crf",
+                    "20",
+                    "-preset",
+                    "medium",
                     "-c:a",
                     "aac",
                     "-b:a",
@@ -421,6 +446,16 @@ class ProductionVideoComposer:
                     vf,
                     "-c:v",
                     encoder,
+                    "-b:v",
+                    "4M",
+                    "-maxrate",
+                    "6M",
+                    "-bufsize",
+                    "8M",
+                    "-crf",
+                    "20",
+                    "-preset",
+                    "medium",
                     "-c:a",
                     "aac",
                     "-b:a",
@@ -493,6 +528,18 @@ class ProductionVideoComposer:
     ) -> FinalVideoResult:
         fmt = config.video_format.lower().strip()
         aspect = "1080x1920" if fmt == "short" else "1920x1080"
+
+        # 0. STRICT CRITICAL TICKET GATE: No user can render even 1 second of video without a valid ticket
+        from app.auth.server_ticket import assert_generation_ticket_valid, ServerTicketEngine
+        active_bundle = config.server_ticket or ServerTicketEngine.get_current_active_ticket()
+        verified_ticket = assert_generation_ticket_valid(
+            ticket_or_bundle=active_bundle,
+            expected_action=f"generate_{fmt}"
+        )
+        # Ensure active ticket is preserved for downstream segment builders
+        if config.server_ticket:
+            ServerTicketEngine.set_current_active_ticket(config.server_ticket)
+
         vid_id = f"vid_{fmt[:2]}_{config.language}_{hashlib.md5(config.title.encode('utf-8')).hexdigest()[:8]}"
         out_filename = f"{vid_id}.mp4"
         final_path = self.output_dir / config.language / out_filename
@@ -596,6 +643,35 @@ class ProductionVideoComposer:
         # Real Media Inspection with ffprobe
         media_info = inspect_media(final_path)
 
+        # Master Sentinel Gate 3 Hook: Deterministic AV Sync & Voice Cutoff Sentinel Audit
+        sentinel_av_audit = None
+        try:
+            from pipeline.master_sentinel_agent import Agent_AVSyncEngineer
+            from pipeline.av_quality_gates import CUTOFF_END_RMS
+            av_sentinel = Agent_AVSyncEngineer()
+            
+            # Check tail RMS of final concatenated audio track
+            end_rms = av_sentinel._measure_audio_tail_rms(final_path)
+            total_expected_a_dur = sum(inspect_media(p).get("duration_sec", 0.0) for p in audio_paths if p and p.exists())
+            v_dur = media_info.get("duration_sec", 0.0)
+            sync_gap = abs(v_dur - total_expected_a_dur) if total_expected_a_dur > 0 else 0.0
+
+            from pipeline.master_sentinel_agent import Agent_AudioMasterSentinel
+            _f_str, _audio_audit = Agent_AudioMasterSentinel.build_master_audio_filter(has_bgm=bool(config.bgm_path))
+            sentinel_av_audit = {
+                "passed": (end_rms <= CUTOFF_END_RMS) and (sync_gap < 0.25),
+                "end_rms": end_rms,
+                "sync_gap_sec": sync_gap,
+                "voice_cutoff_detected": end_rms > CUTOFF_END_RMS,
+                "total_scenes_duration": v_dur,
+                "vocal_warmth_applied": _audio_audit.vocal_warmth_applied,
+                "sfx_level_db_relative": _audio_audit.sfx_level_db_relative,
+                "bgm_ducking_level_db": _audio_audit.bgm_ducking_level_db,
+            }
+            logger.info("[Gate 3 Master Audit] Full Multi-Scene Duration: %.2fs | End RMS: %.5f | Sync Gap: %.3fs", v_dur, end_rms, sync_gap)
+        except Exception as exc:
+            logger.warning("Master Sentinel Gate 3 audit warning: %s", exc)
+
         # Real QA Audit using inspected metadata
         passed_qa, qa_msg = FinalVideoComposer._local_agent_final_qa(
             final_path=str(final_path),
@@ -630,7 +706,7 @@ class ProductionVideoComposer:
 
 
 class SimulatedVideoComposer:
-    """Simulation & benchmark composer for non-GPU or mocked environments."""
+    """Simulation disabled: all mock and dummy video generation has been eradicated."""
 
     def __init__(self, output_dir: Path, temp_dir: Path):
         self.output_dir = Path(output_dir)
@@ -647,80 +723,9 @@ class SimulatedVideoComposer:
         subtitle_text: str = "",
         clean_temp_after_success: bool = True,
     ) -> FinalVideoResult:
-        fmt = config.video_format.lower().strip()
-        aspect = "1080x1920" if fmt == "short" else "1920x1080"
-        vid_id = f"vid_{fmt[:2]}_{config.language}_{hashlib.md5(config.title.encode('utf-8')).hexdigest()[:8]}"
-        out_filename = f"{vid_id}.mp4"
-        final_path = self.output_dir / config.language / out_filename
-        final_path.parent.mkdir(parents=True, exist_ok=True)
-
-        temp_files: List[Path] = []
-        for i in range(len(scene_visual_paths)):
-            t_vis = self.temp_dir / f"{vid_id}_seg_{i}.mp4"
-            t_vis.write_bytes(f"MOCK_SIMULATED_SEGMENT_{i}".encode("utf-8"))
-            temp_files.append(t_vis)
-
-        sim_duration = 58.0 if fmt == "short" else 420.0
-        try:
-            # Generate minimal fast test clip so file is a valid playable MP4
-            make_color_clip(final_path, seconds=0.5, size="320x180" if fmt == "long" else "180x320")
-            media_info = inspect_media(final_path)
-            dur = sim_duration
-            size_bytes = final_path.stat().st_size
-            v_codec = media_info.get("video_codec", "h264")
-            a_codec = media_info.get("audio_codec", "aac")
-            c_format = media_info.get("container_format", "mov,mp4,m4a,3gp,3g2,mj2")
-            res_str = aspect
-        except Exception:
-            final_path.write_bytes(b"MOCK_SIMULATED_MP4")
-            dur = sim_duration
-            size_bytes = 15_000_000 if fmt == "short" else 85_000_000
-            v_codec = "h264_simulated"
-            a_codec = "aac_simulated"
-            c_format = "mp4"
-            res_str = aspect
-
-        media_mock = {
-            "valid": True,
-            "file_size_bytes": size_bytes,
-            "duration_sec": dur,
-            "resolution": res_str,
-            "container_format": c_format,
-            "video_codec": v_codec,
-            "audio_codec": a_codec,
-            "has_video": True,
-            "has_audio": True,
-        }
-
-        passed_qa, qa_msg = FinalVideoComposer._local_agent_final_qa(
-            final_path=str(final_path),
-            media_info=media_mock,
-            format_type=fmt,
-            has_logo=bool(config.logo_watermark_path),
-            has_intro=bool(config.intro_video_path),
-            is_simulated=True,
-        )
-
-        cleaned_count = 0
-        if passed_qa and clean_temp_after_success:
-            cleaned_count = FinalVideoComposer._cleanup_temp_artifacts(temp_files)
-
-        return FinalVideoResult(
-            video_id=vid_id,
-            title=config.title,
-            video_format=fmt,
-            language=config.language,
-            final_output_path=str(final_path),
-            file_size_bytes=size_bytes,
-            duration_sec=dur,
-            resolution=res_str,
-            passed_final_qa=passed_qa,
-            qa_report=qa_msg,
-            temp_files_cleaned=cleaned_count,
-            is_simulated=True,
-            video_codec=v_codec,
-            audio_codec=a_codec,
-            container_format=c_format,
+        raise RuntimeError(
+            "SimulatedVideoComposer has been permanently eradicated from AutoMoviePro. "
+            "All video production requires authentic FFmpeg rendering."
         )
 
 
@@ -750,62 +755,44 @@ class FinalVideoComposer:
         clean_temp_after_success: bool = True,
     ) -> FinalVideoResult:
         """Assembles all scenes into a final broadcast-ready video file."""
-        mode = getattr(config, "mode", "auto")
+        # 0. STRICT CRITICAL TICKET GATE: No user can render even 1 second of video without a valid ticket
+        from app.auth.server_ticket import assert_generation_ticket_valid
+        assert_generation_ticket_valid(ticket_or_bundle=getattr(config, "server_ticket", None))
+
+        mode = getattr(config, "mode", "production")
         simulate = getattr(config, "simulate", False)
 
         if simulate or mode == "simulation":
-            return self.simulated_composer.compose(
-                config=config,
-                scene_visual_paths=scene_visual_paths,
-                scene_audio_paths=scene_audio_paths,
-                subtitle_text=subtitle_text,
-                clean_temp_after_success=clean_temp_after_success,
+            raise RuntimeError(
+                "Simulation mode is completely disabled and eradicated from AutoMoviePro. "
+                "All video production requires authentic FFmpeg rendering."
             )
 
-        # In "auto" mode, check if all input visuals exist on disk
-        all_visuals_exist = bool(scene_visual_paths) and all(
-            Path(p).is_file() for p in scene_visual_paths
-        )
+        if not scene_visual_paths:
+            raise ValueError("Cannot compose video: scene_visual_paths is empty.")
 
-        if mode == "production":
-            return self.production_composer.compose(
-                config=config,
-                scene_visual_paths=scene_visual_paths,
-                scene_audio_paths=scene_audio_paths,
-                subtitle_text=subtitle_text,
-                clean_temp_after_success=clean_temp_after_success,
+        missing_visuals = [p for p in scene_visual_paths if not Path(p).is_file()]
+        if missing_visuals:
+            raise FileNotFoundError(
+                f"Cannot compose video: missing input visual files: {missing_visuals}"
             )
 
-        # mode == "auto":
-        if all_visuals_exist:
-            try:
-                return self.production_composer.compose(
-                    config=config,
-                    scene_visual_paths=scene_visual_paths,
-                    scene_audio_paths=scene_audio_paths,
-                    subtitle_text=subtitle_text,
-                    clean_temp_after_success=clean_temp_after_success,
-                )
-            except Exception as exc:
-                logger.warning(
-                    "Production composition failed (%s), falling back to simulation", exc
-                )
-                return self.simulated_composer.compose(
-                    config=config,
-                    scene_visual_paths=scene_visual_paths,
-                    scene_audio_paths=scene_audio_paths,
-                    subtitle_text=subtitle_text,
-                    clean_temp_after_success=clean_temp_after_success,
+        if scene_audio_paths:
+            missing_audios = [p for p in scene_audio_paths if not Path(p).is_file()]
+            if missing_audios:
+                raise FileNotFoundError(
+                    f"Cannot compose video: missing input audio files: {missing_audios}"
                 )
 
-        # Visuals do not exist on disk, fall back to simulation
-        return self.simulated_composer.compose(
+        return self.production_composer.compose(
             config=config,
             scene_visual_paths=scene_visual_paths,
             scene_audio_paths=scene_audio_paths,
             subtitle_text=subtitle_text,
             clean_temp_after_success=clean_temp_after_success,
         )
+
+    compose = compose_full_video
 
     @staticmethod
     def _local_agent_final_qa(
@@ -828,7 +815,7 @@ class FinalVideoComposer:
         file_size = p.stat().st_size
         if file_size == 0:
             return False, "Media validity failure: output file is empty (0 bytes)."
-        if file_size < 1000 and not is_simulated:
+        if file_size < 1000:
             return False, f"Media validity failure: output file size ({file_size} bytes) is suspiciously truncated."
 
         # Read container box header bytes
@@ -843,18 +830,9 @@ class FinalVideoComposer:
         if b"mock" in head_lower or b"fixture" in head_lower:
             return False, "Media validity failure: mock artifact marker detected in container header."
 
-        # Simulation mode handling
+        # Simulation mode rejection: simulation is strictly prohibited in production QA
         if is_simulated:
-            checks.append("[SIMULATION MODE]")
-            dur = float((media_info or {}).get("duration_sec", 0.0))
-            if format_type == "short" and dur > 90.0:
-                return False, "Short video exceeds 90s limit."
-            checks.append(f"Simulation verified. Duration: {dur:.1f}s.")
-            if has_logo:
-                checks.append("Channel logo watermark verified on top corner.")
-            if has_intro:
-                checks.append("Channel intro successfully placed after opening hook.")
-            return True, " | ".join(checks)
+            return False, "Media validity failure: simulated video outputs are prohibited in production QA."
 
         # Retrieve media info if not supplied
         if not media_info or not media_info.get("container_format"):

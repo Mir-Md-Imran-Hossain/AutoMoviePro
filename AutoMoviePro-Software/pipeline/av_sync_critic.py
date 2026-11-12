@@ -37,11 +37,10 @@ CRITICAL_ISSUES = {
 # Ordered by C11-B readiness evidence (2026-09-06): generateContent OK on account keys.
 # Stale IDs (gemini-2.5-flash / gemini-2.0-flash) return 404 for new users — do not restore without probe.
 CRITIC_MODELS = [
-    "gemini-flash-latest",
-    "gemini-3.6-flash",
-    "gemini-3.5-flash",
-    "gemini-flash-lite-latest",
     "gemini-3.5-flash-lite",
+    "gemini-3.8-flash",
+    "gemini-flash-latest",
+    "gemini-flash-lite-latest",
 ]
 
 # Learned hard rules (marathon training appends here via apply_training_rule)
@@ -784,7 +783,7 @@ def _critique_via_video_upload(api_key: str, video_path: Path, instruction: str)
             msg = str(exc)
             if "429" in msg or "RESOURCE_EXHAUSTED" in msg:
                 last_quota = exc
-                break  # don't hammer more models on same key
+                continue  # try sibling model in pool
             if "503" in msg or "UNAVAILABLE" in msg:
                 time.sleep(3)
                 continue
@@ -829,7 +828,7 @@ def _critique_via_frames(api_key: str, video_path: Path, instruction: str) -> Op
             logger.warning("critic frames model %s failed: %s", model, str(exc)[:160])
             if "429" in str(exc) or "RESOURCE_EXHAUSTED" in str(exc):
                 last_quota = exc
-                break
+                continue
             continue
     if last_quota is not None:
         raise last_quota

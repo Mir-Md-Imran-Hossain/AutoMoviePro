@@ -1,8 +1,8 @@
 {
   "niche_id": 30,
-  "name": "Ghost Ships",
-  "slug": "ghost-ships",
-  "style_family": "mystery",
+  "name": "BCS & Competitive Exam Master Preparation",
+  "slug": "bcs-competitive-exam-master-preparation",
+  "style_family": "motion_graphics",
   "status": "VERIFIED",
   "topic_seeds": [
     "What new evidence reframes the story of Ghost Ships Abandoned inside Ghost Ships",
@@ -47,28 +47,28 @@
   "video_prompt_overlay": "NICHE VISUAL LOCK (Ghost Ships / mystery): Generate a 7–9 second dialogue clip based on the topic `{topic}`. Each dialogue must be haunting and speculative. For each dialogue, generate: - **Audio Generation Prompt:** Voice — eerie, with creaking wood and foghorn. - **Video Generation Prompt:** Detailed visual — empty ship deck, foggy ocean. No characters — focus on swinging lantern or rope. Lighting: grey, fog-diffused. Maintain same fog density and grey tones. Forbidden: talking-head lip-sync avatar, burned-in captions, watermark, modern meme text, modern smartphones, cars, LED screens, sneakers. Preferred subjects: Ghost Ships documentary subject, period-accurate environment, evidence object close-up. Lighting: dappled fog light, cool teal shadows, slow push-ins. Face policy: no talking-head lip-sync avatar; cinematic B-roll preferred. Dialogue tone: slow, ominous, evidence-first. Ambience: low drone, subtle reverb, sparse percussion.",
   "i18n": {
     "en": {
-      "name": "Ghost Ships",
-      "blurb": "Abandoned vessels found adrift — like the Mary Celeste — with no crew, no struggle, only silence. Theories range from mutiny to supernatural."
+      "name": "BCS & Competitive Exam Master Preparation",
+      "blurb": "High-yield Bangladesh Civil Service (BCS), Bank, and University Admission exam preparation guides — Bangladesh Affairs, International Affairs, General Science, Bengali Literature,"
     },
     "bn": {
-      "name": "ভূতের জাহাজ",
-      "blurb": "ভিডিও টাইপ: Abandoned vessels found adrift — like the Mary Celeste — with no crew, no struggle, only silence. Theories range from mutiny to supernatural."
+      "name": "বিসিএস ও প্রতিযোগিতামূলক প্রস্তুতি",
+      "blurb": "বিসিএস, ব্যাংক ও বিশ্ববিদ্যালয় ভর্তি পরীক্ষার সেরা প্রস্তুতি নির্দেশিকা — বাংলাদেশ ও আন্তর্জাতিক বিষয়াবলি এবং সাহিত্য।"
     },
     "hi": {
-      "name": "भूतिया जहाज़",
-      "blurb": "वीडियो प्रकार: Abandoned vessels found adrift — like the Mary Celeste — with no crew, no struggle, only silence. Theories range from mutiny to supernatural."
+      "name": "बीसीएस और प्रतियोगी परीक्षा तैयारी",
+      "blurb": "بی سی ایس, بینک اور یونیورسٹی داخلہ امتحان کے لیے بہترین تیاری گائیڈ — جنرل نالج اور ادبیات۔"
     },
     "ur": {
-      "name": "بھوت جہاز",
-      "blurb": "ویڈیو کی قسم: Abandoned vessels found adrift — like the Mary Celeste — with no crew, no struggle, only silence. Theories range from mutiny to supernatural."
+      "name": "بی سی ایس اور مسابقتی امتحانات کی تیاری",
+      "blurb": "بی سی ایس، بینک اور یونیورسٹی داخلہ امتحانات کے لیے جامع تیاری گائیڈ — جنرل نالج اور ادب۔"
     },
     "ta": {
-      "name": "பேய் கப்பல்கள்",
-      "blurb": "வீடியோ வகை: Abandoned vessels found adrift — like the Mary Celeste — with no crew, no struggle, only silence. Theories range from mutiny to supernatural."
+      "name": "பிசிஎஸ் மற்றும் போட்டித் தேர்வு தயாரிப்பு",
+      "blurb": "வங்காளதேச குடிமைப் பணி மற்றும் பல்கலைக்கழக நுழைவுத் தேர்வுக்கான வழிகாட்டிகள் — பொது அறிவு மற்றும் இலக்கியம்."
     },
     "ml": {
-      "name": "ഭൂതക്കപ്പലുകൾ",
-      "blurb": "വീഡിയോ തരം: Abandoned vessels found adrift — like the Mary Celeste — with no crew, no struggle, only silence. Theories range from mutiny to supernatural."
+      "name": "ബിസിഎസ് & മത്സരപരീക്ഷാ മാസ്റ്റർ ഗൈഡ്",
+      "blurb": "ബംഗ്ലാദേശ് സിവിൽ സർവീസ്, ബാങ്ക്, യൂണിവേഴ്സിറ്റി പ്രവേശന പരീക്ഷകൾക്കായുള്ള മികച്ച പഠന സഹായി."
     }
   },
   "source": "Nish.Md + deterministic research",

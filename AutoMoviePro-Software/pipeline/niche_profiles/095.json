@@ -1,83 +1,64 @@
 {
   "niche_id": 95,
-  "name": "Privacy & Security Tools",
-  "slug": "privacy-security-tools",
-  "style_family": "history",
+  "name": "Islamic History & Golden Age",
+  "slug": "islamic-history-golden-age",
+  "style_family": "islamic",
   "status": "VERIFIED",
   "topic_seeds": [
-    "What new evidence reframes the story of Privacy inside Privacy & Security Tools",
-    "How Privacy still shapes public curiosity about Privacy & Security Tools",
-    "What new evidence reframes the story of Security Tools inside Privacy & Security Tools",
-    "How Security Tools still shapes public curiosity about Privacy & Security Tools",
-    "What new evidence reframes the story of Tor inside Privacy & Security Tools",
-    "How Tor still shapes public curiosity about Privacy & Security Tools"
+    "Key analytical breakdown on Islamic History & Golden Age",
+    "Behind the scenes of major Islamic History & Golden Age events",
+    "Critical evidence and timelines in Islamic History & Golden Age"
   ],
   "seo_angles": [
-    "What new evidence reframes the story of Privacy inside Privacy & Security Tools",
-    "How Privacy still shapes public curiosity about Privacy & Security Tools",
-    "What new evidence reframes the story of Security Tools inside Privacy & Security Tools",
-    "How Security Tools still shapes public curiosity about Privacy & Security Tools"
+    "What people misunderstand about Islamic History & Golden Age",
+    "Why this historic moment in Islamic History & Golden Age matters today"
   ],
   "forbidden_visuals": [
     "talking-head lip-sync avatar",
     "burned-in captions",
     "watermark",
     "modern meme text",
-    "modern smartphones",
-    "cars",
-    "LED screens",
-    "sneakers",
-    "contemporary skyline"
+    "random stock photo cutout"
   ],
   "preferred_subjects": [
-    "Privacy & Security Tools documentary subject",
-    "period-accurate environment",
-    "evidence object close-up"
+    "high-resolution authentic environments",
+    "data-driven infographics and telemetry",
+    "moody cinematic lighting"
   ],
-  "lighting_default": "warm desert sun / torchlit interiors, high-contrast documentary grade",
-  "face_policy": "period extras OK if consistent; prefer environment/object hero when possible",
-  "dialogue_tone": "human documentary narration; specific nouns; 7–9s beats",
-  "audio_ambience": "subtle documentary bed; do not overpower voice",
+  "lighting_default": "cinematic high-contrast documentary grade",
+  "face_policy": "avoid talking head lip-sync; prefer environmental/tactical/infographic hero",
+  "dialogue_tone": "authoritative, engaging, retention-focused documentary narrative",
+  "audio_ambience": "subtle low-end atmospheric resonance, precise Foley SFX",
   "research_hints": [
-    "Prefer primary evidence and concrete entities for Privacy & Security Tools",
-    "Avoid generic niche-label topics; require specific place/person/event/mechanism",
-    "7–9 second spoken beats with story continuity across scenes"
+    "Prefer factual, verified data points for Islamic History & Golden Age",
+    "Strong retention hook in opening 3 seconds"
   ],
-  "topic_prompt_overlay": "NICHE LOCK (Privacy & Security Tools): only propose topics that fit this niche's video type. Video type: VPNs, encrypted email, Tor — how they work, who needs them, and simple setup tutorials. Follow niche topic strategy: Follow cybersecurity news, privacy advocacy, or new tool releases. Generate a topic about a privacy tool that recently gained popularity.",
-  "video_prompt_overlay": "NICHE VISUAL LOCK (Privacy & Security Tools / history): Generate a 7–9 second dialogue clip based on the topic `{topic}`. Each dialogue must be practical and careful. For each dialogue, generate: - **Audio Generation Prompt:** Voice — cautious, with secure beeps and clicks. - **Video Generation Prompt:** Detailed visual — a computer screen with lock icons. No character — screen. Lighting: dark with monitor glow. Maintain same glow. Forbidden: talking-head lip-sync avatar, burned-in captions, watermark, modern meme text, modern smartphones, cars, LED screens, sneakers. Preferred subjects: Privacy & Security Tools documentary subject, period-accurate environment, evidence object close-up. Lighting: warm desert sun / torchlit interiors, high-contrast documentary grade. Face policy: period extras OK if consistent; prefer environment/object hero when possible. Dialogue tone: human documentary narration; specific nouns; 7–9s beats. Ambience: subtle documentary bed; do not overpower voice.",
+  "topic_prompt_overlay": "NICHE LOCK (Islamic History & Golden Age): Explore significant historical milestones, scientific discoveries by Muslim scholars (Ibn al-Haytham, Al-Khwarizmi, Al-Biruni), architectural achievements of historic caliphates, trade routes of the Indian Ocean, and turning points in Islamic civilization. Focus on factual history, intellectual contributions, and awe-inspiring cultural heritage.",
+  "video_prompt_overlay": "NICHE VISUAL LOCK (Islamic History & Golden Age / islamic): Generate a 7–9 second cinematic historical scene for topic {topic}. Visuals: Grand architectural perspective of an ancient courtyard or library with intricate arabesque geometric arches, soaring domes, antique astrolabes, and leather-bound illuminated manuscripts. Lighting: Golden hour morning sunlight beaming through pierced stone latticework (mashrabiya), creating sacred dust-mote beams. Camera: Elegant slow dolly back revealing vast scholarship halls. Ambience: Solemn acoustic oud vibrations, distant courtyard fountain water, and serene desert breeze.",
   "i18n": {
     "en": {
-      "name": "Privacy & Security Tools",
-      "blurb": "VPNs, encrypted email, Tor — how they work, who needs them, and simple setup tutorials."
+      "name": "Islamic History & Golden Age",
+      "blurb": "Majestic historical documentary chronicling the Islamic Golden Age — House of Wisdom scholars, astronomical observatories, navigational breakthroughs, architectural wonders of Cord"
     },
     "bn": {
-      "name": "গোপনীয়তা ও নিরাপত্তা টুল",
-      "blurb": "ভিডিও টাইপ: VPNs, encrypted email, Tor — how they work, who needs them, and simple setup tutorials."
+      "name": "ইসলামের ইতিহাস ও স্বর্ণযুগ",
+      "blurb": "ইসলামের স্বর্ণযুগের ঐতিহাসিক অর্জন, জ্যোতির্বিজ্ঞান এবং স্থাপত্যের অনবদ্য দলিল।"
     },
     "hi": {
-      "name": "गोपनीयता और सुरक्षा टूल",
-      "blurb": "वीडियो प्रकार: VPNs, encrypted email, Tor — how they work, who needs them, and simple setup tutorials."
+      "name": "इस्लामिक इतिहास और स्वर्ण युग",
+      "blurb": "इस्लामिक स्वर्ण युग की महान वैज्ञानिक खोजों, वेधशालाओं और वास्तुकला का ऐतिहासिक दस्तावेज़।"
     },
     "ur": {
-      "name": "پرائیویسی اور سیکیورٹی ٹولز",
-      "blurb": "ویڈیو کی قسم: VPNs, encrypted email, Tor — how they work, who needs them, and simple setup tutorials."
+      "name": "اسلامی تاریخ اور سنہری دور",
+      "blurb": "اسلامی تاریخ کے زریں دور، سائنسی ایجادات اور فن تعمیر کے شاندار ماضی کی دستاویزی فلم۔"
     },
     "ta": {
-      "name": "தனியுரிமை & பாதுகாப்பு கருவிகள்",
-      "blurb": "வீடியோ வகை: VPNs, encrypted email, Tor — how they work, who needs them, and simple setup tutorials."
+      "name": "இஸ்லாமிய வரலாறு மற்றும் பொற்காலம்",
+      "blurb": "இஸ்லாமிய பொற்காலத்தின் அறிவியல் சாதனைகள் மற்றும் வரலாற்றுச் சிறப்புமிக்க স্থাপত্যங்களின் பயணம்."
     },
     "ml": {
-      "name": "സ്വകാര്യതയും സുരക്ഷാ ഉപകരണങ്ങളും",
-      "blurb": "വീഡിയോ തരം: VPNs, encrypted email, Tor — how they work, who needs them, and simple setup tutorials."
+      "name": "ഇസ്ലാമിക ചരിത്രവും സുവർണ്ണ കാലഘട്ടവും",
+      "blurb": "ഇസ്ലാമിക സുവർണ്ണ കാലഘട്ടത്തിലെ ശാസ്ത്ര നേട്ടങ്ങളുടെയും ചരിത്രത്തിന്റെയും ദൃശ്യാവിഷ്കാരം."
     }
-  },
-  "source": "Nish.Md + deterministic research",
-  "research_notes": [
-    "Marathon researched at 2026-09-10T08:30:21Z",
-    "Video type length=87",
-    "Topic prompt length=137",
-    "Video prompt length=379",
-    "Seeds=6"
-  ],
-  "verified_at": "2026-09-10T08:30:22Z"
+  }
 }

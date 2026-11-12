@@ -47,24 +47,24 @@
       "blurb": "How everyday items — penicillin, microwave ovens, X-rays, Post-it notes — were discovered by pure luck during other experiments."
     },
     "bn": {
-      "name": "দৈবক্রমে আবিষ্কার",
-      "blurb": "ভিডিও টাইপ: How everyday items — penicillin, microwave ovens, X-rays, Post-it notes — were discovered by pure luck during other experiments."
+      "name": "দুর্ঘটনাবশত আবিষ্কার",
+      "blurb": "অন্য পরীক্ষার সময় কীভাবে পেনিসিলিন, মাইক্রোওয়েভ বা এক্স-রের মতো দৈনন্দিন জিনিস কাকতালীয়ভাবে আবিষ্কৃত হয়েছিল।"
     },
     "hi": {
       "name": "आकस्मिक आविष्कार",
-      "blurb": "वीडियो प्रकार: How everyday items — penicillin, microwave ovens, X-rays, Post-it notes — were discovered by pure luck during other experiments."
+      "blurb": "कैसे पेनिसिलिन, माइक्रोवेव और एक्स-रे जैसी रोजमर्रा की चीजें अन्य प्रयोगों के दौरान इत्तेफाक से खोजी गईं।"
     },
     "ur": {
-      "name": "اتفاقی ایجادات",
-      "blurb": "ویڈیو کی قسم: How everyday items — penicillin, microwave ovens, X-rays, Post-it notes — were discovered by pure luck during other experiments."
+      "name": "حادثاتی ایجادات",
+      "blurb": "کیسے پینسلین, مائکروویو اور ایکس رے جیسی روزمرہ کی چیزیں دوسرے تجربات کے دوران اتفاقیہ دریافت ہوئیں۔"
     },
     "ta": {
-      "name": "தற்செயல் கண்டுபிடிப்புகள்",
-      "blurb": "வீடியோ வகை: How everyday items — penicillin, microwave ovens, X-rays, Post-it notes — were discovered by pure luck during other experiments."
+      "name": "தற்செயலான கண்டுபிடிப்புகள்",
+      "blurb": "பென்சிலின், மைக்ரோவேவ் மற்றும் எக்ஸ்-ரே போன்ற பொருட்கள் வேறு சோதனைகளின் போது தற்செயலாக எவ்வாறு கண்டுபிடிக்கப்பட்டன."
     },
     "ml": {
-      "name": "യാദൃച്ഛിക കണ്ടുപിടുത്തങ്ങൾ",
-      "blurb": "വീഡിയോ തരം: How everyday items — penicillin, microwave ovens, X-rays, Post-it notes — were discovered by pure luck during other experiments."
+      "name": "അവിചാരിതമായ കണ്ടുപിടുത്തങ്ങൾ",
+      "blurb": "പെൻസിലിൻ, മൈക്രോവേവ് ഓവുകൾ തുടങ്ങിയ സാധാരണ വസ്തുക്കൾ മറ്റു പരീക്ഷണങ്ങൾക്കിടെ യാദൃശ്ചികമായി കണ്ടെത്തിയ കഥ."
     }
   },
   "source": "Nish.Md + deterministic research",

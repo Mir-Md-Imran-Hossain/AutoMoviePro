@@ -1,7 +1,7 @@
 {
   "niche_id": 133,
-  "name": "Urban Exploration Horror",
-  "slug": "urban-exploration-horror",
+  "name": "World Heritage Sites & Natural Wonders",
+  "slug": "world-heritage-sites-natural-wonders",
   "style_family": "history",
   "status": "VERIFIED",
   "topic_seeds": [
@@ -47,28 +47,28 @@
   "video_prompt_overlay": "NICHE VISUAL LOCK (Urban Exploration Horror / history): Generate a 7–9 second dialogue clip based on the topic `{topic}`. Each dialogue must be tense and daring. For each dialogue, generate: - **Audio Generation Prompt:** Voice — breathless, with echoes and debris. - **Video Generation Prompt:** Detailed visual — a dark tunnel or derelict room. Character: explorer (hood, backpack). Lighting: flashlight. Maintain same tunnel and light. Forbidden: talking-head lip-sync avatar, burned-in captions, watermark, modern meme text, modern smartphones, cars, LED screens, sneakers. Preferred subjects: Urban Exploration Horror documentary subject, period-accurate environment, evidence object close-up. Lighting: warm desert sun / torchlit interiors, high-contrast documentary grade. Face policy: period extras OK if consistent; prefer environment/object hero when possible. Dialogue tone: human documentary narration; specific nouns; 7–9s beats. Ambience: subtle documentary bed; do not overpower voice.",
   "i18n": {
     "en": {
-      "name": "Urban Exploration Horror",
-      "blurb": "Explorers sneaking into abandoned malls, hospitals, or tunnels — their terrifying finds and near-misses."
+      "name": "World Heritage Sites & Natural Wonders",
+      "blurb": "Exploring UNESCO World Heritage Sites preserving human architectural genius and pristine natural ecosystems — Petra carved into Jordanian sandstone, the Sundarbans mangrove forest,"
     },
     "bn": {
-      "name": "শহুরে অন্বেষণ হরর",
-      "blurb": "ভিডিও টাইপ: Explorers sneaking into abandoned malls, hospitals, or tunnels — their terrifying finds and near-misses."
+      "name": "বিশ্ব ঐতিহ্য ও প্রাকৃতিক বিস্ময়",
+      "blurb": "ইউনেস্কো ওয়ার্ল্ড হেরিটেজ সাইটের স্থাপত্য প্রতিভা এবং অপরূপ প্রাকৃতিক পরিবেশের অন্বেষণ।"
     },
     "hi": {
-      "name": "शहरी अन्वेषण हॉरर",
-      "blurb": "वीडियो प्रकार: Explorers sneaking into abandoned malls, hospitals, or tunnels — their terrifying finds and near-misses."
+      "name": "विश्व धरोहर स्थल और प्राकृतिक आश्चर्य",
+      "blurb": "मानव वास्तुकला और प्राचीन प्राकृतिक पारिस्थितिक तंत्र को संरक्षित करने वाले स्थलों की खोज।"
     },
     "ur": {
-      "name": "شہری ایکسپلوریشن ہارر",
-      "blurb": "ویڈیو کی قسم: Explorers sneaking into abandoned malls, hospitals, or tunnels — their terrifying finds and near-misses."
+      "name": "عالمی ثقافتی ورثہ اور قدرتی عجائبات",
+      "blurb": "انسانی فن تعمیر اور قدرتی ماحولیاتی نظام کو محفوظ رکھنے والے یونیسکو مقامات کی سیر۔"
     },
     "ta": {
-      "name": "நகர ஆய்வு திகில்",
-      "blurb": "வீடியோ வகை: Explorers sneaking into abandoned malls, hospitals, or tunnels — their terrifying finds and near-misses."
+      "name": "உலக பாரம்பரிய தளங்களும் இயற்கை அற்புதங்களும்",
+      "blurb": "மனித கட்டிடக்கலை மற்றும் இயற்கை சூழலைப் பாதுகாக்கும் யுனெஸ்கோ பாரம்பரிய தளங்களை ஆராய்தல்."
     },
     "ml": {
-      "name": "നഗര പര്യവേഷണ ഹൊറർ",
-      "blurb": "വീഡിയോ തരം: Explorers sneaking into abandoned malls, hospitals, or tunnels — their terrifying finds and near-misses."
+      "name": "ലോക പൈതൃക സ്ഥാനങ്ങളും പ്രകൃതി അത്ഭുതങ്ങളും",
+      "blurb": "മനുഷ്യന്റെ വാസ്തുവിദ്യയും പ്രകൃതിയുടെ ആവാസവ്യവസ്ഥയും സംരക്ഷിക്കുന്ന യുനെസ്കോ പൈതൃക കേന്ദ്രങ്ങൾ."
     }
   },
   "source": "Nish.Md + deterministic research",

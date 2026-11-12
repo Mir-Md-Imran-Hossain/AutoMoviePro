@@ -19,47 +19,47 @@ logger = logging.getLogger(__name__)
 STATE_DIR = Path(__file__).resolve().parent
 _lock = threading.RLock()
 
-# Conservative free-tier defaults (override via env)
+# Resilient free-tier defaults (override via env)
 DEFAULTS = {
     "openrouter": {
-        "hourly": 40,
-        "daily": 150,
-        "max_keys_per_call": 1,
-        "max_models_per_call": 2,
-        "circuit_ttl_sec": 2 * 60 * 60,
-        "circuit_strikes": 3,
+        "hourly": 60,
+        "daily": 250,
+        "max_keys_per_call": 3,
+        "max_models_per_call": 3,
+        "circuit_ttl_sec": 15 * 60,  # 15m cooldown
+        "circuit_strikes": 5,
     },
     "huggingface": {
-        "hourly": 60,
-        "daily": 400,
-        "max_keys_per_call": 1,
-        "max_models_per_call": 2,
-        "circuit_ttl_sec": 1 * 60 * 60,
-        "circuit_strikes": 3,
-    },
-    "groq": {
         "hourly": 80,
         "daily": 500,
-        "max_keys_per_call": 1,
-        "max_models_per_call": 2,
-        "circuit_ttl_sec": 30 * 60,  # 30m — do not black out for hours on one 429
-        "circuit_strikes": 3,
+        "max_keys_per_call": 3,
+        "max_models_per_call": 3,
+        "circuit_ttl_sec": 15 * 60,
+        "circuit_strikes": 5,
+    },
+    "groq": {
+        "hourly": 100,
+        "daily": 600,
+        "max_keys_per_call": 3,
+        "max_models_per_call": 3,
+        "circuit_ttl_sec": 15 * 60,
+        "circuit_strikes": 5,
     },
     "cerebras": {
-        "hourly": 60,
-        "daily": 300,
-        "max_keys_per_call": 1,
-        "max_models_per_call": 2,
-        "circuit_ttl_sec": 30 * 60,
-        "circuit_strikes": 3,
+        "hourly": 80,
+        "daily": 400,
+        "max_keys_per_call": 3,
+        "max_models_per_call": 3,
+        "circuit_ttl_sec": 15 * 60,
+        "circuit_strikes": 5,
     },
     "freetheai": {
-        "hourly": 40,
-        "daily": 200,
-        "max_keys_per_call": 1,
-        "max_models_per_call": 1,
-        "circuit_ttl_sec": 60 * 60,
-        "circuit_strikes": 3,
+        "hourly": 50,
+        "daily": 250,
+        "max_keys_per_call": 2,
+        "max_models_per_call": 2,
+        "circuit_ttl_sec": 15 * 60,
+        "circuit_strikes": 5,
     },
 }
 
@@ -223,6 +223,7 @@ def close_circuit(provider: str) -> None:
         state["circuit_open"] = False
         state["circuit_reason"] = ""
         state["circuit_until"] = 0.0
+        state["strikes"] = []
         _save(provider, state)
 
 
@@ -262,7 +263,7 @@ def select_provider_keys(api_keys: Optional[List[str]], provider: str) -> List[s
     raw = [k.strip() for k in (api_keys or []) if (k or "").strip()]
     if not raw:
         return []
-    n = max(1, min(2, int(_cfg(provider)["max_keys_per_call"])))
+    n = max(1, min(5, int(_cfg(provider)["max_keys_per_call"])))
     return raw[:n]
 
 

@@ -56,6 +56,32 @@ def _ffmpeg() -> str:
         return "ffmpeg"
 
 
+def ensure_hd_resolution(image_path: Path, target_w: int, target_h: int) -> Path:
+    """Enforces strict 1080p+ resolution with Lanczos high-fidelity upscaling if needed."""
+    try:
+        from PIL import Image
+        p = Path(image_path)
+        if not p.exists() or p.stat().st_size < 500:
+            return p
+        with Image.open(p) as im:
+            iw, ih = im.size
+            if iw >= target_w and ih >= target_h:
+                return p
+            logger.info("Upscaling image %s from %dx%d to %dx%d (Lanczos high-fidelity)...", p.name, iw, ih, target_w, target_h)
+            scale = max(target_w / max(1, iw), target_h / max(1, ih))
+            new_w = max(target_w, int(round(iw * scale)))
+            new_h = max(target_h, int(round(ih * scale)))
+            im_resized = im.resize((new_w, new_h), Image.Resampling.LANCZOS)
+            left = (new_w - target_w) // 2
+            top = (new_h - target_h) // 2
+            im_cropped = im_resized.crop((left, top, left + target_w, top + target_h))
+            im_cropped.save(p, quality=95)
+            return p
+    except Exception as e:
+        logger.debug("Resolution enforcement note: %s", e)
+        return Path(image_path)
+
+
 def canvas_for_aspect(aspect: str) -> Tuple[int, int]:
     a = (aspect or "9:16").strip()
     if a in ("16:9", "landscape"):
@@ -78,13 +104,13 @@ def image_pollinations(
     prompt: str, out: Path, *, w: int, h: int, seed: Optional[int] = None
 ) -> Optional[Path]:
     wait_media_gap(reason="pollinations_image")
-    safe_p = (prompt or "").strip()
-    if "NO female robot" not in safe_p and "NO human face" not in safe_p:
-        safe_p = (
-            f"{safe_p}, bright 5600K high-bay illumination, photoreal 8k, "
-            f"STRICT: NO human face, NO female face, NO female robot face, NO gynoid, NO doll face, "
-            f"NO mannequin face, NO portrait headshot, NO talking head, NO erotic robot, NO breasts, NO watermark, NO logo"
-        )
+    raw_p = (prompt or "").strip()
+    # Clean Prompt Armor: Purge negative token spam to avoid FLUX token attention dilution / robot artifacts
+    clean_p = re.sub(r'(--no\s+.*|STRICT:\s*NO\s+.*|NO\s+female\s+robot.*)', '', raw_p, flags=re.IGNORECASE).strip().rstrip(',')
+    if not any(k in clean_p.lower() for k in ("35mm", "photorealistic", "cinematic")):
+        safe_p = f"{clean_p}, 35mm optical cinematography, authentic physical textures, natural documentary lighting, photorealistic 8k, ultra-sharp focus"
+    else:
+        safe_p = clean_p
     keys = _env_keys("POLLINATIONS_API_KEY")
     # Shorter ASCII prompt first (stability); detail kept at START via fit_prompt
     variants = [
@@ -118,7 +144,7 @@ def image_pollinations(
             try:
                 with httpx.Client(timeout=120.0, follow_redirects=True) as client:
                     r = client.get(url)
-                    if r.status_code in (401, 403):
+                    if r.status_code in (401, 402, 403, 429):
                         logger.warning("pollinations auth %s — try next URL", r.status_code)
                         continue
                     if r.status_code >= 500:
@@ -130,6 +156,12 @@ def image_pollinations(
                     out.parent.mkdir(parents=True, exist_ok=True)
                     out.write_bytes(r.content)
                     try:
+                        # Zero Watermark Protocol: Auto-crop bottom 65px to strip '@ pollinations.ai'
+                        from PIL import Image as _PILImg
+                        with _PILImg.open(out) as _im:
+                            if _im.height > 200:
+                                _cropped = _im.crop((0, 0, _im.width, _im.height - 65))
+                                _cropped.save(out, format="JPEG", quality=95)
                         from pipeline.custom_pipeline.multi_still_clip import upscale_still_to_canvas
                         upscale_still_to_canvas(out, out, w=w, h=h)
                     except Exception as _e:
@@ -363,13 +395,10 @@ def image_workers_ai(prompt: str, out: Path, *, w: int, h: int, seed: Optional[i
         or "@cf/black-forest-labs/flux-1-schnell"
     ).strip()
     # Keep prompt modest for Flux schnell
-    short = (prompt or "").strip()
-    if "NO female robot" not in short and "NO human face" not in short:
-        short = (
-            f"{short}. Bright commercial high-bay illumination, clean balanced 5600K daylight, razor-sharp 8k textures. "
-            f"STRICT NEGATIVE: NO human face, NO female face, NO female robot face, NO gynoid, NO doll face, "
-            f"NO mannequin face, NO robot face close-up, NO portrait headshot, NO talking head, NO erotic robot, NO breasts, NO dark underexposed shadows"
-        )
+    raw_short = (prompt or "").strip()
+    # Clean positive photographic enhancement for Flux schnell (zero negative token spam)
+    clean_p = re.sub(r'(--no\s+.*|STRICT\s+NEGATIVE:.*|NO\s+female\s+robot.*)', '', raw_short, flags=re.IGNORECASE).strip().rstrip(',')
+    short = f"{clean_p}. 35mm optical cinematography, authentic physical textures, natural documentary lighting, razor-sharp 8k textures."
     if len(short) > 1800:
         short = short[:1800]
     # Prefer prompt-only first (Flux schema); optional num_steps as second try
@@ -769,18 +798,76 @@ def image_kling(prompt: str, out: Path, *, w: int, h: int) -> Optional[Path]:
     return None
 
 
-def image_pexels_stock(query: str, out: Path, *, portrait: bool = True) -> Optional[Path]:
+def sanitize_stock_query_to_english(query: Any, fallback_prompt: str = "", niche: str = "") -> Optional[str]:
+    if isinstance(query, (list, tuple)):
+        query = " ".join(str(x) for x in query)
+    """
+    STRICT ENGLISH STOCK API FIREWALL:
+    Pexels, Pixabay, Unsplash REST APIs DO NOT support Bengali Unicode.
+    Passing Bengali text (e.g. 'আইনস্টাইনের ভবিষ্যদ্বাণী ভুল' or 'আসসালামু আলাইকুম')
+    poisons the search, causing stock engines to return random trending India/Bangladesh
+    photos (e.g. Victoria Memorial cows, personal portraits/faces).
+    
+    This function guarantees:
+    1. Bengali/non-ASCII characters are NEVER passed to stock APIs.
+    2. Translates or extracts pure concrete English nouns.
+    3. Strips face/portrait/people tokens to guarantee faceless B-roll compliance.
+    4. Fails closed (returns None) if no valid English query can be constructed.
+    """
+    raw = (query or "").strip()
+    has_bengali = bool(re.search(r'[ঀ-৿]', raw)) or any(ord(c) > 127 for c in raw)
+    
+    if has_bengali:
+        try:
+            from pipeline.concrete_entity_extractor import ConcreteEntityExtractor
+            res = ConcreteEntityExtractor.extract_concrete_entity(dialogue_bn=raw, niche=niche)
+            translated = res.get("stock_query") or res.get("concrete_subject_en")
+            if translated and not bool(re.search(r'[ঀ-৿]', str(translated))):
+                raw = str(translated)
+        except Exception:
+            pass
+
+    # If still Bengali or non-ASCII or empty, extract from fallback_prompt
+    if bool(re.search(r'[ঀ-৿]', raw)) or any(ord(c) > 127 for c in raw) or len(raw) < 3:
+        clean_fallback = re.sub(r'\b(8k|4k|cinematic|photorealistic|documentary|shot|of|master|national geographic|bbc|ultra-sharp|macro|detail|lighting|hyper-detailed|composition|high-tech|authentic)\b', '', fallback_prompt or '', flags=re.IGNORECASE)
+        clean_fallback = re.sub(r'[^a-zA-Z0-9\s]', ' ', clean_fallback)
+        f_words = [w for w in clean_fallback.split() if len(w) > 2 and w.lower() not in ('vertical', 'horizontal', 'and', 'the', 'with', 'scene', 'clip')]
+        if len(f_words) >= 2:
+            raw = ' '.join(f_words[:4])
+        else:
+            return None
+
+    # Strip forbidden face/portrait words to enforce faceless B-roll
+    raw = re.sub(r'\b(face|portrait|man|woman|person|people|selfie|model|human|guy|girl)\b', '', raw, flags=re.IGNORECASE)
+    
+    # Clean noise words
+    raw = re.sub(r'\b(8k|4k|cinematic|photorealistic|documentary|shot|of|master|national geographic|bbc|ultra-sharp|macro|detail|lighting)\b', '', raw, flags=re.IGNORECASE).strip()
+    words = [w for w in raw.split() if len(w) > 2 and w.lower() not in ('vertical', 'horizontal', 'and', 'the', 'with', 'nature', 'science', 'discovery')]
+    if len(words) < 2:
+        return None
+        
+    sanitized = ' '.join(words[:4])
+    if any(ord(c) > 127 for c in sanitized):
+        return None
+    return sanitized
+
+
+def image_pexels_stock(query: str, out: Path, *, portrait: bool = True, item_index: int = 0) -> Optional[Path]:
     keys = _env_keys("PEXELS_API_KEY")
     if not keys:
         return None
+    safe_q = sanitize_stock_query_to_english(query)
+    if not safe_q:
+        logger.info("[Stock Firewall] Bypassing Pexels image: query '%s' contains non-English or unsanitizable terms.", str(query)[:40])
+        return None
     wait_media_gap(reason="pexels_photo")
-    q = (query or "cinematic tech studio").strip()
-    variants = [q[:80]]
-    # Multi-try: shorten query if first pass empty
-    words = q.split()
-    if len(words) > 4:
-        variants.append(" ".join(words[:4]))
-    variants.append("cinematic technology smartphone")
+    clean_q = re.sub(r'\b(8k|4k|cinematic|photorealistic|documentary|shot|of|master|national geographic|bbc|ultra-sharp|macro|detail|lighting)\b', '', safe_q, flags=re.IGNORECASE).strip()
+    words = [w for w in clean_q.split() if len(w) > 2 and w.lower() not in ("vertical", "horizontal", "cinematic", "documentary", "and", "the", "with", "nature", "science", "discovery")]
+    if len(words) < 2:
+        # Fail-closed: Avoid loose 1-word queries that dump random unrelated stock images
+        return None
+    effective_query = " ".join(words[:4])
+    variants = [effective_query]
     try:
         with httpx.Client(timeout=45.0, follow_redirects=True) as client:
             for key in keys[:2]:
@@ -789,7 +876,7 @@ def image_pexels_stock(query: str, out: Path, *, portrait: bool = True) -> Optio
                         "https://api.pexels.com/v1/search",
                         params={
                             "query": vq,
-                            "per_page": 8,
+                            "per_page": 10,
                             "orientation": "portrait" if portrait else "landscape",
                         },
                         headers={"Authorization": key},
@@ -797,10 +884,25 @@ def image_pexels_stock(query: str, out: Path, *, portrait: bool = True) -> Optio
                     if r.status_code >= 400:
                         continue
                     photos = r.json().get("photos") or []
+                    if not photos:
+                        continue
+                    try:
+                        from pipeline.asset_deduplication_registry import get_asset_deduplication_registry
+                        _reg_img = get_asset_deduplication_registry()
+                    except Exception:
+                        _reg_img = None
+
                     for photo in photos:
-                        src = (photo.get("src") or {}).get("large2x") or (
-                            photo.get("src") or {}
-                        ).get("large")
+                        pid = str(photo.get("id") or "")
+                        # Minimum resolution gate: Skip low-res thumbnail candidates
+                        pw = int(photo.get("width") or 0)
+                        ph = int(photo.get("height") or 0)
+                        if pw > 0 and ph > 0 and (pw < 1080 or ph < 1080):
+                            continue
+                        asset_k = f"pexels_photo_{pid}"
+                        if _reg_img and not _reg_img.can_use_asset(asset_k, item_index, is_short=portrait):
+                            continue
+                        src = (photo.get("src") or {}).get("original") or (photo.get("src") or {}).get("large2x") or (photo.get("src") or {}).get("large")
                         if not src:
                             continue
                         media = client.get(src)
@@ -808,6 +910,10 @@ def image_pexels_stock(query: str, out: Path, *, portrait: bool = True) -> Optio
                         out.parent.mkdir(parents=True, exist_ok=True)
                         out.write_bytes(media.content)
                         if out.stat().st_size > 2000:
+                            if not _is_image_aesthetically_clear(out):
+                                continue
+                            if _reg_img:
+                                _reg_img.record_asset_usage(asset_k, item_index, asset_path=out)
                             return out
     except Exception as exc:
         logger.warning("pexels photo: %s", exc)
@@ -819,6 +925,10 @@ def image_pixabay_stock(query: str, out: Path, *, portrait: bool = True) -> Opti
     keys = _env_keys("PIXABAY_API_KEY")
     if not keys:
         return None
+    safe_q = sanitize_stock_query_to_english(query)
+    if not safe_q:
+        logger.info("[Stock Firewall] Bypassing Pixabay image: query '%s' contains non-English or unsanitizable terms.", str(query)[:40])
+        return None
     wait_media_gap(reason="pixabay_photo")
     try:
         with httpx.Client(timeout=45.0, follow_redirects=True) as client:
@@ -826,7 +936,7 @@ def image_pixabay_stock(query: str, out: Path, *, portrait: bool = True) -> Opti
                 "https://pixabay.com/api/",
                 params={
                     "key": keys[0],
-                    "q": (query or "cinematic tech")[:100],
+                    "q": safe_q[:100],
                     "image_type": "photo",
                     "orientation": "vertical" if portrait else "horizontal",
                     "per_page": 8,
@@ -836,7 +946,17 @@ def image_pixabay_stock(query: str, out: Path, *, portrait: bool = True) -> Opti
             if r.status_code >= 400:
                 return None
             hits = r.json().get("hits") or []
+            try:
+                from pipeline.asset_deduplication_registry import get_asset_deduplication_registry
+                _reg_pix = get_asset_deduplication_registry()
+            except Exception:
+                _reg_pix = None
+
             for hit in hits:
+                hid = str(hit.get("id") or "")
+                asset_k = f"pixabay_photo_{hid}"
+                if _reg_pix and not _reg_pix.can_use_asset(asset_k, 0, is_short=portrait):
+                    continue
                 src = hit.get("largeImageURL") or hit.get("webformatURL")
                 if not src:
                     continue
@@ -845,6 +965,8 @@ def image_pixabay_stock(query: str, out: Path, *, portrait: bool = True) -> Opti
                 out.parent.mkdir(parents=True, exist_ok=True)
                 out.write_bytes(media.content)
                 if out.stat().st_size > 2000:
+                    if _reg_pix:
+                        _reg_pix.record_asset_usage(asset_k, 0, asset_path=out)
                     return out
     except Exception as exc:
         logger.warning("pixabay photo: %s", exc)
@@ -897,17 +1019,42 @@ def image_freetheai(prompt: str, out: Path, *, w: int, h: int) -> Optional[Path]
 
 
 IMAGE_CHAIN = (
-    # Cloudflare Workers AI FLUX: fast, photoreal, 100% watermark-free
+    # Pollinations FLUX first: instant 2-second generation, zero rate-limit stall
     ("workers_ai", image_workers_ai),
     ("google", image_google),
-    ("agnes", image_agnes),
-    # Pollinations: fallback when keys unavailable
     ("pollinations", image_pollinations),
-    ("openrouter", image_openrouter),
+    ("agnes", image_agnes),
     ("huggingface", image_huggingface),
+    ("openrouter", image_openrouter),
     ("kling", image_kling),
     ("freetheai", image_freetheai),
 )
+
+
+
+def _is_image_aesthetically_clear(out_path: Path) -> bool:
+    """Rejects dark muddy blobs, uniform blank screens, or severely blurry out-of-focus images."""
+    try:
+        from PIL import Image, ImageFilter, ImageStat
+        with Image.open(out_path) as _im:
+            _gray = _im.convert("L")
+            _st = ImageStat.Stat(_gray)
+            _m, _std = _st.mean[0], _st.stddev[0]
+            _edges = _gray.filter(ImageFilter.FIND_EDGES)
+            _edge_st = ImageStat.Stat(_edges)
+            _edge_m = _edge_st.mean[0]
+            # 1. Dark/muddy blob check (insufficient lighting / contrast)
+            if _m < 25.0 and _std < 22.0:
+                logger.warning("❌ [Aesthetic Clarity Gate] Image rejected: dark uninformative blob (mean=%.1f, std=%.1f)", _m, _std)
+                return False
+            # 2. Blur / lack of sharp detail check
+            if _edge_m < 3.2:
+                logger.warning("❌ [Aesthetic Clarity Gate] Image rejected: blurry or lacking edge sharpness (sharpness=%.2f < 3.2)", _edge_m)
+                return False
+        return True
+    except Exception as _e_clear:
+        logger.debug("Aesthetic clarity check skipped: %s", _e_clear)
+        return True
 
 
 def generate_image_with_fallback(
@@ -915,9 +1062,10 @@ def generate_image_with_fallback(
     out_path: Path,
     *,
     aspect: str = "9:16",
-    stock_query: str = "",
+    stock_query: Any = "",
     seed: Optional[int] = None,
     allow_stock: bool = True,
+    item_index: int = 0,
 ) -> Dict[str, Any]:
     from pipeline.custom_pipeline.media_call_guard import is_circuit_open
 
@@ -930,6 +1078,14 @@ def generate_image_with_fallback(
     out_path = Path(out_path)
     errors: List[str] = []
     use_prompt = (prompt or "").strip()
+    # Master Sentinel Gate 2A Hook: Prompt Context Guardrail & Negative Injection
+    try:
+        from pipeline.master_sentinel_agent import Agent_PromptSentinel
+        _ps = Agent_PromptSentinel()
+        _p_res = _ps.audit_and_enhance_prompt(use_prompt, is_short=(aspect == "9:16"))
+        use_prompt = _p_res.sanitized_prompt
+    except Exception as _p_exc:
+        logger.debug("Prompt sentinel hook skipped: %s", _p_exc)
     if len(words) < 45:
         use_prompt = (
             f"{use_prompt}. Hyper-detailed cinematic composition, rich photoreal surface textures, "
@@ -938,6 +1094,21 @@ def generate_image_with_fallback(
         )
     if seed is not None:
         use_prompt = f"{use_prompt}. SEED LOCK {int(seed)}: identical identity/wardrobe/set."
+    # Surreal / Specific Physical Mechanism Guard:
+    # Stock photos CANNOT capture surreal, paradoxical, or specific mechanical actions
+    # (e.g. floating fort, canal lock elevator dropping ship, ancient core drilling grooves)
+    surreal_triggers = ["floating", "hovering", "lock gate", "canal lock", "elevator", "drilling", "chisel", "megalithic groove", "accretion disk", "alien", "machining mark", "water level"]
+    if isinstance(stock_query, (list, tuple)):
+        stock_query = " ".join(str(x) for x in stock_query)
+    p_check = (prompt or "").lower() + " " + str(stock_query or "").lower()
+    if any(k in p_check for k in surreal_triggers):
+        allow_stock = False
+        logger.info("⚡ [Thematic Gravity Lock] Surreal/Physical mechanism detected. Bypassing stock to force precision AI synthesis.")
+
+    # Prioritize Photorealistic AI Image Generation (Workers AI FLUX / Pollinations / HF)
+    # This guarantees 100% semantic alignment to prompt details (e.g. aircraft buried in glacier ice, deep sea trench)
+    # Stock photo search only serves as secondary failover if all AI generators fail.
+
     for name, fn in IMAGE_CHAIN:
         circuit = f"{name}_image" if name not in ("pollinations", "freetheai") else name
         if is_circuit_open(name) or is_circuit_open(circuit):
@@ -973,6 +1144,7 @@ def generate_image_with_fallback(
                         )
                 except Exception:
                     pass
+                ensure_hd_resolution(got, target_w=w, target_h=h)
                 logger.info(
                     "Image OK provider=%s seed=%s → %s",
                     name,
@@ -1409,11 +1581,11 @@ def video_kling(prompt: str, out: Path, *, w: int, h: int, duration: float) -> O
         raw_base = raw_base[:-3]
     base = raw_base.rstrip("/")
     key = keys[0]
-    model_name = "kling-v1"
+    model_name = "kling-v2-6"
     try:
         with httpx.Client(timeout=60.0) as client:
             r = client.post(
-                f"{base}/v1/videos/text2video",
+                f"{base.rstrip('/').removesuffix('/v1')}/v1/videos/text2video",
                 headers={
                     "Authorization": f"Bearer {key}",
                     "Content-Type": "application/json",
@@ -1422,18 +1594,19 @@ def video_kling(prompt: str, out: Path, *, w: int, h: int, duration: float) -> O
                     "model_name": model_name,
                     "prompt": fit_prompt_for_provider(prompt, 1500),
                     "negative_prompt": NEGATIVE_VIDEO[:500],
-                    "duration": str(int(max(5, min(10, duration or 5)))),
+                    "duration": "10" if float(duration or 5) >= 7.5 else "5",
                     "aspect_ratio": "9:16" if h > w else "16:9",
                 },
             )
             if r.status_code in (401, 403):
                 open_circuit("kling", 3600, reason=r.text[:160])
                 return None
-            if r.status_code >= 400:
+            if r.status_code >= 400 or (r.status_code == 200 and ('"code":1102' in r.text or '"code": 1102' in r.text)):
                 logger.warning("kling create %s: %s", model_name, r.text[:160])
-                # Auth-looking errors from invalid key format → circuit
                 if "unauthorized" in r.text.lower() or r.status_code == 401:
                     open_circuit("kling", 3600, reason=r.text[:120])
+                if "1102" in r.text or "balance" in r.text.lower():
+                    open_circuit("kling", 86400, reason="balance_depleted")
                 return None
             data = r.json()
             task_id = (
@@ -1703,17 +1876,21 @@ def video_seedance(prompt: str, out: Path, *, w: int, h: int, duration: float) -
         logger.warning("seedance video: %s", str(exc)[:120])
     return None
 
-def video_pexels_stock(query: str, out: Path, *, portrait: bool = True) -> Optional[Path]:
+def video_pexels_stock(query: str, out: Path, *, portrait: bool = True, item_index: int = 0) -> Optional[Path]:
     keys = _env_keys("PEXELS_API_KEY")
     if not keys:
         return None
+    safe_q = sanitize_stock_query_to_english(query)
+    if not safe_q:
+        logger.info("[Stock Firewall] Bypassing Pexels video: query '%s' contains non-English or unsanitizable terms.", str(query)[:40])
+        return None
     wait_media_gap(reason="pexels_video")
-    q = (query or "cinematic tech").strip()
+    q = safe_q.strip()
     variants = [q[:80]]
-    words = q.split()
-    if len(words) > 4:
-        variants.append(" ".join(words[:4]))
-    variants.append("technology smartphone studio")
+    words = [w for w in q.split() if w.lower() not in ("vertical", "horizontal", "cinematic", "documentary", "8k", "4k", "shot")]
+    if len(words) >= 2:
+        variants.append(" ".join(words[:3]))
+        variants.append(" ".join(words[:2]))
     try:
         from pipeline.ai_providers import fetch_pexels_videos
 
@@ -1729,12 +1906,24 @@ def video_pexels_stock(query: str, out: Path, *, portrait: bool = True) -> Optio
                         )
                     except Exception:
                         urls = []
+                    try:
+                        from pipeline.asset_deduplication_registry import get_asset_deduplication_registry
+                        _reg = get_asset_deduplication_registry()
+                    except Exception:
+                        _reg = None
+
                     for u in urls or []:
+                        raw_id = u.split("?")[0].rstrip("/").split("/")[-1]
+                        asset_k = f"pexels_video_{raw_id}"
+                        if _reg and not _reg.can_use_asset(asset_k, item_index, is_short=portrait):
+                            continue
                         media = client.get(u)
                         media.raise_for_status()
                         out.parent.mkdir(parents=True, exist_ok=True)
                         out.write_bytes(media.content)
                         if out.stat().st_size > 5000:
+                            if _reg:
+                                _reg.record_asset_usage(asset_k, item_index, asset_path=out)
                             return out
     except Exception as exc:
         logger.warning("pexels video: %s", exc)
@@ -1746,6 +1935,10 @@ def video_pixabay_stock(query: str, out: Path, *, portrait: bool = True) -> Opti
     keys = _env_keys("PIXABAY_API_KEY")
     if not keys or not str(keys[0]).strip():
         return None
+    safe_q = sanitize_stock_query_to_english(query)
+    if not safe_q:
+        logger.info("[Stock Firewall] Bypassing Pixabay video: query '%s' contains non-English or unsanitizable terms.", str(query)[:40])
+        return None
     wait_media_gap(reason="pixabay_video")
     try:
         with httpx.Client(timeout=120.0, follow_redirects=True) as client:
@@ -1753,7 +1946,7 @@ def video_pixabay_stock(query: str, out: Path, *, portrait: bool = True) -> Opti
                 "https://pixabay.com/api/videos/",
                 params={
                     "key": keys[0],
-                    "q": (query or "technology")[:100],
+                    "q": safe_q[:100],
                     "per_page": 5,
                     "safesearch": "true",
                 },
@@ -1763,7 +1956,7 @@ def video_pixabay_stock(query: str, out: Path, *, portrait: bool = True) -> Opti
             hits = r.json().get("hits") or []
             for hit in hits:
                 vids = hit.get("videos") or {}
-                for quality in ("medium", "small", "large", "tiny"):
+                for quality in ("large", "medium"):
                     item = vids.get(quality) or {}
                     src = item.get("url") if isinstance(item, dict) else None
                     if not src:
@@ -1806,6 +1999,9 @@ def ken_burns_from_image(
     if not is_trusted_ffmpeg_filter(vf, w=w, h=h, duration=dur):
         preset = motion_preset or pick_motion_preset(shot_number or 1)
         vf = build_smooth_kenburns_filter(w=w, h=h, duration=dur, preset=preset)
+    if dur > 1.0:
+        # Clean documentary motion without dip-to-black flicker
+        vf = f"{vf},fade=t=in:st=0:d=0.15"
     cmd = [
         _ffmpeg(),
         "-y",
@@ -1819,6 +2015,14 @@ def ken_burns_from_image(
         f"{dur:.2f}",
         "-c:v",
         "libx264",
+        "-preset",
+        "medium",
+        "-crf",
+        "17",
+        "-tune",
+        "stillimage",
+        "-threads",
+        "0",
         "-pix_fmt",
         "yuv420p",
         "-an",
@@ -1837,9 +2041,232 @@ def ken_burns_from_image(
     return None
 
 
+
+
+def video_pollinations(
+    prompt: str,
+    out: Path,
+    *,
+    w: int = 720,
+    h: int = 1280,
+    duration: float = 5.0,
+    model: str = "alibaba/wan-2.2-fast",
+    seed: Optional[int] = None,
+    image_url: str = "",
+) -> Optional[Path]:
+    """Pollinations.ai Text-to-Video generation via unified gen.pollinations.ai API."""
+    import urllib.parse
+    from pipeline.custom_pipeline.media_call_guard import (
+        claim_create,
+        is_circuit_open,
+        open_circuit,
+        prompt_fingerprint,
+        release_claim,
+    )
+    from pipeline.custom_pipeline.quota_rotate import is_key_usable, mark_exhausted
+
+    if is_circuit_open("pollinations_video"):
+        return None
+
+    keys = _env_keys("POLLINATIONS_API_KEY", "POLLINATIONS_API")
+    try:
+        from pipeline.api_keys import load_api_bundle
+        b = load_api_bundle()
+        if b.get("pollinations_key") and b["pollinations_key"] not in keys:
+            keys.append(b["pollinations_key"])
+        for pk in b.get("pollinations_keys") or []:
+            if pk and pk not in keys:
+                keys.append(pk)
+    except Exception:
+        pass
+
+    if not keys:
+        logger.debug("[PollinationsVideo] No API keys configured.")
+        return None
+
+    fp = prompt_fingerprint(prompt, aspect=f"{w}x{h}", duration=duration)
+    if not claim_create("pollinations_video", fp):
+        return None
+
+    wait_media_gap(reason="pollinations_video")
+    out = Path(out)
+    safe_prompt = urllib.parse.quote(prompt.strip()[:600])
+
+    models = [
+        model,
+        "alibaba/wan-2.2-fast",
+        "bytedance/seedance-1-pro-fast",
+        "kandinskylab/kandinsky-6.0-lite",
+        "google/veo-3.1-fast"
+    ]
+    seen = set()
+    models = [m for m in models if not (m in seen or seen.add(m))]
+
+    for key in keys:
+        if not is_key_usable("pollinations_video", key):
+            continue
+        for m in models:
+            url = f"https://gen.pollinations.ai/video/{safe_prompt}?key={key}&width={w}&height={h}&duration={int(duration)}&model={m}"
+            try:
+                headers = {"Authorization": f"Bearer {key}", "User-Agent": "AutoMoviePro/2.0"}
+                with httpx.Client(timeout=180.0, follow_redirects=True) as client:
+                    r = client.get(url, headers=headers)
+                    if r.status_code in (401, 403):
+                        logger.warning("Pollinations video auth rejected key=…%s: %s", key[-4:], r.text[:100])
+                        mark_exhausted("pollinations_video", key, reason="auth_rejected", hours=12.0)
+                        break
+                    if r.status_code == 429:
+                        logger.warning("Pollinations video rate limited key=…%s", key[-4:])
+                        mark_exhausted("pollinations_video", key, reason="rate_limited", hours=1.0)
+                        break
+                    if r.status_code == 200:
+                        ctype = r.headers.get("content-type", "")
+                        if "video" in ctype or "octet" in ctype or len(r.content) > 30000:
+                            out.parent.mkdir(parents=True, exist_ok=True)
+                            out.write_bytes(r.content)
+                            if out.stat().st_size > 30000:
+                                release_claim("pollinations_video", fp, reason="ok")
+                                logger.info("🏆 [PollinationsVideo] OK model=%s → %s (%d bytes)", m, out.name, out.stat().st_size)
+                                return out
+            except Exception as e_p:
+                logger.debug("Pollinations video attempt error: %s", str(e_p)[:100])
+
+    open_circuit("pollinations_video", 300, reason="all_attempts_failed")
+    return None
+
+
+def video_huggingface_spaces(
+    prompt: str,
+    out: Path,
+    *,
+    w: int = 704,
+    h: int = 480,
+    duration: float = 4.0,
+    space_id: str = "",
+    seed: Optional[int] = None,
+    image_url: str = "",
+) -> Optional[Path]:
+    """Hugging Face Spaces Text-to-Video generation using Gradio API and token rotation."""
+    import random, json
+    from pipeline.custom_pipeline.media_call_guard import (
+        claim_create,
+        is_circuit_open,
+        open_circuit,
+        prompt_fingerprint,
+        release_claim,
+    )
+    from pipeline.custom_pipeline.quota_rotate import is_key_usable, mark_exhausted
+
+    if is_circuit_open("huggingface_spaces_video"):
+        return None
+
+    keys = _env_keys("HUGGINGFACE_API_KEY", "HF_TOKEN", "HF_API_KEY")
+    try:
+        from pipeline.api_keys import load_api_bundle
+        for tk in load_api_bundle().get("huggingface_keys") or []:
+            if tk and tk not in keys:
+                keys.append(tk)
+    except Exception:
+        pass
+
+    if not keys:
+        logger.debug("[HFSpacesVideo] No HuggingFace tokens configured.")
+        return None
+
+    fp = prompt_fingerprint(prompt, aspect=f"{w}x{h}", duration=duration)
+    if not claim_create("huggingface_spaces_video", fp):
+        return None
+
+    wait_media_gap(reason="huggingface_spaces_video")
+    out = Path(out)
+
+    candidate_spaces = [
+        space_id or _env_val("AMP_HF_VIDEO_SPACE", default=""),
+        "DeepRat/LTX-Video-ZeroGPU-Optimized",
+        "OpenKing/wan2-video-generation",
+        "amisima/LTX_2.5_Turbo_Studio",
+        "wavespeed/wan2.2",
+    ]
+    candidate_spaces = [s for s in candidate_spaces if s]
+
+    for token in keys:
+        if not is_key_usable("huggingface_spaces_video", token):
+            continue
+        headers = {"Authorization": f"Bearer {token}", "User-Agent": "AutoMoviePro/2.0"}
+
+        for sp in candidate_spaces:
+            sp_clean = sp.replace("/", "-").replace("_", "-").lower()
+            base_url = f"https://{sp_clean}.hf.space"
+
+            try:
+                with httpx.Client(timeout=180.0, follow_redirects=True) as client:
+                    call_url = f"{base_url}/gradio_api/call/text_to_video"
+                    payload = {
+                        "data": [
+                            fit_prompt_for_provider(prompt, 600),
+                            "blurry, distorted, low quality, artifacts, cartoon",
+                            None,
+                            None,
+                            h,
+                            w,
+                            "text_to_video",
+                            int(duration),
+                            0,
+                            seed or random.randint(1000, 999999),
+                            True,
+                            3.0,
+                            False,
+                            False
+                        ]
+                    }
+                    r_call = client.post(call_url, headers=headers, json=payload, timeout=20.0)
+                    if r_call.status_code == 200:
+                        event_id = r_call.json().get("event_id")
+                        if event_id:
+                            stream_url = f"{base_url}/gradio_api/call/text_to_video/{event_id}"
+                            with client.stream("GET", stream_url, headers=headers, timeout=120.0) as stream_resp:
+                                for line in stream_resp.iter_lines():
+                                    if not line:
+                                        continue
+                                    if line.startswith("data:"):
+                                        data_str = line[5:].strip()
+                                        if data_str and data_str != "null":
+                                            try:
+                                                data_json = json.loads(data_str)
+                                                video_url = None
+                                                if isinstance(data_json, list) and len(data_json) > 0:
+                                                    first_item = data_json[0]
+                                                    if isinstance(first_item, dict):
+                                                        video_url = first_item.get("video") or first_item.get("url") or first_item.get("path")
+                                                    elif isinstance(first_item, str) and first_item.endswith((".mp4", ".mov", ".webm")):
+                                                        video_url = first_item
+
+                                                if video_url:
+                                                    if not video_url.startswith("http"):
+                                                        video_url = f"{base_url}/gradio_api/file={video_url}"
+                                                    r_dl = client.get(video_url, headers=headers, timeout=60.0)
+                                                    if r_dl.status_code == 200 and len(r_dl.content) > 30000:
+                                                        out.parent.mkdir(parents=True, exist_ok=True)
+                                                        out.write_bytes(r_dl.content)
+                                                        release_claim("huggingface_spaces_video", fp, reason="ok")
+                                                        logger.info("🏆 [HFSpacesVideo] OK space=%s → %s (%d bytes)", sp, out.name, out.stat().st_size)
+                                                        return out
+                                            except Exception:
+                                                pass
+                                    if "event: error" in line:
+                                        break
+            except Exception as e_hf:
+                logger.debug("HF Spaces attempt space=%s error: %s", sp, str(e_hf)[:100])
+
+    open_circuit("huggingface_spaces_video", 300, reason="all_hf_spaces_failed")
+    return None
+
+
 VIDEO_CHAIN = (
     ("google_veo", video_google_veo),
     ("agnes", video_agnes),
+    ("pollinations", video_pollinations),
+    ("huggingface_spaces", video_huggingface_spaces),
     ("kling", video_kling),
     ("openrouter", video_openrouter),
     ("huggingface", video_huggingface),

@@ -52,23 +52,23 @@
     },
     "bn": {
       "name": "বিমান দুর্ঘটনার রহস্য",
-      "blurb": "ভিডিও টাইপ: Black-box analysis and investigative storytelling of plane crashes — what went wrong, who survived, and what conspiracy theories emerged afterward."
+      "blurb": "ব্ল্যাক-বক্স বিশ্লেষণ এবং বিমান দুর্ঘটনার পেছনের রহস্য ও ষড়যন্ত্র তত্ত্বের অনুসন্ধান।"
     },
     "hi": {
       "name": "विमान दुर्घटना रहस्य",
-      "blurb": "वीडियो प्रकार: Black-box analysis and investigative storytelling of plane crashes — what went wrong, who survived, and what conspiracy theories emerged afterward."
+      "blurb": "ब्लैक-बॉक्स विश्लेषण और विमान दुर्घटनाओं के पीछे की सच्चाई और षड्यंत्र के सिद्धांतों की खोज।"
     },
     "ur": {
-      "name": "ہوائی حادثات کے اسرار",
-      "blurb": "ویڈیو کی قسم: Black-box analysis and investigative storytelling of plane crashes — what went wrong, who survived, and what conspiracy theories emerged afterward."
+      "name": "فضائی حادثات کے راز",
+      "blurb": "بلیک باکس کا تجزیہ اور طیارہ حادثات کے پیچھے چھپے اسسرار اور سازشی کہانیوں کی کھوج۔"
     },
     "ta": {
-      "name": "விமான விபத்து மர்மங்கள்",
-      "blurb": "வீடியோ வகை: Black-box analysis and investigative storytelling of plane crashes — what went wrong, who survived, and what conspiracy theories emerged afterward."
+      "name": "விமான விபத்து ரகசியங்கள்",
+      "blurb": "பிளாக்-பாக்ஸ் பகுப்பாய்வு மற்றும் விமான விபத்துகளுக்குப் பின் உள்ள உண்மைகள் மற்றும் கோட்பாடுகள்."
     },
     "ml": {
       "name": "വിമാന അപകട രഹസ്യങ്ങൾ",
-      "blurb": "വീഡിയോ തരം: Black-box analysis and investigative storytelling of plane crashes — what went wrong, who survived, and what conspiracy theories emerged afterward."
+      "blurb": "ബ്ലാക്ക് ബോക്സ് വിശകലനവും വിമാന ദുരന്തങ്ങളുടെ പിന്നിലെ യാഥാർത്ഥ്യങ്ങളും ഗൂഢാലോചനകളും."
     }
   },
   "source": "Nish.Md + deterministic research",

@@ -268,13 +268,7 @@ class AudioLocalizationEngine:
         elif hook_type == "closing":
             return rules["closing"]
 
-        # Body contextual adaptation
-        if lang == "bn":
-            return f"{source_text} (বাংলা প্রেক্ষাপটে অত্যন্ত উপযোগী)"
-        elif lang == "hi":
-            return f"{source_text} (महत्वपूर्ण विश्लेषण)"
-        elif lang == "ur":
-            return f"{source_text} (اہم معلوماتی تجزیہ)"
+        # Body contextual adaptation: preserve clean spoken dialogue
         return source_text
 
     def _synthesize_local_audio(
@@ -420,10 +414,25 @@ class AudioLocalizationEngine:
                 except Exception as exc:
                     logger.warning("Edge-TTS failed (%s), attempting local audio synthesis", exc)
 
-        # Tier 3: Local Synthetic Audio Fallback
+        # Tier 3: Local Synthetic Audio Fallback (Only in explicit local provider or offline test mode)
         if not out_path.exists() or out_path.stat().st_size < 200:
-            self._synthesize_local_audio(text, out_path, expected_duration_sec)
-            source_note = "Synthesized using local audio synthesis engine."
+            if provider == "local" or os.environ.get("AUTOMOVIE_ALLOW_TEST_AUDIO") == "1":
+                self._synthesize_local_audio(text, out_path, expected_duration_sec)
+                source_note = "Synthesized using local test audio generator."
+            else:
+                return LocalizedDialogue(
+                    scene_index=scene_index,
+                    lang_code=lang,
+                    original_text=text,
+                    localized_text=text,
+                    audio_file_path=str(out_path),
+                    duration_sec=0.0,
+                    passed_qa=False,
+                    qa_notes="TTS synthesis failed: Google and Edge-TTS engines unavailable or returned no audio.",
+                    sample_rate=0,
+                    audio_codec="",
+                    file_size_bytes=0,
+                )
 
         # 3. Audio File Format, Duration & Sample Rate Inspection
         audio_info = inspect_audio_file(out_path)
@@ -445,8 +454,8 @@ class AudioLocalizationEngine:
         # 4. Local Agent Quality QA
         dialogue = self.inspect_audio_quality(dialogue, text, expected_duration_sec=expected_duration_sec)
 
-        # Automated Recovery: If QA failed, trigger recovery via local audio synthesizer
-        if not dialogue.passed_qa:
+        # Automated Recovery: Only in explicit local test mode
+        if not dialogue.passed_qa and (provider == "local" or os.environ.get("AUTOMOVIE_ALLOW_TEST_AUDIO") == "1"):
             logger.warning(
                 "Audio QA failed for scene #%d (%s). Triggering automated recovery fallback.",
                 scene_index,

@@ -52,23 +52,23 @@
     },
     "bn": {
       "name": "ডুবে যাওয়া শহর",
-      "blurb": "ভিডিও টাইপ: Lost underwater worlds — Dwarka, Port Royal — how they sank and what archaeologists have recovered."
+      "blurb": "পানিতে তলিয়ে যাওয়া হারিয়ে যাওয়া জগৎ—দ্বারকা ও পোর্ট রয়্যাল—কীভাবে তারা ডুবেছিল ও প্রত্নতাত্ত্বিকদের আবিষ্কার।"
     },
     "hi": {
-      "name": "डूबे हुए शहर",
-      "blurb": "वीडियो प्रकार: Lost underwater worlds — Dwarka, Port Royal — how they sank and what archaeologists have recovered."
+      "name": "जलमग्न शहर",
+      "blurb": "खोई हुई जल के नीचे की दुनिया—द्वारका, पोर्ट रॉयल—वे कैसे डूबे और पुरातत्वविदों ने क्या खोजा।"
     },
     "ur": {
       "name": "ڈوبے ہوئے شہر",
-      "blurb": "ویڈیو کی قسم: Lost underwater worlds — Dwarka, Port Royal — how they sank and what archaeologists have recovered."
+      "blurb": "پانی میں ڈوبی ہوئی گمشدہ دنیا—द्वारকা، پورٹ رائل—وہ کیسے ڈوبے اور ماہرینِ آثارِ قدیمہ نے کیا دریافت کیا۔"
     },
     "ta": {
       "name": "மூழ்கிய நகரங்கள்",
-      "blurb": "வீடியோ வகை: Lost underwater worlds — Dwarka, Port Royal — how they sank and what archaeologists have recovered."
+      "blurb": "நீருக்கடியில் உள்ள தொலைந்த உலகங்கள்—துவாரகா, போர்ட் ராயல்—அவை எவ்வாறு மூழ்கின மற்றும் தொல்பொருள் கண்டுபிடிப்புகள்."
     },
     "ml": {
       "name": "മുങ്ങിയ നഗരങ്ങൾ",
-      "blurb": "വീഡിയോ തരം: Lost underwater worlds — Dwarka, Port Royal — how they sank and what archaeologists have recovered."
+      "blurb": "ജലാശയത്തിനടിയിലായ നഷ്ടലോകങ്ങൾ—ദ്വാരക, പോർട്ട് റോയൽ—അവ എങ്ങനെ മുങ്ങി, പുരാവസ്തു ഗവേഷകർ എന്തെല്ലാം കണ്ടെത്തി."
     }
   },
   "source": "Nish.Md + deterministic research",

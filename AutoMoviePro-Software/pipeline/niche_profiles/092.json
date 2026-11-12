@@ -1,83 +1,64 @@
 {
   "niche_id": 92,
-  "name": "Life-Saving Websites",
-  "slug": "life-saving-websites",
-  "style_family": "history",
+  "name": "Geopolitical Explainer",
+  "slug": "geopolitical-explainer",
+  "style_family": "news",
   "status": "VERIFIED",
   "topic_seeds": [
-    "What new evidence reframes the story of Life inside Life-Saving Websites",
-    "How Life still shapes public curiosity about Life-Saving Websites",
-    "What new evidence reframes the story of Saving Websites Platforms inside Life-Saving Websites",
-    "How Saving Websites Platforms still shapes public curiosity about Life-Saving Websites",
-    "What new evidence reframes the story of Check inside Life-Saving Websites",
-    "How Check still shapes public curiosity about Life-Saving Websites"
+    "Key analytical breakdown on Geopolitical Explainer",
+    "Behind the scenes of major Geopolitical Explainer events",
+    "Critical evidence and timelines in Geopolitical Explainer"
   ],
   "seo_angles": [
-    "What new evidence reframes the story of Life inside Life-Saving Websites",
-    "How Life still shapes public curiosity about Life-Saving Websites",
-    "What new evidence reframes the story of Saving Websites Platforms inside Life-Saving Websites",
-    "How Saving Websites Platforms still shapes public curiosity about Life-Saving Websites"
+    "What people misunderstand about Geopolitical Explainer",
+    "Why this historic moment in Geopolitical Explainer matters today"
   ],
   "forbidden_visuals": [
     "talking-head lip-sync avatar",
     "burned-in captions",
     "watermark",
     "modern meme text",
-    "modern smartphones",
-    "cars",
-    "LED screens",
-    "sneakers",
-    "contemporary skyline"
+    "random stock photo cutout"
   ],
   "preferred_subjects": [
-    "Life-Saving Websites documentary subject",
-    "period-accurate environment",
-    "evidence object close-up"
+    "high-resolution authentic environments",
+    "data-driven infographics and telemetry",
+    "moody cinematic lighting"
   ],
-  "lighting_default": "warm desert sun / torchlit interiors, high-contrast documentary grade",
-  "face_policy": "period extras OK if consistent; prefer environment/object hero when possible",
-  "dialogue_tone": "human documentary narration; specific nouns; 7–9s beats",
-  "audio_ambience": "subtle documentary bed; do not overpower voice",
+  "lighting_default": "cinematic high-contrast documentary grade",
+  "face_policy": "avoid talking head lip-sync; prefer environmental/tactical/infographic hero",
+  "dialogue_tone": "authoritative, engaging, retention-focused documentary narrative",
+  "audio_ambience": "subtle low-end atmospheric resonance, precise Foley SFX",
   "research_hints": [
-    "Prefer primary evidence and concrete entities for Life-Saving Websites",
-    "Avoid generic niche-label topics; require specific place/person/event/mechanism",
-    "7–9 second spoken beats with story continuity across scenes"
+    "Prefer factual, verified data points for Geopolitical Explainer",
+    "Strong retention hook in opening 3 seconds"
   ],
-  "topic_prompt_overlay": "NICHE LOCK (Life-Saving Websites): only propose topics that fit this niche's video type. Video type: Platforms that prevent suicide, offer mental health first aid, or help during domestic abuse — with step-by-step usage guides. Follow niche topic strategy: Check mental health news, new helpline platforms, or viral mental health campaigns. Generate a topic about a life-saving resource many don't know.",
-  "video_prompt_overlay": "NICHE VISUAL LOCK (Life-Saving Websites / history): Generate a 7–9 second dialogue clip based on the topic `{topic}`. Each dialogue must be supportive and informative. For each dialogue, generate: - **Audio Generation Prompt:** Voice — gentle, reassuring, with soft ringing phone. - **Video Generation Prompt:** Detailed visual — a phone screen or laptop. No character — screen. Lighting: soft, warm. Maintain same screen. Forbidden: talking-head lip-sync avatar, burned-in captions, watermark, modern meme text, modern smartphones, cars, LED screens, sneakers. Preferred subjects: Life-Saving Websites documentary subject, period-accurate environment, evidence object close-up. Lighting: warm desert sun / torchlit interiors, high-contrast documentary grade. Face policy: period extras OK if consistent; prefer environment/object hero when possible. Dialogue tone: human documentary narration; specific nouns; 7–9s beats. Ambience: subtle documentary bed; do not overpower voice.",
+  "topic_prompt_overlay": "NICHE LOCK (Geopolitical Explainer): Analyze real-time global defense developments, diplomatic tensions, naval passage crises (Suez, Malacca, Taiwan Strait, Red Sea), and international treaty shifts. Identify topics with high geopolitical curiosity, search momentum, and multi-sided strategic stakes. Structure topics around 'Why [Country/Alliance] Is Secretly Preparing For [Conflict/Move]' or 'The Geographic Flaw That Threatens [Nation]'.",
+  "video_prompt_overlay": "NICHE VISUAL LOCK (Geopolitical Explainer / news): Generate a 7–9 second documentary beat for topic {topic}. Visuals: High-definition 3D topographic relief map with tactical vector borders, glowing strategic arrows, and satellite reconnaissance perspectives. Cinematic broadcast color grading (navy blue, slate grey, alert amber). Camera: Slow descending oblique crane shot sweeping across disputed terrain. Ambience: Deep cinematic war drum undertone, subtle radio transmission frequencies, and urgent broadcast resonance.",
   "i18n": {
     "en": {
-      "name": "Life-Saving Websites",
-      "blurb": "Platforms that prevent suicide, offer mental health first aid, or help during domestic abuse — with step-by-step usage guides."
+      "name": "Geopolitical Explainer",
+      "blurb": "Strategic deep dives into global border conflicts, military chokepoints, international treaties, and sovereign power struggles. Utilizes dynamic satellite maps, tactical territory"
     },
     "bn": {
-      "name": "জীবনরক্ষাকারী ওয়েবসাইট",
-      "blurb": "ভিডিও টাইপ: Platforms that prevent suicide, offer mental health first aid, or help during domestic abuse — with step-by-step usage guides."
+      "name": "ভূরাজনৈতিক বিশ্লেষণ",
+      "blurb": "বিশ্বের সীমানা দ্বন্দ্ব ও সামরিক কৌশল নিয়ে গভীর ও তথ্যবহুল ভূরাজনৈতিক পর্যালোচনা।"
     },
     "hi": {
-      "name": "जीवनरक्षक वेबसाइटें",
-      "blurb": "वीडियो प्रकार: Platforms that prevent suicide, offer mental health first aid, or help during domestic abuse — with step-by-step usage guides."
+      "name": "भूराजनीतिक विश्लेषक",
+      "blurb": "वैश्विक सीमा विवादों और रणनीतिक सैन्य चौकियों का गहराई से विश्लेषण करने वाला कार्यक्रम।"
     },
     "ur": {
-      "name": "جان بچانے والی ویب سائٹس",
-      "blurb": "ویڈیو کی قسم: Platforms that prevent suicide, offer mental health first aid, or help during domestic abuse — with step-by-step usage guides."
+      "name": "جیو پولیٹیکل تجزیہ",
+      "blurb": "عالمی سرحدی تنازعات اور فوجی اسٹریٹجی کا گہرائی سے تجزیہ پیش کرنے والی دستاویزی سلسلہ۔"
     },
     "ta": {
-      "name": "உயிர்காக்கும் இணையதளங்கள்",
-      "blurb": "வீடியோ வகை: Platforms that prevent suicide, offer mental health first aid, or help during domestic abuse — with step-by-step usage guides."
+      "name": "புவிசார் அரசியல் பகுப்பாய்வு",
+      "blurb": "சர்வதேச எல்லை மோதல்கள் மற்றும் ராணுவ வியூகங்கள் பற்றிய ஆழமான மற்றும் துல்லியமான பார்வை."
     },
     "ml": {
-      "name": "ജീവൻ രക്ഷിക്കുന്ന വെബ്സൈറ്റുകൾ",
-      "blurb": "വീഡിയോ തരം: Platforms that prevent suicide, offer mental health first aid, or help during domestic abuse — with step-by-step usage guides."
+      "name": "ഭൂരാഷ്ട്രതന്ത്ര വിശകലനം",
+      "blurb": "ആഗോള അതിർത്തി തർക്കങ്ങളെയും സൈനിക തന്ത്രങ്ങളെയും കുറിച്ചുള്ള ആഴത്തിലുള്ള അപഗ്രഥനം."
     }
-  },
-  "source": "Nish.Md + deterministic research",
-  "research_notes": [
-    "Marathon researched at 2026-09-10T08:30:21Z",
-    "Video type length=126",
-    "Topic prompt length=146",
-    "Video prompt length=370",
-    "Seeds=6"
-  ],
-  "verified_at": "2026-09-10T08:30:21Z"
+  }
 }

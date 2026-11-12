@@ -52,23 +52,23 @@
     },
     "bn": {
       "name": "সময় গণনার ইতিহাস",
-      "blurb": "ভিডিও টাইপ: Sundials, hourglasses, quartz, atomic clocks — the evolution of how we measure and experience time."
+      "blurb": "সূর্যঘড়ি, বালুকঘড়ি থেকে কোয়ার্টজ ও পারমাণবিক ঘড়ি— সময়কে মাপা ও অনুভব করার প্রযুক্তির বিবর্তন।"
     },
     "hi": {
-      "name": "समय मापन का इतिहास",
-      "blurb": "वीडियो प्रकार: Sundials, hourglasses, quartz, atomic clocks — the evolution of how we measure and experience time."
+      "name": "समय मापने का इतिहास",
+      "blurb": "धूपघड़ी, रेतघड़ी से लेकर क्वार्ट्ज और परमाणु घड़ियों तक— समय को मापने और अनुभव करने का सफर।"
     },
     "ur": {
-      "name": "وقت رکھنے کی تاریخ",
-      "blurb": "ویڈیو کی قسم: Sundials, hourglasses, quartz, atomic clocks — the evolution of how we measure and experience time."
+      "name": "وقت کی پیمائش کی تاریخ",
+      "blurb": "دھوپ گھڑی، ریت والی گھڑی سے کوارٹج اور ایٹمی گھڑیوں تک— وقت کو ناپنے اور محسوس کرنے کا ارتقا۔"
     },
     "ta": {
-      "name": "நேரக் கணிப்பு வரலாறு",
-      "blurb": "வீடியோ வகை: Sundials, hourglasses, quartz, atomic clocks — the evolution of how we measure and experience time."
+      "name": "காலக் கணிப்பு வரலாறு",
+      "blurb": "சூரியக் கடிகாரம், மணற்கடிகாரம் முதல் குவார்ட்ஸ் மற்றும் அணுக்கடிகாரங்கள் வரை— நேரத்தை அளவிடும் முறையின் பரிணாம வளர்ச்சி."
     },
     "ml": {
-      "name": "സമയകണക്ക് ചരിത്രം",
-      "blurb": "വീഡിയോ തരം: Sundials, hourglasses, quartz, atomic clocks — the evolution of how we measure and experience time."
+      "name": "സമയമാപനത്തിന്റെ ചരിത്രം",
+      "blurb": "സൂര്യഘടികാരം, മണൽഘടികാരം മുതൽ ക്വാർട്സ്, ആറ്റോമിക് ਘடிகாரങ്ങൾ വരെ— സമയത്തെ അളക്കുന്നതിന്റെയും അനുഭവിക്കുന്നതിന്റെയും പരിണാമം."
     }
   },
   "source": "Nish.Md + deterministic research",

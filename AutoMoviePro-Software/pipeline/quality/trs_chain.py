@@ -26,26 +26,26 @@ def persist_trs_chain_artifacts(
         "topic_text": topic,
         "authority": "pipeline.intelligence.topic_quality / TRS",
     }
-    (work_dir / "TOPIC.json").write_text(json.dumps(topic_doc, ensure_ascii=False, indent=2), encoding="utf-8")
+    (work_dir / "TOPIC.json").write_text(json.dumps(topic_doc, ensure_ascii=False, indent=2, default=str), encoding="utf-8")
     written.append("TOPIC.json")
 
     research_doc = dict(research or {})
     research_doc.setdefault("job_id", job)
     research_doc.setdefault("status", "PRESENT" if research else "ABSENT")
-    (work_dir / "RESEARCH.json").write_text(json.dumps(research_doc, ensure_ascii=False, indent=2), encoding="utf-8")
+    (work_dir / "RESEARCH.json").write_text(json.dumps(research_doc, ensure_ascii=False, indent=2, default=str), encoding="utf-8")
     written.append("RESEARCH.json")
 
     fp_doc = dict(fact_pack or {})
     fp_doc.setdefault("job_id", job)
     fp_doc.setdefault("status", "PRESENT" if fact_pack else "ABSENT")
-    (work_dir / "FACTPACK.json").write_text(json.dumps(fp_doc, ensure_ascii=False, indent=2), encoding="utf-8")
+    (work_dir / "FACTPACK.json").write_text(json.dumps(fp_doc, ensure_ascii=False, indent=2, default=str), encoding="utf-8")
     written.append("FACTPACK.json")
 
     script_doc = dict(script_plan or {})
     script_doc.setdefault("job_id", job)
     script_doc.setdefault("status", "PRESENT" if script_plan else "ABSENT")
     script_doc.setdefault("topic", topic)
-    (work_dir / "SCRIPT.json").write_text(json.dumps(script_doc, ensure_ascii=False, indent=2), encoding="utf-8")
+    (work_dir / "SCRIPT.json").write_text(json.dumps(script_doc, ensure_ascii=False, indent=2, default=str), encoding="utf-8")
     written.append("SCRIPT.json")
 
     chain = {
@@ -55,5 +55,5 @@ def persist_trs_chain_artifacts(
         "linked": True,
         "authority": "pipeline.quality.trs_chain",
     }
-    (work_dir / "TRS_CHAIN.json").write_text(json.dumps(chain, ensure_ascii=False, indent=2), encoding="utf-8")
+    (work_dir / "TRS_CHAIN.json").write_text(json.dumps(chain, ensure_ascii=False, indent=2, default=str), encoding="utf-8")
     return chain

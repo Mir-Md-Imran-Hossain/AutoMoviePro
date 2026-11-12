@@ -49,21 +49,33 @@ def validate_prompt_contradiction(
                 )
             )
 
-    # Canonical smartphone vs DSLR contradiction — positive prompt only
-    canonical_device = "smartphone" if any("phone" in e.label.lower() for e in intent.entities) else ""
-    pos_only = _tokens(provider_prompt or compiled.positive)
-    if canonical_device and any(t in pos_only for t in ("dslr", "professional", "broadcast", "cinema")):
-        if "external" in intent.negative_constraints or any(
-            "external" in nc.lower() or "dslr" in nc.lower() for nc in intent.negative_constraints
-        ):
-            issues.append(
-                SemanticIssue(
-                    code=SemanticIssueCode.DIALOGUE_VISUAL_CONTRADICTION,
-                    message="Prompt contradicts canonical device: smartphone vs external/pro DSLR camera",
-                    severity="CRITICAL",
-                    evidence={"canonical": canonical_device, "prompt_tokens": sorted(combined_tokens)[:12]},
+    # Canonical smartphone camera vs DSLR contradiction — positive prompt only
+    canonical_capture_device = ""
+    for e in intent.entities:
+        is_capture = (
+            e.entity_type == "device"
+            or e.attributes.get("role") in ("capture_device", "camera", "recording_device")
+            or "camera" in e.label.lower()
+        )
+        if is_capture and ("phone" in e.label.lower() or "smartphone" in e.label.lower()):
+            canonical_capture_device = "smartphone"
+            break
+
+    if canonical_capture_device:
+        pos_only = _tokens(provider_prompt or compiled.positive)
+        if any(t in pos_only for t in ("dslr", "broadcast_camera", "cinema_rig")):
+            if "external" in intent.negative_constraints or any(
+                "external" in nc.lower() or "dslr" in nc.lower() for nc in intent.negative_constraints
+            ):
+                issues.append(
+                    SemanticIssue(
+                        code=SemanticIssueCode.DIALOGUE_VISUAL_CONTRADICTION,
+                        message="Prompt contradicts canonical capture device: smartphone vs external/pro DSLR camera",
+                        severity="CRITICAL",
+                        evidence={"canonical": canonical_capture_device, "prompt_tokens": sorted(combined_tokens)[:12]},
+                    )
                 )
-            )
+
 
     # Posture contradiction
     if intent.posture:

@@ -1,8 +1,8 @@
 {
   "niche_id": 132,
-  "name": "Ghost Hunting Gear",
-  "slug": "ghost-hunting-gear",
-  "style_family": "finance",
+  "name": "Biomimicry: Nature-Inspired Engineering",
+  "slug": "biomimicry-nature-inspired-engineering",
+  "style_family": "science",
   "status": "VERIFIED",
   "topic_seeds": [
     "What new evidence reframes the story of Ghost Hunting Gear inside Ghost Hunting Gear",
@@ -43,28 +43,28 @@
   "video_prompt_overlay": "NICHE VISUAL LOCK (Ghost Hunting Gear / finance): Generate a 7–9 second dialogue clip based on the topic `{topic}`. Each dialogue must be investigative. For each dialogue, generate: - **Audio Generation Prompt:** Voice — curious, with beeping and static. - **Video Generation Prompt:** Detailed visual — a hand holding a device. Character: ghost hunter (glove, flashlight). Lighting: night vision style. Maintain same device. Forbidden: talking-head lip-sync avatar, burned-in captions, watermark, modern meme text, off-niche stock office B-roll. Preferred subjects: Ghost Hunting Gear documentary subject, period-accurate environment, evidence object close-up. Lighting: natural directional key, documentary clarity. Face policy: no talking-head lip-sync avatar; cinematic B-roll preferred. Dialogue tone: human documentary narration; specific nouns; 7–9s beats. Ambience: subtle documentary bed; do not overpower voice.",
   "i18n": {
     "en": {
-      "name": "Ghost Hunting Gear",
-      "blurb": "EMF meters, REM pods, spirit boxes — how ghost hunters work, and whether the evidence holds up."
+      "name": "Biomimicry: Nature-Inspired Engineering",
+      "blurb": "How engineers copy nature's 3.8-billion-year-old designs — Japanese bullet trains inspired by the kingfisher bird, Velcro inspired by burdock seeds, shark skin antibacterial surfac"
     },
     "bn": {
-      "name": "ভূত শিকারের সরঞ্জাম",
-      "blurb": "ভিডিও টাইপ: EMF meters, REM pods, spirit boxes — how ghost hunters work, and whether the evidence holds up."
+      "name": "বায়োমিমিক্রি: প্রকৃতি-অনুপ্রাণিত প্রকৌশলী",
+      "blurb": "প্রকৃতির ৩৮০ কোটি বছরের নকশা কীভাবে প্রকৌশলীরা অনুকরণ করছেন — মাছরাঙা থেকে বুলেট ট্রেনের রূপায়ণ।"
     },
     "hi": {
-      "name": "भूत शिकार उपकरण",
-      "blurb": "वीडियो प्रकार: EMF meters, REM pods, spirit boxes — how ghost hunters work, and whether the evidence holds up."
+      "name": "बायोमिमिक्री: प्रकृति से प्रेरित इंजीनियरिंग",
+      "blurb": "कैसे इंजीनियर प्रकृति के अरबों साल पुराने डिजाइन अपनाते हैं — किंगफिशर से बुलेट ट्रेन तक।"
     },
     "ur": {
-      "name": "بھوت شکار کا سامان",
-      "blurb": "ویڈیو کی قسم: EMF meters, REM pods, spirit boxes — how ghost hunters work, and whether the evidence holds up."
+      "name": "بائیو مিমিকری: فطرت سے متاثرہ انجینئرنگ",
+      "blurb": "انجینئر کس طرح فطرت کے اربوں سال پرانے ڈیزائن نقل کرتے ہیں — کِنگ فشر سے متاثر بلٹ ٹرین ذریعے۔"
     },
     "ta": {
-      "name": "பேய் வேட்டை கருவிகள்",
-      "blurb": "வீடியோ வகை: EMF meters, REM pods, spirit boxes — how ghost hunters work, and whether the evidence holds up."
+      "name": "பயோமிமிக்ரி: இயற்கையை ஊக்கப்படுத்திய பொறியியல்",
+      "blurb": "இயற்கையின் பலகோடி ஆண்டு வடிவமைப்புகளைப் பொறியாளர்கள் எவ்வாறு நகலெடுக்கிறார்கள் என்பதன் வியப்பு."
     },
     "ml": {
-      "name": "ഭൂതവേട്ട ഉപകരണങ്ങൾ",
-      "blurb": "വീഡിയോ തരം: EMF meters, REM pods, spirit boxes — how ghost hunters work, and whether the evidence holds up."
+      "name": "ബയോമിമിക്രി: പ്രകൃതിയിൽ നിന്ന് പ്രചോദനം ഉൾക്കൊണ്ട എൻജിനീയറിങ്",
+      "blurb": "പ്രകൃതിയുടെ കോടിക്കണക്കിന് വർഷത്തെ രൂപകൽപ്പനകൾ എൻജിനീയർമാർ എങ്ങനെ പകർത്തുന്നു."
     }
   },
   "source": "Nish.Md + deterministic research",

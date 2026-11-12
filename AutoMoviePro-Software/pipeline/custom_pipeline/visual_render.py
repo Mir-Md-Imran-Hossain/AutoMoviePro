@@ -140,14 +140,17 @@ def normalize_render_payload(
             or loc.get("source_visual_subject")
             or src.get("source_visual_subject")
         )
-        # Non-presenter documentary, or any middle shots: strictly B-roll, zero human presenter faces
-        if (non_presenter_topic or shot_no > 1) and str(visual_subject or "").strip().lower() in ("presenter", "person", "character"):
-            visual_subject = "broll"
+        # Strictly enforce NO gratuitous human presenter faces across ALL shots (Shot 1, middle, or end)
+        allow_explicit_presenter = bool(src.get("allow_presenter_avatar") or loc.get("allow_presenter_avatar"))
+        if not allow_explicit_presenter:
+            if str(visual_subject or "").strip().lower() in ("presenter", "person", "character"):
+                visual_subject = "broll"
             char_details = "none"
         elif non_presenter_topic:
             char_details = "none"
+            visual_subject = "broll"
         else:
-            char_details = src.get("character_details")
+            char_details = src.get("character_details") or "none" 
 
         # Industrial: never plan STOCK for brand/product UI — stock cannot show real chrome
         try:

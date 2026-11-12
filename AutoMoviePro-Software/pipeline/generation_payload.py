@@ -640,7 +640,7 @@ def translate_payload_for_agnes(payload: dict[str, Any] | GenerationPayload) -> 
         }
     agnes_body = {
         "provider": "agnes",
-        "model": "agnes-video-v2.0",
+        "model": "agnes-video-2.5-flash",
         "prompt": p.get("provider_prompt") or p.get("canonical_prompt") or "",
         "canonical_prompt": p.get("canonical_prompt") or "",
         "duration_hint": float((p.get("timing") or {}).get("duration_sec") or 5.0),

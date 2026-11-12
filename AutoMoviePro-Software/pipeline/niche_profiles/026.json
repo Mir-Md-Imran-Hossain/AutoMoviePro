@@ -51,24 +51,24 @@
       "blurb": "Cryptography mysteries — the Voynich Manuscript, the Zodiac Killer's letters, Kryptos — that have stumped codebreakers for decades."
     },
     "bn": {
-      "name": "অমীমাংসিত সাইফার",
-      "blurb": "ভিডিও টাইপ: Cryptography mysteries — the Voynich Manuscript, the Zodiac Killer's letters, Kryptos — that have stumped codebreakers for decades."
+      "name": "অমীমাংসিত কোড ও সংকেত",
+      "blurb": "রহস্যময় ক্রিপ্টোগ্রাফি — ভয়েনিচ পান্ডুলিপি, জোডিয়াক কিলারের চিঠি এবং ক্রিপ্টোস যা আজও ভাঙতে পারেননি কেউ।"
     },
     "hi": {
-      "name": "अनसुलझे साइफर",
-      "blurb": "वीडियो प्रकार: Cryptography mysteries — the Voynich Manuscript, the Zodiac Killer's letters, Kryptos — that have stumped codebreakers for decades."
+      "name": "અસુલઝે કોડ",
+      "blurb": "معماتی رموز — وائنچ مینو اسکرپٹ، زوڈیاک کلر کے خطوط اور کریپٹوس، جنہیں ماہرین آج تک سمجھ نہیں پائے۔"
     },
     "ur": {
-      "name": "حل نہ ہونے والے رموز",
-      "blurb": "ویڈیو کی قسم: Cryptography mysteries — the Voynich Manuscript, the Zodiac Killer's letters, Kryptos — that have stumped codebreakers for decades."
+      "name": "پراسرار کوڈز",
+      "blurb": "پراسرار تحریریں اور کوڈز — وائنیچ کا مخطوطہ، زوڈیاک کلر کے خطوط، جنہیں سمجھنے میں سب ناکام رہے۔"
     },
     "ta": {
-      "name": "விடுபடாத குறியீடுகள்",
-      "blurb": "வீடியோ வகை: Cryptography mysteries — the Voynich Manuscript, the Zodiac Killer's letters, Kryptos — that have stumped codebreakers for decades."
+      "name": "தீர்க்கப்படாத குறியீடுகள்",
+      "blurb": "ரகசிய குறியீட்டு புதிர்கள் — வோயினிச் கையெழுத்துப் பிரதி, சோடியாக் கில்லர் கடிதங்கள், பல ஆண்டுகளாக தீர்க்க முடியாதவை."
     },
     "ml": {
-      "name": "പരിഹരിക്കപ്പെടാത്ത സൈഫറുകൾ",
-      "blurb": "വീഡിയോ തരം: Cryptography mysteries — the Voynich Manuscript, the Zodiac Killer's letters, Kryptos — that have stumped codebreakers for decades."
+      "name": "തീർപ്പുകൽപ്പിക്കാത്ത കോഡുകൾ",
+      "blurb": "രഹസ്യശാസ്ത്രത്തിന്റെ പ്രഹേളികകൾ — വോയ്നിച്ച് കൈയെഴുത്തുപ്രതി, സോഡിയാക് കില്ലറുടെ കത്തുകൾ, തലപുകയ്ക്കുന്ന രഹസ്യങ്ങൾ."
     }
   },
   "source": "Nish.Md + deterministic research",

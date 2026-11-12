@@ -52,23 +52,23 @@
     },
     "bn": {
       "name": "শিল্প বিপর্যয়",
-      "blurb": "ভিডিও টাইপ: Deep exploration of Chernobyl, Bhopal, Fukushima — the technical failures, human errors, and the long-term environmental and health scars left behind."
+      "blurb": "চেরনোবিল, ভোপাল এবং ফুকুশিমার প্রযুক্তিগত ত্রুটি এবং এর দীর্ঘস্থায়ী পরিবেশগত প্রভাব।"
     },
     "hi": {
-      "name": "औद्योगिक आपदाएँ",
-      "blurb": "वीडियो प्रकार: Deep exploration of Chernobyl, Bhopal, Fukushima — the technical failures, human errors, and the long-term environmental and health scars left behind."
+      "name": "औद्योगिक आपदाएं",
+      "blurb": "चेरनोबिल, भोपाल और फुकुशिमा की तकनीकी विफलताएं और उनके दीर्घकालिक पर्यावरणीय प्रभाव।"
     },
     "ur": {
-      "name": "صنعتی تباہیاں",
-      "blurb": "ویڈیو کی قسم: Deep exploration of Chernobyl, Bhopal, Fukushima — the technical failures, human errors, and the long-term environmental and health scars left behind."
+      "name": "صنعتی سانحات",
+      "blurb": "چرنوبل، بھوپাল اور فوکشیما کے تکنیکی نقصانات اور ان کے طویل المدتی ماحولیاتی اثرات۔"
     },
     "ta": {
-      "name": "தொழில்துறை பேரழிவுகள்",
-      "blurb": "வீடியோ வகை: Deep exploration of Chernobyl, Bhopal, Fukushima — the technical failures, human errors, and the long-term environmental and health scars left behind."
+      "name": "தொழில்சார் பேரழிவுகள்",
+      "blurb": "செர்னோபில், போபால் மற்றும் புகுஷிமாவின் தொழில்நுட்ப தோல்விகள் மற்றும் சுற்றுச்சூழல் பாதிப்புகள்."
     },
     "ml": {
       "name": "വ്യാവസായിക ദുരന്തങ്ങൾ",
-      "blurb": "വീഡിയോ തരം: Deep exploration of Chernobyl, Bhopal, Fukushima — the technical failures, human errors, and the long-term environmental and health scars left behind."
+      "blurb": "ചെർണോബിൽ, ഭോപ്പാൽ, ഫുുകുഷിമ ദുരന്തങ്ങളുടെ സാങ്കേതിക തകരാറുകളും പാരിസ്ഥിതിക ആഘാതങ്ങളും."
     }
   },
   "source": "Nish.Md + deterministic research",

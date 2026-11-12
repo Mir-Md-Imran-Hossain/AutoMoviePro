@@ -1,79 +1,64 @@
 {
   "niche_id": 94,
-  "name": "Archival Treasures",
-  "slug": "archival-treasures",
-  "style_family": "science",
+  "name": "Tech Benchmarks & AI Breakdown",
+  "slug": "tech-benchmarks-ai-breakdown",
+  "style_family": "motion_graphics",
   "status": "VERIFIED",
   "topic_seeds": [
-    "What new evidence reframes the story of Archival Treasures Library inside Archival Treasures",
-    "How Archival Treasures Library still shapes public curiosity about Archival Treasures",
-    "What new evidence reframes the story of Congress inside Archival Treasures",
-    "How Congress still shapes public curiosity about Archival Treasures",
-    "What new evidence reframes the story of Europeana inside Archival Treasures",
-    "How Europeana still shapes public curiosity about Archival Treasures"
+    "Key analytical breakdown on Tech Benchmarks & AI Breakdown",
+    "Behind the scenes of major Tech Benchmarks & AI Breakdown events",
+    "Critical evidence and timelines in Tech Benchmarks & AI Breakdown"
   ],
   "seo_angles": [
-    "What new evidence reframes the story of Archival Treasures Library inside Archival Treasures",
-    "How Archival Treasures Library still shapes public curiosity about Archival Treasures",
-    "What new evidence reframes the story of Congress inside Archival Treasures",
-    "How Congress still shapes public curiosity about Archival Treasures"
+    "What people misunderstand about Tech Benchmarks & AI Breakdown",
+    "Why this historic moment in Tech Benchmarks & AI Breakdown matters today"
   ],
   "forbidden_visuals": [
     "talking-head lip-sync avatar",
     "burned-in captions",
     "watermark",
     "modern meme text",
-    "off-niche stock office B-roll"
+    "random stock photo cutout"
   ],
   "preferred_subjects": [
-    "lab instrument close-up",
-    "diagrammatic mechanism metaphor",
-    "field measurement site"
+    "high-resolution authentic environments",
+    "data-driven infographics and telemetry",
+    "moody cinematic lighting"
   ],
-  "lighting_default": "teal/cyan lab grade, high contrast, shallow DOF",
-  "face_policy": "no talking-head lip-sync avatar; cinematic B-roll preferred",
-  "dialogue_tone": "clear explainer; one mechanism per beat",
-  "audio_ambience": "clean room tone, soft electronic texture",
+  "lighting_default": "cinematic high-contrast documentary grade",
+  "face_policy": "avoid talking head lip-sync; prefer environmental/tactical/infographic hero",
+  "dialogue_tone": "authoritative, engaging, retention-focused documentary narrative",
+  "audio_ambience": "subtle low-end atmospheric resonance, precise Foley SFX",
   "research_hints": [
-    "Prefer primary evidence and concrete entities for Archival Treasures",
-    "Avoid generic niche-label topics; require specific place/person/event/mechanism",
-    "7–9 second spoken beats with story continuity across scenes"
+    "Prefer factual, verified data points for Tech Benchmarks & AI Breakdown",
+    "Strong retention hook in opening 3 seconds"
   ],
-  "topic_prompt_overlay": "NICHE LOCK (Archival Treasures): only propose topics that fit this niche's video type. Video type: Library of Congress, Europeana — exploring their digitized rare books, maps, and photographs with historical commentary. Follow niche topic strategy: Check new archival digitizations, museum news, or viral historical images. Generate a topic about a newly digitized rare find.",
-  "video_prompt_overlay": "NICHE VISUAL LOCK (Archival Treasures / science): Generate a 7–9 second dialogue clip based on the topic `{topic}`. Each dialogue must be scholarly and exciting. For each dialogue, generate: - **Audio Generation Prompt:** Voice — learned, with paper rustling and camera clicks. - **Video Generation Prompt:** Detailed visual — a reading room or digitisation lab. Character: archivist (glasses). Lighting: soft, respectful. Maintain same room. Forbidden: talking-head lip-sync avatar, burned-in captions, watermark, modern meme text, off-niche stock office B-roll. Preferred subjects: lab instrument close-up, diagrammatic mechanism metaphor, field measurement site. Lighting: teal/cyan lab grade, high contrast, shallow DOF. Face policy: no talking-head lip-sync avatar; cinematic B-roll preferred. Dialogue tone: clear explainer; one mechanism per beat. Ambience: clean room tone, soft electronic texture.",
+  "topic_prompt_overlay": "NICHE LOCK (Tech Benchmarks & AI Breakdown): Track enterprise semiconductor roadmaps, MLPerf compute benchmark releases, frontier model architectures (LLMs, multimodal diffusion, robotics models), and hardware wars (Nvidia, TSMC, AMD, ASML, Apple Silicon). Propose topics comparing efficiency metrics, compute thresholds, or architectural paradigms with immense industry impact.",
+  "video_prompt_overlay": "NICHE VISUAL LOCK (Tech Benchmarks & AI Breakdown / motion_graphics): Generate a 7–9 second futuristic tech beat for topic {topic}. Visuals: Sleek dark-mode 3D architectural breakdown of an illuminated silicon wafer or neural network weight matrix, overlaid with kinetic benchmark comparison bars, teraflop counters, and clean vector callouts. Lighting: Cyberpunk cyan, electric emerald, and deep graphite. Camera: Smooth isometric camera orbit with rapid focal pull into micro-circuitry. Ambience: Clean electronic synth pulses, subtle digital data telemetry hum, and crisp typographic clicks.",
   "i18n": {
     "en": {
-      "name": "Archival Treasures",
-      "blurb": "Library of Congress, Europeana — exploring their digitized rare books, maps, and photographs with historical commentary."
+      "name": "Tech Benchmarks & AI Breakdown",
+      "blurb": "Data-driven technical analysis of next-gen microchips, frontier AI neural architectures, GPU server clusters, and quantum computing milestones. Features sleek cyber-minimalist moti"
     },
     "bn": {
-      "name": "আর্কাইভের ধন",
-      "blurb": "ভিডিও টাইপ: Library of Congress, Europeana — exploring their digitized rare books, maps, and photographs with historical commentary."
+      "name": "প্রযুক্তি বেঞ্চমার্ক ও এআই বিশ্লেষণ",
+      "blurb": "ফিউচারিস্টিক মাইক্রোচিপ, এআই নিউরাল নেটওয়ার্ক এবং কোয়ান্টাম কম্পিউটিংয়ের প্রযুক্তিগত বিশ্লেষণ।"
     },
     "hi": {
-      "name": "अभिलेखीय खज़ाने",
-      "blurb": "वीडियो प्रकार: Library of Congress, Europeana — exploring their digitized rare books, maps, and photographs with historical commentary."
+      "name": "टेक बेंचमार्क और एआई विश्लेषण",
+      "blurb": "अगली पीढ़ी के माइक्रोचिप्स, एआई और क्वांटम कंप्यूटिंग का तकनीकी और डेटा-आधारित विश्लेषण।"
     },
     "ur": {
-      "name": "آرکائیو خزانے",
-      "blurb": "ویڈیو کی قسم: Library of Congress, Europeana — exploring their digitized rare books, maps, and photographs with historical commentary."
+      "name": "ٹیک بینچ مارکس اور اے آئی تجزیہ",
+      "blurb": "جدید ترین مائیکرو چپس، اے آئی نیورل نیٹ ورکس اور کوانٹم کمپیوٹنگ کا تکنیکی تجزیہ۔"
     },
     "ta": {
-      "name": "காப்பகப் பொக்கிஷங்கள்",
-      "blurb": "வீடியோ வகை: Library of Congress, Europeana — exploring their digitized rare books, maps, and photographs with historical commentary."
+      "name": "தொழில்நுட்ப அளவுகோல்கள் மற்றும் ஏஐ ஆய்வு",
+      "blurb": "அதிநவீன மைக்ரோசிப்கள் மற்றும் செயற்கை நுண்ணறிவு தொழில்நுட்பங்களின் தரவு சார்ந்த பகுப்பாய்வு."
     },
     "ml": {
-      "name": "ആർക്കൈവൽ നിധികൾ",
-      "blurb": "വീഡിയോ തരം: Library of Congress, Europeana — exploring their digitized rare books, maps, and photographs with historical commentary."
+      "name": "ടെക് ബെഞ്ച്മാർക്കുകളും എഐ അവലോകനവും",
+      "blurb": "അടുത്ത തലമുറ മൈക്രോചിപ്പുകളുടെയും നിർമ്മിത ബുദ്ധിയുടെയും സാങ്കേതിക വിശകലനം."
     }
-  },
-  "source": "Nish.Md + deterministic research",
-  "research_notes": [
-    "Marathon researched at 2026-09-10T08:30:21Z",
-    "Video type length=120",
-    "Topic prompt length=126",
-    "Video prompt length=392",
-    "Seeds=6"
-  ],
-  "verified_at": "2026-09-10T08:30:21Z"
+  }
 }

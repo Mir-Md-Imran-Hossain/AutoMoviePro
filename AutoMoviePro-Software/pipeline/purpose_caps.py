@@ -37,21 +37,23 @@ CAPABILITIES: Dict[str, Dict[str, bool]] = {
 }
 
 # Default image order — includes Google Imagen 3 / 4 with free fallbacks
-IMAGE_CHAIN_DEFAULT = ("google", "pollinations", "freetheai", "goblin", "huggingface")
+IMAGE_CHAIN_DEFAULT = ("agnes", "google", "freetheai", "goblin", "pollinations", "huggingface")
 
-# Text chains — Google NEVER appears except translate
-TEXT_CHAIN_SCRIPT = ("groq", "cerebras", "openrouter", "huggingface", "freetheai")
-TEXT_CHAIN_AGENT = ("groq", "cerebras", "openrouter", "huggingface", "freetheai")
-TEXT_CHAIN_GENERAL = ("groq", "cerebras", "openrouter", "huggingface", "freetheai")
+# Free-First Text chains: Google Free Tier is primary; Groq/Cerebras/OR are secondary fallbacks
+TEXT_CHAIN_SCRIPT = ("google", "groq", "cerebras", "openrouter", "huggingface", "freetheai")
+TEXT_CHAIN_AGENT = ("google", "groq", "cerebras", "openrouter", "huggingface", "freetheai")
+TEXT_CHAIN_GENERAL = ("google", "groq", "cerebras", "openrouter", "huggingface", "freetheai")
 # Localization: prefer free routers; Google last (allowed purpose only)
-TEXT_CHAIN_TRANSLATE = ("huggingface", "groq", "openrouter", "cerebras", "freetheai", "google")
+TEXT_CHAIN_TRANSLATE = ("google", "groq", "openrouter", "cerebras", "huggingface", "freetheai")
 TEXT_CHAIN_TRANSLATE_GOOGLE_FIRST = ("google", "huggingface", "groq", "openrouter", "cerebras", "freetheai")
 
 # How many Google keys reserved per purpose (from the vault, sticky slice)
 GOOGLE_PURPOSE_SLICES = {
-    "translate": (0, 1),  # ONE key for localization only
-    "tts": (0, 40),  # map walks healthy keys; Edge preferred first
-    "other": (0, 0),  # no Google for non-translate purposes
+    "script": (0, 40),
+    "agent": (0, 40),
+    "translate": (0, 40),
+    "tts": (0, 40),
+    "other": (0, 40),
 }
 
 # Non-Google: take at most N keys into the purpose pool
@@ -63,7 +65,7 @@ PURPOSE_KEY_COUNTS = {
     "image": {"freetheai": 1, "huggingface": 1},
 }
 
-GOOGLE_ALLOWED_PURPOSES = frozenset({"translate", "localize", "condense", "image", "video", "media"})
+GOOGLE_ALLOWED_PURPOSES = frozenset({"script", "topic", "director", "niche", "agent", "critic", "repair", "precheck", "translate", "localize", "condense", "image", "video", "media", "general"})
 
 
 def google_allowed_for_purpose(purpose: str) -> bool:

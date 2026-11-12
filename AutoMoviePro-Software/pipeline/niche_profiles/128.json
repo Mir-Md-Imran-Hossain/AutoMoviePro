@@ -1,8 +1,8 @@
 {
   "niche_id": 128,
-  "name": "Creepypasta Narration",
-  "slug": "creepypasta-narration",
-  "style_family": "history",
+  "name": "Agricultural Innovations & Food Security",
+  "slug": "agricultural-innovations-food-security",
+  "style_family": "science",
   "status": "VERIFIED",
   "topic_seeds": [
     "What new evidence reframes the story of Creepypasta Narration Internet inside Creepypasta Narration",
@@ -47,28 +47,28 @@
   "video_prompt_overlay": "NICHE VISUAL LOCK (Creepypasta Narration / history): Generate a 7–9 second dialogue clip based on the topic `{topic}`. Each dialogue must be eerie and imaginative. For each dialogue, generate: - **Audio Generation Prompt:** Voice — deep, slow, with ambient drone. - **Video Generation Prompt:** Detailed visual — a creepy corridor or digital glitch. No clear character — shadowy figure. Lighting: grey, glitchy. Maintain same glitch. Forbidden: talking-head lip-sync avatar, burned-in captions, watermark, modern meme text, modern smartphones, cars, LED screens, sneakers. Preferred subjects: Creepypasta Narration documentary subject, period-accurate environment, evidence object close-up. Lighting: warm desert sun / torchlit interiors, high-contrast documentary grade. Face policy: period extras OK if consistent; prefer environment/object hero when possible. Dialogue tone: human documentary narration; specific nouns; 7–9s beats. Ambience: subtle documentary bed; do not overpower voice.",
   "i18n": {
     "en": {
-      "name": "Creepypasta Narration",
-      "blurb": "Internet-born horror fiction — Slender Man, Backrooms — with atmospheric sound design and deep voiceovers."
+      "name": "Agricultural Innovations & Food Security",
+      "blurb": "High-tech farming revolutions feeding billions — vertical indoor hydroponic farms, AI-driven precision irrigation, drought-resistant heritage crops, and desert greening initiatives"
     },
     "bn": {
-      "name": "ক্রিপিপাস্তা বর্ণনা",
-      "blurb": "ভিডিও টাইপ: Internet-born horror fiction — Slender Man, Backrooms — with atmospheric sound design and deep voiceovers."
+      "name": "কৃষি উদ্ভাবন ও খাদ্য নিরাপত্তা",
+      "blurb": "ভার্টিক্যাল ফার্মিং ও এআই সেচ ব্যবস্থার মাধ্যমে কোটি মানুষের মুখে খাবার জোগানোর বিপ্লব।"
     },
     "hi": {
-      "name": "क्रीपीपास्ता कथन",
-      "blurb": "वीडियो प्रकार: Internet-born horror fiction — Slender Man, Backrooms — with atmospheric sound design and deep voiceovers."
+      "name": "कृषि क्रांति और खाद्य सुरक्षा",
+      "blurb": "ভার্টিক্যাল फार्मिंग और AI सिंचाई तकनीक से दुनिया के अरबों लोगों का पेट भरने का अभियान।"
     },
     "ur": {
-      "name": "کریپی پاسٹا بیانیہ",
-      "blurb": "ویڈیو کی قسم: Internet-born horror fiction — Slender Man, Backrooms — with atmospheric sound design and deep voiceovers."
+      "name": "زرعی ایجادات اور غذائی تحفظ",
+      "blurb": "عمودی کاشتکاری اور اے آئی آبپاشی کے ذریعے اربوں لوگوں کو خوراک فراہم کرنے کا انقلاب۔"
     },
     "ta": {
-      "name": "க்ரீப்பிபாஸ்தா விவரிப்பு",
-      "blurb": "வீடியோ வகை: Internet-born horror fiction — Slender Man, Backrooms — with atmospheric sound design and deep voiceovers."
+      "name": "வேளாண்மை புதுமைகளும் உணவுப் பாதுகாப்பும்",
+      "blurb": "செங்குத்து விவசாயம் மற்றும் நவீன தொழில்நுட்பம் மூலம் கோடிக்கணக்கான மக்களுக்கு உணவு வழங்கும் புரட்சி."
     },
     "ml": {
-      "name": "ക്രീപ്പിപാസ്ത നിരൂപണം",
-      "blurb": "വീഡിയോ തരം: Internet-born horror fiction — Slender Man, Backrooms — with atmospheric sound design and deep voiceovers."
+      "name": "കാർഷിക നവീകരണങ്ങളും ഭക്ഷ്യസുരക്ഷയും",
+      "blurb": "വെർട്ടിക്കൽ ഫാമിംഗും ആധുനിക ജലസേചനവും വഴി കോടിക്കണക്കിന് ആളുകൾക്ക് ഭക്ഷ്യസുരക്ഷ ഉറപ്പാക്കുന്ന വിപ്ലവം."
     }
   },
   "source": "Nish.Md + deterministic research",

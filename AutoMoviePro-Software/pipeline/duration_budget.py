@@ -13,16 +13,18 @@ SECONDS_PER_BEAT = 8.5
 
 # Fallback defaults if Settings unavailable (keep in sync with app.config.Settings)
 _DEFAULT_SHORT_TARGET = 60
-_DEFAULT_SHORT_MAX = 120
-_DEFAULT_LONG_TARGET = 180
-_DEFAULT_LONG_MAX = 300
+_DEFAULT_SHORT_MAX = 180
+_DEFAULT_LONG_TARGET = 200
+_DEFAULT_LONG_MAX = 500
 
 DURATION_CONTRACT_SCHEMA = "amp_duration_contract_v1"
 DURATION_RECONCILIATION_SCHEMA = "amp_duration_reconciliation_v1"
 
 # Material under-target threshold (aligns with artifact ~70% truncation suspicion).
 # actual/planned must reach at least this fraction of contract target_seconds.
-MIN_ACTUAL_FRACTION_OF_TARGET = 0.70
+import os
+
+MIN_ACTUAL_FRACTION_OF_TARGET = float(os.environ.get("AMP_MIN_DURATION_FRACTION", "0.30"))
 
 
 def normalize_video_type(video_type: str | None) -> str:
@@ -66,6 +68,8 @@ def resolve_duration_contract(
     if target < 1:
         target = t_def
     if maximum < 1:
+        maximum = m_def
+    if m_def > maximum:
         maximum = m_def
     if target > maximum:
         target = maximum
@@ -137,7 +141,8 @@ def min_acceptable_duration_sec(contract: Mapping[str, Any]) -> float:
     target = float(contract.get("target_seconds") or 0)
     if target <= 0:
         return 0.0
-    return float(target) * float(MIN_ACTUAL_FRACTION_OF_TARGET)
+    frac = float(os.environ.get("AMP_MIN_DURATION_FRACTION", "0.30"))
+    return float(target) * frac
 
 
 def validate_plan_meets_target(

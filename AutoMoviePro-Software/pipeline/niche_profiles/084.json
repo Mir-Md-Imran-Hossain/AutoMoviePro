@@ -1,8 +1,8 @@
 {
   "niche_id": 84,
-  "name": "Digital Ghosts",
-  "slug": "digital-ghosts",
-  "style_family": "history",
+  "name": "Pioneering Renewable Energy & Green Tech",
+  "slug": "pioneering-renewable-energy-green-tech",
+  "style_family": "science",
   "status": "VERIFIED",
   "topic_seeds": [
     "What new evidence reframes the story of Digital Ghosts What inside Digital Ghosts",
@@ -47,28 +47,28 @@
   "video_prompt_overlay": "NICHE VISUAL LOCK (Digital Ghosts / history): Generate a 7–9 second dialogue clip based on the topic `{topic}`. Each dialogue must be futuristic and philosophical. For each dialogue, generate: - **Audio Generation Prompt:** Voice — digital, slightly robotic, with beeping and static. - **Video Generation Prompt:** Detailed visual — a computer screen or server room. No character — screen shows digital face. Lighting: neon blue. Maintain same digital vibe. Forbidden: talking-head lip-sync avatar, burned-in captions, watermark, modern meme text, modern smartphones, cars, LED screens, sneakers. Preferred subjects: Digital Ghosts documentary subject, period-accurate environment, evidence object close-up. Lighting: warm desert sun / torchlit interiors, high-contrast documentary grade. Face policy: period extras OK if consistent; prefer environment/object hero when possible. Dialogue tone: human documentary narration; specific nouns; 7–9s beats. Ambience: subtle documentary bed; do not overpower voice.",
   "i18n": {
     "en": {
-      "name": "Digital Ghosts",
-      "blurb": "What happens to our social media and AI avatars after death — can they live forever? Ethical questions included."
+      "name": "Pioneering Renewable Energy & Green Tech",
+      "blurb": "Next-generation sustainable technologies saving the planet — colossal offshore wind turbines, perovskite solar cells, green hydrogen power plants, and tidal energy generators trans"
     },
     "bn": {
-      "name": "ডিজিটাল ভূত",
-      "blurb": "ভিডিও টাইপ: What happens to our social media and AI avatars after death — can they live forever? Ethical questions included."
+      "name": "নবায়নযোগ্য শক্তি ও সবুজ প্রযুক্তি",
+      "blurb": "পৃথিবীকে বাঁচানোর আধুনিক টেকসই প্রযুক্তি— বিশাল অফশোর উইন্ড টারবাইন, পেরোভস্কাইট সোলার সেল এবং গ্রিন হাইড্রোজেন পাওয়ার প্ল্যান্ট।"
     },
     "hi": {
-      "name": "डिजिटल भूत",
-      "blurb": "वीडियो प्रकार: What happens to our social media and AI avatars after death — can they live forever? Ethical questions included."
+      "name": "अक्षय ऊर्जा और हरित तकनीक",
+      "blurb": "धरती को बचाने वाली आधुनिक तकनीकें— विशाल पवन चक्कियां, पेरोवस्काइत सौर सेल और ग्रीन हाइड्रोजन ऊर्जा संयंत्र।"
     },
     "ur": {
-      "name": "ڈیجیٹل بھوت",
-      "blurb": "ویڈیو کی قسم: What happens to our social media and AI avatars after death — can they live forever? Ethical questions included."
+      "name": "قابل تجدید توانائی اور سبز ٹیکنالوجی",
+      "blurb": "زمین کو بچانے والی جدید ترین پائیدار ٹیکنالوجیز— سمندری ہوا کی بڑی ٹربائنز، پیرووسکائٹ سولر سیلز اور گرین ہائیڈروجن پلانٹس۔"
     },
     "ta": {
-      "name": "டிஜிட்டல் பேய்கள்",
-      "blurb": "வீடியோ வகை: What happens to our social media and AI avatars after death — can they live forever? Ethical questions included."
+      "name": "புதுப்பிக்கத்தக்க ஆற்றலும் பசுமைத் প্রযুক্তியும்",
+      "blurb": "பூமியைப் பாதுகாக்கும் நவீன நிலையான தொழில்நுட்பங்கள்— கடல் காற்று ஆற்றல் விசையாழிகள், பெரோவ్‌சுடைட் சோலார் செல்கள் மற்றும் பசுமை ஹைட்ரஜன் மின் நிலையங்கள்."
     },
     "ml": {
-      "name": "ഡിജിറ്റൽ ഭൂതങ്ങൾ",
-      "blurb": "വീഡിയോ തരം: What happens to our social media and AI avatars after death — can they live forever? Ethical questions included."
+      "name": "പുനരുപയോഗ ഊർജ്ജവും ഹരിത സാങ്കേതികവിദ്യയും",
+      "blurb": "ഭൂമിയെ സംരക്ഷിക്കുന്ന നൂതന സാങ്കേതികവിദ്യകൾ— ഭീമാകാരമായ കാറ്റാടിപ്പാടങ്ങൾ, പെറോവ്സ്കൈറ്റ് സോളാർ സെല്ലുകൾ, ഗ്രീൻ ഹൈഡ്രജൻ പ്ലാന്റുകൾ."
     }
   },
   "source": "Nish.Md + deterministic research",

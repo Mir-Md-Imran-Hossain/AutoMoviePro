@@ -48,23 +48,23 @@
     },
     "bn": {
       "name": "অসম্ভব বেঁচে থাকা",
-      "blurb": "ভিডিও টাইপ: True stories of people who cheated death — lost at sea, trapped in caves, or stranded in deserts — focusing on their mental strength and clever…"
+      "blurb": "মৃত্যুকে ফাঁকি দিয়ে ফিরে আসা মানুষদের রোমাঞ্চকর ও বুদ্ধিমত্তার গল্প।"
     },
     "hi": {
-      "name": "असंभव उत्तरजीविता",
-      "blurb": "वीडियो प्रकार: True stories of people who cheated death — lost at sea, trapped in caves, or stranded in deserts — focusing on their mental strength and clever…"
+      "name": "असंभव जीवन रक्षा",
+      "blurb": "मौत को मात देने वाले साहसी लोगों की सच्ची कहानियाँ, जो मानसिक दृढ़ता की मिसाल हैं।"
     },
     "ur": {
       "name": "ناممکن بقا",
-      "blurb": "ویڈیو کی قسم: True stories of people who cheated death — lost at sea, trapped in caves, or stranded in deserts — focusing on their mental strength and clever…"
+      "blurb": "मौत के منہ سے نکل کر آنے والے لوگوں کی سچی کہانیاں اور ان کی ذہنی مضبوطی کا سفر۔"
     },
     "ta": {
-      "name": "சாத்தியமற்ற உயிர்வாழ்வு",
-      "blurb": "வீடியோ வகை: True stories of people who cheated death — lost at sea, trapped in caves, or stranded in deserts — focusing on their mental strength and clever…"
+      "name": "நம்ப முடியாத பிழைப்பு",
+      "blurb": "மரணத்தை ஏமாற்றித் தப்பியவர்களின் உண்மைச் சம்பவங்கள் மற்றும் அவர்களின் துணிச்சலான முடிவுகள்."
     },
     "ml": {
-      "name": "അസാധ്യമായ അതിജീവനം",
-      "blurb": "വീഡിയോ തരം: True stories of people who cheated death — lost at sea, trapped in caves, or stranded in deserts — focusing on their mental strength and clever…"
+      "name": "അവിശ്വസനീയമായ അതിജീവനം",
+      "blurb": "മരണത്തെ മുഖത്തോടുമുഖം കണ്ടു തോൽപ്പിച്ചവരുടെ അനുഭവങ്ങളും അവരുടെ മാനസിക കരുത്തിന്റെ കഥകളും."
     }
   },
   "source": "Nish.Md + deterministic research",

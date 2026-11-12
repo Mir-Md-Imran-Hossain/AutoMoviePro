@@ -52,23 +52,23 @@
     },
     "bn": {
       "name": "ইউরেকা মুহূর্ত",
-      "blurb": "ভিডিও টাইপ: The flash of genius — Archimedes in his bath, Newton under the apple tree — the personal stories behind world-changing insights."
+      "blurb": "প্রতিভার সেই ক্ষণ—বাথটবে আর্কিমিডিস বা আপেল গাছের নিচে নিউটন—বিশ্ব বদলানো অন্তর্দৃষ্টির পেছনের গল্প।"
     },
     "hi": {
-      "name": "यूरेका क्षण",
-      "blurb": "वीडियो प्रकार: The flash of genius — Archimedes in his bath, Newton under the apple tree — the personal stories behind world-changing insights."
+      "name": "यूरिका पल",
+      "blurb": "प्रतिभा की वह चमक—बाथटब में आर्किमिडीज या सेब के पेड़ के नीचे न्यूटन—दुनिया बदलने वाले विचारों की असली कहानी।"
     },
     "ur": {
       "name": "یوریکا لمحات",
-      "blurb": "ویڈیو کی قسم: The flash of genius — Archimedes in his bath, Newton under the apple tree — the personal stories behind world-changing insights."
+      "blurb": "ذہانت کی وہ چمک—باتھ ٹب میں آرکیڈیز یا سیب کے درخت کے نیچے نیوٹن—دنیا بدلنے والے خیالات کی پس منظر کہانی۔"
     },
     "ta": {
       "name": "யுரேகா தருணங்கள்",
-      "blurb": "வீடியோ வகை: The flash of genius — Archimedes in his bath, Newton under the apple tree — the personal stories behind world-changing insights."
+      "blurb": "மேதமையின் வெளிப்பாடு—குளியலறையில் ஆர்க்கிமிடிஸ் அல்லது ஆப்பிள் மரத்தின் கீழ் நியூட்டன்—உலகை மாற்றிய ஊக்கத்தின் கதைகள்."
     },
     "ml": {
-      "name": "യുറീക്ക നിമിഷങ്ങൾ",
-      "blurb": "വീഡിയോ തരം: The flash of genius — Archimedes in his bath, Newton under the apple tree — the personal stories behind world-changing insights."
+      "name": "യൂറേക നിമിഷങ്ങൾ",
+      "blurb": "പ്രതിഭയുടെ തിളക്കം—ബാത്ത്ടബ്ബിൽ ആർക്കിമിഡീസ് അല്ലെങ്കിൽ ആപ്പിൾ മരച്ചുവട്ടിൽ ന്യൂട്ടൺ—ലോകത്തെ മാറ്റിയ ആശയങ്ങളുടെ കഥകൾ."
     }
   },
   "source": "Nish.Md + deterministic research",

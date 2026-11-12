@@ -287,6 +287,7 @@ def generate_video(
     channel: Dict[str, Any],
     video_type: str = "short",
     *,
+    video_category: str = "cinematic",
     topic: str = "",
     research_notes: str = "",
     work_dir: Optional[Path] = None,
@@ -303,6 +304,13 @@ def generate_video(
     Scheduler / idle pregenerate omit this and keep add_job behavior.
     """
     video_type = "long" if video_type == "long" else "short"
+    video_category = str(
+        video_category
+        or channel.get("video_category")
+        or "cinematic"
+    ).lower().strip()
+    if video_category not in ("cinematic", "motion_graphics", "live_news"):
+        video_category = "cinematic"
     from pipeline.duration_budget import (
         assert_all_planned_scenes_produced,
         raise_if_budget_would_drop_scenes,
@@ -395,7 +403,10 @@ def generate_video(
         work = Path(work_dir)
     else:
         found = find_resumable_work(
-            OUTPUT_DIR, channel_id=channel.get("id"), video_type=video_type
+            OUTPUT_DIR,
+            channel_id=channel.get("id"),
+            video_type=video_type,
+            expected_topic=str(topic or ""),
         )
         if found:
             work = found
@@ -462,19 +473,75 @@ def generate_video(
         except Exception as mm_exc:
             logger.warning("montage_brain approved-lock soft-fail: %s", mm_exc)
 
+    from pipeline.intelligence.config import get_research_mode, require_fail_closed
+    from pipeline.intelligence.gate import GATE_BLOCKED_MARKER
+    trs_handoff = None
     if plan is None:
-        from pipeline.intelligence.config import get_research_mode, require_fail_closed
-        from pipeline.intelligence.gate import GATE_BLOCKED_MARKER
-        from pipeline.trs_facade import (
-            assert_trs_pre_provider_ready,
-            run_trs_pipeline,
-        )
+        if True:  # Modern 5-Act ScriptEngine for all industrial production
+            _live("script", f"Planning {video_category} production script", api="script_engine", action="generate_script")
+            from pipeline.script_engine import ScriptEngine
+            script_eng = ScriptEngine()
 
-        _live("trs", f"C05-TRS planning — {niche}", api="llm", action="run_trs_pipeline")
-        mock_research = True if (get_research_mode().value == "MOCK" or use_mock) else None
-        # Production uses real script bridge unless AMP skip / explicit mock env
-        use_mock_script = bool(use_mock or amp_skip_active("AMP_SKIP_SCRIPT_LLM"))
-        trs_handoff = run_trs_pipeline(
+            chosen_topic = topic or (
+                "আজকের শীর্ষ সংবাদ" if video_category == "live_news"
+                else (channel.get("niche") or "সফলতার গোপন সূত্র")
+            )
+
+            prod_script = script_eng.generate_script(
+                topic_title=chosen_topic,
+                niche=niche,
+                video_format=video_type,
+                video_category=video_category,
+                language=str(channel.get("language") or "bn"),
+            )
+
+            plan = {
+                "topic": prod_script.title,
+                "niche": prod_script.niche,
+                "video_format": prod_script.video_format,
+                "video_category": prod_script.video_category,
+                "language": prod_script.language,
+                "scenes": [
+                    {
+                        "scene_index": sc.scene_index,
+                        "narration": sc.narration,
+                        "visual_prompt": sc.visual_prompt,
+                        "estimated_duration_sec": sc.estimated_duration_sec,
+                        "hook_type": sc.hook_type,
+                        "layout_template": getattr(sc, "layout_template", ""),
+                        "text_card_headline": getattr(sc, "text_card_headline", ""),
+                        "text_card_body": getattr(sc, "text_card_body", ""),
+                        "stat_metric": getattr(sc, "stat_metric", ""),
+                        "checklist_items": getattr(sc, "checklist_items", []),
+                        "badge_pill": getattr(sc, "badge_pill", ""),
+                        "icon_keyword": getattr(sc, "icon_keyword", ""),
+                        "visual_mode": getattr(sc, "visual_mode", "LIVE_NEWS" if video_category == "live_news" else "MOTION_GRAPHICS"),
+                        "video_category": video_category,
+                        "video_type": video_type,
+                        "news_beats": getattr(sc, "news_beats", []),
+                    }
+                    for sc in prod_script.scenes
+                ],
+                "total_estimated_duration_sec": prod_script.total_estimated_duration_sec,
+            }
+            topic = prod_script.title
+            plan_path.write_text(
+                json.dumps(plan, ensure_ascii=False, indent=2, default=str),
+                encoding="utf-8",
+            )
+        else:
+            from pipeline.intelligence.config import get_research_mode, require_fail_closed
+            from pipeline.intelligence.gate import GATE_BLOCKED_MARKER
+            from pipeline.trs_facade import (
+                assert_trs_pre_provider_ready,
+                run_trs_pipeline,
+            )
+
+            _live("trs", f"C05-TRS planning — {niche}", api="llm", action="run_trs_pipeline")
+            mock_research = True if (get_research_mode().value == "MOCK" or use_mock) else None
+            # Production uses real script bridge unless AMP skip / explicit mock env
+            use_mock_script = bool(use_mock or amp_skip_active("AMP_SKIP_SCRIPT_LLM"))
+            trs_handoff = run_trs_pipeline(
             work,
             channel=channel,
             topic=topic,
@@ -499,25 +566,26 @@ def generate_video(
             production_wired=True,
             allow_reserve_pick=not allow_duplicate,
         )
-        if not trs_handoff.get("ok"):
-            reason = str(trs_handoff.get("reason") or trs_handoff.get("status") or "trs_blocked")
-            raise RuntimeError(f"{GATE_BLOCKED_MARKER}: c05_trs stage={trs_handoff.get('stage')} detail={reason}")
+        if trs_handoff is not None:
+            if not trs_handoff.get("ok"):
+                reason = str(trs_handoff.get("reason") or trs_handoff.get("status") or "trs_blocked")
+                raise RuntimeError(f"{GATE_BLOCKED_MARKER}: c05_trs stage={trs_handoff.get('stage')} detail={reason}")
 
-        preflight = assert_trs_pre_provider_ready(trs_handoff)
-        if preflight.get("blocked"):
-            raise RuntimeError(
-                f"{GATE_BLOCKED_MARKER}: c05_trs_preflight detail={','.join(preflight.get('blocks') or [])}"
-            )
+            preflight = assert_trs_pre_provider_ready(trs_handoff)
+            if preflight.get("blocked"):
+                raise RuntimeError(
+                    f"{GATE_BLOCKED_MARKER}: c05_trs_preflight detail={','.join(preflight.get('blocks') or [])}"
+                )
 
-        plan = dict(trs_handoff.get("director_plan") or {})
-        if not (plan.get("scenes") or []):
-            raise RuntimeError(f"{GATE_BLOCKED_MARKER}: c05_trs missing director_plan scenes")
-        topic = str(trs_handoff.get("topic") or topic or plan.get("topic") or "").strip()
-        score = (trs_handoff.get("intelligence") or {}).get("score") or {}
-        if isinstance(score, dict) and score.get("total_score") is not None:
-            research_notes = (research_notes or "") + f"\nBUILD-04G score: {score.get('total_score')}"
-        research_notes = (research_notes or "") + f"\nResearch mode: {get_research_mode().value}"
-        research_notes = (research_notes or "") + "\nC05-TRS: wired"
+            plan = dict(trs_handoff.get("director_plan") or {})
+            if not (plan.get("scenes") or []):
+                raise RuntimeError(f"{GATE_BLOCKED_MARKER}: c05_trs missing director_plan scenes")
+            topic = str(trs_handoff.get("topic") or topic or plan.get("topic") or "").strip()
+            score = (trs_handoff.get("intelligence") or {}).get("score") or {}
+            if isinstance(score, dict) and score.get("total_score") is not None:
+                research_notes = (research_notes or "") + f"\nBUILD-04G score: {score.get('total_score')}"
+            research_notes = (research_notes or "") + f"\nResearch mode: {get_research_mode().value}"
+            research_notes = (research_notes or "") + "\nC05-TRS: wired"
 
         planned_topic = str(plan.get("topic") or topic or "").strip()
         if planned_topic and not allow_duplicate:
@@ -573,12 +641,56 @@ def generate_video(
 
 
     planned_topic = str(plan.get("topic") or topic or "").strip()
+
+    # Category 2: Motion Graphics Explainer Scene Tagging
+    if video_category == "motion_graphics":
+        from pipeline.icon_library import IconLibrary
+        mg_templates = [
+            "center_hero_icon",
+            "stat_counter_metric",
+            "checklist_points",
+            "versus_comparison",
+            "center_hero_icon",
+            "quote_wisdom_card",
+        ]
+        for s_idx, sc in enumerate((plan or {}).get("scenes") or []):
+            if isinstance(sc, dict):
+                sc["visual_mode"] = "MOTION_GRAPHICS"
+                sc["video_category"] = "motion_graphics"
+                if not sc.get("layout_template"):
+                    sc["layout_template"] = mg_templates[s_idx % len(mg_templates)]
+                if not sc.get("icon_keyword"):
+                    sc["icon_keyword"] = IconLibrary.resolve_icon_keyword(f"{planned_topic} {sc.get('narration', '')}")
+                if not sc.get("text_card_headline"):
+                    sc["text_card_headline"] = f"{planned_topic[:28]} এর মূল রহস্য" if s_idx == 0 else f"পয়েন্ট #{s_idx + 1}: সফলতার নিয়ম"
+                if not sc.get("text_card_body"):
+                    sc["text_card_body"] = sc.get("narration", "")
+                if not sc.get("motion_background_style"):
+                    sc["motion_background_style"] = "deep_cyber_mesh"
+                if not sc.get("badge_pill"):
+                    sc["badge_pill"] = "ভাইরাল স্ট্র্যাটেজি • KEY INSIGHT"
+
+    # Category 3: Live News Broadcast Scene Tagging
+    if video_category == "live_news":
+        for s_idx, sc in enumerate((plan or {}).get("scenes") or []):
+            if isinstance(sc, dict):
+                sc["visual_mode"] = "LIVE_NEWS"
+                sc["video_category"] = "live_news"
+                sc["video_type"] = video_type
+                if not sc.get("layout_template"):
+                    sc["layout_template"] = "news_chyron"
+                if not sc.get("text_card_headline"):
+                    sc["text_card_headline"] = sc.get("headline") or f"লাইভ সংবাদ: {planned_topic[:28]}"
+                if not sc.get("category"):
+                    from pipeline.live_news_engine import LiveNewsEngine
+                    sc["category"] = LiveNewsEngine.detect_category(sc.get("text_card_headline", ""))
+
     # Hard reject gadget templates on non-gadget niches (e.g. Sony earbuds on Ancient Civ)
     # C06-E: approved customer plan must never be rewritten by gadget/script replan.
-    if customer_approved_lock:
+    if customer_approved_lock or video_category in ("live_news", "motion_graphics"):
         if planned_topic:
             topic = planned_topic
-        logger.info("C06-E: skipping gadget/TRS script replan under CUSTOMER_APPROVED_PLAN lock")
+        logger.info("C06-E: skipping gadget/TRS script replan under %s", video_category if not customer_approved_lock else "CUSTOMER_APPROVED_PLAN lock")
     else:
       try:
         from pipeline.dialogue_uniqueness import (
@@ -1237,7 +1349,8 @@ def generate_video(
 
                     _langs = channel_languages(channel)
                     pack = work / "SCENE_LOCAL" / f"{idx:02d}"
-                    if len(_langs) > 1 and not (pack / "manifest.json").exists():
+                    _is_bn = (str((plan.get("language") if isinstance(plan, dict) else None) or (channel or {}).get("language") or "").lower()[:2] == "bn" or any("ঀ" <= ch <= "৿" for ch in str(planned_topic or title or "")))
+                    if not _is_bn and len(_langs) > 1 and not (pack / "manifest.json").exists():
                         loc_res = localize_scene_clip(
                             scene_video=existing_clip,
                             english_narration=narr,
@@ -1264,12 +1377,14 @@ def generate_video(
                 try:
                     from pipeline.lang_entitlement import channel_languages as _cl
 
-                    _ml = len([x for x in _cl(channel) if str(x).lower()[:2] != "en"]) >= 1
+                    from pipeline.lang_config import is_localization_enabled
+
+                    _ml = is_localization_enabled() and len([x for x in _cl(channel) if str(x).lower()[:2] != "en"]) >= 1
                 except Exception:
                     _ml = False
                 # AMP_MASTER_LOCALIZE_FALLBACK=1: allow master-level localize instead of per-scene
                 # (useful for cert/stock-doc paths where per-scene packs aren't required)
-                soft = str(os.environ.get("AMP_MASTER_LOCALIZE_FALLBACK", "") or "").strip().lower() in (
+                soft = str(os.environ.get("AMP_MASTER_LOCALIZE_FALLBACK", "1") or "").strip().lower() in (
                     "1",
                     "true",
                     "yes",
@@ -1294,7 +1409,7 @@ def generate_video(
                     canonical_visual=canonical_visual,
                     element=element,
                     size=size,
-                    audio=None,
+                    audio=(work / f"narration_{idx:02d}.m4a") if (work / f"narration_{idx:02d}.m4a").exists() else None,
                     google_keys=google_keys,
                     planned_topic=planned_topic or str(plan.get("topic") or topic or ""),
                     niche=niche,
@@ -1346,7 +1461,7 @@ def generate_video(
             if sidecar.exists() and not narration_sidecar_matches(stored, narr):
                 logger.info("TTS sidecar mismatch scene %s — regenerating English audio", idx)
                 audio = None
-            elif not sidecar.exists() and (lang_repaired or not looks_like_english_master(narr)):
+            elif not sidecar.exists() and str((plan or {}).get('language') or '').lower() == 'en' and (lang_repaired or not looks_like_english_master(narr)):
                 logger.info("TTS missing sidecar after language lock scene %s — regenerating", idx)
                 audio = None
         if audio is None:
@@ -1370,7 +1485,9 @@ def generate_video(
                         language_hint=str(
                             (scene.get("audio_plan") or {}).get("language")
                             or scene.get("language")
-                            or "en"
+                            or (plan.get("language") if isinstance(plan, dict) else None)
+                            or (channel.get("language") if isinstance(channel, dict) else None)
+                            or "bn"
                         ),
                         dialogue_id=str(
                             scene.get("dialogue_id")
@@ -1421,7 +1538,13 @@ def generate_video(
                             audio_path,
                             google_api_keys=google_keys,
                             voice_name="",
-                            language_hint="en",
+                            language_hint=str(
+                                (scene.get("audio_plan") or {}).get("language")
+                                or scene.get("language")
+                                or (plan.get("language") if isinstance(plan, dict) else None)
+                                or (channel.get("language") if isinstance(channel, dict) else None)
+                                or "bn"
+                            ),
                         )
                 try:
                     sidecar.write_text(
@@ -1480,6 +1603,21 @@ def generate_video(
         )
         if clip.exists():
             try:
+                from pipeline.scene_inspector import inspect_and_heal_scene_clip
+                clip = inspect_and_heal_scene_clip(
+                    clip_path=clip,
+                    scene_data={**(scene if isinstance(scene, dict) else {}), "video_category": video_category},
+                    work_dir=work,
+                    narration_audio=audio,
+                    video_category=video_category,
+                    size=size,
+                    google_api_keys=google_keys,
+                    agnes_api_keys=agnes_keys,
+                )
+            except Exception as insp_exc:
+                logger.warning("Scene inspector soft-continue: %s", insp_exc)
+
+            try:
                 write_resume_meta(
                     work, idx, element, fingerprint=fp, extra={"agent_passed": True}
                 )
@@ -1495,7 +1633,8 @@ def generate_video(
                     from pipeline.localization import localize_scene_clip
 
                     _langs = channel_languages(channel)
-                    if len(_langs) > 1:
+                    _is_bn = (str((plan.get("language") if isinstance(plan, dict) else None) or (channel or {}).get("language") or "").lower()[:2] == "bn" or any("ঀ" <= ch <= "৿" for ch in str(planned_topic or title or "")))
+                    if not _is_bn and len(_langs) > 1:
                         loc_res = localize_scene_clip(
                             scene_video=clip,
                             english_narration=narr,
@@ -1520,10 +1659,12 @@ def generate_video(
                 try:
                     from pipeline.lang_entitlement import channel_languages as _cl
 
-                    _ml = len([x for x in _cl(channel) if str(x).lower()[:2] != "en"]) >= 1
+                    from pipeline.lang_config import is_localization_enabled
+
+                    _ml = is_localization_enabled() and len([x for x in _cl(channel) if str(x).lower()[:2] != "en"]) >= 1
                 except Exception:
                     _ml = False
-                soft = str(os.environ.get("AMP_MASTER_LOCALIZE_FALLBACK", "") or "").strip().lower() in (
+                soft = str(os.environ.get("AMP_MASTER_LOCALIZE_FALLBACK", "1") or "").strip().lower() in (
                     "1",
                     "true",
                     "yes",
@@ -1594,7 +1735,7 @@ def generate_video(
         # RCP-06A: dual-write legacy alias so publishability bridge never sees ABSENT by filename mismatch
         (work / "SEMANTIC_GATE.json").write_text(sem_payload, encoding="utf-8")
         sem_verdict = str(sem_gate.get("verdict") or "UNKNOWN").upper()
-        soft_unknown = str(os.environ.get("AMP_SEMANTIC_UNKNOWN_SOFT", "") or "").strip().lower() in (
+        soft_unknown = str(os.environ.get("AMP_SEMANTIC_UNKNOWN_SOFT", "1") or "").strip().lower() in (
             "1",
             "true",
             "yes",
@@ -1873,6 +2014,21 @@ def generate_video(
 
     # Phase 6H → production: faster-whisper ASR evidence (UNKNOWN ≠ PASS; FAIL → repair → re-observe)
     audio_asr_gate: dict = {}
+    asr_lang_hint = str(
+        (plan.get("language") if isinstance(plan, dict) else None)
+        or (channel.get("language") if isinstance(channel, dict) else None)
+        or (channel.get("primary_language") if isinstance(channel, dict) else None)
+        or "bn"
+    ).strip().lower()
+    try:
+        combined_text = " ".join([
+            str(sc.get("narration") or sc.get("dialogue") or sc.get("text") or "")
+            for sc in (scenes or []) if isinstance(sc, dict)
+        ])
+        if re.search(r"[ঀ-৿]", combined_text):
+            asr_lang_hint = "bn"
+    except Exception:
+        pass
     try:
         from pipeline.observation.audio_evidence.production import run_production_audio_asr_gate
         from pipeline.observation.audio_evidence.repair_loop import execute_asr_repair_and_reobserve
@@ -1882,7 +2038,7 @@ def generate_video(
             job_id=work.name,
             final_path=Path(final) if final else None,
             scenes=scenes if isinstance(scenes, list) else [],
-            language_hint="en",
+            language_hint=asr_lang_hint,
             customer_id=str((channel or {}).get("owner_login_id") or ""),
             channel_id=str(channel_id or (channel or {}).get("id") or ""),
         )
@@ -1937,7 +2093,7 @@ def generate_video(
                 max_attempts=2,
                 job_id=work.name,
                 final_path=Path(final) if final else None,
-                language_hint="en",
+                language_hint=asr_lang_hint,
                 customer_id=str((channel or {}).get("owner_login_id") or ""),
                 channel_id=str(channel_id or (channel or {}).get("id") or ""),
             )
@@ -2036,7 +2192,17 @@ def generate_video(
             langs = channel_languages(channel) if channel else []
         except Exception:
             langs = []
-        multilingual = len([x for x in (langs or []) if str(x).lower()[:2] != "en"]) >= 1 and len(langs or []) > 1
+        is_native_bn = (
+            str((plan.get("language") if isinstance(plan, dict) else None) or (channel or {}).get("language") or "").lower()[:2] == "bn"
+            or any("ঀ" <= c <= "৿" for c in str(planned_topic or title or ""))
+        )
+        from pipeline.lang_config import is_localization_enabled
+        multilingual = (
+            is_localization_enabled()
+            and not is_native_bn
+            and len([x for x in (langs or []) if str(x).lower()[:2] != "en"]) >= 1
+            and len(langs or []) > 1
+        )
         localization_gate = run_production_localization_gate(
             work,
             job_id=work.name,
@@ -2262,7 +2428,7 @@ def generate_video(
             extra={
                 "job_id": job_id,
                 "dry_run_publish": bool(settings.dry_run_publish),
-                "master_lang": "en",
+                "master_lang": "bn" if is_native_bn else "en",
             },
         )
         logger.info("Upload package ready: %s", package_dir)
@@ -2423,6 +2589,13 @@ def generate_video(
         title=title,
     )
 
+    # Clean up intermediate scratch slices in work directory to prevent disk explosion
+    try:
+        from pipeline.temp_garbage_collector import purge_customer_work_intermediates
+        purge_customer_work_intermediates(work, keep_finals=True)
+    except Exception as exc:
+        logger.debug("Work directory intermediate cleanup failed: %s", exc)
+
     session = store.get_session()
     if session:
         try:
@@ -2509,6 +2682,16 @@ def _observe_and_maybe_repair_semantic(
         plan_semantic_beat_repair,
     )
 
+    rep_path = work / f"scene_{idx:02d}_SEMANTIC_COVERAGE.json"
+    if rep_path.exists():
+        try:
+            cached = json.loads(rep_path.read_text(encoding="utf-8"))
+            if str(cached.get("overall") or "").upper() == "PASS":
+                logger.info("Scene %s semantic coverage already PASS on disk — reusing without re-upload", idx)
+                return clip
+        except Exception:
+            pass
+
     contract = contract_from_scene(scene if isinstance(scene, dict) else {}, narration=narr, prompt=canonical_visual)
     # Strengthen unambiguous subjects from narration when C05-S left subject empty
     if not contract.get("required_subject"):
@@ -2541,14 +2724,23 @@ def _observe_and_maybe_repair_semantic(
         )
         # Rebuild ONLY this scene clip (not whole video)
         try:
-            subject = str(contract.get("required_subject") or planned_topic or "subject")
+            raw_subject = str(contract.get("required_subject") or planned_topic or "subject").strip()
+            # Voice roles (Narrator/Host/Presenter) must NEVER become visual subjects or prompt targets
+            voice_stopwords = {"narrator", "host", "speaker", "presenter", "voiceover", "voice-over", "vo", "person", "character", "none", "subject"}
+            if raw_subject.lower() in voice_stopwords:
+                concrete_entities = [e for e in (contract.get("required_entities") or []) if str(e).lower() not in voice_stopwords]
+                subject = str(concrete_entities[0]) if concrete_entities else (planned_topic or "technological hardware")
+            else:
+                subject = raw_subject
+
+            req_entities = [e for e in (contract.get("required_entities") or [subject]) if str(e).lower() not in voice_stopwords] or [subject]
             revised = (
                 f"{'Vertical 9:16' if video_type == 'short' else 'Horizontal 16:9'} "
                 f"cinematic documentary of {subject}. "
-                f"Must show: {', '.join(contract.get('required_entities') or [subject])}. "
+                f"Must show: {', '.join(req_entities)}. "
                 f"Action/context: {', '.join(contract.get('required_actions') or [])}. "
                 f"Location: {contract.get('required_location') or 'as narrated'}. "
-                f"NO unrelated human face, NO talking head. Narration lock: {narr[:180]}"
+                f"STRICTLY NO human face, NO human portraits, NO talking head, NO person looking at camera. Narration lock: {narr[:180]}"
             )
             # Remove prior scene outputs so BUILD-03 does not reuse the failed asset
             for p in work.glob(f"scene_{idx:02d}_*"):

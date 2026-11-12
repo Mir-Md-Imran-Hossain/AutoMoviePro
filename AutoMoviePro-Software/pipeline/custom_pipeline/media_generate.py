@@ -233,7 +233,7 @@ def _ensure_character_reference(
         f"Aspect {aspect}. No text, no watermark."
     )
     try:
-        res = generate_image_with_fallback(prompt, ref, aspect=aspect, stock_query="portrait young man studio")
+        res = generate_image_with_fallback(prompt, ref, aspect=aspect, stock_query="cinematic device technology hardware")
         if res.get("ok") and Path(res["path"]).is_file():
             logger.info("Character reference ready → %s", ref.name)
             return Path(res["path"])

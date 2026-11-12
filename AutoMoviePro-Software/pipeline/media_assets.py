@@ -83,6 +83,85 @@ def generate_product_still(
     )
 
 
+
+def _agnes_image(
+    prompt: str,
+    out_path: Path,
+    *,
+    width: int = 1080,
+    height: int = 1920,
+    api_key: str = "",
+    api_keys: Optional[List[str]] = None,
+) -> Optional[Path]:
+    """
+    Generate high-aesthetic photoreal still image via Agnes Image V2.1.
+    Uses 'agnes-image-2.1-flash' model with 9:16 or 16:9 aspect ratio.
+    """
+    keys: List[str] = []
+    if api_key and api_key.strip():
+        keys.append(api_key.strip())
+    for k in (api_keys or []):
+        if k and k.strip() and k.strip() not in keys:
+            keys.append(k.strip())
+    if not keys:
+        try:
+            from app import db as store
+            for ch in store.list_channels():
+                json_keys = ch.get("api_keys_json") or {}
+                if isinstance(json_keys, str):
+                    import json
+                    json_keys = json.loads(json_keys)
+                for ak in json_keys.get("agnes", []):
+                    if ak and ak not in keys:
+                        keys.append(ak)
+                single = (ch.get("agnes_api") or "").strip()
+                if single and single not in keys:
+                    keys.append(single)
+        except Exception:
+            pass
+    if not keys:
+        import os
+        for env_name in ("AGNES_API_KEY", "AGNES_API"):
+            val = (os.environ.get(env_name) or "").strip()
+            if val and val not in keys:
+                keys.append(val)
+    if not keys:
+        return None
+
+    aspect = "9:16" if height > width else "16:9"
+    url = "https://apihub.agnes-ai.com/v1/images/generations"
+    payload = {
+        "model": "agnes-image-2.1-flash",
+        "prompt": prompt,
+        "aspect_ratio": aspect,
+    }
+
+    out_path.parent.mkdir(parents=True, exist_ok=True)
+    with httpx.Client(timeout=45.0, follow_redirects=True) as client:
+        for k in keys:
+            try:
+                headers = {
+                    "Authorization": f"Bearer {k}",
+                    "Content-Type": "application/json",
+                }
+                r = client.post(url, headers=headers, json=payload)
+                if r.status_code == 200:
+                    data = r.json()
+                    img_data = data.get("data")
+                    if img_data and isinstance(img_data, list) and len(img_data) > 0:
+                        img_url = img_data[0].get("url")
+                        if img_url:
+                            r_img = client.get(img_url)
+                            if r_img.status_code == 200 and len(r_img.content) > 5000:
+                                out_path.write_bytes(r_img.content)
+                                logger.info("Agnes Image generated successfully: %s (%d bytes)", out_path.name, len(r_img.content))
+                                return out_path
+            except Exception as exc:
+                logger.warning("Agnes Image attempt failed key=%s: %s", k[:10], exc)
+                continue
+    return None
+
+
 def _ai_still_via_chain(
     prompt: str,
     out_path: Path,
@@ -135,7 +214,7 @@ def _ai_still_via_chain(
                 env_k = os.environ.get("GEMINI_API_KEY", "").strip()
                 if env_k and env_k not in g_keys:
                     g_keys.append(env_k)
-                for key in g_keys[:2]:
+                for key in g_keys:
                     if _google_product_image(
                         key, prompt, out_path, width=width, height=height
                     ):
@@ -146,7 +225,15 @@ def _ai_still_via_chain(
                 logger.debug("huggingface image provider not wired — skip")
                 continue
             if provider == "agnes":
-                logger.debug("agnes image skipped in still chain (video primary)")
+                res = _agnes_image(
+                    prompt,
+                    out_path,
+                    width=width,
+                    height=height,
+                    api_key=api_key,
+                )
+                if res and res.exists() and res.stat().st_size > 5000:
+                    return res
                 continue
         except Exception as exc:
             last_err = exc
@@ -269,15 +356,17 @@ def _pollinations_image(
     api_key: str = "",
 ) -> Path:
     out_path.parent.mkdir(parents=True, exist_ok=True)
-    # Prefer free Pollinations URL first — keyed gen.pollinations often 401s on stale keys
+    clean_key = (api_key or "").strip()
+    if clean_key.startswith("AQ.") or clean_key.startswith("AIza") or len(clean_key) < 12:
+        clean_key = ""
+
     urls = [
-        f"https://image.pollinations.ai/prompt/{quote(prompt)}"
-        f"?width={width}&height={height}&nologo=true&model=flux",
+        f"https://image.pollinations.ai/prompt/{quote(prompt)}?width=1024&height=1024&nologo=true",
+        f"https://image.pollinations.ai/prompt/{quote(prompt)}?width={width}&height={height}&nologo=true",
     ]
-    if api_key:
+    if clean_key:
         urls.append(
-            f"https://gen.pollinations.ai/image/{quote(prompt)}"
-            f"?width={width}&height={height}&model=flux&key={api_key}",
+            f"https://gen.pollinations.ai/image/{quote(prompt)}?width=1024&height=1024&key={clean_key}"
         )
 
     last_err = None
@@ -295,6 +384,10 @@ def _pollinations_image(
                     import io
 
                     img = Image.open(io.BytesIO(r.content)).convert("RGB")
+                    target_w = max(100, int(width or 1080))
+                    target_h = max(100, int(height or 1920))
+                    if (img.width, img.height) != (target_w, target_h):
+                        img = img.resize((target_w, target_h), Image.LANCZOS)
                     if out_path.suffix.lower() not in {".png", ".jpg", ".jpeg"}:
                         out_path = out_path.with_suffix(".png")
                     img.save(out_path)
@@ -382,7 +475,7 @@ def generate_intro_video(
     agnes_keys = agnes_keys or []
 
     # Agnes keys — try free endpoint first (faster), then paid poll briefly
-    for key in agnes_keys[:1]:
+    for key in agnes_keys[:3]:
         key = (key or "").strip()
         if not key:
             continue
@@ -848,18 +941,19 @@ def _agnes_video(
         "Authorization": f"Bearer {api_key}",
         "Content-Type": "application/json",
     }
+    aspect = "9:16" if height > width else "16:9"
     payload: Dict[str, Any] = {
-        "model": "agnes-video-v2.0",
+        "model": "agnes-video-2.5-flash",
         "prompt": prompt,
-        "width": width,
-        "height": height,
-        "num_frames": num_frames,
-        "frame_rate": frame_rate,
+        "aspect_ratio": aspect,
     }
-    if negative_prompt:
-        payload["negative_prompt"] = negative_prompt
     if image_url:
-        payload["image"] = image_url
+        payload["mode"] = "keyframe"
+        payload["first_frame"] = image_url
+    else:
+        payload["mode"] = "text"
+    # Modern Agnes API rejects negative_prompt parameter
+    pass
 
     # Single create endpoint only — never fan-out to alternate URLs (API misuse)
     create_url = "https://apihub.agnes-ai.com/v1/videos"
@@ -1216,25 +1310,74 @@ def generate_thumbnail(
     niche: str = "",
 ) -> Path:
     out_path.parent.mkdir(parents=True, exist_ok=True)
+    clean_subject = gadget or title or niche or "documentary exploration"
     prompt = (
-        f"YouTube thumbnail hero product photo of {gadget}, bold cinematic lighting, "
-        f"the exact {gadget} clearly visible and large in frame, high contrast, no watermark"
+        f"Photorealistic 8k editorial hero visual of {clean_subject}, topic: {niche or 'editorial'}, "
+        f"dramatic volumetric studio lighting, rich color grade, high contrast, "
+        f"award-winning National Geographic and BBC documentary quality, ultra-sharp detail --no people, no text, no watermark, no faces"
     )
     generated = False
+    # Priority 1: Agnes AI V2.1 API
     try:
-        generate_product_still(
-            gadget,
-            "intro",
-            out_path,
-            visual_prompt=prompt,
+        agnes_res = _agnes_image(
+            prompt=prompt,
+            out_path=out_path,
             width=1280,
             height=720,
-            api_key=pollinations_key,
-            google_api_keys=google_api_keys or [],
         )
+        if agnes_res and out_path.exists() and out_path.stat().st_size > 5000:
+            generated = True
+            logger.info("Agnes AI thumbnail base visual generated: %d bytes", out_path.stat().st_size)
+    except Exception as ag_err:
+        logger.warning("Agnes thumbnail visual generation failed: %s", ag_err)
+
+    # Priority 2: Google Imagen
+    if not generated and google_api_keys:
+        try:
+            from pipeline.google_media import generate_imagen_image
+            for k in (google_api_keys or []):
+                try:
+                    res = generate_imagen_image(prompt=prompt, out_path=out_path, api_key=k, aspect_ratio="16:9", width=1280, height=720)
+                    if res and out_path.exists() and out_path.stat().st_size > 5000:
+                        generated = True
+                        break
+                except Exception:
+                    continue
+        except Exception:
+            pass
+
+    try:
+        if not generated:
+            generate_product_still(
+                gadget,
+                "intro",
+                out_path,
+                visual_prompt=prompt,
+                width=1280,
+                height=720,
+                api_key=pollinations_key,
+                google_api_keys=google_api_keys or [],
+            )
         if out_path.exists() and out_path.stat().st_size > 5000:
             generated = True
-            if logo_path and logo_path.exists():
+            try:
+                from PIL import Image
+                from pipeline.ctr_thumbnail_compositor import CTRThumbnailCompositor
+                raw_img = Image.open(out_path)
+                is_bn = any("ঀ" <= ch <= "৿" for ch in (title + " " + gadget))
+                CTRThumbnailCompositor.compose_thumbnail(
+                    out_path=out_path,
+                    title=title,
+                    niche=niche,
+                    language="bn" if is_bn else "en",
+                    width=1280,
+                    height=720,
+                    base_image=raw_img,
+                )
+            except Exception as comp_err:
+                logger.warning("CTR thumbnail overlay composition failed: %s", comp_err)
+
+            if logo_path and Path(logo_path).exists():
                 try:
                     from PIL import Image
                     from pipeline.compose import preprocess_logo_for_branding
@@ -1255,13 +1398,25 @@ def generate_thumbnail(
         generated = False
 
     if not generated or not out_path.exists() or out_path.stat().st_size < 5000:
-        render_high_aesthetic_thumbnail(
-            title=title,
-            subject=gadget,
-            out_path=out_path,
-            niche=niche,
-            logo_path=logo_path,
-        )
+        try:
+            from pipeline.ctr_thumbnail_compositor import CTRThumbnailCompositor
+            is_bn = any("ঀ" <= ch <= "৿" for ch in (title + " " + gadget))
+            CTRThumbnailCompositor.compose_thumbnail(
+                out_path=out_path,
+                title=title,
+                niche=niche,
+                language="bn" if is_bn else "en",
+                width=1280,
+                height=720,
+            )
+        except Exception:
+            render_high_aesthetic_thumbnail(
+                title=title,
+                subject=gadget,
+                out_path=out_path,
+                niche=niche,
+                logo_path=logo_path,
+            )
 
     return out_path
 

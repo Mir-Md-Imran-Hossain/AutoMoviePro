@@ -81,12 +81,9 @@ class CaptchaHandler:
     Tier 2: Real-time Push Notification to Mobile App with interactive screen fallback.
     """
 
-    def __init__(self, confidence_threshold: float = 0.80, allow_simulation: Optional[bool] = None):
+    def __init__(self, confidence_threshold: float = 0.80, allow_simulation: bool = False):
         self.confidence_threshold = confidence_threshold
-        if allow_simulation is not None:
-            self.allow_simulation = allow_simulation
-        else:
-            self.allow_simulation = not _is_production()
+        self.allow_simulation = bool(allow_simulation)
         _ensure_storage()
 
     def detect_captcha(self, html_snippet: str = "", screen_tags: Optional[List[str]] = None) -> Optional[str]:
@@ -111,7 +108,7 @@ class CaptchaHandler:
         Returns solution and confidence score.
         In production, mock tokens and fake bypasses are strictly forbidden.
         """
-        is_prod = _is_production() and not self.allow_simulation
+        is_prod = _is_production() or not self.allow_simulation
 
         if captcha_type == "cloudflare":
             if is_prod:
@@ -194,7 +191,7 @@ class CaptchaHandler:
         if not clean_token:
             return False
 
-        is_prod = _is_production() and not self.allow_simulation
+        is_prod = _is_production() or not self.allow_simulation
         if is_prod:
             clean_lower = clean_token.lower()
             if clean_lower in ("mock_token_pass", "mock", "test", "simulated") or clean_lower.startswith("mock_"):

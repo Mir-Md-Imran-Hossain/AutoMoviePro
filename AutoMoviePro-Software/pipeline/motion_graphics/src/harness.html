@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>AutoMovie Pro Motion Graphics Harness</title>
+  <style>
+    @font-face {
+      font-family: 'Hind Siliguri';
+      src: url('../../assets/fonts/HindSiliguri-Bold.ttf') format('truetype');
+      font-weight: bold;
+      font-style: normal;
+    }
+    @font-face {
+      font-family: 'Noto Sans Bengali';
+      src: url('../../assets/fonts/NotoSansBengali-Bold.ttf') format('truetype');
+      font-weight: bold;
+      font-style: normal;
+    }
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+    body, html {
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
+      background: transparent;
+    }
+    #canvasContainer {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+    }
+    canvas {
+      display: block;
+      width: 100%;
+      height: 100%;
+    }
+  </style>
+</head>
+<body>
+  <div id="canvasContainer">
+    <canvas id="motionCanvas" width="1080" height="1920"></canvas>
+  </div>
+
+  <script src="./spring.js"></script>
+  <script src="./templates.js"></script>
+  <script>
+    let globalSpec = {};
+    let canvas = document.getElementById('motionCanvas');
+    let ctx = canvas.getContext('2d');
+    let isFontsReady = false;
+
+    document.fonts.ready.then(() => {
+      isFontsReady = true;
+    });
+
+    window.__initHarness = function(spec) {
+      globalSpec = spec || {};
+      const width = spec.width || 1080;
+      const height = spec.height || 1920;
+      canvas.width = width;
+      canvas.height = height;
+      return true;
+    };
+
+    window.__renderFrame = function(frameIndex) {
+      const width = canvas.width;
+      const height = canvas.height;
+      const fps = globalSpec.fps || 30;
+      MotionGraphicsTemplates.renderCompositeFrame(ctx, width, height, frameIndex, fps, globalSpec);
+      return true;
+    };
+
+    window.__getFrameDataUrl = function(frameIndex) {
+      window.__renderFrame(frameIndex);
+      return canvas.toDataURL('image/png');
+    };
+  </script>
+</body>
+</html>

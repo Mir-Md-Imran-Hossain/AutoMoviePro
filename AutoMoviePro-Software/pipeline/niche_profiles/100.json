@@ -1,83 +1,64 @@
 {
   "niche_id": 100,
-  "name": "Digital Museums",
-  "slug": "digital-museums",
-  "style_family": "history",
+  "name": "Mega Engineering & Megaprojects",
+  "slug": "mega-engineering-megaprojects",
+  "style_family": "motion_graphics",
   "status": "VERIFIED",
   "topic_seeds": [
-    "What new evidence reframes the story of Digital Museums Virtual inside Digital Museums",
-    "How Digital Museums Virtual still shapes public curiosity about Digital Museums",
-    "What new evidence reframes the story of Louvre inside Digital Museums",
-    "How Louvre still shapes public curiosity about Digital Museums",
-    "What new evidence reframes the story of British Museum inside Digital Museums",
-    "How British Museum still shapes public curiosity about Digital Museums"
+    "Key analytical breakdown on Mega Engineering & Megaprojects",
+    "Behind the scenes of major Mega Engineering & Megaprojects events",
+    "Critical evidence and timelines in Mega Engineering & Megaprojects"
   ],
   "seo_angles": [
-    "What new evidence reframes the story of Digital Museums Virtual inside Digital Museums",
-    "How Digital Museums Virtual still shapes public curiosity about Digital Museums",
-    "What new evidence reframes the story of Louvre inside Digital Museums",
-    "How Louvre still shapes public curiosity about Digital Museums"
+    "What people misunderstand about Mega Engineering & Megaprojects",
+    "Why this historic moment in Mega Engineering & Megaprojects matters today"
   ],
   "forbidden_visuals": [
     "talking-head lip-sync avatar",
     "burned-in captions",
     "watermark",
     "modern meme text",
-    "modern smartphones",
-    "cars",
-    "LED screens",
-    "sneakers",
-    "contemporary skyline"
+    "random stock photo cutout"
   ],
   "preferred_subjects": [
-    "Digital Museums documentary subject",
-    "period-accurate environment",
-    "evidence object close-up"
+    "high-resolution authentic environments",
+    "data-driven infographics and telemetry",
+    "moody cinematic lighting"
   ],
-  "lighting_default": "warm desert sun / torchlit interiors, high-contrast documentary grade",
-  "face_policy": "period extras OK if consistent; prefer environment/object hero when possible",
-  "dialogue_tone": "human documentary narration; specific nouns; 7–9s beats",
-  "audio_ambience": "subtle documentary bed; do not overpower voice",
+  "lighting_default": "cinematic high-contrast documentary grade",
+  "face_policy": "avoid talking head lip-sync; prefer environmental/tactical/infographic hero",
+  "dialogue_tone": "authoritative, engaging, retention-focused documentary narrative",
+  "audio_ambience": "subtle low-end atmospheric resonance, precise Foley SFX",
   "research_hints": [
-    "Prefer primary evidence and concrete entities for Digital Museums",
-    "Avoid generic niche-label topics; require specific place/person/event/mechanism",
-    "7–9 second spoken beats with story continuity across scenes"
+    "Prefer factual, verified data points for Mega Engineering & Megaprojects",
+    "Strong retention hook in opening 3 seconds"
   ],
-  "topic_prompt_overlay": "NICHE LOCK (Digital Museums): only propose topics that fit this niche's video type. Video type: Virtual tours of the Louvre, British Museum, etc. — the history of selected artifacts and how to explore online. Follow niche topic strategy: Check museum news, new virtual tours, or viral artifact discoveries. Generate a topic about an artifact now viewable online.",
-  "video_prompt_overlay": "NICHE VISUAL LOCK (Digital Museums / history): Generate a 7–9 second dialogue clip based on the topic `{topic}`. Each dialogue must be admiring and cultural. For each dialogue, generate: - **Audio Generation Prompt:** Voice — reverent, with soft classical music. - **Video Generation Prompt:** Detailed visual — a museum hall or a 3D artifact. No character — focus on artifact. Lighting: museum spotlight. Maintain same artifact and spotlight. Forbidden: talking-head lip-sync avatar, burned-in captions, watermark, modern meme text, modern smartphones, cars, LED screens, sneakers. Preferred subjects: Digital Museums documentary subject, period-accurate environment, evidence object close-up. Lighting: warm desert sun / torchlit interiors, high-contrast documentary grade. Face policy: period extras OK if consistent; prefer environment/object hero when possible. Dialogue tone: human documentary narration; specific nouns; 7–9s beats. Ambience: subtle documentary bed; do not overpower voice.",
+  "topic_prompt_overlay": "NICHE LOCK (Mega Engineering & Megaprojects): Investigate extreme civil engineering feats (Gotthard Base Tunnel, Three Gorges Dam, Millau Viaduct, Burj Khalifa tuned mass damper). Explain the structural physics, fatal design failures overcome, and groundbreaking construction robotics.",
+  "video_prompt_overlay": "NICHE VISUAL LOCK (Mega Engineering & Megaprojects / motion_graphics): Generate a 7–9 second architectural engineering beat for topic {topic}. Visuals: Massive cross-sectional 3D CAD schematic of a skyscraper foundation, tunnel boring machine cutter-head, or suspension bridge cable anchor, with dynamic structural load vector callouts. Lighting: Crisp industrial dawn sunlight piercing concrete scaffolding. Camera: Sweeping vertical crane ascent up towering steel and concrete superstructure. Ambience: Heavy hydraulic machinery hum, distant construction steel echoes, and powerful symphonic build.",
   "i18n": {
     "en": {
-      "name": "Digital Museums",
-      "blurb": "Virtual tours of the Louvre, British Museum, etc. — the history of selected artifacts and how to explore online."
+      "name": "Mega Engineering & Megaprojects",
+      "blurb": "Structural and civil engineering deep dives into humanity's most audacious constructions — deep-sea tunnels, seismic skyscraper dampers, massive hydroelectric dams, and desert cana"
     },
     "bn": {
-      "name": "ডিজিটাল জাদুঘর",
-      "blurb": "ভিডিও টাইপ: Virtual tours of the Louvre, British Museum, etc. — the history of selected artifacts and how to explore online."
+      "name": "মেগা ইঞ্জিনিয়ারিং ও মেগাপ্রজেক্ট",
+      "blurb": "সমুদ্রের তলদেশের সুরঙ্গ ও আকাশচুম্বী দালান নির্মাণের পেছনের অবিশ্বাস্য প্রকৌশলবিদ্যা।"
     },
     "hi": {
-      "name": "डिजिटल संग्रहालय",
-      "blurb": "वीडियो प्रकार: Virtual tours of the Louvre, British Museum, etc. — the history of selected artifacts and how to explore online."
+      "name": "मेगा इंजीनियरिंग और मेगाप्रोजेक्ट्स",
+      "blurb": "समुद्र के नीचे सुरंगे, विशाल बांध और गगनचुंबी इमारतों के निर्माण का अद्भुत इंजीनियरिंग सफर।"
     },
     "ur": {
-      "name": "ڈیجیٹل عجائب گھر",
-      "blurb": "ویڈیو کی قسم: Virtual tours of the Louvre, British Museum, etc. — the history of selected artifacts and how to explore online."
+      "name": "میگا انجینئرنگ اور میگا پروجیکٹس",
+      "blurb": "سمندر پار سرنگوں، بلند و بالا عمارتوں اور عظیم الشان ڈیموں کی حیرت انگیز انجینئرنگ۔"
     },
     "ta": {
-      "name": "டிஜிட்டல் அருங்காட்சியகங்கள்",
-      "blurb": "வீடியோ வகை: Virtual tours of the Louvre, British Museum, etc. — the history of selected artifacts and how to explore online."
+      "name": "மெகா இன்ஜினியரிங் மற்றும் மெகா திட்டங்கள்",
+      "blurb": "ஆழ்கடல் சுரங்கங்கள் மற்றும் பிரம்மாண்ட கட்டிடங்கள் அமைக்கப்பட்ட வியக்கத்தக்க பொறியியல் பயணம்."
     },
     "ml": {
-      "name": "ഡിജിറ്റൽ മ്യൂസിയങ്ങൾ",
-      "blurb": "വീഡിയോ തരം: Virtual tours of the Louvre, British Museum, etc. — the history of selected artifacts and how to explore online."
+      "name": "മെഗാ എഞ്ചിനീയറിംഗും വൻകിട പദ്ധതികളും",
+      "blurb": "ആഴക്കടൽ തുരങ്കങ്ങളുടെയും കൂറ്റൻ അണക്കെട്ടുകളുടെയും അത്ഭുതകരമായ എഞ്ചിനീയറിംഗ് വിസ്മയങ്ങൾ."
     }
-  },
-  "source": "Nish.Md + deterministic research",
-  "research_notes": [
-    "Marathon researched at 2026-09-10T08:30:22Z",
-    "Video type length=112",
-    "Topic prompt length=124",
-    "Video prompt length=396",
-    "Seeds=6"
-  ],
-  "verified_at": "2026-09-10T08:30:22Z"
+  }
 }

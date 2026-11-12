@@ -44,27 +44,27 @@
   "i18n": {
     "en": {
       "name": "Famous Assassinations",
-      "blurb": "Gripping retelling of political murders — Lincoln, JFK, Gandhi, Caesar. Explores the killer's motive, the conspiracy (if any), and how one bullet reshaped…"
+      "blurb": "Gripping retelling of political murders — Lincoln, JFK, Gandhi, Caesar. Explores the killer's motive, the conspiracy (if any), and how one bullet reshaped history."
     },
     "bn": {
       "name": "বিখ্যাত হত্যাকাণ্ড",
-      "blurb": "ভিডিও টাইপ: Gripping retelling of political murders — Lincoln, JFK, Gandhi, Caesar. Explores the killer's motive, the conspiracy (if any), and how one bullet…"
+      "blurb": "লিংকন, জেএফকে, গান্ধী এবং সিজারের রাজনৈতিক হত্যার এক রোমাঞ্চকর ও রহস্যময় পুনর্কথন।"
     },
     "hi": {
-      "name": "प्रसिद्ध हत्याएँ",
-      "blurb": "वीडियो प्रकार: Gripping retelling of political murders — Lincoln, JFK, Gandhi, Caesar. Explores the killer's motive, the conspiracy (if any), and how one bullet…"
+      "name": "प्रसिद्ध हत्याएं",
+      "blurb": "लिंकन, जेएफके, गांधी और सीजर की राजनीतिक हत्याओं की रोमांचक और रहस्यमयी दास्तान।"
     },
     "ur": {
       "name": "مشہور قتل",
-      "blurb": "ویڈیو کی قسم: Gripping retelling of political murders — Lincoln, JFK, Gandhi, Caesar. Explores the killer's motive, the conspiracy (if any), and how one bullet…"
+      "blurb": "لنکن، جے ایف کے، گاندھی اور سیزر کے سیاسی قتل کی سنسنی خیز اور پراسرار کہانی۔"
     },
     "ta": {
       "name": "பிரபல படுகொலைகள்",
-      "blurb": "வீடியோ வகை: Gripping retelling of political murders — Lincoln, JFK, Gandhi, Caesar. Explores the killer's motive, the conspiracy (if any), and how one bullet…"
+      "blurb": "லிங்கன், ஜே.எஃப்.கே, காந்தி மற்றும் சீசர் படுகொலைகளின் விறுவிறுப்பான மற்றும் விரிவான கதை."
     },
     "ml": {
-      "name": "പ്രശസ്ത കൊലപാതകങ്ങൾ",
-      "blurb": "വീഡിയോ തരം: Gripping retelling of political murders — Lincoln, JFK, Gandhi, Caesar. Explores the killer's motive, the conspiracy (if any), and how one bullet…"
+      "name": "പ്രശസ്തമായ വധശിക്ഷകൾ",
+      "blurb": "ലിങ്കൺ, ജെ.എഫ്.കെ, ഗാന്ധി, സീസർ എന്നിവരുടെ രാഷ്ട്രീയ കൊലപാതകങ്ങളുടെ ഉദ്വേഗജനകമായ വിവരണം."
     }
   },
   "source": "Nish.Md + deterministic research",

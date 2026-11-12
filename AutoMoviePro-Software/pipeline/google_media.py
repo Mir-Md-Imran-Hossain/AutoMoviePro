@@ -16,6 +16,9 @@ from typing import Any, Dict, List, Optional, Sequence
 
 logger = logging.getLogger(__name__)
 
+_veo_disabled = False
+_imagen_disabled = False
+
 # Default model priorities
 VEO_MODELS = [
     "veo-3.1-generate-preview",
@@ -63,8 +66,9 @@ def normalize_aspect_ratio(aspect_ratio: str, width: int = 0, height: int = 0) -
 def generate_veo_video(
     prompt: str,
     out_path: Path,
-    api_key: str,
+    api_key: Optional[str] = None,
     *,
+    api_keys: Optional[Sequence[str]] = None,
     aspect_ratio: str = "16:9",
     duration_seconds: int = 5,
     max_poll_seconds: int = 120,
@@ -72,13 +76,31 @@ def generate_veo_video(
     model: Optional[str] = None,
 ) -> Optional[Path]:
     """
-    Generate video using Google Veo (Veo 3.1 / Veo 2.0).
-
-    Returns path to generated video on success, or None on failure/quota limit.
+    Generate video using Google Veo (Veo 3.1 / Veo 2.0) with FULL multi-key failover.
+    Rotates across all healthy Google keys (free + paid) before giving up.
     """
-    api_key = (api_key or os.environ.get("GEMINI_API_KEY", "")).strip()
-    if not api_key:
-        logger.warning("Veo generation skipped: No Google API key provided")
+    global _veo_disabled
+    if _veo_disabled or os.environ.get("AMP_DISABLE_VEO", "0").strip() == "1":
+        return None
+
+    # Collect all available keys into pool
+    pool: List[str] = []
+    seen = set()
+    for k in (api_keys or []):
+        v = (k or "").strip()
+        if v and v not in seen:
+            seen.add(v)
+            pool.append(v)
+    if api_key and api_key.strip() and api_key.strip() not in seen:
+        seen.add(api_key.strip())
+        pool.insert(0, api_key.strip())
+    env_gk = os.environ.get("GEMINI_API_KEY", "").strip()
+    if env_gk and env_gk not in seen:
+        seen.add(env_gk)
+        pool.append(env_gk)
+
+    if not pool:
+        logger.warning("Veo generation skipped: No Google API keys in pool")
         return None
 
     try:
@@ -91,66 +113,70 @@ def generate_veo_video(
     out_path = Path(out_path)
     out_path.parent.mkdir(parents=True, exist_ok=True)
     ar = normalize_aspect_ratio(aspect_ratio)
-
     candidate_models = [model] if model else VEO_MODELS
-    client = genai.Client(api_key=api_key)
 
-    for m in candidate_models:
-        try:
-            dur_raw = int(duration_seconds or 6)
-            veo_dur = 4 if dur_raw <= 4 else (6 if dur_raw <= 7 else 8)
-            config_kwargs: Dict[str, Any] = {
-                "number_of_videos": 1,
-                "duration_seconds": veo_dur,
-            }
+    # Multi-key failover rotation
+    for key_idx, current_key in enumerate(pool):
+        client = genai.Client(api_key=current_key)
+        for m in candidate_models:
             try:
-                config = types.GenerateVideosConfig(
-                    aspect_ratio=ar,
-                    **config_kwargs,
+                dur_raw = int(duration_seconds or 6)
+                veo_dur = 4 if dur_raw <= 4 else (6 if dur_raw <= 7 else 8)
+                config_kwargs: Dict[str, Any] = {
+                    "number_of_videos": 1,
+                    "duration_seconds": veo_dur,
+                }
+                try:
+                    config = types.GenerateVideosConfig(
+                        aspect_ratio=ar,
+                        **config_kwargs,
+                    )
+                except Exception:
+                    config = types.GenerateVideosConfig(**config_kwargs)
+
+                logger.info("Attempting Google Veo: key %d/%d (…%s) model=%s", key_idx + 1, len(pool), current_key[-4:], m)
+                operation = client.models.generate_videos(
+                    model=m,
+                    prompt=prompt,
+                    config=config,
                 )
-            except Exception:
-                config = types.GenerateVideosConfig(**config_kwargs)
 
-            operation = client.models.generate_videos(
-                model=m,
-                prompt=prompt,
-                config=config,
-            )
+                # Poll operation
+                start_time = time.time()
+                while not operation.done:
+                    elapsed = time.time() - start_time
+                    if elapsed > max_poll_seconds:
+                        logger.warning("Veo video generation timed out after %ds for model %s", max_poll_seconds, m)
+                        break
+                    time.sleep(poll_interval)
+                    operation = client.operations.get(operation)
 
-            # Poll operation
-            start_time = time.time()
-            while not operation.done:
-                elapsed = time.time() - start_time
-                if elapsed > max_poll_seconds:
-                    logger.warning("Veo video generation timed out after %ds for model %s", max_poll_seconds, m)
+                if not operation.done:
+                    continue
+
+                resp = getattr(operation, "response", None)
+                if not resp or not getattr(resp, "generated_videos", None):
+                    logger.warning("Veo operation completed but returned no videos: %s", operation)
+                    continue
+
+                first_vid = resp.generated_videos[0]
+                vid_file = getattr(first_vid, "video", None)
+                if vid_file is not None:
+                    client.files.download(file=vid_file, destination=str(out_path))
+                    if out_path.is_file() and out_path.stat().st_size > 5000:
+                        logger.info("Successfully generated Google Veo video: %s (%d bytes)", out_path.name, out_path.stat().st_size)
+                        return out_path
+
+            except Exception as exc:
+                err_msg = str(exc)
+                logger.warning("Google Veo key %d/%d (…%s) model %s error: %s", key_idx + 1, len(pool), current_key[-4:], m, err_msg[:160])
+                if any(x in err_msg for x in ("RESOURCE_EXHAUSTED", "429", "402", "403")):
+                    # Key exhausted or denied; break model loop to try NEXT KEY in pool
                     break
-                time.sleep(poll_interval)
-                operation = client.operations.get(operation)
-
-            if not operation.done:
                 continue
 
-            resp = getattr(operation, "response", None)
-            if not resp or not getattr(resp, "generated_videos", None):
-                logger.warning("Veo operation completed but returned no videos: %s", operation)
-                continue
-
-            first_vid = resp.generated_videos[0]
-            vid_file = getattr(first_vid, "video", None)
-            if vid_file is not None:
-                client.files.download(file=vid_file, destination=str(out_path))
-                if out_path.is_file() and out_path.stat().st_size > 5000:
-                    logger.info("Successfully generated Google Veo video: %s (%d bytes)", out_path.name, out_path.stat().st_size)
-                    return out_path
-
-        except Exception as exc:
-            err_msg = str(exc)
-            logger.warning("Google Veo model %s error: %s", m, err_msg[:200])
-            if "RESOURCE_EXHAUSTED" in err_msg or "429" in err_msg:
-                from pipeline.quota_backoff import record_quota_hit
-                record_quota_hit("google")
-            continue
-
+    logger.warning("All %d Google keys in pool exhausted/unavailable for Veo; disabling Veo circuit and falling back", len(pool))
+    _veo_disabled = True
     return None
 
 
@@ -213,7 +239,7 @@ def generate_imagen_image(
             logger.debug("Google Imagen model %s failed: %s", m, err_msg[:160])
             if "RESOURCE_EXHAUSTED" in err_msg or "429" in err_msg:
                 from pipeline.quota_backoff import record_quota_hit
-                record_quota_hit("google")
+                record_quota_hit("google_imagen")
             continue
 
     # 2) Fallback to Flash Image multimodal (gemini-2.5-flash-image)

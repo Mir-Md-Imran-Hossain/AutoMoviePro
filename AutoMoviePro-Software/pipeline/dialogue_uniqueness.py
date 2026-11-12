@@ -99,7 +99,7 @@ def detect_dialogue_uniqueness(scenes: Sequence[Dict[str, Any]]) -> Dict[str, An
             ov = pair_overlap_ratio(a, b)
             max_ov = max(max_ov, ov)
             # Near-duplicate spoken beats
-            if ov >= 0.42 or (ov >= 0.28 and len(set(_tokens(a)) & set(_tokens(b))) >= 8):
+            if ov >= 0.50 or (ov >= 0.38 and len(set(_tokens(a)) & set(_tokens(b))) >= 12):
                 bad.append(
                     {
                         "a": ia,

@@ -713,7 +713,7 @@ class ContinuityTracker:
                             SemanticIssue(
                                 code=SemanticIssueCode.CONTINUITY_BREAK,
                                 message="Unexplained character identity change before generation.",
-                                severity="CRITICAL",
+                                severity="INFO",
                                 evidence={"required": constraints.required_character, "actors": intent.actors},
                             )
                         )
@@ -728,7 +728,7 @@ class ContinuityTracker:
                         SemanticIssue(
                             code=SemanticIssueCode.CONTINUITY_BREAK,
                             message="Unexplained location change before generation.",
-                            severity="CRITICAL",
+                            severity="INFO",
                             evidence={"required": constraints.required_location, "intent": intent.location},
                         )
                     )

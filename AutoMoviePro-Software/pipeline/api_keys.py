@@ -115,9 +115,14 @@ def load_api_bundle(
     maps.append({k: v for k, v in os.environ.items() if v})
     env = merge_env_maps(*maps)
 
-    google = _collect_numbered(
+    google_free = _collect_numbered(
         env, ["GOOGLE_API_KEY", "GEMINI_API_KEY", "GOOGLE_AI_API_KEY"], max_n=40
     )
+    google_paid = _collect_numbered(
+        env, ["GOOGLE_PAID_API_KEY", "GOOGLE_PAID_MASTER_KEY"], max_n=30
+    )
+    # Free-First Tiering: Free keys are always primary; paid keys are secondary fallback
+    google = list(google_free)
     agnes = _collect_numbered(env, ["AGNES_API_KEY", "AGNES_API"], max_n=20)
     openrouter = _collect_numbered(env, ["OPENROUTER_API_KEY"], max_n=10)
     huggingface = _collect_numbered(
@@ -149,6 +154,11 @@ def load_api_bundle(
             google.insert(0, v)
     for extra in ch.get("google_api_extra") or []:
         v = (extra or "").strip()
+        if v and v not in google:
+            google.append(v)
+
+    # Append paid keys at the end as secondary fallback tier
+    for v in google_paid:
         if v and v not in google:
             google.append(v)
 
@@ -233,6 +243,8 @@ def load_api_bundle(
     )
     return {
         "google_keys": google,
+        "google_free_keys": google_free,
+        "google_paid_keys": google_paid,
         "agnes_keys": agnes,
         "openrouter_keys": openrouter,
         "huggingface_keys": huggingface,

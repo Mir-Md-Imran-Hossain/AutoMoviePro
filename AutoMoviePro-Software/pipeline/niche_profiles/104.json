@@ -1,83 +1,64 @@
 {
   "niche_id": 104,
-  "name": "AI Audio & Music",
-  "slug": "ai-audio-music",
+  "name": "Ancient Military Tactics & Formations",
+  "slug": "ancient-military-tactics-formations",
   "style_family": "history",
   "status": "VERIFIED",
   "topic_seeds": [
-    "What new evidence reframes the story of Audio inside AI Audio & Music",
-    "How Audio still shapes public curiosity about AI Audio & Music",
-    "What new evidence reframes the story of Music Soundraw inside AI Audio & Music",
-    "How Music Soundraw still shapes public curiosity about AI Audio & Music",
-    "What new evidence reframes the story of Voicemod inside AI Audio & Music",
-    "How Voicemod still shapes public curiosity about AI Audio & Music"
+    "Key analytical breakdown on Ancient Military Tactics & Formations",
+    "Behind the scenes of major Ancient Military Tactics & Formations events",
+    "Critical evidence and timelines in Ancient Military Tactics & Formations"
   ],
   "seo_angles": [
-    "What new evidence reframes the story of Audio inside AI Audio & Music",
-    "How Audio still shapes public curiosity about AI Audio & Music",
-    "What new evidence reframes the story of Music Soundraw inside AI Audio & Music",
-    "How Music Soundraw still shapes public curiosity about AI Audio & Music"
+    "What people misunderstand about Ancient Military Tactics & Formations",
+    "Why this historic moment in Ancient Military Tactics & Formations matters today"
   ],
   "forbidden_visuals": [
     "talking-head lip-sync avatar",
     "burned-in captions",
     "watermark",
     "modern meme text",
-    "modern smartphones",
-    "cars",
-    "LED screens",
-    "sneakers",
-    "contemporary skyline"
+    "random stock photo cutout"
   ],
   "preferred_subjects": [
-    "AI Audio & Music documentary subject",
-    "period-accurate environment",
-    "evidence object close-up"
+    "high-resolution authentic environments",
+    "data-driven infographics and telemetry",
+    "moody cinematic lighting"
   ],
-  "lighting_default": "warm desert sun / torchlit interiors, high-contrast documentary grade",
-  "face_policy": "period extras OK if consistent; prefer environment/object hero when possible",
-  "dialogue_tone": "human documentary narration; specific nouns; 7–9s beats",
-  "audio_ambience": "subtle documentary bed; do not overpower voice",
+  "lighting_default": "cinematic high-contrast documentary grade",
+  "face_policy": "avoid talking head lip-sync; prefer environmental/tactical/infographic hero",
+  "dialogue_tone": "authoritative, engaging, retention-focused documentary narrative",
+  "audio_ambience": "subtle low-end atmospheric resonance, precise Foley SFX",
   "research_hints": [
-    "Prefer primary evidence and concrete entities for AI Audio & Music",
-    "Avoid generic niche-label topics; require specific place/person/event/mechanism",
-    "7–9 second spoken beats with story continuity across scenes"
+    "Prefer factual, verified data points for Ancient Military Tactics & Formations",
+    "Strong retention hook in opening 3 seconds"
   ],
-  "topic_prompt_overlay": "NICHE LOCK (AI Audio & Music): only propose topics that fit this niche's video type. Video type: Soundraw, Voicemod — creating royalty-free music, voiceovers, or sound effects for content creators. Follow niche topic strategy: Check music tech news, new AI composer releases, or viral AI music tracks. Generate a topic about a tool that generates custom audio.",
-  "video_prompt_overlay": "NICHE VISUAL LOCK (AI Audio & Music / history): Generate a 7–9 second dialogue clip based on the topic `{topic}`. Each dialogue must be harmonious and creative. For each dialogue, generate: - **Audio Generation Prompt:** Voice — melodic, with music notes and beat drops. - **Video Generation Prompt:** Detailed visual — a waveform or piano roll screen. No character — screen. Lighting: colourful. Maintain same colourful screen. Forbidden: talking-head lip-sync avatar, burned-in captions, watermark, modern meme text, modern smartphones, cars, LED screens, sneakers. Preferred subjects: AI Audio & Music documentary subject, period-accurate environment, evidence object close-up. Lighting: warm desert sun / torchlit interiors, high-contrast documentary grade. Face policy: period extras OK if consistent; prefer environment/object hero when possible. Dialogue tone: human documentary narration; specific nouns; 7–9s beats. Ambience: subtle documentary bed; do not overpower voice.",
+  "topic_prompt_overlay": "NICHE LOCK (Ancient Military Tactics & Formations): Break down ancient commanders' tactical brilliance (Hannibal at Cannae, Alexander at Gaugamela, Khalid ibn al-Walid at Yarmouk, Caesar at Alesia). Focus on discipline, logistics, terrain exploitation, and weapon mechanics.",
+  "video_prompt_overlay": "NICHE VISUAL LOCK (Ancient Military Tactics & Formations / history): Generate a 7–9 second tactical historical scene for topic {topic}. Visuals: Formidable battle line of ancient armored soldiers with interlocking bronze or steel shields and leveled spears, seen from an oblique ground perspective with battle dust swirling. Lighting: Low-angled dawn sunlight glinting off polished bronze, steel, and crimson banners. Camera: Smooth tracking slider along the impenetrable front line of shields. Ambience: Heavy synchronized marching boots on dry earth, distant war horns, and rattling bronze armor.",
   "i18n": {
     "en": {
-      "name": "AI Audio & Music",
-      "blurb": "Soundraw, Voicemod — creating royalty-free music, voiceovers, or sound effects for content creators."
+      "name": "Ancient Military Tactics & Formations",
+      "blurb": "Tactical reconstructions of historic battle formations — Spartan Phalanx, Roman Legionary Testudo, Carthaginian double envelopment, and Mongol feigned retreats."
     },
     "bn": {
-      "name": "এআই অডিও ও সঙ্গীত",
-      "blurb": "ভিডিও টাইপ: Soundraw, Voicemod — creating royalty-free music, voiceovers, or sound effects for content creators."
+      "name": "প্রাচীন সামরিক কৌশল ও বিন্যাস",
+      "blurb": "ঐতিহাসিক যুদ্ধ বিন্যাসের কৌশলগত পুনর্গঠন—স্পার্টান ফ্যালানক্স থেকে শুরু করে মঙ্গোলীয় ছদ্মবেশে পশ্চাদপসরণ।"
     },
     "hi": {
-      "name": "एआई ऑडियो और संगीत",
-      "blurb": "वीडियो प्रकार: Soundraw, Voicemod — creating royalty-free music, voiceovers, or sound effects for content creators."
+      "name": "प्राचीन सैन्य रणनीति और रचनाएँ",
+      "blurb": "ऐतिहासिक युद्ध संरचनाओं का रणनीतिक पुनर्निर्माण—स्पार्टन फalanx और मंगोलियाई रणनीतियाँ।"
     },
     "ur": {
-      "name": "اے آئی آڈیو اور موسیقی",
-      "blurb": "ویڈیو کی قسم: Soundraw, Voicemod — creating royalty-free music, voiceovers, or sound effects for content creators."
+      "name": "قدیم فوجی حکمت عملی اور تشکیلات",
+      "blurb": "تاریخی جنگی تشکیل کی حکمت عملی کی بازتعریف، اسپارٹن فالانکس سے منگولوں کے دھوکہ دہی والے حملوں تک۔"
     },
     "ta": {
-      "name": "AI ஆடியோ & இசை",
-      "blurb": "வீடியோ வகை: Soundraw, Voicemod — creating royalty-free music, voiceovers, or sound effects for content creators."
+      "name": "பண்டைய ராணுவ தந்திரங்கள் மற்றும் வியூகங்கள்",
+      "blurb": "வரலாற்றுப் போர் வியூகங்களின் மறுஉருவாக்கம்—ஸ்பார்டன் பாலான்க்ஸ் மற்றும் மங்கோலியர்களின் தந்திரங்கள்."
     },
     "ml": {
-      "name": "AI ഓഡിയോ & സംഗീതം",
-      "blurb": "വീഡിയോ തരം: Soundraw, Voicemod — creating royalty-free music, voiceovers, or sound effects for content creators."
+      "name": "പുരാതന സൈനിക തന്ത്രങ്ങളും രൂപീകരണങ്ങളും",
+      "blurb": "ചരിത്രപ്രസിദ്ധമായ യുദ്ധ തന്ത്രങ്ങളുടെ പുനർനിർമ്മാണം—സ്പാർട്ടൻ ഫാലാങ്ക്‌സ് മുതൽ മംഗോളിയൻ തന്ത്രങ്ങൾ വരെ."
     }
-  },
-  "source": "Nish.Md + deterministic research",
-  "research_notes": [
-    "Marathon researched at 2026-09-10T08:30:23Z",
-    "Video type length=100",
-    "Topic prompt length=133",
-    "Video prompt length=380",
-    "Seeds=6"
-  ],
-  "verified_at": "2026-09-10T08:30:23Z"
+  }
 }

@@ -86,7 +86,7 @@ def download_and_normalize_broll(
     urls = fetch_pexels_videos(api_key=api_key, query=query, per_page=3, orientation=orientation)
     if not urls:
         # Fallback broader query
-        urls = fetch_pexels_videos(api_key=api_key, query="technology business growth", per_page=2, orientation=orientation)
+        urls = fetch_pexels_videos(api_key=api_key, query="technology server room hardware datacenter", per_page=2, orientation=orientation)
     
     if not urls:
         logger.warning("No video URLs found on Pexels for query: %s", query)

@@ -54,23 +54,23 @@
     },
     "bn": {
       "name": "প্রাচীন প্রকৌশল বিস্ময়",
-      "blurb": "ভিডিও টাইপ: How the Pyramids, Roman aqueducts, and Machu Picchu were built — without modern tools — using only brilliant human ingenuity."
+      "blurb": "আধুনিক যন্ত্রপাতি ছাড়াই মানুষের বুদ্ধিমত্তা দিয়ে পিরামিড ও রোমান অ্যাকোয়াডাক্ট কীভাবে নির্মিত হয়েছিল।"
     },
     "hi": {
-      "name": "प्राचीन इंजीनियरिंग चमत्कार",
-      "blurb": "वीडियो प्रकार: How the Pyramids, Roman aqueducts, and Machu Picchu were built — without modern tools — using only brilliant human ingenuity."
+      "name": "प्राचीन इंजीनियरिंग के चमत्कार",
+      "blurb": "आधुनिक औजारों के बिना केवल मानवीय बुद्धिमत्ता से पिरामिड और रोमन जलसेतु कैसे बनाए गए।"
     },
     "ur": {
-      "name": "قدیم انجینئرنگ عجائب",
-      "blurb": "ویڈیو کی قسم: How the Pyramids, Roman aqueducts, and Machu Picchu were built — without modern tools — using only brilliant human ingenuity."
+      "name": "قدیم انجینئرنگ کے عجائبات",
+      "blurb": "جدید آلات کے بغیر انسانی عقل سے اہرام مصر اور رومن نہریں کس طرح تعمیر کی گئیں۔"
     },
     "ta": {
       "name": "பண்டைய பொறியியல் அதிசயங்கள்",
-      "blurb": "வீடியோ வகை: How the Pyramids, Roman aqueducts, and Machu Picchu were built — without modern tools — using only brilliant human ingenuity."
+      "blurb": "நவீன கருவிகள் இன்றி மனித புத்தி கூர்மையால் பிரமிடுகளும் ரோமானிய கால்வாய்களும் கட்டப்பட்ட விதம்."
     },
     "ml": {
       "name": "പുരാതന എഞ്ചിനീയറിംഗ് അത്ഭുതങ്ങൾ",
-      "blurb": "വീഡിയോ തരം: How the Pyramids, Roman aqueducts, and Machu Picchu were built — without modern tools — using only brilliant human ingenuity."
+      "blurb": "ആധുനിക ഉപകരണങ്ങളില്ലാതെ മനുഷ്യ ബുദ്ധി മാത്രം ഉപയോഗിച്ച് പിരമിഡുകളും റോമൻ കനാൽ സംവിധാനങ്ങളും തീർത്തത്."
     }
   },
   "source": "Nish.Md + deterministic research",

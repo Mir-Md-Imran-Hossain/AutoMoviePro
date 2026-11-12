@@ -9,6 +9,7 @@ from __future__ import annotations
 import logging
 import math
 import os
+import re
 import shutil
 import subprocess
 import sys
@@ -23,19 +24,27 @@ logger = logging.getLogger(__name__)
 
 def _niche_to_mood(niche: str) -> str:
     n = (niche or "").lower()
-    if any(k in n for k in ("islam", "deen", "quran")):
+    if any(k in n for k in ("islam", "deen", "quran", "muslim")):
         return "spiritual"
-    if any(k in n for k in ("space", "science", "physics", "tech", "gadget")):
-        return "tech_ambient"
-    if any(k in n for k in ("financ", "money", "invest", "crypto")):
+    if any(k in n for k in ("financ", "money", "invest", "crypto", "business", "titan", "startup", "economy")):
         return "corporate_pulse"
-    if any(k in n for k in ("health", "fitness", "nature", "wildlife")):
-        return "calm_nature"
-    if any(k in n for k in ("myster", "crime", "horror", "secret")):
+    if any(k in n for k in ("energy", "fusion", "nuclear", "solar", "tech", "gadget", "compute", "robot", "cyber", "ai", "quantum", "physics")):
+        return "electronic_future"
+    if any(k in n for k in ("ancient", "civiliz", "archaeol", "history", "ruin", "lost", "tomb", "pyramid", "enigma", "documentary", "ocean", "sea")):
+        return "cinematic_documentary"
+    if any(k in n for k in ("myster", "crime", "horror", "secret", "geopolitic", "investigat", "cold_case")) or re.search(r"\b(war|military|conflict)\b", n):
         return "noir_tension"
-    if any(k in n for k in ("motivat", "habit", "discipline")):
+    if any(k in n for k in ("health", "fitness", "nature", "wildlife", "longevity", "wellness")):
+        return "calm_nature"
+    if any(k in n for k in ("motivat", "habit", "discipline", "mindset", "stoic")):
         return "uplifting"
-    return "cinematic_drone"
+    if any(k in n for k in ("sport", "tactical", "football", "cricket", "f1", "championship")):
+        return "epic_rhythm"
+    if any(k in n for k in ("news", "bulletin", "breaking", "update")):
+        return "broadcast_pulse"
+    if any(k in n for k in ("space", "astronomy", "cosmos", "cosmic")):
+        return "electronic_future"
+    return "cinematic_documentary"
 
 
 def resolve_or_synthesize_bgm(
@@ -45,7 +54,7 @@ def resolve_or_synthesize_bgm(
     niche: str = "",
 ) -> Optional[Path]:
     """
-    Locate royalty-free BGM file for the niche, or synthesize a warm ambient drone bed.
+    Locate authentic melodic royalty-free BGM file for the niche, or synthesize a warm ambient bed.
     """
     mood = _niche_to_mood(niche)
     work_dir = Path(work_dir)
@@ -53,14 +62,28 @@ def resolve_or_synthesize_bgm(
     # 1. Check local assets directory for royalty-free tracks
     assets_bgm_dir = Path(__file__).resolve().parents[1] / "assets" / "audio" / "bgm"
     if assets_bgm_dir.is_dir():
+        # Specific preferred tracks for the moods
+        preferred_map = {
+            "cinematic_documentary": ["cinematic_documentary_strings.wav", "cinematic_drone.wav"],
+            "electronic_future": ["electronic_future_pulse.wav", "tech_ambient.wav"],
+            "corporate_pulse": ["corporate_pulse.wav", "electronic_future_pulse.wav"],
+            "noir_tension": ["cinematic_documentary_strings.wav", "cinematic_drone.wav"],
+            "broadcast_pulse": ["corporate_pulse.wav", "news_broadcast_pulse.wav"]
+        }
+        for cand_name in preferred_map.get(mood, []):
+            cand_p = assets_bgm_dir / cand_name
+            if cand_p.is_file() and cand_p.stat().st_size > 10000:
+                return cand_p
+
         # Look for mood-specific audio files
         mood_matches = list(assets_bgm_dir.glob(f"*{mood}*.*"))
         if mood_matches:
             return mood_matches[0]
         # Any fallback mp3/wav in assets
-        general_matches = list(assets_bgm_dir.glob("*.mp3")) + list(assets_bgm_dir.glob("*.wav"))
-        if general_matches:
-            return general_matches[0]
+        for fallback_name in ["cinematic_documentary_strings.wav", "electronic_future_pulse.wav", "cinematic_drone.wav"]:
+            fb_p = assets_bgm_dir / fallback_name
+            if fb_p.is_file() and fb_p.stat().st_size > 10000:
+                return fb_p
 
     # 2. Synthesize a warm, harmonic ambient bed via FFmpeg aevalsrc
     synth_path = work_dir / f"bgm_{mood}_bed.wav"
@@ -99,17 +122,20 @@ def resolve_or_synthesize_bgm(
     return None
 
 
-def build_ducking_filter_complex(duck_db: float = -16.0, attack_ms: Optional[float] = None) -> str:
-    """Build 100% clean frequency-separated FFmpeg filter_complex with sidechain ducking for vocal clarity."""
+def build_ducking_filter_complex(duck_db: float = -20.0, attack_ms: Optional[float] = None) -> str:
+    """Build 100% clean frequency-separated FFmpeg filter_complex with sidechain ducking for vocal clarity.
+    
+    Enforces -20dB default attenuation and master brickwall limiter so BGM never clips or overwhelms narration.
+    """
     linear_duck = round(math.pow(10, duck_db / 20.0), 4)
     att = round(attack_ms) if attack_ms is not None else 60
     return (
-        f"[0:a]highpass=f=85,equalizer=f=3000:t=q:w=1.5:g=2.5,alimiter=limit=0.95[clean_vox];"
+        f"[0:a]highpass=f=85,equalizer=f=3000:t=q:w=1.5:g=2.5,alimiter=limit=0.95,asplit=2[vox_mix][vox_sc];"
         f"[1:a]aloop=loop=-1:size=2e+09,lowpass=f=7500,equalizer=f=2500:t=q:w=1.2:g=-6[pre_bgm];"
-        f"[pre_bgm][clean_vox]sidechaincompress="
+        f"[pre_bgm][vox_sc]sidechaincompress="
         f"threshold=0.025:ratio=10:attack={att}:release=450:level_sc=1:mix=0.90[ducked_bgm];"
         f"[ducked_bgm]volume={linear_duck * 1.8}[bgm_att];"
-        f"[clean_vox][bgm_att]amix=inputs=2:duration=first:dropout_transition=2:weights=1.0 0.7[a_out]"
+        f"[vox_mix][bgm_att]amix=inputs=2:duration=first:dropout_transition=2:weights=1.0 0.6:normalize=0,alimiter=limit=0.98[a_out]"
     )
 
 
@@ -118,15 +144,16 @@ def apply_bgm_ducking(
     output_path: Path,
     *,
     niche: str = "",
-    duck_db: float = -16.0,
+    duck_db: float = -20.0,
     attack_ms: float = 100.0,
     bgm_path: Optional[Path] = None,
 ) -> Path:
     """
     Mix royalty-free background music under dialogue voiceover with sidechain ducking.
 
-    duck_db defaults to -16.0 dB (-14dB to -18dB range), attenuating the music
+    duck_db defaults to -20.0 dB (-26dB to -10dB range), attenuating the music
     with fine-tuned 0.1s (100ms) attack time whenever speech frequencies are detected.
+    A master brickwall limiter prevents any audio clipping distortion.
     """
     video_path = Path(video_path)
     output_path = Path(output_path)
@@ -139,8 +166,8 @@ def apply_bgm_ducking(
     if dur <= 0:
         dur = 30.0
 
-    # Ensure duck_db is within industrial ducking range [-22, -10]
-    duck_db = max(-22.0, min(-10.0, float(duck_db)))
+    # Ensure duck_db is within industrial ducking range [-26, -10]
+    duck_db = max(-26.0, min(-10.0, float(duck_db)))
 
     # Resolve or synthesize background music
     resolved_bgm = bgm_path or resolve_or_synthesize_bgm(video_path.parent, dur, niche=niche)

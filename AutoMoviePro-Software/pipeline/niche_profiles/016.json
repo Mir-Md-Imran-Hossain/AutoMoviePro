@@ -51,24 +51,24 @@
       "blurb": "Unsung individuals who saved lives during wars, fires, or terror attacks — their split-second decisions, personal sacrifices, and why they never sought fame."
     },
     "bn": {
-      "name": "সাধারণ নায়ক",
-      "blurb": "ভিডিও টাইপ: Unsung individuals who saved lives during wars, fires, or terror attacks — their split-second decisions, personal sacrifices, and why they never…"
+      "name": "নীরব নায়কেরা",
+      "blurb": "যাঁরা ইতিহাসের ভয়াবহ মুহূর্তে জীবন বাঁচিয়েও প্রচারের আলো থেকে দূরে থেকেছেন।"
     },
     "hi": {
-      "name": "साधारण नायक",
-      "blurb": "वीडियो प्रकार: Unsung individuals who saved lives during wars, fires, or terror attacks — their split-second decisions, personal sacrifices, and why they never…"
+      "name": "गुमनाम नायक",
+      "blurb": "युद्ध और आपदाओं के दौरान अनगिनत जानें बचाने वाले, लेकिन शोहरत से दूर रहने वाले लोग।"
     },
     "ur": {
-      "name": "عام ہیرو",
-      "blurb": "ویڈیو کی قسم: Unsung individuals who saved lives during wars, fires, or terror attacks — their split-second decisions, personal sacrifices, and why they never…"
+      "name": "گمنام ہیرو",
+      "blurb": "جنگوں اور حادثات میں بے شمار زندگیاں بچانے والے، لیکن شہرت سے دور رہنے والے مخلص انسان۔"
     },
     "ta": {
-      "name": "சாதாரண வீரர்கள்",
-      "blurb": "வீடியோ வகை: Unsung individuals who saved lives during wars, fires, or terror attacks — their split-second decisions, personal sacrifices, and why they never…"
+      "name": "அடையாளம் தெரியாத நாயகர்கள்",
+      "blurb": "போர்கள் மற்றும் பேரழிவுகளின் போது பல உயிர்களைக் காப்பாற்றிய அமைதியான மனிதர்களின் தியாகங்கள்."
     },
     "ml": {
-      "name": "സാധാരണ നായകന്മാർ",
-      "blurb": "വീഡിയോ തരം: Unsung individuals who saved lives during wars, fires, or terror attacks — their split-second decisions, personal sacrifices, and why they never…"
+      "name": "അറിയപ്പെടാത്ത നായകന്മാർ",
+      "blurb": "ദുരന്തമുഖത്ത് ജീവൻ രക്ഷിച്ചെടുത്തെങ്കിലും പ്രശസ്തി ആഗ്രഹിക്കാത്ത ധീരരായ മനുഷ്യർ."
     }
   },
   "source": "Nish.Md + deterministic research",

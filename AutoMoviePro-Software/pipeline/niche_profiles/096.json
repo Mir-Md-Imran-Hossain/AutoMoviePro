@@ -1,83 +1,64 @@
 {
   "niche_id": 96,
-  "name": "Open Source Alternatives",
-  "slug": "open-source-alternatives",
-  "style_family": "history",
+  "name": "Sports Tactical Analytics",
+  "slug": "sports-tactical-analytics",
+  "style_family": "sports",
   "status": "VERIFIED",
   "topic_seeds": [
-    "What new evidence reframes the story of Open Source Alternatives Replacements inside Open Source Alternatives",
-    "How Open Source Alternatives Replacements still shapes public curiosity about Open Source Alternatives",
-    "What new evidence reframes the story of Photoshop inside Open Source Alternatives",
-    "How Photoshop still shapes public curiosity about Open Source Alternatives",
-    "What new evidence reframes the story of Microsoft inside Open Source Alternatives",
-    "How Microsoft still shapes public curiosity about Open Source Alternatives"
+    "Key analytical breakdown on Sports Tactical Analytics",
+    "Behind the scenes of major Sports Tactical Analytics events",
+    "Critical evidence and timelines in Sports Tactical Analytics"
   ],
   "seo_angles": [
-    "What new evidence reframes the story of Open Source Alternatives Replacements inside Open Source Alternatives",
-    "How Open Source Alternatives Replacements still shapes public curiosity about Open Source Alternatives",
-    "What new evidence reframes the story of Photoshop inside Open Source Alternatives",
-    "How Photoshop still shapes public curiosity about Open Source Alternatives"
+    "What people misunderstand about Sports Tactical Analytics",
+    "Why this historic moment in Sports Tactical Analytics matters today"
   ],
   "forbidden_visuals": [
     "talking-head lip-sync avatar",
     "burned-in captions",
     "watermark",
     "modern meme text",
-    "modern smartphones",
-    "cars",
-    "LED screens",
-    "sneakers",
-    "contemporary skyline"
+    "random stock photo cutout"
   ],
   "preferred_subjects": [
-    "Open Source Alternatives documentary subject",
-    "period-accurate environment",
-    "evidence object close-up"
+    "high-resolution authentic environments",
+    "data-driven infographics and telemetry",
+    "moody cinematic lighting"
   ],
-  "lighting_default": "warm desert sun / torchlit interiors, high-contrast documentary grade",
-  "face_policy": "period extras OK if consistent; prefer environment/object hero when possible",
-  "dialogue_tone": "human documentary narration; specific nouns; 7–9s beats",
-  "audio_ambience": "subtle documentary bed; do not overpower voice",
+  "lighting_default": "cinematic high-contrast documentary grade",
+  "face_policy": "avoid talking head lip-sync; prefer environmental/tactical/infographic hero",
+  "dialogue_tone": "authoritative, engaging, retention-focused documentary narrative",
+  "audio_ambience": "subtle low-end atmospheric resonance, precise Foley SFX",
   "research_hints": [
-    "Prefer primary evidence and concrete entities for Open Source Alternatives",
-    "Avoid generic niche-label topics; require specific place/person/event/mechanism",
-    "7–9 second spoken beats with story continuity across scenes"
+    "Prefer factual, verified data points for Sports Tactical Analytics",
+    "Strong retention hook in opening 3 seconds"
   ],
-  "topic_prompt_overlay": "NICHE LOCK (Open Source Alternatives): only propose topics that fit this niche's video type. Video type: Replacements for paid software — GIMP for Photoshop, LibreOffice for Microsoft — with feature comparisons. Follow niche topic strategy: Scan open source community news, new releases, or viral comparisons. Generate a topic about a free tool that rivals premium software.",
-  "video_prompt_overlay": "NICHE VISUAL LOCK (Open Source Alternatives / history): Generate a 7–9 second dialogue clip based on the topic `{topic}`. Each dialogue must be helpful and straightforward. For each dialogue, generate: - **Audio Generation Prompt:** Voice — instructive, with mouse clicks and keyboard. - **Video Generation Prompt:** Detailed visual — side-by-side software screens. No character — screen comparison. Lighting: clear. Maintain same clarity. Forbidden: talking-head lip-sync avatar, burned-in captions, watermark, modern meme text, modern smartphones, cars, LED screens, sneakers. Preferred subjects: Open Source Alternatives documentary subject, period-accurate environment, evidence object close-up. Lighting: warm desert sun / torchlit interiors, high-contrast documentary grade. Face policy: period extras OK if consistent; prefer environment/object hero when possible. Dialogue tone: human documentary narration; specific nouns; 7–9s beats. Ambience: subtle documentary bed; do not overpower voice.",
+  "topic_prompt_overlay": "NICHE LOCK (Sports Tactical Analytics): Analyze tactical innovations by elite managers (Guardiola, Klopp, Ancelotti), defensive counter-pressing systems, pressing zones, iconic game-winning defensive setups, or biomechanical sports science breakthroughs. Focus on why tactical schemes work rather than generic highlight clips.",
+  "video_prompt_overlay": "NICHE VISUAL LOCK (Sports Tactical Analytics / sports): Generate a 7–9 second tactical visualization for topic {topic}. Visuals: Illuminated 3D pitch/court diagram from an elevated tactical analyst press-box angle, with animated passing lanes, defensive press triangles, and glowing spatial territory heat zones. Lighting: Bright stadium floodlight atmosphere with high-contrast tactical board highlights. Camera: High-angle sweeping drone rotation across tactical zones. Ambience: Muffled roar of a packed stadium crowd, electronic whistle echo, and sharp analytical data sweep SFX.",
   "i18n": {
     "en": {
-      "name": "Open Source Alternatives",
-      "blurb": "Replacements for paid software — GIMP for Photoshop, LibreOffice for Microsoft — with feature comparisons."
+      "name": "Sports Tactical Analytics",
+      "blurb": "In-depth tactical breakdowns, formation evolutions, moneyball data metrics, and masterclass strategic decisions across football (soccer), basketball, cricket, and motorsport. Featu"
     },
     "bn": {
-      "name": "ওপেন সোর্স বিকল্প",
-      "blurb": "ভিডিও টাইপ: Replacements for paid software — GIMP for Photoshop, LibreOffice for Microsoft — with feature comparisons."
+      "name": "ক্রীড়া কৌশলগত বিশ্লেষণ",
+      "blurb": "ফুটবল, ক্রিকেট ও মোটরস্পোর্টের গভীরে গিয়ে খেলাধুলার কৌশল ও ডেটা মেট্রিক্সের পর্যালোচনা।"
     },
     "hi": {
-      "name": "ओपन सोर्स विकल्प",
-      "blurb": "वीडियो प्रकार: Replacements for paid software — GIMP for Photoshop, LibreOffice for Microsoft — with feature comparisons."
+      "name": "खेल रणनीतिक विश्लेषण",
+      "blurb": "फुटबॉल, क्रिकेट और मोटरस्पोर्ट्स की रणनीतियों और डेटा आंकड़ों का गहराई से विश्लेषण।"
     },
     "ur": {
-      "name": "اوپن سورس متبادلات",
-      "blurb": "ویڈیو کی قسم: Replacements for paid software — GIMP for Photoshop, LibreOffice for Microsoft — with feature comparisons."
+      "name": "کھیلوں کی حکمت عملی کا تجزیہ",
+      "blurb": "فٹبال، کرکٹ اور موٹر سپورٹس کی میدان میں گہری حکمت عملیوں کا ماہرانہ تجزیہ۔"
     },
     "ta": {
-      "name": "திறந்த மூல மாற்றுகள்",
-      "blurb": "வீடியோ வகை: Replacements for paid software — GIMP for Photoshop, LibreOffice for Microsoft — with feature comparisons."
+      "name": "விளையாட்டு வியூக பகுப்பாய்வு",
+      "blurb": "கால்பந்து, கிரிக்கெட் மற்றும் மோட்டார் ஸ்போர்ட்ஸ் போட்டிகளின் வியூகங்கள் பற்றிய ஆழமான பார்வை."
     },
     "ml": {
-      "name": "ഓപ്പൺ സോഴ്സ് ബദലുകൾ",
-      "blurb": "വീഡിയോ തരം: Replacements for paid software — GIMP for Photoshop, LibreOffice for Microsoft — with feature comparisons."
+      "name": "കായിക തന്ത്രപരമായ വിശകലനം",
+      "blurb": "ഫുട്ബോൾ, ക്രിക്കറ്റ് എന്നിവയിലെ തന്ത്രപരമായ നീക്കങ്ങളെയും ഡാറ്റയെയും കുറിച്ചുള്ള വിശകലനം."
     }
-  },
-  "source": "Nish.Md + deterministic research",
-  "research_notes": [
-    "Marathon researched at 2026-09-10T08:30:22Z",
-    "Video type length=106",
-    "Topic prompt length=133",
-    "Video prompt length=383",
-    "Seeds=6"
-  ],
-  "verified_at": "2026-09-10T08:30:22Z"
+  }
 }

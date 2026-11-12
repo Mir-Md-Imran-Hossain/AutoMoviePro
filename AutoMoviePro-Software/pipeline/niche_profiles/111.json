@@ -1,83 +1,64 @@
 {
   "niche_id": 111,
-  "name": "Free Design Platforms",
-  "slug": "free-design-platforms",
-  "style_family": "history",
+  "name": "Epidemic Forensics & Disease Detectives",
+  "slug": "epidemic-forensics-disease-detectives",
+  "style_family": "science",
   "status": "VERIFIED",
   "topic_seeds": [
-    "What new evidence reframes the story of Free Design Platforms Canva inside Free Design Platforms",
-    "How Free Design Platforms Canva still shapes public curiosity about Free Design Platforms",
-    "What new evidence reframes the story of Figma inside Free Design Platforms",
-    "How Figma still shapes public curiosity about Free Design Platforms",
-    "What new evidence reframes the story of Photopea inside Free Design Platforms",
-    "How Photopea still shapes public curiosity about Free Design Platforms"
+    "Key analytical breakdown on Epidemic Forensics & Disease Detectives",
+    "Behind the scenes of major Epidemic Forensics & Disease Detectives events",
+    "Critical evidence and timelines in Epidemic Forensics & Disease Detectives"
   ],
   "seo_angles": [
-    "What new evidence reframes the story of Free Design Platforms Canva inside Free Design Platforms",
-    "How Free Design Platforms Canva still shapes public curiosity about Free Design Platforms",
-    "What new evidence reframes the story of Figma inside Free Design Platforms",
-    "How Figma still shapes public curiosity about Free Design Platforms"
+    "What people misunderstand about Epidemic Forensics & Disease Detectives",
+    "Why this historic moment in Epidemic Forensics & Disease Detectives matters today"
   ],
   "forbidden_visuals": [
     "talking-head lip-sync avatar",
     "burned-in captions",
     "watermark",
     "modern meme text",
-    "modern smartphones",
-    "cars",
-    "LED screens",
-    "sneakers",
-    "contemporary skyline"
+    "random stock photo cutout"
   ],
   "preferred_subjects": [
-    "Free Design Platforms documentary subject",
-    "period-accurate environment",
-    "evidence object close-up"
+    "high-resolution authentic environments",
+    "data-driven infographics and telemetry",
+    "moody cinematic lighting"
   ],
-  "lighting_default": "warm desert sun / torchlit interiors, high-contrast documentary grade",
-  "face_policy": "period extras OK if consistent; prefer environment/object hero when possible",
-  "dialogue_tone": "human documentary narration; specific nouns; 7–9s beats",
-  "audio_ambience": "subtle documentary bed; do not overpower voice",
+  "lighting_default": "cinematic high-contrast documentary grade",
+  "face_policy": "avoid talking head lip-sync; prefer environmental/tactical/infographic hero",
+  "dialogue_tone": "authoritative, engaging, retention-focused documentary narrative",
+  "audio_ambience": "subtle low-end atmospheric resonance, precise Foley SFX",
   "research_hints": [
-    "Prefer primary evidence and concrete entities for Free Design Platforms",
-    "Avoid generic niche-label topics; require specific place/person/event/mechanism",
-    "7–9 second spoken beats with story continuity across scenes"
+    "Prefer factual, verified data points for Epidemic Forensics & Disease Detectives",
+    "Strong retention hook in opening 3 seconds"
   ],
-  "topic_prompt_overlay": "NICHE LOCK (Free Design Platforms): only propose topics that fit this niche's video type. Video type: Canva, Figma, Photopea — creating graphics, UI mockups, and presentations without expensive software. Follow niche topic strategy: Check design news, new free features, or viral design challenges. Generate a topic about a free tool that rivals paid software.",
-  "video_prompt_overlay": "NICHE VISUAL LOCK (Free Design Platforms / history): Generate a 7–9 second dialogue clip based on the topic `{topic}`. Each dialogue must be creative and accessible. For each dialogue, generate: - **Audio Generation Prompt:** Voice — artistic, with mouse clicks and swishes. - **Video Generation Prompt:** Detailed visual — a design canvas screen. No character — screen. Lighting: bright, colourful. Maintain same canvas. Forbidden: talking-head lip-sync avatar, burned-in captions, watermark, modern meme text, modern smartphones, cars, LED screens, sneakers. Preferred subjects: Free Design Platforms documentary subject, period-accurate environment, evidence object close-up. Lighting: warm desert sun / torchlit interiors, high-contrast documentary grade. Face policy: period extras OK if consistent; prefer environment/object hero when possible. Dialogue tone: human documentary narration; specific nouns; 7–9s beats. Ambience: subtle documentary bed; do not overpower voice.",
+  "topic_prompt_overlay": "NICHE LOCK (Epidemic Forensics & Disease Detectives): Examine historic epidemiologic investigations (John Snow's Broad Street cholera pump, Smallpox eradication campaign, Ebola containment in West Africa, SARS-1 tracing). Detail the meticulous detective work of contact tracing.",
+  "video_prompt_overlay": "NICHE VISUAL LOCK (Epidemic Forensics & Disease Detectives / science): Generate a 7–9 second epidemiological investigation scene for topic {topic}. Visuals: High-tech disease control center with global outbreak map projection displaying transmission infection vectors, paired with biosafety hazard protective equipment in a negative-pressure lab. Lighting: Moody cool blue lab lighting with bright illuminated monitor graphs. Camera: Tracking shot moving between biohazard glass barriers and outbreak trajectory monitors. Ambience: Air filtration fan hum, electronic data alert ping, and solemn investigative cadence.",
   "i18n": {
     "en": {
-      "name": "Free Design Platforms",
-      "blurb": "Canva, Figma, Photopea — creating graphics, UI mockups, and presentations without expensive software."
+      "name": "Epidemic Forensics & Disease Detectives",
+      "blurb": "Public health detective stories tracing patient zero, zoonotic transmission pathways, biosafety level 4 lab containment protocols, and historic eradication campaigns."
     },
     "bn": {
-      "name": "বিনামূল্যে ডিজাইন প্ল্যাটফর্ম",
-      "blurb": "ভিডিও টাইপ: Canva, Figma, Photopea — creating graphics, UI mockups, and presentations without expensive software."
+      "name": "মহামারী ফরেনসিক এবং রোগ অনুসন্ধান",
+      "blurb": "রোগের উৎস সন্ধান, বায়োসেফটি প্রোটোকল এবং ঐতিহাসিক নির্মূল অভিযানের রোমাঞ্চকর জনস্বাস্থ্য কাহিনী।"
     },
     "hi": {
-      "name": "मुफ़्त डिज़ाइन प्लेटफ़ॉर्म",
-      "blurb": "वीडियो प्रकार: Canva, Figma, Photopea — creating graphics, UI mockups, and presentations without expensive software."
+      "name": "महामारी फ़ोरेंसिक और रोग जासूस",
+      "blurb": "रोग के स्रोत, जैव-सुरक्षा प्रोटोकॉल और ऐतिहासिक उन्मूलन अभियानों की रोमांचक जन स्वास्थ्य कहानियाँ।"
     },
     "ur": {
-      "name": "مفت ڈیزائن پلیٹ فارمز",
-      "blurb": "ویڈیو کی قسم: Canva, Figma, Photopea — creating graphics, UI mockups, and presentations without expensive software."
+      "name": "وبائی امراض کے فورنسک اور ڈیٹیکٹیو",
+      "blurb": "مریضِ اول کی تلاش، بائیو سیکیورٹی پروٹوکولز اور تاریخی خاتمے کی مہمات کی سنسنی خیز کہانیاں۔"
     },
     "ta": {
-      "name": "இலவச வடிவமைப்பு தளங்கள்",
-      "blurb": "வீடியோ வகை: Canva, Figma, Photopea — creating graphics, UI mockups, and presentations without expensive software."
+      "name": "தொற்றுநோய் தடயவியல் & நோய் துப்பறிவாளர்கள்",
+      "blurb": "முதல் நோயாளி கண்டறிதல், உயிரியல் பாதுகாப்பு நெறிமுறைகள் மற்றும் வரலாற்று ஒழிப்புப் अभियाன்களின் கதைகள்."
     },
     "ml": {
-      "name": "സൗജന്യ ഡിസൈൻ പ്ലാറ്റ്‌ഫോമുകൾ",
-      "blurb": "വീഡിയോ തരം: Canva, Figma, Photopea — creating graphics, UI mockups, and presentations without expensive software."
+      "name": "പാൻഡെമിക് ഫോറൻസിക്സ് & രോഗാന്വേഷണങ്ങൾ",
+      "blurb": "രോഗബാധയുടെ ഉറവിടം തേടലും ബയോസേഫ്റ്റി പ്രോട്ടോക്കോളുകളും വിശദമാക്കുന്ന പൊതുജനാരോഗ്യ കഥകൾ."
     }
-  },
-  "source": "Nish.Md + deterministic research",
-  "research_notes": [
-    "Marathon researched at 2026-09-10T08:30:24Z",
-    "Video type length=101",
-    "Topic prompt length=127",
-    "Video prompt length=368",
-    "Seeds=6"
-  ],
-  "verified_at": "2026-09-10T08:30:24Z"
+  }
 }

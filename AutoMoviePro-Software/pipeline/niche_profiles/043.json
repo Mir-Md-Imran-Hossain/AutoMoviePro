@@ -48,23 +48,23 @@
     },
     "bn": {
       "name": "বিস্মৃত প্রতিভা",
-      "blurb": "ভিডিও টাইপ: Scientists, inventors, and artists who were ignored in their time — but whose work became revolutionary decades later."
+      "blurb": "যেসব বিজ্ঞানী ও শিল্পীদের তাদের যুগে অবমূল্যায়ন করা হয়েছিল, কিন্তু দশক পরে যাদের কাজ যুগান্তকারী হয়ে ওঠে।"
     },
     "hi": {
-      "name": "भूले हुए प्रतिभाशाली",
-      "blurb": "वीडियो प्रकार: Scientists, inventors, and artists who were ignored in their time — but whose work became revolutionary decades later."
+      "name": "भुलाए गए प्रतिभावान",
+      "blurb": "वे वैज्ञानिक और कलाकार जिन्हें अपने समय में नजरअंदाज किया गया, पर बाद में उनका काम क्रांतिकारी बना।"
     },
     "ur": {
-      "name": "بھولے ہوئے ذہین لوگ",
-      "blurb": "ویڈیو کی قسم: Scientists, inventors, and artists who were ignored in their time — but whose work became revolutionary decades later."
+      "name": "فراموش شدہ عبقری",
+      "blurb": "وہ سائنسدان اور فنکار جنہیں اپنے دور میں نظر انداز کیا گیا، لیکن جن کا کام بعد میں انقلابی بنا۔"
     },
     "ta": {
       "name": "மறக்கப்பட்ட மேதைகள்",
-      "blurb": "வீடியோ வகை: Scientists, inventors, and artists who were ignored in their time — but whose work became revolutionary decades later."
+      "blurb": "தங்கள் காலத்தில் புறக்கணிக்கப்பட்டு, பிற்காலத்தில் உலகை மாற்றிய விஞ்ஞானிகள் மற்றும் கலைஞர்களின் கதை."
     },
     "ml": {
-      "name": "മറക്കപ്പെട്ട പ്രതിഭകൾ",
-      "blurb": "വീഡിയോ തരം: Scientists, inventors, and artists who were ignored in their time — but whose work became revolutionary decades later."
+      "name": "വിസ്മരിക്കപ്പെട്ട പ്രതിഭകൾ",
+      "blurb": "തങ്ങളുടെ കാലഘട്ടത്തിൽ അവഗണിക്കപ്പെടുകയും പിന്നീട് വിപ്ലവകരമായി മാറുകയും ചെയ്ത ശാസ്ത്രജ്ഞർ."
     }
   },
   "source": "Nish.Md + deterministic research",

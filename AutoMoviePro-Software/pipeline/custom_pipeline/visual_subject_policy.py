@@ -133,16 +133,19 @@ def infer_visual_subject(
                 return SUBJECT_BROLL
             return SUBJECT_PRODUCT_UI
         if explicit in ("person", "character", SUBJECT_PRESENTER):
-            # If the topic is non-presenter documentary, or any middle/late shot: strictly NO presenter
-            if topic_driven or shot_number > 1:
+            # Universal Rule: Strictly NO random presenter faces on Shot 1, middle, or end shots
+            allow_avatar = bool(sc.get("allow_presenter_avatar"))
+            if not allow_avatar:
                 return SUBJECT_PRODUCT_UI if productish else SUBJECT_BROLL
             return SUBJECT_PRESENTER
         return explicit
 
-    # Presenter hook / CTA: allowed on Shot 1-2 or final shot for personal/product videos (strictly blocked on pure documentaries)
-    pure_documentary = topic_driven and not productish
-    if _PRESENTER_CUE.search(narr) and not pure_documentary and (shot_number <= 2 or (total_shots and shot_number >= total_shots)):
-        return SUBJECT_PRESENTER
+    # Strictly forbid forcing presenter portraits on Shot 1-2 or hook cues.
+    # Hook shots must feature stunning topic visuals, macro device shots, or b-roll props instead of random human faces.
+    if _PRESENTER_CUE.search(narr):
+        if productish:
+            return SUBJECT_PRODUCT_UI
+        return SUBJECT_BROLL
 
     if _UI_ACTION.search(narr) and productish:
         if re.search(r"\b(hand|typing|keyboard|কপি|পেস্ট|টাইপ)\b", narr, re.I):

@@ -53,19 +53,19 @@ NICHE_STYLE_PACKS = {
     "science": {
         "grade": "teal/cyan cinematic lab grade, high contrast, shallow DOF",
         "metaphors": "molecular glass, chemical plume, macro flame, egg under heat, lab glassware",
-        "faces": "silent cinematic humans OK; no talking-head lip-sync",
+        "faces": "STRICTLY OBJECT-FIRST: instruments, hardware, phenomena, environment; NO human faces, NO portraits, NO talking-heads",
         "forbidden": "cartoon science, stock office filler, watermarks",
     },
     "mystery": {
         "grade": "dark teal-green eerie grade, dramatic side light",
         "metaphors": "locked book, sealed object, fire vs invulnerable shell, fog, sealed vault",
-        "faces": "silent cinematic humans OK; no talking-head lip-sync",
+        "faces": "STRICTLY OBJECT-FIRST: instruments, hardware, phenomena, environment; NO human faces, NO portraits, NO talking-heads",
         "forbidden": "jump-scare horror faces, meme overlays",
     },
     "history": {
         "grade": "desaturated filmic documentary grade, textured period light",
         "metaphors": "maps, relics, parchment, ruins silhouettes, artifact macros",
-        "faces": "silent cinematic period humans OK; no talking-head",
+        "faces": "STRICTLY ARTIFACT & ENVIRONMENT: ancient relics, parchment, architecture; NO human faces, NO portraits",
         "forbidden": "modern phones in frame, anachronistic logos",
     },
     "islamic": {
@@ -77,7 +77,7 @@ NICHE_STYLE_PACKS = {
     "motivation": {
         "grade": "warm sunrise cinematic lifestyle grade, shallow DOF",
         "metaphors": "notebook, city walk, clock, rising light, focused workspace",
-        "faces": "silent cinematic humans OK; no talking-head lip-sync",
+        "faces": "STRICTLY OBJECT-FIRST: instruments, hardware, phenomena, environment; NO human faces, NO portraits, NO talking-heads",
         "forbidden": "empty slogan overlays, meme text, stock handshake spam",
     },
     "health": {
@@ -89,7 +89,7 @@ NICHE_STYLE_PACKS = {
     "news": {
         "grade": "neutral documentary grade, crisp contrast",
         "metaphors": "maps, city B-roll, press room, timeline graphics as physical props",
-        "faces": "crowd/wide shots OK; no fabricated politician lip-sync",
+        "faces": "STRICTLY B-ROLL & ENVIRONMENT: architecture, press room, datacenter; NO talking-heads, NO politician faces",
         "forbidden": "deepfake faces, sensational gore",
     },
     "finance": {

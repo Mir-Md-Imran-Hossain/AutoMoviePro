@@ -8,7 +8,7 @@ here so first-shot generation matches English master + visual lock + aspect lock
 from __future__ import annotations
 
 import re
-from typing import List, Optional, Sequence
+from typing import Any, Dict, List, Optional, Sequence, Tuple
 
 from pipeline.duration_budget import SECONDS_PER_BEAT, planned_scene_count
 
@@ -348,7 +348,8 @@ def face_policy_for_niche(niche: str = "") -> str:
             "environment only."
         )
     return (
-        "Silent cinematic humans OK when the niche allows. "
+        "STRICTLY FACELESS & OBJECT-FIRST: Show physical instruments, devices, phenomena, objects, or environment only. "
+        "NO human faces, NO portraits, NO talking-heads on any shot. "
         "Talking-head / lip-sync AI avatar is ALWAYS a critical fail."
     )
 
@@ -797,10 +798,20 @@ def trending_instruction(*, count: int, block_txt: str, year: int = 2026, niche:
         topic_domain = "evidence-based health discoveries, longevity science, nutrition, and metabolic wellness"
     elif any(k in nl for k in ("motivat", "habit", "mindset", "productiv", "discipline")):
         topic_domain = "high-performance discipline, habit architecture, cognitive focus, and stoic mindset"
-    elif any(k in nl for k in ("histor", "ancient", "civiliz", "archaeolog")):
-        topic_domain = "unsolved ancient history mysteries, archaeological revelations, and civilizational turns"
-    else:
+    elif any(k in nl for k in ("news", "geopolit", "conflict", "treaty", "military", "defense", "election")):
+        topic_domain = "geopolitical conflicts, global defense strategy, maritime chokepoints, international treaties, and sovereign foreign policy"
+    elif any(k in nl for k in ("crime", "murder", "serial", "investigat", "forensic", "detective")):
+        topic_domain = "forensic science breakthroughs, cold-case criminal investigations, historical heists, and unexplained disappearances"
+    elif any(k in nl for k in ("graphic", "benchmark", "breakdown", "analysis", "ui", "ux", "code", "architecture")):
+        topic_domain = "high-performance computing benchmarks, frontier AI neural architectures, semiconductor manufacturing, and megaproject engineering"
+    elif any(k in nl for k in ("sport", "football", "cricket", "f1", "tactics", "nba", "championship")):
+        topic_domain = "elite sports tactical formations, coaching masterclasses, managerial analytics, and motorsport engineering"
+    elif any(k in nl for k in ("business", "startup", "titan", "billionaire", "corporate", "company", "monopoly")):
+        topic_domain = "corporate empire wars, hostile takeovers, billionaire rivalries, tech monopoly antitrust battles, and economic market dominance"
+    elif any(k in nl for k in ("gadget", "phone", "hardware", "camera", "earbuds", "laptop")):
         topic_domain = "consumer electronics and technology trends (phones, earbuds, smart devices, cameras)"
+    else:
+        topic_domain = f"{niche or 'general'} viral documentary topics, emerging developments, and investigative breakdowns"
 
     return f"""You have up-to-date knowledge of trending topics in {topic_domain}.
 List the top {count} MOST TRENDING specific topics/subjects right now worldwide ({year}).
@@ -931,3 +942,173 @@ def agnes_vs_image_hard_rules(*, for_image: bool, element: str = "", video_type:
             ]
         )
     return shared
+
+
+class CinematicPromptEnricher:
+    """Industrial cinematic prompt enrichment & Scene Contract v1 cues synthesizer.
+
+    Provides:
+    1. 8K Optics, anamorphic bokeh, lighting schemes, and film stock LUTs for photorealistic generation.
+    2. Scene Contract v1 metadata cues for MotionGraphicsComposer templates.
+    """
+
+    OPTICS_PROFILES = {
+        "cinematic": "shot on 35mm Arri Alexa LF, Zeiss Master Prime f/1.4, subtle anamorphic bokeh, deep focus, 8k uhd photoreal master",
+        "documentary": "RED V-Raptor 8K, Cooke S4/i prime lens, hyper-realistic macro textures, natural atmospheric depth",
+        "noir": "anamorphic 65mm camera, high-contrast chiaroscuro, shallow depth of field, sharp edge definition, 8k",
+        "tech": "Hasselblad H6D-100c, 80mm f/2.2 lens, volumetric holographic glow, crisp specular reflections, 8k resolution",
+        "spiritual": "Leica Summilux-M 35mm f/1.4 ASPH, warm diffused aura, subtle lens flare, timeless cinematic depth",
+    }
+
+    LIGHTING_PROFILES = {
+        "dramatic": "volumetric rim lighting, subtle cinematic haze, chiaroscuro contrast, diffused fill light",
+        "neon": "dual-tone neon rim lighting, electric cyan and amber specular highlights, dark moody obsidian backdrop",
+        "golden_hour": "warm directional sunset rays, organic golden rim illumination, soft volumetric bloom",
+        "studio": "three-point precision studio lighting, crisp key light, subtle softbox fill, clean edge separation",
+        "noir": "harsh venetian blind shadows, single overhead spotlight, heavy dark vignettes, intense rim light",
+        "spiritual": "ethereal ambient glow, soft golden morning light, volumetric god rays, serene atmosphere",
+    }
+
+    LUT_PROFILES = {
+        "kodak": "Kodak 2383 cinematic film print LUT, rich organic shadows, filmic color grading",
+        "teal_orange": "modern blockbuster teal and warm amber color timing, rich skin tones, balanced contrast",
+        "monochrome_accent": "desaturated moody silver-tone grade with vibrant selective accent saturation",
+        "cyberpunk": "high-dynamic-range HDR10 color profile, electric magenta and deep obsidian cyan tones",
+        "warm_vintage": "Fuji Eterna 250D emulation, warm balanced highlights, velvety deep blacks",
+    }
+
+    NICHE_MAPPINGS = {
+        "islamic": ("spiritual", "spiritual", "warm_vintage", "warm_sunset"),
+        "tech": ("tech", "neon", "cyberpunk", "deep_cyber_mesh"),
+        "finance": ("documentary", "dramatic", "teal_orange", "neon_tech_pulse"),
+        "crime": ("noir", "noir", "monochrome_accent", "deep_cyber_mesh"),
+        "geopolitical": ("documentary", "dramatic", "kodak", "deep_cyber_mesh"),
+        "sports": ("documentary", "studio", "teal_orange", "neon_tech_pulse"),
+        "business": ("cinematic", "studio", "teal_orange", "neon_tech_pulse"),
+        "health": ("cinematic", "golden_hour", "kodak", "minimal_clean_slate"),
+    }
+
+    @classmethod
+    def resolve_profile(cls, niche: str = "") -> Tuple[str, str, str, str]:
+        """Resolves (optics_key, lighting_key, lut_key, motion_bg) for a given niche."""
+        n = (niche or "").lower()
+        for key, profile in cls.NICHE_MAPPINGS.items():
+            if key in n:
+                return profile
+        if any(k in n for k in ("deen", "quran", "muslim")):
+            return cls.NICHE_MAPPINGS["islamic"]
+        if any(k in n for k in ("gadget", "ai", "benchmark", "compute", "code")):
+            return cls.NICHE_MAPPINGS["tech"]
+        if any(k in n for k in ("invest", "crypto", "money", "stock", "titan", "startup")):
+            return cls.NICHE_MAPPINGS["finance"]
+        if any(k in n for k in ("murder", "mystery", "horror", "secret", "investigat")):
+            return cls.NICHE_MAPPINGS["crime"]
+        return ("cinematic", "dramatic", "kodak", "minimal_clean_slate")
+
+    @classmethod
+    def enrich(
+        cls,
+        raw_prompt: str,
+        *,
+        niche: str = "",
+        mood: str = "",
+        video_type: str = "short",
+    ) -> str:
+        """Enriches raw prompt with 8K optics, volumetric lighting, and cinematic LUT color grading."""
+        opt_k, light_k, lut_k, _ = cls.resolve_profile(niche)
+        optics = cls.OPTICS_PROFILES.get(opt_k, cls.OPTICS_PROFILES["cinematic"])
+        lighting = cls.LIGHTING_PROFILES.get(mood or light_k, cls.LIGHTING_PROFILES["dramatic"])
+        lut = cls.LUT_PROFILES.get(lut_k, cls.LUT_PROFILES["kodak"])
+        framing = aspect_framing(video_type)
+
+        clean = re.sub(r"\s+", " ", (raw_prompt or "").strip()).rstrip(".,")
+        enhanced = (
+            f"{clean}. {framing}. {optics}. {lighting}. {lut}. "
+            f"Ultra-detailed micro-textures, photorealistic masterwork, 8K UHD, "
+            f"no text overlay, no watermarks, no distorted anatomy, perfectly framed."
+        )
+        return enhanced[:950]
+
+    @classmethod
+    def generate_motion_scene_contract(
+        cls,
+        scene_index: int,
+        total_scenes: int,
+        narration: str,
+        *,
+        niche: str = "",
+        video_type: str = "short",
+    ) -> Dict[str, Any]:
+        """Generates Scene Contract v1 cues tailored for MotionGraphicsComposer templates."""
+        _, _, _, motion_bg = cls.resolve_profile(niche)
+        norm_narration = re.sub(r"\s+", " ", (narration or "").strip())
+
+        # Intelligent template selection based on narrative arc
+        if scene_index == 0:
+            template = "center_hero_icon"
+            badge = "CRITICAL HOOK"
+        elif scene_index == total_scenes - 1:
+            template = "quote_wisdom_card"
+            badge = "FINAL VERDICT"
+        elif scene_index == 1:
+            template = "stat_counter_metric"
+            badge = "CORE METRIC"
+        elif scene_index == 2:
+            template = "versus_comparison"
+            badge = "ANALYSIS & CONTRAST"
+        else:
+            template = "checklist_points"
+            badge = "KEY PRINCIPLES"
+
+        # Determine semantic icon keyword
+        nl = (norm_narration + " " + niche).lower()
+        if any(k in nl for k in ("money", "dollar", "wealth", "financ", "profit", "taka", "business", "titan", "ধনী", "সম্পদ", "টাকা", "আয়", "বিনিয়োগ", "ব্যবসা")):
+            icon = "dollar"
+        elif any(k in nl for k in ("shield", "protect", "defense", "secure", "safety", "সুরক্ষা", "নিরাপত্তা")):
+            icon = "shield"
+        elif any(k in nl for k in ("brain", "mind", "intellect", "think", "logic", "বুদ্ধি", "মস্তিষ্ক", "জ্ঞান")) or re.search(r"\bai\b", nl):
+            icon = "brain"
+        elif any(k in nl for k in ("trend", "growth", "rise", "market", "up", "scale", "উন্নতি", "বৃদ্ধি")):
+            icon = "trending_up"
+        elif any(k in nl for k in ("globe", "world", "earth", "international", "geo", "বিশ্ব", "পৃথিবী", "দেশ")):
+            icon = "globe"
+        elif any(k in nl for k in ("power", "energy", "fast", "speed", "boost", "zap", "শক্তি", "গতি")):
+            icon = "zap"
+        elif any(k in nl for k in ("alert", "danger", "warning", "caution", "risk", "বিপদ", "সতর্ক", "ঝুঁকি")):
+            icon = "alert"
+        elif any(k in nl for k in ("lock", "secret", "private", "hidden", "গোপন", "রহস্য")):
+            icon = "lock"
+        elif any(k in nl for k in ("time", "clock", "hour", "future", "history", "সময়", "ইতিহাস")):
+            icon = "clock"
+        else:
+            icon = "award"
+
+        words = norm_narration.split()
+        headline = " ".join(words[:4]) if len(words) >= 4 else (norm_narration or "Key Insight")
+        body = " ".join(words[4:18]) if len(words) > 4 else norm_narration
+
+        contract: Dict[str, Any] = {
+            "scene_index": scene_index + 1,
+            "layout_template": template,
+            "motion_background_style": motion_bg,
+            "icon_keyword": icon,
+            "badge_pill": badge,
+            "text_card_headline": headline[:40],
+            "text_card_body": body[:120],
+            "narration": norm_narration,
+            "stat_metric": "+85%" if template == "stat_counter_metric" else "",
+            "stat_label": headline if template == "stat_counter_metric" else "",
+            "checklist_items": [
+                f"১. {words[0] if words else 'প্রথম'} মূল পয়েন্ট",
+                f"২. {words[1] if len(words) > 1 else 'দ্বিতীয়'} কার্যপদ্ধতি",
+                f"৩. চূড়ান্ত ফলাফল ও অর্জন",
+            ],
+            "versus_bad_title": "❌ প্রচলিত ভুল ধারণা",
+            "versus_bad_p1": "  পুরোনো পদ্ধতিতে সময় ও অর্থ অপচয়",
+            "versus_bad_p2": "  সঠিক নির্দেশনার অভাব",
+            "versus_good_title": "✅ আধুনিক প্রমাণিত কৌশল",
+            "versus_good_p1": "  স্বয়ংক্রিয় এআই সিস্টেমের ব্যবহার",
+            "versus_good_p2": "  শতভাগ নির্ভুল ও দ্রুত বাস্তবায়ন",
+        }
+        return contract
+

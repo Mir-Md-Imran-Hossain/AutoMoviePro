@@ -52,23 +52,23 @@
     },
     "bn": {
       "name": "দয়ার শক্তি",
-      "blurb": "ভিডিও টাইপ: Small, random acts of kindness that snowballed into global movements — restoring faith in humanity."
+      "blurb": "দয়া ও মানবতার ছোট ছোট কিছু কাজ কীভাবে বিশ্বজুড়ে আন্দোলনে রূপ নিয়ে মানুষের মনে বিশ্বাস ফিরিয়েছে।"
     },
     "hi": {
-      "name": "दया की शक्ति",
-      "blurb": "वीडियो प्रकार: Small, random acts of kindness that snowballed into global movements — restoring faith in humanity."
+      "name": "दया की ताकत",
+      "blurb": "दयालुता के छोटे कार्य जो वैश्विक आंदोलनों में बदल गए और मानवता में विश्वास जगाया।"
     },
     "ur": {
-      "name": "مہربانی کی طاقت",
-      "blurb": "ویڈیو کی قسم: Small, random acts of kindness that snowballed into global movements — restoring faith in humanity."
+      "name": "محبت اور شفقت کی طاقت",
+      "blurb": "نیکی کے چھوٹے چھوٹے کام جو دنیا بھر میں تحریک بن گئے اور انسانیت پر یقین بحال کیا۔"
     },
     "ta": {
       "name": "கருணையின் சக்தி",
-      "blurb": "வீடியோ வகை: Small, random acts of kindness that snowballed into global movements — restoring faith in humanity."
+      "blurb": "சிறிய கருணைச் செயல்கள் உலகளாவிய இயக்கங்களாக மாறி மனிதநேயத்தின் மீதான நம்பிக்கையை மீட்டெடுத்த கதைகள்."
     },
     "ml": {
-      "name": "ദയയുടെ ശക്തി",
-      "blurb": "വീഡിയോ തരം: Small, random acts of kindness that snowballed into global movements — restoring faith in humanity."
+      "name": "കാരുണ്യത്തിന്റെ ശക്തി",
+      "blurb": "ചെറിയ കാരുണ്യ പ്രവൃത്തികൾ ആഗോള പ്രസ്ഥാനങ്ങളായി മാറി മനുഷ്യത്വത്തിലുള്ള വിശ്വാസം വീണ്ടെടുത്ത കഥകൾ."
     }
   },
   "source": "Nish.Md + deterministic research",

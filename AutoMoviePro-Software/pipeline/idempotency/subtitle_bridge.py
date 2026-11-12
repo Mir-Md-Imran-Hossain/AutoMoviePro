@@ -118,6 +118,38 @@ def idempotent_write_srt(
     if result.success and result.path:
         return Path(result.path)
 
+    # Industrial fallback: local subtitle generation is 100% deterministic local computation.
+    # If idempotency store has a wedged UNKNOWN/failed state from a prior interrupted crash,
+    # generate directly via deterministic cue engine rather than blocking master localization.
+    if provider_fn is not None:
+        logger.warning(
+            "idempotent subtitle executor state=%s (%s) — generating directly via deterministic cue engine",
+            result.state,
+            result.action,
+        )
+        import json
+        cues_data = provider_fn()
+        srt_body = str(cues_data.get("srt") or "")
+        if not srt_body and cues_data.get("cues"):
+            srt_body = cues_to_srt_file(cues_data["cues"])
+        srt_path.parent.mkdir(parents=True, exist_ok=True)
+        srt_path.write_text(srt_body, encoding="utf-8")
+        meta_path = srt_path.with_suffix(srt_path.suffix + ".meta.json")
+        from pipeline.idempotency.fingerprint import hash_text
+        spec_meta = {
+            "scene_id": spec.scene_id,
+            "dialogue_id": spec.dialogue_id,
+            "segment_id": spec.segment_id,
+            "language": spec.language,
+            "text_hash": hash_text(spec.localized_text.strip())[:32],
+            "scene_duration_sec": spec.scene_duration_sec,
+            "leading_gap_sec": spec.leading_gap_sec,
+            "trailing_gap_sec": spec.trailing_gap_sec,
+            "timing_model": spec.timing_model,
+        }
+        meta_path.write_text(json.dumps(spec_meta, indent=2), encoding="utf-8")
+        return srt_path
+
     if result.state == IdempotencyState.UNKNOWN:
         raise RuntimeError("Subtitle UNKNOWN — reconciliation required")
 

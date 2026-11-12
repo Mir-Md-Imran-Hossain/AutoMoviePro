@@ -1,8 +1,8 @@
 {
   "niche_id": 145,
-  "name": "Learn in 5 Minutes",
-  "slug": "learn-in-5-minutes",
-  "style_family": "history",
+  "name": "Geological Wonders & Cave Systems",
+  "slug": "geological-wonders-cave-systems",
+  "style_family": "nature",
   "status": "VERIFIED",
   "topic_seeds": [
     "What new evidence reframes the story of Learn inside Learn in 5 Minutes",
@@ -47,28 +47,28 @@
   "video_prompt_overlay": "NICHE VISUAL LOCK (Learn in 5 Minutes / history): Generate a 7–9 second dialogue clip based on the topic `{topic}`. Each dialogue must be quick and clear. For each dialogue, generate: - **Audio Generation Prompt:** Voice — clear, with whoosh and paper flip. - **Video Generation Prompt:** Detailed visual — a diagram or animation. No character — graphic. Lighting: bright. Maintain same graphic. Forbidden: talking-head lip-sync avatar, burned-in captions, watermark, modern meme text, modern smartphones, cars, LED screens, sneakers. Preferred subjects: Learn in 5 Minutes documentary subject, period-accurate environment, evidence object close-up. Lighting: warm desert sun / torchlit interiors, high-contrast documentary grade. Face policy: period extras OK if consistent; prefer environment/object hero when possible. Dialogue tone: human documentary narration; specific nouns; 7–9s beats. Ambience: subtle documentary bed; do not overpower voice.",
   "i18n": {
     "en": {
-      "name": "Learn in 5 Minutes",
-      "blurb": "Super-compact lessons — how a battery works, why the sky is blue — perfect for background listening."
+      "name": "Geological Wonders & Cave Systems",
+      "blurb": "Exploring subterranean realms and colossal cave systems — Son Doong in Vietnam (large enough to fit a 40-story skyscraper), glowing glowworm caves of Waitomo, and underground limes"
     },
     "bn": {
-      "name": "৫ মিনিটে শিখুন",
-      "blurb": "ভিডিও টাইপ: Super-compact lessons — how a battery works, why the sky is blue — perfect for background listening."
+      "name": "প্রাকৃতিক বিস্ময় ও গুহা জগৎ",
+      "blurb": "পৃথিবীর ভূগর্ভস্থ বিশাল গুহাগুলোর রহস্যময় জগৎ—ভিয়েতনামের সন ডং এবং জোনাকির আলোয় ঘেরা ওয়াইটোমো গুহা।"
     },
     "hi": {
-      "name": "5 मिनट में सीखें",
-      "blurb": "वीडियो प्रकार: Super-compact lessons — how a battery works, why the sky is blue — perfect for background listening."
+      "name": "भूवैज्ञानिक आश्चर्य और गुफा प्रणालियाँ",
+      "blurb": "भूमिगत दुनिया की सैर—वियतनाम की विशाल सोन डूंग गुफा और वाइटोमो के चमकते जुगनूओं वाली गुफाएँ।"
     },
     "ur": {
-      "name": "5 منٹ میں سیکھیں",
-      "blurb": "ویڈیو کی قسم: Super-compact lessons — how a battery works, why the sky is blue — perfect for background listening."
+      "name": "ارضیاتی عجائبات اور غاروں کا نظام",
+      "blurb": "زمین کے نیچے پوشیدہ دنیا کی سیر—ویتنام کی وسعتوں والی سون ڈونگ اور وائটোمو کی چمکتی ہوئی غاریں۔"
     },
     "ta": {
-      "name": "5 நிமிடத்தில் கற்றுக்கொள்ளுங்கள்",
-      "blurb": "வீடியோ வகை: Super-compact lessons — how a battery works, why the sky is blue — perfect for background listening."
+      "name": "புவியியல் அற்புதங்களும் குகை அமைப்புகளும்",
+      "blurb": "பூமிக்கு அடியில் உள்ள வியத்தகு குகை உலகம்—வியட்நாமின் சோன் டோங் மற்றும் ஒளிரும் புழுக்கள் வாழும் வைட்டோமோ குகைகள்."
     },
     "ml": {
-      "name": "5 മിനിറ്റിൽ പഠിക്കുക",
-      "blurb": "വീഡിയോ തരം: Super-compact lessons — how a battery works, why the sky is blue — perfect for background listening."
+      "name": "ഭൂശാസ്ത്ര വിസ്മയങ്ങളും ഗുഹാ സംവിധാനങ്ങളും",
+      "blurb": "ഭൂഗർഭ ലോകത്തെ അത്ഭുതങ്ങൾ—വിയറ്റ്നാമിലെ സോൻ ഡോംഗ് ഗുഹയും വൈറ്റോമോയിലെ മിന്നാമിനുങ്ങ് ഗുഹകളും."
     }
   },
   "source": "Nish.Md + deterministic research",

@@ -1,8 +1,8 @@
 {
   "niche_id": 129,
-  "name": "Haunted Locations",
-  "slug": "haunted-locations",
-  "style_family": "mystery",
+  "name": "Famous Mathematical Riddles & Paradoxes",
+  "slug": "famous-mathematical-riddles-paradoxes",
+  "style_family": "science",
   "status": "VERIFIED",
   "topic_seeds": [
     "What new evidence reframes the story of Haunted Locations Abandoned inside Haunted Locations",
@@ -47,28 +47,28 @@
   "video_prompt_overlay": "NICHE VISUAL LOCK (Haunted Locations / mystery): Generate a 7–9 second dialogue clip based on the topic `{topic}`. Each dialogue must be atmospheric. For each dialogue, generate: - **Audio Generation Prompt:** Voice — hushed, with footsteps and wind. - **Video Generation Prompt:** Detailed visual — an abandoned building or forest. No character — location. Lighting: grey, misty. Maintain same location. Forbidden: talking-head lip-sync avatar, burned-in captions, watermark, modern meme text, modern smartphones, cars, LED screens, sneakers. Preferred subjects: Haunted Locations documentary subject, period-accurate environment, evidence object close-up. Lighting: dappled fog light, cool teal shadows, slow push-ins. Face policy: no talking-head lip-sync avatar; cinematic B-roll preferred. Dialogue tone: slow, ominous, evidence-first. Ambience: low drone, subtle reverb, sparse percussion.",
   "i18n": {
     "en": {
-      "name": "Haunted Locations",
-      "blurb": "Abandoned asylums, castles, and forests — documented ghost sightings and historic tragedies attached."
+      "name": "Famous Mathematical Riddles & Paradoxes",
+      "blurb": "Mind-bending mathematical concepts explained simply — the Monty Hall Problem, Fibonacci sequence in nature, Gabriel's Horn, the Birthday Paradox, and the mystery of infinity."
     },
     "bn": {
-      "name": "ভূতুড়ে স্থান",
-      "blurb": "ভিডিও টাইপ: Abandoned asylums, castles, and forests — documented ghost sightings and historic tragedies attached."
+      "name": "বিখ্যাত গণিত ধাঁধা ও প্যারাডক্স",
+      "blurb": "মন্টি হল সমস্যা থেকে ফিবোনাচ্চি ধারা—গণিতের জটিল রহস্য এখন খুব সহজ ভাষায়।"
     },
     "hi": {
-      "name": "भूतिया स्थान",
-      "blurb": "वीडियो प्रकार: Abandoned asylums, castles, and forests — documented ghost sightings and historic tragedies attached."
+      "name": "प्रसिद्ध गणितीय पहेलियाँ",
+      "blurb": "मोंटी हॉल समस्या और फिबोनाची अनुक्रम जैसे गणित के पेचीदा रहस्यों का आसान विश्लेषण।"
     },
     "ur": {
-      "name": "بھوتوں والے مقامات",
-      "blurb": "ویڈیو کی قسم: Abandoned asylums, castles, and forests — documented ghost sightings and historic tragedies attached."
+      "name": "مشہور ریاضیاتی پہیلیاں اور معما",
+      "blurb": "مونٹی ہال کا مسئلہ اور فیبوناچی سیریز جیسے ریاضی کے دلچسپ اور پیچیدہ رازوں کا آسان بیان۔"
     },
     "ta": {
-      "name": "பேய்பிடித்த இடங்கள்",
-      "blurb": "வீடியோ வகை: Abandoned asylums, castles, and forests — documented ghost sightings and historic tragedies attached."
+      "name": "புகழ்பெற்ற கணிதப் புதிர்கள்",
+      "blurb": "மான்டி ஹால் புதிர் மற்றும் பிபோனாச்சி தொடர் போன்ற வியக்க வைக்கும் கணிதக் கோட்பாடுகளின் எளிய விளக்கம்."
     },
     "ml": {
-      "name": "ഭൂതബാധിത സ്ഥലങ്ങൾ",
-      "blurb": "വീഡിയോ തരം: Abandoned asylums, castles, and forests — documented ghost sightings and historic tragedies attached."
+      "name": "പ്രശസ്ത ഗണിത പ്രഹേളികകളും പ്രതിസന്ധികളും",
+      "blurb": "മോണ്ടി ഹാൾ പ്രശ്നവും ഫിബൊണാച്ചി ശ്രേണിയും പോലുള്ള ഗണിതശാസ്ത്ര രഹസ്യങ്ങൾ ലളിതമായി വിശദീകരിക്കുന്നു."
     }
   },
   "source": "Nish.Md + deterministic research",

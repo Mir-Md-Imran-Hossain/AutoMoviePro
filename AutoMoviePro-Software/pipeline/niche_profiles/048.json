@@ -48,23 +48,23 @@
     },
     "bn": {
       "name": "শহুরে কিংবদন্তি",
-      "blurb": "ভিডিও টাইপ: Examining the origins of urban myths — Slender Man, Bloody Mary — and separating fact from community gossip."
+      "blurb": "স্লেন্ডার ম্যান বা ব্লডি মেরির মতো কাল্পনিক গল্পের উৎস খোঁজা এবং সত্য ও গুঞ্জনের পার্থক্য নির্ধারণ।"
     },
     "hi": {
-      "name": "शहरी किंवदंतियाँ",
-      "blurb": "वीडियो प्रकार: Examining the origins of urban myths — Slender Man, Bloody Mary — and separating fact from community gossip."
+      "name": "शहरी दंतकथाएँ",
+      "blurb": "स्लेंडरमैन जैसी लोक कथाओं की उत्पत्ति और उनके पीछे की सच्चाई व अफवाहों की पड़ताल।"
     },
     "ur": {
-      "name": "شہری افسانے",
-      "blurb": "ویڈیو کی قسم: Examining the origins of urban myths — Slender Man, Bloody Mary — and separating fact from community gossip."
+      "name": "شہری لوک کہانیاں",
+      "blurb": "سلینڈر مین جیسی کہانیوں کی ابتدا کا جائزہ اور حقائق و توہم پرستی میں فرق۔"
     },
     "ta": {
-      "name": "நகரப் புராணங்கள்",
-      "blurb": "வீடியோ வகை: Examining the origins of urban myths — Slender Man, Bloody Mary — and separating fact from community gossip."
+      "name": "நகரத்து விசித்திரக் கதைகள்",
+      "blurb": "ஸ்லெண்டர் மேன் போன்ற நகர்ப்புற கட்டுக்கதைகளின் தோற்றம் மற்றும் உண்மை நிலையை ஆராய்தல்."
     },
     "ml": {
-      "name": "നഗര ഇതിഹാസങ്ങൾ",
-      "blurb": "വീഡിയോ തരം: Examining the origins of urban myths — Slender Man, Bloody Mary — and separating fact from community gossip."
+      "name": "നഗരത്തിലെ ഐതിഹ്യങ്ങൾ",
+      "blurb": "സ്ലെൻഡർമാൻ പോലുള്ള നഗര മിത്തുകളുടെ ഉത്ഭവവും അവയ്ക്ക് പിന്നിലെ സത്യവും ഗോസിപ്പുകളും."
     }
   },
   "source": "Nish.Md + deterministic research",

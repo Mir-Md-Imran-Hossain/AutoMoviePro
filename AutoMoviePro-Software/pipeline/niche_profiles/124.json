@@ -47,24 +47,24 @@
       "blurb": "Solar flares, geomagnetic storms — how they affect satellites, power grids, and even your phone."
     },
     "bn": {
-      "name": "মহাকাশ আবহাওয়া প্রতিবেদন",
-      "blurb": "ভিডিও টাইপ: Solar flares, geomagnetic storms — how they affect satellites, power grids, and even your phone."
+      "name": "মহাকাশ আবহাওয়ার খবর",
+      "blurb": "সৌর শিখা ও চৌম্বক ঝড়ের প্রভাব কীভাবে স্যাটেলাইট ও আপনার ফোনকে প্রভাবিত করে জানুন।"
     },
     "hi": {
-      "name": "अंतरिक्ष मौसम रिपोर्ट",
-      "blurb": "वीडियो प्रकार: Solar flares, geomagnetic storms — how they affect satellites, power grids, and even your phone."
+      "name": "अंतरिक्ष मौसम की रिपोर्ट",
+      "blurb": "सौर तूफान और चुंबकीय हलचल कैसे सैटेलाइट और आपके फोन को प्रभावित करती है।"
     },
     "ur": {
-      "name": "خلائی موسم کی رپورٹس",
-      "blurb": "ویڈیو کی قسم: Solar flares, geomagnetic storms — how they affect satellites, power grids, and even your phone."
+      "name": "خلاء کے موسم کی رپورٹ",
+      "blurb": "سورج کے طوفان اور مقناطیسی لہریں کیسے سیٹلائٹس اور آپ کے موبائل کو متاثر کرتی ہیں۔"
     },
     "ta": {
       "name": "விண்வெளி வானிலை அறிக்கைகள்",
-      "blurb": "வீடியோ வகை: Solar flares, geomagnetic storms — how they affect satellites, power grids, and even your phone."
+      "blurb": "சூரியப் புயல்கள் மற்றும் காந்த அலைகள் செயற்கைக்கோள்கள் மற்றும் உங்கள் கைபேசியை எவ்வாறு பாதிக்கின்றன."
     },
     "ml": {
-      "name": "ബഹിരാകാശ കാലാവസ്ഥ റിപ്പോർട്ടുകൾ",
-      "blurb": "വീഡിയോ തരം: Solar flares, geomagnetic storms — how they affect satellites, power grids, and even your phone."
+      "name": "ബാഹ്യാകാശ കാലാവസ്ഥാ റിപ്പോർട്ടുകൾ",
+      "blurb": "സൗരക്കാറ്റുകളും കാന്തിക കൊടുങ്കാറ്റുകളും ഉപഗ്രഹങ്ങളെയും ഫോണുകളെയും എങ്ങനെ ബാധിക്കുന്നു എന്ന് അറിയാം."
     }
   },
   "source": "Nish.Md + deterministic research",

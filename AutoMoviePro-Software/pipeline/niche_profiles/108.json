@@ -1,79 +1,64 @@
 {
   "niche_id": 108,
-  "name": "AI Productivity Boosters",
-  "slug": "ai-productivity-boosters",
-  "style_family": "motivation",
+  "name": "Silicon Valley Titans & Tech Monopolies",
+  "slug": "silicon-valley-titans-tech-monopolies",
+  "style_family": "business",
   "status": "VERIFIED",
   "topic_seeds": [
-    "What new evidence reframes the story of Productivity Boosters Reclaim inside AI Productivity Boosters",
-    "How Productivity Boosters Reclaim still shapes public curiosity about AI Productivity Boosters",
-    "What new evidence reframes the story of Motion inside AI Productivity Boosters",
-    "How Motion still shapes public curiosity about AI Productivity Boosters",
-    "What new evidence reframes the story of Scan inside AI Productivity Boosters",
-    "How Scan still shapes public curiosity about AI Productivity Boosters"
+    "Key analytical breakdown on Silicon Valley Titans & Tech Monopolies",
+    "Behind the scenes of major Silicon Valley Titans & Tech Monopolies events",
+    "Critical evidence and timelines in Silicon Valley Titans & Tech Monopolies"
   ],
   "seo_angles": [
-    "What new evidence reframes the story of Productivity Boosters Reclaim inside AI Productivity Boosters",
-    "How Productivity Boosters Reclaim still shapes public curiosity about AI Productivity Boosters",
-    "What new evidence reframes the story of Motion inside AI Productivity Boosters",
-    "How Motion still shapes public curiosity about AI Productivity Boosters"
+    "What people misunderstand about Silicon Valley Titans & Tech Monopolies",
+    "Why this historic moment in Silicon Valley Titans & Tech Monopolies matters today"
   ],
   "forbidden_visuals": [
     "talking-head lip-sync avatar",
     "burned-in captions",
     "watermark",
     "modern meme text",
-    "off-niche stock office B-roll"
+    "random stock photo cutout"
   ],
   "preferred_subjects": [
-    "AI Productivity Boosters documentary subject",
-    "period-accurate environment",
-    "evidence object close-up"
+    "high-resolution authentic environments",
+    "data-driven infographics and telemetry",
+    "moody cinematic lighting"
   ],
-  "lighting_default": "natural directional key, documentary clarity",
-  "face_policy": "no talking-head lip-sync avatar; cinematic B-roll preferred",
-  "dialogue_tone": "human documentary narration; specific nouns; 7–9s beats",
-  "audio_ambience": "subtle documentary bed; do not overpower voice",
+  "lighting_default": "cinematic high-contrast documentary grade",
+  "face_policy": "avoid talking head lip-sync; prefer environmental/tactical/infographic hero",
+  "dialogue_tone": "authoritative, engaging, retention-focused documentary narrative",
+  "audio_ambience": "subtle low-end atmospheric resonance, precise Foley SFX",
   "research_hints": [
-    "Prefer primary evidence and concrete entities for AI Productivity Boosters",
-    "Avoid generic niche-label topics; require specific place/person/event/mechanism",
-    "7–9 second spoken beats with story continuity across scenes"
+    "Prefer factual, verified data points for Silicon Valley Titans & Tech Monopolies",
+    "Strong retention hook in opening 3 seconds"
   ],
-  "topic_prompt_overlay": "NICHE LOCK (AI Productivity Boosters): only propose topics that fit this niche's video type. Video type: Reclaim, Motion — automating meeting notes, calendar scheduling, and task prioritization with AI. Follow niche topic strategy: Scan productivity blogs, new AI tool launches, or viral time-saving videos. Generate a topic about an AI that saves hours daily.",
-  "video_prompt_overlay": "NICHE VISUAL LOCK (AI Productivity Boosters / motivation): Generate a 7–9 second dialogue clip based on the topic `{topic}`. Each dialogue must be efficient and uplifting. For each dialogue, generate: - **Audio Generation Prompt:** Voice — brisk, with calendar dings and whoosh. - **Video Generation Prompt:** Detailed visual — a calendar or to-do list screen. No character — screen. Lighting: bright, clean. Maintain same clean screen. Forbidden: talking-head lip-sync avatar, burned-in captions, watermark, modern meme text, off-niche stock office B-roll. Preferred subjects: AI Productivity Boosters documentary subject, period-accurate environment, evidence object close-up. Lighting: natural directional key, documentary clarity. Face policy: no talking-head lip-sync avatar; cinematic B-roll preferred. Dialogue tone: human documentary narration; specific nouns; 7–9s beats. Ambience: subtle documentary bed; do not overpower voice.",
+  "topic_prompt_overlay": "NICHE LOCK (Silicon Valley Titans & Tech Monopolies): Analyze pivotal moments in Big Tech history (Microsoft's Internet Explorer antitrust trial, Apple's iOS ecosystem lock-in, Google's ad auction architecture, Amazon's AWS margin dominance). Frame around antitrust, market dominance, and ecosystem moats.",
+  "video_prompt_overlay": "NICHE VISUAL LOCK (Silicon Valley Titans & Tech Monopolies / business): Generate a 7–9 second tech corporate documentary scene for topic {topic}. Visuals: Architectural glass campus of a Silicon Valley tech giant with clean modern architecture, minimalist open-plan server atrium, and digital infographic charts illustrating platform market share. Lighting: Bright daylight through tinted glass with sleek metallic and glass reflections. Camera: Low-angle architectural pedestal tilt up modern corporate glass atrium. Ambience: Gentle corporate acoustic pulse, digital keyboard typing, and ambient glass atrium echo.",
   "i18n": {
     "en": {
-      "name": "AI Productivity Boosters",
-      "blurb": "Reclaim, Motion — automating meeting notes, calendar scheduling, and task prioritization with AI."
+      "name": "Silicon Valley Titans & Tech Monopolies",
+      "blurb": "Chronicles of Silicon Valley power plays, platform monopolies, anti-trust Senate hearings, proprietary walled gardens, and the battle for developer ecosystems."
     },
     "bn": {
-      "name": "এআই উৎপাদনশীলতা বৃদ্ধিকারী",
-      "blurb": "ভিডিও টাইপ: Reclaim, Motion — automating meeting notes, calendar scheduling, and task prioritization with AI."
+      "name": "সিলিকন ভ্যালি টাইটান ও প্রযুক্তি একচেটিয়া অধিকার",
+      "blurb": "সিলিকন ভ্যালির ক্ষমতার লড়াই, প্ল্যাটফর্ম মনোপলি এবং অ্যান্টি-ট্রাস্ট সেনেট শুনানির অন্তরালের কাহিনী।"
     },
     "hi": {
-      "name": "एआई उत्पादकता बढ़ाने वाले",
-      "blurb": "वीडियो प्रकार: Reclaim, Motion — automating meeting notes, calendar scheduling, and task prioritization with AI."
+      "name": "सिलिकॉन वैली टाइटन्स और टेक मोनोपॉली",
+      "blurb": "सिलिकॉन वैली के सत्ता संघर्ष, प्लेटफॉर्म एकाधिकार और एंटी-ट्रस्ट सीनेट की सुनवाइयों की कहानियाँ।"
     },
     "ur": {
-      "name": "اے آئی پیداواری بوسٹرز",
-      "blurb": "ویڈیو کی قسم: Reclaim, Motion — automating meeting notes, calendar scheduling, and task prioritization with AI."
+      "name": "सिलिकॉन ویلی کے دیو ہیکل اور ٹیک اجارہ داری",
+      "blurb": "सिलिकॉन ویلی کی طاقت کی جنگوں، پلیٹ فارم اجارہ داریوں اور سینیٹ کی سماعتوں کی داستانیں۔"
     },
     "ta": {
-      "name": "AI உற்பத்தித்திறன் அதிகரிப்பிகள்",
-      "blurb": "வீடியோ வகை: Reclaim, Motion — automating meeting notes, calendar scheduling, and task prioritization with AI."
+      "name": "சிலிக்கான் பள்ளத்தாக்கு ஜாம்பவான்கள் மற்றும் தொழில்நுட்ப ஏகபோகங்கள்",
+      "blurb": "சிலிக்கான் பள்ளத்தாக்கின் அதிகாரப் போட்டிகள் மற்றும் பிளாட்பார்ம் ஏகபோகங்கள் பற்றிய ஆய்வுகள்."
     },
     "ml": {
-      "name": "AI പ്രൊഡക്ടിവിറ്റി ബൂസ്റ്ററുകൾ",
-      "blurb": "വീഡിയോ തരം: Reclaim, Motion — automating meeting notes, calendar scheduling, and task prioritization with AI."
+      "name": "സിലിക്കൺ വാലി പ്രമുഖരും സാങ്കേതിക കുത്തകകളും",
+      "blurb": "സിലിക്കൺ വാലിയിലെ അധികാര വടംവലികളും പ്ലാറ്റ്‌ഫോം കുത്തകകളും സെനറ്റ് விசாரണകളും."
     }
-  },
-  "source": "Nish.Md + deterministic research",
-  "research_notes": [
-    "Marathon researched at 2026-09-10T08:30:24Z",
-    "Video type length=97",
-    "Topic prompt length=128",
-    "Video prompt length=377",
-    "Seeds=6"
-  ],
-  "verified_at": "2026-09-10T08:30:24Z"
+  }
 }

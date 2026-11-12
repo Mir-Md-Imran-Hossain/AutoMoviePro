@@ -48,27 +48,27 @@
   "i18n": {
     "en": {
       "name": "Against All Odds",
-      "blurb": "Inspirational biographies of ordinary people who overcame poverty, disability, or social prejudice to achieve extraordinary success — a motivational audio…"
+      "blurb": "Inspirational biographies of ordinary people who overcame poverty, disability, or social prejudice to achieve extraordinary success — a motivational audio series."
     },
     "bn": {
-      "name": "সব বাধা ডিঙিয়ে",
-      "blurb": "ভিডিও টাইপ: Inspirational biographies of ordinary people who overcame poverty, disability, or social prejudice to achieve extraordinary success — a motivational…"
+      "name": "সব বাধা পেরিয়ে",
+      "blurb": "সাধারণ মানুষের অসাধারণ সাফল্যের গল্প, যা আপনাকে নতুন করে স্বপ্ন দেখতে শেখাবে।"
     },
     "hi": {
-      "name": "सभी बाधाओं के खिलाफ",
-      "blurb": "वीडियो प्रकार: Inspirational biographies of ordinary people who overcame poverty, disability, or social prejudice to achieve extraordinary success — a motivational…"
+      "name": "हर मुश्किल के खिलाफ",
+      "blurb": "गरीबी और चुनौतियों को मात देकर असाधारण सफलता पाने वाले आम लोगों की प्रेरक कहानियाँ।"
     },
     "ur": {
-      "name": "تمام مشکلات کے باوجود",
-      "blurb": "ویڈیو کی قسم: Inspirational biographies of ordinary people who overcame poverty, disability, or social prejudice to achieve extraordinary success — a motivational…"
+      "name": "ہر مشکل کے خلاف",
+      "blurb": "غربت اور رکاوٹوں کو شکست دے کر غیر معمولی کامیابی حاصل کرنے والے عام انسانوں کی کہانیاں۔"
     },
     "ta": {
-      "name": "எல்லாத் தடைகளையும் மீறி",
-      "blurb": "வீடியோ வகை: Inspirational biographies of ordinary people who overcame poverty, disability, or social prejudice to achieve extraordinary success — a motivational…"
+      "name": "அனைத்து தடைகளையும் தாண்டி",
+      "blurb": "வறுமை மற்றும் சவால்களை வென்று சாதனை படைத்த சாதாரண மனிதர்களின் ஊக்கமளிக்கும் வாழ்க்கை வரலாறு."
     },
     "ml": {
-      "name": "എല്ലാ പ്രതിബന്ധങ്ങളെയും മറികടന്ന്",
-      "blurb": "വീഡിയോ തരം: Inspirational biographies of ordinary people who overcame poverty, disability, or social prejudice to achieve extraordinary success — a motivational…"
+      "name": "എതിർപ്പുകളെ തോൽപ്പിച്ച്",
+      "blurb": "ദാരിദ്ര്യത്തെയും പ്രതിസന്ധികളെയും തകർത്തെറിഞ്ഞ് ചരിത്രം കുറിച്ച സാധാരണ മനുഷ്യരുടെ വിജയഗാഥകൾ."
     }
   },
   "source": "Nish.Md + deterministic research",

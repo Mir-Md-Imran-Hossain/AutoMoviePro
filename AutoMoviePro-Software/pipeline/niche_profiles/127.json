@@ -1,8 +1,8 @@
 {
   "niche_id": 127,
-  "name": "True Horror Stories",
-  "slug": "true-horror-stories",
-  "style_family": "history",
+  "name": "Wonders of the Deep Ocean",
+  "slug": "wonders-of-the-deep-ocean",
+  "style_family": "nature",
   "status": "VERIFIED",
   "topic_seeds": [
     "What new evidence reframes the story of True Horror Stories Real inside True Horror Stories",
@@ -47,28 +47,28 @@
   "video_prompt_overlay": "NICHE VISUAL LOCK (True Horror Stories / history): Generate a 7–9 second dialogue clip based on the topic `{topic}`. Each dialogue must be spine-chilling. For each dialogue, generate: - **Audio Generation Prompt:** Voice — shaky, with whispers and creaking. - **Video Generation Prompt:** Detailed visual — a dark house or abandoned room. Character: witness (frightened). Lighting: dim, flickering. Maintain same room and fear. Forbidden: talking-head lip-sync avatar, burned-in captions, watermark, modern meme text, modern smartphones, cars, LED screens, sneakers. Preferred subjects: True Horror Stories documentary subject, period-accurate environment, evidence object close-up. Lighting: warm desert sun / torchlit interiors, high-contrast documentary grade. Face policy: period extras OK if consistent; prefer environment/object hero when possible. Dialogue tone: human documentary narration; specific nouns; 7–9s beats. Ambience: subtle documentary bed; do not overpower voice.",
   "i18n": {
     "en": {
-      "name": "True Horror Stories",
-      "blurb": "Real encounters with evil spirits, demonic possessions, or unexplained voices — narrated with chilling ambience."
+      "name": "Wonders of the Deep Ocean",
+      "blurb": "Venturing into the abyssal and hadal zones of the ocean — 36,000 feet down into the Mariana Trench, hydrothermal vents teeming with extremophiles, giant squids, and the perpetual d"
     },
     "bn": {
-      "name": "সত্যি ভৌতিক গল্প",
-      "blurb": "ভিডিও টাইপ: Real encounters with evil spirits, demonic possessions, or unexplained voices — narrated with chilling ambience."
+      "name": "গভীর সমুদ্রের বিস্ময় জগৎ",
+      "blurb": "মারিয়ানা খাদের ৩৬ হাজার ফুট গভীরে অদ্ভুত জীব এবং জলতাপীয় ঝর্ণার রহস্যময় দুনিয়া।"
     },
     "hi": {
-      "name": "सच्ची डरावनी कहानियाँ",
-      "blurb": "वीडियो प्रकार: Real encounters with evil spirits, demonic possessions, or unexplained voices — narrated with chilling ambience."
+      "name": "गहरे समुद्र के अद्भुत रहस्य",
+      "blurb": "मरियाना ट्रेंच की 36,000 फीट गहराई में पलते अनोखे जीव और रहस्यमयी hydrothermal vents।"
     },
     "ur": {
-      "name": "سچی خوفناک کہانیاں",
-      "blurb": "ویڈیو کی قسم: Real encounters with evil spirits, demonic possessions, or unexplained voices — narrated with chilling ambience."
+      "name": "تھاہ سمندر کے حیرت انگیز راز",
+      "blurb": "ماریانا ٹرینچ کی 36 ہزار فٹ گہرائی میں پلنے والی عجیب و غریب مخلوقات اور گرم پانی کے چشمے۔"
     },
     "ta": {
-      "name": "உண்மை பயங்கரக் கதைகள்",
-      "blurb": "வீடியோ வகை: Real encounters with evil spirits, demonic possessions, or unexplained voices — narrated with chilling ambience."
+      "name": "ஆழ்கடல் அதிசயங்கள்",
+      "blurb": "மரியானா அகழியின் 36,000 அடி ஆழத்தில் உள்ள விசித்திர உயிரினங்கள் மற்றும் வெப்ப நீரூற்றுகளின் உலகம்."
     },
     "ml": {
-      "name": "യഥാർത്ഥ ഹൊറർ കഥകൾ",
-      "blurb": "വീഡിയോ തരം: Real encounters with evil spirits, demonic possessions, or unexplained voices — narrated with chilling ambience."
+      "name": "ആഴക്കടൽ വിസ്മയങ്ങൾ",
+      "blurb": "മരിയാന ട്രഞ്ചിന്റെ 36,000 അടി ആഴത്തിലെ വിചിത്ര ജീവജാലങ്ങളും ഹൈഡ്രോതെർമൽ അരുവികളുടെ രഹസ്യങ്ങളും."
     }
   },
   "source": "Nish.Md + deterministic research",

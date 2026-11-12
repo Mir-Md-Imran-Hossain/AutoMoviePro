@@ -20,7 +20,7 @@ from pipeline.custom_pipeline.google_pacing_guard import (
 
 logger = logging.getLogger(__name__)
 
-_DEFAULT_GAP = 45.0
+_DEFAULT_GAP = 1.0
 _lock = threading.Lock()
 _last_mono = 0.0
 _tls = threading.local()

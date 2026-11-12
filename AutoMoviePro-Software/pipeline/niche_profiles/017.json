@@ -1,8 +1,8 @@
 {
   "niche_id": 17,
-  "name": "Serial Killers Unveiled",
-  "slug": "serial-killers-unveiled",
-  "style_family": "true_crime",
+  "name": "Stories & Miracles of the Prophets",
+  "slug": "stories-miracles-of-the-prophets",
+  "style_family": "islamic",
   "status": "VERIFIED",
   "topic_seeds": [
     "What new evidence reframes the story of Serial Killers Unveiled Psychological inside Serial Killers Unveiled",
@@ -45,28 +45,28 @@
   "video_prompt_overlay": "NICHE VISUAL LOCK (Serial Killers Unveiled / true_crime): Generate a 7–9 second dialogue clip based on the topic `{topic}`. Each dialogue must be dark and clinical. For each dialogue, generate: - **Audio Generation Prompt:** Voice — flat, analytical, with distant police radio chatter. - **Video Generation Prompt:** Detailed visual — a dim interrogation room or case evidence board. Character: detective (male, 50s, trench coat). Lighting: single overhead bulb, harsh shadows. Maintain same coat, same room, same lighting. Forbidden: talking-head lip-sync avatar, burned-in captions, watermark, modern meme text, gore close-ups, victim exploitation, glorified violence. Preferred subjects: Serial Killers Unveiled documentary subject, period-accurate environment, evidence object close-up. Lighting: desaturated overcast, practical interiors. Face policy: silhouettes / archival only; never glorify violence. Dialogue tone: restrained investigative; respectful. Ambience: subtle documentary bed; do not overpower voice.",
   "i18n": {
     "en": {
-      "name": "Serial Killers Unveiled",
-      "blurb": "Psychological profiling of notorious serial killers — Bundy, Dahmer, Zodiac — their childhood, modus operandi, and how they were finally caught."
+      "name": "Stories & Miracles of the Prophets",
+      "blurb": "Inspiring, historically verified, and spiritually uplifting accounts of the Prophets in Islam (Hazrat Musa, Ibrahim, Yusuf, Nuh, Sulaiman, and Prophet Muhammad ﷺ) and their divinel"
     },
     "bn": {
-      "name": "সিরিয়াল কিলার উন্মোচন",
-      "blurb": "ভিডিও টাইপ: Psychological profiling of notorious serial killers — Bundy, Dahmer, Zodiac — their childhood, modus operandi, and how they were finally caught."
+      "name": "নবিগণের কাহিনি ও মুজেজা",
+      "blurb": "ইসলামের মহান নবিগণের ঐতিহাসিক ও আধ্যাত্মিক জীবন এবং তাঁদের অলৌকিক ঘটনার বিবরণ।"
     },
     "hi": {
-      "name": "सीरियल किलर अनावरण",
-      "blurb": "वीडियो प्रकार: Psychological profiling of notorious serial killers — Bundy, Dahmer, Zodiac — their childhood, modus operandi, and how they were finally caught."
+      "name": "पैगंबरों के किस्से और चमत्कार",
+      "blurb": "इस्लाम के नबियों के जीवन के ऐतिहासिक, आध्यात्मिक और प्रेरणादायक सच्चे वाकये।"
     },
     "ur": {
-      "name": "سیریل کلرز کا انکشاف",
-      "blurb": "ویڈیو کی قسم: Psychological profiling of notorious serial killers — Bundy, Dahmer, Zodiac — their childhood, modus operandi, and how they were finally caught."
+      "name": "انبیاء کرام کے قصے اور معجزات",
+      "blurb": "اسلام کے برگزیدہ انبیاء کی تاریخ، روحانیت اور ان کی زندگی کے ایمان افروز واقعات۔"
     },
     "ta": {
-      "name": "தொடர்கொலைகாரர் வெளிப்பாடு",
-      "blurb": "வீடியோ வகை: Psychological profiling of notorious serial killers — Bundy, Dahmer, Zodiac — their childhood, modus operandi, and how they were finally caught."
+      "name": "நபிமார்களின் வரலாறும் அற்புதங்களும்",
+      "blurb": "இஸ்லாமிய இறைத்தூதர்களின் வரலாற்றுச் சிறப்புமிக்க மற்றும் ஆன்மீக ரீதியில் ஊக்கமளிக்கும் வாழ்க்கை."
     },
     "ml": {
-      "name": "സീരിയൽ കില്ലേഴ്സ് അനാവരണം",
-      "blurb": "വീഡിയോ തരം: Psychological profiling of notorious serial killers — Bundy, Dahmer, Zodiac — their childhood, modus operandi, and how they were finally caught."
+      "name": "പ്രവാചകന്മാരുടെ ചരിത്രവും അത്ഭുതങ്ങളും",
+      "blurb": "ഇസ്ലാമിക പ്രവാചകന്മാരുടെ ചരിത്രപരവും ആത്മീയവുമായ ജീവിതവഴികളും അവർക്ക് ലഭിച്ച ദിവ്യാനുഗ്രഹങ്ങളും."
     }
   },
   "source": "Nish.Md + deterministic research",

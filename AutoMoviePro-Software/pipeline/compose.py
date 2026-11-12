@@ -410,6 +410,8 @@ def get_h264_encoder() -> str:
 
 
 def make_color_clip(dest: Path, seconds: float, size: str = "1920x1080") -> Path:
+    from app.auth.server_ticket import assert_generation_ticket_valid
+    assert_generation_ticket_valid()
     dest.parent.mkdir(parents=True, exist_ok=True)
     encoder = get_h264_encoder()
     cmd = [
@@ -438,8 +440,11 @@ def make_color_clip(dest: Path, seconds: float, size: str = "1920x1080") -> Path
 
 
 def concat_clips(clips: List[Path], dest: Path) -> Path:
+    from app.auth.server_ticket import assert_generation_ticket_valid
+    assert_generation_ticket_valid()
     dest.parent.mkdir(parents=True, exist_ok=True)
     lst = dest.with_suffix(".txt")
+
     lst.write_text("\n".join(f"file '{c.as_posix()}'" for c in clips), encoding="utf-8")
     cmd = [
         ffmpeg_bin(),
@@ -456,7 +461,14 @@ def concat_clips(clips: List[Path], dest: Path) -> Path:
     ]
     result = subprocess.run(cmd, capture_output=True, text=True, creationflags=_WIN_NO_WINDOW)
     if result.returncode != 0:
-        # re-encode fallback
+        # re-encode fallback adapted to system resources (prevents OOM on <4GB RAM)
+        try:
+            from pipeline.pc_load import get_ffmpeg_resource_presets
+            presets = get_ffmpeg_resource_presets()
+            extra_args = presets.get("ffmpeg_args", ["-threads", "0", "-preset", "medium"])
+        except Exception:
+            extra_args = ["-threads", "2", "-preset", "ultrafast"]
+
         cmd = [
             ffmpeg_bin(),
             "-y",
@@ -466,6 +478,7 @@ def concat_clips(clips: List[Path], dest: Path) -> Path:
             "0",
             "-i",
             str(lst),
+            *extra_args,
             "-c:v",
             "libx264",
             "-pix_fmt",

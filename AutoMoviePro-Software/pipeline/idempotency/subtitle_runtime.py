@@ -133,7 +133,14 @@ def execute_subtitle_request(
     def _execute() -> dict[str, Any]:
         req = cache.request_create(legacy_key, artifact=out_path)
         if req["action"] == "reuse" and Path(str(req.get("artifact") or "")).is_file():
-            return {"artifact": str(req["artifact"]), "generation_id": "", "from_cache": True}
+            cached_ok, _ = validate_subtitle_asset(
+                str(req["artifact"]),
+                spec_meta=spec_meta,
+                expected_text_hash=spec_meta["text_hash"],
+                audio_duration_sec=spec.audio_duration_sec,
+            )
+            if cached_ok:
+                return {"artifact": str(req["artifact"]), "generation_id": "", "from_cache": True}
         out = _run_provider()
         if out.get("cues"):
             ok, reason = validate_cue_timestamps(out["cues"])

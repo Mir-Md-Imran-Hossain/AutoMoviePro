@@ -1,83 +1,64 @@
 {
   "niche_id": 101,
-  "name": "AI for Writing",
-  "slug": "ai-for-writing",
-  "style_family": "history",
+  "name": "Aerospace & Space Missions",
+  "slug": "aerospace-space-missions",
+  "style_family": "science",
   "status": "VERIFIED",
   "topic_seeds": [
-    "What new evidence reframes the story of Writing Free inside AI for Writing",
-    "How Writing Free still shapes public curiosity about AI for Writing",
-    "What new evidence reframes the story of Claude inside AI for Writing",
-    "How Claude still shapes public curiosity about AI for Writing",
-    "What new evidence reframes the story of Bard inside AI for Writing",
-    "How Bard still shapes public curiosity about AI for Writing"
+    "Key analytical breakdown on Aerospace & Space Missions",
+    "Behind the scenes of major Aerospace & Space Missions events",
+    "Critical evidence and timelines in Aerospace & Space Missions"
   ],
   "seo_angles": [
-    "What new evidence reframes the story of Writing Free inside AI for Writing",
-    "How Writing Free still shapes public curiosity about AI for Writing",
-    "What new evidence reframes the story of Claude inside AI for Writing",
-    "How Claude still shapes public curiosity about AI for Writing"
+    "What people misunderstand about Aerospace & Space Missions",
+    "Why this historic moment in Aerospace & Space Missions matters today"
   ],
   "forbidden_visuals": [
     "talking-head lip-sync avatar",
     "burned-in captions",
     "watermark",
     "modern meme text",
-    "modern smartphones",
-    "cars",
-    "LED screens",
-    "sneakers",
-    "contemporary skyline"
+    "random stock photo cutout"
   ],
   "preferred_subjects": [
-    "AI for Writing documentary subject",
-    "period-accurate environment",
-    "evidence object close-up"
+    "high-resolution authentic environments",
+    "data-driven infographics and telemetry",
+    "moody cinematic lighting"
   ],
-  "lighting_default": "warm desert sun / torchlit interiors, high-contrast documentary grade",
-  "face_policy": "period extras OK if consistent; prefer environment/object hero when possible",
-  "dialogue_tone": "human documentary narration; specific nouns; 7–9s beats",
-  "audio_ambience": "subtle documentary bed; do not overpower voice",
+  "lighting_default": "cinematic high-contrast documentary grade",
+  "face_policy": "avoid talking head lip-sync; prefer environmental/tactical/infographic hero",
+  "dialogue_tone": "authoritative, engaging, retention-focused documentary narrative",
+  "audio_ambience": "subtle low-end atmospheric resonance, precise Foley SFX",
   "research_hints": [
-    "Prefer primary evidence and concrete entities for AI for Writing",
-    "Avoid generic niche-label topics; require specific place/person/event/mechanism",
-    "7–9 second spoken beats with story continuity across scenes"
+    "Prefer factual, verified data points for Aerospace & Space Missions",
+    "Strong retention hook in opening 3 seconds"
   ],
-  "topic_prompt_overlay": "NICHE LOCK (AI for Writing): only propose topics that fit this niche's video type. Video type: Free AI tools like ChatGPT, Claude, or Bard — how to generate blogs, emails, essays, and scripts effectively. Follow niche topic strategy: Track AI news, new tool launches, or viral writing prompts. Generate a topic about an AI writing tool that saves time.",
-  "video_prompt_overlay": "NICHE VISUAL LOCK (AI for Writing / history): Generate a 7–9 second dialogue clip based on the topic `{topic}`. Each dialogue must be futuristic and helpful. For each dialogue, generate: - **Audio Generation Prompt:** Voice — clear, enthusiastic, with typing sounds. - **Video Generation Prompt:** Detailed visual — a screen with text appearing. No character — screen. Lighting: soft white. Maintain same text-appearing vibe. Forbidden: talking-head lip-sync avatar, burned-in captions, watermark, modern meme text, modern smartphones, cars, LED screens, sneakers. Preferred subjects: AI for Writing documentary subject, period-accurate environment, evidence object close-up. Lighting: warm desert sun / torchlit interiors, high-contrast documentary grade. Face policy: period extras OK if consistent; prefer environment/object hero when possible. Dialogue tone: human documentary narration; specific nouns; 7–9s beats. Ambience: subtle documentary bed; do not overpower voice.",
+  "topic_prompt_overlay": "NICHE LOCK (Aerospace & Space Missions): Examine deep space probe telemetry (Voyager, New Horizons, James Webb Space Telescope), lunar base architecture (Artemis), orbital docking maneuvers, and Mars atmospheric entry challenges. Craft topics highlighting high-risk technical missions.",
+  "video_prompt_overlay": "NICHE VISUAL LOCK (Aerospace & Space Missions / science): Generate a 7–9 second cosmic exploration scene for topic {topic}. Visuals: Ultra-high-resolution spacecraft orbiting a cratered moon or gas giant, solar panel arrays catching stark directional sunlight, thruster gas plumes gently firing against a pitch-black starfield. Lighting: Harsh single-source direct stellar illumination, deep space blackness. Camera: Elegant slow orbital pan tracking along the spacecraft's sensor boom. Ambience: Muffled metallic resonance, deep void silence, and ethereal cosmic synth pad.",
   "i18n": {
     "en": {
-      "name": "AI for Writing",
-      "blurb": "Free AI tools like ChatGPT, Claude, or Bard — how to generate blogs, emails, essays, and scripts effectively."
+      "name": "Aerospace & Space Missions",
+      "blurb": "Epic scientific chronicles of deep-space exploration, interplanetary propulsion, orbital mechanics, planetary rover missions, and astronomical discoveries."
     },
     "bn": {
-      "name": "লেখার জন্য এআই",
-      "blurb": "ভিডিও টাইপ: Free AI tools like ChatGPT, Claude, or Bard — how to generate blogs, emails, essays, and scripts effectively."
+      "name": "মহাকাশ ও আন্তঃগ্রহ অভিযান",
+      "blurb": "গভীর মহাকাশ অন্বেষণ, রকেট প্রযুক্তি এবং জ্যোতির্বিজ্ঞানের অবিশ্বাস্য সব বৈজ্ঞানিক ইতিহাস ও আবিষ্কার।"
     },
     "hi": {
-      "name": "लेखन के लिए एआई",
-      "blurb": "वीडियो प्रकार: Free AI tools like ChatGPT, Claude, or Bard — how to generate blogs, emails, essays, and scripts effectively."
+      "name": "अंतरिक्ष और अंतरिक्ष मिशन",
+      "blurb": "गहरे अंतरिक्ष अन्वेषण, ग्रहों की यात्रा और खगोलीय खोजों की महाकाव्य वैज्ञानिक गाथाएँ।"
     },
     "ur": {
-      "name": "لکھائی کے لیے اے آئی",
-      "blurb": "ویڈیو کی قسم: Free AI tools like ChatGPT, Claude, or Bard — how to generate blogs, emails, essays, and scripts effectively."
+      "name": "خلائی اور کائناتی مہمات",
+      "blurb": "گہرے خلا کی کھوج، انٹرپ্ল্যানেটারি پروپلشن اور فلکیاتی دریافتوں کی سنسنی خیز سائنسی داستانیں۔"
     },
     "ta": {
-      "name": "எழுத்துக்கான AI",
-      "blurb": "வீடியோ வகை: Free AI tools like ChatGPT, Claude, or Bard — how to generate blogs, emails, essays, and scripts effectively."
+      "name": "விண்வெளி மற்றும் விண்வெளிப் பயணங்கள்",
+      "blurb": "ஆழமான விண்வெளி ஆய்வு மற்றும் வானியல் கண்டுபிடிப்புகள் பற்றிய காவிய அறிவியல் வரலாறுகள்."
     },
     "ml": {
-      "name": "എഴുത്തിനുള്ള AI",
-      "blurb": "വീഡിയോ തരം: Free AI tools like ChatGPT, Claude, or Bard — how to generate blogs, emails, essays, and scripts effectively."
+      "name": "ബഹിരാകാശവും ദൗത്യങ്ങളും",
+      "blurb": "ആഴത്തിലുള്ള ബഹിരാകാശ പര്യവേക്ഷണത്തിന്റെയും ജ്യോതിശാസ്ത്ര കണ്ടെത്തലുകളുടെയും ഇതിഹാസ കഥകൾ."
     }
-  },
-  "source": "Nish.Md + deterministic research",
-  "research_notes": [
-    "Marathon researched at 2026-09-10T08:30:22Z",
-    "Video type length=109",
-    "Topic prompt length=118",
-    "Video prompt length=379",
-    "Seeds=6"
-  ],
-  "verified_at": "2026-09-10T08:30:23Z"
+  }
 }

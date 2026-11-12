@@ -68,23 +68,67 @@ def probe_image_min_edge(path: Path) -> int:
 
 
 def concat_silent_clips(clips: Sequence[Path], out: Path) -> Optional[Path]:
-    usable = [Path(c) for c in clips if c and Path(c).is_file()]
+    usable = [Path(c) for c in clips if c and Path(c).is_file() and Path(c).stat().st_size > 1000]
     if not usable:
         return None
     out = Path(out)
     out.parent.mkdir(parents=True, exist_ok=True)
     if len(usable) == 1:
         import shutil
-
         shutil.copy2(usable[0], out)
         return out
+
+    # Attempt broadcast-grade xfade chaining
+    from pipeline.compose import ffprobe_duration
+    TRANS_DUR = 0.50
+    CINEMATIC_TRANSITIONS = ["fade", "smoothleft", "circleopen", "dissolve", "fadeblack", "horzopen"]
+    try:
+        durations = [max(1.0, ffprobe_duration(c)) for c in usable]
+        total_expected = sum(durations) - (TRANS_DUR * (len(usable) - 1))
+
+        cmd = [ffmpeg_bin(), "-y"]
+        for c in usable:
+            cmd.extend(["-i", str(c)])
+
+        filter_parts = []
+        cur_stream = "[0:v]"
+        cur_offset = durations[0] - TRANS_DUR
+
+        for i in range(1, len(usable)):
+            trans = CINEMATIC_TRANSITIONS[(i - 1) % len(CINEMATIC_TRANSITIONS)]
+            next_stream = f"[{i}:v]"
+            out_stream = f"[v_trans_{i}]" if i < len(usable) - 1 else "[v_out]"
+            filter_parts.append(
+                f"{cur_stream}{next_stream}xfade=transition={trans}:duration={TRANS_DUR}:offset={max(0.1, cur_offset):.3f}{out_stream}"
+            )
+            cur_stream = out_stream
+            if i < len(usable) - 1:
+                cur_offset += durations[i] - TRANS_DUR
+
+        cmd.extend([
+            "-filter_complex", "; ".join(filter_parts),
+            "-map", "[v_out]",
+            "-c:v", "libx264",
+            "-preset", "veryfast",
+            "-crf", "18",
+            "-pix_fmt", "yuv420p",
+            "-t", f"{max(1.0, total_expected):.3f}",
+            str(out),
+        ])
+        r = subprocess.run(cmd, capture_output=True, text=True, check=False)
+        if r.returncode == 0 and out.is_file() and out.stat().st_size > 2000:
+            logger.info("Joined %d still slices with smooth xfade transitions", len(usable))
+            return out
+        logger.warning("xfade concat failed: %s; falling back to demuxer concat", (r.stderr or "")[-180:])
+    except Exception as exc:
+        logger.warning("xfade exception: %s; falling back to demuxer concat", exc)
+
     tmp = Path(tempfile.mkdtemp(prefix="amp_multi_still_"))
     try:
         list_file = tmp / "list.txt"
         mapped: List[Path] = []
         for i, c in enumerate(usable):
             dest = tmp / f"p{i:02d}.mp4"
-            # normalize then concat
             cmd = [
                 ffmpeg_bin(),
                 "-y",
@@ -103,9 +147,7 @@ def concat_silent_clips(clips: Sequence[Path], out: Path) -> Optional[Path]:
                 "25",
                 str(dest),
             ]
-            r = subprocess.run(
-                cmd, capture_output=True, text=True, encoding="utf-8", errors="replace"
-            )
+            r = subprocess.run(cmd, capture_output=True, text=True, encoding="utf-8", errors="replace")
             if r.returncode == 0 and dest.is_file():
                 mapped.append(dest)
         if not mapped:
@@ -130,9 +172,7 @@ def concat_silent_clips(clips: Sequence[Path], out: Path) -> Optional[Path]:
             "+faststart",
             str(out),
         ]
-        r = subprocess.run(
-            cmd, capture_output=True, text=True, encoding="utf-8", errors="replace"
-        )
+        r = subprocess.run(cmd, capture_output=True, text=True, encoding="utf-8", errors="replace")
         if r.returncode == 0 and out.is_file() and out.stat().st_size > 5000:
             return out
         # re-encode concat
@@ -156,14 +196,11 @@ def concat_silent_clips(clips: Sequence[Path], out: Path) -> Optional[Path]:
             "+faststart",
             str(out),
         ]
-        r = subprocess.run(
-            cmd, capture_output=True, text=True, encoding="utf-8", errors="replace"
-        )
+        r = subprocess.run(cmd, capture_output=True, text=True, encoding="utf-8", errors="replace")
         if r.returncode == 0 and out.is_file():
             return out
     finally:
         import shutil
-
         shutil.rmtree(tmp, ignore_errors=True)
     return None
 

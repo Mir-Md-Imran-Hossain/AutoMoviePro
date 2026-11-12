@@ -307,7 +307,7 @@ def run_topic_research_gate(
     *,
     video_type: str = "long",
     blocked_topics: Optional[Sequence[str]] = None,
-    use_mock_research: bool | None = True,
+    use_mock_research: bool | None = False,
     require_external_live: bool = False,
 ) -> dict[str, Any]:
     """Call existing BUILD-04G intelligence gate — no independent ranking/research."""
@@ -380,7 +380,7 @@ def plan_script_for_trs(
     video_type: str = "long",
     max_seconds: int = 60,
     research_notes: str = "",
-    use_mock: bool = True,
+    use_mock: bool = False,
     channel_specials: Optional[dict[str, str]] = None,
     niche_id: int | None = None,
     blocked_products: Optional[Sequence[str]] = None,
@@ -578,9 +578,9 @@ def apply_c05s_direction_to_director_plan(
         bible = create_visual_bible(
             bible_id=f"vb-trs-pw-{_fp(topic or out.get('topic') or 'x')[:10]}",
             subject_identity=str(topic or out.get("topic") or "subject"),
-            character_identity="Narrator subject",
+            character_identity="",
             visual_style="documentary",
-            location="studio",
+            location="topic-related setting or broadcast visual",
             environment="production set",
         )
     elif isinstance(bible, dict):
@@ -825,9 +825,9 @@ def refresh_c05s_from_director_plan(
     bible_fields = visual_bible or {
         "bible_id": f"vb-trs-{channel_id or 'x'}",
         "subject_identity": topic or script_plan.topic,
-        "character_identity": "Narrator subject",
+        "character_identity": "",
         "visual_style": "documentary",
-        "location": segments[0].location if segments and segments[0].location else "studio",
+        "location": segments[0].location if segments and segments[0].location else "topic-related setting or broadcast visual",
         "environment": "production set",
     }
     if hasattr(visual_bible, "bible_id"):
@@ -1027,8 +1027,8 @@ def run_trs_pipeline(
     language: str = "en",
     max_seconds: int = 60,
     blocked_topics: Optional[Sequence[str]] = None,
-    use_mock_research: bool | None = True,
-    use_mock_script: bool = True,
+    use_mock_research: bool | None = False,
+    use_mock_script: bool = False,
     require_external_live: bool = False,
     prefer_image_fallback: bool = False,
     visual_bible: Optional[dict[str, Any]] = None,
@@ -1270,9 +1270,9 @@ def run_trs_pipeline(
     bible_fields = visual_bible or {
         "bible_id": f"vb-trs-{channel_id or 'x'}",
         "subject_identity": topic,
-        "character_identity": "Narrator subject",
+        "character_identity": "",
         "visual_style": "documentary",
-        "location": segments[0].location if segments and segments[0].location else "studio",
+        "location": segments[0].location if segments and segments[0].location else "topic-related setting or broadcast visual",
         "environment": "production set",
     }
     if hasattr(visual_bible, "bible_id"):

@@ -51,24 +51,24 @@
       "blurb": "Experiments that went terribly wrong — and what we learned from them — like the Tacoma Narrows bridge collapse or the Biosphere 2 project."
     },
     "bn": {
-      "name": "বিজ্ঞানের মহাকাব্যিক ব্যর্থতা",
-      "blurb": "ভিডিও টাইপ: Experiments that went terribly wrong — and what we learned from them — like the Tacoma Narrows bridge collapse or the Biosphere 2 project."
+      "name": "বিজ্ঞান জগতের মহাবিপর্যয়",
+      "blurb": "যেসব পরীক্ষা ভয়াবহ ভুল হয়ে গিয়েছিল এবং তাকোমা ন্যারোজ সেতু ধসের মতো ঘটনা থেকে আমরা যা শিখেছি।"
     },
     "hi": {
-      "name": "वैज्ञानिक महाविफलताएँ",
-      "blurb": "वीडियो प्रकार: Experiments that went terribly wrong — and what we learned from them — like the Tacoma Narrows bridge collapse or the Biosphere 2 project."
+      "name": "वैज्ञानिक असफलताएं",
+      "blurb": "वे प्रयोग जो पूरी तरह गलत हो गए—जैसे टाकोमा नेरोव ब्रिज का गिरना—और उनसे हमने क्या सबक सीखा।"
     },
     "ur": {
-      "name": "سائنسی عظیم ناکامیاں",
-      "blurb": "ویڈیو کی قسم: Experiments that went terribly wrong — and what we learned from them — like the Tacoma Narrows bridge collapse or the Biosphere 2 project."
+      "name": "سائنسی ناکامیاں",
+      "blurb": "وہ تجربات جو بہت غلط ہو گئے—جیسے ٹاکوما نیروز پل کا گرنا—اور ہم نے ان سے کیا اسقاق سیکھا۔"
     },
     "ta": {
-      "name": "அறிவியல் பெரும் தோல்விகள்",
-      "blurb": "வீடியோ வகை: Experiments that went terribly wrong — and what we learned from them — like the Tacoma Narrows bridge collapse or the Biosphere 2 project."
+      "name": "அறிவியல் தோல்விகள்",
+      "blurb": "பயங்கரமாகத் தவறிப்போன சோதனைகள்—தாகோமா நேரோஸ் பாலம் இடிந்தது போன்ற நிகழ்வுகளிலிருந்து நாம் கற்றுக் கொண்டவை."
     },
     "ml": {
-      "name": "ശാസ്ത്രീയ വലിയ പരാജയങ്ങൾ",
-      "blurb": "വീഡിയോ തരം: Experiments that went terribly wrong — and what we learned from them — like the Tacoma Narrows bridge collapse or the Biosphere 2 project."
+      "name": "ശാസ്ത്രീയ പരാജയങ്ങൾ",
+      "blurb": "തെറ്റായിപ്പോയ പരീക്ഷണങ്ങളും—ടാക്കോമ നാരോസ് പാലത്തിന്റെ തകർച്ചയും പോലെയുള്ള സംഭവങ്ങളിൽ നിന്ന് നാം പഠിച്ച പാഠങ്ങളും."
     }
   },
   "source": "Nish.Md + deterministic research",

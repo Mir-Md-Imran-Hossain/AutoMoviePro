@@ -52,23 +52,23 @@
     },
     "bn": {
       "name": "শিশু প্রতিভা",
-      "blurb": "ভিডিও টাইপ: Young geniuses in music, math, or chess — their meteoric rise, pressure, and what became of them later."
+      "blurb": "সঙ্গীত, গণিত বা দাবায় ছোট বয়সেই আলোড়ন সৃষ্টিকারী তরুণ প্রতিভাদের উত্থান ও তাদের পরবর্তী জীবন।"
     },
     "hi": {
-      "name": "बाल प्रतिभाएँ",
-      "blurb": "वीडियो प्रकार: Young geniuses in music, math, or chess — their meteoric rise, pressure, and what became of them later."
+      "name": "बाल प्रतिभा",
+      "blurb": "संगीत, गणित या शतरंज के युवा जीनियस—उनकी भारी सफलता, दबाव और बाद का जीवन।"
     },
     "ur": {
-      "name": "بچہ عبقری",
-      "blurb": "ویڈیو کی قسم: Young geniuses in music, math, or chess — their meteoric rise, pressure, and what became of them later."
+      "name": "کم عمر ذہین بچے",
+      "blurb": "موسیقی، ریاضی یا شطرنج کے نوجواں جینئس—ان کی تیز رفتار ترقی، دباؤ اور بعد کی زندگی۔"
     },
     "ta": {
-      "name": "குழந்தை மேதைகள்",
-      "blurb": "வீடியோ வகை: Young geniuses in music, math, or chess — their meteoric rise, pressure, and what became of them later."
+      "name": "சிறு வயது மேதைகள்",
+      "blurb": "இசை, கணிதம் அல்லது சதுரங்கத்தில் ஜொலித்த இளம் மேதைகள், அவர்களின் எழுச்சி மற்றும் பிற்கால வாழ்க்கை."
     },
     "ml": {
-      "name": "ശിശു പ്രതിഭകൾ",
-      "blurb": "വീഡിയോ തരം: Young geniuses in music, math, or chess — their meteoric rise, pressure, and what became of them later."
+      "name": "കുട്ടികളുടെ പ്രതിഭ",
+      "blurb": "സംഗീതം, ഗണിതം അല്ലെങ്കിൽ ചെസ്സ് എന്നിവയിൽ തിളങ്ങിയ യുവ പ്രതിഭകളുടെ ഉയർച്ചയും അവരുടെ പിൽക്കാല ജീവിതവും."
     }
   },
   "source": "Nish.Md + deterministic research",

@@ -178,7 +178,12 @@ def fetch_pexels_videos(
             data = r.json()
             urls: List[str] = []
             for video in data.get("videos") or []:
-                files = sorted(video.get("video_files") or [], key=lambda x: x.get("width") or 0, reverse=True)
+                # Pick 1080p file closest to target resolution (downloads in 2s vs 15s for 4K)
+                target_w = 1080 if orient == "portrait" else 1920
+                files = sorted(
+                    video.get("video_files") or [],
+                    key=lambda x: abs((x.get("width") or 0) - target_w)
+                )
                 if files:
                     urls.append(files[0]["link"])
             return urls

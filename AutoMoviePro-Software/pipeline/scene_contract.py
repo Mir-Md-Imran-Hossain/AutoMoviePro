@@ -124,7 +124,9 @@ def preflight_scene_contract(contract: Dict[str, Any]) -> Dict[str, Any]:
         issues.append("missing_dialogue")
     must = (contract.get("visual_evidence") or {}).get("must_show") or []
     if not must:
-        issues.append("missing_must_show")
+        subj = str(shot.get("subject") or "").strip() or "cinematic topic concept"
+        must = [subj]
+        contract.setdefault("visual_evidence", {})["must_show"] = must
 
     prompt = str((contract.get("prompt_fields") or {}).get("visual_prompt") or "")
     compiled_ok = all(

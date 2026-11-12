@@ -1,81 +1,64 @@
 {
   "niche_id": 103,
-  "name": "AI Video Creators",
-  "slug": "ai-video-creators",
-  "style_family": "gadget",
+  "name": "Medical Mysteries & Bio-Breakthroughs",
+  "slug": "medical-mysteries-bio-breakthroughs",
+  "style_family": "science",
   "status": "VERIFIED",
   "topic_seeds": [
-    "What new evidence reframes the story of Video Creators inside AI Video Creators",
-    "How Video Creators still shapes public curiosity about AI Video Creators",
-    "What new evidence reframes the story of Pika inside AI Video Creators",
-    "How Pika still shapes public curiosity about AI Video Creators",
-    "What new evidence reframes the story of Kapwing inside AI Video Creators",
-    "How Kapwing still shapes public curiosity about AI Video Creators"
+    "Key analytical breakdown on Medical Mysteries & Bio-Breakthroughs",
+    "Behind the scenes of major Medical Mysteries & Bio-Breakthroughs events",
+    "Critical evidence and timelines in Medical Mysteries & Bio-Breakthroughs"
   ],
   "seo_angles": [
-    "What new evidence reframes the story of Video Creators inside AI Video Creators",
-    "How Video Creators still shapes public curiosity about AI Video Creators",
-    "What new evidence reframes the story of Pika inside AI Video Creators",
-    "How Pika still shapes public curiosity about AI Video Creators"
+    "What people misunderstand about Medical Mysteries & Bio-Breakthroughs",
+    "Why this historic moment in Medical Mysteries & Bio-Breakthroughs matters today"
   ],
   "forbidden_visuals": [
     "talking-head lip-sync avatar",
     "burned-in captions",
     "watermark",
     "modern meme text",
-    "wrong model phone",
-    "generic unbranded slab",
-    "stock office handshake"
+    "random stock photo cutout"
   ],
   "preferred_subjects": [
-    "exact product hero",
-    "component close-up",
-    "hands with device only"
+    "high-resolution authentic environments",
+    "data-driven infographics and telemetry",
+    "moody cinematic lighting"
   ],
-  "lighting_default": "natural directional key, documentary clarity",
-  "face_policy": "product-only hero; hands OK; no talking-head",
-  "dialogue_tone": "human documentary narration; specific nouns; 7–9s beats",
-  "audio_ambience": "subtle documentary bed; do not overpower voice",
+  "lighting_default": "cinematic high-contrast documentary grade",
+  "face_policy": "avoid talking head lip-sync; prefer environmental/tactical/infographic hero",
+  "dialogue_tone": "authoritative, engaging, retention-focused documentary narrative",
+  "audio_ambience": "subtle low-end atmospheric resonance, precise Foley SFX",
   "research_hints": [
-    "Prefer primary evidence and concrete entities for AI Video Creators",
-    "Avoid generic niche-label topics; require specific place/person/event/mechanism",
-    "7–9 second spoken beats with story continuity across scenes"
+    "Prefer factual, verified data points for Medical Mysteries & Bio-Breakthroughs",
+    "Strong retention hook in opening 3 seconds"
   ],
-  "topic_prompt_overlay": "NICHE LOCK (AI Video Creators): only propose topics that fit this niche's video type. Video type: RunwayML, Pika, Kapwing — generating short films, animations, and background removal with zero editing skills. Follow niche topic strategy: Check video tech news, new AI video releases, or viral AI-generated videos. Generate a topic about an AI tool that simplifies video production.",
-  "video_prompt_overlay": "NICHE VISUAL LOCK (AI Video Creators / gadget): Generate a 7–9 second dialogue clip based on the topic `{topic}`. Each dialogue must be fast and impressive. For each dialogue, generate: - **Audio Generation Prompt:** Voice — amazed, with camera clicks and whirrs. - **Video Generation Prompt:** Detailed visual — a timeline or video preview screen. No character — screen. Lighting: bright. Maintain same timeline view. Forbidden: talking-head lip-sync avatar, burned-in captions, watermark, modern meme text, wrong model phone, generic unbranded slab, stock office handshake. Preferred subjects: exact product hero, component close-up, hands with device only. Lighting: natural directional key, documentary clarity. Face policy: product-only hero; hands OK; no talking-head. Dialogue tone: human documentary narration; specific nouns; 7–9s beats. Ambience: subtle documentary bed; do not overpower voice.",
+  "topic_prompt_overlay": "NICHE LOCK (Medical Mysteries & Bio-Breakthroughs): Highlight diagnostic puzzles solved by clinical teams, revolutionary medical inventions (penicillin, mRNA vaccines, targeted immunotherapy), and physiological marvels of the human body.",
+  "video_prompt_overlay": "NICHE VISUAL LOCK (Medical Mysteries & Bio-Breakthroughs / science): Generate a 7–9 second biomedical documentary beat for topic {topic}. Visuals: Photorealistic microscopic 3D visualization of cellular membrane receptors, antibody binding mechanisms, or a sterile clinical laboratory with centrifuge diagnostics and diagnostic displays. Lighting: Clinical cool white and surgical turquoise with soft bokeh highlights. Camera: Smooth macro lens tracking shot across medical diagnostic equipment or molecular interactions. Ambience: Gentle medical monitor heartbeat rhythm, sterile airflow whisper, and soft chime.",
   "i18n": {
     "en": {
-      "name": "AI Video Creators",
-      "blurb": "RunwayML, Pika, Kapwing — generating short films, animations, and background removal with zero editing skills."
+      "name": "Medical Mysteries & Bio-Breakthroughs",
+      "blurb": "Medical detective investigations into rare pathological syndromes, autoimmune anomalies, CRISPR gene therapies, and miraculous clinical discoveries that redefined medicine."
     },
     "bn": {
-      "name": "এআই ভিডিও ক্রিয়েটর",
-      "blurb": "ভিডিও টাইপ: RunwayML, Pika, Kapwing — generating short films, animations, and background removal with zero editing skills."
+      "name": "চিকিৎসা রহস্য ও জৈব-উদ্ভাবন",
+      "blurb": "বিরল রোগ, জিন থেরাপি এবং চিকিৎসাবিজ্ঞানে বিপ্লব সৃষ্টিকারী অলৌকিক আবিষ্কারের মেডিকেল গোয়েন্দা তদন্ত।"
     },
     "hi": {
-      "name": "एआई वीडियो क्रिएटर",
-      "blurb": "वीडियो प्रकार: RunwayML, Pika, Kapwing — generating short films, animations, and background removal with zero editing skills."
+      "name": "चिकित्सा रहस्य और जैव-नवाचार",
+      "blurb": "दुर्लभ बीमारियों, जीन थेरेपी और चिकित्सा को बदलने वाली चमत्कारी खोजों की मेडिकल जाँच।"
     },
     "ur": {
-      "name": "اے آئی ویڈیو کریئٹرز",
-      "blurb": "ویڈیو کی قسم: RunwayML, Pika, Kapwing — generating short films, animations, and background removal with zero editing skills."
+      "name": "طبی معمے اور بائیو ایجادات",
+      "blurb": "نایاب بیماریوں، جین تھیراپی اور طب میں انقلابی تبدیلی لانے والی معجزاتی طبی دریافتوں کی تحقیقات۔"
     },
     "ta": {
-      "name": "AI வீடியோ உருவாக்கிகள்",
-      "blurb": "வீடியோ வகை: RunwayML, Pika, Kapwing — generating short films, animations, and background removal with zero editing skills."
+      "name": "மருத்துவ மர்மங்கள் மற்றும் உயிரியல் கண்டுபிடிப்புகள்",
+      "blurb": "அரிதான நோய்கள் மற்றும் மரபணு சிகிச்சைகள் பற்றிய மருத்துவ துப்பறியும் விசாரணைகள்."
     },
     "ml": {
-      "name": "AI വീഡിയോ ക്രിയേറ്ററുകൾ",
-      "blurb": "വീഡിയോ തരം: RunwayML, Pika, Kapwing — generating short films, animations, and background removal with zero editing skills."
+      "name": "വൈദ്യശാസ്ത്ര രഹസ്യങ്ങളും കണ്ടെത്തലുകളും",
+      "blurb": "അപൂർവ്വ രോഗങ്ങൾ, ജീൻ തെറാപ്പി, വൈദ്യശാസ്ത്രത്തെ മാറ്റിമറിച്ച അത്ഭുതകരമായ കണ്ടെത്തലുകൾ."
     }
-  },
-  "source": "Nish.Md + deterministic research",
-  "research_notes": [
-    "Marathon researched at 2026-09-10T08:30:23Z",
-    "Video type length=110",
-    "Topic prompt length=143",
-    "Video prompt length=370",
-    "Seeds=6"
-  ],
-  "verified_at": "2026-09-10T08:30:23Z"
+  }
 }

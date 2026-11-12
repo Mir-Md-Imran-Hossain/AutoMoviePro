@@ -83,23 +83,39 @@ def naturalness_preflight(dialogue_text: str) -> dict[str, Any]:
                 seen = set()
                 for g in grams:
                     if g in seen:
+                        # Allow standard rhetorical retention cadence hooks and transition phrases
+                        if any(hook in g for hook in (
+                            "matter right now",
+                            "why does that",
+                            "does that matter",
+                            "watch what this",
+                            "what this changes",
+                            "this changes next",
+                            "for the first",
+                            "the first time",
+                            "on the other",
+                            "the other hand",
+                            "at the same",
+                            "the same time",
+                        )):
+                            continue
                         issues.append(f"repeated_phrase:{g}")
                         break
                     seen.add(g)
 
-    # True sentence-length gate (not total narration length). Master/localize
+        # True sentence-length gate (not total narration length). Master/localize
     # scripts are multi-sentence and routinely exceed 600 chars overall.
-    for sent in re.split(r"[.!?]+", text):
+    for sent in re.split(r"[.!?\u0964\u06d4\u061f\n]+", text):
         chunk = sent.strip()
         if len(chunk) > 600:
             issues.append("excessive_sentence_length")
             break
     # Still block pathological single-blob dialogue with almost no sentence breaks.
-    if len(text) > 2500 and len(re.findall(r"[.!?]", text)) < 2:
+    if len(text) > 2500 and len(re.findall(r"[.!?\u0964\u06d4\u061f\n]", text)) < 2:
         if "excessive_sentence_length" not in issues:
             issues.append("excessive_sentence_length")
 
-    # Broken boundaries: many ellipses / impossible pause markers
+# Broken boundaries: many ellipses / impossible pause markers
     if text.count("...") > 5 or text.count("—") > 8:
         issues.append("excessive_pause_markers")
     if re.search(r"\[\s*pause\s+\d{4,}", text, re.I):

@@ -1,83 +1,64 @@
 {
   "niche_id": 93,
-  "name": "Free Educational Goldmines",
-  "slug": "free-educational-goldmines",
-  "style_family": "history",
+  "name": "True Crime & Unsolved Mysteries",
+  "slug": "true-crime-unsolved-mysteries",
+  "style_family": "true_crime",
   "status": "VERIFIED",
   "topic_seeds": [
-    "What new evidence reframes the story of Free Educational Goldmines inside Free Educational Goldmines",
-    "How Free Educational Goldmines still shapes public curiosity about Free Educational Goldmines",
-    "What new evidence reframes the story of Project Gutenberg inside Free Educational Goldmines",
-    "How Project Gutenberg still shapes public curiosity about Free Educational Goldmines",
-    "What new evidence reframes the story of Search inside Free Educational Goldmines",
-    "How Search still shapes public curiosity about Free Educational Goldmines"
+    "Key analytical breakdown on True Crime & Unsolved Mysteries",
+    "Behind the scenes of major True Crime & Unsolved Mysteries events",
+    "Critical evidence and timelines in True Crime & Unsolved Mysteries"
   ],
   "seo_angles": [
-    "What new evidence reframes the story of Free Educational Goldmines inside Free Educational Goldmines",
-    "How Free Educational Goldmines still shapes public curiosity about Free Educational Goldmines",
-    "What new evidence reframes the story of Project Gutenberg inside Free Educational Goldmines",
-    "How Project Gutenberg still shapes public curiosity about Free Educational Goldmines"
+    "What people misunderstand about True Crime & Unsolved Mysteries",
+    "Why this historic moment in True Crime & Unsolved Mysteries matters today"
   ],
   "forbidden_visuals": [
     "talking-head lip-sync avatar",
     "burned-in captions",
     "watermark",
     "modern meme text",
-    "modern smartphones",
-    "cars",
-    "LED screens",
-    "sneakers",
-    "contemporary skyline"
+    "random stock photo cutout"
   ],
   "preferred_subjects": [
-    "Free Educational Goldmines documentary subject",
-    "period-accurate environment",
-    "evidence object close-up"
+    "high-resolution authentic environments",
+    "data-driven infographics and telemetry",
+    "moody cinematic lighting"
   ],
-  "lighting_default": "warm desert sun / torchlit interiors, high-contrast documentary grade",
-  "face_policy": "period extras OK if consistent; prefer environment/object hero when possible",
-  "dialogue_tone": "human documentary narration; specific nouns; 7–9s beats",
-  "audio_ambience": "subtle documentary bed; do not overpower voice",
+  "lighting_default": "cinematic high-contrast documentary grade",
+  "face_policy": "avoid talking head lip-sync; prefer environmental/tactical/infographic hero",
+  "dialogue_tone": "authoritative, engaging, retention-focused documentary narrative",
+  "audio_ambience": "subtle low-end atmospheric resonance, precise Foley SFX",
   "research_hints": [
-    "Prefer primary evidence and concrete entities for Free Educational Goldmines",
-    "Avoid generic niche-label topics; require specific place/person/event/mechanism",
-    "7–9 second spoken beats with story continuity across scenes"
+    "Prefer factual, verified data points for True Crime & Unsolved Mysteries",
+    "Strong retention hook in opening 3 seconds"
   ],
-  "topic_prompt_overlay": "NICHE LOCK (Free Educational Goldmines): only propose topics that fit this niche's video type. Video type: OpenStax, MIT OpenCourseWare, Project Gutenberg — how anyone can get a world-class education for free. Follow niche topic strategy: Search for new free educational platforms, viral learning threads, or student success stories. Generate a topic about a lesser-known free resource.",
-  "video_prompt_overlay": "NICHE VISUAL LOCK (Free Educational Goldmines / history): Generate a 7–9 second dialogue clip based on the topic `{topic}`. Each dialogue must be empowering and clear. For each dialogue, generate: - **Audio Generation Prompt:** Voice — clear, instructive, with page turning. - **Video Generation Prompt:** Detailed visual — a library or laptop screen. No character — focus on books/course. Lighting: bright, inviting. Maintain same vibe. Forbidden: talking-head lip-sync avatar, burned-in captions, watermark, modern meme text, modern smartphones, cars, LED screens, sneakers. Preferred subjects: Free Educational Goldmines documentary subject, period-accurate environment, evidence object close-up. Lighting: warm desert sun / torchlit interiors, high-contrast documentary grade. Face policy: period extras OK if consistent; prefer environment/object hero when possible. Dialogue tone: human documentary narration; specific nouns; 7–9s beats. Ambience: subtle documentary bed; do not overpower voice.",
+  "topic_prompt_overlay": "NICHE LOCK (True Crime & Unsolved Mysteries): Scan forensic archives, newly tested cold case DNA evidence, declassified police dossiers, and court proceedings. Select unsolved cases, enigmatic disappearance timelines, or historic heist conspiracies with compelling forensic dilemmas. Avoid exploitative sensationalism; emphasize evidence puzzles, timeline contradictions, and investigative breakthroughs.",
+  "video_prompt_overlay": "NICHE VISUAL LOCK (True Crime & Unsolved Mysteries / true_crime): Generate a 7–9 second investigative scene for topic {topic}. Visuals: Moody neo-noir crime-scene reconstruction or pin-board evidence wall with crimson yarn connecting faded photographs, police badges, and redacted case files. Lighting: Harsh single-source tungsten desk lamp through Venetian blinds, high-contrast chiaroscuro shadows. Camera: Slow macro tracking shot past forensic evidence markers and aged document folders. Ambience: Distant rain against windowpanes, low resonant cello drone, and rhythmic tape-reel clicks.",
   "i18n": {
     "en": {
-      "name": "Free Educational Goldmines",
-      "blurb": "OpenStax, MIT OpenCourseWare, Project Gutenberg — how anyone can get a world-class education for free."
+      "name": "True Crime & Unsolved Mysteries",
+      "blurb": "Atmospheric investigative cold-case reconstructions, forensic ballistics, psychological profiling, and unexplained criminal disappearances. Features evidence board motion graphics,"
     },
     "bn": {
-      "name": "বিনামূল্যে শিক্ষার খনি",
-      "blurb": "ভিডিও টাইপ: OpenStax, MIT OpenCourseWare, Project Gutenberg — how anyone can get a world-class education for free."
+      "name": "রোমাঞ্চকর অপরাধ ও অমীমাংসিত রহস্য",
+      "blurb": "ফরেনসিক ও মনস্তাত্ত্বিক বিশ্লেষণের মাধ্যমে উন্মোচন করা চাঞ্চল্যকর সব অপরাধের গল্প।"
     },
     "hi": {
-      "name": "मुफ़्त शिक्षा के खज़ाने",
-      "blurb": "वीडियो प्रकार: OpenStax, MIT OpenCourseWare, Project Gutenberg — how anyone can get a world-class education for free."
+      "name": "क्राइम मिस्ट्री और अनसुलझे रहस्य",
+      "blurb": "ফরেন্সিক বিজ্ঞান और मनोवैज्ञानिक profiling के जरिए अनसुलझे मामलों की रोमांचक परतें।"
     },
     "ur": {
-      "name": "مفت تعلیمی خزانے",
-      "blurb": "ویڈیو کی قسم: OpenStax, MIT OpenCourseWare, Project Gutenberg — how anyone can get a world-class education for free."
+      "name": "پُر اسرار جرائم اور ان سلجھی کہانیاں",
+      "blurb": "فارنزک اور نفسیاتی تجزیے کی مدد سے پراسرار اور سرد مقدمات کی تہ تک پہنچنے کا سفر۔"
     },
     "ta": {
-      "name": "இலவச கல்வி பொக்கிஷங்கள்",
-      "blurb": "வீடியோ வகை: OpenStax, MIT OpenCourseWare, Project Gutenberg — how anyone can get a world-class education for free."
+      "name": "குற்றவியல் மற்றும் தீர்க்கப்படாத மர்மங்கள்",
+      "blurb": "தடயவியல் மற்றும் உளவியல் ஆய்வுகள் மூலம் தீர்க்கப்படாத குற்ற வழக்குகளின் உண்மைகள்."
     },
     "ml": {
-      "name": "സൗജന്യ വിദ്യാഭ്യാസ നിധികൾ",
-      "blurb": "വീഡിയോ തരം: OpenStax, MIT OpenCourseWare, Project Gutenberg — how anyone can get a world-class education for free."
+      "name": "കുറ്റകൃത്യങ്ങളും അവ്യക്തമായ രഹസ്യങ്ങളും",
+      "blurb": "ഫോറൻസിക് തെളിവുകളുടെയും മനശാസ്ത്ര വിശകലനത്തിന്റെയും അടിസ്ഥാനത്തിലുള്ള അന്വേഷണ പരമ്പര."
     }
-  },
-  "source": "Nish.Md + deterministic research",
-  "research_notes": [
-    "Marathon researched at 2026-09-10T08:30:21Z",
-    "Video type length=102",
-    "Topic prompt length=147",
-    "Video prompt length=379",
-    "Seeds=6"
-  ],
-  "verified_at": "2026-09-10T08:30:21Z"
+  }
 }

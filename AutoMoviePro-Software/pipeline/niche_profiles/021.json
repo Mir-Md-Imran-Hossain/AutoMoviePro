@@ -52,23 +52,23 @@
     },
     "bn": {
       "name": "গুপ্তচর খেলা",
-      "blurb": "ভিডিও টাইপ: Real espionage tales — Cold War double agents, the Enigma code, CIA vs. KGB — with high-stakes deception and life-or-death secrecy."
+      "blurb": "বাস্তব গুপ্তচরবৃত্তির রোমাঞ্চকর কাহিনী — স্নায়ুযুদ্ধের দ্বিমুখী চর, এনিগমা কোড এবং সিআইএ বনাম কেজিবি-র জীবনমৃত্যুর গোপন লড়াই।"
     },
     "hi": {
-      "name": "जासूसी खेल",
-      "blurb": "वीडियो प्रकार: Real espionage tales — Cold War double agents, the Enigma code, CIA vs. KGB — with high-stakes deception and life-or-death secrecy."
+      "name": "जासूसों के खेल",
+      "blurb": "असली जासूसी कहानियाँ — शीत युद्ध के दोहरे एजेंट, एनिग्मा कोड और सीआईए बनाम केजीबी का रोमांचक और खतरनाक खेल।"
     },
     "ur": {
-      "name": "جاسوسی کھیل",
-      "blurb": "ویڈیو کی قسم: Real espionage tales — Cold War double agents, the Enigma code, CIA vs. KGB — with high-stakes deception and life-or-death secrecy."
+      "name": "جاسوسی کے کھیل",
+      "blurb": "حقیقی جاسوسی کہانیاں — سرد جنگ کے دوغلے ایجنٹس، انیگما کوڈ اور سی آئی اے بمقابلہ کے جی بی کے سنسنی خیز اور خطرناک راز۔"
     },
     "ta": {
       "name": "உளவு விளையாட்டுகள்",
-      "blurb": "வீடியோ வகை: Real espionage tales — Cold War double agents, the Enigma code, CIA vs. KGB — with high-stakes deception and life-or-death secrecy."
+      "blurb": "உண்மைச் சம்பவங்கள் அடிப்படையிலான உளவுக் கதைகள் — பனிப்போர் இரட்டை முகவர்கள், எனிக்மா குறியீடு மற்றும் சிஐஏ vs கேஜிபி ரகசியங்கள்."
     },
     "ml": {
-      "name": "ചാരക്കളികൾ",
-      "blurb": "വീഡിയോ തരം: Real espionage tales — Cold War double agents, the Enigma code, CIA vs. KGB — with high-stakes deception and life-or-death secrecy."
+      "name": "ചാരക്കളി",
+      "blurb": "യഥാർത്ഥ ചാരവൃത്തിയുമായി ബന്ധപ്പെട്ട കഥകൾ — ശീതയുദ്ധത്തിലെ ഇരട്ട ഏജന്റുമാർ, എനിഗ്മ കോഡ്, സിഐഎ വേഴ്സസ് കെജിബി രഹസ്യങ്ങൾ."
     }
   },
   "source": "Nish.Md + deterministic research",

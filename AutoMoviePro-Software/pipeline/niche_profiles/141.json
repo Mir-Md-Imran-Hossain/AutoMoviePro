@@ -1,8 +1,8 @@
 {
   "niche_id": 141,
-  "name": "NFT Chronicles",
-  "slug": "nft-chronicles",
-  "style_family": "history",
+  "name": "Civil Engineering & Mega Bridges",
+  "slug": "civil-engineering-mega-bridges",
+  "style_family": "motion_graphics",
   "status": "VERIFIED",
   "topic_seeds": [
     "What new evidence reframes the story of Chronicles How inside NFT Chronicles",
@@ -47,28 +47,28 @@
   "video_prompt_overlay": "NICHE VISUAL LOCK (NFT Chronicles / history): Generate a 7–9 second dialogue clip based on the topic `{topic}`. Each dialogue must be intriguing and thoughtful. For each dialogue, generate: - **Audio Generation Prompt:** Voice — thoughtful, with auction gavel and applause. - **Video Generation Prompt:** Detailed visual — a digital art screen. No character — screen. Lighting: bright. Maintain same art. Forbidden: talking-head lip-sync avatar, burned-in captions, watermark, modern meme text, modern smartphones, cars, LED screens, sneakers. Preferred subjects: NFT Chronicles documentary subject, period-accurate environment, evidence object close-up. Lighting: warm desert sun / torchlit interiors, high-contrast documentary grade. Face policy: period extras OK if consistent; prefer environment/object hero when possible. Dialogue tone: human documentary narration; specific nouns; 7–9s beats. Ambience: subtle documentary bed; do not overpower voice.",
   "i18n": {
     "en": {
-      "name": "NFT Chronicles",
-      "blurb": "How digital art sold for millions — the hype, the backlash, and whether NFTs have a future."
+      "name": "Civil Engineering & Mega Bridges",
+      "blurb": "The architectural and engineering triumphs of monumental bridges — Padma Multipurpose Bridge deep piling in turbulent riverbeds, Millau Viaduct in France piercing the clouds, and G"
     },
     "bn": {
-      "name": "এনএফটি ক্রনিকল",
-      "blurb": "ভিডিও টাইপ: How digital art sold for millions — the hype, the backlash, and whether NFTs have a future."
+      "name": "সিভিল ইঞ্জিনিয়ারিং এবং মেগা সেতু",
+      "blurb": "পদ্মা সেতু বা মিলিয়াভ ভিয়াডাক্টের মতো বিশাল সেতুগুলোর অবিশ্বাস্য নির্মাণশৈলী এবং প্রকৌশলগত জয়যাত্রার গল্প।"
     },
     "hi": {
-      "name": "एनएफटी वृत्तांत",
-      "blurb": "वीडियो प्रकार: How digital art sold for millions — the hype, the backlash, and whether NFTs have a future."
+      "name": "सिविल इंजीनियरिंग और महा-पुल",
+      "blurb": "पद्मा ब्रिज और मियाॅव वायाडक्ट जैसे विशाल पुलों के निर्माण और इंजीनियरिंग की अद्भुत कहानियाँ।"
     },
     "ur": {
-      "name": "این ایف ٹی داستان",
-      "blurb": "ویڈیو کی قسم: How digital art sold for millions — the hype, the backlash, and whether NFTs have a future."
+      "name": "سویل انجینئرنگ اور میگا پل",
+      "blurb": "پদ্মা برج اور میلاؤ ویاڈکٹ جیسے عظیم الشان پلوں کی تعمیر اور انجینئرنگ کے حیرت انگیز کارنامے۔"
     },
     "ta": {
-      "name": "NFT நாள்குறிப்பு",
-      "blurb": "வீடியோ வகை: How digital art sold for millions — the hype, the backlash, and whether NFTs have a future."
+      "name": "சிவில் இன்ஜினியரிங் மற்றும் பிரம்மாண்ட பாலங்கள்",
+      "blurb": "பத்மா பாலம் மற்றும் மில்லோ வையாடக்ட் போன்ற பிரம்மாண்டமான பாலங்களின் வியக்க வைக்கும் கட்டடக் கலை."
     },
     "ml": {
-      "name": "NFT ക്രോണിക്കിൾസ്",
-      "blurb": "വീഡിയോ തരം: How digital art sold for millions — the hype, the backlash, and whether NFTs have a future."
+      "name": "സിവിൽ എഞ്ചിനീയറിംഗും മെഗാ പാലങ്ങളും",
+      "blurb": "പത്മ പാലവും മില്ലൗ വയഡக்ட்டും പോലുള്ള വിസ്മയകരമായ പാലങ്ങളുടെ നിർമ്മാണ ശൈലിയും എഞ്ചിനീയറിംഗ് വിജയങ്ങളും."
     }
   },
   "source": "Nish.Md + deterministic research",

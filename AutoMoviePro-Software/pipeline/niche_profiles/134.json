@@ -1,8 +1,8 @@
 {
   "niche_id": 134,
-  "name": "Bizarre World Records",
-  "slug": "bizarre-world-records",
-  "style_family": "history",
+  "name": "Robotics & Autonomous Systems",
+  "slug": "robotics-autonomous-systems",
+  "style_family": "motion_graphics",
   "status": "VERIFIED",
   "topic_seeds": [
     "What new evidence reframes the story of Bizarre World Records Guinness inside Bizarre World Records",
@@ -47,28 +47,28 @@
   "video_prompt_overlay": "NICHE VISUAL LOCK (Bizarre World Records / history): Generate a 7–9 second dialogue clip based on the topic `{topic}`. Each dialogue must be entertaining. For each dialogue, generate: - **Audio Generation Prompt:** Voice — amused, with crowd cheers and clock. - **Video Generation Prompt:** Detailed visual — a contest stage or measuring station. Character: record holder (varied). Lighting: bright stage. Maintain same stage. Forbidden: talking-head lip-sync avatar, burned-in captions, watermark, modern meme text, modern smartphones, cars, LED screens, sneakers. Preferred subjects: Bizarre World Records documentary subject, period-accurate environment, evidence object close-up. Lighting: warm desert sun / torchlit interiors, high-contrast documentary grade. Face policy: period extras OK if consistent; prefer environment/object hero when possible. Dialogue tone: human documentary narration; specific nouns; 7–9s beats. Ambience: subtle documentary bed; do not overpower voice.",
   "i18n": {
     "en": {
-      "name": "Bizarre World Records",
-      "blurb": "Guinness entries — longest fingernails, fastest speed eating — presented with fun commentary."
+      "name": "Robotics & Autonomous Systems",
+      "blurb": "The cutting-edge frontier of robotics — humanoid bipedal robots, surgical da Vinci machines, autonomous drone swarms, and robotic space explorers mapping harsh planetary environmen"
     },
     "bn": {
-      "name": "অদ্ভুত বিশ্ব রেকর্ড",
-      "blurb": "ভিডিও টাইপ: Guinness entries — longest fingernails, fastest speed eating — presented with fun commentary."
+      "name": "রোবটিক্স ও স্বয়ংক্রিয় ব্যবস্থা",
+      "blurb": "রোবটিক্সের অত্যাধুনিক সীমান্ত — মানবসদৃশ দ্বিপদ রোবট, অস্ত্রোপচারের যন্ত্র এবং মহাকাশ অভিযাত্রী।"
     },
     "hi": {
-      "name": "विचित्र विश्व रिकॉर्ड",
-      "blurb": "वीडियो प्रकार: Guinness entries — longest fingernails, fastest speed eating — presented with fun commentary."
+      "name": "रोबोटिक्स और स्वायत्त प्रणाली",
+      "blurb": "रोबोटिक्स की अत्याधुनिक दुनिया — मानव जैसे रोबोट, सर्जरी की मशीनें और अंतरिक्ष अन्वेषक।"
     },
     "ur": {
-      "name": "عجیب عالمی ریکارڈز",
-      "blurb": "ویڈیو کی قسم: Guinness entries — longest fingernails, fastest speed eating — presented with fun commentary."
+      "name": "روبوٹکس اور خود مختار نظام",
+      "blurb": "روبوٹکس کی جدید ترین دنیا — دو پاؤں والے روبوٹ، سرجری کی مشینیں اور خلاء میں سفر کرنے والے۔"
     },
     "ta": {
-      "name": "விசித்திர உலக சாதனைகள்",
-      "blurb": "வீடியோ வகை: Guinness entries — longest fingernails, fastest speed eating — presented with fun commentary."
+      "name": "ரோபாட்டிக்ஸ் மற்றும் தன்னாட்சி அமைப்புகள்",
+      "blurb": "ரோபாட்டிக்ஸின் அதிநவீன எல்லைகள் — மனிதர்களைப் போன்ற ரோபோக்கள் மற்றும் விண்வெளி ஆய்வுக் கருவிகள்."
     },
     "ml": {
-      "name": "വിചിത്ര ലോക റെക്കോർഡുകൾ",
-      "blurb": "വീഡിയോ തരം: Guinness entries — longest fingernails, fastest speed eating — presented with fun commentary."
+      "name": "റോബോട്ടിക്സും സ്വയം ഭരണ സംവിധാനങ്ങളും",
+      "blurb": "റോബോട്ടിക്സിന്റെ അത്യാധുനിക മേഖല — മനുഷ്യനെപ്പോലെ നടക്കുന്ന റോബോട്ടുകളും ബഹിരാകാശ പര്യവേക്ഷകരും."
     }
   },
   "source": "Nish.Md + deterministic research",

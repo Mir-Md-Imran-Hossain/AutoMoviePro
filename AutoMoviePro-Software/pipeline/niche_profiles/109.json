@@ -1,81 +1,64 @@
 {
   "niche_id": 109,
-  "name": "AI in Health",
-  "slug": "ai-in-health",
-  "style_family": "gadget",
+  "name": "Automotive Engineering & F1 Aerodynamics",
+  "slug": "automotive-engineering-f1-aerodynamics",
+  "style_family": "sports",
   "status": "VERIFIED",
   "topic_seeds": [
-    "What new evidence reframes the story of Health Ada inside AI in Health",
-    "How Health Ada still shapes public curiosity about AI in Health",
-    "What new evidence reframes the story of Babylon inside AI in Health",
-    "How Babylon still shapes public curiosity about AI in Health",
-    "What new evidence reframes the story of Check inside AI in Health",
-    "How Check still shapes public curiosity about AI in Health"
+    "Key analytical breakdown on Automotive Engineering & F1 Aerodynamics",
+    "Behind the scenes of major Automotive Engineering & F1 Aerodynamics events",
+    "Critical evidence and timelines in Automotive Engineering & F1 Aerodynamics"
   ],
   "seo_angles": [
-    "What new evidence reframes the story of Health Ada inside AI in Health",
-    "How Health Ada still shapes public curiosity about AI in Health",
-    "What new evidence reframes the story of Babylon inside AI in Health",
-    "How Babylon still shapes public curiosity about AI in Health"
+    "What people misunderstand about Automotive Engineering & F1 Aerodynamics",
+    "Why this historic moment in Automotive Engineering & F1 Aerodynamics matters today"
   ],
   "forbidden_visuals": [
     "talking-head lip-sync avatar",
     "burned-in captions",
     "watermark",
     "modern meme text",
-    "wrong model phone",
-    "generic unbranded slab",
-    "stock office handshake"
+    "random stock photo cutout"
   ],
   "preferred_subjects": [
-    "exact product hero",
-    "component close-up",
-    "hands with device only"
+    "high-resolution authentic environments",
+    "data-driven infographics and telemetry",
+    "moody cinematic lighting"
   ],
-  "lighting_default": "natural directional key, documentary clarity",
-  "face_policy": "product-only hero; hands OK; no talking-head",
-  "dialogue_tone": "human documentary narration; specific nouns; 7–9s beats",
-  "audio_ambience": "subtle documentary bed; do not overpower voice",
+  "lighting_default": "cinematic high-contrast documentary grade",
+  "face_policy": "avoid talking head lip-sync; prefer environmental/tactical/infographic hero",
+  "dialogue_tone": "authoritative, engaging, retention-focused documentary narrative",
+  "audio_ambience": "subtle low-end atmospheric resonance, precise Foley SFX",
   "research_hints": [
-    "Prefer primary evidence and concrete entities for AI in Health",
-    "Avoid generic niche-label topics; require specific place/person/event/mechanism",
-    "7–9 second spoken beats with story continuity across scenes"
+    "Prefer factual, verified data points for Automotive Engineering & F1 Aerodynamics",
+    "Strong retention hook in opening 3 seconds"
   ],
-  "topic_prompt_overlay": "NICHE LOCK (AI in Health): only propose topics that fit this niche's video type. Video type: Ada, Babylon — free symptom checkers, mental health chatbots, and their accuracy compared to doctors. Follow niche topic strategy: Check health tech news, new AI diagnostic studies, or viral telehealth stories. Generate a topic about an AI health tool with proven results.",
-  "video_prompt_overlay": "NICHE VISUAL LOCK (AI in Health / gadget): Generate a 7–9 second dialogue clip based on the topic `{topic}`. Each dialogue must be informative and caring. For each dialogue, generate: - **Audio Generation Prompt:** Voice — medical, with heartbeat and soft beeps. - **Video Generation Prompt:** Detailed visual — a phone app screen or clinic. Character: user (casual). Lighting: soft, medical. Maintain same app screen. Forbidden: talking-head lip-sync avatar, burned-in captions, watermark, modern meme text, wrong model phone, generic unbranded slab, stock office handshake. Preferred subjects: exact product hero, component close-up, hands with device only. Lighting: natural directional key, documentary clarity. Face policy: product-only hero; hands OK; no talking-head. Dialogue tone: human documentary narration; specific nouns; 7–9s beats. Ambience: subtle documentary bed; do not overpower voice.",
+  "topic_prompt_overlay": "NICHE LOCK (Automotive Engineering & F1 Aerodynamics): Examine game-changing motorsport engineering inventions (active suspension, DAS steering, blown diffusers, regenerative braking MGU-K systems) and how aerodynamics shape hypercar performance.",
+  "video_prompt_overlay": "NICHE VISUAL LOCK (Automotive Engineering & F1 Aerodynamics / sports): Generate a 7–9 second high-performance engineering scene for topic {topic}. Visuals: Precision wind tunnel visualization with colored smoke streamlines flowing over the carbon-fiber front wing and sidepods of a Formula 1 car, showing turbulent vs laminar vortex flows. Lighting: Dark studio setting with laser-precise aerodynamic illumination streaks. Camera: High-speed tracking shot sweeping alongside the vehicle's aerodynamic curves. Ambience: High-frequency wind tunnel roar, titanium click, and deep mechanical turbine whirr.",
   "i18n": {
     "en": {
-      "name": "AI in Health",
-      "blurb": "Ada, Babylon — free symptom checkers, mental health chatbots, and their accuracy compared to doctors."
+      "name": "Automotive Engineering & F1 Aerodynamics",
+      "blurb": "High-speed physics and mechanical engineering dissections of Formula 1 ground-effect downforce, carbon-ceramic braking thermodynamics, twin-turbo hybrid engines, and lap time telem"
     },
     "bn": {
-      "name": "স্বাস্থ্যে এআই",
-      "blurb": "ভিডিও টাইপ: Ada, Babylon — free symptom checkers, mental health chatbots, and their accuracy compared to doctors."
+      "name": "অটোমোবাইল ইঞ্জিনিয়ারিং ও এফ১ অ্যারোডাইনামিক্স",
+      "blurb": "ফর্মুলা ওয়ান গ্রাউন্ড-ইফেক্ট ডাউনফোর্স এবং টুইন-টার্বো হাইব্রিড ইঞ্জিনের হাই-স্পিড পদার্থবিজ্ঞানের বিশ্লেষণ।"
     },
     "hi": {
-      "name": "स्वास्थ्य में एआई",
-      "blurb": "वीडियो प्रकार: Ada, Babylon — free symptom checkers, mental health chatbots, and their accuracy compared to doctors."
+      "name": "ऑटोमोटिव इंजीनियरिंग और एफ1 एरोडायनामिक्स",
+      "blurb": "फॉर्मूला वन ग्राउंड-इफेक्ट डाउनफोर्स और ट्विन-टर्बो हाइब्रिड इंजन की उच्च गति भौतिकी।"
     },
     "ur": {
-      "name": "صحت میں اے آئی",
-      "blurb": "ویڈیو کی قسم: Ada, Babylon — free symptom checkers, mental health chatbots, and their accuracy compared to doctors."
+      "name": "آٹوموٹو انجینئرنگ اور ایف ون ایروڈینامکس",
+      "blurb": "فارمولا ون گراؤنڈ ایفیکٹ ڈاؤن فورس اور ٹوئن ٹربو ہائبرڈ انجنوں کی ہائی اسپیڈ فزکس کا تجزیہ۔"
     },
     "ta": {
-      "name": "சுகாதாரத்தில் AI",
-      "blurb": "வீடியோ வகை: Ada, Babylon — free symptom checkers, mental health chatbots, and their accuracy compared to doctors."
+      "name": "ஆட்டோமோட்டிவ் இன்ஜினியரிங் மற்றும் எஃப்1 ஏரோடைனமிக்ஸ்",
+      "blurb": "ஃபார்முலா ஒன் வாகனங்களின் ஏரோடைனமிக்ஸ் மற்றும் ஹைப்ரிட் இன்ஜின்களின் உயர்வேக இயற்பியல் பகுப்பாய்வு."
     },
     "ml": {
-      "name": "ആരോഗ്യത്തിലെ AI",
-      "blurb": "വീഡിയോ തരം: Ada, Babylon — free symptom checkers, mental health chatbots, and their accuracy compared to doctors."
+      "name": "ഓട്ടോമോട്ടീവ് എഞ്ചിനീയറിംഗും എഫ്1 എയറോഡൈനാമിക്സും",
+      "blurb": "ഫോർമുല വൺ ഗ്രൗണ്ട്-ഇഫക്റ്റ് ഡൗൺഫോഴ്സിന്റെയും ഹൈബ്രിഡ് എഞ്ചിനുകളുടെയും ഹൈ-സ്പീഡ് ഭൗതികശാസ്ത്രം."
     }
-  },
-  "source": "Nish.Md + deterministic research",
-  "research_notes": [
-    "Marathon researched at 2026-09-10T08:30:24Z",
-    "Video type length=101",
-    "Topic prompt length=141",
-    "Video prompt length=375",
-    "Seeds=6"
-  ],
-  "verified_at": "2026-09-10T08:30:24Z"
+  }
 }

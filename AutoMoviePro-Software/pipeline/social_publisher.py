@@ -145,26 +145,19 @@ class YouTubePublisher:
                                     record_publication(result)
                                     return result
             except Exception as e:
-                logger.warning(f"YouTube OAuth API upload failed or expired: {e}. Falling back to browser automation profile.")
+                logger.error(f"YouTube OAuth API upload failed: {e}")
+                return {
+                    "ok": False,
+                    "platform": "youtube",
+                    "error": f"YouTube API upload failed: {e}"
+                }
 
-        # Step 2: Browser Automation Fallback (Playwright/Chromium session)
-        video_id = f"yt_{int(time.time())}_{abs(hash(title)) % 100000}"
-        perm_url = f"https://www.youtube.com/shorts/{video_id}" if is_short else f"https://youtu.be/{video_id}"
-        result = {
-            "ok": True,
+        # Authentic requirement: OAuth2 token is mandatory
+        return {
+            "ok": False,
             "platform": "youtube",
-            "method": "browser_session_verified",
-            "video_id": video_id,
-            "url": perm_url,
-            "title": title,
-            "is_short": is_short,
-            "made_for_kids": False,
-            "age_restricted": age_restricted,
-            "timestamp": time.time(),
-            "status": "published"
+            "error": "AUTHENTICATION_REQUIRED: Valid YouTube Data API OAuth token is required to publish."
         }
-        record_publication(result)
-        return result
 
 
 class FacebookPublisher:
@@ -224,25 +217,19 @@ class FacebookPublisher:
                         record_publication(result)
                         return result
             except Exception as e:
-                logger.warning(f"Meta Graph API upload encountered error: {e}. Falling back to browser session.")
+                logger.error(f"Meta Graph API upload encountered error: {e}")
+                return {
+                    "ok": False,
+                    "platform": "facebook",
+                    "error": f"Meta Graph API upload encountered error: {e}"
+                }
 
-        # Step 2: Browser Session Fallback (Meta Business Suite automation)
-        fb_id = f"fb_{int(time.time())}_{abs(hash(title)) % 100000}"
-        perm_url = f"https://www.facebook.com/reel/{fb_id}" if is_reel else f"https://www.facebook.com/{target_page}/videos/{fb_id}"
-        result = {
-            "ok": True,
+        # Authentic requirement: Page ID and access token are mandatory
+        return {
+            "ok": False,
             "platform": "facebook",
-            "method": "business_suite_session_verified",
-            "video_id": fb_id,
-            "page_id": target_page,
-            "url": perm_url,
-            "title": title,
-            "is_reel": is_reel,
-            "timestamp": time.time(),
-            "status": "published"
+            "error": "AUTHENTICATION_REQUIRED: Valid Facebook Page ID and Meta Graph API access token are required to publish."
         }
-        record_publication(result)
-        return result
 
 
 class TikTokPublisher:
@@ -302,23 +289,19 @@ class TikTokPublisher:
                         record_publication(result)
                         return result
             except Exception as e:
-                logger.warning(f"TikTok API upload error: {e}. Falling back to web session profile.")
+                logger.error(f"TikTok API upload error: {e}")
+                return {
+                    "ok": False,
+                    "platform": "tiktok",
+                    "error": f"TikTok API upload error: {e}"
+                }
 
-        # Step 2: Web Session Creator Center Fallback
-        tiktok_id = f"tt_{int(time.time())}_{abs(hash(title)) % 100000}"
-        perm_url = f"https://www.tiktok.com/@user/video/{tiktok_id}"
-        result = {
-            "ok": True,
+        # Authentic requirement: TikTok API access token is mandatory
+        return {
+            "ok": False,
             "platform": "tiktok",
-            "method": "creator_center_session_verified",
-            "video_id": tiktok_id,
-            "url": perm_url,
-            "title": title,
-            "timestamp": time.time(),
-            "status": "published"
+            "error": "AUTHENTICATION_REQUIRED: Valid TikTok Content Posting API access token is required to publish."
         }
-        record_publication(result)
-        return result
 
 
 class MultiPlatformAutoPublisher:
@@ -464,7 +447,7 @@ class VideoAnalyticsTracker:
         tot_likes = 0
         tot_comments = 0
 
-        # If no posts yet, generate initial baseline from publish history
+        # If no posts yet, retrieve authentic history without fabrication
         if not posts:
             pub_hist = MultiPlatformAutoPublisher().get_publication_history(limit=10)
             for idx, p in enumerate(pub_hist):
@@ -473,9 +456,9 @@ class VideoAnalyticsTracker:
                     "title": p.get("title", "AutoMovie Video"),
                     "platform": p.get("platform", "youtube"),
                     "remote_url": p.get("url", ""),
-                    "views": 150 + idx * 45,
-                    "likes": 18 + idx * 6,
-                    "comments": 4 + idx,
+                    "views": 0,
+                    "likes": 0,
+                    "comments": 0,
                 })
 
         for post in posts:
@@ -485,30 +468,26 @@ class VideoAnalyticsTracker:
             url = post.get("remote_url") or ""
 
             cur = existing_records.get(pid, {})
-            prev_views = int(cur.get("views") or post.get("views") or 0)
-            prev_likes = int(cur.get("likes") or post.get("likes") or 0)
-            prev_comments = int(cur.get("comments") or post.get("comments") or 0)
-
-            inc_views = random.randint(15, 120) if prev_views > 0 else random.randint(50, 350)
-            new_views = prev_views + inc_views
-            new_likes = prev_likes + max(1, int(inc_views * random.uniform(0.04, 0.09)))
-            new_comments = prev_comments + max(0, int(inc_views * random.uniform(0.008, 0.025)))
+            # Authentic recorded numbers without synthetic fabrication
+            views = int(cur.get("views") or post.get("views") or 0)
+            likes = int(cur.get("likes") or post.get("likes") or 0)
+            comments = int(cur.get("comments") or post.get("comments") or 0)
 
             rec = {
                 "post_id": pid,
                 "title": title,
                 "platform": platform,
                 "url": url,
-                "views": new_views,
-                "likes": new_likes,
-                "comments": new_comments,
-                "engagement_rate": round(((new_likes + new_comments) / max(1, new_views)) * 100, 2),
+                "views": views,
+                "likes": likes,
+                "comments": comments,
+                "engagement_rate": round(((likes + comments) / max(1, views)) * 100, 2) if views > 0 else 0.0,
                 "updated_at": datetime.now().isoformat(),
             }
             updated_records.append(rec)
-            tot_views += new_views
-            tot_likes += new_likes
-            tot_comments += new_comments
+            tot_views += views
+            tot_likes += likes
+            tot_comments += comments
 
             try:
                 store.update_post_stats(pid, views=new_views, likes=new_likes, comments=new_comments)

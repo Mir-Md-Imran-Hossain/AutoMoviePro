@@ -1,79 +1,64 @@
 {
   "niche_id": 114,
-  "name": "Hidden Learning Communities",
-  "slug": "hidden-learning-communities",
+  "name": "Renewable Energy Revolutions",
+  "slug": "renewable-energy-revolutions",
   "style_family": "science",
   "status": "VERIFIED",
   "topic_seeds": [
-    "What new evidence reframes the story of Hidden Learning Communities Reddit inside Hidden Learning Communities",
-    "How Hidden Learning Communities Reddit still shapes public curiosity about Hidden Learning Communities",
-    "What new evidence reframes the story of Discord inside Hidden Learning Communities",
-    "How Discord still shapes public curiosity about Hidden Learning Communities",
-    "What new evidence reframes the story of Telegram inside Hidden Learning Communities",
-    "How Telegram still shapes public curiosity about Hidden Learning Communities"
+    "Key analytical breakdown on Renewable Energy Revolutions",
+    "Behind the scenes of major Renewable Energy Revolutions events",
+    "Critical evidence and timelines in Renewable Energy Revolutions"
   ],
   "seo_angles": [
-    "What new evidence reframes the story of Hidden Learning Communities Reddit inside Hidden Learning Communities",
-    "How Hidden Learning Communities Reddit still shapes public curiosity about Hidden Learning Communities",
-    "What new evidence reframes the story of Discord inside Hidden Learning Communities",
-    "How Discord still shapes public curiosity about Hidden Learning Communities"
+    "What people misunderstand about Renewable Energy Revolutions",
+    "Why this historic moment in Renewable Energy Revolutions matters today"
   ],
   "forbidden_visuals": [
     "talking-head lip-sync avatar",
     "burned-in captions",
     "watermark",
     "modern meme text",
-    "off-niche stock office B-roll"
+    "random stock photo cutout"
   ],
   "preferred_subjects": [
-    "lab instrument close-up",
-    "diagrammatic mechanism metaphor",
-    "field measurement site"
+    "high-resolution authentic environments",
+    "data-driven infographics and telemetry",
+    "moody cinematic lighting"
   ],
-  "lighting_default": "teal/cyan lab grade, high contrast, shallow DOF",
-  "face_policy": "no talking-head lip-sync avatar; cinematic B-roll preferred",
-  "dialogue_tone": "clear explainer; one mechanism per beat",
-  "audio_ambience": "clean room tone, soft electronic texture",
+  "lighting_default": "cinematic high-contrast documentary grade",
+  "face_policy": "avoid talking head lip-sync; prefer environmental/tactical/infographic hero",
+  "dialogue_tone": "authoritative, engaging, retention-focused documentary narrative",
+  "audio_ambience": "subtle low-end atmospheric resonance, precise Foley SFX",
   "research_hints": [
-    "Prefer primary evidence and concrete entities for Hidden Learning Communities",
-    "Avoid generic niche-label topics; require specific place/person/event/mechanism",
-    "7–9 second spoken beats with story continuity across scenes"
+    "Prefer factual, verified data points for Renewable Energy Revolutions",
+    "Strong retention hook in opening 3 seconds"
   ],
-  "topic_prompt_overlay": "NICHE LOCK (Hidden Learning Communities): only propose topics that fit this niche's video type. Video type: Reddit subs, Discord servers, and Telegram groups where professionals share knowledge in tech, art, and science. Follow niche topic strategy: Scan social media news, new community features, or viral learning threads. Generate a topic about a secretive but valuable online community.",
-  "video_prompt_overlay": "NICHE VISUAL LOCK (Hidden Learning Communities / science): Generate a 7–9 second dialogue clip based on the topic `{topic}`. Each dialogue must be community-driven and informative. For each dialogue, generate: - **Audio Generation Prompt:** Voice — conversational, with typing and notification sounds. - **Video Generation Prompt:** Detailed visual — a chat app or forum screen. No character — screen. Lighting: neutral. Maintain same chat screen. Forbidden: talking-head lip-sync avatar, burned-in captions, watermark, modern meme text, off-niche stock office B-roll. Preferred subjects: lab instrument close-up, diagrammatic mechanism metaphor, field measurement site. Lighting: teal/cyan lab grade, high contrast, shallow DOF. Face policy: no talking-head lip-sync avatar; cinematic B-roll preferred. Dialogue tone: clear explainer; one mechanism per beat. Ambience: clean room tone, soft electronic texture.",
+  "topic_prompt_overlay": "NICHE LOCK (Renewable Energy Revolutions): Examine clean power breakthroughs (ITER and SPARC nuclear fusion milestones, perovskite solar cell efficiency jumps, offshore floating wind turbines, solid-state battery chemistry). Focus on real physics and scalable engineering.",
+  "video_prompt_overlay": "NICHE VISUAL LOCK (Renewable Energy Revolutions / science): Generate a 7–9 second clean energy engineering beat for topic {topic}. Visuals: Massive glowing purple plasma toroidal chamber inside a magnetic confinement fusion tokamak, or a vast offshore wind farm with colossal turbines rotating in harmony against a tempestuous ocean horizon. Lighting: Electric violet and magenta fusion glow, or dramatic dawn sea lighting. Camera: Majestic orbital camera arc around the central energy generator. Ambience: Deep magnetic field hum, ionization crackle, and inspiring low-frequency bass.",
   "i18n": {
     "en": {
-      "name": "Hidden Learning Communities",
-      "blurb": "Reddit subs, Discord servers, and Telegram groups where professionals share knowledge in tech, art, and science."
+      "name": "Renewable Energy Revolutions",
+      "blurb": "Engineering breakdowns of clean energy megaprojects — magnetic confinement tokamak nuclear fusion, gigawatt offshore wind platforms, grid-scale molten salt storage, and hydrogen el"
     },
     "bn": {
-      "name": "লুকানো শিক্ষা সম্প্রদায়",
-      "blurb": "ভিডিও টাইপ: Reddit subs, Discord servers, and Telegram groups where professionals share knowledge in tech, art, and science."
+      "name": "নবায়নযোগ্য শক্তি বিপ্লব",
+      "blurb": "পরিচ্ছন্ন শক্তির মেগাপ্রজেক্টের প্রকৌশল বিশ্লেষণ—টোকামাক ফিউশন, উইন্ড ফার্ম এবং গ্রিড স্টোরেজ।"
     },
     "hi": {
-      "name": "छिपे शिक्षण समुदाय",
-      "blurb": "वीडियो प्रकार: Reddit subs, Discord servers, and Telegram groups where professionals share knowledge in tech, art, and science."
+      "name": "अक्षय ऊर्जा क्रांतियाँ",
+      "blurb": "स्वच्छ ऊर्जा मेगाप्रोजेक्ट्स का इंजीनियरिंग विश्लेषण—टोकामक फ्यूजन, पवन फार्म और ग्रिड-स्केल स्टोरेज।"
     },
     "ur": {
-      "name": "پوشیدہ لرننگ کمیونٹیز",
-      "blurb": "ویڈیو کی قسم: Reddit subs, Discord servers, and Telegram groups where professionals share knowledge in tech, art, and science."
+      "name": "قابل تجدید توانائی کے انقلابات",
+      "blurb": "صاف توانائی کے میگا پروجیکٹس کی انجینئرنگ—ٹوکامک فیوژن، آف شور ونڈ فارمز اور انرجی اسٹوریج۔"
     },
     "ta": {
-      "name": "மறைந்த கற்றல் சமூகங்கள்",
-      "blurb": "வீடியோ வகை: Reddit subs, Discord servers, and Telegram groups where professionals share knowledge in tech, art, and science."
+      "name": "புதுப்பிக்கத்தக்க எரிசக்தி புரட்சிகள்",
+      "blurb": "தூய்மையான எரிசக்தி மெகா திட்டங்களின் பொறியியல் பகுப்பாய்வு—டோகாமாக் பியூஷன் மற்றும் காற்றாலை மின் நிலையங்கள்."
     },
     "ml": {
-      "name": "മറഞ്ഞ പഠന സമൂഹങ്ങൾ",
-      "blurb": "വീഡിയോ തരം: Reddit subs, Discord servers, and Telegram groups where professionals share knowledge in tech, art, and science."
+      "name": "പുതുക്കാവുന്ന ഊർജ്ജ വിപ്ലവങ്ങൾ",
+      "blurb": "ശുദ്ധോർജ്ജ മെഗാപ്രോജക്റ്റുകളുടെ എൻജിനീയറിങ് വിശകലനം—ടോക്കാമാക് ഫ്യൂഷൻ, കാറ്റാടിപ്പാടങ്ങൾ, ഊർജ്ജ സംഭരണം."
     }
-  },
-  "source": "Nish.Md + deterministic research",
-  "research_notes": [
-    "Marathon researched at 2026-09-10T08:30:25Z",
-    "Video type length=112",
-    "Topic prompt length=140",
-    "Video prompt length=388",
-    "Seeds=6"
-  ],
-  "verified_at": "2026-09-10T08:30:25Z"
+  }
 }

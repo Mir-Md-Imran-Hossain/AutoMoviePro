@@ -401,6 +401,17 @@ class FallbackPipelineService:
             product_name=subject,
         )
         hardened = str(pre.get("fixed_prompt") or hardened)
+        # ENFORCE TEMPORAL & ENVIRONMENTAL ACCURACY VIA PROMPT CONTEXT ENRICHER
+        try:
+            from pipeline.prompt_context_enricher import PromptContextEnricher
+            enriched_ctx = PromptContextEnricher.enrich_prompt(
+                narration=narration,
+                raw_prompt=hardened,
+                niche=niche,
+            )
+            hardened = enriched_ctx["positive_prompt"]
+        except Exception as _pce_exc:
+            pass
         # Prefer critic-revised / Agnes base prompt as the primary still description.
         subject_core = (base_prompt or hardened or "").strip()
         if len(subject_core) > 280:
@@ -779,30 +790,75 @@ class FFmpegProcessor:
 
     @staticmethod
     def concat(clips: Sequence[Path], dest: Path, *, size: str) -> Path:
+        """Joins beat clips using seamless cinematic xfade transitions, falling back to concat demuxer."""
         dest.parent.mkdir(parents=True, exist_ok=True)
-        if len(clips) == 1:
+        valid_clips = [Path(c) for c in clips if c and Path(c).is_file() and Path(c).stat().st_size > 1000]
+        if not valid_clips:
+            raise RuntimeError("No valid clips to concat")
+        if len(valid_clips) == 1:
             import shutil
-
-            shutil.copy2(clips[0], dest)
+            shutil.copy2(valid_clips[0], dest)
             return dest
+
+        # Attempt broadcast-grade xfade chaining
+        TRANS_DUR = 0.50
+        CINEMATIC_TRANSITIONS = ["fade", "smoothleft", "circleopen", "dissolve", "fadeblack", "horzopen"]
+        try:
+            durations = [max(1.0, ffprobe_duration(c)) for c in valid_clips]
+            total_expected = sum(durations) - (TRANS_DUR * (len(valid_clips) - 1))
+            
+            cmd = [ffmpeg_bin(), "-y"]
+            for c in valid_clips:
+                cmd.extend(["-i", str(c)])
+
+            filter_parts = []
+            cur_stream = "[0:v]"
+            cur_offset = durations[0] - TRANS_DUR
+
+            for i in range(1, len(valid_clips)):
+                trans = CINEMATIC_TRANSITIONS[(i - 1) % len(CINEMATIC_TRANSITIONS)]
+                next_stream = f"[{i}:v]"
+                out_stream = f"[v_trans_{i}]" if i < len(valid_clips) - 1 else "[v_out]"
+                filter_parts.append(
+                    f"{cur_stream}{next_stream}xfade=transition={trans}:duration={TRANS_DUR}:offset={max(0.1, cur_offset):.3f}{out_stream}"
+                )
+                cur_stream = out_stream
+                if i < len(valid_clips) - 1:
+                    cur_offset += durations[i] - TRANS_DUR
+
+            cmd.extend([
+                "-filter_complex", "; ".join(filter_parts),
+                "-map", "[v_out]",
+                "-c:v", "libx264",
+                "-preset", "veryfast",
+                "-crf", "18",
+                "-pix_fmt", "yuv420p",
+                "-t", f"{max(1.0, total_expected):.3f}",
+                str(dest),
+            ])
+            r = subprocess.run(cmd, capture_output=True, text=True, check=False)
+            if r.returncode == 0 and dest.exists() and dest.stat().st_size > 2000:
+                logger.info("Joined %d beats with smooth cinematic xfade transitions", len(valid_clips))
+                return dest
+            logger.warning("xfade concat failed: %s; falling back to demuxer concat", (r.stderr or "")[-180:])
+        except Exception as exc:
+            logger.warning("xfade exception: %s; falling back to demuxer concat", exc)
+
+        # Robust demuxer fallback
         lst = dest.parent / f"_fb_concat_{dest.stem}.txt"
-        lst.write_text("\n".join(f"file '{c.resolve().as_posix()}'" for c in clips), encoding="utf-8")
-        cmd = [
+        lst.write_text("\n".join(f"file '{c.resolve().as_posix()}'" for c in valid_clips), encoding="utf-8")
+        cmd_fallback = [
             ffmpeg_bin(),
             "-y",
-            "-f",
-            "concat",
-            "-safe",
-            "0",
-            "-i",
-            str(lst),
-            "-c:v",
-            "libx264",
-            "-pix_fmt",
-            "yuv420p",
+            "-f", "concat",
+            "-safe", "0",
+            "-i", str(lst),
+            "-c:v", "libx264",
+            "-preset", "veryfast",
+            "-pix_fmt", "yuv420p",
             str(dest),
         ]
-        r = subprocess.run(cmd, capture_output=True, text=True)
+        r = subprocess.run(cmd_fallback, capture_output=True, text=True)
         if r.returncode != 0:
             raise RuntimeError(f"fallback concat failed: {(r.stderr or '')[-300:]}")
         return dest

@@ -51,24 +51,24 @@
       "blurb": "A single village from a different country each episode — their customs, annual festivals, and daily routines."
     },
     "bn": {
-      "name": "বিশ্ব গ্রামের গল্প",
-      "blurb": "ভিডিও টাইপ: A single village from a different country each episode — their customs, annual festivals, and daily routines."
+      "name": "বিশ্বগ্রামের গল্প",
+      "blurb": "প্রতি পর্বে ভিন্ন দেশের এক অনন্য গ্রাম, তাদের জীবনযাত্রা ও লোকউৎসবের নানা রঙ।"
     },
     "hi": {
-      "name": "वैश्विक गाँव की कहानियाँ",
-      "blurb": "वीडियो प्रकार: A single village from a different country each episode — their customs, annual festivals, and daily routines."
+      "name": "ग्लोबल विलेज की कहानियाँ",
+      "blurb": "हर एपिसोड में एक अलग देश का गाँव—उनकी अनोखी परंपराएं और दैनिक जीवन।"
     },
     "ur": {
       "name": "عالمی گاؤں کی کہانیاں",
-      "blurb": "ویڈیو کی قسم: A single village from a different country each episode — their customs, annual festivals, and daily routines."
+      "blurb": "ہر قسط میں کسی مختلف ملک کا ایک گاؤں—ان کے رسم و رواج اور روزمرہ کی زندگی۔"
     },
     "ta": {
       "name": "உலக கிராமக் கதைகள்",
-      "blurb": "வீடியோ வகை: A single village from a different country each episode — their customs, annual festivals, and daily routines."
+      "blurb": "ஒவ்வொரு பகுதியிலும் ஒரு வெளிநாட்டு கிராமம்—அவர்களின் பழக்கவழக்கங்கள் மற்றும் திருவிழாக்கள்."
     },
     "ml": {
-      "name": "ആഗോള ഗ്രാമ കഥകൾ",
-      "blurb": "വീഡിയോ തരം: A single village from a different country each episode — their customs, annual festivals, and daily routines."
+      "name": "ഗ്രാമ കാഴ്ചകൾ",
+      "blurb": "ഓരോ എപ്പിസോഡിലും വ്യത്യസ്ത രാജ്യങ്ങളിലെ ഗ്രാമങ്ങളും അവരുടെ ജീവിതരീതികളും ആഘോഷങ്ങളും."
     }
   },
   "source": "Nish.Md + deterministic research",

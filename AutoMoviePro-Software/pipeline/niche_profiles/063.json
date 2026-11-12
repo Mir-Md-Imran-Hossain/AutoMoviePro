@@ -54,23 +54,23 @@
     },
     "bn": {
       "name": "দ্বীপ সভ্যতা",
-      "blurb": "ভিডিও টাইপ: Isolated island communities — Easter Island, Pitcairn — their unique languages, customs, and environmental challenges."
+      "blurb": "বিচ্ছিন্ন দ্বীপের জনপদ—ইস্টার দ্বীপ, পিটকেয়ার্ন—তাদের অনন্য ভাষা, প্রথা ও পরিবেশগত সংকট।"
     },
     "hi": {
       "name": "द्वीप सभ्यताएँ",
-      "blurb": "वीडियो प्रकार: Isolated island communities — Easter Island, Pitcairn — their unique languages, customs, and environmental challenges."
+      "blurb": "अलग-थलग द्वीप समुदाय—ईस्टर द्वीप, पिटकेर्न—उनकी अनूठी भाषाएँ, रीति-रिवाज और पर्यावरणीय चुनौतियाँ।"
     },
     "ur": {
-      "name": "جزیرے کی تہذیبیں",
-      "blurb": "ویڈیو کی قسم: Isolated island communities — Easter Island, Pitcairn — their unique languages, customs, and environmental challenges."
+      "name": "جزیرہ نما تہذیبیں",
+      "blurb": "الگ تھلگ جزائر کی بستیاں—ایسٹر آئی لینڈ، پٹکیرن—ان کی منفرد زبانیں، رسوم اور ماحولیاتی چیلنجز۔"
     },
     "ta": {
       "name": "தீவு நாகரிகங்கள்",
-      "blurb": "வீடியோ வகை: Isolated island communities — Easter Island, Pitcairn — their unique languages, customs, and environmental challenges."
+      "blurb": "தனிமைப்படுத்தப்பட்ட தீவு சமூகங்கள்—ஈஸ்டர் தீவு, பிட்கெர்ன்—அவற்றின் தனித்துவமான மொழிகள் மற்றும் சவால்கள்."
     },
     "ml": {
-      "name": "ദ്വീപ് നാഗരികതകൾ",
-      "blurb": "വീഡിയോ തരം: Isolated island communities — Easter Island, Pitcairn — their unique languages, customs, and environmental challenges."
+      "name": "ദ്വീപ് സംസ്കാരങ്ങൾ",
+      "blurb": "ഏകാന്ത ദ്വീപ് സമൂഹങ്ങൾ—ഈസ്റ്റർ ദ്വീപ്, പിറ്റ്കെയ്ൻ—അവയുടെ തനതു ഭാഷകളും പാരിസ്ഥിതിക വെല്ലുവിളികളും."
     }
   },
   "source": "Nish.Md + deterministic research",

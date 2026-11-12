@@ -26,7 +26,7 @@ _loop_ready = False
 
 
 def goblin_enabled() -> bool:
-    return os.environ.get("GOBLIN_ENABLED", "true").strip().lower() in {
+    return os.environ.get("GOBLIN_ENABLED", "false").strip().lower() in {
         "1",
         "true",
         "yes",

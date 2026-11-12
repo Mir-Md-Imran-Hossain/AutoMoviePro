@@ -1,81 +1,64 @@
 {
   "niche_id": 99,
-  "name": "Interactive Learning Sites",
-  "slug": "interactive-learning-sites",
-  "style_family": "gadget",
+  "name": "Military Strategy & Modern Defense",
+  "slug": "military-strategy-modern-defense",
+  "style_family": "news",
   "status": "VERIFIED",
   "topic_seeds": [
-    "What new evidence reframes the story of Interactive Learning Sites Duolingo inside Interactive Learning Sites",
-    "How Interactive Learning Sites Duolingo still shapes public curiosity about Interactive Learning Sites",
-    "What new evidence reframes the story of Brilliant inside Interactive Learning Sites",
-    "How Brilliant still shapes public curiosity about Interactive Learning Sites",
-    "What new evidence reframes the story of Khan Academy inside Interactive Learning Sites",
-    "How Khan Academy still shapes public curiosity about Interactive Learning Sites"
+    "Key analytical breakdown on Military Strategy & Modern Defense",
+    "Behind the scenes of major Military Strategy & Modern Defense events",
+    "Critical evidence and timelines in Military Strategy & Modern Defense"
   ],
   "seo_angles": [
-    "What new evidence reframes the story of Interactive Learning Sites Duolingo inside Interactive Learning Sites",
-    "How Interactive Learning Sites Duolingo still shapes public curiosity about Interactive Learning Sites",
-    "What new evidence reframes the story of Brilliant inside Interactive Learning Sites",
-    "How Brilliant still shapes public curiosity about Interactive Learning Sites"
+    "What people misunderstand about Military Strategy & Modern Defense",
+    "Why this historic moment in Military Strategy & Modern Defense matters today"
   ],
   "forbidden_visuals": [
     "talking-head lip-sync avatar",
     "burned-in captions",
     "watermark",
     "modern meme text",
-    "wrong model phone",
-    "generic unbranded slab",
-    "stock office handshake"
+    "random stock photo cutout"
   ],
   "preferred_subjects": [
-    "exact product hero",
-    "component close-up",
-    "hands with device only"
+    "high-resolution authentic environments",
+    "data-driven infographics and telemetry",
+    "moody cinematic lighting"
   ],
-  "lighting_default": "natural directional key, documentary clarity",
-  "face_policy": "product-only hero; hands OK; no talking-head",
-  "dialogue_tone": "human documentary narration; specific nouns; 7–9s beats",
-  "audio_ambience": "subtle documentary bed; do not overpower voice",
+  "lighting_default": "cinematic high-contrast documentary grade",
+  "face_policy": "avoid talking head lip-sync; prefer environmental/tactical/infographic hero",
+  "dialogue_tone": "authoritative, engaging, retention-focused documentary narrative",
+  "audio_ambience": "subtle low-end atmospheric resonance, precise Foley SFX",
   "research_hints": [
-    "Prefer primary evidence and concrete entities for Interactive Learning Sites",
-    "Avoid generic niche-label topics; require specific place/person/event/mechanism",
-    "7–9 second spoken beats with story continuity across scenes"
+    "Prefer factual, verified data points for Military Strategy & Modern Defense",
+    "Strong retention hook in opening 3 seconds"
   ],
-  "topic_prompt_overlay": "NICHE LOCK (Interactive Learning Sites): only propose topics that fit this niche's video type. Video type: Duolingo, Brilliant, Khan Academy — gamified education that makes math, language, and coding fun. Follow niche topic strategy: Check ed-tech news, new gamification features, or viral learning challenges. Generate a topic about a learning platform that went viral.",
-  "video_prompt_overlay": "NICHE VISUAL LOCK (Interactive Learning Sites / gadget): Generate a 7–9 second dialogue clip based on the topic `{topic}`. Each dialogue must be energetic and playful. For each dialogue, generate: - **Audio Generation Prompt:** Voice — fun, with cheerful dings and applause. - **Video Generation Prompt:** Detailed visual — a tablet or phone screen. No character — screen with fun graphics. Lighting: vibrant. Maintain same vibrant screen. Forbidden: talking-head lip-sync avatar, burned-in captions, watermark, modern meme text, wrong model phone, generic unbranded slab, stock office handshake. Preferred subjects: exact product hero, component close-up, hands with device only. Lighting: natural directional key, documentary clarity. Face policy: product-only hero; hands OK; no talking-head. Dialogue tone: human documentary narration; specific nouns; 7–9s beats. Ambience: subtle documentary bed; do not overpower voice.",
+  "topic_prompt_overlay": "NICHE LOCK (Military Strategy & Modern Defense): Investigate defense procurement shifts, air superiority doctrines, radar cross-section stealth engineering, drone swarm tactics, and anti-access/area-denial (A2/AD) defense umbrellas. Select topics emphasizing engineering and military doctrine.",
+  "video_prompt_overlay": "NICHE VISUAL LOCK (Military Strategy & Modern Defense / news): Generate a 7–9 second military documentary beat for topic {topic}. Visuals: Cinematic runway exterior at dusk with a stealth aircraft silhouette, or high-tech military command war-room with holographic radar sweeps and tactical defense perimeter radii. Lighting: Deep tactical twilight with crimson and cyan HUD displays. Camera: Dynamic low-angle tracking shot moving parallel to tarmac or command console. Ambience: Distant jet turbine whine, mechanical flight controls, and low frequency sub-bass.",
   "i18n": {
     "en": {
-      "name": "Interactive Learning Sites",
-      "blurb": "Duolingo, Brilliant, Khan Academy — gamified education that makes math, language, and coding fun."
+      "name": "Military Strategy & Modern Defense",
+      "blurb": "Rigorous analysis of modern defense doctrines, fifth-generation stealth fighter technology, hypersonic missile physics, aircraft carrier battle groups, and electronic warfare tacti"
     },
     "bn": {
-      "name": "ইন্টারঅ্যাকটিভ শিক্ষা সাইট",
-      "blurb": "ভিডিও টাইপ: Duolingo, Brilliant, Khan Academy — gamified education that makes math, language, and coding fun."
+      "name": "সামরিক কৌশল ও আধুনিক প্রতিরক্ষা",
+      "blurb": "পঞ্চম প্রজন্মের যুদ্ধবিমান, হাইপারসনিক মিসাইল এবং আধুনিক সামরিক শক্তির নিখুঁত বিশ্লেষণ।"
     },
     "hi": {
-      "name": "इंटरैक्टिव लर्निंग साइटें",
-      "blurb": "वीडियो प्रकार: Duolingo, Brilliant, Khan Academy — gamified education that makes math, language, and coding fun."
+      "name": "सैन्य रणनीति और आधुनिक रक्षा",
+      "blurb": "स्टीफ फाइटर जेट्स, हाइपरसोनिक मिसाइलों और आधुनिक रक्षा प्रणालियों का गहन तकनीकी विश्लेषण।"
     },
     "ur": {
-      "name": "انٹرایکٹو لرننگ سائٹس",
-      "blurb": "ویڈیو کی قسم: Duolingo, Brilliant, Khan Academy — gamified education that makes math, language, and coding fun."
+      "name": "فوجی حکمت عملی اور جدید دفاع",
+      "blurb": "اسٹیلتھ فائٹر جیٹس، ہائپرسونک میزائلوں اور جدید ترین جنگی ٹیکنالوجی کا تکنیکی تجزیہ۔"
     },
     "ta": {
-      "name": "ஊடாடும் கற்றல் தளங்கள்",
-      "blurb": "வீடியோ வகை: Duolingo, Brilliant, Khan Academy — gamified education that makes math, language, and coding fun."
+      "name": "ராணுவ வியூகமும் நவீன பாதுகாப்பும்",
+      "blurb": "நவீன போர் விமானங்கள், ஏவுகணைகள் மற்றும் பாதுகாப்புத் தொழில்நுட்பங்களின் தீவிர ஆய்வு."
     },
     "ml": {
-      "name": "ഇന്ററാക്ടീവ് ലേണിംഗ് സൈറ്റുകൾ",
-      "blurb": "വീഡിയോ തരം: Duolingo, Brilliant, Khan Academy — gamified education that makes math, language, and coding fun."
+      "name": "സൈനിക തന്ത്രങ്ങളും ആധുനിക പ്രതിരോധവും",
+      "blurb": "അഞ്ചാം തലമുറ യുദ്ധവിമാനങ്ങളുടെയും ഹൈപ്പർസോണിക് മിസൈലുകളുടെയും സാങ്കേതിക വിശകലനം."
     }
-  },
-  "source": "Nish.Md + deterministic research",
-  "research_notes": [
-    "Marathon researched at 2026-09-10T08:30:22Z",
-    "Video type length=97",
-    "Topic prompt length=136",
-    "Video prompt length=382",
-    "Seeds=6"
-  ],
-  "verified_at": "2026-09-10T08:30:22Z"
+  }
 }

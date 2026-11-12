@@ -101,12 +101,129 @@ def is_pc_idle(*, sample_sec: float = 0.35, threshold: Optional[float] = None) -
     return idle
 
 
+def get_available_ram_gb() -> float:
+    """Returns available physical RAM in gigabytes."""
+    env = os.environ.get("AMP_FORCE_AVAIL_RAM_GB", "").strip()
+    if env:
+        try:
+            return float(env)
+        except ValueError:
+            pass
+    try:
+        import psutil
+        return round(float(psutil.virtual_memory().available) / (1024 ** 3), 2)
+    except Exception:
+        pass
+    if os.name == "nt":
+        try:
+            import ctypes
+            from ctypes import wintypes
+
+            class MEMORYSTATUSEX(ctypes.Structure):
+                _fields_ = [
+                    ("dwLength", wintypes.DWORD),
+                    ("dwMemoryLoad", wintypes.DWORD),
+                    ("ullTotalPhys", ctypes.c_uint64),
+                    ("ullAvailPhys", ctypes.c_uint64),
+                    ("ullTotalPageFile", ctypes.c_uint64),
+                    ("ullAvailPageFile", ctypes.c_uint64),
+                    ("ullTotalVirtual", ctypes.c_uint64),
+                    ("ullAvailVirtual", ctypes.c_uint64),
+                    ("ullAvailExtendedVirtual", ctypes.c_uint64),
+                ]
+
+            stat = MEMORYSTATUSEX()
+            stat.dwLength = ctypes.sizeof(MEMORYSTATUSEX)
+            if ctypes.windll.kernel32.GlobalMemoryStatusEx(ctypes.byref(stat)):
+                return round(float(stat.ullAvailPhys) / (1024 ** 3), 2)
+        except Exception:
+            pass
+    # Conservative fallback
+    return 8.0
+
+
+def get_total_ram_gb() -> float:
+    """Returns total physical RAM in gigabytes."""
+    env = os.environ.get("AMP_FORCE_TOTAL_RAM_GB", "").strip()
+    if env:
+        try:
+            return float(env)
+        except ValueError:
+            pass
+    try:
+        import psutil
+        return round(float(psutil.virtual_memory().total) / (1024 ** 3), 2)
+    except Exception:
+        pass
+    if os.name == "nt":
+        try:
+            import ctypes
+            from ctypes import wintypes
+
+            class MEMORYSTATUSEX(ctypes.Structure):
+                _fields_ = [
+                    ("dwLength", wintypes.DWORD),
+                    ("dwMemoryLoad", wintypes.DWORD),
+                    ("ullTotalPhys", ctypes.c_uint64),
+                    ("ullAvailPhys", ctypes.c_uint64),
+                    ("ullTotalPageFile", ctypes.c_uint64),
+                    ("ullAvailPageFile", ctypes.c_uint64),
+                    ("ullTotalVirtual", ctypes.c_uint64),
+                    ("ullAvailVirtual", ctypes.c_uint64),
+                    ("ullAvailExtendedVirtual", ctypes.c_uint64),
+                ]
+
+            stat = MEMORYSTATUSEX()
+            stat.dwLength = ctypes.sizeof(MEMORYSTATUSEX)
+            if ctypes.windll.kernel32.GlobalMemoryStatusEx(ctypes.byref(stat)):
+                return round(float(stat.ullTotalPhys) / (1024 ** 3), 2)
+        except Exception:
+            pass
+    return 16.0
+
+
+def is_low_ram_environment(threshold_gb: float = 4.0) -> bool:
+    """True when available RAM is under threshold_gb (default 4.0 GB) or total RAM <= 4.0 GB."""
+    avail = get_available_ram_gb()
+    total = get_total_ram_gb()
+    return avail < threshold_gb or total <= threshold_gb
+
+
+def get_ffmpeg_resource_presets() -> Dict[str, Any]:
+    """Returns FFmpeg threading and encoding presets adapted to system specs.
+    
+    Prevents Out-Of-Memory (OOM) crashes on low-spec (<4GB RAM) machines.
+    """
+    low_ram = is_low_ram_environment(4.0)
+    if low_ram:
+        return {
+            "is_low_spec": True,
+            "threads": 2,
+            "preset": "ultrafast",
+            "enforce_stream_copy": True,
+            "ffmpeg_args": ["-threads", "2", "-preset", "ultrafast"],
+        }
+    return {
+        "is_low_spec": False,
+        "threads": 0,
+        "preset": "medium",
+        "enforce_stream_copy": False,
+        "ffmpeg_args": ["-threads", "0", "-preset", "medium"],
+    }
+
+
 def load_snapshot() -> Dict[str, Any]:
     busy = sample_cpu_percent(0.2)
+    avail_ram = get_available_ram_gb()
+    total_ram = get_total_ram_gb()
+    low_ram = is_low_ram_environment(4.0)
     return {
         "cpu_busy_percent": round(busy, 1),
         "idle_threshold": idle_threshold(),
         "is_idle": busy <= idle_threshold(),
+        "available_ram_gb": avail_ram,
+        "total_ram_gb": total_ram,
+        "is_low_ram": low_ram,
     }
 
 
@@ -118,7 +235,7 @@ def should_run_background_generate(
 ) -> Dict[str, Any]:
     """
     Decide whether idle pre-generation should run now.
-    If PC is busy → pause. If pending job already queued → skip.
+    If PC is busy or RAM is critically low (<2GB) → pause. If pending job already queued → skip.
     """
     if cancel_requested:
         return {"ok": False, "reason": "cancel_requested"}
@@ -127,6 +244,9 @@ def should_run_background_generate(
     if force:
         return {"ok": True, "reason": "forced", "load": load_snapshot()}
     snap = load_snapshot()
+    if snap.get("available_ram_gb", 8.0) < 2.0:
+        return {"ok": False, "reason": "ram_critically_low", "load": snap}
     if not snap["is_idle"]:
         return {"ok": False, "reason": "pc_busy", "load": snap}
     return {"ok": True, "reason": "pc_idle", "load": snap}
+

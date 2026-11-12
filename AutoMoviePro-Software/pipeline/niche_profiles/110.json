@@ -1,79 +1,64 @@
 {
   "niche_id": 110,
-  "name": "AI Tutors for Students",
-  "slug": "ai-tutors-for-students",
-  "style_family": "science",
+  "name": "Real Estate Empires & Megacity Development",
+  "slug": "real-estate-empires-megacity-development",
+  "style_family": "business",
   "status": "VERIFIED",
   "topic_seeds": [
-    "What new evidence reframes the story of Tutors inside AI Tutors for Students",
-    "How Tutors still shapes public curiosity about AI Tutors for Students",
-    "What new evidence reframes the story of Students Khanmigo inside AI Tutors for Students",
-    "How Students Khanmigo still shapes public curiosity about AI Tutors for Students",
-    "What new evidence reframes the story of Socratic inside AI Tutors for Students",
-    "How Socratic still shapes public curiosity about AI Tutors for Students"
+    "Key analytical breakdown on Real Estate Empires & Megacity Development",
+    "Behind the scenes of major Real Estate Empires & Megacity Development events",
+    "Critical evidence and timelines in Real Estate Empires & Megacity Development"
   ],
   "seo_angles": [
-    "What new evidence reframes the story of Tutors inside AI Tutors for Students",
-    "How Tutors still shapes public curiosity about AI Tutors for Students",
-    "What new evidence reframes the story of Students Khanmigo inside AI Tutors for Students",
-    "How Students Khanmigo still shapes public curiosity about AI Tutors for Students"
+    "What people misunderstand about Real Estate Empires & Megacity Development",
+    "Why this historic moment in Real Estate Empires & Megacity Development matters today"
   ],
   "forbidden_visuals": [
     "talking-head lip-sync avatar",
     "burned-in captions",
     "watermark",
     "modern meme text",
-    "off-niche stock office B-roll"
+    "random stock photo cutout"
   ],
   "preferred_subjects": [
-    "lab instrument close-up",
-    "diagrammatic mechanism metaphor",
-    "field measurement site"
+    "high-resolution authentic environments",
+    "data-driven infographics and telemetry",
+    "moody cinematic lighting"
   ],
-  "lighting_default": "teal/cyan lab grade, high contrast, shallow DOF",
-  "face_policy": "no talking-head lip-sync avatar; cinematic B-roll preferred",
-  "dialogue_tone": "clear explainer; one mechanism per beat",
-  "audio_ambience": "clean room tone, soft electronic texture",
+  "lighting_default": "cinematic high-contrast documentary grade",
+  "face_policy": "avoid talking head lip-sync; prefer environmental/tactical/infographic hero",
+  "dialogue_tone": "authoritative, engaging, retention-focused documentary narrative",
+  "audio_ambience": "subtle low-end atmospheric resonance, precise Foley SFX",
   "research_hints": [
-    "Prefer primary evidence and concrete entities for AI Tutors for Students",
-    "Avoid generic niche-label topics; require specific place/person/event/mechanism",
-    "7–9 second spoken beats with story continuity across scenes"
+    "Prefer factual, verified data points for Real Estate Empires & Megacity Development",
+    "Strong retention hook in opening 3 seconds"
   ],
-  "topic_prompt_overlay": "NICHE LOCK (AI Tutors for Students): only propose topics that fit this niche's video type. Video type: Khanmigo, Socratic — personalized tutoring in physics, algebra, history, and test preparation. Follow niche topic strategy: Check education tech news, new AI tutor releases, or viral learning success stories. Generate a topic about an AI that helped a student pass.",
-  "video_prompt_overlay": "NICHE VISUAL LOCK (AI Tutors for Students / science): Generate a 7–9 second dialogue clip based on the topic `{topic}`. Each dialogue must be encouraging and educational. For each dialogue, generate: - **Audio Generation Prompt:** Voice — teacher-like, with chalkboard and affirmation. - **Video Generation Prompt:** Detailed visual — a student's desk with tablet. Character: student (young). Lighting: warm study light. Maintain same desk and student. Forbidden: talking-head lip-sync avatar, burned-in captions, watermark, modern meme text, off-niche stock office B-roll. Preferred subjects: lab instrument close-up, diagrammatic mechanism metaphor, field measurement site. Lighting: teal/cyan lab grade, high contrast, shallow DOF. Face policy: no talking-head lip-sync avatar; cinematic B-roll preferred. Dialogue tone: clear explainer; one mechanism per beat. Ambience: clean room tone, soft electronic texture.",
+  "topic_prompt_overlay": "NICHE LOCK (Real Estate Empires & Megacity Development): Investigate urban architectural marvels and real estate milestones (Tokyo transit density, Manhattan zoning revolutions, Singapore land reclamation, Dubai development models). Highlight financial and urban planning brilliance.",
+  "video_prompt_overlay": "NICHE VISUAL LOCK (Real Estate Empires & Megacity Development / business): Generate a 7–9 second urban development scene for topic {topic}. Visuals: Spectacular hyper-detailed architectural 3D masterplan of a glittering futuristic megacity, showing glowing subway arteries, elevated green walkways, and illuminated glass towers. Lighting: Blue hour twilight with thousands of warm city window lights and neon traffic trails. Camera: Sweeping panoramic aerial descent over the architectural city model. Ambience: Distant urban rumble, train horn echo, and sophisticated architectural symphony.",
   "i18n": {
     "en": {
-      "name": "AI Tutors for Students",
-      "blurb": "Khanmigo, Socratic — personalized tutoring in physics, algebra, history, and test preparation."
+      "name": "Real Estate Empires & Megacity Development",
+      "blurb": "Urban planning and real estate dynasty investigations — land reclamation mega-projects, transit-oriented city density, sovereign wealth fund properties, and commercial real estate"
     },
     "bn": {
-      "name": "শিক্ষার্থীদের এআই শিক্ষক",
-      "blurb": "ভিডিও টাইপ: Khanmigo, Socratic — personalized tutoring in physics, algebra, history, and test preparation."
+      "name": "আবাসন সাম্রাজ্য ও মেগাসিটি উন্নয়ন",
+      "blurb": "নগর পরিকল্পনা এবং আবাসন সাম্রাজ্যের তদন্ত—ভূমি পুনরুদ্ধার প্রকল্প এবং বাণিজ্যিক রিয়েল এস্টেট।"
     },
     "hi": {
-      "name": "छात्रों के लिए एआई ट्यूटर",
-      "blurb": "वीडियो प्रकार: Khanmigo, Socratic — personalized tutoring in physics, algebra, history, and test preparation."
+      "name": "रियल एस्टेट साम्राज्य और मेगासिटी विकास",
+      "blurb": "शहरी नियोजन और रियल एस्टेट राजवंशों की पड़ताल—भूमि सुधार और वाणिज्यिक संपत्तियाँ।"
     },
     "ur": {
-      "name": "طلبہ کے لیے اے آئی ٹیوٹر",
-      "blurb": "ویڈیو کی قسم: Khanmigo, Socratic — personalized tutoring in physics, algebra, history, and test preparation."
+      "name": "ریئل اسٹیٹ ایمپائرز اور میگাসٹی ڈویلپمنٹ",
+      "blurb": "شہری منصوبہ بندی اور ریئل اسٹیٹ خاندانوں کی تحقیق، زمین کی بازیابی اور تجارتی املاک۔"
     },
     "ta": {
-      "name": "மாணவர்களுக்கான AI ஆசிரியர்கள்",
-      "blurb": "வீடியோ வகை: Khanmigo, Socratic — personalized tutoring in physics, algebra, history, and test preparation."
+      "name": "ரியல் எஸ்டேட் பேரரசுகள் மற்றும் பெருநகர வளர்ச்சி",
+      "blurb": "நகர்ப்புற திட்டமிடல் மற்றும் நில மீட்பு திட்டங்கள் பற்றிய ரியல் எஸ்டேட் ஆய்வு."
     },
     "ml": {
-      "name": "വിദ്യാർത്ഥികൾക്കുള്ള AI ട്യൂട്ടർമാർ",
-      "blurb": "വീഡിയോ തരം: Khanmigo, Socratic — personalized tutoring in physics, algebra, history, and test preparation."
+      "name": "റിയൽ എസ്റ്റേറ്റ് സാമ്രാജ്യങ്ങളും മെഗാസിറ്റി വികസനവും",
+      "blurb": "നഗരാസൂത്രണവും റിയൽ എസ്റ്റേറ്റ് സാമ്രാജ്യങ്ങളും—ഭൂമി വീണ്ടെടുക്കൽ പദ്ധതികളും വാണിജ്യ പ്രോപ്പർട്ടികളും."
     }
-  },
-  "source": "Nish.Md + deterministic research",
-  "research_notes": [
-    "Marathon researched at 2026-09-10T08:30:24Z",
-    "Video type length=94",
-    "Topic prompt length=141",
-    "Video prompt length=398",
-    "Seeds=6"
-  ],
-  "verified_at": "2026-09-10T08:30:24Z"
+  }
 }

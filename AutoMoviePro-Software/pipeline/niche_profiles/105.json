@@ -1,79 +1,64 @@
 {
   "niche_id": 105,
-  "name": "AI for Research",
-  "slug": "ai-for-research",
-  "style_family": "science",
+  "name": "World Trade & Supply Chain Giants",
+  "slug": "world-trade-supply-chain-giants",
+  "style_family": "business",
   "status": "VERIFIED",
   "topic_seeds": [
-    "What new evidence reframes the story of Research Elicit inside AI for Research",
-    "How Research Elicit still shapes public curiosity about AI for Research",
-    "What new evidence reframes the story of Check inside AI for Research",
-    "How Check still shapes public curiosity about AI for Research",
-    "What new evidence reframes the story of Generate inside AI for Research",
-    "How Generate still shapes public curiosity about AI for Research"
+    "Key analytical breakdown on World Trade & Supply Chain Giants",
+    "Behind the scenes of major World Trade & Supply Chain Giants events",
+    "Critical evidence and timelines in World Trade & Supply Chain Giants"
   ],
   "seo_angles": [
-    "What new evidence reframes the story of Research Elicit inside AI for Research",
-    "How Research Elicit still shapes public curiosity about AI for Research",
-    "What new evidence reframes the story of Check inside AI for Research",
-    "How Check still shapes public curiosity about AI for Research"
+    "What people misunderstand about World Trade & Supply Chain Giants",
+    "Why this historic moment in World Trade & Supply Chain Giants matters today"
   ],
   "forbidden_visuals": [
     "talking-head lip-sync avatar",
     "burned-in captions",
     "watermark",
     "modern meme text",
-    "off-niche stock office B-roll"
+    "random stock photo cutout"
   ],
   "preferred_subjects": [
-    "lab instrument close-up",
-    "diagrammatic mechanism metaphor",
-    "field measurement site"
+    "high-resolution authentic environments",
+    "data-driven infographics and telemetry",
+    "moody cinematic lighting"
   ],
-  "lighting_default": "teal/cyan lab grade, high contrast, shallow DOF",
-  "face_policy": "no talking-head lip-sync avatar; cinematic B-roll preferred",
-  "dialogue_tone": "clear explainer; one mechanism per beat",
-  "audio_ambience": "clean room tone, soft electronic texture",
+  "lighting_default": "cinematic high-contrast documentary grade",
+  "face_policy": "avoid talking head lip-sync; prefer environmental/tactical/infographic hero",
+  "dialogue_tone": "authoritative, engaging, retention-focused documentary narrative",
+  "audio_ambience": "subtle low-end atmospheric resonance, precise Foley SFX",
   "research_hints": [
-    "Prefer primary evidence and concrete entities for AI for Research",
-    "Avoid generic niche-label topics; require specific place/person/event/mechanism",
-    "7–9 second spoken beats with story continuity across scenes"
+    "Prefer factual, verified data points for World Trade & Supply Chain Giants",
+    "Strong retention hook in opening 3 seconds"
   ],
-  "topic_prompt_overlay": "NICHE LOCK (AI for Research): only propose topics that fit this niche's video type. Video type: Elicit, SciSpace — how they summarize academic papers, analyze data, and help students write citations. Follow niche topic strategy: Check academic tech news, new research tools, or student testimonials. Generate a topic about an AI that simplifies academic work.",
-  "video_prompt_overlay": "NICHE VISUAL LOCK (AI for Research / science): Generate a 7–9 second dialogue clip based on the topic `{topic}`. Each dialogue must be scholarly and efficient. For each dialogue, generate: - **Audio Generation Prompt:** Voice — precise, with page flipping and citation beeps. - **Video Generation Prompt:** Detailed visual — a research paper screen with highlights. No character — screen. Lighting: clear, neutral. Maintain same paper layout. Forbidden: talking-head lip-sync avatar, burned-in captions, watermark, modern meme text, off-niche stock office B-roll. Preferred subjects: lab instrument close-up, diagrammatic mechanism metaphor, field measurement site. Lighting: teal/cyan lab grade, high contrast, shallow DOF. Face policy: no talking-head lip-sync avatar; cinematic B-roll preferred. Dialogue tone: clear explainer; one mechanism per beat. Ambience: clean room tone, soft electronic texture.",
+  "topic_prompt_overlay": "NICHE LOCK (World Trade & Supply Chain Giants): Explore critical global supply chokeholds (rare-earth refining, ASML extreme ultraviolet lithography, grain shipping corridors, automated container port robotics). Detail how single supply bottlenecks can shake global economies.",
+  "video_prompt_overlay": "NICHE VISUAL LOCK (World Trade & Supply Chain Giants / business): Generate a 7–9 second global trade scene for topic {topic}. Visuals: Enormous automated deep-water container terminal at sunset, giant gantry cranes loading multi-colored shipping containers onto an ultra-large container ship, with glowing global shipping route vectors. Lighting: Golden sunset reflections on tidal water, towering orange gantry crane lights. Camera: High-angle sweeping drone pan across the infinite container stacks toward the open sea. Ambience: Distant ship foghorn, mechanical crane cables, and ocean swell rhythm.",
   "i18n": {
     "en": {
-      "name": "AI for Research",
-      "blurb": "Elicit, SciSpace — how they summarize academic papers, analyze data, and help students write citations."
+      "name": "World Trade & Supply Chain Giants",
+      "blurb": "Deep dives into global logistics arteries — mega container shipping vessels, semiconductor lithography supply chains, deep-sea mining, and global cargo routing."
     },
     "bn": {
-      "name": "গবেষণার জন্য এআই",
-      "blurb": "ভিডিও টাইপ: Elicit, SciSpace — how they summarize academic papers, analyze data, and help students write citations."
+      "name": "বিশ্ব বাণিজ্য ও সরবরাহ শৃঙ্খল",
+      "blurb": "বিশ্বব্যাপী লজিস্টিকস নেটওয়ার্কের গভীর অনুসন্ধান—বিশাল কন্টেইনার জাহাজ এবং সেমিকন্ডাক্টর সরবরাহ শৃঙ্খল।"
     },
     "hi": {
-      "name": "शोध के लिए एआई",
-      "blurb": "वीडियो प्रकार: Elicit, SciSpace — how they summarize academic papers, analyze data, and help students write citations."
+      "name": "विश्व व्यापार और आपूर्ति श्रृंखला",
+      "blurb": "वैश्विक रसद नेटवर्क की गहरी पड़ताल—विशाल कंटेनर जहाज और सेमीकंडक्टर आपूर्ति श्रृंखला।"
     },
     "ur": {
-      "name": "تحقیق کے لیے اے آئی",
-      "blurb": "ویڈیو کی قسم: Elicit, SciSpace — how they summarize academic papers, analyze data, and help students write citations."
+      "name": "عالمی تجارت اور سپلائی چین کے جنات",
+      "blurb": "عالمی لاজিস্টکس نیٹ ورکس کا گہرا مطالعہ، بڑے کنٹینر جہاز اور سیمی کنڈکٹر سپلائی چینز۔"
     },
     "ta": {
-      "name": "ஆராய்ச்சிக்கான AI",
-      "blurb": "வீடியோ வகை: Elicit, SciSpace — how they summarize academic papers, analyze data, and help students write citations."
+      "name": "உலக வர்த்தகம் மற்றும் சங்கிலித்தொடர் பெருநிறுவனங்கள்",
+      "blurb": "உலகளாவிய சரக்கு போக்குவரத்து நெட்வொர்க்குகள் மற்றும் செமிகண்டக்டர் சங்கிலித்தொடர் பற்றிய ஆய்வு."
     },
     "ml": {
-      "name": "ഗവേഷണത്തിനുള്ള AI",
-      "blurb": "വീഡിയോ തരം: Elicit, SciSpace — how they summarize academic papers, analyze data, and help students write citations."
+      "name": "ആഗോള വാണിജ്യവും വിതരണ ശൃംഖലകളും",
+      "blurb": "ആഗോള ലോജിസ്റ്റിക് ശൃംഖലകൾ, കൂറ്റൻ ചരക്കുകപ്പലുകൾ, സെമികണ്ടക്ടർ വിതരണ ശൃംഖല എന്നിവയുടെ വിശകലനം."
     }
-  },
-  "source": "Nish.Md + deterministic research",
-  "research_notes": [
-    "Marathon researched at 2026-09-10T08:30:23Z",
-    "Video type length=103",
-    "Topic prompt length=130",
-    "Video prompt length=395",
-    "Seeds=6"
-  ],
-  "verified_at": "2026-09-10T08:30:23Z"
+  }
 }

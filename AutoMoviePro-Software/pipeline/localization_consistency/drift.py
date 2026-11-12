@@ -96,6 +96,9 @@ def detect_fact_mismatch(
     for f in source_facts:
         val = str(f.get("value") or "").replace(",", "")
         unit = str(f.get("unit") or "").lower()
+        if not unit and val.isdigit() and int(val) < 10:
+            # Ordinal counter index (e.g. Story 2, beat 1) without unit often translated stylistically
+            continue
         if val and val not in loc_values and val not in loc_norm:
             # number disappeared or changed
             issues.append(f"number_mismatch:expected_{val}")

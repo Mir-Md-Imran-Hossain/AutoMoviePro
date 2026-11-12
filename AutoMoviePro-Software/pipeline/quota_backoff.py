@@ -11,6 +11,7 @@ from __future__ import annotations
 import hashlib
 import json
 import logging
+import os
 import time
 from pathlib import Path
 from typing import Optional
@@ -28,7 +29,7 @@ LADDER_SEC = (
 )
 
 # Per-key free-tier daily exhaustion — skip key for this long
-PER_KEY_COOL_SEC = 20 * 60  # 20 minutes before retrying that key
+PER_KEY_COOL_SEC = int(os.environ.get('AMP_KEY_COOL_SEC', '180'))  # 3 minutes for transient 429 RPM limit
 
 # How long until a streak decays (no quota hit)
 STREAK_DECAY_SEC = 6 * 60 * 60

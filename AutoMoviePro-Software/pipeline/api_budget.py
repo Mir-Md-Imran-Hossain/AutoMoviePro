@@ -34,6 +34,9 @@ class ApiBudget:
             "runtime_sec": 0.0,
         }
         self._load()
+        if limits:
+            self.limits.update(limits)
+            self._save()
 
     def _load(self) -> None:
         if self.path.exists():

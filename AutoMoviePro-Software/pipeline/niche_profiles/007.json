@@ -48,27 +48,27 @@
   "i18n": {
     "en": {
       "name": "Vanished Without Trace",
-      "blurb": "Real-life disappearances of ships, planes, and entire communities — Mary Celeste, Flight MH370, and the Sodder children. Forensic and psychological analysis…"
+      "blurb": "Real-life disappearances of ships, planes, and entire communities — Mary Celeste, Flight MH370, and the Sodder children. Forensic and psychological analysis included."
     },
     "bn": {
-      "name": "নিঃশেষে অদৃশ্য",
-      "blurb": "ভিডিও টাইপ: Real-life disappearances of ships, planes, and entire communities — Mary Celeste, Flight MH370, and the Sodder children. Forensic and psychological…"
+      "name": "চিহ্নহীন নিখোঁজ",
+      "blurb": "মেরি সেলেস্টে, ফ্লাইট এমএইচ৩৭০ এবং সোডার পরিবারের রহস্যময় ও আকস্মিক নিখোঁজ হওয়ার ঘটনা।"
     },
     "hi": {
-      "name": "बिना निशान गायब",
-      "blurb": "वीडियो प्रकार: Real-life disappearances of ships, planes, and entire communities — Mary Celeste, Flight MH370, and the Sodder children. Forensic and psychological…"
+      "name": "बिना निशान के गायब",
+      "blurb": "मैरी सेलेस्ट, फ्लाइट MH370 और सोडर बच्चों के रहस्यमयी और अचानक गायब होने की सच्ची कहानियां।"
     },
     "ur": {
-      "name": "بے نشان غائب",
-      "blurb": "ویڈیو کی قسم: Real-life disappearances of ships, planes, and entire communities — Mary Celeste, Flight MH370, and the Sodder children. Forensic and psychological…"
+      "name": "بغیر نشان کے گمشدگی",
+      "blurb": "میری سیلسٹ، فلائٹ ایم ایچ 370 اور سوڈر بچوں کی پراسرار اور اچانک گمشدگی کی کہانیاں۔"
     },
     "ta": {
-      "name": "சுவடு இல்லாமல் மறைந்தவை",
-      "blurb": "வீடியோ வகை: Real-life disappearances of ships, planes, and entire communities — Mary Celeste, Flight MH370, and the Sodder children. Forensic and psychological…"
+      "name": "தடையின்றி மறைந்தவர்கள்",
+      "blurb": "மேரி செலெஸ்டே, விமானம் MH370 மற்றும் சோடர் குழந்தைகளின் விசித்திரமான மற்றும் திடீர் மறைவு."
     },
     "ml": {
-      "name": "അടയാളമില്ലാതെ അപ്രത്യക്ഷം",
-      "blurb": "വീഡിയോ തരം: Real-life disappearances of ships, planes, and entire communities — Mary Celeste, Flight MH370, and the Sodder children. Forensic and psychological…"
+      "name": "അടയാളങ്ങളില്ലാതെ മാഞ്ഞുപോയവർ",
+      "blurb": "മേരി സെലെസ്റ്റ്, ഫ്ലൈറ്റ് MH370, സോഡർ കുട്ടികൾ എന്നിവരുടെ ദുരൂഹവും പെട്ടെന്നുള്ളതുമായ തിരോധാനങ്ങൾ."
     }
   },
   "source": "Nish.Md + deterministic research",

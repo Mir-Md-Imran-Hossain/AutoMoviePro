@@ -39,9 +39,16 @@ logger = logging.getLogger(__name__)
 STATE_PATH = Path(__file__).resolve().parent / "google_circuit_state.json"
 POOL_STATE_PATH = Path(__file__).resolve().parent / "google_pool_state.json"
 
-CIRCUIT_TTL_SEC = 20 * 60 * 60
-DEFAULT_HOURLY_BUDGET = 40
-HARD_MAX_KEYS = 2  # absolute ceiling — never raise via env above this
+def _env_int(name: str, default: int) -> int:
+    try:
+        return int(os.environ.get(name, str(default)).strip() or default)
+    except Exception:
+        return default
+
+
+CIRCUIT_TTL_SEC = max(60, _env_int("AMP_GOOGLE_CIRCUIT_TTL_SEC", 30 * 60))  # 30m default cooldown
+DEFAULT_HOURLY_BUDGET = max(600, _env_int("AMP_GOOGLE_HOURLY_BUDGET", 600))
+HARD_MAX_KEYS = max(5, _env_int("AMP_GOOGLE_MAX_KEYS", 5))  # allows multi-key failover pool
 
 _lock = threading.RLock()
 _call_timestamps: List[float] = []
@@ -63,13 +70,6 @@ class GateResult:
     key_tag: str = ""
     model: str = ""
     attempts: int = 0
-
-
-def _env_int(name: str, default: int) -> int:
-    try:
-        return int(os.environ.get(name, str(default)).strip() or default)
-    except Exception:
-        return default
 
 
 def _load_json(path: Path) -> dict:
@@ -241,12 +241,9 @@ def calls_in_last_hour() -> int:
 
 
 def max_keys_for(purpose: str = "text") -> int:
-    requested = _env_int("AMP_GOOGLE_MAX_KEYS", 1)
-    # TTS may try 2 keys; everything else default 1
-    base = 2 if purpose == "tts" else 1
+    requested = _env_int("AMP_GOOGLE_MAX_KEYS", 6)
+    base = 6 if purpose in ("text", "tts", "script", "critic") else 3
     n = min(HARD_MAX_KEYS, max(1, requested if requested > 0 else base))
-    if purpose != "tts":
-        n = min(n, 1 if requested <= 1 else min(2, requested))
     return n
 
 
@@ -294,12 +291,15 @@ def models_for(purpose: str, models: Optional[Sequence[str]] = None) -> List[str
     elif purpose == "tts":
         seq = [
             "gemini-2.5-flash-preview-tts",
+            "gemini-3.8-flash-lite-tts",
             "gemini-2.5-pro-preview-tts",
         ]
     else:
-        seq = ["gemini-flash-lite-latest", "gemini-3.5-flash-lite", "gemini-3.6-flash"]
-    multi = os.environ.get("AMP_GOOGLE_MULTI_MODEL", "").strip() == "1"
-    return list(seq[: 2 if multi else 1])
+        # Modern official Google Gemini models (supported on all projects)
+        seq = ["gemini-3.5-flash-lite", "gemini-3.8-flash", "gemini-flash-latest"]
+    # Allow model fallback when primary hits 503 or 404
+    multi = os.environ.get("AMP_GOOGLE_MULTI_MODEL", "1").strip() != "0"
+    return list(seq[: 3 if multi else 1])
 
 
 def gated_generate_content(
@@ -375,6 +375,16 @@ def gated_generate_content(
                         api_keys,
                         reason=f"{purpose}…{key[-4:]} daily0",
                     )
+                    advance_sticky(purpose)
+                    break
+                err_low = msg.lower()
+                is_dead_key = any(x in err_low for x in ("403", "permission_denied", "denied access", "401", "not valid", "deleted or disabled"))
+                if is_dead_key:
+                    try:
+                        from pipeline.quota_backoff import record_key_quota_hit
+                        record_key_quota_hit(key, "google")
+                    except Exception:
+                        pass
                     advance_sticky(purpose)
                     break
                 if is_quota_error(exc):

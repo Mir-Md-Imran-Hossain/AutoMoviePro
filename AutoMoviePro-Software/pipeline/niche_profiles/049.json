@@ -1,8 +1,8 @@
 {
   "niche_id": 49,
-  "name": "Past Life Memories",
-  "slug": "past-life-memories",
-  "style_family": "history",
+  "name": "World Geography & Geopolitical Maps",
+  "slug": "world-geography-geopolitical-maps",
+  "style_family": "news",
   "status": "VERIFIED",
   "topic_seeds": [
     "What new evidence reframes the story of Past Life Memories Children inside Past Life Memories",
@@ -47,28 +47,28 @@
   "video_prompt_overlay": "NICHE VISUAL LOCK (Past Life Memories / history): Generate a 7–9 second dialogue clip based on the topic `{topic}`. Each dialogue must be curious and gentle. For each dialogue, generate: - **Audio Generation Prompt:** Voice — calm, wondering, with soft chime or wind sounds. - **Video Generation Prompt:** Detailed visual — a child's bedroom or playroom. Character: a child (age 5-8) looking pensive. Lighting: warm afternoon sun filtering through curtains. Maintain same room, same child's outfit, same sun angle. Forbidden: talking-head lip-sync avatar, burned-in captions, watermark, modern meme text, modern smartphones, cars, LED screens, sneakers. Preferred subjects: Past Life Memories documentary subject, period-accurate environment, evidence object close-up. Lighting: warm desert sun / torchlit interiors, high-contrast documentary grade. Face policy: period extras OK if consistent; prefer environment/object hero when possible. Dialogue tone: human documentary narration; specific nouns; 7–9s beats. Ambience: subtle documentary bed; do not overpower voice.",
   "i18n": {
     "en": {
-      "name": "Past Life Memories",
-      "blurb": "Children who recall detailed past lives — scientific studies, unexplained knowledge, and eerie accuracy."
+      "name": "World Geography & Geopolitical Maps",
+      "blurb": "Strategic geographic analysis of borders, enclaves, maritime straits, and topographic barriers that shape human destiny — the Strait of Malacca, the Suez Canal, Himalayan mountain"
     },
     "bn": {
-      "name": "পূর্বজন্মের স্মৃতি",
-      "blurb": "ভিডিও টাইপ: Children who recall detailed past lives — scientific studies, unexplained knowledge, and eerie accuracy."
+      "name": "বিশ্ব ভূগোল ও ভূরাজনীতি",
+      "blurb": "মালাক্কা প্রণালী ও সুয়েজ খালের মতো কৌশলগত ভৌগোলিক সীমারেখা কীভাবে মানব ভাগ্য নির্ধারণ করে।"
     },
     "hi": {
-      "name": "पिछले जन्म की यादें",
-      "blurb": "वीडियो प्रकार: Children who recall detailed past lives — scientific studies, unexplained knowledge, and eerie accuracy."
+      "name": "विश्व भूगोल और भूराजनीति",
+      "blurb": "मलाका जलडमरूमध्य और स्वेज नहर जैसी रणनीतिक भौगोलिक सीमाओं का मानवीय भविष्य पर प्रभाव।"
     },
     "ur": {
-      "name": "پچھلی زندگی کی یادیں",
-      "blurb": "ویڈیو کی قسم: Children who recall detailed past lives — scientific studies, unexplained knowledge, and eerie accuracy."
+      "name": "عالمی جغرافیہ اور سیاست",
+      "blurb": "نصف النہار اور آبنائے ملاکا جیسے جغرافیایی مقامات کا انسانی مقدر پر اثرات کا تجزیہ۔"
     },
     "ta": {
-      "name": "முன்ஜன்ம நினைவுகள்",
-      "blurb": "வீடியோ வகை: Children who recall detailed past lives — scientific studies, unexplained knowledge, and eerie accuracy."
+      "name": "உலக புவியியல் மற்றும் புவிசார் அரசியல்",
+      "blurb": "மலாக்கா நீரிணை மற்றும் சூயஸ் கால்வாய் போன்ற மூலோபாய எல்லைகள் மனிதகுல எதிர்காலத்தை நிர்ணயித்தல்."
     },
     "ml": {
-      "name": "മുൻജന്മ സ്മരണകൾ",
-      "blurb": "വീഡിയോ തരം: Children who recall detailed past lives — scientific studies, unexplained knowledge, and eerie accuracy."
+      "name": "ലോക ഭൂമിശാസ്ത്രവും രാഷ്ട്രീയവും",
+      "blurb": "മലാക്ക കടലിടുക്കും സൂയസ് കനാലും ഉൾപ്പെടെ മനുഷ്യന്റെ ഗതിയെ നിർണ്ണയിക്കുന്ന തന്ത്രപ്രധാന ഭൂപ്രദേശങ്ങൾ."
     }
   },
   "source": "Nish.Md + deterministic research",

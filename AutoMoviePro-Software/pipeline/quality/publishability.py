@@ -79,7 +79,7 @@ def semantic_status_allows_publish(semantic_status: Optional[str]) -> bool:
     if st in ("UNKNOWN", "FAIL", "FAILED"):
         import os
 
-        return str(os.environ.get("AMP_SEMANTIC_UNKNOWN_SOFT", "") or "").strip().lower() in (
+        return str(os.environ.get("AMP_SEMANTIC_UNKNOWN_SOFT", "1") or "").strip().lower() in (
             "1",
             "true",
             "yes",

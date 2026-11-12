@@ -53,9 +53,9 @@ def _split_sections(text: str) -> List[tuple]:
 
 def _extract_field(body: str, labels: List[str]) -> str:
     for label in labels:
-        # **Label:** ... until next **Something:** or --- or ###
+        # **Label:** ... until next **Something:** or - **Something:** or --- or ###
         pat = re.compile(
-            rf"\*\*{re.escape(label)}:\*\*\s*(.*?)(?=\n\*\*[A-Za-z]|\n---|\n###|\Z)",
+            rf"\*\*{re.escape(label)}:\*\*\s*(.*?)(?=\n\s*(?:[-*]\s+)?\*\*[A-Za-z]|\n---|\n###|\Z)",
             re.S | re.I,
         )
         m = pat.search(body)
@@ -74,6 +74,8 @@ def parse_nish_markdown(text: str) -> List[Dict[str, Any]]:
         video_prompt = _extract_field(
             body, ["Video Prompt", "Video Generation Prompt"]
         )
+        raw_style = _extract_field(body, ["Style Family", "Style"]).strip().lower()
+        style_family = raw_style if raw_style and raw_style not in ("unknown", "none") else infer_style_family(title, video_type, video_prompt)
         niches.append(
             {
                 "id": num,
@@ -82,7 +84,7 @@ def parse_nish_markdown(text: str) -> List[Dict[str, Any]]:
                 "video_type": video_type,
                 "topic_generation_prompt": topic_prompt,
                 "video_prompt": video_prompt,
-                "style_family": infer_style_family(title, video_type, video_prompt),
+                "style_family": style_family,
             }
         )
     niches.sort(key=lambda n: int(n["id"]))
@@ -93,15 +95,24 @@ def infer_style_family(name: str, video_type: str = "", video_prompt: str = "") 
     """Map a Nish niche onto a director style pack family."""
     blob = f"{name} {video_type} {video_prompt}".lower()
     checks = [
-        ("islamic", ("islam", "quran", "muslim", "deen", "mosque", "hadith")),
-        ("science", ("science", "physics", "chem", "space", "lab", "biology", "tech explain")),
-        ("mystery", ("myster", "unsolved", "vanish", "paranormal", "haunt", "secret")),
+        ("islamic", ("islam", "quran", "muslim", "deen", "mosque", "hadith", "prophet", "caliph")),
+        ("science", ("science", "physics", "chem", "space", "lab", "biology", "astronomy", "cosmos")),
+        ("mystery", ("myster", "unsolved", "vanish", "paranormal", "haunt", "secret", "conspiracy")),
+        ("true_crime", ("crime", "murder", "serial", "forensic", "case file", "detective", "investigation")),
+        ("gadget", ("gadget", "phone", "review", "unbox", "tech review", "earbuds", "laptop", "hardware")),
+        ("motion_graphics", ("graphic", "infographic", "data", "stats", "chart", "map", "breakdown", "analysis", "ui", "ux", "canva", "figma", "software", "tool", "app", "tutorial", "code", "programming", "ai tools", "benchmark", "explainer")),
+        ("news", ("news", "current", "politics", "geopolit", "conflict", "election", "breaking")),
+        ("business", ("business", "startup", "company", "billionaire", "corporate", "brand", "entrepreneur", "marketing", "titan", "industry")),
+        ("finance", ("financ", "money", "invest", "crypto", "stock", "econom", "wealth")),
+        ("sports", ("sport", "football", "cricket", "soccer", "athlete", "nba", "championship", "tactics", "match")),
+        ("motivation", ("motivat", "self", "habit", "mindset", "success", "productivity", "discipline")),
+        ("health", ("health", "fitness", "nutrition", "medical", "sleep", "mental", "wellness", "doctor")),
+        ("nature", ("nature", "wildlife", "animal", "ocean", "climate", "planet", "forest", "safari")),
         (
             "history",
             (
                 "histor",
                 "ancient",
-                "war",
                 "battle",
                 "civilization",
                 "kingdom",
@@ -109,22 +120,16 @@ def infer_style_family(name: str, video_type: str = "", video_prompt: str = "") 
                 "royal",
                 "assassina",
                 "shipwreck",
-                "chernobyl",
-                "documentary",
+                "century",
+                "dynasty",
+                "medieval",
             ),
         ),
-        ("gadget", ("gadget", "phone", "review", "unbox", "tech review", "earbuds", "laptop")),
-        ("motivation", ("motivat", "self", "habit", "mindset", "success", "productivity")),
-        ("health", ("health", "fitness", "nutrition", "medical", "sleep", "mental")),
-        ("news", ("news", "current", "politics", "geopolit")),
-        ("finance", ("financ", "money", "invest", "crypto", "stock", "econom")),
-        ("nature", ("nature", "wildlife", "animal", "ocean", "climate", "planet")),
-        ("true_crime", ("crime", "murder", "serial", "forensic", "case file")),
     ]
     for family, keys in checks:
         if any(k in blob for k in keys):
             return family
-    return "history"  # Nish skews documentary/history by default
+    return "cinematic_explainer"  # Safe high-res modern explainer instead of forcing ancient history
 
 
 @lru_cache(maxsize=1)
@@ -194,9 +199,14 @@ def resolve_niche(channel_or_name: Any) -> Dict[str, Any]:
     if isinstance(channel_or_name, dict):
         nid = channel_or_name.get("niche_id")
         if nid not in (None, "", 0, "0"):
-            hit = get_niche_by_id(int(nid))
-            if hit:
-                return hit
+            try:
+                hit = get_niche_by_id(int(nid))
+                if hit:
+                    return hit
+            except (ValueError, TypeError):
+                hit = get_niche_by_name(str(nid))
+                if hit:
+                    return hit
         name = str(channel_or_name.get("niche") or "").strip()
     else:
         name = str(channel_or_name or "").strip()

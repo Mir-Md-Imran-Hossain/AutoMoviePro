@@ -48,27 +48,27 @@
   "i18n": {
     "en": {
       "name": "Epic Battles",
-      "blurb": "Minute-by-minute reconstruction of history's greatest clashes — from Thermopylae to Stalingrad. Covers military strategy, human courage, and the political…"
+      "blurb": "Minute-by-minute reconstruction of history's greatest clashes — from Thermopylae to Stalingrad. Covers military strategy, human courage, and the political aftermath that changed th"
     },
     "bn": {
-      "name": "মহাকাব্যিক যুদ্ধ",
-      "blurb": "ভিডিও টাইপ: Minute-by-minute reconstruction of history's greatest clashes — from Thermopylae to Stalingrad. Covers military strategy, human courage, and the…"
+      "name": "ঐতিহাসিক যুদ্ধসমূহ",
+      "blurb": "থার্মোপাইলি থেকে স্ট্যালিনগ্রাদ—ইতিহাসের সবচেয়ে বড় লড়াইগুলোর মিনিট-বাই-মিনিট পুনর্নির্মাণ।"
     },
     "hi": {
       "name": "महायुद्ध",
-      "blurb": "वीडियो प्रकार: Minute-by-minute reconstruction of history's greatest clashes — from Thermopylae to Stalingrad. Covers military strategy, human courage, and the…"
+      "blurb": "থার্মোপাইল থেকে স্ট্যালিনগ্রাদ வரை ইতিহাসের সবচেয়ে बड़े संघर्षों की मिनट-दर-मिनट पुनर्रचना।"
     },
     "ur": {
       "name": "عظیم جنگیں",
-      "blurb": "ویڈیو کی قسم: Minute-by-minute reconstruction of history's greatest clashes — from Thermopylae to Stalingrad. Covers military strategy, human courage, and the…"
+      "blurb": "تھرموپولی سے اسٹالن گراڈ تک، تاریخ کے سب سے بڑے معرکوں کی منٹ بہ منٹ بازسازی۔"
     },
     "ta": {
-      "name": "காவியப் போர்கள்",
-      "blurb": "வீடியோ வகை: Minute-by-minute reconstruction of history's greatest clashes — from Thermopylae to Stalingrad. Covers military strategy, human courage, and the…"
+      "name": "வரலாற்றுப் போர்கள்",
+      "blurb": "தெர்மோபிலே முதல் ஸ்டாலின்கிராட் வரை வரலாற்றின் மிகப்பெரிய மோதல்களின் துல்லியமான மீட்டுருவாக்கம்."
     },
     "ml": {
-      "name": "മഹായുദ്ധങ്ങൾ",
-      "blurb": "വീഡിയോ തരം: Minute-by-minute reconstruction of history's greatest clashes — from Thermopylae to Stalingrad. Covers military strategy, human courage, and the…"
+      "name": "ചരിത്രപ്രധാനമായ യുദ്ധങ്ങൾ",
+      "blurb": "തെർമോപൈലേ മുതൽ സ്റ്റാലിൻഗ്രാഡ് വരെ ചരിത്രത്തിലെ ഏറ്റവും വലിയ പോരാട്ടങ്ങളുടെ സൂക്ഷ്മമായ പുനരാവിഷ്കാരം."
     }
   },
   "source": "Nish.Md + deterministic research",

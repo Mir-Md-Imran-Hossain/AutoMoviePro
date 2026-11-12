@@ -48,23 +48,23 @@
     },
     "bn": {
       "name": "ক্রিপ্টোকারেন্সির গল্প",
-      "blurb": "ভিডিও টাইপ: The story of Bitcoin — pizza purchases, trillion-dollar highs, and the people who got rich (or broke)."
+      "blurb": "বিটকয়েনের ইতিহাস — পিজ্জা ক্রয় থেকে ট্রিলিয়ন ডলারের উচ্চতা এবং ধনী বা দেউলিয়া হওয়া মানুষের গল্প।"
     },
     "hi": {
-      "name": "क्रिप्टोकरेंसी कहानियाँ",
-      "blurb": "वीडियो प्रकार: The story of Bitcoin — pizza purchases, trillion-dollar highs, and the people who got rich (or broke)."
+      "name": "क्रिप्टोकरेंसी की कहानियां",
+      "blurb": "बिटकॉइन की कहानी — पिज्जा खरीदने से लेकर ट्रिलियन डॉलर की ऊंचाइयों तक का सफर।"
     },
     "ur": {
-      "name": "کریپٹو کرنسی کہانیاں",
-      "blurb": "ویڈیو کی قسم: The story of Bitcoin — pizza purchases, trillion-dollar highs, and the people who got rich (or broke)."
+      "name": "کریپٹو کرنسی کی کہانیاں",
+      "blurb": "بٹ کوائن کی کہانی — پیزا کی خریداری سے ٹریلین ڈالر کی بلندیوں تک اور امیر ہونے والے لوگ۔"
     },
     "ta": {
       "name": "கிரிப்டோகரன்சி கதைகள்",
-      "blurb": "வீடியோ வகை: The story of Bitcoin — pizza purchases, trillion-dollar highs, and the people who got rich (or broke)."
+      "blurb": "பிட்காயினின் கதை — பிட்சா வாங்கியது முதல் டிரில்லியன் டாலர் உச்சம் வரை கோடீஸ்வரரான மனிதர்கள்."
     },
     "ml": {
-      "name": "ക്രിപ്‌റ്റോകറൻസി കഥകൾ",
-      "blurb": "വീഡിയോ തരം: The story of Bitcoin — pizza purchases, trillion-dollar highs, and the people who got rich (or broke)."
+      "name": "ക്രിപ്റ്റോകറൻസി കഥകൾ",
+      "blurb": "ബിറ്റ്‌കോയിന്റെ കഥ — പിസ്സ വാങ്ങിയത് മുതൽ ട്രില്യൺ ഡോളർ ഉയർച്ചയും കോടീശ്വരന്മാരായ ആളുകളും."
     }
   },
   "source": "Nish.Md + deterministic research",

@@ -1,83 +1,64 @@
 {
   "niche_id": 107,
-  "name": "AI Coding Assistants",
-  "slug": "ai-coding-assistants",
-  "style_family": "history",
+  "name": "Aviation Disasters & Black Box Analysis",
+  "slug": "aviation-disasters-black-box-analysis",
+  "style_family": "news",
   "status": "VERIFIED",
   "topic_seeds": [
-    "What new evidence reframes the story of Coding Assistants Codeium inside AI Coding Assistants",
-    "How Coding Assistants Codeium still shapes public curiosity about AI Coding Assistants",
-    "What new evidence reframes the story of Tabnine inside AI Coding Assistants",
-    "How Tabnine still shapes public curiosity about AI Coding Assistants",
-    "What new evidence reframes the story of Check inside AI Coding Assistants",
-    "How Check still shapes public curiosity about AI Coding Assistants"
+    "Key analytical breakdown on Aviation Disasters & Black Box Analysis",
+    "Behind the scenes of major Aviation Disasters & Black Box Analysis events",
+    "Critical evidence and timelines in Aviation Disasters & Black Box Analysis"
   ],
   "seo_angles": [
-    "What new evidence reframes the story of Coding Assistants Codeium inside AI Coding Assistants",
-    "How Coding Assistants Codeium still shapes public curiosity about AI Coding Assistants",
-    "What new evidence reframes the story of Tabnine inside AI Coding Assistants",
-    "How Tabnine still shapes public curiosity about AI Coding Assistants"
+    "What people misunderstand about Aviation Disasters & Black Box Analysis",
+    "Why this historic moment in Aviation Disasters & Black Box Analysis matters today"
   ],
   "forbidden_visuals": [
     "talking-head lip-sync avatar",
     "burned-in captions",
     "watermark",
     "modern meme text",
-    "modern smartphones",
-    "cars",
-    "LED screens",
-    "sneakers",
-    "contemporary skyline"
+    "random stock photo cutout"
   ],
   "preferred_subjects": [
-    "AI Coding Assistants documentary subject",
-    "period-accurate environment",
-    "evidence object close-up"
+    "high-resolution authentic environments",
+    "data-driven infographics and telemetry",
+    "moody cinematic lighting"
   ],
-  "lighting_default": "warm desert sun / torchlit interiors, high-contrast documentary grade",
-  "face_policy": "period extras OK if consistent; prefer environment/object hero when possible",
-  "dialogue_tone": "human documentary narration; specific nouns; 7–9s beats",
-  "audio_ambience": "subtle documentary bed; do not overpower voice",
+  "lighting_default": "cinematic high-contrast documentary grade",
+  "face_policy": "avoid talking head lip-sync; prefer environmental/tactical/infographic hero",
+  "dialogue_tone": "authoritative, engaging, retention-focused documentary narrative",
+  "audio_ambience": "subtle low-end atmospheric resonance, precise Foley SFX",
   "research_hints": [
-    "Prefer primary evidence and concrete entities for AI Coding Assistants",
-    "Avoid generic niche-label topics; require specific place/person/event/mechanism",
-    "7–9 second spoken beats with story continuity across scenes"
+    "Prefer factual, verified data points for Aviation Disasters & Black Box Analysis",
+    "Strong retention hook in opening 3 seconds"
   ],
-  "topic_prompt_overlay": "NICHE LOCK (AI Coding Assistants): only propose topics that fit this niche's video type. Video type: Codeium, Tabnine — how these free tools debug code, suggest snippets, and teach programming to beginners. Follow niche topic strategy: Check developer news, new AI coding features, or viral coding challenge videos. Generate a topic about a tool that makes coding easier.",
-  "video_prompt_overlay": "NICHE VISUAL LOCK (AI Coding Assistants / history): Generate a 7–9 second dialogue clip based on the topic `{topic}`. Each dialogue must be technical and encouraging. For each dialogue, generate: - **Audio Generation Prompt:** Voice — explanatory, with code running and beeps. - **Video Generation Prompt:** Detailed visual — a code editor screen with autocomplete. No character — screen. Lighting: dark with neon code glow. Maintain same code screen. Forbidden: talking-head lip-sync avatar, burned-in captions, watermark, modern meme text, modern smartphones, cars, LED screens, sneakers. Preferred subjects: AI Coding Assistants documentary subject, period-accurate environment, evidence object close-up. Lighting: warm desert sun / torchlit interiors, high-contrast documentary grade. Face policy: period extras OK if consistent; prefer environment/object hero when possible. Dialogue tone: human documentary narration; specific nouns; 7–9s beats. Ambience: subtle documentary bed; do not overpower voice.",
+  "topic_prompt_overlay": "NICHE LOCK (Aviation Disasters & Black Box Analysis): Examine NTSB/AAIB forensic accident reports, black box flight data recorder telemetry reconstructions, fly-by-wire computer logic anomalies, and structural metal fatigue discoveries.",
+  "video_prompt_overlay": "NICHE VISUAL LOCK (Aviation Disasters & Black Box Analysis / news): Generate a 7–9 second aviation investigation beat for topic {topic}. Visuals: Digital flight simulator instrument panel replay showing artificial horizon attitude indicators, altitude rate gauges, and 3D flight trajectory path descent lines against dark clouds. Lighting: Soft ambient cockpit instrument backlighting (amber, green, cyan) amidst stormy exterior twilight. Camera: Slow lateral pan across primary flight display instruments and throttle quadrant. Ambience: Low cockpit slipstream rumble, faint synthetic warning chime, and air traffic control radio static.",
   "i18n": {
     "en": {
-      "name": "AI Coding Assistants",
-      "blurb": "Codeium, Tabnine — how these free tools debug code, suggest snippets, and teach programming to beginners."
+      "name": "Aviation Disasters & Black Box Analysis",
+      "blurb": "Engineering and flight crew telemetry investigations into commercial aviation accidents, aerodynamic stall recoveries, sensor pitot tube freezing, and safety redesigns that transfo"
     },
     "bn": {
-      "name": "এআই কোডিং সহকারী",
-      "blurb": "ভিডিও টাইপ: Codeium, Tabnine — how these free tools debug code, suggest snippets, and teach programming to beginners."
+      "name": "বিমান দুর্ঘটনা ও ব্ল্যাক বক্স বিশ্লেষণ",
+      "blurb": "বাণিজ্যিক বিমান দুর্ঘটনা এবং ফ্লাইট ডেটা টেলিমেট্রির ইঞ্জিনিয়ারিং ও নিরাপত্তা সংক্রান্ত গভীর তদন্ত।"
     },
     "hi": {
-      "name": "एआई कोडिंग सहायक",
-      "blurb": "वीडियो प्रकार: Codeium, Tabnine — how these free tools debug code, suggest snippets, and teach programming to beginners."
+      "name": "विमानन आपदाएँ और ब्लैक बॉक्स विश्लेषण",
+      "blurb": "वाणिज्यिक विमान दुर्घटनाओं और उड़ान टेलीमेट्री की इंजीनियरिंग और सुरक्षा जाँच।"
     },
     "ur": {
-      "name": "اے آئی کوڈنگ اسسٹنٹس",
-      "blurb": "ویڈیو کی قسم: Codeium, Tabnine — how these free tools debug code, suggest snippets, and teach programming to beginners."
+      "name": "ایوی ایشن حادثات اور بلیک باکس تجزیہ",
+      "blurb": "تجارتی ہوائی حادثات اور فلائٹ ٹیلی میٹری کی انجینئرنگ اور حفاظتی تحقیقات۔"
     },
     "ta": {
-      "name": "AI கோடிங் உதவியாளர்கள்",
-      "blurb": "வீடியோ வகை: Codeium, Tabnine — how these free tools debug code, suggest snippets, and teach programming to beginners."
+      "name": "விமான விபத்துக்கள் மற்றும் பிளாக் பாக்ஸ் பகுப்பாய்வு",
+      "blurb": "வணிக விமான விபத்துக்கள் மற்றும் விமான டெலிமெட்ரி பற்றிய பொறியியல் மற்றும் பாதுகாப்பு விசாரணைகள்."
     },
     "ml": {
-      "name": "AI കോഡിംഗ് അസിസ്റ്റന്റുകൾ",
-      "blurb": "വീഡിയോ തരം: Codeium, Tabnine — how these free tools debug code, suggest snippets, and teach programming to beginners."
+      "name": "വിമാന ദുരന്തങ്ങളും ബ്ലാക്ക് ബോക്സ് വിശകലനവും",
+      "blurb": "വാണിജ്യ വിമാന അപകടങ്ങളും ഫ്ലൈറ്റ് ടെലിമെട്രിയും സംബന്ധിച്ച എഞ്ചിനീയറിംഗ് അന്വേഷണങ്ങൾ."
     }
-  },
-  "source": "Nish.Md + deterministic research",
-  "research_notes": [
-    "Marathon researched at 2026-09-10T08:30:23Z",
-    "Video type length=105",
-    "Topic prompt length=135",
-    "Video prompt length=399",
-    "Seeds=6"
-  ],
-  "verified_at": "2026-09-10T08:30:24Z"
+  }
 }
