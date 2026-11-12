@@ -332,33 +332,41 @@ def render_beat_glass_cards(
     beats: List[DialogueBeat],
     temp_dir: Path,
     logo_title: str = "AutoMovie Pro",
-    cta_text: str = "লাইক ও সাবস্ক্রাইব করুন"
+    cta_text: str = "লাইক ও সাবস্ক্রাইব করুন",
+    aspect: str = "9:16"
 ) -> Dict[str, Path]:
     """
     Renders the static transparent PNGs for:
     1. Top Channel/Topic Header Pill
     2. Dynamic Beat Cards (1, 2, 3) with frosted glassmorphism & contextual emojis
     3. Bottom Action/CTA Pill
+    Responsive to both 9:16 vertical and 16:9 widescreen formats.
     """
     temp_dir = Path(temp_dir)
     temp_dir.mkdir(parents=True, exist_ok=True)
 
+    is_wide = (aspect == "16:9")
+    w, h = (1920, 1080) if is_wide else (1080, 1920)
+    top_pos = "top:40px; left:100px; right:100px; height:75px;" if is_wide else "top:80px; left:60px; right:60px; height:95px;"
+    bottom_pos = "bottom:45px; left:100px; right:100px; height:80px;" if is_wide else "bottom:85px; left:60px; right:60px; height:100px;"
+    card_pos = f"top:{'280px; left:180px; right:180px;' if is_wide else '680px; left:60px; right:60px;'}"
+
     # 1. Top Header Pill
     html_top = f"""<!DOCTYPE html><html><head><meta charset='utf-8'><link href='https://fonts.googleapis.com/css2?family=Anek+Bangla:wght@600;700;800&family=Hind+Siliguri:wght@700&display=swap' rel='stylesheet'><style>
-    body {{ margin:0; padding:0; width:1080px; height:1920px; background:transparent; font-family:'Anek Bangla', 'Hind Siliguri', sans-serif; overflow:hidden; }}
-    .top-box {{ position:absolute; top:80px; left:60px; right:60px; height:95px; background:rgba(15,23,42,0.85); backdrop-filter:blur(20px); border:1.5px solid rgba(56,189,248,0.55); border-radius:48px; display:flex; align-items:center; justify-content:space-between; padding:0 35px; box-shadow:0 15px 35px rgba(0,0,0,0.6); }}
-    .logo-title {{ color:#fff; font-size:34px; font-weight:700; display:flex; align-items:center; gap:14px; }}
-    .status-pill {{ background:#059669; color:#fff; padding:6px 20px; border-radius:20px; font-size:22px; font-weight:700; }}
+    body {{ margin:0; padding:0; width:{w}px; height:{h}px; background:transparent; font-family:'Anek Bangla', 'Hind Siliguri', sans-serif; overflow:hidden; }}
+    .top-box {{ position:absolute; {top_pos} background:rgba(15,23,42,0.85); backdrop-filter:blur(20px); border:1.5px solid rgba(56,189,248,0.55); border-radius:48px; display:flex; align-items:center; justify-content:space-between; padding:0 35px; box-shadow:0 15px 35px rgba(0,0,0,0.6); }}
+    .logo-title {{ color:#fff; font-size:{'28px' if is_wide else '34px'}; font-weight:700; display:flex; align-items:center; gap:14px; }}
+    .status-pill {{ background:#059669; color:#fff; padding:6px 20px; border-radius:20px; font-size:{'18px' if is_wide else '22px'}; font-weight:700; }}
     </style></head><body>
     <div class='top-box'><div class='logo-title'><span>🎬</span> {logo_title}</div><div class='status-pill'>Active</div></div>
     </body></html>"""
 
     # 2. Bottom CTA Box
     html_bottom = f"""<!DOCTYPE html><html><head><meta charset='utf-8'><link href='https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@700;800&display=swap' rel='stylesheet'><style>
-    body {{ margin:0; padding:0; width:1080px; height:1920px; background:transparent; font-family:'Anek Bangla', 'Hind Siliguri', sans-serif; overflow:hidden; }}
-    .cta-box {{ position:absolute; bottom:85px; left:60px; right:60px; height:100px; background:rgba(15,23,42,0.88); backdrop-filter:blur(20px); border:2px solid #F59E0B; border-radius:30px; display:flex; align-items:center; justify-content:space-between; padding:0 35px; box-shadow:0 15px 35px rgba(245,158,11,0.25); }}
-    .cta-text {{ color:#FDE047; font-size:34px; font-weight:800; display:flex; align-items:center; gap:12px; }}
-    .cta-btn {{ background:#F59E0B; color:#000; padding:10px 26px; border-radius:18px; font-size:28px; font-weight:800; }}
+    body {{ margin:0; padding:0; width:{w}px; height:{h}px; background:transparent; font-family:'Anek Bangla', 'Hind Siliguri', sans-serif; overflow:hidden; }}
+    .cta-box {{ position:absolute; {bottom_pos} background:rgba(15,23,42,0.88); backdrop-filter:blur(20px); border:2px solid #F59E0B; border-radius:30px; display:flex; align-items:center; justify-content:space-between; padding:0 35px; box-shadow:0 15px 35px rgba(245,158,11,0.25); }}
+    .cta-text {{ color:#FDE047; font-size:{'26px' if is_wide else '34px'}; font-weight:800; display:flex; align-items:center; gap:12px; }}
+    .cta-btn {{ background:#F59E0B; color:#000; padding:10px 26px; border-radius:18px; font-size:{'22px' if is_wide else '28px'}; font-weight:800; }}
     </style></head><body>
     <div class='cta-box'><div class='cta-text'><span>💎</span> {cta_text}</div><div class='cta-btn'>অনুসন্ধান করুন</div></div>
     </body></html>"""
@@ -368,22 +376,17 @@ def render_beat_glass_cards(
     card_htmls.append(("top", html_top))
     card_htmls.append(("bottom", html_bottom))
 
-    # Center card position (Y: 680px for balanced 9:16 vertical focus)
-    card_y = 680
-
     for b in beats:
         html_card = f"""<!DOCTYPE html><html><head><meta charset='utf-8'><link href='https://fonts.googleapis.com/css2?family=Anek+Bangla:wght@600;700;800&family=Hind+Siliguri:wght@700&display=swap' rel='stylesheet'><style>
-        body {{ margin:0; padding:0; width:1080px; height:1920px; background:transparent; font-family:'Anek Bangla', 'Hind Siliguri', sans-serif; overflow:hidden; }}
+        body {{ margin:0; padding:0; width:{w}px; height:{h}px; background:transparent; font-family:'Anek Bangla', 'Hind Siliguri', sans-serif; overflow:hidden; }}
         .glass-card {{
             position: absolute;
-            top: {card_y}px;
-            left: 60px;
-            right: 60px;
+            {card_pos}
             background: rgba(15, 23, 42, 0.82);
             border: 1.5px solid rgba(255, 255, 255, 0.22);
             border-top: 3px solid {b.accent_color};
             border-radius: 36px;
-            padding: 35px 42px;
+            padding: {'28px 36px' if is_wide else '35px 42px'};
             box-shadow: 0 25px 60px rgba(0, 0, 0, 0.75), inset 0 1px 0 rgba(255, 255, 255, 0.25);
         }}
         .top-row {{
@@ -398,33 +401,33 @@ def render_beat_glass_cards(
             gap: 12px;
         }}
         .icon-emoji {{
-            font-size: 42px;
+            font-size: {'36px' if is_wide else '42px'};
             filter: drop-shadow(0 4px 8px rgba(0,0,0,0.5));
         }}
         .badge-pill {{
             background: rgba(255, 255, 255, 0.10);
             border: 1px solid {b.accent_color};
             color: {b.accent_color};
-            font-size: 24px;
+            font-size: {'20px' if is_wide else '24px'};
             font-weight: 700;
             padding: 5px 18px;
             border-radius: 18px;
         }}
         .stat-badge {{
             color: #FDE047;
-            font-size: 28px;
+            font-size: {'24px' if is_wide else '28px'};
             font-weight: 800;
         }}
         .headline {{
             color: #FFFFFF;
-            font-size: 44px;
+            font-size: {'36px' if is_wide else '44px'};
             font-weight: 800;
             line-height: 1.25;
             margin-bottom: 12px;
         }}
         .subtext {{
             color: #CBD5E1;
-            font-size: 30px;
+            font-size: {'24px' if is_wide else '30px'};
             font-weight: 600;
             line-height: 1.38;
         }}
@@ -456,7 +459,7 @@ def render_beat_glass_cards(
                 "--no-sandbox"
             ]
         )
-        page = browser.new_page(viewport={"width": 1080, "height": 1920})
+        page = browser.new_page(viewport={"width": w, "height": h})
         for key, html_text in card_htmls:
             p_out = temp_dir / f"{key}.png"
             page.set_content(html_text)
@@ -619,11 +622,15 @@ class AutoMovieKineticEngine:
         total_scenes: int = 6,
         audio_path: Optional[Path] = None,
         niche: str = "Technology & AI",
-        topic_title: str = "AutoMovie Pro"
+        topic_title: str = "AutoMovie Pro",
+        aspect: str = "9:16"
     ) -> Dict[str, Any]:
         out_clip_path = Path(out_clip_path)
         work_dir = out_clip_path.parent
         work_dir.mkdir(parents=True, exist_ok=True)
+
+        is_wide = (aspect == "16:9")
+        w, h = (1920, 1080) if is_wide else (1080, 1920)
 
         dialogue = scene_data.get("dialogue_bn", "")
 
@@ -647,8 +654,8 @@ class AutoMovieKineticEngine:
             if not (bg_clip_path.exists() and bg_clip_path.stat().st_size > 10000):
                 try:
                     from pipeline.custom_pipeline.multi_still_clip import ken_burns_from_image
-                    ken_burns_from_image(bg_img_path, bg_clip_path, duration=duration, w=1080, h=1920)
-                    logger.info(f"[*] Animated authentic background image for Scene {scene_idx:02d} via 3D Ken Burns")
+                    ken_burns_from_image(bg_img_path, bg_clip_path, duration=duration, w=w, h=h)
+                    logger.info(f"[*] Animated authentic background image for Scene {scene_idx:02d} ({w}x{h}) via 3D Ken Burns")
                 except Exception as e_kb:
                     logger.debug("Ken burns background animation note: %s", e_kb)
 
@@ -667,7 +674,8 @@ class AutoMovieKineticEngine:
             beats=beats,
             temp_dir=cards_dir,
             logo_title=topic_title[:32],
-            cta_text=cta_text
+            cta_text=cta_text,
+            aspect=aspect
         )
 
         # 4. Composite Video with Multi-Card Staggered Transitions

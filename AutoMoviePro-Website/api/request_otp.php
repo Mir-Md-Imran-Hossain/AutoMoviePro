@@ -6,6 +6,14 @@ if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
     json_response(['ok' => false, 'error' => 'method_not_allowed'], 405);
 }
 
+if (!check_rate_limit($pdo, 'request_otp', 5, 60)) {
+    json_response([
+        'ok' => false,
+        'error' => 'too_many_requests',
+        'message' => 'অতিরিক্ত ওটিপি অনুরোধের কারণে সাময়িকভাবে স্থগিত। অনুগ্রহ করে কিছুক্ষণ পর চেষ্টা করুন।'
+    ], 429);
+}
+
 $raw = file_get_contents('php://input') ?: '';
 $data = json_decode($raw, true);
 if (!is_array($data)) {
@@ -53,29 +61,31 @@ if ($customer['status'] !== 'active') {
 
 // Generate 6-digit cryptographic OTP
 $otp = (string) random_int(100000, 999999);
-$now = amp_sql_now($pdo);
-
-// 15 minutes expiration
+$expTime = date('Y-m-d H:i:s', time() + 15 * 60);
 $pdo->prepare(
     "UPDATE customers 
-     SET otp_code = ?, otp_expires_at = DATE_ADD({$now}, INTERVAL 15 MINUTE) 
+     SET otp_code = ?, otp_expires_at = ?, otp_failed_attempts = 0 
      WHERE id = ?"
-)->execute([$otp, (int) $customer['id']]);
+)->execute([$otp, $expTime, (int) $customer['id']]);
 
 log_api($pdo, (int) $customer['id'], 'otp_requested', "target:{$target}, channel:{$channel}");
 
-// 1. Deliver OTP via WhatsApp queue
+// 1. Deliver OTP via WhatsApp
 $waNum = trim((string) ($customer['whatsapp'] ?? ''));
 $cleanWa = preg_replace('/\D+/', '', $waNum);
 if (str_starts_with($cleanWa, '01')) {
-    $cleanWa = '88' . $cleanWa;
+    $cleanWa = '880' . substr($cleanWa, 1);
 }
 $waMsg = "AutoMovie Pro পাসওয়ার্ড রিসেট ভেরিফিকেশন কোড: {$otp}\nএই কোডটির মেয়াদ ১৫ মিনিট। অনুগ্রহ করে কারো সাথে কোডটি শেয়ার করবেন না।";
 
-if (!empty($waNum)) {
+if (!empty($cleanWa)) {
     try {
-        whatsapp_queue($pdo, $config, $waNum, $waMsg, (int) $customer['id']);
-    } catch (\Throwable $e) {}
+        whatsapp_antiban_dispatch($pdo, $config, $cleanWa, $waMsg, 'emergency', 'otp_password_reset', (int) $customer['id'], null, $customer['name'] ?? null);
+    } catch (\Throwable $e) {
+        try {
+            whatsapp_queue($pdo, $config, $cleanWa, $waMsg, (int) $customer['id']);
+        } catch (\Throwable $eQ) {}
+    }
 }
 
 // 2. Deliver OTP via Email if present

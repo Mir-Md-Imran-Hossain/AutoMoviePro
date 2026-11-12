@@ -8,7 +8,7 @@ if (!in_array($uiLang, amp_cms_langs(), true)) {
 }
 
 $brand = setting($pdo, 'hero_brand', 'AutoMovie Pro');
-$price = (float) setting($pdo, 'price_amount', '2998');
+$price = (float) setting($pdo, 'price_amount', '3999');
 $addonPrice = (float) setting($pdo, 'language_addon_price', '499');
 $priceLabel = setting_i18n($pdo, 'price_label', $uiLang, '') ?? '';
 $useCmsPriceLabel = trim($priceLabel) !== '';
@@ -94,9 +94,31 @@ $error = !empty($_GET['error']);
 
   <section id="buy" class="reveal">
     <div class="purchase-wrapper" style="max-width: 800px;">
+      <?php
+      $serverUpgradeMode = setting($pdo, 'agent_server_upgrade_mode', '0') === '1';
+      ?>
+      <?php if ($serverUpgradeMode): ?>
+        <div style="background: linear-gradient(135deg, rgba(245, 158, 11, 0.2) 0%, rgba(15, 23, 42, 0.95) 100%); border: 2px solid #f59e0b; border-radius: var(--radius-lg); padding: 1.5rem 1.75rem; margin-bottom: 2rem; box-shadow: 0 0 35px rgba(245, 158, 11, 0.25);">
+          <div style="display:flex; align-items:flex-start; gap:14px;">
+            <span style="font-size:2.2rem; line-height:1;">🚀</span>
+            <div>
+              <h3 style="color:#fbbf24; font-size:1.25rem; margin:0 0 6px; font-weight:800;">
+                গুরুত্বপূর্ণ টেকনিক্যাল নোটিশ: হাই-স্পিড ভিডিও সার্ভার আপগ্রেড ও মাইগ্রেশন চলছে
+              </h3>
+              <p style="color:#f8fafc; font-size:0.92rem; line-height:1.6; margin:0 0 10px;">
+                আমাদের সফটওয়্যারে একটি অত্যন্ত বড় প্রযুক্তিগত আপডেট এসেছে এবং উন্নত পারফরম্যান্স নিশ্চিত করতে ক্লাউড ভিডিও রেন্ডারিং সার্ভার মাইগ্রেশনের কাজ চলছে। আমাদের ইঞ্জিনিয়ারদের কাজের সর্বোচ্চ সুবিধা এবং সিস্টেমের শতভাগ স্থিতিশীলতা নিশ্চিত করার লক্ষ্যে <strong>আগামী ১ সপ্তাহ নতুন ব্যবহারকারী অনবোর্ডিং ও সরাসরি পেমেন্ট সাময়িকভাবে স্থগিত রাখা হয়েছে</strong>।
+              </p>
+              <div style="background:rgba(0,0,0,0.35); border-left:4px solid #fbbf24; padding:10px 14px; border-radius:6px; font-size:0.88rem; color:#fde68a;">
+                📌 <strong>ভিআইপি প্রায়োরিটি ওয়েটিং লিস্ট:</strong> ১ সপ্তাহ পর পুনরায় সেলস লাইভ হওয়া মাত্রই আপনি যদি অগ্রাধিকার ভিত্তিতে স্পেশাল রি-লঞ্চ অফারে সফটওয়্যারটি সবার আগে পেতে চান, তবে নিচে আপনার নাম ও WhatsApp নম্বর প্রদান করে <em>"VIP Priority Waitlist"</em>-এ রেজিস্ট্রেশন করে রাখুন। কোনো অগ্রিম টাকা দিতে হবে না!
+              </div>
+            </div>
+          </div>
+        </div>
+      <?php endif; ?>
+
       <div class="section-head" style="margin-bottom: 2rem;">
-        <h2 data-i18n="order_title">অর্ডার ফর্ম</h2>
-        <p class="lead" data-i18n="order_lead">প্যাকেজ বেছে নিন, তথ্য দিন — পেমেন্ট সম্পন্ন করে দ্রুত এক্সেস বুঝে নিন।</p>
+        <h2 data-i18n="order_title"><?= $serverUpgradeMode ? 'ভিআইপি ওয়েটিং লিস্ট রেজিস্ট্রেশন' : 'অর্ডার ফর্ম' ?></h2>
+        <p class="lead" data-i18n="order_lead"><?= $serverUpgradeMode ? 'প্যাকেজ বেছে নিয়ে আপনার নাম ও নম্বর জমা দিন — ১ সপ্তাহ পর সার্ভার লাইভ হলে অগ্রাধিকার ভিত্তিতে বুঝে নিন।' : 'প্যাকেজ বেছে নিন, তথ্য দিন — পেমেন্ট সম্পন্ন করে দ্রুত এক্সেস বুঝে নিন।' ?></p>
       </div>
 
       <?php if ($error): ?>
@@ -292,6 +314,15 @@ $error = !empty($_GET['error']);
         </fieldset>
       </div>
 
+      <?php
+      $prefillName = htmlspecialchars(trim((string)($_GET['name'] ?? '')), ENT_QUOTES, 'UTF-8');
+      $prefillPhone = htmlspecialchars(trim((string)($_GET['phone'] ?? $_GET['whatsapp'] ?? '')), ENT_QUOTES, 'UTF-8');
+      $prefillEmail = htmlspecialchars(trim((string)($_GET['email'] ?? '')), ENT_QUOTES, 'UTF-8');
+      $prefillCoupon = htmlspecialchars(trim((string)($_GET['coupon'] ?? $_GET['coupon_code'] ?? '')), ENT_QUOTES, 'UTF-8');
+      $prefillVid = htmlspecialchars(trim((string)($_GET['vid'] ?? $_COOKIE['amp_vid'] ?? '')), ENT_QUOTES, 'UTF-8');
+      $prefillFramework = htmlspecialchars(trim((string)($_GET['framework'] ?? '')), ENT_QUOTES, 'UTF-8');
+      $prefillAgent = htmlspecialchars(trim((string)($_GET['agent'] ?? '')), ENT_QUOTES, 'UTF-8');
+      ?>
       <form class="purchase" method="post" action="/purchase.php" id="purchaseForm" enctype="multipart/form-data">
         <input type="hidden" name="csrf" value="<?= e(csrf_token()) ?>">
         <input type="hidden" name="product_type" id="productTypeField" value="<?= e($reqProduct) ?>">
@@ -301,20 +332,23 @@ $error = !empty($_GET['error']);
         <input type="hidden" name="base_langs" id="baseLangs" value="en,bn">
         <input type="hidden" name="addon_langs" id="addonLangs" value="">
         <input type="hidden" name="ui_lang" value="<?= e($uiLang) ?>">
+        <input type="hidden" name="attribution_visitor_id" value="<?= $prefillVid ?>">
+        <input type="hidden" name="closing_framework" value="<?= $prefillFramework ?>">
+        <input type="hidden" name="agent_id" value="<?= $prefillAgent ?>">
 
         <div class="form-group">
           <label><span data-i18n="name">আপনার পূর্ণ নাম</span></label>
-          <input name="name" required maxlength="120" autocomplete="name" placeholder="যেমন: মোঃ তানভীর হাসান">
+          <input name="name" required maxlength="120" autocomplete="name" placeholder="যেমন: মোঃ তানভীর হাসান" value="<?= $prefillName ?>">
         </div>
 
         <div class="form-group">
           <label><span data-i18n="whatsapp">WhatsApp নম্বর (অ্যাক্টিভেশনের জন্য)</span></label>
-          <input name="whatsapp" required placeholder="+8801..." maxlength="32" inputmode="tel">
+          <input name="whatsapp" required placeholder="+8801..." maxlength="32" inputmode="tel" value="<?= $prefillPhone ?>">
         </div>
 
         <div class="form-group">
           <label><span data-i18n="email_opt">ইমেইল / জিমেইল অ্যাড্রেস</span></label>
-          <input name="email" id="emailInput" type="email" maxlength="120" autocomplete="email" placeholder="example@gmail.com">
+          <input name="email" id="emailInput" type="email" maxlength="120" autocomplete="email" placeholder="example@gmail.com" value="<?= $prefillEmail ?>">
         </div>
 
         <div id="softwareLangPickers" style="<?= $isGooglePro ? 'display:none;' : '' ?>">
@@ -357,160 +391,185 @@ $error = !empty($_GET['error']);
         <div class="coupon-box" id="couponBoxSection">
           <label style="font-size:0.88rem; color:#93c5fd; font-weight:600;" data-i18n="coupon_label">🎟️ ডিসকাউন্ট কুপন কোড (যেমন: LAUNCH500):</label>
           <div class="coupon-input-group">
-            <input type="text" id="couponCodeInput" name="coupon_code" placeholder="কুপন কোড লিখুন" data-i18n-placeholder="coupon_placeholder">
+            <input type="text" id="couponCodeInput" name="coupon_code" placeholder="কুপন কোড লিখুন" data-i18n-placeholder="coupon_placeholder" value="<?= $prefillCoupon ?>">
             <button type="button" class="coupon-btn" id="applyCouponBtn" data-i18n="coupon_btn">অ্যাপ্লাই</button>
           </div>
           <div id="couponStatusMsg" class="coupon-msg"></div>
         </div>
 
-        <!-- Payment Information & Proof Section -->
-        <div class="payment-method-section" style="margin-top: 1.75rem; background: rgba(15, 23, 42, 0.85); border: 1.5px solid #0284c7; border-radius: var(--radius-lg); padding: 1.5rem; box-shadow: 0 4px 25px rgba(2, 132, 199, 0.2);">
-          <div style="display:flex; align-items:center; gap:8px; margin-bottom: 0.75rem;">
-            <span style="font-size:1.4rem;">💳</span>
-            <h3 style="color:#38bdf8; font-size:1.2rem; margin:0; font-weight:700;">পেমেন্ট মেথড ও লেনদেন নির্দেশিকা</h3>
-          </div>
-          
-          <p style="color:#cbd5e1; font-size:0.92rem; line-height:1.6; margin-bottom: 1.25rem;">
-            নিচের যেকোনো একটি অনুমোদিত নম্বরে <strong>ক্যাশ আউট (Cash Out)</strong> করে পেমেন্ট সম্পন্ন করুন। নম্বর কপি করতে বাটনে ক্লিক করুন:
-          </p>
-
-          <!-- Interactive Payment Cards Grid -->
-          <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 0.85rem; margin-bottom: 1.5rem;">
-            <!-- bKash Agent -->
-            <div style="background: rgba(30, 41, 59, 0.95); border: 1.5px solid #e11d48; border-radius: var(--radius-md); padding: 1rem; position: relative;">
-              <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.35rem;">
-                <strong style="color: #fda4af; font-size: 0.95rem;">বিকাশ এজেন্ট</strong>
-                <span style="background: #e11d48; color: #fff; font-size: 0.72rem; padding: 2px 7px; border-radius: 4px; font-weight: 700;">ক্যাশ আউট</span>
-              </div>
-              <div style="font-family: monospace; font-size: 1.2rem; color: #fff; font-weight: 800; letter-spacing: 0.5px; margin: 4px 0 2px;">
-                01756160993
-              </div>
-              <small style="color: #94a3b8; font-size: 0.75rem; display: block; margin-bottom: 8px;">(Zahid Pharmacy)</small>
-              <button type="button" class="btn btn-sm copy-btn" onclick="navigator.clipboard.writeText('01756160993'); this.innerText='কপি হয়েছে ✓'; setTimeout(()=>this.innerText='নম্বর কপি করুন', 2000);" style="width: 100%; padding: 6px 8px; font-size: 0.82rem; background: #e11d48; color: #fff; border: none; border-radius: 6px; cursor: pointer; font-weight:600;">
-                নম্বর কপি করুন
-              </button>
+        <?php if ($serverUpgradeMode): ?>
+          <!-- VIP Priority Waitlist Assurance Section (No cash/TrxID needed during upgrade) -->
+          <div class="waitlist-assurance-section" style="margin-top: 1.75rem; background: rgba(15, 23, 42, 0.9); border: 2px solid #f59e0b; border-radius: var(--radius-lg); padding: 1.5rem; box-shadow: 0 4px 25px rgba(245, 158, 11, 0.2);">
+            <div style="display:flex; align-items:center; gap:10px; margin-bottom: 0.75rem;">
+              <span style="font-size:1.6rem;">📋</span>
+              <h3 style="color:#fbbf24; font-size:1.25rem; margin:0; font-weight:800;">ভিআইপি প্রায়োরিটি ওয়েটিং লিস্ট নিশ্চয়তা</h3>
             </div>
-
-            <!-- Nagad Agent -->
-            <div style="background: rgba(30, 41, 59, 0.95); border: 1.5px solid #ea580c; border-radius: var(--radius-md); padding: 1rem; position: relative;">
-              <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.35rem;">
-                <strong style="color: #fdba74; font-size: 0.95rem;">নগদ এজেন্ট</strong>
-                <span style="background: #ea580c; color: #fff; font-size: 0.72rem; padding: 2px 7px; border-radius: 4px; font-weight: 700;">ক্যাশ আউট</span>
-              </div>
-              <div style="font-family: monospace; font-size: 1.2rem; color: #fff; font-weight: 800; letter-spacing: 0.5px; margin: 4px 0 2px;">
-                01611-824811
-              </div>
-              <small style="color: #94a3b8; font-size: 0.75rem; display: block; margin-bottom: 8px;">(Simi Drug House)</small>
-              <button type="button" class="btn btn-sm copy-btn" onclick="navigator.clipboard.writeText('01611824811'); this.innerText='কপি হয়েছে ✓'; setTimeout(()=>this.innerText='নম্বর কপি করুন', 2000);" style="width: 100%; padding: 6px 8px; font-size: 0.82rem; background: #ea580c; color: #fff; border: none; border-radius: 6px; cursor: pointer; font-weight:600;">
-                নম্বর কপি করুন
-              </button>
-            </div>
-
-            <!-- Rocket Agent -->
-            <div style="background: rgba(30, 41, 59, 0.95); border: 1.5px solid #8b5cf6; border-radius: var(--radius-md); padding: 1rem; position: relative;">
-              <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.35rem;">
-                <strong style="color: #c4b5fd; font-size: 0.95rem;">রকেট এজেন্ট</strong>
-                <span style="background: #8b5cf6; color: #fff; font-size: 0.72rem; padding: 2px 7px; border-radius: 4px; font-weight: 700;">ক্যাশ আউট</span>
-              </div>
-              <div style="font-family: monospace; font-size: 1.2rem; color: #fff; font-weight: 800; letter-spacing: 0.5px; margin: 4px 0 2px;">
-                01756160993-5
-              </div>
-              <small style="color: #94a3b8; font-size: 0.75rem; display: block; margin-bottom: 8px;">(এজেন্ট ক্যাশ আউট)</small>
-              <button type="button" class="btn btn-sm copy-btn" onclick="navigator.clipboard.writeText('017561609935'); this.innerText='কপি হয়েছে ✓'; setTimeout(()=>this.innerText='নম্বর কপি করুন', 2000);" style="width: 100%; padding: 6px 8px; font-size: 0.82rem; background: #8b5cf6; color: #fff; border: none; border-radius: 6px; cursor: pointer; font-weight:600;">
-                নম্বর কপি করুন
-              </button>
-            </div>
-
-            <!-- Binance Pay / USDT -->
-            <div style="background: rgba(30, 41, 59, 0.95); border: 1.5px solid #f59e0b; border-radius: var(--radius-md); padding: 1rem; position: relative;">
-              <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.35rem;">
-                <strong style="color: #fde68a; font-size: 0.95rem;">Binance Pay</strong>
-                <span style="background: #f59e0b; color: #000; font-size: 0.72rem; padding: 2px 7px; border-radius: 4px; font-weight: 700;">USDT</span>
-              </div>
-              <div style="font-family: monospace; font-size: 1.1rem; color: #fff; font-weight: 800; letter-spacing: 0.5px; margin: 4px 0 2px;">
-                ChatEarly Ai
-              </div>
-              <small style="color: #94a3b8; font-size: 0.75rem; display: block; margin-bottom: 8px;">(Binance Pay ID / QR)</small>
-              <button type="button" class="btn btn-sm copy-btn" onclick="navigator.clipboard.writeText('ChatEarly Ai'); this.innerText='কপি হয়েছে ✓'; setTimeout(()=>this.innerText='আইডি কপি করুন', 2000);" style="width: 100%; padding: 6px 8px; font-size: 0.82rem; background: #f59e0b; color: #000; font-weight:700; border: none; border-radius: 6px; cursor: pointer;">
-                আইডি কপি করুন
-              </button>
+            <p style="color:#cbd5e1; font-size:0.95rem; line-height:1.6; margin-bottom: 1rem;">
+              বর্তমানে আমাদের ক্লাউড ভিডিও সার্ভার আপগ্রেড ও রেন্ডারিং নোড মাইগ্রেশনের কাজ চলছে। তাই <strong>কোনো প্রকার অগ্রিম পেমেন্ট বা বিকাশ/নগদ লেনদেনের প্রয়োজন নেই</strong>।
+            </p>
+            <div style="background:rgba(0,0,0,0.4); border-left:4px solid #10b981; padding:12px 16px; border-radius:8px; font-size:0.9rem; color:#a7f3d0;">
+              ✅ <strong>কীভাবে পাবেন:</strong> উপরের ফর্মে আপনার সঠিক নাম ও WhatsApp নম্বরটি দিয়ে নিচের বাটনে ক্লিক করুন। আপনার স্লটটি ভিআইপি ডাটাবেজে সংরক্ষিত হয়ে যাবে। আগামী ১ সপ্তাহ পর সার্ভার লাইভ হওয়ামাত্রই অগ্রাধিকার ভিত্তিতে আপনাকে স্পেশাল অফারে সফটওয়্যার বুঝিয়ে দেওয়া হবে।
             </div>
           </div>
-
-          <!-- Payment Input Fields: Method, Sender Digits, TrxID, and Screenshot Upload -->
-          <div style="background: rgba(15, 23, 42, 0.95); border: 1px solid #334155; border-radius: var(--radius-md); padding: 1.25rem;">
-            <div style="margin-bottom: 1rem;">
-              <label style="display: block; color: #cbd5e1; font-size: 0.88rem; font-weight: 600; margin-bottom: 0.4rem;">
-                পেমেন্ট মেথড নির্বাচন করুন:
-              </label>
-              <div style="display: flex; flex-wrap: wrap; gap: 0.85rem;">
-                <label style="cursor: pointer; display: inline-flex; align-items: center; gap: 6px; color: #fff; font-size: 0.9rem;">
-                  <input type="radio" name="payment_method" value="bkash" checked> বিকাশ (bKash)
-                </label>
-                <label style="cursor: pointer; display: inline-flex; align-items: center; gap: 6px; color: #fff; font-size: 0.9rem;">
-                  <input type="radio" name="payment_method" value="nagad"> নগদ (Nagad)
-                </label>
-                <label style="cursor: pointer; display: inline-flex; align-items: center; gap: 6px; color: #fff; font-size: 0.9rem;">
-                  <input type="radio" name="payment_method" value="rocket"> রকেট (Rocket)
-                </label>
-                <label style="cursor: pointer; display: inline-flex; align-items: center; gap: 6px; color: #fff; font-size: 0.9rem;">
-                  <input type="radio" name="payment_method" value="binance"> Binance Pay
-                </label>
-                <label style="cursor: pointer; display: inline-flex; align-items: center; gap: 6px; color: #fff; font-size: 0.9rem;">
-                  <input type="radio" name="payment_method" value="bank"> ব্যাংক (Bank)
-                </label>
-              </div>
+        <?php else: ?>
+          <!-- Payment Information & Proof Section -->
+          <div class="payment-method-section" style="margin-top: 1.75rem; background: rgba(15, 23, 42, 0.85); border: 1.5px solid #0284c7; border-radius: var(--radius-lg); padding: 1.5rem; box-shadow: 0 4px 25px rgba(2, 132, 199, 0.2);">
+            <div style="display:flex; align-items:center; gap:8px; margin-bottom: 0.75rem;">
+              <span style="font-size:1.4rem;">💳</span>
+              <h3 style="color:#38bdf8; font-size:1.2rem; margin:0; font-weight:700;">পেমেন্ট মেথড ও লেনদেন নির্দেশিকা</h3>
             </div>
+            
+            <p style="color:#cbd5e1; font-size:0.92rem; line-height:1.6; margin-bottom: 1.25rem;">
+              নিচের যেকোনো একটি অনুমোদিত নম্বরে <strong>ক্যাশ আউট (Cash Out)</strong> করে পেমেন্ট সম্পন্ন করুন। নম্বর কপি করতে বাটনে ক্লিক করুন:
+            </p>
 
-            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 1rem; margin-bottom: 1rem;">
-              <div>
-                <label style="display: block; color: #cbd5e1; font-size: 0.85rem; margin-bottom: 0.35rem;">
-                  প্রেরক নম্বরের শেষ ৩-৪ ডিজিট <span style="color:#94a3b8; font-weight:normal;">(যদি পেমেন্ট করে থাকেন)</span>:
-                </label>
-                <input type="text" name="sender_last_digits" placeholder="যেমন: 1234 বা 0000" maxlength="10" style="width:100%; padding:0.75rem; border-radius:8px; background:#1e293b; color:#fff; border:1px solid #475569;">
-              </div>
-              <div>
-                <label style="display: block; color: #cbd5e1; font-size: 0.85rem; margin-bottom: 0.35rem;">
-                  ট্রানজেকশন আইডি (TrxID) <span style="color:#94a3b8; font-weight:normal;">(যদি পেমেন্ট করে থাকেন)</span>:
-                </label>
-                <input type="text" name="txn_id" id="checkoutTxnId" placeholder="যেমন: BL92KA871X" maxlength="24" style="width:100%; padding:0.75rem; border-radius:8px; background:#1e293b; color:#fff; border:1px solid #475569; text-transform:uppercase; font-family:monospace; font-weight:600;" oninput="this.value = this.value.toUpperCase().replace(/[^A-Z0-9]/g, '');">
-              </div>
-            </div>
-
-            <!-- Payment Screenshot Upload -->
-            <div style="margin-top: 1rem;">
-              <label style="display: block; color: #cbd5e1; font-size: 0.88rem; font-weight: 600; margin-bottom: 0.35rem;">
-                📸 পেমেন্টের স্ক্রিনশট আপলোড করুন <span style="color:#94a3b8; font-weight:normal;">(ছবি / মানি রসিদ, ঐচ্ছিক কিন্তু দ্রুত অ্যাক্টিভেশনে সহায়ক)</span>:
-              </label>
-              <div style="border: 2px dashed #0284c7; border-radius: 8px; padding: 1.25rem; text-align: center; background: rgba(30, 41, 59, 0.5); cursor: pointer; transition: all 0.2s;" onclick="document.getElementById('paymentScreenshotInput').click();">
-                <input type="file" id="paymentScreenshotInput" name="payment_screenshot" accept="image/*" style="display: none;" onchange="previewScreenshot(this)">
-                <div id="uploadPrompt">
-                  <span style="font-size: 2rem;">📎</span>
-                  <p style="margin: 6px 0 2px; color: #38bdf8; font-size: 0.95rem; font-weight: 600;">পেমেন্টের স্ক্রিনশট সিলেক্ট করতে এখানে ক্লিক করুন</p>
-                  <small style="color: #94a3b8; font-size: 0.78rem;">JPG, PNG, WEBP ফরম্যাট (সর্বোচ্চ 10MB)</small>
+            <!-- Interactive Payment Cards Grid -->
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 0.85rem; margin-bottom: 1.5rem;">
+              <!-- bKash Agent -->
+              <div style="background: rgba(30, 41, 59, 0.95); border: 1.5px solid #e11d48; border-radius: var(--radius-md); padding: 1rem; position: relative;">
+                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.35rem;">
+                  <strong style="color: #fda4af; font-size: 0.95rem;">বিকাশ এজেন্ট</strong>
+                  <span style="background: #e11d48; color: #fff; font-size: 0.72rem; padding: 2px 7px; border-radius: 4px; font-weight: 700;">ক্যাশ আউট</span>
                 </div>
-                <div id="screenshotPreviewWrap" style="display: none; margin-top: 8px;">
-                  <img id="screenshotPreviewImg" src="" alt="Screenshot Preview" style="max-height: 160px; max-width:100%; border-radius: 6px; border: 1.5px solid #38bdf8; box-shadow: 0 4px 12px rgba(0,0,0,0.4);">
-                  <p id="screenshotFileName" style="color: #34d399; font-size: 0.85rem; margin-top: 6px; font-weight: 600;"></p>
+                <div style="font-family: monospace; font-size: 1.2rem; color: #fff; font-weight: 800; letter-spacing: 0.5px; margin: 4px 0 2px;">
+                  01756160993
+                </div>
+                <small style="color: #94a3b8; font-size: 0.75rem; display: block; margin-bottom: 8px;">(Zahid Pharmacy)</small>
+                <button type="button" class="btn btn-sm copy-btn" onclick="navigator.clipboard.writeText('01756160993'); this.innerText='কপি হয়েছে ✓'; setTimeout(()=>this.innerText='নম্বর কপি করুন', 2000);" style="width: 100%; padding: 6px 8px; font-size: 0.82rem; background: #e11d48; color: #fff; border: none; border-radius: 6px; cursor: pointer; font-weight:600;">
+                  নম্বর কপি করুন
+                </button>
+              </div>
+
+              <!-- Nagad Agent -->
+              <div style="background: rgba(30, 41, 59, 0.95); border: 1.5px solid #ea580c; border-radius: var(--radius-md); padding: 1rem; position: relative;">
+                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.35rem;">
+                  <strong style="color: #fdba74; font-size: 0.95rem;">নগদ এজেন্ট</strong>
+                  <span style="background: #ea580c; color: #fff; font-size: 0.72rem; padding: 2px 7px; border-radius: 4px; font-weight: 700;">ক্যাশ আউট</span>
+                </div>
+                <div style="font-family: monospace; font-size: 1.2rem; color: #fff; font-weight: 800; letter-spacing: 0.5px; margin: 4px 0 2px;">
+                  01611-824811
+                </div>
+                <small style="color: #94a3b8; font-size: 0.75rem; display: block; margin-bottom: 8px;">(Simi Drug House)</small>
+                <button type="button" class="btn btn-sm copy-btn" onclick="navigator.clipboard.writeText('01611824811'); this.innerText='কপি হয়েছে ✓'; setTimeout(()=>this.innerText='নম্বর কপি করুন', 2000);" style="width: 100%; padding: 6px 8px; font-size: 0.82rem; background: #ea580c; color: #fff; border: none; border-radius: 6px; cursor: pointer; font-weight:600;">
+                  নম্বর কপি করুন
+                </button>
+              </div>
+
+              <!-- Rocket Personal -->
+              <div style="background: rgba(30, 41, 59, 0.95); border: 1.5px solid #8b5cf6; border-radius: var(--radius-md); padding: 1rem; position: relative;">
+                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.35rem;">
+                  <strong style="color: #c4b5fd; font-size: 0.95rem;">রকেট এজেন্ট</strong>
+                  <span style="background: #8b5cf6; color: #fff; font-size: 0.72rem; padding: 2px 7px; border-radius: 4px; font-weight: 700;">ক্যাশ আউট</span>
+                </div>
+                <div style="font-family: monospace; font-size: 1.2rem; color: #fff; font-weight: 800; letter-spacing: 0.5px; margin: 4px 0 2px;">
+                  017561609935
+                </div>
+                <small style="color: #94a3b8; font-size: 0.75rem; display: block; margin-bottom: 8px;">(এজেন্ট ক্যাশ আউট)</small>
+                <button type="button" class="btn btn-sm copy-btn" onclick="navigator.clipboard.writeText('017561609935'); this.innerText='কপি হয়েছে ✓'; setTimeout(()=>this.innerText='নম্বর কপি করুন', 2000);" style="width: 100%; padding: 6px 8px; font-size: 0.82rem; background: #8b5cf6; color: #fff; border: none; border-radius: 6px; cursor: pointer; font-weight:600;">
+                  নম্বর কপি করুন
+                </button>
+              </div>
+
+              <!-- Binance Pay / USDT -->
+              <div style="background: rgba(30, 41, 59, 0.95); border: 1.5px solid #f59e0b; border-radius: var(--radius-md); padding: 1rem; position: relative;">
+                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.35rem;">
+                  <strong style="color: #fde68a; font-size: 0.95rem;">Binance Pay</strong>
+                  <span style="background: #f59e0b; color: #000; font-size: 0.72rem; padding: 2px 7px; border-radius: 4px; font-weight: 700;">USDT</span>
+                </div>
+                <div style="font-family: monospace; font-size: 1.1rem; color: #fff; font-weight: 800; letter-spacing: 0.5px; margin: 4px 0 2px;">
+                  ChatEarly Ai
+                </div>
+                <small style="color: #94a3b8; font-size: 0.75rem; display: block; margin-bottom: 8px;">(Binance Pay ID / QR)</small>
+                <button type="button" class="btn btn-sm copy-btn" onclick="navigator.clipboard.writeText('ChatEarly Ai'); this.innerText='কপি হয়েছে ✓'; setTimeout(()=>this.innerText='আইডি কপি করুন', 2000);" style="width: 100%; padding: 6px 8px; font-size: 0.82rem; background: #f59e0b; color: #000; font-weight:700; border: none; border-radius: 6px; cursor: pointer;">
+                  আইডি কপি করুন
+                </button>
+              </div>
+            </div>
+
+            <!-- Payment Input Fields: Method, Sender Digits, TrxID, and Screenshot Upload -->
+            <div style="background: rgba(15, 23, 42, 0.95); border: 1px solid #334155; border-radius: var(--radius-md); padding: 1.25rem;">
+              <div style="margin-bottom: 1rem;">
+                <label style="display: block; color: #cbd5e1; font-size: 0.88rem; font-weight: 600; margin-bottom: 0.4rem;">
+                  পেমেন্ট মেথড নির্বাচন করুন:
+                </label>
+                <div style="display: flex; flex-wrap: wrap; gap: 0.85rem;">
+                  <label style="cursor: pointer; display: inline-flex; align-items: center; gap: 6px; color: #fff; font-size: 0.9rem;">
+                    <input type="radio" name="payment_method" value="bkash" checked> বিকাশ (bKash)
+                  </label>
+                  <label style="cursor: pointer; display: inline-flex; align-items: center; gap: 6px; color: #fff; font-size: 0.9rem;">
+                    <input type="radio" name="payment_method" value="nagad"> নগদ (Nagad)
+                  </label>
+                  <label style="cursor: pointer; display: inline-flex; align-items: center; gap: 6px; color: #fff; font-size: 0.9rem;">
+                    <input type="radio" name="payment_method" value="rocket"> রকেট (Rocket)
+                  </label>
+                  <label style="cursor: pointer; display: inline-flex; align-items: center; gap: 6px; color: #fff; font-size: 0.9rem;">
+                    <input type="radio" name="payment_method" value="binance"> Binance Pay
+                  </label>
+                  <label style="cursor: pointer; display: inline-flex; align-items: center; gap: 6px; color: #fff; font-size: 0.9rem;">
+                    <input type="radio" name="payment_method" value="bank"> ব্যাংক (Bank)
+                  </label>
                 </div>
               </div>
-            </div>
 
-            <div style="margin-top: 1rem; background: rgba(56, 189, 248, 0.12); border: 1px solid rgba(56, 189, 248, 0.3); border-radius: 8px; padding: 0.75rem 1rem; font-size: 0.85rem; color: #93c5fd; display: flex; align-items: center; gap: 8px;">
-              <span style="font-size:1.1rem;">💡</span>
-              <span>আপনি চাইলে এখনই পেমেন্ট করে TrxID বা স্ক্রিনশট দিয়ে একবারে অর্ডার সাবমিট করতে পারেন, অথবা এখনই ফর্ম সাবমিট করে পরবর্তী পেজেও পেমেন্ট সম্পন্ন করতে পারবেন।</span>
+              <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 1rem; margin-bottom: 1rem;">
+                <div>
+                  <label style="display: block; color: #cbd5e1; font-size: 0.85rem; margin-bottom: 0.35rem;">
+                    প্রেরক নম্বরের শেষ ৩-৪ ডিজিট <span style="color:#94a3b8; font-weight:normal;">(যদি পেমেন্ট করে থাকেন)</span>:
+                  </label>
+                  <input type="text" name="sender_last_digits" placeholder="যেমন: 1234 বা 0000" maxlength="10" style="width:100%; padding:0.75rem; border-radius:8px; background:#1e293b; color:#fff; border:1px solid #475569;">
+                </div>
+                <div>
+                  <label style="display: block; color: #cbd5e1; font-size: 0.85rem; margin-bottom: 0.35rem;">
+                    ট্রানজেকশন আইডি (TrxID) <span style="color:#94a3b8; font-weight:normal;">(যদি পেমেন্ট করে থাকেন)</span>:
+                  </label>
+                  <input type="text" name="txn_id" id="checkoutTxnId" placeholder="যেমন: BL92KA871X" maxlength="24" style="width:100%; padding:0.75rem; border-radius:8px; background:#1e293b; color:#fff; border:1px solid #475569; text-transform:uppercase; font-family:monospace; font-weight:600;" oninput="this.value = this.value.toUpperCase().replace(/[^A-Z0-9]/g, '');">
+                </div>
+              </div>
+
+              <!-- Payment Screenshot Upload -->
+              <div style="margin-top: 1rem;">
+                <label style="display: block; color: #cbd5e1; font-size: 0.88rem; font-weight: 600; margin-bottom: 0.35rem;">
+                  📸 পেমেন্টের স্ক্রিনশট আপলোড করুন <span style="color:#94a3b8; font-weight:normal;">(ছবি / মানি রসিদ, ঐচ্ছিক কিন্তু দ্রুত অ্যাক্টিভেশনে সহায়ক)</span>:
+                </label>
+                <div style="border: 2px dashed #0284c7; border-radius: 8px; padding: 1.25rem; text-align: center; background: rgba(30, 41, 59, 0.5); cursor: pointer; transition: all 0.2s;" onclick="document.getElementById('paymentScreenshotInput').click();">
+                  <input type="file" id="paymentScreenshotInput" name="payment_screenshot" accept="image/*" style="display: none;" onchange="previewScreenshot(this)">
+                  <div id="uploadPrompt">
+                    <span style="font-size: 2rem;">📎</span>
+                    <p style="margin: 6px 0 2px; color: #38bdf8; font-size: 0.95rem; font-weight: 600;">পেমেন্টের স্ক্রিনশট সিলেক্ট করতে এখানে ক্লিক করুন</p>
+                    <small style="color: #94a3b8; font-size: 0.78rem;">JPG, PNG, WEBP ফরম্যাট (সর্বোচ্চ 10MB)</small>
+                  </div>
+                  <div id="screenshotPreviewWrap" style="display: none; margin-top: 8px;">
+                    <img id="screenshotPreviewImg" src="" alt="Screenshot Preview" style="max-height: 160px; max-width:100%; border-radius: 6px; border: 1.5px solid #38bdf8; box-shadow: 0 4px 12px rgba(0,0,0,0.4);">
+                    <p id="screenshotFileName" style="color: #34d399; font-size: 0.85rem; margin-top: 6px; font-weight: 600;"></p>
+                  </div>
+                </div>
+              </div>
+
+              <div style="margin-top: 1rem; background: rgba(56, 189, 248, 0.12); border: 1px solid rgba(56, 189, 248, 0.3); border-radius: 8px; padding: 0.75rem 1rem; font-size: 0.85rem; color: #93c5fd; display: flex; align-items: center; gap: 8px;">
+                <span style="font-size:1.1rem;">💡</span>
+                <span>আপনি চাইলে এখনই পেমেন্ট করে TrxID বা স্ক্রিনশট দিয়ে একবারে অর্ডার সাবমিট করতে পারেন, অথবা এখনই ফর্ম সাবমিট করে পরবর্তী পেজেও পেমেন্ট সম্পন্ন করতে পারবেন।</span>
+              </div>
             </div>
           </div>
-        </div>
+        <?php endif; ?>
 
         <div class="total-line" style="margin-top:1.5rem;">
-          <span data-i18n="total_due">সর্বমোট পরিশোধযোগ্য</span>
+          <span data-i18n="total_due"><?= $serverUpgradeMode ? 'প্রাক্কলিত প্যাকেজ মূল্য (১ সপ্তাহ পর প্রদেয়)' : 'সর্বমোট পরিশোধযোগ্য' ?></span>
           <strong id="totalDisplay">৳<?= (int) $initialPrice ?></strong>
         </div>
 
-        <button class="btn" type="submit" style="width:100%; font-size:1.15rem; padding:1.1rem; background:linear-gradient(135deg, #0284c7, #2563eb); font-weight:700; border-radius:10px;" data-i18n="pay_now">অর্ডার কনফার্ম করুন</button>
+        <?php if ($serverUpgradeMode): ?>
+          <button class="btn" type="submit" style="width:100%; font-size:1.15rem; padding:1.1rem; background:linear-gradient(135deg, #f59e0b, #d97706); color:#000; font-weight:800; border-radius:10px; box-shadow: 0 4px 20px rgba(245,158,11,0.35);">
+            📋 প্রায়োরিটি ওয়েটিং লিস্টে নাম ও নম্বর জমা দিন (১ সপ্তাহ পর অ্যাক্টিভেশন)
+          </button>
+          <p style="text-align:center; margin-top:0.75rem; color:#fde68a; font-size:0.85rem;">
+            *(বর্তমানে সার্ভার মাইগ্রেশন চলায় অগ্রিম কোনো টাকা দিতে হবে না। ১ সপ্তাহ পর লাইভ হলে অগ্রাধিকার ভিত্তিতে সেলস শুরু হবে)*
+          </p>
+        <?php else: ?>
+          <button class="btn" type="submit" style="width:100%; font-size:1.15rem; padding:1.1rem; background:linear-gradient(135deg, #0284c7, #2563eb); font-weight:700; border-radius:10px;" data-i18n="pay_now">অর্ডার কনফার্ম করুন</button>
+        <?php endif; ?>
         <p style="text-align:center; margin-top:1rem;">
-          <a class="btn-wa-inline" href="<?= e($waLink) ?>" target="_blank" rel="noopener" data-i18n="or_whatsapp">অথবা WhatsApp-এ সরাসরি অর্ডার সম্পন্ন করুন</a>
+          <a class="btn-wa-inline" href="<?= e($waLink) ?>" target="_blank" rel="noopener" data-i18n="or_whatsapp">অথবা WhatsApp-এ সরাসরি কথা বলুন</a>
         </p>
       </form>
     </div>
@@ -663,7 +722,7 @@ $error = !empty($_GET['error']);
           if (couponMsg) couponMsg.textContent = 'কুপন কোড প্রদান করুন';
           return;
         }
-        if (code === 'LAUNCH500' || code === 'SPECIAL500') {
+        if (['LAUNCH500', 'SPECIAL500', 'VIP500', 'TANIA500', 'NIROB500', 'AYESHA500', 'OFFER500', 'CLOSE500'].includes(code)) {
           currentDiscount = 500;
           if (couponMsg) {
             couponMsg.style.color = '#34d399';
@@ -684,6 +743,13 @@ $error = !empty($_GET['error']);
         }
         calculateTotal();
       });
+
+      // Auto-apply prefilled coupon from AI sales executive URL
+      if (couponInput && couponInput.value.trim() !== '') {
+        setTimeout(() => {
+          couponBtn?.click();
+        }, 150);
+      }
 
       window.AMP_RECALC = calculateTotal;
     });

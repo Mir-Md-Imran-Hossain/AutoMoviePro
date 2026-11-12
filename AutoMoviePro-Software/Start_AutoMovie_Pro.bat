@@ -3,7 +3,7 @@ title AutoMovie Pro - Industrial AI Automation
 color 0B
 echo ===============================================================================
 echo                AUTOMOVIE PRO - SAAS DESKTOP EDITION
-echo           Automated Multi-Channel AI Video Production & Publisher
+echo           Automated Multi-Channel AI Video Production ^& Publisher
 echo ===============================================================================
 echo.
 cd /d "%~dp0"
@@ -75,7 +75,7 @@ exit /b 1
 echo [INFO] Python runtime detected: %PYTHON_CMD%
 echo.
 
-echo [2/3] Initializing Audio Engine & Local Cache...
+echo [2/3] Initializing Audio Engine ^& Local Cache...
 if not exist "assets\audio\voice_cues\chime_ready.wav" (
     if exist "scripts\generate_voice_cues.py" (
         "%PYTHON_CMD%" scripts\generate_voice_cues.py
@@ -83,19 +83,24 @@ if not exist "assets\audio\voice_cues\chime_ready.wav" (
 )
 
 echo.
-echo [3/3] Launching AutoMovie Pro Local Server & Dashboard...
+echo [3/3] Launching AutoMovie Pro Native Desktop Application...
 echo.
 echo -------------------------------------------------------------------------------
-echo Dashboard URL: http://127.0.0.1:8787
+echo Native Application: AutoMovie Pro Desktop Suite
+echo Zero Browser Mode: 100% Native Desktop Window (Standalone)
 echo Login: ওয়েবসাইটে অর্ডার অনুমোদনের পর প্রাপ্ত Login ID ও Password দিন।
 echo -------------------------------------------------------------------------------
 echo.
-echo Starting server and opening browser... Please do not close this console window.
-echo.
 
-"%PYTHON_CMD%" -m app.main
+if exist "desktop\dist\win-unpacked\AutoMovie Pro.exe" (
+    cd /d "%~dp0desktop\dist\win-unpacked"
+    start "" "%~dp0desktop\dist\win-unpacked\AutoMovie Pro.exe"
+    exit
+)
+
+"%PYTHON_CMD%" launch_desktop_app.py
 if %ERRORLEVEL% NEQ 0 (
     echo.
-    echo [NOTICE] Server process exited with code %ERRORLEVEL%.
+    echo [NOTICE] Process exited with code %ERRORLEVEL%.
     pause
 )

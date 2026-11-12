@@ -4,12 +4,17 @@ require dirname(__DIR__) . '/includes/bootstrap.php';
 
 $error = '';
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    $user = trim((string) ($_POST['username'] ?? ''));
-    $pass = (string) ($_POST['password'] ?? '');
-    if (attempt_admin_login($pdo, $user, $pass)) {
-        redirect('/admin/index.php');
+    if (!check_rate_limit($pdo, 'admin_login', 5, 60)) {
+        http_response_code(429);
+        $error = 'অত্যধিক বার ভুল চেষ্টার কারণে আপনার অ্যাক্সেস সাময়িকভাবে স্থগিত করা হয়েছে। অনুগ্রহ করে কিছুক্ষণ পর আবার চেষ্টা করুন।';
+    } else {
+        $user = trim((string) ($_POST['username'] ?? ''));
+        $pass = (string) ($_POST['password'] ?? '');
+        if (attempt_admin_login($pdo, $user, $pass)) {
+            redirect('/admin/index.php');
+        }
+        $error = 'ইউজারনেম অথবা পাসওয়ার্ড সঠিক নয়। পুনরায় চেষ্টা করুন।';
     }
-    $error = 'ইউজারনেম অথবা পাসওয়ার্ড সঠিক নয়। পুনরায় চেষ্টা করুন।';
 }
 if (admin_logged_in()) {
     redirect('/admin/index.php');

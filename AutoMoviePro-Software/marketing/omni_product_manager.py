@@ -105,26 +105,35 @@ class OmniProductManager:
 
     @classmethod
     def _seed_default_catalog(cls):
-        """Seeds flagship AutoMovie Pro and FB Business Manager products if empty."""
+        """Seeds all 4 flagship products (Video Studio, FB Business, FB Profile, WhatsApp Suite)."""
         default_products = [
             {
-                "id": "automovie-pro-suite",
-                "name": "AutoMovie Pro - Autonomous AI Video Suite",
-                "category": "Software & AI Video",
-                "description": "সম্পূর্ণ স্বয়ংক্রিয় এআই ভিডিও ও সোশ্যাল মিডিয়া পাওয়ারহাউজ। ক্যামেরা বা এডিটর ছাড়াই ভাইরাল শর্টস, রিলস ও লং ভিডিও বানানোর স্বয়ংক্রিয় ইঞ্জিন।",
+                "id": "video_studio",
+                "slug": "automovie-pro-suite",
+                "name": "AutoMovie Pro - Social Media Content Automation Engine",
+                "short_name": "ফুল ভিডিও স্টুডিও (Full Video Studio)",
+                "category": "AI Video Production & Multi-Channel Studio",
+                "badge": "🎬 ফুল কন্টেন্ট পাওয়ারহাউজ",
+                "description": "সম্পূর্ণ স্বয়ংক্রিয় এআই ভিডিও ও সোশ্যাল মিডিয়া পাওয়ারহাউজ। ক্যামেরা বা এডিটর ছাড়াই ভাইরাল শর্টস, ৫ মিনিটের লং ভিডিও ও বহুভাষিক ডাবিংয়ের স্বয়ংক্রিয় প্রোডাকশন ইঞ্জিন।",
                 "features": [
-                    "১০০% স্বয়ংক্রিয় এআই ভিডিও তৈরি ও চিত্রনাট্য প্রণয়ন",
-                    "খাঁটি বাংলা ও ৬০+ আন্তর্জাতিক ভাষায় ন্যাচারাল ভয়েসওভার",
-                    "কাইনেটিক মোশন গ্রাফিক্স ও প্রিমিয়াম স্টক ফুটেজ ইন্টিগ্রেশন",
-                    "ইউটিউব, ফেসবুক ও ইনস্টাগ্রামে অটো-শিডিউল আপলোড",
-                    "লাইফটাইম ডিল — জিরো মান্থলি ফি"
+                    "১০০% স্বয়ংক্রিয় এআই ভিডিও তৈরি (শর্টস ও ৫ মিনিটের সিনেমাটিক লং ভিডিও)",
+                    "৩য় অতিরিক্ত আন্তর্জাতিক ভাষা সম্পূর্ণ ফ্রি (হিন্দি/উর্দু/ইংরেজি আজীবন ফ্রি)",
+                    "৩টি ফেসবুক, ৩টি ইউটিউব ও ৩টি টিকটক (৯টি প্ল্যাটফর্মে একসাথে) ভিডিও পোস্ট করে ট্রিপল প্যাসিভ ইনকাম",
+                    "খাঁটি বাংলা ও ৬০+ আন্তর্জাতিক ভাষায় মানুষের মতো ন্যাচারাল ভয়েসওভার",
+                    "ট্রেন্ডিং ভাইরাল টপিক রিসার্চ ও ডিপ ইমোশনাল সিনেমাটিক চিত্রনাট্য",
+                    "আল্ট্রা-এইচডি সিনেমাটিক ফুটেজ, কেন-বার্নস মোশন ও কাইনেটিক সাবটাইটেল",
+                    "এককালীন মাত্র ৩,৯৯৯ টাকায় আজীবন লাইসেন্স — কোনো মাসিক বা বাৎসরিক ফি নেই",
+                    "লাইফটাইম লাইসেন্স — কোনো মাসিক বা বাৎসরিক ফি নেই (আর মাত্র ৮-১০ দিন কার্যকর)"
                 ],
                 "regular_price": "৳১০,০০০",
                 "offer_price": "৳৩,৯৯৯",
+                "price_num": 3999,
                 "currency": "BDT",
+                "billing_type": "One-Time Lifetime Deal",
                 "contact_info": {
                     "phone": "+8801968111593",
                     "whatsapp": "+8801968111593",
+                    "whatsapp_link": "https://wa.me/8801968111593",
                     "email": "support@automoviepro.com",
                     "website": "https://automoviepro.com",
                     "social_handles": {
@@ -133,8 +142,8 @@ class OmniProductManager:
                     }
                 },
                 "logo_or_image": "",
-                "target_audience": "Content Creators, Freelancers, Digital Marketers, YouTube Channel Owners",
-                "tone_of_voice": "Energetic, Confident, Result-Driven",
+                "target_audience": "Content Creators, Freelancers, Digital Marketers, YouTube Channel Owners, Media Agencies",
+                "tone_of_voice": "Energetic, Cinematic, Visionary, Premium",
                 "auto_campaign_settings": {
                     "enable_banners": True,
                     "enable_written_posts": True,
@@ -145,23 +154,31 @@ class OmniProductManager:
                 "updated_at": datetime.now().isoformat()
             },
             {
-                "id": "omni-fb-business-manager",
-                "name": "OmniSocial Facebook Business Manager Package",
-                "category": "E-Commerce & Digital Marketing",
+                "id": "fb_business",
+                "slug": "omni-fb-business-manager",
+                "name": "AutoMovie Pro - FB Business Manager & Ad Automation Engine",
+                "short_name": "বিজনেস ও সেলস ম্যানেজার (FB Business Manager)",
+                "category": "F-Commerce, Business Sales & Ad Automation",
+                "badge": "💼 বিজনেস ও সেলস ম্যানেজার",
                 "description": "ফেসবুক বিজনেস পেজ সেলস, কাইনেটিক বিজ্ঞাপন ও টার্গেটেড অর্গানিক গ্রুপ শেয়ারিং অটোমেশন। পেজ পরিচালনা ও কাস্টমার এনগেজমেন্টের ফুল অটো-পাইলট।",
                 "features": [
-                    "২৪/৭ ফেসবুক পেজ অটো-পোস্টিং ও অটো-পাইলট",
-                    "হাই-কনভার্টিং সেলস ব্যানার ও অফার গ্রাফিক্স তৈরি",
-                    "৩০-৭০ সেকেন্ডের ভাইরাল কাইনেটিক সেলস বিজ্ঞাপন ভিডিও",
-                    "টার্গেটেড ফেসবুক গ্রুপে নিরাপদ অর্গানিক পোস্ট শেয়ার",
-                    "রিয়েল-টাইম কমেন্ট ও স্প্যাম ফিল্টারিং গার্ড"
+                    "ব্যবসার ফেসবুক পেজে ২৪/৭ স্বয়ংক্রিয় পোস্টিং ও সম্পূর্ণ অটো-পাইলট",
+                    "প্রোডাক্টের জন্য আকর্ষণীয় হাই-কনভার্টিং সেলস ব্যানার ও অফার গ্রাফিক্স",
+                    "৩০ থেকে ৭০ সেকেন্ডের ভাইরাল কাইনেটিক সেলস বিজ্ঞাপন ভিডিও তৈরি",
+                    "ফেসবুক অ্যাড খরচ ছাড়া টার্গেটেড ফেসবুক গ্রুপে নিরাপদ অর্গানিক শেয়ারিং",
+                    "মেসেঞ্জারে ২৪/৭ সেলস রিপ্লাই, কাস্টমার এনগেজমেন্ট ও লিড ম্যানেজমেন্ট",
+                    "স্প্যাম ও নেগেটিভ কমেন্ট স্বয়ংক্রিয় ফিল্টারিং ও হাইড প্রটেকশন",
+                    "লাইফটাইম লাইসেন্স — কোনো মাসিক চার্জ নেই"
                 ],
                 "regular_price": "৳৮,৫০০",
                 "offer_price": "৳২,৯৯৯",
+                "price_num": 2999,
                 "currency": "BDT",
+                "billing_type": "One-Time Lifetime Deal",
                 "contact_info": {
                     "phone": "+8801968111593",
                     "whatsapp": "+8801968111593",
+                    "whatsapp_link": "https://wa.me/8801968111593",
                     "email": "business@automoviepro.com",
                     "website": "https://automoviepro.com",
                     "social_handles": {
@@ -169,8 +186,96 @@ class OmniProductManager:
                     }
                 },
                 "logo_or_image": "",
-                "target_audience": "F-commerce Shop Owners, Agency Founders, Small Business Entrepreneurs",
-                "tone_of_voice": "Professional, Value-Driven, Urgent",
+                "target_audience": "F-commerce Shop Owners, Agency Founders, Small Business Entrepreneurs, Online Sellers",
+                "tone_of_voice": "Professional, Value-Driven, Urgent, Commercial",
+                "auto_campaign_settings": {
+                    "enable_banners": True,
+                    "enable_written_posts": True,
+                    "enable_video_ads": True,
+                    "post_frequency": "1 per day"
+                },
+                "created_at": datetime.now().isoformat(),
+                "updated_at": datetime.now().isoformat()
+            },
+            {
+                "id": "profile_page",
+                "slug": "omni-fb-profile-page",
+                "name": "AutoMovie Pro - FB Profile & Page Post Automation Engine",
+                "short_name": "প্রোফাইল ও পেজ অটো-পাইলট (FB Profile & Page)",
+                "category": "Personal Branding & Organic Post Automation",
+                "badge": "📱 প্রোফাইল ও পেজ অটো-পাইলট",
+                "description": "ব্যক্তিগত ফেসবুক প্রোফাইল ও পেজের জন্য স্বয়ংক্রিয় পোস্ট ও ব্র্যান্ডিং। ইসলামিক হাদিস, মোটিভেশনাল উক্তি, শিক্ষণীয় কন্টেন্ট ও টার্গেটেড অর্গানিক গ্রুপ শেয়ারিং।",
+                "features": [
+                    "ব্যক্তিগত ফেসবুক প্রোফাইল ও পেজের জন্য স্বয়ংক্রিয় পোস্ট ও ব্র্যান্ডিং",
+                    "ইসলামিক হাদিস, মোটিভেশনাল উক্তি ও তথ্যবহুল কোট ব্যানার তৈরি",
+                    "মানুষের মতো স্বাভাবিক অনুভূতির আবেগঘন ক্যাপশন ও স্ট্যাটাস ড্রাফটিং",
+                    "১০০% মানুষের মতো র্যান্ডম মাউস মুভমেন্ট ও অ্যান্টি-ব্যান সেফ ইন্টারভাল",
+                    "টাইমলাইন এবং বিভিন্ন পাবলিক গ্রুপে নিরাপদ অর্গানিক পোস্ট শেয়ারিং",
+                    "ডেইলি শিডিউল অনুযায়ী অটোমেশন — প্রোফাইল সার্বক্ষণিক সচল",
+                    "আজীবন লাইসেন্স — জিরো রিনিউয়াল ফি"
+                ],
+                "regular_price": "৳৫,৫০০",
+                "offer_price": "৳১,৯৯৯",
+                "price_num": 1999,
+                "currency": "BDT",
+                "billing_type": "One-Time Lifetime Deal",
+                "contact_info": {
+                    "phone": "+8801968111593",
+                    "whatsapp": "+8801968111593",
+                    "whatsapp_link": "https://wa.me/8801968111593",
+                    "email": "profile@automoviepro.com",
+                    "website": "https://automoviepro.com",
+                    "social_handles": {
+                        "facebook": "https://facebook.com/automoviepro"
+                    }
+                },
+                "logo_or_image": "",
+                "target_audience": "Individual Professionals, Influencers, Public Figures, Islamic Page Admins",
+                "tone_of_voice": "Inspirational, Respectful, Thoughtful, Authentic",
+                "auto_campaign_settings": {
+                    "enable_banners": True,
+                    "enable_written_posts": True,
+                    "enable_video_ads": True,
+                    "post_frequency": "1 per day"
+                },
+                "created_at": datetime.now().isoformat(),
+                "updated_at": datetime.now().isoformat()
+            },
+            {
+                "id": "wa_marketing",
+                "slug": "wamanager-pro-suite",
+                "name": "WAManager Pro — WhatsApp Marketing Suite",
+                "short_name": "হোয়াটসঅ্যাপ মার্কেটিং স্যুট (WhatsApp Suite)",
+                "category": "WhatsApp Marketing, Bulk Messaging & Lead Scraping",
+                "badge": "📱 WhatsApp মার্কেটিং পাওয়ারহাউজ",
+                "description": "আনলিমিটেড বাল্ক মেসেজিং, অ্যান্টি-ব্যান স্পিনট্যাক্স, অটো-রিপ্লাই বট ও গুগল ম্যাপস/বি২বি লিড স্ক্র্যাপার সহ সম্পূর্ণ হোয়াটসঅ্যাপ মার্কেটিং সমাধান।",
+                "features": [
+                    "আনলিমিটেড বাল্ক মেসেজিং — এক ক্লিকে হাজার হাজার নাম্বারে মেসেজ প্রেরণ",
+                    "অ্যাকাউন্ট সুরক্ষায় শক্তিশালী অ্যান্টি-ব্যান স্পিনট্যাক্স ও র্যান্ডম ডিলে",
+                    "২৪/৭ স্বয়ংক্রিয় চ্যাটবট ও ইন্টেলিজেন্ট অটো-রিপ্লাই সিস্টেম",
+                    "গুগল ম্যাপস ও বি২বি ডিরেক্টরি থেকে টার্গেটেড কাস্টমার নাম্বার স্ক্র্যাপার",
+                    "নম্বর ফিল্টার — অ্যাক্টিভ WhatsApp নম্বর স্বয়ংক্রিয় যাচাই",
+                    "শিডিউলড ড্রিপ ক্যাম্পেইন ও রিয়েল-টাইম ডেলিভারি অ্যানালিটিক্স রিপোর্ট",
+                    "১ বছর লাইসেন্স + সার্বক্ষণিক সাপোর্ট ও নিয়মিত ফিচার আপডেট"
+                ],
+                "regular_price": "৳২,৯৯৯",
+                "offer_price": "৳৯৯৯",
+                "price_num": 999,
+                "currency": "BDT",
+                "billing_type": "1-Year Subscription Deal",
+                "contact_info": {
+                    "phone": "+8801968111593",
+                    "whatsapp": "+8801968111593",
+                    "whatsapp_link": "https://wa.me/8801968111593",
+                    "email": "wamanager@automoviepro.com",
+                    "website": "https://automoviepro.com",
+                    "social_handles": {
+                        "facebook": "https://facebook.com/automoviepro"
+                    }
+                },
+                "logo_or_image": "",
+                "target_audience": "Digital Marketers, Lead Generation Agencies, B2B Businesses, F-commerce Sellers",
+                "tone_of_voice": "Direct, High-Utility, High-ROI, Action-Oriented",
                 "auto_campaign_settings": {
                     "enable_banners": True,
                     "enable_written_posts": True,
@@ -185,10 +290,10 @@ class OmniProductManager:
 
     @classmethod
     def get_product(cls, product_id: str) -> Optional[Dict[str, Any]]:
-        """Finds a product by id."""
+        """Finds a product by id, slug, or tier code."""
         products = cls.load_catalog()
         for p in products:
-            if p.get("id") == product_id:
+            if p.get("id") == product_id or p.get("slug") == product_id or p.get("tier_code") == product_id:
                 return p
         return None
 
@@ -456,7 +561,34 @@ class OmniProductManager:
 
         feat_str = "\n".join([f"✅ {f}" for f in features])
 
-        post_caption = f"""🚀 【ধামাকা অফার】 {name} নিয়ে এলো সেরা সমাধান!
+        # Clean WhatsApp digits for 1-click wa.me URL
+        wa_digits = re.sub(r"[^\d]", "", phone)
+        wa_link = f"https://wa.me/{wa_digits}" if wa_digits else "https://wa.me/8801968111593"
+        web_link = website if (website and website.startswith("http")) else (f"https://{website}" if website else "https://automoviepro.com")
+
+        bonus_text = ""
+        scarcity_text = "⚠️ সীমিত সময়ের ২য় স্পেশাল অফার — আগামী ৮-১০ দিন পর রেগুলার মূল্যে ফিরে যাবে!"
+        if product_id == "video_studio":
+            bonus_text = """🎁 আজকের স্পেশাল ডাবল বোনাস:
+✨ ৩য় অতিরিক্ত আন্তর্জাতিক ভাষা (হিন্দি/উর্দু/ইংরেজি - মূল্য ৳৪৯৯) আজীবন ব্যবহারের জন্য সম্পূর্ণ ফ্রি!
+✨ ১টি ক্লিকেই ৩টি ফেসবুক পেজ, ৩টি ইউটিউব চ্যানেল ও ৩টি টিকটক একাউন্ট (মোট ৯টি প্ল্যাটফর্মে একসাথে) ভিডিও পোস্ট করে ট্রিপল প্যাসিভ ইনকাম!"""
+        elif product_id == "fb_business":
+            bonus_text = """🎁 বিজনেসের জন্য বিশেষ সুবিধা:
+✨ ৩০-৭০ সেকেন্ডের কাইনেটিক বিজ্ঞাপন ভিডিও মেকার ও প্রোডাক্ট সেলস ব্যানার
+✨ টার্গেটেড ফেসবুক গ্রুপে নিরাপদ অর্গানিক পোস্ট শেয়ারিং — জিরো পেইড অ্যাড কস্টে সেলস বৃদ্ধি!"""
+        elif product_id == "profile_page":
+            bonus_text = """🎁 প্রোফাইল ব্র্যান্ডিংয়ের বিশেষ সুবিধা:
+✨ মানুষের স্বাভাবিক মাউস মুভমেন্ট ও অ্যান্টি-ব্যান সেফটি অ্যালগরিদম
+✨ প্রতিদিন স্বয়ংক্রিয় অনুপ্রেরণামূলক ও ইসলামিক কোট ব্যানার ও স্ট্যাটাস পাবলিশিং!"""
+        elif product_id == "wa_marketing":
+            bonus_text = """🎁 ডিরেক্ট সেলস ও মার্কেটিং পাওয়ার:
+✨ গুগল ম্যাপস ও বি২বি ডিরেক্টরি থেকে টার্গেটেড লিড স্ক্র্যাপার
+✨ ২৪/৭ চ্যাটবট অটো-রিপ্লাই ও আনলিমিটেড বাল্ক মেসেজিং ইঞ্জিন!"""
+
+        post_caption = f"""🚀 【ধামাকা অফার】 {name} নিয়ে এলো সেরা সমাধান!
+
+🌐 ১-ক্লিকে ওয়েবসাইট ভিজিট করুন: {web_link}
+💬 ১-ক্লিকে হোয়াটসঅ্যাপে মেসেজ দিন: {wa_link}
 
 {desc}
 
@@ -464,16 +596,20 @@ class OmniProductManager:
 {feat_str}
 
 💰 রেগুলার মূল্য: {reg_p}
-💥 সীমিত সময়ের স্পেশাল অফার মূল্য: মাত্র {off_p}!
+💥 সীমিত সময়ের স্পেশাল অফার মূল্য: মাত্র {off_p}!
+{scarcity_text}
 
-কেন দেরি করবেন? আপনার কাজকে ১০ গুণ সহজ ও প্রফেশনাল করতে আজই সংগ্রহ করুন।
+{bonus_text}
 
-📞 যোগাযোগ ও অর্ডার করতে:
-📱 WhatsApp / সরাসরি কল: {phone}
-🌐 ওয়েবসাইট: {website}
+কেন দেরি করবেন? আপনার প্যাসিভ ইনকাম বা ব্যবসার গ্রোথকে ১০ গুণ সহজ ও প্রফেশনাল করতে আজই সংগ্রহ করুন।
+
+🛒 ১-ক্লিকে অর্ডার ও ইনস্ট্যান্ট এক্সেস:
+🌐 ওয়েবসাইট: {web_link}
+💬 হোয়াটসঅ্যাপ ডিরেক্ট চ্যাট: {wa_link}
+📞 সরাসরি কল / হেল্পলাইন: {phone}
 ✉️ ইমেইল: {email}
 
-#AutoMoviePro #{category.replace(' ', '')} #SpecialDeal #ExclusiveOffer #Technology #BusinessGrowth #Bangladesh
+#AutoMoviePro #{category.replace(' ', '')} #SpecialDeal #ExclusiveOffer #PassiveIncome #YouTubeFaceless #Technology #BusinessGrowth #Bangladesh
 """
         return {
             "product_id": product_id,

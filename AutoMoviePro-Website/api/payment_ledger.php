@@ -4,6 +4,55 @@ declare(strict_types=1);
 header('Content-Type: application/json; charset=utf-8');
 require __DIR__ . '/../includes/bootstrap.php';
 
+// Authentication Guard: require X-Agent-Key or valid admin session
+$agentKeyHeader = trim((string) ($_SERVER['HTTP_X_AGENT_KEY'] ?? $_SERVER['HTTP_AUTHORIZATION'] ?? ''));
+if (str_starts_with($agentKeyHeader, 'Bearer ')) {
+    $agentKeyHeader = trim(substr($agentKeyHeader, 7));
+}
+if (empty($agentKeyHeader) && function_exists('getallheaders')) {
+    $allHdrs = getallheaders();
+    foreach ($allHdrs as $k => $v) {
+        if (strcasecmp($k, 'X-Agent-Key') === 0) {
+            $agentKeyHeader = trim((string) $v);
+            break;
+        }
+    }
+}
+
+$configuredKey = setting($pdo, 'agent_master_secret', '');
+if (empty($configuredKey)) {
+    $configuredKey = setting($pdo, 'agent_internal_secret_key', '');
+}
+if (empty($configuredKey)) {
+    $configuredKey = $config['agent_master_secret'] ?? getenv('AMP_AGENT_MASTER_SECRET') ?: 'amp_agent_master_live_key_2026';
+    set_setting($pdo, 'agent_master_secret', $configuredKey);
+}
+
+$raw = file_get_contents('php://input');
+$data = json_decode($raw ?: '', true);
+if (!is_array($data)) {
+    $data = $_POST;
+}
+
+$providedKey = trim((string) ($agentKeyHeader ?: ($_GET['key'] ?? ($data['key'] ?? ''))));
+$isAuthorized = false;
+
+if (!empty($providedKey) && hash_equals($configuredKey, $providedKey)) {
+    $isAuthorized = true;
+} elseif (!empty($_SESSION['admin_logged_in'])) {
+    $isAuthorized = true;
+}
+
+if (!$isAuthorized) {
+    http_response_code(401);
+    echo json_encode([
+        'ok' => false,
+        'error' => 'unauthorized',
+        'message' => 'Unauthorized access. Valid Agent Key or Admin Session required.'
+    ], JSON_UNESCAPED_UNICODE);
+    exit;
+}
+
 $method = $_SERVER['REQUEST_METHOD'];
 
 if ($method === 'GET') {
@@ -12,7 +61,9 @@ if ($method === 'GET') {
     $totalIn = (float) $totalInStmt->fetchColumn();
 
     // 2. Calculate today's received
-    $todayInStmt = $pdo->query('SELECT COALESCE(SUM(amount), 0) FROM agent_sms_inbox WHERE DATE(created_at) = CURDATE()');
+    $today = date('Y-m-d');
+    $todayInStmt = $pdo->prepare('SELECT COALESCE(SUM(amount), 0) FROM agent_sms_inbox WHERE DATE(created_at) = ?');
+    $todayInStmt->execute([$today]);
     $todayIn = (float) $todayInStmt->fetchColumn();
 
     // 3. Calculate total withdrawn
@@ -45,9 +96,6 @@ if ($method === 'GET') {
 }
 
 if ($method === 'POST') {
-    $raw = file_get_contents('php://input');
-    $data = json_decode($raw, true) ?? $_POST;
-
     $amount = (float) ($data['amount'] ?? 0);
     $notes = trim((string) ($data['notes'] ?? 'Cash withdrawal'));
     $agentName = trim((string) ($data['agent_name'] ?? 'জাহিদ ফার্মেসী / সিমি ড্রাগ হাউস'));
@@ -57,8 +105,9 @@ if ($method === 'POST') {
         exit;
     }
 
-    $ins = $pdo->prepare('INSERT INTO cash_withdrawals (agent_name, amount, notes, created_at) VALUES (?, ?, ?, NOW())');
-    $ins->execute([$agentName, $amount, $notes]);
+    $nowTime = date('Y-m-d H:i:s');
+    $ins = $pdo->prepare('INSERT INTO cash_withdrawals (agent_name, amount, notes, created_at) VALUES (?, ?, ?, ?)');
+    $ins->execute([$agentName, $amount, $notes, $nowTime]);
 
     echo json_encode([
         'ok' => true,

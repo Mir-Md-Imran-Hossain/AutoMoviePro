@@ -8,7 +8,7 @@ $raw = file_get_contents('php://input');
 $data = json_decode($raw, true) ?? $_POST;
 
 $code = strtoupper(trim((string) ($data['code'] ?? '')));
-$orderAmount = (float) ($data['amount'] ?? 2998.0);
+$orderAmount = (float) ($data['amount'] ?? 3999.0);
 
 if ($code === '') {
     echo json_encode(['ok' => false, 'error' => 'কুপন কোড প্রবেশ করান।'], JSON_UNESCAPED_UNICODE);

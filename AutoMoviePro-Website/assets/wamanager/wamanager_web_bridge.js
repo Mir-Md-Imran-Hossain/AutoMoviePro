@@ -89,6 +89,9 @@
     connectAccount: (id) => callApi('accounts:connect', { id }),
     disconnectAccount: (id) => callApi('accounts:disconnect', { id }),
     deleteAccount: (id) => callApi('accounts:delete', { id }),
+    getAccountQR: (id) => callApi('accounts:get_qr', { id }),
+    pairVerifyAccount: (id) => callApi('accounts:pair_verify', { id }),
+    updateAccountLimit: (data) => callApi('accounts:update_limit', data),
     openWhatsAppWeb: (id) => {
       window.open('https://web.whatsapp.com', '_blank');
       return Promise.resolve(true);

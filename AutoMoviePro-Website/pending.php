@@ -3,12 +3,15 @@ declare(strict_types=1);
 require __DIR__ . '/includes/bootstrap.php';
 
 $orderId = (int) ($_GET['order'] ?? 0);
+$token = trim((string) ($_GET['token'] ?? $_POST['token'] ?? ''));
 $stmt = $pdo->prepare('SELECT * FROM orders WHERE id = ? LIMIT 1');
 $stmt->execute([$orderId]);
 $order = $stmt->fetch();
 if (!$order) {
     redirect('/');
 }
+
+$hasValidToken = amp_verify_order_token($pdo, $order, $token);
 
 $uiLang = strtolower(substr((string) ($_GET['lang'] ?? $_COOKIE['amp_ui_lang'] ?? 'bn'), 0, 2));
 if (!in_array($uiLang, amp_cms_langs(), true)) {
@@ -40,14 +43,19 @@ $gmailWaLink = 'https://wa.me/8801968111593?text=' . rawurlencode($gmailHandoffM
 $isApproved = in_array((string)($order['status'] ?? ''), ['approved', 'active'], true);
 $customer = null;
 $license = null;
+$downloadToken = null;
 if ($isApproved && !empty($order['customer_id'])) {
-    $custStmt = $pdo->prepare('SELECT * FROM customers WHERE id = ? LIMIT 1');
-    $custStmt->execute([(int)$order['customer_id']]);
-    $customer = $custStmt->fetch();
+    if ($hasValidToken) {
+        $custStmt = $pdo->prepare('SELECT * FROM customers WHERE id = ? LIMIT 1');
+        $custStmt->execute([(int)$order['customer_id']]);
+        $customer = $custStmt->fetch();
 
-    $licStmt = $pdo->prepare('SELECT * FROM licenses WHERE customer_id = ? AND revoked = 0 ORDER BY id DESC LIMIT 1');
-    $licStmt->execute([(int)$order['customer_id']]);
-    $license = $licStmt->fetch();
+        $licStmt = $pdo->prepare('SELECT * FROM licenses WHERE customer_id = ? AND revoked = 0 ORDER BY id DESC LIMIT 1');
+        $licStmt->execute([(int)$order['customer_id']]);
+        $license = $licStmt->fetch();
+
+        $downloadToken = amp_get_active_download_token($pdo, (int)$order['id'], (int)$order['customer_id']);
+    }
 }
 
 $hasPaymentSubmitted = !empty($order['txn_id']) || !empty($order['payment_screenshot']) || in_array((string)($order['status'] ?? ''), ['under_review', 'approved', 'active'], true);
@@ -100,8 +108,28 @@ $waProofLink = 'https://wa.me/8801968111593?text=' . rawurlencode($waPrefill);
   </header>
   <section class="reveal in">
 
-    <?php if ($isApproved): ?>
-      <!-- INSTANT APPROVED DISPLAY -->
+    <?php if (!$hasValidToken): ?>
+      <!-- IDOR PROTECTED VIEW: TOKEN MISSING OR MISMATCHED -->
+      <div id="unauthorizedView" class="approved-container" style="background: linear-gradient(135deg, #1e293b, #0f172a); border: 2px solid #ef4444; border-radius: 16px; padding: 2rem 1.5rem; margin: 1.5rem 0 2rem; text-align: center; box-shadow: 0 10px 30px rgba(239, 68, 68, 0.2);">
+        <div style="font-size: 3rem; margin-bottom: 0.5rem;">🔒</div>
+        <h2 style="color: #f87171; font-size: 1.5rem; margin-bottom: 0.5rem; font-weight: 700;">সিকিউরিটি নোটিশ: অ্যাক্সেস ভেরিফিকেশন প্রয়োজন</h2>
+        <p style="color: #cbd5e1; font-size: 1rem; max-width: 600px; margin: 0 auto 1.5rem;">
+          অর্ডার #<?= (int) $order['id'] ?>-এর বিস্তারিত তথ্য, পেমেন্ট স্ট্যাটাস ও সংবেদনশীল ক্রেডেনশিয়াল সুরক্ষিত রাখতে একটি বৈধ সিকিউর অর্ডার টোকেন প্রয়োজন। অনুগ্রহ করে চেকআউটের সময় প্রদত্ত লিঙ্ক অথবা WhatsApp-এ প্রেরিত অফিসিয়াল লিঙ্কটি ব্যবহার করুন।
+        </p>
+        <div style="background: rgba(0,0,0,0.3); border: 1px solid #475569; border-radius: 10px; padding: 1rem; max-width: 440px; margin: 0 auto; text-align: left; color: #94a3b8; font-size: 0.9rem;">
+          • অর্ডার রেফারেন্স: <strong>#AMP-<?= (int)$order['id'] ?></strong><br>
+          • স্ট্যাটাস: <span style="color:#f59e0b; font-weight:700;"><?= e(strtoupper(str_replace('_', ' ', (string)($order['status'] ?? 'PENDING')))) ?></span><br>
+          • ক্রেডেনশিয়াল ও গ্রাহক তথ্য: <span style="color:#ef4444; font-weight:700;">[REDACTED — সিকিউর টোকেন অনুপস্থিত]</span><br>
+          • সহায়তা প্রয়োজন? আমাদের WhatsApp সাপোর্টে যোগাযোগ করুন।
+        </div>
+        <div style="margin-top: 1.5rem;">
+          <a href="/?lang=<?= e($uiLang) ?>" class="btn btn-ghost" style="text-decoration:none;">হোমে ফিরুন</a>
+          <a href="<?= e($waLink) ?>" class="btn btn-wa" target="_blank" rel="noopener" style="text-decoration:none; margin-left: 8px;">WhatsApp সাপোর্ট</a>
+        </div>
+      </div>
+    <?php else: ?>
+      <?php if ($isApproved): ?>
+      <!-- INSTANT APPROVED DISPLAY (SECURE WITH VALID TOKEN) -->
       <div id="approvedView" class="approved-container" style="background: linear-gradient(135deg, #064e3b, #022c22); border: 2px solid #10b981; border-radius: 16px; padding: 2rem 1.5rem; margin: 1.5rem 0 2rem; text-align: center; box-shadow: 0 10px 30px rgba(16, 185, 129, 0.25);">
         <div style="font-size: 3rem; margin-bottom: 0.5rem;">🎉</div>
         <h2 style="color: #6ee7b7; font-size: 1.5rem; margin-bottom: 0.5rem; font-weight: 700;">অভিনন্দন! আপনার অ্যাকাউন্ট প্রস্তুত ও সক্রিয় হয়েছে</h2>
@@ -129,15 +157,41 @@ $waProofLink = 'https://wa.me/8801968111593?text=' . rawurlencode($waPrefill);
           </div>
         </div>
 
-        <a href="/downloads/AutoMoviePro_Installer_Latest.exe" class="btn" style="background: #10b981; color: #022c22; font-weight: 800; font-size: 1.1rem; padding: 0.9rem 1.8rem; border-radius: 10px; display: inline-flex; align-items: center; justify-content: center; gap: 8px; box-shadow: 0 6px 20px rgba(16,185,129,0.4); text-decoration: none;">
-          ⬇️ ১-ক্লিকে ইনস্টলার ডাউনলোড করুন (AutoMoviePro.exe)
+        <a href="/download.php?token=<?= e($downloadToken) ?>" class="btn" style="background: #10b981; color: #022c22; font-weight: 800; font-size: 1.1rem; padding: 0.9rem 1.8rem; border-radius: 10px; display: inline-flex; align-items: center; justify-content: center; gap: 8px; box-shadow: 0 6px 20px rgba(16,185,129,0.4); text-decoration: none;">
+          ⬇️ সিকিউর ইনস্টলার ডাউনলোড করুন (AutoMoviePro.exe)
         </a>
       </div>
-    <?php endif; ?>
+      <?php endif; ?>
 
     <div id="pendingSection" style="<?= $isApproved ? 'display:none;' : '' ?>">
       
-      <?php if ($hasPaymentSubmitted): ?>
+      <?php if (($order['status'] ?? '') === 'waitlist_priority'): ?>
+        <!-- STATE: VIP PRIORITY WAITLIST REGISTERED (1-WEEK SERVER UPGRADE) -->
+        <div class="waitlist-card" style="background: linear-gradient(135deg, rgba(245, 158, 11, 0.2), rgba(15, 23, 42, 0.95)); border: 2px solid #f59e0b; border-radius: 16px; padding: 2.2rem 1.75rem; margin: 1.5rem 0 2rem; box-shadow: 0 10px 35px rgba(245, 158, 11, 0.25); text-align: center;">
+          <div style="font-size: 3.5rem; margin-bottom: 0.5rem;">🎉</div>
+          <span style="background: rgba(245, 158, 11, 0.25); color: #fbbf24; font-size: 0.85rem; font-weight: 800; padding: 6px 16px; border-radius: 9999px; text-transform: uppercase; border: 1.5px solid #f59e0b;">
+            📋 প্রি-লঞ্চ প্রায়োরিটি ওয়েটিং লিস্ট নিশ্চিত হয়েছে (VIP Priority Waitlist)
+          </span>
+          <h2 style="color: #f1f5f9; font-size: 1.6rem; margin-top: 1rem; margin-bottom: 0.6rem; font-weight: 800;">
+            আলহামদুলিল্লাহ <?= e($order['name']) ?>! আপনার নাম ও নম্বর সংরক্ষিত হয়েছে
+          </h2>
+          <p style="color: #cbd5e1; font-size: 1.05rem; max-width: 680px; margin: 0 auto 1.5rem; line-height: 1.6;">
+            আমাদের হাই-স্পিড ক্লাউড ভিডিও রেন্ডারিং সার্ভার মাইগ্রেশন ও বড় টেকনিক্যাল আপগ্রেডের কাজ চলছে। <strong>আগামী ১ সপ্তাহ পর</strong> নতুন সার্ভার ক্লাস্টার লাইভ হওয়া মাত্রই আমাদের সেলস ও সাপোর্ট টিম আপনার হোয়াটসঅ্যাপ নম্বরে (<strong><?= e($order['whatsapp']) ?></strong>) সরাসরি যোগাযোগ করে বিশেষ রি-লঞ্চ অফারে সফটওয়্যার এক্সেস বুঝিয়ে দেবে।
+          </p>
+          <div style="background: rgba(15, 23, 42, 0.8); border: 1px solid rgba(245,158,11,0.4); border-radius: 12px; padding: 1.25rem; max-width: 520px; margin: 0 auto 1.5rem; text-align: left;">
+            <div style="color: #fbbf24; font-weight: 700; margin-bottom: 8px; font-size: 0.95rem;">📌 আপনার ওয়েটিং লিস্ট বিবরণ:</div>
+            <div style="font-size: 0.9rem; color: #cbd5e1; line-height: 1.8;">
+              • ওয়েটিং রেফারেন্স: <strong>#AMP-WL-<?= (int)$order['id'] ?></strong><br>
+              • আগ্রহের প্যাকেজ: <span style="color:#38bdf8; font-weight:600;"><?= e($order['plan_name']) ?></span><br>
+              • প্রাক্কলিত রি-লঞ্চ সময়: <strong>আগামী ৭ দিন (১ সপ্তাহ)</strong><br>
+              • প্রি-অর্ডার পেমেন্ট: <span style="color:#10b981; font-weight:700;">এখন কোনো পেমেন্ট দিতে হবে না</span> (সার্ভার লাইভ হলে পেমেন্ট করবেন)
+            </div>
+          </div>
+          <a href="/?lang=<?= e($uiLang) ?>" class="btn" style="background: #f59e0b; color: #000; font-weight: 800; font-size: 1rem; padding: 0.85rem 1.8rem; border-radius: 10px; text-decoration: none;">
+            হোম পেজে ফিরে যান
+          </a>
+        </div>
+      <?php elseif ($hasPaymentSubmitted): ?>
         <!-- STATE A: PAYMENT SUBMITTED & UNDER ACTIVE REVIEW -->
         <div class="under-review-card" style="background: linear-gradient(135deg, rgba(15, 23, 42, 0.95), rgba(30, 58, 138, 0.35)); border: 2px solid #38bdf8; border-radius: 16px; padding: 2rem 1.5rem; margin: 1.5rem 0 2rem; box-shadow: 0 10px 30px rgba(56, 189, 248, 0.2); text-align: center;">
           <div style="font-size: 3rem; margin-bottom: 0.5rem;">⏳</div>
@@ -323,6 +377,7 @@ $waProofLink = 'https://wa.me/8801968111593?text=' . rawurlencode($waPrefill);
 
           <form id="verifyPaymentForm" enctype="multipart/form-data" style="display:grid; grid-template-columns:1fr 1fr; gap:1rem;">
             <input type="hidden" name="order_id" value="<?= (int) $order['id'] ?>">
+            <input type="hidden" name="token" value="<?= e($token) ?>">
             
             <div>
               <label style="display:block; color:#cbd5e1; font-size:0.88rem; font-weight:600; margin-bottom:0.35rem;">পেমেন্ট মেথড</label>
@@ -383,6 +438,7 @@ $waProofLink = 'https://wa.me/8801968111593?text=' . rawurlencode($waPrefill);
         </div>
       </div>
     </div>
+    <?php endif; // hasValidToken ?>
 
     <script>
       let isOrderActive = <?= $isApproved ? 'true' : 'false' ?>;
@@ -445,17 +501,19 @@ $waProofLink = 'https://wa.me/8801968111593?text=' . rawurlencode($waPrefill);
               </div>
             </div>
 
-            <a href="${data.download_url || '/downloads/AutoMoviePro_Installer_Latest.exe'}" class="btn" style="background: #10b981; color: #022c22; font-weight: 800; font-size: 1.1rem; padding: 0.9rem 1.8rem; border-radius: 10px; display: inline-flex; align-items: center; justify-content: center; gap: 8px; box-shadow: 0 6px 20px rgba(16,185,129,0.4); text-decoration: none;">
-              ⬇️ ১-ক্লিকে ইনস্টলার ডাউনলোড করুন (AutoMoviePro.exe)
+            <a href="${data.download_url || ('/download.php?token=' + encodeURIComponent(data.download_token || ''))}" class="btn" style="background: #10b981; color: #022c22; font-weight: 800; font-size: 1.1rem; padding: 0.9rem 1.8rem; border-radius: 10px; display: inline-flex; align-items: center; justify-content: center; gap: 8px; box-shadow: 0 6px 20px rgba(16,185,129,0.4); text-decoration: none;">
+              ⬇️ সিকিউর ইনস্টলার ডাউনলোড করুন (AutoMoviePro.exe)
             </a>
           </div>
         `;
       }
 
+      const clientOrderToken = <?= json_encode($token) ?>;
+
       async function checkOrderStatusLive() {
         if (isOrderActive) return;
         try {
-          const res = await fetch('/api/order_status.php?order_id=<?= (int)$order['id'] ?>');
+          const res = await fetch('/api/order_status.php?order_id=<?= (int)$order['id'] ?>&token=' + encodeURIComponent(clientOrderToken));
           const data = await res.json();
           if (data.ok && data.is_approved) {
             renderLiveApproved(data);

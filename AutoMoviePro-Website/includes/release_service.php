@@ -32,10 +32,14 @@ function amp_release_public_url(array $config): string
 
 function amp_current_release(PDO $pdo): ?array
 {
-    $row = $pdo->query(
-        'SELECT * FROM app_releases WHERE is_current = 1 ORDER BY id DESC LIMIT 1'
-    )->fetch();
-    return $row ?: null;
+    try {
+        $row = $pdo->query(
+            'SELECT * FROM app_releases WHERE is_current = 1 ORDER BY id DESC LIMIT 1'
+        )->fetch();
+        return $row ?: null;
+    } catch (\Throwable) {
+        return null;
+    }
 }
 
 function amp_version_compare_norm(string $a, string $b): int

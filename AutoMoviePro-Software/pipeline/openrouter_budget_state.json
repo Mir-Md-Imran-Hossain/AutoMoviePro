@@ -8,11 +8,14 @@
     1793050414.3127978,
     1793050429.9116807
   ],
-  "circuit_open": false,
-  "circuit_reason": "",
-  "circuit_until": 0.0,
+  "circuit_open": true,
+  "circuit_reason": "{\"error\":{\"message\":\"This request requires more credits, or fewer max_tokens. You requested up to 2048 tokens, but can o",
+  "circuit_until": 1794473330.7601576,
   "strikes": [
-    1794265763.4480321,
-    1794265764.4826362
+    1794472422.573468,
+    1794472423.2257292,
+    1794472427.198951,
+    1794472427.857353,
+    1794472430.7595966
   ]
 }

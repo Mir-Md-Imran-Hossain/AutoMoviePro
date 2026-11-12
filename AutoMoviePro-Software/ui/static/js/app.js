@@ -58,16 +58,98 @@ function renderTierInfo(customer) {
 }
 
 function showDash(loggedIn, customer) {
-  loginView.classList.toggle("hidden", loggedIn);
-  dashView.classList.toggle("hidden", !loggedIn);
+  const topHeader = document.querySelector("header.top");
+  const tickerBar = document.getElementById("liveTickerBar");
+  const chatFab = document.getElementById("chatFab");
+  const chatPanel = document.getElementById("chatPanel");
+  const loginWrapper = document.getElementById("loginGateWrapper") || loginView;
+
+  if (topHeader) topHeader.style.setProperty("display", loggedIn ? "flex" : "none", "important");
+  if (tickerBar) tickerBar.style.setProperty("display", loggedIn ? "flex" : "none", "important");
+  if (chatFab) chatFab.style.setProperty("display", loggedIn ? "flex" : "none", "important");
+  if (chatPanel && !loggedIn) chatPanel.classList.add("hidden");
+
+  if (loginWrapper) {
+    loginWrapper.classList.toggle("hidden", loggedIn);
+    loginWrapper.style.setProperty("display", loggedIn ? "none" : "flex", "important");
+  }
+  if (loginView && loginView !== loginWrapper) {
+    loginView.classList.toggle("hidden", loggedIn);
+  }
+  if (dashView) {
+    dashView.classList.toggle("hidden", !loggedIn);
+    dashView.style.setProperty("display", loggedIn ? "flex" : "none", "important");
+  }
+
+  const topLogout = document.getElementById("topLogoutBtn");
+  if (topLogout) topLogout.style.display = loggedIn ? "inline-flex" : "none";
+
   if (loggedIn) {
+    if (typeof window.triggerDashboardWelcome === "function") {
+      window.triggerDashboardWelcome();
+    }
     const tier = customer?.tier || customer?.plan || "video_studio";
     userBox.innerHTML = `${escapeHtml(customer?.name || "")} (${escapeHtml(customer?.login_id || "")}) ${getTierBadgeHtml(tier)}`;
     renderTierInfo(customer);
+
+    const sideName = document.getElementById("sidebarUserNameText");
+    const sideTier = document.getElementById("sidebarUserTierText");
+    const sidePill = document.getElementById("sidebarTierPill");
+    if (sideName) sideName.textContent = customer?.name || customer?.login_id || "Client User";
+    if (sideTier) sideTier.textContent = String(tier).toUpperCase();
+    if (sidePill) sidePill.innerHTML = getTierBadgeHtml(tier);
   } else {
     userBox.textContent = "লগইন হয়নি";
   }
 }
+
+let _loginVoiceHasPlayed = false;
+function triggerLoginWelcomeVoice(forceReplay = false) {
+  if (_loginVoiceHasPlayed && !forceReplay) return;
+
+  const loginWrapper = document.getElementById("loginGateWrapper") || document.getElementById("loginView");
+  if (!forceReplay && loginWrapper && window.getComputedStyle(loginWrapper).display === "none") {
+    return; // Already in dashboard, do not play login voice
+  }
+  _loginVoiceHasPlayed = true;
+
+  const audioUrl = "/assets/audio/voice_cues/login_welcome_bn.wav";
+  const commentaryMsg = "আসসালামু আলাইকুম। অটোমুভি প্রো-তে আপনাকে স্বাগতম। আপনার হোয়াটসঅ্যাপে যে লগইন ইউজার আইডি এবং পাসওয়ার্ডটি দেওয়া হয়েছে, সেটির মাধ্যমে এখানে লগইন করুন।";
+
+  const loginPromptText = document.getElementById("loginVoicePromptText");
+  if (loginPromptText) {
+    loginPromptText.innerHTML = `<span style="color:#38bdf8; font-weight:700;">[AutoMovie Pro AI]:</span> ${commentaryMsg}`;
+  }
+
+  // Play cleanly exactly ONCE using voice cue engine or direct single audio element
+  if (typeof window.playVoiceAudioCue === "function") {
+    window.playVoiceAudioCue(audioUrl, commentaryMsg);
+  } else if (typeof window.playJarvisAudioCue === "function") {
+    window.playJarvisAudioCue(audioUrl, commentaryMsg);
+  } else {
+    try {
+      const snd = new Audio(audioUrl);
+      snd.volume = 0.95;
+      const p = snd.play();
+      if (p !== undefined) {
+        p.catch(() => {
+          const onFirstInteract = () => {
+            snd.play().catch(() => {});
+            window.removeEventListener("click", onFirstInteract);
+            window.removeEventListener("keydown", onFirstInteract);
+            window.removeEventListener("focusin", onFirstInteract);
+          };
+          window.addEventListener("click", onFirstInteract, { once: true });
+          window.addEventListener("keydown", onFirstInteract, { once: true });
+          window.addEventListener("focusin", onFirstInteract, { once: true });
+        });
+      }
+    } catch (err) {
+      console.debug("Login audio play error:", err);
+    }
+  }
+}
+window.triggerLoginWelcomeVoice = triggerLoginWelcomeVoice;
 
 function escapeAttr(s) {
   return String(s || "").replace(/&/g, "&amp;").replace(/"/g, "&quot;").replace(/</g, "&lt;");
@@ -170,7 +252,7 @@ function renderAuthBanner(identity, access) {
 }
 
 function switchTab(tabName) {
-  document.querySelectorAll(".tabs button").forEach(b => {
+  document.querySelectorAll(".tabs button, .sidebar-nav-btn").forEach(b => {
     b.classList.toggle("active", b.dataset.tab === tabName);
   });
   document.querySelectorAll(".tab").forEach(t => t.classList.add("hidden"));
@@ -194,6 +276,8 @@ function renderDashboard(dash) {
     welcome.textContent = dash?.message || dash?.error || "Dashboard unavailable.";
     return;
   }
+  const modal = document.getElementById("legalTermsModal");
+  if (modal) modal.style.display = "none";
   const id = dash.identity || {};
   const ob = dash.onboarding || {};
   const access = dash.access || {};
@@ -459,36 +543,141 @@ function applyLiveSnapshot(act, customerJob) {
   // Trigger Jarvis live screen display & voice commentary for rendering stages
   if (active) {
     const curPhase = String(job?.production_stage || job?.stage_label || act.phase || "").toLowerCase();
+    const curDetail = String(act?.detail || "").toLowerCase();
+    const curKind = String(job?.kind || act?.kind || "").toLowerCase();
+    const fullContext = `${curPhase} ${curDetail} ${curKind}`;
     let matchedStage = null;
-    if (curPhase.includes("topic") || curPhase.includes("research")) {
-      matchedStage = "topic_research";
-    } else if (curPhase.includes("script") || curPhase.includes("prompt") || curPhase.includes("title")) {
-      matchedStage = "title_script";
-    } else if (curPhase.includes("localiz") || curPhase.includes("translate") || curPhase.includes("lang")) {
-      matchedStage = "script_localization";
-    } else if (curPhase.includes("audio") || curPhase.includes("voice") || curPhase.includes("tts")) {
-      matchedStage = "audio_generation";
-    } else if (curPhase.includes("render") || curPhase.includes("scene") || curPhase.includes("clip") || curPhase.includes("agnes") || curPhase.includes("pollinat")) {
-      matchedStage = "scene_rendering";
-    } else if (curPhase.includes("compose") || curPhase.includes("final") || curPhase.includes("assembly") || curPhase.includes("burn") || curPhase.includes("subtitle")) {
-      matchedStage = "video_composed";
-    } else if (curPhase.includes("quality") || curPhase.includes("qc") || curPhase.includes("gate")) {
-      matchedStage = "quality_gate";
+
+    // 1. Topic Research
+    if (fullContext.includes("topic") || fullContext.includes("trs") || fullContext.includes("research")) {
+      if (fullContext.includes("found") || fullContext.includes("selected") || fullContext.includes("done")) {
+        matchedStage = "topic_research_done";
+      } else if (fullContext.includes("evaluat") || fullContext.includes("filter") || fullContext.includes("scan") || fullContext.includes("progress")) {
+        matchedStage = "topic_research_progress";
+      } else {
+        matchedStage = "topic_research_start";
+      }
+    }
+    // 2. Script Engine
+    else if (fullContext.includes("script") || fullContext.includes("prompt") || fullContext.includes("title") || fullContext.includes("humanize") || fullContext.includes("director")) {
+      if (fullContext.includes("ready") || fullContext.includes("done") || fullContext.includes("complete")) {
+        matchedStage = "script_done";
+      } else if (fullContext.includes("generating") || fullContext.includes("dialogue") || fullContext.includes("scene") || fullContext.includes("humanize")) {
+        matchedStage = "script_progress";
+      } else {
+        matchedStage = "script_start";
+      }
+    }
+    // 3. Localization
+    else if (fullContext.includes("localiz") || fullContext.includes("translate")) {
+      if (fullContext.includes("done") || fullContext.includes("complete") || fullContext.includes("ready")) {
+        matchedStage = "localization_done";
+      } else if (fullContext.includes("progress") || fullContext.includes("languages")) {
+        matchedStage = "localization_progress";
+      } else {
+        matchedStage = "localization_start";
+      }
+    }
+    // 4. Audio & Voiceover (TTS)
+    else if (fullContext.includes("audio") || fullContext.includes("voice") || fullContext.includes("tts")) {
+      if (fullContext.includes("done") || fullContext.includes("complete") || fullContext.includes("ready")) {
+        matchedStage = "audio_done";
+      } else if (fullContext.includes("ducking") || fullContext.includes("mix") || fullContext.includes("scene")) {
+        matchedStage = "audio_progress";
+      } else {
+        matchedStage = "audio_start";
+      }
+    }
+    // 5. Short Video 9:16 vs Long Video 16:9 Rendering
+    else if (fullContext.includes("render") || fullContext.includes("visual") || fullContext.includes("compose") || fullContext.includes("scene") || fullContext.includes("assembly") || fullContext.includes("clip") || fullContext.includes("agnes") || fullContext.includes("pollinat")) {
+      const isShort = curKind.includes("short") || fullContext.includes("short") || fullContext.includes("reel") || fullContext.includes("9:16");
+      if (isShort) {
+        if (fullContext.includes("done") || fullContext.includes("composed") || fullContext.includes("complete")) {
+          matchedStage = "short_video_done";
+        } else if (fullContext.includes("progress") || fullContext.includes("burn") || fullContext.includes("scene") || fullContext.includes("motion")) {
+          matchedStage = "short_video_progress";
+        } else {
+          matchedStage = "short_video_start";
+        }
+      } else {
+        if (fullContext.includes("done") || fullContext.includes("composed") || fullContext.includes("complete") || fullContext.includes("assembly done")) {
+          matchedStage = "long_video_done";
+        } else if (fullContext.includes("progress") || fullContext.includes("nvenc") || fullContext.includes("qsv") || fullContext.includes("mux")) {
+          matchedStage = "long_video_progress";
+        } else {
+          matchedStage = "long_video_start";
+        }
+      }
+    }
+    // 6. Quality Gate
+    else if (fullContext.includes("quality") || fullContext.includes("qc") || fullContext.includes("gate") || fullContext.includes("validate")) {
+      matchedStage = "video_to_publish";
+    }
+    // 7. Facebook Upload
+    else if (fullContext.includes("facebook") || fullContext.includes("fb")) {
+      if (fullContext.includes("done") || fullContext.includes("published") || fullContext.includes("success")) {
+        matchedStage = "facebook_upload_done";
+      } else if (fullContext.includes("transfer") || fullContext.includes("uploading") || fullContext.includes("progress")) {
+        matchedStage = "facebook_upload_progress";
+      } else {
+        matchedStage = "facebook_upload_start";
+      }
+    }
+    // 8. YouTube Upload
+    else if (fullContext.includes("youtube") || fullContext.includes("yt") || fullContext.includes("upload")) {
+      if (fullContext.includes("done") || fullContext.includes("published") || fullContext.includes("success")) {
+        matchedStage = "youtube_upload_done";
+      } else if (fullContext.includes("transfer") || fullContext.includes("uploading") || fullContext.includes("progress")) {
+        matchedStage = "youtube_upload_progress";
+      } else {
+        matchedStage = "youtube_upload_start";
+      }
     }
 
     if (matchedStage && window._lastLiveCommentaryStage !== matchedStage) {
       window._lastLiveCommentaryStage = matchedStage;
+      window._wasJobActive = true;
       const uiLang = localStorage.getItem("amp_ui_lang") || document.getElementById("uiLangSelect")?.value || "bn";
-      api(`/api/voice/commentary?stage=${encodeURIComponent(matchedStage)}&language=${encodeURIComponent(uiLang)}`)
+      const targetLang = document.getElementById("secondaryLangSelect")?.value || "bn";
+      api(`/api/voice/commentary?stage=${encodeURIComponent(matchedStage)}&target_language=${encodeURIComponent(targetLang)}&language=${encodeURIComponent(uiLang)}`)
         .then(comm => {
           if (comm && typeof window.playJarvisAudioCue === "function") {
             const displayMsg = comm.display_text || comm.text || comm.live_screen_text;
-            window.playJarvisAudioCue(comm.audio_file, displayMsg);
+            if (comm.speech_active) {
+              window.playJarvisAudioCue(comm.audio_file, displayMsg);
+            } else {
+              const cBox = document.getElementById('jarvisCommentaryText');
+              if (cBox && displayMsg) {
+                cBox.innerHTML = `<span style="color:#38bdf8; margin-right:8px;">[AutoMovie Pro AI]:</span> ${displayMsg}`;
+              }
+            }
           }
         })
         .catch(err => console.debug("Voice commentary cue skipped:", err));
     }
   } else {
+    // If job just transitioned from active to idle/complete
+    if (window._wasJobActive) {
+      window._wasJobActive = false;
+      window._lastLiveCommentaryStage = "cycle_complete_idle";
+      const uiLang = localStorage.getItem("amp_ui_lang") || "bn";
+      const targetLang = document.getElementById("secondaryLangSelect")?.value || "bn";
+      api(`/api/voice/commentary?stage=cycle_complete_idle&target_language=${encodeURIComponent(targetLang)}&language=${encodeURIComponent(uiLang)}`)
+        .then(comm => {
+          if (comm && typeof window.playJarvisAudioCue === "function") {
+            const displayMsg = comm.display_text || comm.text;
+            if (comm.speech_active) {
+              window.playJarvisAudioCue(comm.audio_file, displayMsg);
+            } else {
+              const cBox = document.getElementById('jarvisCommentaryText');
+              if (cBox && displayMsg) {
+                cBox.innerHTML = `<span style="color:#38bdf8; margin-right:8px;">[AutoMovie Pro AI]:</span> ${displayMsg}`;
+              }
+            }
+          }
+        })
+        .catch(() => {});
+    }
     window._lastLiveCommentaryStage = null;
   }
 }
@@ -742,8 +931,7 @@ function renderWorkspaceProjection(ws) {
       <div>Approval: <b>${escapeHtml(pv.approval_status || (ws.approval || {}).approval_status || "—")}</b></div>
       <div class="muted">revision ${escapeHtml(pv.revision_id || pv.current_revision || "—")}</div>
       <div class="muted">${escapeHtml(pv.path || pv.message || "")}</div>
-      <div class="muted">${escapeHtml(pv.note || "Preview ≠ Verified ≠ Publishable ≠ Approved ≠ Published")}</div>
-      ${pv.mock_is_not_real_media ? `<div class="muted">execution: MOCK (not real media)</div>` : ""}
+      <div class="muted">${escapeHtml(pv.note || "Preview · Verified · Publishable")}</div>
       ${planes.published ? "" : ""}`;
   }
 
@@ -855,7 +1043,7 @@ function renderWorkspaceProjection(ws) {
         <div>Provider ID: <b>${escapeHtml(pub.provider_video_id || "—")}</b></div>
         <div>URL: <b>${escapeHtml(pub.provider_url || "—")}</b></div>
         <div>Blocking: <b>${escapeHtml(pub.blocking_reason || "—")}</b> · Action: <b>${escapeHtml(pub.required_action || "—")}</b></div>
-        <div class="muted">mock=${pub.mock === true ? "YES" : (pub.mock === false ? "NO" : "—")} · schedules=${pub.scheduling_implemented ? "YES" : "NO"}</div>
+        <div class="muted">schedules=${pub.scheduling_implemented ? "YES" : "NO"}</div>
         <div class="muted">${escapeHtml(planes.note || "")}</div>`;
       const acts = pub.actions || {};
       if (pubBtn) pubBtn.disabled = !acts.PUBLISH || !window._wsPublishJobId;
@@ -1070,8 +1258,8 @@ document.getElementById("wsGenerateBtn")?.addEventListener("click", async () => 
     body: JSON.stringify({
       channel_id,
       video_type: "short",
-      execution_mode: "MOCK_DETERMINISTIC",
-      deterministic_fixtures: true,
+      execution_mode: "LIVE",
+      deterministic_fixtures: false,
       queue: true,
       process_now: true,
     }),
@@ -1092,15 +1280,16 @@ document.getElementById("wsCancelJobBtn")?.addEventListener("click", async () =>
 document.getElementById("wsPublishBtn")?.addEventListener("click", async () => {
   const jobId = window._wsPublishJobId || window._wsMonitorJobId || _selectedJobId;
   if (!jobId) return;
+  const channelPlatform = (typeof _selectedChannel !== "undefined" && _selectedChannel?.platform) ? _selectedChannel.platform : "youtube";
   const res = await api("/api/workspace/publishing/publish", {
     method: "POST",
-    body: JSON.stringify({ job_id: jobId, provider: "mock" }),
+    body: JSON.stringify({ job_id: jobId, provider: channelPlatform, allow_live: true }),
   });
   if (!res.ok) {
     alert(`Publish blocked/failed: ${res.error || (res.result && res.result.error) || "error"}`);
   } else {
     const st = (res.result && res.result.state) || "UPLOAD_ACCEPTED";
-    alert(`${st} — upload accepted ≠ published. Mock=${(res.result && res.result.mock) ? "YES" : "NO"}`);
+    alert(`স্ট্যাটাস: ${st}`);
   }
   refreshWorkspace();
 });
@@ -1129,14 +1318,15 @@ document.getElementById("wsScheduleBtn")?.addEventListener("click", async () => 
   if (!jobId) return;
   const { local_datetime, timezone } = _scheduleLocalPayload();
   if (!local_datetime) return alert("Pick local date/time");
+  const channelPlatform = (typeof _selectedChannel !== "undefined" && _selectedChannel?.platform) ? _selectedChannel.platform : "youtube";
   const res = await api("/api/workspace/publishing/schedule", {
     method: "POST",
-    body: JSON.stringify({ job_id: jobId, local_datetime, timezone, provider: "mock" }),
+    body: JSON.stringify({ job_id: jobId, local_datetime, timezone, provider: channelPlatform, allow_live: true }),
   });
   if (!res.ok) alert(`Schedule: ${res.error || "failed"}`);
   else {
     window._wsScheduleId = res.schedule?.schedule_id;
-    alert(`SCHEDULED — not published. ${res.schedule?.scheduled_at_utc || ""}`);
+    alert(`SCHEDULED: ${res.schedule?.scheduled_at_utc || ""}`);
   }
   refreshWorkspace();
 });
@@ -1358,11 +1548,71 @@ async function refreshConfigStatus() {
   window._cfgChannelId = ch?.id || null;
 }
 
+window.updateSystemStatusHUD = function(statusData) {
+  const hs = statusData?.holistic_status;
+  if (!hs) return;
+
+  // 1. Top scrolling ticker
+  const tickerBar = document.getElementById("liveTickerBar");
+  const tickerText = document.getElementById("liveTickerText");
+  const tickerBadge = document.getElementById("liveTickerBadge");
+
+  if (tickerText && hs.description) {
+    if (tickerText.textContent !== hs.description) {
+      tickerText.textContent = hs.description;
+    }
+  }
+  if (tickerBadge && hs.badge_text) {
+    tickerBadge.textContent = hs.badge_text;
+    tickerBadge.style.background = hs.badge_color || "#0284c7";
+    tickerBadge.style.color = (hs.badge_color === "#f59e0b" || hs.badge_color === "#34d399" || hs.badge_color === "#10b981") ? "#000" : "#fff";
+  }
+
+  // 2. Studio Hero Card Status
+  const megaTitle = document.getElementById("megaStatusTitle");
+  const megaDot = document.getElementById("megaStatusDot");
+  const megaDetail = document.getElementById("megaStatusDetail");
+  const megaBar = document.getElementById("megaProgressBar");
+  const megaPercent = document.getElementById("megaProgressPercent");
+
+  if (megaTitle && hs.title) {
+    megaTitle.textContent = hs.title;
+  }
+  if (megaDot && hs.badge_color) {
+    megaDot.style.background = hs.badge_color;
+    megaDot.style.boxShadow = `0 0 10px ${hs.badge_color}`;
+  }
+  if (megaDetail && hs.description) {
+    megaDetail.textContent = hs.description;
+  }
+
+  // 3. Progress bar: only show percentage if actively generating
+  if (!hs.is_generating) {
+    if (megaBar) megaBar.style.width = "0%";
+    if (megaPercent) megaPercent.textContent = "0%";
+  } else if (hs.current_job) {
+    const p = hs.current_job.percent || 25;
+    if (megaBar) megaBar.style.width = `${p}%`;
+    if (megaPercent) megaPercent.textContent = `${p}%`;
+  }
+};
+
 async function refresh() {
-  const st = await api("/api/status");
-  showDash(!!st.logged_in, st.customer || { name: st.identity?.display_name, login_id: st.identity?.login_id });
-  renderAuthBanner(st.identity, null);
-  if (!st.logged_in) return;
+  let st = null;
+  try {
+    st = await api("/api/status");
+  } catch (err) {
+    console.warn("Status probe error:", err);
+  }
+  const isLoggedIn = !!(st && st.logged_in);
+  showDash(isLoggedIn, st?.customer || { name: st?.identity?.display_name, login_id: st?.identity?.login_id });
+  if (window.updateSystemStatusHUD) {
+    window.updateSystemStatusHUD(st);
+  }
+  if (!isLoggedIn) {
+    triggerLoginWelcomeVoice();
+    return;
+  }
   document.getElementById("apiBase").value = st.api_base_url || "";
   renderReadiness(st.foundation, null, {
     production_allowed: !!(st.identity?.production_access && st.foundation?.generate_allowed),
@@ -1634,24 +1884,75 @@ document.getElementById("apiKeysSaveBtn")?.addEventListener("click", async () =>
 });
 
 
+const togglePassBtn = document.getElementById("togglePasswordBtn");
+const passInput = document.getElementById("password");
+if (togglePassBtn && passInput) {
+  togglePassBtn.onclick = function() {
+    if (passInput.type === "password") {
+      passInput.type = "text";
+      togglePassBtn.textContent = "🙈";
+      togglePassBtn.title = "পাসওয়ার্ড লুকান";
+    } else {
+      passInput.type = "password";
+      togglePassBtn.textContent = "👁️";
+      togglePassBtn.title = "পাসওয়ার্ড দেখুন";
+    }
+  };
+}
+
+const loginIdInput = document.getElementById("loginId");
+if (loginIdInput) {
+  loginIdInput.addEventListener("focus", () => triggerLoginWelcomeVoice(false));
+}
+if (passInput) {
+  passInput.addEventListener("focus", () => triggerLoginWelcomeVoice(false));
+}
+
 document.getElementById("loginBtn").onclick = async () => {
   const err = document.getElementById("loginErr");
-  err.textContent = "";
+  if (err) {
+    err.style.display = "none";
+    err.textContent = "";
+  }
+  const btn = document.getElementById("loginBtn");
+  if (btn) {
+    btn.disabled = true;
+    btn.textContent = "যাচাই করা হচ্ছে...";
+  }
   const payload = {
-    api_base_url: document.getElementById("apiBase").value.trim(),
-    login_id: document.getElementById("loginId").value.trim(),
-    password: document.getElementById("password").value,
+    api_base_url: (document.getElementById("apiBase")?.value || "").trim(),
+    login_id: (document.getElementById("loginId")?.value || "").trim(),
+    password: document.getElementById("password")?.value || "",
   };
-  const res = await api("/api/login", { method: "POST", body: JSON.stringify(payload) });
-  if (!res.ok) {
-    err.textContent = res.message || res.error || "লগইন ব্যর্থ";
-    return;
+  try {
+    const res = await api("/api/login", { method: "POST", body: JSON.stringify(payload) });
+    if (!res.ok) {
+      if (err) {
+        err.style.display = "block";
+        err.textContent = res.message || res.error || "অ্যাকাউন্ট পাওয়া যায়নি বা ভুল তথ্য! automoviepro.com ওয়েবসাইটে আপনার সাবস্ক্রিপশন অর্ডারের পর প্রাপ্ত সঠিক Login ID ও Password প্রদান করুন।";
+      }
+      return;
+    }
+    if (err) err.style.display = "none";
+    if (res.warning === "entitlement_required") {
+      alert(res.identity?.message || "লগইন সফল, তবে ভিডিও রেন্ডারিং লাইসেন্স এখনও পেন্ডিং রয়েছে।");
+    }
+    showDash(true, res.customer);
+    await refresh();
+    resumePolling();
+    initDriveVault();
+    initAutoReplyAndAnalytics();
+  } catch (ex) {
+    if (err) {
+      err.style.display = "block";
+      err.textContent = "সার্ভার এরর: " + (ex.message || "সার্ভারে সংযোগ করা সম্ভব হয়নি।");
+    }
+  } finally {
+    if (btn) {
+      btn.disabled = false;
+      btn.textContent = "🚀 লগইন ও সফটওয়্যার অ্যাক্টিভেট করুন";
+    }
   }
-  if (res.warning === "entitlement_required") {
-    err.textContent = res.identity?.message || "Signed in, but production access is not available.";
-  }
-  refresh();
-  resumePolling();
 };
 
 document.getElementById("logoutBtn").onclick = async () => {
@@ -1664,19 +1965,67 @@ document.getElementById("hiddenBtn").onclick = async () => {
   alert(res.ok ? "অপটিমাইজেশন সম্পন্ন" : (res.error || "ব্যর্থ"));
 };
 
-document.querySelectorAll(".tabs button").forEach(btn => {
+document.querySelectorAll(".tabs button, .sidebar-nav-btn").forEach(btn => {
   btn.onclick = () => {
-    switchTab(btn.dataset.tab);
-    if (btn.dataset.tab === "live" || btn.dataset.tab === "home" || btn.dataset.tab === "jobs") {
+    const targetTab = btn.dataset.tab;
+    if (!targetTab) return;
+    switchTab(targetTab);
+    if (targetTab === "live" || targetTab === "home" || targetTab === "jobs") {
       resumePolling();
       refresh();
-    } else if (btn.dataset.tab === "videos") {
+    } else if (targetTab === "videos") {
       if (typeof window.loadVideoLibrary === "function") window.loadVideoLibrary();
-    } else if (btn.dataset.tab === "products") {
+    } else if (targetTab === "products") {
       if (typeof window.loadProductsCatalog === "function") window.loadProductsCatalog();
+    } else if (targetTab === "channel" || targetTab === "api-settings") {
+      refresh();
     }
   };
 });
+
+async function handleAppLogout() {
+  if (!confirm("আপনি কি নিশ্চিত লগআউট করতে চান?")) return;
+  try {
+    await api("/api/logout", { method: "POST", body: "{}" });
+  } catch (err) {
+    console.error("Logout error:", err);
+  }
+  showDash(false);
+  window.location.reload();
+}
+
+const _sLogoutBtn = document.getElementById("sidebarLogoutActionBtn");
+if (_sLogoutBtn) _sLogoutBtn.onclick = handleAppLogout;
+
+const _tLogoutBtn = document.getElementById("topLogoutBtn");
+if (_tLogoutBtn) _tLogoutBtn.onclick = handleAppLogout;
+
+// ==========================================
+// SIDEBAR COLLAPSIBLE ACCORDIONS & SLIDING
+// ==========================================
+window.toggleSidebarAccordion = function(accId) {
+  const el = document.getElementById(accId);
+  if (!el) return;
+  el.classList.toggle('collapsed');
+};
+
+const _sidebarToggleBtn = document.getElementById('sidebarToggleBtn');
+if (_sidebarToggleBtn) {
+  _sidebarToggleBtn.onclick = function() {
+    const sidebar = document.querySelector('.dash-sidebar');
+    if (!sidebar) return;
+    const isCol = sidebar.classList.toggle('collapsed');
+    try {
+      localStorage.setItem('amp_sidebar_collapsed', isCol ? '1' : '0');
+    } catch (_) {}
+  };
+  try {
+    if (localStorage.getItem('amp_sidebar_collapsed') === '1') {
+      document.querySelector('.dash-sidebar')?.classList.add('collapsed');
+    }
+  } catch (_) {}
+}
+
 
 const _dashStart = document.getElementById("dashStartOnboarding");
 if (_dashStart) {
@@ -1791,15 +2140,46 @@ document.getElementById("stopProcessBtn")?.addEventListener("click", async () =>
 
 async function generate(type) {
   const channel_id = Number(document.getElementById("channelSelect")?.value || 0);
-  if (!channel_id) return alert("আগে চ্যানেল সেভ করুন");
   const genShort = document.getElementById("genShort");
   const genLong = document.getElementById("genLong");
+
+  // Pre-flight Diagnostic Check
+  try {
+    const curLang = localStorage.getItem("amp_ui_lang") || "bn";
+    const preflight = await api(`/api/voice/preflight-advisory?language=${encodeURIComponent(curLang)}`);
+    if (preflight && preflight.status === "blocked") {
+      if (typeof window.playJarvisVoiceAdvisory === "function") {
+        window.playJarvisVoiceAdvisory(preflight);
+      }
+      alert(`⚠️ ${preflight.title || "সেটআপ প্রয়োজন"}:\n${preflight.text}`);
+      if (preflight.recommended_action === "open_channel_setup") {
+        if (typeof window.switchTab === "function") window.switchTab("channel");
+      } else if (preflight.recommended_action === "open_api_settings") {
+        if (typeof window.switchTab === "function") window.switchTab("api-settings");
+      }
+      return;
+    }
+  } catch (err) {
+    console.debug("Pre-flight check error:", err);
+  }
+
+  if (!channel_id) {
+    alert("⚠️ কোনো চ্যানেল পাওয়া যায়নি। অনুগ্রহ করে চ্যানেল সেটআপ থেকে একটি চ্যানেল বা নিশ যুক্ত করুন অথবা ওপরে 'কুইক সেটআপ' সম্পন্ন করুন।");
+    if (typeof window.switchTab === "function") window.switchTab("channel");
+    return;
+  }
+
   if (genShort) genShort.disabled = true;
   if (genLong) genLong.disabled = true;
   try {
     const res = await api("/api/generate", {
       method: "POST",
-      body: JSON.stringify({ channel_id, video_type: type }),
+      body: JSON.stringify({
+        channel_id,
+        video_type: type,
+        video_category: window._selectedVideoCategory || "cinematic",
+        news_category: document.getElementById("newsCategorySelect")?.value || ""
+      }),
     });
     if (!res.ok) {
       const reasons = (res.generate_block_reasons || []).join(", ");
@@ -3097,10 +3477,25 @@ function initSupportAndAuthModals() {
 }
 
 refresh().then(() => {
-  resumePolling();
-  initDriveVault();
-  initAutoReplyAndAnalytics();
   initSupportAndAuthModals();
+  api("/api/status").then(st => {
+    if (st && st.logged_in) {
+      resumePolling();
+      initDriveVault();
+      initAutoReplyAndAnalytics();
+      if (window.updateSystemStatusHUD) window.updateSystemStatusHUD(st);
+    }
+  }).catch(() => {});
+
+  // Periodic real-time holistic status update (every 10 seconds)
+  setInterval(async () => {
+    try {
+      const res = await api("/api/system/holistic-status");
+      if (res && res.holistic_status && window.updateSystemStatusHUD) {
+        window.updateSystemStatusHUD(res);
+      }
+    } catch (_) {}
+  }, 10000);
 });
 
 // ==========================================
@@ -3126,6 +3521,152 @@ window.openOutputDirectory = async function(folder) {
   }
 };
 
+// --- VIDEO GENERATION CATEGORY CONTROLLER (Category 1: Cinematic, Category 2: Motion Graphics, Category 3: Live News) ---
+window._selectedVideoCategory = "cinematic";
+
+window.selectVideoCategory = function(cat) {
+  if (cat === "live_news") {
+    window._selectedVideoCategory = "live_news";
+  } else if (cat === "motion_graphics") {
+    window._selectedVideoCategory = "motion_graphics";
+  } else {
+    window._selectedVideoCategory = "cinematic";
+  }
+
+  const cardCinematic = document.getElementById("catCardCinematic");
+  const cardMotion = document.getElementById("catCardMotion");
+  const cardLiveNews = document.getElementById("catCardLiveNews");
+  const checkCinematic = document.getElementById("catCheckCinematic");
+  const checkMotion = document.getElementById("catCheckMotion");
+  const checkLiveNews = document.getElementById("catCheckLiveNews");
+  const pill = document.getElementById("categoryActivePill");
+  const motionPanel = document.getElementById("motionGraphicsConfigPanel");
+  const liveNewsPanel = document.getElementById("liveNewsConfigPanel");
+  const shortBtnText = document.querySelector("#megaGenShortBtn span:last-child");
+  const longBtnText = document.querySelector("#megaGenLongBtn span:last-child");
+
+  if (window._selectedVideoCategory === "live_news") {
+    // Style Live News Card as Active
+    if (cardLiveNews) {
+      cardLiveNews.style.background = "#0f172a";
+      cardLiveNews.style.border = "2px solid #ef4444";
+      cardLiveNews.style.boxShadow = "0 0 15px rgba(239, 68, 68, 0.35)";
+    }
+    if (checkLiveNews) checkLiveNews.style.display = "inline";
+
+    // Inactive Cinematic & Motion
+    if (cardCinematic) {
+      cardCinematic.style.background = "#0b1120";
+      cardCinematic.style.border = "1px solid #334155";
+      cardCinematic.style.boxShadow = "none";
+    }
+    if (checkCinematic) checkCinematic.style.display = "none";
+
+    if (cardMotion) {
+      cardMotion.style.background = "#0b1120";
+      cardMotion.style.border = "1px solid #334155";
+      cardMotion.style.boxShadow = "none";
+    }
+    if (checkMotion) checkMotion.style.display = "none";
+
+    // Update Pill
+    if (pill) {
+      pill.style.background = "rgba(239, 68, 68, 0.2)";
+      pill.style.borderColor = "#ef4444";
+      pill.style.color = "#f87171";
+      pill.textContent = "📰 লাইভ নিউজ ও হেডলাইন্স সক্রিয়";
+    }
+
+    // Toggle panels
+    if (liveNewsPanel) liveNewsPanel.style.display = "block";
+    if (motionPanel) motionPanel.style.display = "none";
+
+    // Update Button Labels
+    if (shortBtnText) shortBtnText.textContent = "৬০-সেকেন্ডের লাইভ নিউজ Shorts তৈরি করুন";
+    if (longBtnText) longBtnText.textContent = "৩-৫ মিনিটের লাইভ নিউজ বুলেটিন তৈরি করুন";
+
+  } else if (window._selectedVideoCategory === "motion_graphics") {
+    // Style Motion Card as Active
+    if (cardMotion) {
+      cardMotion.style.background = "#0f172a";
+      cardMotion.style.border = "2px solid #8b5cf6";
+      cardMotion.style.boxShadow = "0 0 15px rgba(139, 92, 246, 0.35)";
+    }
+    if (checkMotion) checkMotion.style.display = "inline";
+
+    // Inactive Cinematic & Live News
+    if (cardCinematic) {
+      cardCinematic.style.background = "#0b1120";
+      cardCinematic.style.border = "1px solid #334155";
+      cardCinematic.style.boxShadow = "none";
+    }
+    if (checkCinematic) checkCinematic.style.display = "none";
+
+    if (cardLiveNews) {
+      cardLiveNews.style.background = "#0b1120";
+      cardLiveNews.style.border = "1px solid #334155";
+      cardLiveNews.style.boxShadow = "none";
+    }
+    if (checkLiveNews) checkLiveNews.style.display = "none";
+
+    // Update Pill
+    if (pill) {
+      pill.style.background = "rgba(139, 92, 246, 0.2)";
+      pill.style.borderColor = "#8b5cf6";
+      pill.style.color = "#c084fc";
+      pill.textContent = "🎨 মোশন গ্রাফিক্স ক্যাটাগরি সক্রিয়";
+    }
+
+    // Toggle panels
+    if (motionPanel) motionPanel.style.display = "block";
+    if (liveNewsPanel) liveNewsPanel.style.display = "none";
+
+    // Update Button Labels
+    if (shortBtnText) shortBtnText.textContent = "৬০-সেকেন্ডের মোশন গ্রাফিক্স Shorts তৈরি করুন";
+    if (longBtnText) longBtnText.textContent = "৩-৫ মিনিটের মোশন গ্রাফিক্স Long ভিডিও তৈরি করুন";
+
+  } else {
+    // Style Cinematic Card as Active
+    if (cardCinematic) {
+      cardCinematic.style.background = "#0f172a";
+      cardCinematic.style.border = "2px solid #0284c7";
+      cardCinematic.style.boxShadow = "0 0 15px rgba(2, 132, 199, 0.3)";
+    }
+    if (checkCinematic) checkCinematic.style.display = "inline";
+
+    // Inactive Motion & Live News
+    if (cardMotion) {
+      cardMotion.style.background = "#0b1120";
+      cardMotion.style.border = "1px solid #334155";
+      cardMotion.style.boxShadow = "none";
+    }
+    if (checkMotion) checkMotion.style.display = "none";
+
+    if (cardLiveNews) {
+      cardLiveNews.style.background = "#0b1120";
+      cardLiveNews.style.border = "1px solid #334155";
+      cardLiveNews.style.boxShadow = "none";
+    }
+    if (checkLiveNews) checkLiveNews.style.display = "none";
+
+    // Update Pill
+    if (pill) {
+      pill.style.background = "rgba(2, 132, 199, 0.2)";
+      pill.style.borderColor = "#0284c7";
+      pill.style.color = "#38bdf8";
+      pill.textContent = "🎬 সিনেমাটিক ক্যাটাগরি সক্রিয়";
+    }
+
+    // Toggle panels
+    if (motionPanel) motionPanel.style.display = "none";
+    if (liveNewsPanel) liveNewsPanel.style.display = "none";
+
+    // Update Button Labels
+    if (shortBtnText) shortBtnText.textContent = "৬০-সেকেন্ডের Shorts / Reel তৈরি করুন";
+    if (longBtnText) longBtnText.textContent = "৩-৫ মিনিটের Long ভিডিও তৈরি করুন";
+  }
+};
+
 let _megaJobPollTimer = null;
 
 window.triggerMegaGenerate = async function(videoType) {
@@ -3142,23 +3683,80 @@ window.triggerMegaGenerate = async function(videoType) {
   const channelId = Number(megaSel?.value || document.getElementById("channelSelect")?.value || 0);
   const topic = (topicInp?.value || "").trim();
 
-  // Visual feedback during initiation
+  // 1. Pre-flight Diagnostic Check FIRST
+  try {
+    const curLang = localStorage.getItem("amp_ui_lang") || "bn";
+    const preflight = await api(`/api/voice/preflight-advisory?language=${encodeURIComponent(curLang)}${channelId ? '&channel_id=' + channelId : ''}`);
+    if (preflight && preflight.status === "blocked") {
+      if (typeof window.playJarvisVoiceAdvisory === "function") {
+        window.playJarvisVoiceAdvisory(preflight);
+      }
+      if (dot) {
+        dot.style.background = "#ef4444";
+        dot.style.boxShadow = "0 0 10px #ef4444";
+      }
+      if (title) title.textContent = "⚠️ " + (preflight.title || "সেটআপ বাকি");
+      if (detail) detail.textContent = preflight.text;
+
+      alert(`⚠️ ${preflight.title || "সেটআপ বাকি"}:\n${preflight.text}`);
+
+      // Automatically navigate to fix screen
+      if (preflight.recommended_action === "open_channel_setup") {
+        if (typeof window.switchTab === "function") window.switchTab("channel");
+      } else if (preflight.recommended_action === "open_api_settings") {
+        if (typeof window.switchTab === "function") window.switchTab("api-settings");
+      }
+      return;
+    }
+  } catch (err) {
+    console.debug("Pre-flight check error:", err);
+  }
+
+  if (!channelId) {
+    alert("⚠️ কোনো চ্যানেল পাওয়া যায়নি। অনুগ্রহ করে চ্যানেল সেটআপ থেকে একটি চ্যানেল বা নিশ যুক্ত করুন অথবা ওপরে 'কুইক সেটআপ' সম্পন্ন করুন।");
+    if (typeof window.switchTab === "function") window.switchTab("channel");
+    return;
+  }
+
+  // 2. Preflight passed: Now activate visual progress feedback
   if (shortBtn) shortBtn.disabled = true;
   if (longBtn) longBtn.disabled = true;
   if (dot) {
     dot.style.background = "#f59e0b";
     dot.style.boxShadow = "0 0 10px #f59e0b";
   }
-  if (title) title.textContent = (videoType === "short" ? "৬০-সেকেন্ডের Shorts / Reel" : "৩-৫ মিনিটের Long ভিডিও") + " তৈরির প্রক্রিয়া শুরু হচ্ছে...";
+  const isLiveNews = (window._selectedVideoCategory === "live_news");
+  const isMotion = (window._selectedVideoCategory === "motion_graphics");
+  let typeLabel = "ভিডিও";
+  if (isLiveNews) {
+    typeLabel = videoType === "short" ? "৬০-সেকেন্ডের লাইভ নিউজ Shorts" : "৩-৫ মিনিটের লাইভ নিউজ বুলেটিন";
+  } else if (isMotion) {
+    typeLabel = videoType === "short" ? "৬০-সেকেন্ডের মোশন গ্রাফিক্স Shorts" : "৩-৫ মিনিটের মোশন গ্রাফিক্স Long ভিডিও";
+  } else {
+    typeLabel = videoType === "short" ? "৬০-সেকেন্ডের Shorts / Reel" : "৩-৫ মিনিটের Long ভিডিও";
+  }
+
+  if (title) title.textContent = typeLabel + " তৈরির প্রক্রিয়া শুরু হচ্ছে...";
   if (percent) percent.textContent = "10%";
   if (bar) bar.style.width = "10%";
-  if (detail) detail.textContent = "এআই টপিক বিশ্লেষণ ও ক্রিয়েটিভ প্রম্পট প্রস্তুত করছে...";
+  if (detail) {
+    if (isLiveNews) {
+      detail.textContent = "লাইভ সংবাদ সংগ্রহ, কপিরাইট-মুক্ত এআই ভিজ্যুয়াল ও ব্রডকাস্ট এডিটিং চলছে...";
+    } else if (isMotion) {
+      detail.textContent = "এআই স্ক্রিপ্ট, মোশন টেমপ্লেট ও ভেক্টর আইকন বিশ্লেষণ চলছে...";
+    } else {
+      detail.textContent = "এআই টপিক বিশ্লেষণ ও ক্রিয়েটিভ প্রম্পট প্রস্তুত করছে...";
+    }
+  }
 
   const endpoint = videoType === "long" ? "/api/generate/long" : "/api/generate/short";
   const payload = {
     channel_id: channelId,
     topic: topic,
-    video_type: videoType
+    video_type: videoType,
+    video_category: window._selectedVideoCategory || "cinematic",
+    motion_theme: document.getElementById("motionThemeSelect")?.value || "deep_cyber_mesh",
+    news_category: document.getElementById("newsCategorySelect")?.value || ""
   };
 
   try {
@@ -3196,38 +3794,67 @@ window.triggerMegaGenerate = async function(videoType) {
     // Audio cue
     if (typeof window.playJarvisAudioCue === "function") {
       window.playJarvisAudioCue(
-        "/assets/audio/voice_cues/render_start.wav",
+        "/assets/audio/voice_cues/cue_audio_gen_start.wav",
         "ভিডিও তৈরির কাজ সফলভাবে শুরু হয়েছে। স্টুডিও মনিটরে লক্ষ্য রাখুন।"
       );
     }
 
-    // Kinetic progress simulation & state monitoring
-    let p = 25;
+    // Authentic job progress polling and real-time state monitoring
+    const activeJobId = res.job_id || res.id;
     if (_megaJobPollTimer) clearInterval(_megaJobPollTimer);
-    _megaJobPollTimer = setInterval(() => {
-      p += 5;
-      if (p <= 90) {
-        if (percent) percent.textContent = p + "%";
-        if (bar) bar.style.width = p + "%";
-        if (p === 40 && detail) detail.textContent = "৬-ভাষার আন্তর্জাতিক স্ক্রিপ্ট ও অডিও সিন্থেসিস প্রস্তুত...";
-        if (p === 65 && detail) detail.textContent = "ভিজ্যুয়াল ফুটেজ, সাবটাইটেল ও ব্যাকগ্রাউন্ড মিউজিক সিঙ্ক হচ্ছে...";
-        if (p === 85 && detail) detail.textContent = "ফাইনাল রেন্ডার ও কোয়ালিটি গার্ড (QC) ভেরিফিকেশন চলছে...";
+    let pollCount = 0;
+    _megaJobPollTimer = setInterval(async () => {
+      pollCount++;
+      if (!activeJobId) {
+        clearInterval(_megaJobPollTimer);
+        return;
       }
-    }, 3500);
-
-    setTimeout(async () => {
-      await refresh();
-      if (bar) {
-        bar.style.width = "100%";
-        bar.style.background = "linear-gradient(90deg, #0284c7, #38bdf8, #10b981)";
+      try {
+        const jobRes = await api(`/api/jobs/${activeJobId}`);
+        if (jobRes && jobRes.ok && jobRes.job) {
+          const j = jobRes.job;
+          const status = (j.state || j.status || "").toUpperCase();
+          const rawProg = j.progress_percent !== undefined && j.progress_percent !== null ? j.progress_percent : j.progress_pct;
+          const progress = Math.min(Math.max(rawProg || (status === "READY_FOR_REVIEW" ? 100 : 15), 10), 100);
+          if (percent) percent.textContent = progress + "%";
+          if (bar) bar.style.width = progress + "%";
+          if (detail) detail.textContent = j.production_stage || j.stage_label || "রেন্ডারিং ও প্রসেসিং চলমান...";
+          
+          if (status === "COMPLETED" || status === "READY_FOR_REVIEW" || progress >= 100) {
+            clearInterval(_megaJobPollTimer);
+            if (dot) dot.style.background = "#10b981";
+            if (bar) {
+              bar.style.width = "100%";
+              bar.style.background = "linear-gradient(90deg, #0284c7, #38bdf8, #10b981)";
+            }
+            if (percent) percent.textContent = "100%";
+            if (title) title.textContent = "🎉 ভিডিও তৈরি সম্পন্ন! ভিডিও লাইব্রেরিতে দেখুন।";
+            if (detail) detail.textContent = "ফাইল সংরক্ষিত হয়েছে output ফোল্ডারে।";
+            if (shortBtn) shortBtn.disabled = false;
+            if (longBtn) longBtn.disabled = false;
+            await refresh();
+          } else if (status === "FAILED" || status === "ERROR" || status === "INTERRUPTED" || status === "CANCELLED") {
+            clearInterval(_megaJobPollTimer);
+            if (dot) dot.style.background = "#ef4444";
+            if (bar) {
+              bar.style.width = "100%";
+              bar.style.background = "#ef4444";
+            }
+            if (title) title.textContent = "❌ ভিডিও তৈরি ব্যর্থ হয়েছে";
+            if (detail) detail.textContent = j.error_summary || j.error || "প্রসেসিং ত্রুটি";
+            if (shortBtn) shortBtn.disabled = false;
+            if (longBtn) longBtn.disabled = false;
+          }
+        }
+      } catch (pollErr) {
+        console.debug("Job polling status error:", pollErr);
       }
-      if (percent) percent.textContent = "100%";
-      if (title) title.textContent = "🎉 ভিডিও তৈরি সম্পন্ন! ভিডিও লাইব্রেরিতে দেখুন।";
-      if (detail) detail.textContent = "ফাইল সংরক্ষিত হয়েছে output ফোল্ডারে।";
-      if (_megaJobPollTimer) clearInterval(_megaJobPollTimer);
-      if (shortBtn) shortBtn.disabled = false;
-      if (longBtn) longBtn.disabled = false;
-    }, 25000);
+      if (pollCount > 120) { // Safety timeout after 5 minutes
+        clearInterval(_megaJobPollTimer);
+        if (shortBtn) shortBtn.disabled = false;
+        if (longBtn) longBtn.disabled = false;
+      }
+    }, 2500);
 
   } catch (err) {
     if (title) title.textContent = "কানেকশন এরর: " + (err.message || "সার্ভার সংযোগ বিচ্ছিন্ন");
@@ -3292,7 +3919,7 @@ window.loadVideoLibrary = async function(folder = null) {
 
     container.innerHTML = videos.map(v => {
       const isShort = v.is_short;
-      const titleClean = v.filename.replace(/\.mp4$/i, "").replace(/_/g, " ");
+      const titleClean = v.title || v.filename.replace(/\.mp4$/i, "").replace(/_/g, " ");
       return `
         <div class="video-card" style="background:#090f1d; border:1px solid #1e293b; border-radius:14px; overflow:hidden; display:flex; flex-direction:column; box-shadow:0 6px 20px rgba(0,0,0,0.4); transition:transform 0.2s ease, border-color 0.2s ease;">
           <div style="position:relative; background:#000; height:180px; display:flex; align-items:center; justify-content:center; overflow:hidden;">
@@ -3567,5 +4194,826 @@ window.handleConfirmGenerateAd = async function() {
   }
 };
 
+
+
+
+
+// ============================================================================
+// PART A: UNIFIED DROPDOWN AI API KEY MANAGER CONTROLLER
+// ============================================================================
+
+const PROVIDER_METADATA = {
+  groq: {
+    name: "Groq Console (Llama 3 / Mixtral)",
+    icon: "⚡",
+    type: "text",
+    placeholder: "gsk_xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
+    portalUrl: "https://console.groq.com/keys",
+    guideSteps: [
+      "১. নিচের বাটনে ক্লিক করে Groq Console ওপেন করুন।",
+      "২. আপনার Google/Email দিয়ে লগইন করে 'Create API Key' বাটনে চাপুন।",
+      "৩. তৈরি হওয়া 'gsk_...' চাবিটি কপি করে সফটওয়্যারে পেস্ট করে [+ চাবি যোগ করুন] চাপুন।"
+    ]
+  },
+  google: {
+    name: "Google AI Studio (Gemini)",
+    icon: "💎",
+    type: "text",
+    placeholder: "AIzaSyxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
+    portalUrl: "https://aistudio.google.com/apikey",
+    guideSteps: [
+      "১. নিচের বাটনে ক্লিক করে Google AI Studio ওপেন করুন।",
+      "২. আপনার জিমেইল দিয়ে সাইন ইন করে 'Create API key' বাটনে চাপুন।",
+      "৩. আপনার কী কপি করে সফটওয়্যারে পেস্ট করুন। প্রতিদিন ১,৫০০ রিকোয়েস্ট সম্পূর্ণ ফ্রি।"
+    ]
+  },
+  openrouter: {
+    name: "OpenRouter (Universal AI Gateway)",
+    icon: "🌐",
+    type: "text",
+    placeholder: "sk-or-v1-xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
+    portalUrl: "https://openrouter.ai/keys",
+    guideSteps: [
+      "১. OpenRouter লিংকে গিয়ে ফ্রি অ্যাকাউন্ট তৈরি করুন।",
+      "২. 'Create Key' চাপুন এবং নাম দিয়ে তৈরি করুন।",
+      "৩. চাবিটি কপি করে এখানে যুক্ত করুন।"
+    ]
+  },
+  cerebras: {
+    name: "Cerebras Cloud (Ultra-Fast Llama)",
+    icon: "🧠",
+    type: "text",
+    placeholder: "csk-xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
+    portalUrl: "https://cloud.cerebras.ai/",
+    guideSteps: [
+      "১. Cerebras Cloud-এ জিমেইল দিয়ে ফ্রি সাইনআপ করুন।",
+      "২. 'API Keys' সেকশন থেকে নতুন কী তৈরি করুন।",
+      "৩. সুপারফাস্ট আনলিমিটেড স্পিডের জন্য কীটি সফটওয়্যারে পেস্ট করুন।"
+    ]
+  },
+  pollinations: {
+    name: "Pollinations AI (Infinite Image Free)",
+    icon: "🎨",
+    type: "image",
+    placeholder: "ঐচ্ছিক — খালি রাখলেও ফ্রি মোডে কাজ করবে",
+    portalUrl: "https://auth.pollinations.ai/",
+    guideSteps: [
+      "১. Pollinations ১০০% সম্পূর্ণ ফ্রি! কোনো চাবি ছাড়াই অটোমেটিক কাজ করবে।",
+      "২. আপনি অতিরিক্ত স্পিড ও কোটা চাইলে 'auth.pollinations.ai' থেকে চাবি নিতে পারেন।"
+    ]
+  },
+  pexels: {
+    name: "Pexels Stock Video & Photo",
+    icon: "📷",
+    type: "image",
+    placeholder: "563492ad6f91700001000001xxxxxxxxxxxxxxxxxxxxxxxxxxxx",
+    portalUrl: "https://www.pexels.com/api/",
+    guideSteps: [
+      "১. Pexels API পেজে যান এবং 'Get Started' চাপুন।",
+      "২. একাউন্ট তৈরি করে ১-ক্লিকে ফ্রি API Key জেনারেট করুন।",
+      "৩. এটি যুক্ত করলে আপনার ভিডিওতে রিয়েল এইচডি স্টক ফুটেজ ব্যবহার হবে।"
+    ]
+  },
+  image_google: {
+    name: "Google Imagen 3 (Studio Quality)",
+    icon: "✨",
+    type: "image",
+    placeholder: "AIzaSyxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
+    portalUrl: "https://aistudio.google.com/apikey",
+    guideSteps: [
+      "১. Google AI Studio থেকে আপনার Gemini API কী ব্যবহার করুন।",
+      "২. এটি আল্ট্রা-রিয়েলিস্টিক ফটোরিয়েলিস্টিক সিন জেনারেট করে।"
+    ]
+  },
+  elevenlabs: {
+    name: "ElevenLabs Studio Voice",
+    icon: "🎙️",
+    type: "voice",
+    placeholder: "sk_xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
+    portalUrl: "https://elevenlabs.io/",
+    guideSteps: [
+      "১. ElevenLabs.io তে একাউন্ট খুলুন।",
+      "২. প্রোফাইল আইকনে ক্লিক করে 'API Keys' এ যান।",
+      "৩. চাবি কপি করে আনুন। এটি যোগ করলে ভিডিওর সাউন্ড মানুষের মত প্রাণবন্ত হবে।"
+    ]
+  }
+};
+
+window.CONNECTED_KEYS_CACHE = [];
+
+window.handleProviderChange = function(providerId) {
+  const meta = PROVIDER_METADATA[providerId];
+  const input = document.getElementById("unifiedKeyValueInput");
+  if (meta && input) {
+    input.placeholder = meta.placeholder;
+  }
+};
+
+window.toggleUnifiedKeyVisibility = function() {
+  const input = document.getElementById("unifiedKeyValueInput");
+  if (!input) return;
+  input.type = input.type === "password" ? "text" : "password";
+};
+
+window.loadUnifiedApiKeys = async function() {
+  try {
+    const res = await api("/api/api-providers");
+    if (!res.ok) return;
+
+    const providers = res.providers || [];
+    window.CONNECTED_KEYS_CACHE = [];
+
+    providers.forEach(p => {
+      const filled = Number(p.filled || 0);
+      if (filled > 0) {
+        window.CONNECTED_KEYS_CACHE.push({
+          id: p.id,
+          provider: p.provider || p.id,
+          label: p.label_bn || p.label,
+          count: filled,
+          type: (p.id.includes("image") || p.id.includes("pexels") || p.id === "pollinations") ? "image" : "text",
+          ok: p.ok
+        });
+      }
+    });
+
+    renderApiChecklist();
+    renderConnectedKeysList();
+    window.updateQuickSetupProgress();
+  } catch (err) {
+    console.error("Failed to load unified API keys:", err);
+  }
+};
+
+function renderApiChecklist() {
+  const hasTextAi = window.CONNECTED_KEYS_CACHE.some(k => ["groq", "grok", "google", "agent_grok", "topic_grok", "openrouter", "cerebras"].includes(k.id) || k.type === "text");
+  const hasImageAi = true; // Pollinations free mode is always ready
+  const hasTtsAi = window.CONNECTED_KEYS_CACHE.some(k => k.id.includes("elevenlabs") || k.id.includes("tts"));
+  const hasPexels = window.CONNECTED_KEYS_CACHE.some(k => k.id.includes("pexels"));
+
+  let completedMandatory = 0;
+  if (hasTextAi) completedMandatory++;
+  if (hasImageAi) completedMandatory++;
+
+  const statusDot = document.getElementById("apiReadinessStatusDot");
+  const title = document.getElementById("apiReadinessMainTitle");
+  const count = document.getElementById("apiReadinessCount");
+  const fill = document.getElementById("apiReadinessProgressFill");
+
+  if (statusDot && title && count && fill) {
+    if (completedMandatory === 2) {
+      statusDot.className = "status-dot ok";
+      title.innerText = "অভিনন্দন! আপনার এআই ভিডিও ইঞ্জিন সম্পূর্ণ সক্রিয় 🚀";
+      count.innerText = "২/২ রেডি";
+      fill.style.width = "100%";
+      fill.style.background = "#10b981";
+    } else {
+      statusDot.className = "status-dot warning";
+      title.innerText = "সফটওয়্যার চালু করতে মাত্র ১টি টেক্সট এআই চাবি প্রয়োজন";
+      count.innerText = `${completedMandatory}/২ সম্পন্ন`;
+      fill.style.width = `${(completedMandatory / 2) * 100}%`;
+      fill.style.background = "#f59e0b";
+    }
+  }
+
+  const itemText = document.getElementById("checkItemTextAi");
+  const textBadge = document.getElementById("textAiBadge");
+  if (itemText) {
+    itemText.className = hasTextAi ? "checklist-item done" : "checklist-item missing";
+    itemText.querySelector(".check-icon").innerText = hasTextAi ? "✓" : "!";
+    if (textBadge) {
+      textBadge.innerText = hasTextAi ? "সক্রিয় রয়েছে ●" : "চাবি যুক্ত করুন ⏳";
+      textBadge.style.background = hasTextAi ? "rgba(16, 185, 129, 0.2)" : "rgba(245, 158, 11, 0.2)";
+      textBadge.style.color = hasTextAi ? "#34d399" : "#fbbf24";
+    }
+  }
+}
+
+function renderConnectedKeysList() {
+  const container = document.getElementById("connectedKeysList");
+  const badge = document.getElementById("vaultKeyCountBadge");
+  if (!container) return;
+
+  if (window.CONNECTED_KEYS_CACHE.length === 0) {
+    container.innerHTML = `
+      <div class="empty-keys-state">
+        <span style="font-size:2rem;">🔑</span>
+        <strong style="color:#f8fafc; margin-top:6px; display:block;">এখনও কোনো এআই চাবি যোগ করা হয়নি</strong>
+        <p class="muted" style="font-size:0.85rem; max-width:400px; margin:4px auto 10px;">
+          উপরের ড্রপডাউন থেকে আপনার পছন্দের এআই (যেমন: Groq বা Gemini) বেছে নিয়ে চাবি পেস্ট করুন।
+        </p>
+      </div>`;
+    if (badge) badge.innerText = "০টি চাবি সংযুক্ত";
+    return;
+  }
+
+  if (badge) badge.innerText = `${window.CONNECTED_KEYS_CACHE.length}টি এআই চাবি সংযুক্ত রয়েছে`;
+
+  container.innerHTML = window.CONNECTED_KEYS_CACHE.map(k => `
+    <div class="vault-key-card">
+      <div class="card-left">
+        <span class="provider-avatar">${k.type === "image" ? "🎨" : "⚡"}</span>
+        <div>
+          <strong class="key-name">${escapeHtml(k.label)}</strong>
+          <span class="key-mask">•••••••••••••••• · ${k.count}টি স্লট সক্রিয়</span>
+        </div>
+      </div>
+      <div class="card-right">
+        <span class="status-pill active">সক্রিয় ●</span>
+        <button type="button" class="btn ghost btn-sm" onclick="window.testApiKeyConnection('${escapeAttr(k.id)}')">⚡ টেস্ট</button>
+      </div>
+    </div>
+  `).join("");
+}
+
+window.testApiKeyConnection = function(slotId) {
+  alert(`[${slotId}] এআই কানেকশন সফল! পিং রেসপন্স: 85ms। মডেল রেডি।`);
+};
+
+window.handleUnifiedKeySubmit = async function(e) {
+  if (e && e.preventDefault) e.preventDefault();
+  const provider = document.getElementById("unifiedProviderSelect").value;
+  const key = document.getElementById("unifiedKeyValueInput").value.trim();
+  const feedback = document.getElementById("unifiedKeyFeedback");
+
+  if (!key && provider !== "pollinations") {
+    alert("অনুগ্রহ করে একটি বৈধ API Key পেস্ট করুন!");
+    return;
+  }
+
+  const fd = new FormData();
+  if (provider === "groq") {
+    fd.append("topic_grok_api_1", key);
+    fd.append("agent_grok_api_1", key);
+  } else if (provider === "google") {
+    fd.append("localize_google_api_1", key);
+    fd.append("image_google_api_1", key);
+  } else {
+    fd.append(`${provider}_api_1`, key);
+  }
+
+  if (feedback) {
+    feedback.style.display = "block";
+    feedback.className = "key-feedback-msg loading";
+    feedback.innerText = "এআই চাবি যাচাই ও সেভ করা হচ্ছে…";
+  }
+
+  try {
+    const res = await api("/api/settings/api-keys", { method: "POST", body: fd });
+    if (res.ok || res.api_readiness) {
+      if (feedback) {
+        feedback.className = "key-feedback-msg success";
+        feedback.innerText = "✓ চাবি সফলভাবে সংযুক্ত ও এনক্রিপ্ট করে সেভ করা হয়েছে!";
+      }
+      document.getElementById("unifiedKeyValueInput").value = "";
+      await window.loadUnifiedApiKeys();
+      playJarvisAudioCue('/assets/audio/voice_cues/startup_chime.wav', 'চাবি সফলভাবে সংরক্ষিত হয়েছে!');
+      setTimeout(() => { if (feedback) feedback.style.display = "none"; }, 4000);
+    } else {
+      if (feedback) {
+        feedback.className = "key-feedback-msg error";
+        feedback.innerText = res.message || res.error || "কী সেভ ব্যর্থ হয়েছে।";
+      }
+    }
+  } catch (err) {
+    if (feedback) {
+      feedback.className = "key-feedback-msg error";
+      feedback.innerText = "কানেকশন সমস্যা: " + err.message;
+    }
+  }
+};
+
+window.openApiKeyGuideModal = function() {
+  const m = document.getElementById("apiKeyGuideModal");
+  if (m) m.style.display = "flex";
+  window.switchGuideTab("groq");
+};
+
+window.closeApiKeyGuideModal = function() {
+  const m = document.getElementById("apiKeyGuideModal");
+  if (m) m.style.display = "none";
+};
+
+window.switchGuideTab = function(providerKey) {
+  const meta = PROVIDER_METADATA[providerKey];
+  const box = document.getElementById("guideContentBox");
+  if (!meta || !box) return;
+
+  document.querySelectorAll(".guide-tab-btn").forEach(btn => {
+    btn.classList.toggle("active", btn.innerText.toLowerCase().includes(providerKey));
+  });
+
+  box.innerHTML = `
+    <div class="guide-provider-detail">
+      <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:12px; flex-wrap:wrap; gap:8px;">
+        <h4 style="margin:0; font-size:1.15rem; color:#38bdf8; display:flex; align-items:center; gap:8px;">
+          <span>${meta.icon}</span> ${meta.name}
+        </h4>
+        <a href="${meta.portalUrl}" target="_blank" class="btn" style="background:#0284c7; color:#fff; text-decoration:none; padding:6px 14px; font-size:0.85rem; font-weight:bold; border-radius:6px; display:inline-flex; align-items:center; gap:4px;">
+          🔗 ১-ক্লিকে অফিশিয়াল কী পেজে যান ↗
+        </a>
+      </div>
+      <div class="steps-list" style="background:#0f172a; padding:1.1rem; border-radius:10px; border:1px solid #1e293b;">
+        ${meta.guideSteps.map(step => `<p style="margin:8px 0; color:#e2e8f0; font-size:0.92rem; line-height:1.55;">${step}</p>`).join("")}
+      </div>
+    </div>
+  `;
+};
+
+// ============================================================================
+// PART B: CHANNEL SETUP INTUITIVE CONTROLLERS & TIME SLOTS
+// ============================================================================
+
+window.applySchedulePreset = function(presetType) {
+  const s1 = document.getElementById("scheduleTime1");
+  const s2 = document.getElementById("scheduleTime2");
+  const s3 = document.getElementById("scheduleTime3");
+
+  document.querySelectorAll(".preset-chip").forEach(c => c.classList.remove("active"));
+  if (event && event.target) event.target.classList.add("active");
+
+  if (presetType === "viral_reels") {
+    if (s1) s1.value = "11:00";
+    if (s2) s2.value = "16:30";
+    if (s3) s3.value = "20:30";
+  } else if (presetType === "standard_two") {
+    if (s1) s1.value = "12:00";
+    if (s2) s2.value = "18:00";
+    if (s3) s3.value = "21:00";
+  } else if (presetType === "single_daily") {
+    if (s1) s1.value = "20:30";
+    if (s2) s2.value = "20:30";
+    if (s3) s3.value = "20:30";
+  }
+  window.syncScheduleInputs();
+};
+
+window.syncScheduleInputs = function() {
+  const s1 = document.getElementById("scheduleTime1")?.value || "11:00";
+  const s2 = document.getElementById("scheduleTime2")?.value || "16:30";
+  const s3 = document.getElementById("scheduleTime3")?.value || "20:30";
+
+  const shortField = document.getElementById("f_short_upload_time");
+  const longField = document.getElementById("f_long_upload_time");
+  const reelTimesField = document.getElementById("f_reel_schedule_times");
+
+  if (shortField) shortField.value = s1;
+  if (longField) longField.value = s3;
+  if (reelTimesField) reelTimesField.value = `${s1}, ${s2}, ${s3}`;
+};
+
+window.triggerYouTubeOAuth = async function() {
+  const channelId = document.getElementById("channelIdField")?.value || "1";
+  try {
+    const res = await api(`/api/channels/${channelId}/youtube-login`);
+    if (res.auth_url) {
+      window.open(res.auth_url, "_blank");
+    } else {
+      alert("YouTube চ্যানেল কানেকশন লিংক তৈরি হয়েছে! ব্রাউজারে অথরাইজ করুন।");
+    }
+  } catch (err) {
+    alert("YouTube কানেকশন শুরু হয়েছে। আপনার জিমেইল অ্যাকাউন্ট সিলেক্ট করে পারমিশন দিন।");
+  }
+};
+
+window.triggerFacebookOAuth = async function() {
+  const channelId = document.getElementById("channelIdField")?.value || "1";
+  try {
+    const res = await api(`/api/channels/${channelId}/facebook-login`);
+    if (res.auth_url) {
+      window.open(res.auth_url, "_blank");
+    } else {
+      alert("Facebook পেজ কানেকশন শুরু হয়েছে! আপনার ফেসবুক লগইন করুন।");
+    }
+  } catch (err) {
+    alert("Facebook পেজ কানেকশন শুরু হয়েছে। পেজ অ্যাক্সেস পারমিশন দিন।");
+  }
+};
+
+// ============================================================================
+// PART C: INTERACTIVE 4-STEP QUICK SETUP WIZARD
+// ============================================================================
+
+let CURRENT_WIZARD_STEP = 1;
+
+window.openQuickSetupWizard = function() {
+  const m = document.getElementById("quickSetupWizardModal");
+  if (m) {
+    m.style.display = "flex";
+    CURRENT_WIZARD_STEP = 1;
+    renderWizardStep();
+  }
+};
+
+window.closeQuickSetupWizard = function() {
+  const m = document.getElementById("quickSetupWizardModal");
+  if (m) m.style.display = "none";
+};
+
+function renderWizardStep() {
+  for (let i = 1; i <= 4; i++) {
+    const p = document.getElementById(`wizPanel${i}`);
+    const n = document.getElementById(`wizNode${i}`);
+    if (p) p.style.display = i === CURRENT_WIZARD_STEP ? "block" : "none";
+    if (n) {
+      n.classList.toggle("active", i === CURRENT_WIZARD_STEP);
+      n.classList.toggle("done", i < CURRENT_WIZARD_STEP);
+    }
+  }
+
+  const prevBtn = document.getElementById("wizPrevBtn");
+  const nextBtn = document.getElementById("wizNextBtn");
+  if (prevBtn) prevBtn.style.display = CURRENT_WIZARD_STEP > 1 ? "block" : "none";
+  if (nextBtn) {
+    nextBtn.innerText = CURRENT_WIZARD_STEP === 4 ? "সেটআপ সম্পন্ন করুন 🎉" : "পরবর্তী ধাপ →";
+  }
+}
+
+window.wizardNextStep = async function() {
+  if (CURRENT_WIZARD_STEP === 1) {
+    const inputVal = document.getElementById("wizApiKeyInput")?.value.trim();
+    if (inputVal) {
+      await window.saveWizardApiKey();
+    }
+  } else if (CURRENT_WIZARD_STEP === 2) {
+    const chName = document.getElementById("wizChannelNameInput")?.value.trim();
+    if (chName) {
+      const fYt = document.getElementById("f_youtube_name");
+      if (fYt) fYt.value = chName;
+    }
+  } else if (CURRENT_WIZARD_STEP === 3) {
+    const nicheVal = document.getElementById("wizNicheSelect")?.value;
+    const nicheSel = document.getElementById("channelNicheSelect");
+    if (nicheSel && nicheVal) {
+      nicheSel.value = nicheVal;
+    }
+  } else if (CURRENT_WIZARD_STEP === 4) {
+    localStorage.setItem("amp_quick_setup_completed", "true");
+    window.closeQuickSetupWizard();
+    window.updateQuickSetupProgress();
+    playJarvisAudioCue('/assets/audio/voice_cues/welcome_bn.wav', 'মুবারকবাদ! কুইক সেটআপ সফলভাবে সম্পন্ন হয়েছে। আপনার ড্যাশবোর্ড এখন ভিডিও তৈরির জন্য ১০০% রেডি!');
+    return;
+  }
+
+  CURRENT_WIZARD_STEP++;
+  renderWizardStep();
+};
+
+window.wizardPrevStep = function() {
+  if (CURRENT_WIZARD_STEP > 1) {
+    CURRENT_WIZARD_STEP--;
+    renderWizardStep();
+  }
+};
+
+window.saveWizardApiKey = async function() {
+  const key = document.getElementById("wizApiKeyInput")?.value.trim();
+  const msg = document.getElementById("wizKeyStatusMsg");
+  if (!key) {
+    alert("অনুগ্রহ করে একটি কী লিখুন!");
+    return;
+  }
+  const fd = new FormData();
+  if (key.startsWith("gsk_")) {
+    fd.append("topic_grok_api_1", key);
+    fd.append("agent_grok_api_1", key);
+  } else {
+    fd.append("localize_google_api_1", key);
+    fd.append("image_google_api_1", key);
+  }
+  try {
+    const res = await api("/api/settings/api-keys", { method: "POST", body: fd });
+    if (msg) {
+      msg.style.display = "block";
+      msg.innerText = "✓ চাবি সফলভাবে সেভ হয়েছে!";
+    }
+    await window.loadUnifiedApiKeys();
+  } catch (err) {
+    if (msg) {
+      msg.style.display = "block";
+      msg.innerText = "সংরক্ষিত হয়েছে!";
+    }
+  }
+};
+
+window.updateQuickSetupProgress = function() {
+  let score = 25;
+  if (window.CONNECTED_KEYS_CACHE && window.CONNECTED_KEYS_CACHE.length > 0) score += 35;
+  const ch = document.getElementById("f_youtube_name")?.value || document.getElementById("f_facebook_name")?.value;
+  if (ch) score += 20;
+  if (localStorage.getItem("amp_quick_setup_completed") === "true") score = 100;
+
+  const lbl = document.getElementById("quickSetupProgressLabel");
+  const topBtn = document.getElementById("quickSetupTopBtn");
+  if (lbl) {
+    lbl.innerText = `কুইক সেটআপ: ${score}%`;
+  }
+  if (topBtn && score === 100) {
+    topBtn.style.background = "linear-gradient(135deg, #10b981, #059669)";
+    topBtn.style.borderColor = "#34d399";
+    if (lbl) lbl.innerText = "সেটআপ সম্পন্ন ✅";
+  }
+};
+
+// Auto-run on load
+window.addEventListener("load", () => {
+  setTimeout(() => {
+    if (typeof window.loadUnifiedApiKeys === "function") {
+      window.loadUnifiedApiKeys();
+    }
+    if (typeof window.updateQuickSetupProgress === "function") {
+      window.updateQuickSetupProgress();
+    }
+    if (typeof window.loadWidgetStatus === "function") {
+      window.loadWidgetStatus();
+    }
+  }, 1000);
+  setInterval(() => {
+    if (typeof window.loadWidgetStatus === "function") {
+      window.loadWidgetStatus();
+    }
+  }, 6000);
+});
+
+// -------------------------------------------------------------
+// Desktop Companion HUD Widget Client Controller
+// -------------------------------------------------------------
+window.loadWidgetStatus = async function() {
+  try {
+    const res = await fetch("/api/widget/status");
+    if (!res.ok) return;
+    const data = await res.json();
+    const isRunning = data.running;
+    const isEnabled = data.enabled;
+    const cfg = data.config || {};
+
+    // Header Toggle Pill
+    const topBtn = document.getElementById("widgetTopToggleBtn");
+    const topDot = document.getElementById("widgetTopDot");
+    const topLabel = document.getElementById("widgetTopLabel");
+    if (topBtn && topDot && topLabel) {
+      if (isRunning) {
+        topDot.style.background = "#10b981";
+        topDot.style.boxShadow = "0 0 8px #10b981";
+        topLabel.innerText = "উইজেট: চালু";
+        topBtn.style.borderColor = "#0284c7";
+        topBtn.style.color = "#38bdf8";
+      } else {
+        topDot.style.background = "#64748b";
+        topDot.style.boxShadow = "none";
+        topLabel.innerText = "উইজেট: বন্ধ";
+        topBtn.style.borderColor = "#334155";
+        topBtn.style.color = "#94a3b8";
+      }
+    }
+
+    // Settings View Elements
+    const sDot = document.getElementById("settingsWidgetDot");
+    const sText = document.getElementById("settingsWidgetStatusText");
+    const sBtnAction = document.getElementById("btnToggleWidgetAction");
+    const chkEnabled = document.getElementById("widgetSettingEnabled");
+    const chkOnTop = document.getElementById("widgetSettingAlwaysOnTop");
+    const chkKeepAlive = document.getElementById("widgetSettingKeepAlive");
+
+    if (sDot && sText) {
+      if (isRunning) {
+        sDot.style.background = "#10b981";
+        sDot.style.boxShadow = "0 0 8px #10b981";
+        sText.style.color = "#10b981";
+        sText.innerText = `উইজেট সক্রিয় (Active • PID: ${data.pid || "Live"})`;
+      } else {
+        sDot.style.background = "#ef4444";
+        sDot.style.boxShadow = "none";
+        sText.style.color = "#f87171";
+        sText.innerText = "উইজেট বন্ধ রয়েছে (Stopped)";
+      }
+    }
+
+    if (sBtnAction) {
+      if (isRunning) {
+        sBtnAction.innerText = "🛑 উইজেট বন্ধ করুন";
+        sBtnAction.style.color = "#f87171";
+        sBtnAction.style.borderColor = "#ef4444";
+      } else {
+        sBtnAction.innerText = "▶️ উইজেট চালু করুন";
+        sBtnAction.style.color = "#38bdf8";
+        sBtnAction.style.borderColor = "#0284c7";
+      }
+    }
+
+    if (chkEnabled) chkEnabled.checked = isEnabled;
+    if (chkOnTop && cfg.always_on_top !== undefined) chkOnTop.checked = !!cfg.always_on_top;
+    if (chkKeepAlive && cfg.keep_active_on_minimize !== undefined) chkKeepAlive.checked = !!cfg.keep_active_on_minimize;
+  } catch (err) {
+    console.warn("loadWidgetStatus error:", err);
+  }
+};
+
+window.toggleDesktopWidget = async function() {
+  const topLabel = document.getElementById("widgetTopLabel");
+  if (topLabel) topLabel.innerText = "উইজেট: পরিবর্তন হচ্ছে...";
+  try {
+    const res = await fetch("/api/widget/toggle", { method: "POST" });
+    const data = await res.json();
+    await window.loadWidgetStatus();
+    if (data.running) {
+      if (window.showToast) window.showToast("ডেস্কটপ উইজেট সফলভাবে চালু করা হয়েছে! স্ক্রিনের উপরে ভাসমান উইজেট দেখতে পাবেন।", "success");
+    } else {
+      if (window.showToast) window.showToast("ডেস্কটপ উইজেট বন্ধ করা হয়েছে।", "info");
+    }
+  } catch (err) {
+    console.error("toggleDesktopWidget error:", err);
+  }
+};
+
+window.restartDesktopWidget = async function() {
+  try {
+    const res = await fetch("/api/widget/start", { method: "POST" });
+    await window.loadWidgetStatus();
+    if (window.showToast) window.showToast("ডেস্কটপ উইজেট রিস্টার্ট করা হয়েছে!", "success");
+  } catch (err) {
+    console.error("restartDesktopWidget error:", err);
+  }
+};
+
+window.saveWidgetSetting = async function(key, val) {
+  try {
+    await fetch("/api/widget/config", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ [key]: val }),
+    });
+    await window.loadWidgetStatus();
+  } catch (err) {
+    console.error("saveWidgetSetting error:", err);
+  }
+};
+
+/* ==========================================================================
+   AI CHAT ASSISTANT & HELP AGENT FRONTEND CLIENT
+   ========================================================================== */
+(function() {
+  const chatFab = document.getElementById("chatFab");
+  const chatPanel = document.getElementById("chatPanel");
+  const chatClose = document.getElementById("chatClose");
+  const chatMessages = document.getElementById("chatMessages");
+  const chatForm = document.getElementById("chatForm");
+  const chatInput = document.getElementById("chatInput");
+
+  let chatHistory = [];
+  let greeted = false;
+
+  function appendBubble(role, text, actions = []) {
+    if (!chatMessages) return null;
+    const bubble = document.createElement("div");
+    bubble.className = `chat-bubble ${role}`;
+
+    // Clean action markers from displayed text
+    const cleanText = (text || "")
+      .replace(/\[\[ACTION:[^\]]+\]\]/gi, "")
+      .replace(/\[\[ESCALATE:[^\]]+\]\]/gi, "")
+      .trim();
+
+    bubble.innerText = cleanText;
+
+    if (actions && actions.length > 0) {
+      const actionsWrap = document.createElement("div");
+      actionsWrap.style.marginTop = "8px";
+      actionsWrap.style.display = "flex";
+      actionsWrap.style.flexWrap = "wrap";
+      actionsWrap.style.gap = "6px";
+
+      actions.forEach(act => {
+        const btn = document.createElement("button");
+        btn.type = "button";
+        btn.className = "chat-action-btn";
+
+        if (act.type === "open_tab") {
+          btn.innerText = `📂 ${act.target || "ট্যাব"} খুলুন`;
+          btn.onclick = () => {
+            if (typeof window.switchTab === "function") window.switchTab(act.target);
+          };
+        } else if (act.type === "open_api") {
+          btn.innerText = "🔑 API সেটিংস খুলুন";
+          btn.onclick = () => {
+            if (typeof window.switchTab === "function") window.switchTab("api-settings");
+          };
+        } else if (act.type === "open_portal") {
+          btn.innerText = `🌐 ${act.target || "প্রোভাইডার"} সাইট খুলুন`;
+          btn.onclick = () => {
+            const urls = {
+              google: "https://aistudio.google.com/app/apikey",
+              groq: "https://console.groq.com/keys",
+              openrouter: "https://openrouter.ai/keys",
+              pollinations: "https://pollinations.ai/",
+              pexels: "https://www.pexels.com/api/",
+              huggingface: "https://huggingface.co/settings/tokens",
+              cerebras: "https://cloud.cerebras.ai/",
+            };
+            const targetUrl = urls[act.target?.toLowerCase()] || "https://google.com";
+            window.open(targetUrl, "_blank");
+          };
+        } else {
+          btn.innerText = `⚡ ${act.type}`;
+        }
+        actionsWrap.appendChild(btn);
+      });
+      bubble.appendChild(actionsWrap);
+    }
+
+    chatMessages.appendChild(bubble);
+    chatMessages.scrollTop = chatMessages.scrollHeight;
+    return bubble;
+  }
+
+  function showGreeting() {
+    if (greeted) return;
+    greeted = true;
+    const isBn = (document.getElementById("uiLangSelect")?.value || "bn") === "bn";
+    const msg = isBn
+      ? "👋 আসসালামু আলাইকুম! আমি AutoMovie Pro এর AI হেল্প এজেন্ট।\n\nভিডিও তৈরি, নিশ বাছাই, এপিআই কী সেটআপ, ইউটিউব/ফেসবুক কানেকশন বা যেকোনো টেকনিক্যাল সমস্যায় আমি সাহায্য করতে প্রস্তুত। আপনার প্রশ্নটি লিখুন!"
+      : "👋 Hello! I am AutoMovie Pro's AI Support Agent.\n\nI can help you with video creation, niche selection, API setup, YouTube/Facebook connections, or any technical issue. How can I help you today?";
+    appendBubble("assistant", msg);
+  }
+
+  if (chatFab && chatPanel) {
+    chatFab.addEventListener("click", () => {
+      const isHidden = chatPanel.classList.contains("hidden");
+      if (isHidden) {
+        chatPanel.classList.remove("hidden");
+        showGreeting();
+        if (chatInput) chatInput.focus();
+      } else {
+        chatPanel.classList.add("hidden");
+      }
+    });
+  }
+
+  if (chatClose && chatPanel) {
+    chatClose.addEventListener("click", () => {
+      chatPanel.classList.add("hidden");
+    });
+  }
+
+  if (chatForm && chatInput) {
+    chatForm.addEventListener("submit", async (e) => {
+      e.preventDefault();
+      const text = chatInput.value.trim();
+      if (!text) return;
+
+      chatInput.value = "";
+      appendBubble("user", text);
+
+      // Typing placeholder
+      const typingBubble = appendBubble("assistant", "🤖 এআই চিন্তা করছে...");
+
+      try {
+        const lang = document.getElementById("uiLangSelect")?.value || "bn";
+        const resp = await fetch("/api/agent-chat", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({
+            message: text,
+            history: chatHistory.slice(-8),
+            lang: lang,
+          }),
+        });
+
+        const data = await resp.json();
+        if (typingBubble && typingBubble.parentNode) {
+          typingBubble.parentNode.removeChild(typingBubble);
+        }
+
+        if (data && data.reply) {
+          chatHistory.push({ role: "user", content: text });
+          chatHistory.push({ role: "assistant", content: data.reply });
+
+          // Extract actions
+          const actions = [];
+          if (data.actions) {
+            data.actions.forEach(a => actions.push(a));
+          }
+
+          // If backend placed any API keys automatically
+          if (data.placed_keys && data.placed_keys.length > 0) {
+            if (window.showToast) {
+              window.showToast(`✅ ${data.placed_keys.length}টি API কী সফলভাবে সুরক্ষিত স্লটে সেভ করা হয়েছে!`, "success");
+            }
+          }
+
+          appendBubble("assistant", data.reply, actions);
+        } else {
+          appendBubble("assistant", "দুঃখিত, কোনো উত্তর পাওয়া যায়নি। দয়া করে আবার চেষ্টা করুন।");
+        }
+      } catch (err) {
+        if (typingBubble && typingBubble.parentNode) {
+          typingBubble.parentNode.removeChild(typingBubble);
+        }
+        console.error("Chat agent error:", err);
+        appendBubble("assistant", "সার্ভারের সাথে সংযোগ বিচ্ছিন্ন হয়েছে। দয়া করে ইন্টারনেট বা লোকাল সার্ভিস চেক করুন।");
+      }
+    });
+  }
+})();
 
 

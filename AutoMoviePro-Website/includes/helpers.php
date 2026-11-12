@@ -87,7 +87,103 @@ function generate_login_id(): string
     return 'AMP' . strtoupper(bin2hex(random_bytes(3)));
 }
 
+function amp_get_order_token(PDO $pdo, array $order): string
+{
+    if (!empty($order['order_token'])) {
+        return (string) $order['order_token'];
+    }
+    $secret = setting($pdo, 'agent_master_secret', 'amp_agent_master_live_key_2026');
+    return hash_hmac('sha256', (string) ($order['id'] ?? 0), $secret);
+}
+
+function amp_verify_order_token(PDO $pdo, array $order, ?string $token): bool
+{
+    if (empty($token) || !is_string($token)) {
+        return false;
+    }
+    // 1. Direct match with order_token column in database
+    if (!empty($order['order_token']) && hash_equals((string) $order['order_token'], $token)) {
+        return true;
+    }
+    // 2. Cryptographic HMAC matching hash_hmac('sha256', (string)$order['id'], $secret)
+    $secret = setting($pdo, 'agent_master_secret', 'amp_agent_master_live_key_2026');
+    $expectedHmac = hash_hmac('sha256', (string) ($order['id'] ?? 0), $secret);
+    return hash_equals($expectedHmac, $token);
+}
+
 function client_ip(): string
 {
+    $headers = [
+        'HTTP_CF_CONNECTING_IP',
+        'HTTP_X_REAL_IP',
+        'HTTP_X_FORWARDED_FOR',
+        'REMOTE_ADDR'
+    ];
+    foreach ($headers as $h) {
+        if (!empty($_SERVER[$h])) {
+            $raw = (string) $_SERVER[$h];
+            if (str_contains($raw, ',')) {
+                $parts = explode(',', $raw);
+                $raw = trim($parts[0]);
+            }
+            $clean = trim($raw);
+            if (filter_var($clean, FILTER_VALIDATE_IP)) {
+                return $clean;
+            }
+        }
+    }
     return $_SERVER['REMOTE_ADDR'] ?? '0.0.0.0';
+}
+
+function check_rate_limit(PDO $pdo, string $actionKey, int $maxHits = 15, int $windowSeconds = 60): bool
+{
+    $ip = client_ip();
+    $now = time();
+    $cutoff = $now - $windowSeconds;
+
+    try {
+        if (mt_rand(1, 25) === 1) {
+            $pdo->prepare("DELETE FROM rate_limit_tracker WHERE timestamp < ?")->execute([$cutoff]);
+        }
+
+        $st = $pdo->prepare("SELECT COUNT(*) FROM rate_limit_tracker WHERE ip = ? AND action_key = ? AND timestamp >= ?");
+        $st->execute([$ip, $actionKey, $cutoff]);
+        $count = (int) $st->fetchColumn();
+
+        if ($count >= $maxHits) {
+            return false;
+        }
+
+        $pdo->prepare("INSERT INTO rate_limit_tracker (ip, action_key, timestamp) VALUES (?, ?, ?)")
+            ->execute([$ip, $actionKey, $now]);
+        return true;
+    } catch (\Throwable $e) {
+        try {
+            $driver = (string) $pdo->getAttribute(PDO::ATTR_DRIVER_NAME);
+            if ($driver === 'sqlite') {
+                $pdo->exec(
+                    "CREATE TABLE IF NOT EXISTS rate_limit_tracker (
+                      id INTEGER PRIMARY KEY AUTOINCREMENT,
+                      ip VARCHAR(64) NOT NULL,
+                      action_key VARCHAR(64) NOT NULL,
+                      timestamp INTEGER NOT NULL
+                    )"
+                );
+                $pdo->exec("CREATE INDEX IF NOT EXISTS idx_rlt_ip_act ON rate_limit_tracker (ip, action_key, timestamp)");
+            } else {
+                $pdo->exec(
+                    "CREATE TABLE IF NOT EXISTS rate_limit_tracker (
+                      id BIGINT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
+                      ip VARCHAR(64) NOT NULL,
+                      action_key VARCHAR(64) NOT NULL,
+                      timestamp INT UNSIGNED NOT NULL,
+                      INDEX idx_ip_act_time (ip, action_key, timestamp)
+                    ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4"
+                );
+            }
+            $pdo->prepare("INSERT INTO rate_limit_tracker (ip, action_key, timestamp) VALUES (?, ?, ?)")
+                ->execute([$ip, $actionKey, $now]);
+        } catch (\Throwable $e2) {}
+        return true;
+    }
 }

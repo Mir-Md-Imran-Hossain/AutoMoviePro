@@ -4,25 +4,54 @@ require dirname(__DIR__) . '/includes/bootstrap.php';
 require __DIR__ . '/_layout.php';
 require_admin();
 
-if ($_SERVER['REQUEST_METHOD'] === 'POST' && csrf_verify($_POST['csrf'] ?? null)) {
-    $id = (int) ($_POST['id'] ?? 0);
-    $status = (string) ($_POST['status'] ?? 'open');
-    $note = trim((string) ($_POST['admin_note'] ?? ''));
-    if (!in_array($status, ['open', 'in_progress', 'resolved'], true)) {
-        $status = 'open';
-    }
-    if ($id > 0) {
-        if ($status === 'resolved') {
-            $pdo->prepare(
-                'UPDATE agent_tickets SET status = ?, admin_note = ?, resolved_at = NOW() WHERE id = ?'
-            )->execute([$status, $note !== '' ? $note : null, $id]);
-        } else {
-            $pdo->prepare(
-                'UPDATE agent_tickets SET status = ?, admin_note = ? WHERE id = ?'
-            )->execute([$status, $note !== '' ? $note : null, $id]);
+$ticketError = null;
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+    if (!csrf_verify($_POST['csrf'] ?? null)) {
+        $ticketError = 'সেশনের মেয়াদ শেষ হয়েছে বা ফর্মের সিকিউরিটি টোকেন মেয়াদোত্তীর্ণ। অনুগ্রহ করে পৃষ্ঠাটি রিলোড করে পুনরায় চেষ্টা করুন।';
+    } else {
+        $id = (int) ($_POST['id'] ?? 0);
+        $status = (string) ($_POST['status'] ?? 'open');
+        $note = trim((string) ($_POST['admin_note'] ?? ''));
+        if (!in_array($status, ['open', 'in_progress', 'resolved'], true)) {
+            $status = 'open';
+        }
+        if ($id > 0) {
+            $nowVal = date('Y-m-d H:i:s');
+            if ($status === 'resolved') {
+                $pdo->prepare(
+                    'UPDATE agent_tickets SET status = ?, admin_note = ?, resolved_at = ? WHERE id = ?'
+                )->execute([$status, $note !== '' ? $note : null, $nowVal, $id]);
+            } else {
+                $pdo->prepare(
+                    'UPDATE agent_tickets SET status = ?, admin_note = ? WHERE id = ?'
+                )->execute([$status, $note !== '' ? $note : null, $id]);
+            }
+
+        // Auto-dispatch WhatsApp reply to customer if phone number exists and note is given
+        if (!empty($_POST['send_whatsapp_reply']) || !empty($_POST['send_wa'])) {
+            try {
+                $tStmt = $pdo->prepare('SELECT t.*, c.name, c.whatsapp AS cust_whatsapp FROM agent_tickets t LEFT JOIN customers c ON c.id = t.customer_id WHERE t.id = ?');
+                $tStmt->execute([$id]);
+                $tData = $tStmt->fetch();
+                if ($tData) {
+                    $targetWa = trim((string)($tData['cust_whatsapp'] ?: ($tData['user_phone'] ?? '')));
+                    if ($targetWa !== '') {
+                        $cName = $tData['name'] ?: 'গ্রাহক';
+                        $ticketNum = 'TCK-' . str_pad((string)$id, 5, '0', STR_PAD_LEFT);
+                        $stBangla = ($status === 'resolved') ? 'সমাধান করা হয়েছে (Resolved)' : (($status === 'in_progress') ? 'প্রক্রিয়াধীন রয়েছে (In Progress)' : 'উন্মুক্ত (Open)');
+                        $replyMsg = "আসসালামু আলাইকুম {$cName}!\nAutoMovie Pro সাপোর্ট টিম থেকে আপনার টিকিট ({$ticketNum}) এর আপডেট:\n\n"
+                                  . "📌 স্ট্যাটাস: {$stBangla}\n"
+                                  . "💬 সমাধানের বিবরণ:\n" . ($note ?: "আপনার সমস্যার সমাধান সম্পন্ন হয়েছে। সফটওয়্যার রিস্টার্ট দিয়ে পুনরায় পরীক্ষা করার অনুরোধ রইল।\n\nধন্যবাদ!");
+                        $cleanWa = preg_replace('/\D+/', '', $targetWa);
+                        if (str_starts_with($cleanWa, '01')) $cleanWa = '880' . substr($cleanWa, 1);
+                        whatsapp_antiban_dispatch($pdo, $config, $cleanWa, $replyMsg, 'high', 'support_ticket_reply', (int)($tData['customer_id'] ?? 0), null, $cName);
+                    }
+                }
+            } catch (\Throwable $eTick) {}
         }
     }
     redirect('/admin/tickets.php');
+}
 }
 
 $rows = $pdo->query(
@@ -35,6 +64,12 @@ $rows = $pdo->query(
 
 admin_header('এজেন্ট টিকেট ও সাপোর্ট', 'tickets');
 ?>
+
+<?php if (!empty($ticketError)): ?>
+  <div style="background:rgba(239,68,68,0.15); border:1px solid rgba(239,68,68,0.4); border-radius:10px; padding:12px 18px; margin-bottom:1.5rem; color:#fca5a5; font-size:0.95rem; font-weight:600;">
+    ⚠️ <?= e($ticketError) ?>
+  </div>
+<?php endif; ?>
 <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:1rem; flex-wrap:wrap; gap:10px;">
   <p class="lead" style="margin:0;">গ্রাহক ও সিস্টেম সাপোর্ট টিকেট — সর্বোচ্চ ৭২ ঘণ্টার মধ্যে সমাধান ও ফিডব্যাক প্রদান করুন।</p>
 </div>
@@ -98,14 +133,12 @@ admin_header('এজেন্ট টিকেট ও সাপোর্ট', 'ti
             <?php endforeach; ?>
           </select>
           <textarea name="admin_note" rows="2" placeholder="সমাধান বা অ্যাডমিন নোট লিখুন..." style="width:100%; font-size:0.85rem; padding:4px;"><?= e($r['admin_note'] ?? '') ?></textarea>
-          <div style="display:flex; gap:6px; align-items:center;">
+          <div style="display:flex; gap:6px; align-items:center; flex-wrap:wrap;">
             <button class="btn btn-sm" type="submit" style="padding:4px 10px;">💾 সেভ</button>
-            <?php if ($waPhone !== ''): 
-              $replyText = rawurlencode("আসসালামু আলাইকুম!\nAutoMovie Pro সাপোর্ট টিম থেকে আপনার টিকিট ({$ticketNum}) এর সমাধান ও আপডেট:\n" . ($r['admin_note'] ?: "আপনার সমস্যার সমাধান সম্পন্ন হয়েছে। সফটওয়্যার রিস্টার্ট দিয়ে পুনরায় পরীক্ষা করার অনুরোধ রইল। ধন্যবাদ!"));
-            ?>
-              <a href="https://wa.me/<?= e($waPhone) ?>?text=<?= $replyText ?>" target="_blank" class="btn btn-sm" style="background:#10b981; color:#fff; text-decoration:none; padding:4px 8px; white-space:nowrap;">
-                💬 WhatsApp রিপ্লাই
-              </a>
+            <?php if ($waPhone !== ''): ?>
+              <button class="btn btn-sm" type="submit" name="send_whatsapp_reply" value="1" style="background:#10b981; color:#fff; padding:4px 10px; font-weight:700; white-space:nowrap;" title="সার্ভারের WhatsApp গেটওয়ে থেকে সরাসরি গ্রাহকের মোবাইলে নোটিফিকেশন যাবে">
+                ⚡ সেভ ও অটো WhatsApp রিপ্লাই
+              </button>
             <?php endif; ?>
           </div>
         </form>

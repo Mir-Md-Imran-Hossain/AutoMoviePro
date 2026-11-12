@@ -6,7 +6,7 @@ Specifically built for AutoMovie Pro business page:
 1. Generates 30 to 70-second high-converting promotional vertical Reels (9:16) & videos.
 2. Ad Themes:
    - Creator Dream & Autonomous Pipeline (Research -> Script -> Audio -> Edit -> Schedule -> Passive Income).
-   - Lifetime Deal (৳২,৯৯৮ / ৳৪,৯৯৯ Agency Bundle).
+   - 4 Dedicated Flagship Products (৳৩,৯৯৯ Video Studio, ৳২,৯৯৯ FB Business, ৳১,৯৯৯ Profile Post, ৳৯৯৯ WhatsApp Suite).
    - 6 Languages / 50+ Languages Dubbing & Global YouTube Faceless Empire.
    - Dedicated Google AI Pro & Cloud Storage.
 3. Character Continuity & Seed Matching:
@@ -91,10 +91,10 @@ COMMERCIAL_AD_TEMPLATES = [
             {
                 "visual_prompt": "Business marketing office technology workstation with official software license box, 9:16 vertical portrait",
                 "badge_text": "💎 লাইফটাইম অফার ৳৩,৯৯৯",
-                "headline": "ফুল ভিডিও স্টুডিও মাত্র ৩,৯৯৯ ৳\nবিজনেস পেজ অটোমেশন ২,৯৯৯ ৳!",
+                "headline": "ফুল ভিডিও স্টুডিও মাত্র ৩,৯৯৯ ৳\n৩য় ভাষা ফ্রি • ৯ প্ল্যাটফর্মে আয়!",
                 "stat_label": "লাইফটাইম ডিল",
                 "stat_val": "জিরো মান্থলি চার্জ",
-                "speech": "চতুর্থ ধাপে এটি ইউটিউব ও ফেসবুকে নিজে থেকেই শিডিউল পোস্ট করে। কোনো এডিটর ছাড়া আজই ফুল ভিডিও স্টুডিও নিন মাত্র ৩,৯৯৯ টাকায় এবং বিজনেস ম্যানেজার ২,৯৯৯ টাকায় automoviepro.com ওয়েবসাইটে।"
+                "speech": "চতুর্থ ধাপে এটি নিজে থেকেই ভিডিও শিডিউল করে পোস্ট করে। আজকের অর্ডারে ৩য় ভাষা ফ্রি বোনাসসহ মাত্র ৮-১০ দিন কার্যকর ৩,৯৯৯ টাকার লাইফটাইম অফারটি আজই সংগ্রহ করতে ভিজিট করুন automoviepro.com ওয়েবসাইটে।"
             }
         ]
     },
@@ -255,10 +255,10 @@ COMMERCIAL_AD_TEMPLATES = [
             {
                 "visual_prompt": "Official AutoMovie Pro luxury gold box packaging glowing on modern studio desk, 9:16 vertical portrait",
                 "badge_text": "💎 লাইফটাইম অফার ৳৩,৯৯৯",
-                "headline": "সম্পূর্ণ রিমোট কন্ট্রোল ভিডিও স্টুডিও\nভিজিট করুন: automoviepro.com",
+                "headline": "সম্পূর্ণ রিমোট কন্ট্রোল ভিডিও স্টুডিও\n৩য় ভাষা ফ্রি • ৯ প্ল্যাটফর্মে আয়!",
                 "stat_label": "লাইফটাইম ডিল",
                 "stat_val": "জিরো মান্থলি চার্জ",
-                "speech": "কোনো মাসিক ফি ছাড়াই এই অত্যাধুনিক টেকনোলজিটি পান মাত্র ৩,৯৯৯ টাকায়। আজই ভিজিট করুন automoviepro.com অথবা কল করুন আমাদের হটলাইনে।"
+                "speech": "কোনো মাসিক ফি ছাড়াই এই অত্যাধুনিক টেকনোলজিটি পান মাত্র ৩,৯৯৯ টাকায়। আজকের অর্ডারে ৩য় ভাষা ফ্রি বোনাসসহ লাইফটাইম অফারটি উপভোগ করতে আজই ভিজিট করুন automoviepro.com অথবা কল করুন আমাদের হটলাইনে।"
             }
         ]
     },
@@ -296,16 +296,16 @@ COMMERCIAL_AD_TEMPLATES = [
             {
                 "visual_prompt": "Official AutoMovie Pro brand seal glowing with luxury gold certificate, 9:16 vertical portrait",
                 "badge_text": "🛒 ভিডিও স্টুডিও মাত্র ৩,৯৯৯ ৳",
-                "headline": "প্রফেশনাল সফটওয়্যার নিন ঘরে\nওয়েবসাইট: automoviepro.com",
+                "headline": "প্রফেশনাল সফটওয়্যার নিন ঘরে\n৩য় ভাষা ফ্রি • ৯ প্ল্যাটফর্মে আয়!",
                 "stat_label": "লাইফটাইম ডিল",
                 "stat_val": "আজীবন সাপোর্ট",
-                "speech": "এমন স্বয়ংসম্পূর্ণ সিস্টেম থাকলে ভিডিও বানানো কতটা সহজ, তা এখনই উপভোগ করুন মাত্র ৩,৯৯৯ টাকায়। ভিজিট করুন automoviepro.com ওয়েবসাইটে।"
+                "speech": "এমন স্বয়ংসম্পূর্ণ সিস্টেম থাকলে ভিডিও বানানো কতটা সহজ, তা এখনই উপভোগ করুন মাত্র ৩,৯৯৯ টাকায়। সাথে ৩য় ভাষা ফ্রি বোনাসসহ আজীবন লাইসেন্স পেতে আজই ভিজিট করুন automoviepro.com ওয়েবসাইটে।"
             }
         ]
     },
     {
-        "id": "jarvis_one_click_hud",
-        "theme": "বিগিনার ফ্রেন্ডলি ১-ক্লিক জারভিস ড্যাশবোর্ড — জিরো এডিটিং স্কিল",
+        "id": "ai_voice_one_click_hud",
+        "theme": "বিগিনার ফ্রেন্ডলি ১-ক্লিক এআই ড্যাশবোর্ড — জিরো এডিটিং স্কিল",
         "seed": 772150,
         "avatar_desc": "Friendly tech coach guiding beginner student through sleek dark mode interface",
         "voice_gender": "male",
@@ -319,12 +319,12 @@ COMMERCIAL_AD_TEMPLATES = [
                 "speech": "ভিডিও এডিটিং শেখার সময় নেই বা কঠিন সফটওয়্যার চালাতে পারেন না? AutoMovie Pro ডিজাইন করা হয়েছে একদম নতুনদের জন্য, যেখানে ১-ক্লিকেই পুরো কাজ সম্পন্ন হয়।"
             },
             {
-                "visual_prompt": "Futuristic JARVIS voice wave assistant speaking with pleasant green waveform, 9:16 vertical portrait",
-                "badge_text": "🎙️ জারভিস ভয়েস গাইড",
+                "visual_prompt": "Futuristic AI voice wave assistant speaking with pleasant green waveform, 9:16 vertical portrait",
+                "badge_text": "🎙️ স্মার্ট এআই ভয়েস গাইড",
                 "headline": "সফটওয়্যার নিজেই কথা বলে\nআপনাকে প্রতিটি ধাপে গাইড করবে!",
                 "stat_label": "ভয়েস কমেন্ট্রি",
                 "stat_val": "লাইভ অ্যাসিস্ট্যান্ট",
-                "speech": "সফটওয়্যার ওপেন করলেই আধুনিক জারভিস ভয়েস অ্যাসিস্ট্যান্ট মিষ্টি কণ্ঠে কথা বলে আপনাকে প্রতিটি ধাপে গাইড করবে, তাই কোনো সাহায্যকারী ছাড়াই সব সহজে বোঝা যায়।"
+                "speech": "সফটওয়্যার ওপেন করলেই আধুনিক এআই ভয়েস অ্যাসিস্ট্যান্ট মিষ্টি কণ্ঠে কথা বলে আপনাকে প্রতিটি ধাপে গাইড করবে, তাই কোনো সাহায্যকারী ছাড়াই সব সহজে বোঝা যায়।"
             },
             {
                 "visual_prompt": "Simple 2-minute channel setup wizard screen showing successful connection, 9:16 vertical portrait",
@@ -337,10 +337,10 @@ COMMERCIAL_AD_TEMPLATES = [
             {
                 "visual_prompt": "Golden premium software license badge on executive wooden desk, 9:16 vertical portrait",
                 "badge_text": "💎 লাইফটাইম ডিল ৳৩,৯৯৯",
-                "headline": "আজই সংগ্রহ করুন AutoMovie Pro\nভিজিট করুন: automoviepro.com",
+                "headline": "আজই সংগ্রহ করুন AutoMovie Pro\n৩য় ভাষা ফ্রি • ৯ প্ল্যাটফর্মে আয়!",
                 "stat_label": "লাইফটাইম এক্সেস",
                 "stat_val": "ফ্রি লাইফটাইম আপডেট",
-                "speech": "আজই ঘরে বসে প্রফেশনাল ভিডিও তৈরির আনন্দ উপভোগ করুন মাত্র ৩,৯৯৯ টাকার বিশেষ অফারে। এখনই অর্ডার করতে ভিজিট করুন automoviepro.com ওয়েবসাইটে।"
+                "speech": "আজই ঘরে বসে প্রফেশনাল ভিডিও তৈরির আনন্দ উপভোগ করুন মাত্র ৩,৯৯৯ টাকার বিশেষ অফারে। আজকের অর্ডারে ৩য় ভাষা ফ্রি বোনাসসহ লাইফটাইম লাইসেন্স সংগ্রহ করতে এখনই ভিজিট করুন automoviepro.com ওয়েবসাইটে।"
             }
         ]
     },
@@ -377,11 +377,11 @@ COMMERCIAL_AD_TEMPLATES = [
             },
             {
                 "visual_prompt": "Golden globe emblem next to official software license box, 9:16 vertical portrait",
-                "badge_text": "💎 ভিডিও স্টুডিও মাত্র ৩,৯৯৯ ৳",
-                "headline": "আন্তর্জাতিক চ্যানেল শুরু করুন\nঅর্ডার: automoviepro.com",
-                "stat_label": "সীমিত অফার",
-                "stat_val": "ফুল সোশ্যাল স্টুডিও",
-                "speech": "বিশ্বমানের গ্লোবাল চ্যানেল গড়ে তুলতে এখনই সংগ্রহ করুন AutoMovie Pro ভিডিও স্টুডিও মাত্র ৩,৯৯৯ টাকায়। অর্ডার করতে ভিজিট করুন automoviepro.com ওয়েবসাইটে।"
+                "badge_text": "🎁 আজকের বোনাস: ৩য় ভাষা ফ্রি",
+                "headline": "৩টি ফেসবুক, ৩টি ইউটিউব ও ৩টি টিকটক\nমোট ৯টি প্ল্যাটফর্মে ট্রিপল ইনকাম!",
+                "stat_label": "স্পেশাল বোনাস",
+                "stat_val": "৯টি প্ল্যাটফর্ম",
+                "speech": "আজকের অর্ডারে ৩য় আন্তর্জাতিক ভাষা সম্পূর্ণ ফ্রি পাচ্ছেন! ৩টি ফেসবুক পেজ, ৩টি ইউটিউব চ্যানেল ও ৩টি টিকটক একাউন্ট—মোট ৯টি প্ল্যাটফর্ম থেকে ট্রিপল প্যাসিভ ইনকাম নিশ্চিত করুন। আর মাত্র ৮ থেকে ১০ দিন কার্যকর ৩,৯৯৯ টাকার অফারটি সংগ্রহ করতে আজই ভিজিট করুন automoviepro.com ওয়েবসাইটে।"
             }
         ]
     },
@@ -419,10 +419,10 @@ COMMERCIAL_AD_TEMPLATES = [
             {
                 "visual_prompt": "Golden lifetime license card on luxury velvet background, 9:16 vertical portrait",
                 "badge_text": "💎 লাইফটাইম অফার ৳৩,৯৯৯",
-                "headline": "আজই নিন আজীবনের লাইসেন্স\nভিজিট করুন: automoviepro.com",
+                "headline": "আজই নিন আজীবনের লাইসেন্স\n৩য় ভাষা ফ্রি • ৯ প্ল্যাটফর্মে আয়!",
                 "stat_label": "আজীবন আপডেট",
                 "stat_val": "১০০% লাইফটাইম ডিল",
-                "speech": "একবার কিনুন, সারাজীবন নিশ্চিন্তে ব্যবহার করুন। আজই অর্ডার করুন AutoMovie Pro লাইফটাইম ডিল মাত্র ৩,৯৯৯ টাকায় automoviepro.com ওয়েবসাইটে।"
+                "speech": "একবার কিনুন, সারাজীবন নিশ্চিন্তে ব্যবহার করুন। ৩য় ভাষা ফ্রি বোনাসসহ ৯টি প্ল্যাটফর্মে ট্রিপল আয়ের এই ৩,৯৯৯ টাকার সীমিত সময়ের লাইফটাইম অফারটি পেতে আজই অর্ডার করুন automoviepro.com ওয়েবসাইটে।"
             }
         ]
     },
@@ -460,10 +460,51 @@ COMMERCIAL_AD_TEMPLATES = [
             {
                 "visual_prompt": "Modern computer workspace technology setup with golden lifetime guarantee, 9:16 vertical portrait",
                 "badge_text": "🛒 মেগা লাইফটাইম অফার",
-                "headline": "ফুল ভিডিও স্টুডিও মাত্র ৩,৯৯৯ ৳\nবিজনেস পেজ অটোমেশন ২,৯৯৯ ৳!",
+                "headline": "৩টি FB, ৩টি YT ও ৩টি TikTok\nমোট ৯টি প্ল্যাটফর্মে ট্রিপল আয়!",
                 "stat_label": "সীমিত সময়ের অফার",
                 "stat_val": "আজীবন লাইসেন্স",
-                "speech": "কোনো মাসিক ফি নেই, আজীবন ফ্রি আপডেট। ফুল সোশ্যাল ভিডিও স্টুডিও ৩,৯৯৯ টাকা, বিজনেস ম্যানেজার ২,৯৯৯ টাকা এবং প্রোফাইল অটোমেশন ১,৯৯৯ টাকা। এখনই ভিজিট করুন automoviepro.com ওয়েবসাইটে।"
+                "speech": "কোনো মাসিক ফি নেই, আজীবন ফ্রি আপডেট। আজকের অর্ডারে ৩য় ভাষা ফ্রি বোনাস পেয়ে ৯টি প্ল্যাটফর্মে ট্রিপল আয় নিশ্চিত করুন। আর মাত্র ৮-১০ দিন কার্যকর ৩,৯৯৯ টাকার এই মেগা অফারটি উপভোগ করতে এখনই ভিজিট করুন automoviepro.com ওয়েবসাইটে।"
+            }
+        ]
+    },
+    {
+        "id": "wa_marketing_suite_growth",
+        "theme": "হোয়াটসঅ্যাপ বাল্ক মার্কেটিং, বি২বি লিড স্ক্র্যাপিং ও ২৪/৭ অটো চ্যাটবট",
+        "seed": 883140,
+        "avatar_desc": "Smart business marketing professional holding modern smartphone showing green WhatsApp marketing dashboard with high sales stats",
+        "voice_gender": "male",
+        "scenes": [
+            {
+                "visual_prompt": "Confident tech entrepreneur holding sleek smartphone with glowing green WhatsApp holographic analytics dashboard, 9:16 vertical portrait",
+                "badge_text": "📱 ডিরেক্ট হোয়াটসঅ্যাপ মার্কেটিং",
+                "headline": "হাজার হাজার কাস্টমারের হোয়াটসঅ্যাপে\n১-ক্লিকেই পৌঁছে যাবে আপনার অফার!",
+                "stat_label": "ডিরেক্ট ইনবক্স",
+                "stat_val": "৯৮% ওপেন রেট",
+                "speech": "ফেসবুক অ্যাড বা ইমেইল মার্কেটিংয়ের চেয়ে হোয়াটসঅ্যাপে মেসেজ ওপেন রেট ৯৮% এরও বেশি! কিন্তু একে একে সবাইকে মেসেজ দেওয়া কি সম্ভব? WAManager Pro দিয়ে এখন ১ ক্লিকেই পৌঁছে যাবেন হাজার কাস্টমারের ইনবক্সে।"
+            },
+            {
+                "visual_prompt": "Futuristic digital world map extracting verified business phone numbers and active WhatsApp leads smoothly, 9:16 vertical portrait",
+                "badge_text": "🎯 টার্গেটেড বি২বি লিড ফাইন্ডার",
+                "headline": "গুগল ম্যাপস ও বি২বি ডিরেক্টরি থেকে\nটার্গেটেড ফোন নম্বর বের করুন নিমিষেই!",
+                "stat_label": "লিড জেনারেশন",
+                "stat_val": "১০০% রিয়েল ডাটা",
+                "speech": "কোনো ডাটাবেজ কেনার প্রয়োজন নেই। সফটওয়্যারটি যেকোনো এরিয়া বা ক্যাটাগরি অনুযায়ী গুগল ম্যাপস থেকে রিয়েল শপ ও বিজনেসের ফোন নম্বর স্বয়ংক্রিয়ভাবে স্ক্র্যাপ করে এনে দেয়।"
+            },
+            {
+                "visual_prompt": "AI chatbot assistant interacting smoothly with customers in green encrypted messaging bubbles with cyber security lock, 9:16 vertical portrait",
+                "badge_text": "🤖 অ্যান্টি-ব্যান ও স্মার্ট চ্যাটবট",
+                "headline": "অ্যাকাউন্ট ব্যানের ভয় ছাড়াই মেসেজিং\n২৪ ঘণ্টা কাজ করবে এআই চ্যাটবট!",
+                "stat_label": "অ্যাকাউন্ট সেফটি",
+                "stat_val": "১০০% নিরাপদ স্পিনট্যাক্স",
+                "speech": "প্রতিটি মেসেজে মানুষের মতো স্বাভাবিক ইন্টারভাল ও স্পিনট্যাক্স টেকনোলজি থাকে, যার ফলে অ্যাকাউন্ট নিরাপদ থাকে। সাথে রয়েছে ২৪/৭ স্মার্ট চ্যাটবট, যা কাস্টমারের মেসেজের স্বয়ংক্রিয় রিপ্লাই দিয়ে সেলস কনভার্ট করে।"
+            },
+            {
+                "visual_prompt": "Sleek green glowing software package box with golden 1-year verified guarantee badge on modern desk, 9:16 vertical portrait",
+                "badge_text": "🛒 বাৎসরিক লাইসেন্স মাত্র ৯৯৯ ৳",
+                "headline": "হোয়াটসঅ্যাপ মার্কেটিং সফটওয়্যার\n১ বছর বাৎসরিক লাইসেন্স মাত্র ৯৯৯ ৳!",
+                "stat_label": "প্রো লাইসেন্স",
+                "stat_val": "আনলিমিটেড বাল্ক মেসেজ",
+                "speech": "আপনার বিজনেসের সেলস ১০ গুণ বাড়াতে আজই নিয়ে নিন WAManager Pro প্যাকেজ মাত্র ৯৯৯ টাকায়। ১ বছর আনলিমিটেড ব্যবহারের সুযোগ পেতে এখনই ভিজিট করুন automoviepro.com অথবা কল করুন আমাদের হটলাইনে।"
             }
         ]
     }
@@ -689,7 +730,7 @@ class OmniAdStudioGenerator:
         # Footer CTA with vibrant gold/cyan highlight
         footer_y = card_bottom - 70
         draw.rounded_rectangle([100, footer_y - 30, width - 100, footer_y + 30], radius=20, fill=(30, 41, 59), outline=(56, 189, 248), width=2)
-        draw.text((width // 2, footer_y), "🛒 অর্ডার: automoviepro.com | 01684-355055", fill=(56, 189, 248), font=font_cta, anchor="mm")
+        draw.text((width // 2, footer_y), "🛒 অর্ডার: automoviepro.com | 01968-111593", fill=(56, 189, 248), font=font_cta, anchor="mm")
 
         img.save(out_frame_path, "PNG", quality=95)
         return out_frame_path

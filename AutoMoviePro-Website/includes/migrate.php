@@ -26,10 +26,21 @@ function ensure_amp_migrations(PDO $pdo): void
         $pdo->exec("ALTER TABLE customers ADD COLUMN otp_expires_at DATETIME NULL");
     } catch (\Throwable $e) {}
     try {
+        $pdo->exec("ALTER TABLE customers ADD COLUMN otp_failed_attempts INT DEFAULT 0");
+    } catch (\Throwable $e) {}
+    try {
         $pdo->exec("ALTER TABLE customers ADD COLUMN tier VARCHAR(64) NULL DEFAULT 'video_studio'");
     } catch (\Throwable $e) {}
     try {
         $pdo->exec("ALTER TABLE customers ADD COLUMN plan VARCHAR(64) NULL DEFAULT 'video_studio'");
+    } catch (\Throwable $e) {}
+    try {
+        $pdo->exec("ALTER TABLE customers ADD COLUMN dedicated_account_id VARCHAR(64) NULL");
+    } catch (\Throwable $e) {}
+
+    // Ensure customer 4 (owner/admin) has full all_access tier across all apps
+    try {
+        $pdo->exec("UPDATE customers SET tier = 'all_access', plan = 'all_access' WHERE id = 4 OR login_id = 'AMP32E321'");
     } catch (\Throwable $e) {}
 
     // Ensure payment verification and status columns on orders table
@@ -49,7 +60,92 @@ function ensure_amp_migrations(PDO $pdo): void
         $pdo->exec("ALTER TABLE orders ADD COLUMN payment_screenshot VARCHAR(255) NULL");
     } catch (\Throwable $e) {}
     try {
-        $pdo->exec("ALTER TABLE orders MODIFY COLUMN status VARCHAR(32) NOT NULL DEFAULT 'pending_payment'");
+        $pdo->exec("ALTER TABLE orders ADD COLUMN order_source VARCHAR(40) NULL DEFAULT 'web_checkout'");
+    } catch (\Throwable $e) {}
+    try {
+        $pdo->exec("ALTER TABLE orders ADD COLUMN agent_id VARCHAR(32) NULL");
+    } catch (\Throwable $e) {}
+    try {
+        $pdo->exec("ALTER TABLE orders ADD COLUMN coupon_used VARCHAR(32) NULL");
+    } catch (\Throwable $e) {}
+    try {
+        $pdo->exec("ALTER TABLE orders ADD COLUMN discount_amount DECIMAL(10,2) NOT NULL DEFAULT 0");
+    } catch (\Throwable $e) {}
+    try {
+        $pdo->exec("ALTER TABLE orders ADD COLUMN closing_framework VARCHAR(64) NULL");
+    } catch (\Throwable $e) {}
+    try {
+        $pdo->exec("ALTER TABLE orders ADD COLUMN attribution_visitor_id VARCHAR(64) NULL");
+    } catch (\Throwable $e) {}
+    try {
+        $pdo->exec("ALTER TABLE orders ADD COLUMN order_token VARCHAR(64) NULL");
+    } catch (\Throwable $e) {}
+    try {
+        $driver = (string) $pdo->getAttribute(PDO::ATTR_DRIVER_NAME);
+        if ($driver === 'sqlite') {
+            $pdo->exec(
+                "CREATE TABLE IF NOT EXISTS email_logs (
+                    id INTEGER PRIMARY KEY AUTOINCREMENT,
+                    order_id INTEGER,
+                    recipient VARCHAR(191) NOT NULL,
+                    subject VARCHAR(255) NOT NULL,
+                    status VARCHAR(32) NOT NULL DEFAULT 'sent',
+                    created_at DATETIME
+                )"
+            );
+        } else {
+            $pdo->exec(
+                "CREATE TABLE IF NOT EXISTS email_logs (
+                    id BIGINT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
+                    order_id INT UNSIGNED NULL,
+                    recipient VARCHAR(191) NOT NULL,
+                    subject VARCHAR(255) NOT NULL,
+                    status VARCHAR(32) NOT NULL DEFAULT 'sent',
+                    created_at DATETIME NOT NULL,
+                    INDEX idx_order_id (order_id),
+                    INDEX idx_recipient (recipient)
+                ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4"
+            );
+        }
+    } catch (\Throwable $e) {}
+    try {
+        $driver = (string) $pdo->getAttribute(PDO::ATTR_DRIVER_NAME);
+        if ($driver === 'sqlite') {
+            $pdo->exec(
+                "CREATE TABLE IF NOT EXISTS app_releases (
+                    id INTEGER PRIMARY KEY AUTOINCREMENT,
+                    version TEXT NOT NULL,
+                    file_name TEXT NOT NULL,
+                    file_path TEXT NOT NULL,
+                    sha256 TEXT,
+                    file_size INTEGER DEFAULT 0,
+                    release_notes TEXT,
+                    force_update INTEGER DEFAULT 1,
+                    force_hours INTEGER DEFAULT 24,
+                    published_at TEXT,
+                    published_by TEXT DEFAULT 'admin',
+                    is_current INTEGER DEFAULT 1
+                )"
+            );
+        } else {
+            $pdo->exec(
+                "CREATE TABLE IF NOT EXISTS app_releases (
+                    id BIGINT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
+                    version VARCHAR(32) NOT NULL,
+                    file_name VARCHAR(191) NOT NULL,
+                    file_path VARCHAR(255) NOT NULL,
+                    sha256 VARCHAR(64) NULL,
+                    file_size BIGINT UNSIGNED NOT NULL DEFAULT 0,
+                    release_notes TEXT NULL,
+                    force_update TINYINT(1) NOT NULL DEFAULT 1,
+                    force_hours INT NOT NULL DEFAULT 24,
+                    published_at DATETIME NOT NULL,
+                    published_by VARCHAR(64) NOT NULL DEFAULT 'admin',
+                    is_current TINYINT(1) NOT NULL DEFAULT 0,
+                    INDEX idx_current (is_current)
+                ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4"
+            );
+        }
     } catch (\Throwable $e) {}
 
     // Ensure Anti-Ban Sentinel columns on accounts and wa_accounts
@@ -57,46 +153,163 @@ function ensure_amp_migrations(PDO $pdo): void
     try { $pdo->exec("ALTER TABLE accounts ADD COLUMN daily_sent_today INT DEFAULT 0"); } catch (\Throwable $e) {}
     try { $pdo->exec("ALTER TABLE accounts ADD COLUMN batch_count INT DEFAULT 0"); } catch (\Throwable $e) {}
     try { $pdo->exec("ALTER TABLE accounts ADD COLUMN cooldown_until DATETIME NULL"); } catch (\Throwable $e) {}
+    try { $pdo->exec("ALTER TABLE accounts ADD COLUMN pairing_code VARCHAR(32) NULL"); } catch (\Throwable $e) {}
+    try { $pdo->exec("ALTER TABLE accounts ADD COLUMN qr_code_raw TEXT NULL"); } catch (\Throwable $e) {}
+    try { $pdo->exec("ALTER TABLE accounts ADD COLUMN qr_generated_at DATETIME NULL"); } catch (\Throwable $e) {}
+    try { $pdo->exec("ALTER TABLE accounts ADD COLUMN warmup_enabled INT DEFAULT 1"); } catch (\Throwable $e) {}
+    try { $pdo->exec("ALTER TABLE accounts ADD COLUMN warmup_day INT DEFAULT 1"); } catch (\Throwable $e) {}
+    try { $pdo->exec("ALTER TABLE accounts ADD COLUMN warmup_target_limit INT DEFAULT 800"); } catch (\Throwable $e) {}
+    try { $pdo->exec("ALTER TABLE accounts ADD COLUMN warmup_last_advanced_at DATE NULL"); } catch (\Throwable $e) {}
+
     try { $pdo->exec("ALTER TABLE wa_accounts ADD COLUMN daily_limit INT DEFAULT 65"); } catch (\Throwable $e) {}
     try { $pdo->exec("ALTER TABLE wa_accounts ADD COLUMN daily_sent_today INT DEFAULT 0"); } catch (\Throwable $e) {}
     try { $pdo->exec("ALTER TABLE wa_accounts ADD COLUMN batch_count INT DEFAULT 0"); } catch (\Throwable $e) {}
     try { $pdo->exec("ALTER TABLE wa_accounts ADD COLUMN cooldown_until DATETIME NULL"); } catch (\Throwable $e) {}
+    try { $pdo->exec("ALTER TABLE wa_accounts ADD COLUMN pairing_code VARCHAR(32) NULL"); } catch (\Throwable $e) {}
+    try { $pdo->exec("ALTER TABLE wa_accounts ADD COLUMN qr_code_raw TEXT NULL"); } catch (\Throwable $e) {}
+    try { $pdo->exec("ALTER TABLE wa_accounts ADD COLUMN qr_generated_at DATETIME NULL"); } catch (\Throwable $e) {}
+    try { $pdo->exec("ALTER TABLE wa_accounts ADD COLUMN warmup_enabled INT DEFAULT 1"); } catch (\Throwable $e) {}
+    try { $pdo->exec("ALTER TABLE wa_accounts ADD COLUMN warmup_day INT DEFAULT 1"); } catch (\Throwable $e) {}
+    try { $pdo->exec("ALTER TABLE wa_accounts ADD COLUMN warmup_target_limit INT DEFAULT 800"); } catch (\Throwable $e) {}
+    try { $pdo->exec("ALTER TABLE wa_accounts ADD COLUMN warmup_last_advanced_at DATE NULL"); } catch (\Throwable $e) {}
 
-    // Seed Multi-Number Smart Rotation Pool (3-4 WhatsApp numbers)
+    // Multi-Number Smart Rotation Pool: real accounts added by user via admin UI
+    // (Automatic dummy account seeding removed - accounts persist across deletion)
+    // One-time automated purge of legacy dummy / simulation accounts
     try {
-        $accCount = (int) $pdo->query("SELECT COUNT(*) FROM accounts")->fetchColumn();
-        if ($accCount < 4) {
-            $poolSeeds = [
-                ['acc_cloud_official', 'অফিসিয়াল ক্লাউড এপিআই (Meta Cloud)', '+8801968111593', 'cloud_api', 'connected', 100, 65, 12],
-                ['acc_qr_session_1', 'ডেস্কটপ কিউআর সেশন ১ (WhatsApp Web)', '+8801711223344', 'qr_session', 'connected', 98, 65, 8],
-                ['acc_sales_tania', 'তানিয়া অনবোর্ডিং ও সেলস নম্বর (WhatsApp)', '+8801822334455', 'qr_session', 'connected', 95, 65, 5],
-                ['acc_support_nirob', 'নীরব টেকনিক্যাল সাপোর্ট হেল্পলাইন', '+8801933445566', 'cloud_api', 'connected', 99, 65, 14],
-            ];
-            foreach ($poolSeeds as [$id, $name, $phone, $prov, $st, $health, $limit, $sent]) {
-                $chk = $pdo->prepare("SELECT id FROM accounts WHERE id = ? LIMIT 1");
-                $chk->execute([$id]);
-                if (!$chk->fetch()) {
-                    $ins = $pdo->prepare("INSERT INTO accounts (id, name, phone, provider_type, status, session_health, daily_limit, daily_sent_today, messages_sent_count, last_active_at, created_at) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, CURRENT_TIMESTAMP, CURRENT_TIMESTAMP)");
-                    $ins->execute([$id, $name, $phone, $prov, $st, $health, $limit, $sent, $sent]);
-                }
-            }
+        $dummyAccounts = ['acc_qr_session_1', 'acc_sales_tania', 'acc_support_nirob', 'acc_cloud_official', 'primary_cloud_api'];
+        foreach ($dummyAccounts as $dId) {
+            $pdo->prepare("DELETE FROM accounts WHERE id = ?")->execute([$dId]);
+            try { $pdo->prepare("DELETE FROM wa_accounts WHERE id = ?")->execute([$dId]); } catch (\Throwable $ex) {}
         }
     } catch (\Throwable $e) {}
+
+    // Ensure non-paired accounts are NEVER marked as connected without verification
+    try {
+        // Purge duplicates keeping only the earliest account per phone
+        $pdo->exec("DELETE a1 FROM accounts a1 INNER JOIN accounts a2 WHERE a1.id > a2.id AND (a1.phone = a2.phone OR REPLACE(a1.phone, '+', '') = REPLACE(a2.phone, '+', ''))");
+        try {
+            $pdo->exec("DELETE a1 FROM wa_accounts a1 INNER JOIN wa_accounts a2 WHERE a1.id > a2.id AND (a1.phone = a2.phone OR REPLACE(a1.phone, '+', '') = REPLACE(a2.phone, '+', ''))");
+        } catch (\Throwable $eDup) {}
+
+        // Reset any unauthenticated accounts to pending_qr (unless real messages were verified sent from it)
+        $pdo->exec("UPDATE accounts SET status = 'pending_qr', session_health = 0 WHERE (status = 'connected' OR status = 'active') AND (last_active_at IS NULL OR messages_sent_count = 0) AND provider_type = 'qr_session'");
+        $pdo->exec("UPDATE wa_accounts SET status = 'pending_qr', session_health = 0 WHERE (status = 'connected' OR status = 'active') AND (last_active_at IS NULL OR messages_sent_count = 0) AND provider_type = 'qr_session'");
+
+        // If an account is cloud_api with empty token, mark as pending_config
+        $pdo->exec("UPDATE accounts SET status = 'pending_config', session_health = 0 WHERE provider_type = 'cloud_api' AND (api_config IS NULL OR api_config LIKE '%\"access_token\":\"\"%')");
+        $pdo->exec("UPDATE wa_accounts SET status = 'pending_config', session_health = 0 WHERE provider_type = 'cloud_api' AND (api_config IS NULL OR api_config LIKE '%\"access_token\":\"\"%')");
+    } catch (\Throwable $e) {}
+
+    // Ensure whatsapp_outbox columns for multi-device delivery & tracking
+    try { $pdo->exec("ALTER TABLE whatsapp_outbox ADD COLUMN account_id VARCHAR(64) NULL"); } catch (\Throwable $e) {}
+    try { $pdo->exec("ALTER TABLE whatsapp_outbox ADD COLUMN message_id VARCHAR(128) NULL"); } catch (\Throwable $e) {}
+    try { $pdo->exec("ALTER TABLE whatsapp_outbox ADD COLUMN delivered_at DATETIME NULL"); } catch (\Throwable $e) {}
+    try { $pdo->exec("ALTER TABLE whatsapp_outbox ADD COLUMN trigger_type VARCHAR(64) NULL DEFAULT 'outbound_campaign'"); } catch (\Throwable $e) {}
+    try { $pdo->exec("ALTER TABLE whatsapp_outbox ADD COLUMN priority VARCHAR(32) NULL DEFAULT 'normal'"); } catch (\Throwable $e) {}
+    try { $pdo->exec("CREATE INDEX IF NOT EXISTS idx_wa_outbox_msg_id ON whatsapp_outbox (message_id)"); } catch (\Throwable $e) {}
+    try { $pdo->exec("CREATE INDEX IF NOT EXISTS idx_wa_outbox_trigger ON whatsapp_outbox (trigger_type)"); } catch (\Throwable $e) {}
+
+    // Ensure rate_limit_tracker table exists for DDoS / Brute Force protection
+    try {
+        $driver = (string) $pdo->getAttribute(PDO::ATTR_DRIVER_NAME);
+        if ($driver === 'sqlite') {
+            $pdo->exec(
+                "CREATE TABLE IF NOT EXISTS rate_limit_tracker (
+                  id INTEGER PRIMARY KEY AUTOINCREMENT,
+                  ip VARCHAR(64) NOT NULL,
+                  action_key VARCHAR(64) NOT NULL,
+                  timestamp INTEGER NOT NULL
+                )"
+            );
+            $pdo->exec("CREATE INDEX IF NOT EXISTS idx_rlt_ip_act ON rate_limit_tracker (ip, action_key, timestamp)");
+        } else {
+            $pdo->exec(
+                "CREATE TABLE IF NOT EXISTS rate_limit_tracker (
+                  id BIGINT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
+                  ip VARCHAR(64) NOT NULL,
+                  action_key VARCHAR(64) NOT NULL,
+                  timestamp INT UNSIGNED NOT NULL,
+                  INDEX idx_ip_act_time (ip, action_key, timestamp)
+                ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4"
+            );
+        }
+    } catch (\Throwable $e) {}
+
+    // Cleanse legacy fake/dummy metrics while strictly preserving authentic session counters
+    try {
+        // Only reset if an account has never sent anything or on initial migration
+        $stOut = $pdo->query("SELECT COUNT(*) FROM whatsapp_outbox WHERE status = 'sent'");
+        $realTotal = $stOut ? (int) $stOut->fetchColumn() : 0;
+        if ($realTotal === 0) {
+            $pdo->exec("UPDATE accounts SET messages_sent_count = 0 WHERE messages_sent_count > 0");
+            try { $pdo->exec("UPDATE wa_accounts SET messages_sent_count = 0 WHERE messages_sent_count > 0"); } catch (\Throwable $eWa) {}
+        }
+    } catch (\Throwable $e) {}
+
+    // Ensure request_dispatches columns
+    try { $pdo->exec("ALTER TABLE request_dispatches ADD COLUMN order_id VARCHAR(64) NULL"); } catch (\Throwable $e) {}
+    try { $pdo->exec("ALTER TABLE request_dispatches ADD COLUMN error_message TEXT NULL"); } catch (\Throwable $e) {}
 
 
     // Ensure reviews table exists
     try {
-        $pdo->exec(
-            "CREATE TABLE IF NOT EXISTS reviews (
-              id INT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
-              name VARCHAR(120) NOT NULL,
-              rating TINYINT UNSIGNED NOT NULL DEFAULT 5,
-              review_text TEXT NOT NULL,
-              platform VARCHAR(60) NULL DEFAULT 'General',
-              is_approved TINYINT(1) NOT NULL DEFAULT 1,
-              created_at DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP
-            ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4"
-        );
+        $driver = (string) $pdo->getAttribute(PDO::ATTR_DRIVER_NAME);
+        if ($driver === 'sqlite') {
+            $pdo->exec(
+                "CREATE TABLE IF NOT EXISTS reviews (
+                  id INTEGER PRIMARY KEY AUTOINCREMENT,
+                  name TEXT NOT NULL,
+                  rating INTEGER NOT NULL DEFAULT 5,
+                  review_text TEXT NOT NULL,
+                  platform TEXT NULL DEFAULT 'General',
+                  is_approved INTEGER NOT NULL DEFAULT 1,
+                  created_at TEXT NOT NULL DEFAULT CURRENT_TIMESTAMP
+                )"
+            );
+        } else {
+            $pdo->exec(
+                "CREATE TABLE IF NOT EXISTS reviews (
+                  id INT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
+                  name VARCHAR(120) NOT NULL,
+                  rating TINYINT UNSIGNED NOT NULL DEFAULT 5,
+                  review_text TEXT NOT NULL,
+                  platform VARCHAR(60) NULL DEFAULT 'General',
+                  is_approved TINYINT(1) NOT NULL DEFAULT 1,
+                  created_at DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP
+                ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4"
+            );
+        }
+    } catch (\Throwable $e) {}
+
+    // Ensure promo_channels table exists
+    try {
+        $driver = (string) $pdo->getAttribute(PDO::ATTR_DRIVER_NAME);
+        if ($driver === 'sqlite') {
+            $pdo->exec(
+                "CREATE TABLE IF NOT EXISTS promo_channels (
+                  id INTEGER PRIMARY KEY AUTOINCREMENT,
+                  platform TEXT NOT NULL DEFAULT 'youtube',
+                  title TEXT NOT NULL,
+                  url TEXT NOT NULL,
+                  is_active INTEGER NOT NULL DEFAULT 1,
+                  sort_order INTEGER NOT NULL DEFAULT 0,
+                  created_at TEXT NOT NULL DEFAULT CURRENT_TIMESTAMP
+                )"
+            );
+        } else {
+            $pdo->exec(
+                "CREATE TABLE IF NOT EXISTS promo_channels (
+                  id INT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
+                  platform VARCHAR(40) NOT NULL DEFAULT 'youtube',
+                  title VARCHAR(255) NOT NULL,
+                  url VARCHAR(500) NOT NULL,
+                  is_active TINYINT(1) NOT NULL DEFAULT 1,
+                  sort_order INT NOT NULL DEFAULT 0,
+                  created_at DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP
+                ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4"
+            );
+        }
     } catch (\Throwable $e) {}
 
     // Ensure agent_sms_inbox table exists
@@ -300,6 +513,36 @@ function ensure_amp_migrations(PDO $pdo): void
                   created_at DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP
                 )"
             );
+
+            $pdo->exec(
+                "CREATE TABLE IF NOT EXISTS customer_psychology_profiles (
+                  visitor_id VARCHAR(64) PRIMARY KEY,
+                  customer_id INT NULL,
+                  customer_name VARCHAR(120) NULL,
+                  customer_phone VARCHAR(32) NULL,
+                  customer_email VARCHAR(120) NULL,
+                  psychological_archetype VARCHAR(64) NOT NULL DEFAULT 'hesitant_shopper',
+                  buying_temperature INT NOT NULL DEFAULT 15,
+                  conversation_stage VARCHAR(32) NOT NULL DEFAULT 'unaware',
+                  turns_count INT NOT NULL DEFAULT 1,
+                  discount_attempts_asked INT NOT NULL DEFAULT 0,
+                  discount_authorized_amount DECIMAL(10,2) NOT NULL DEFAULT 0,
+                  authorized_coupon_code VARCHAR(32) NULL,
+                  compliments_given TEXT NULL,
+                  objections_history TEXT NULL,
+                  purchased_products TEXT NULL,
+                  do_not_nag_products TEXT NULL,
+                  recommended_next_product VARCHAR(64) NULL,
+                  preferred_tone VARCHAR(32) NOT NULL DEFAULT 'warm_consultative',
+                  in_chat_order_state VARCHAR(32) NOT NULL DEFAULT 'idle',
+                  pending_order_draft TEXT NULL,
+                  assigned_agent_id VARCHAR(32) NOT NULL DEFAULT 'nirob',
+                  assigned_agent_name VARCHAR(64) NOT NULL DEFAULT 'নীরব (Nirob)',
+                  first_seen_at DATETIME NOT NULL,
+                  last_seen_at DATETIME NOT NULL,
+                  created_at DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP
+                )"
+            );
         } else {
             $pdo->exec(
                 "CREATE TABLE IF NOT EXISTS customer_chat_logs (
@@ -341,6 +584,39 @@ function ensure_amp_migrations(PDO $pdo): void
                   INDEX (last_seen_at)
                 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4"
             );
+
+            $pdo->exec(
+                "CREATE TABLE IF NOT EXISTS customer_psychology_profiles (
+                  visitor_id VARCHAR(64) PRIMARY KEY,
+                  customer_id INT NULL,
+                  customer_name VARCHAR(120) NULL,
+                  customer_phone VARCHAR(32) NULL,
+                  customer_email VARCHAR(120) NULL,
+                  psychological_archetype VARCHAR(64) NOT NULL DEFAULT 'hesitant_shopper',
+                  buying_temperature INT NOT NULL DEFAULT 15,
+                  conversation_stage VARCHAR(32) NOT NULL DEFAULT 'unaware',
+                  turns_count INT NOT NULL DEFAULT 1,
+                  discount_attempts_asked INT NOT NULL DEFAULT 0,
+                  discount_authorized_amount DECIMAL(10,2) NOT NULL DEFAULT 0,
+                  authorized_coupon_code VARCHAR(32) NULL,
+                  compliments_given TEXT NULL,
+                  objections_history TEXT NULL,
+                  purchased_products TEXT NULL,
+                  do_not_nag_products TEXT NULL,
+                  recommended_next_product VARCHAR(64) NULL,
+                  preferred_tone VARCHAR(32) NOT NULL DEFAULT 'warm_consultative',
+                  in_chat_order_state VARCHAR(32) NOT NULL DEFAULT 'idle',
+                  pending_order_draft TEXT NULL,
+                  assigned_agent_id VARCHAR(32) NOT NULL DEFAULT 'nirob',
+                  assigned_agent_name VARCHAR(64) NOT NULL DEFAULT 'নীরব (Nirob)',
+                  first_seen_at DATETIME NOT NULL,
+                  last_seen_at DATETIME NOT NULL,
+                  created_at DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
+                  INDEX (assigned_agent_id),
+                  INDEX (buying_temperature),
+                  INDEX (last_seen_at)
+                ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4"
+            );
         }
     } catch (\Throwable $e) {}
 
@@ -379,6 +655,91 @@ function ensure_amp_migrations(PDO $pdo): void
                   updated_at DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
                   INDEX (clean_phone),
                   INDEX (status),
+                  INDEX (created_at)
+                ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4"
+            );
+        }
+    } catch (\Throwable $e) {}
+
+    // Ensure human takeover and AI pause columns on whatsapp_leads
+    try { $pdo->exec("ALTER TABLE whatsapp_leads ADD COLUMN ai_status VARCHAR(32) NOT NULL DEFAULT 'active'"); } catch (\Throwable $e) {}
+    try { $pdo->exec("ALTER TABLE whatsapp_leads ADD COLUMN ai_paused_until DATETIME NULL"); } catch (\Throwable $e) {}
+    try { $pdo->exec("ALTER TABLE whatsapp_leads ADD COLUMN human_takeover_requested TINYINT NOT NULL DEFAULT 0"); } catch (\Throwable $e) {}
+    try { $pdo->exec("ALTER TABLE whatsapp_leads ADD COLUMN last_admin_reply_at DATETIME NULL"); } catch (\Throwable $e) {}
+
+    // Ensure human takeover and AI pause columns on customer_psychology_profiles
+    try { $pdo->exec("ALTER TABLE customer_psychology_profiles ADD COLUMN ai_status VARCHAR(32) NOT NULL DEFAULT 'active'"); } catch (\Throwable $e) {}
+    try { $pdo->exec("ALTER TABLE customer_psychology_profiles ADD COLUMN ai_paused_until DATETIME NULL"); } catch (\Throwable $e) {}
+    try { $pdo->exec("ALTER TABLE customer_psychology_profiles ADD COLUMN human_takeover_requested TINYINT NOT NULL DEFAULT 0"); } catch (\Throwable $e) {}
+    try { $pdo->exec("ALTER TABLE customer_psychology_profiles ADD COLUMN last_admin_reply_at DATETIME NULL"); } catch (\Throwable $e) {}
+
+    // Ensure objection_telemetry_events and conversion_attribution_telemetry tables
+    try {
+        $driver = (string) $pdo->getAttribute(PDO::ATTR_DRIVER_NAME);
+        if ($driver === 'sqlite') {
+            $pdo->exec(
+                "CREATE TABLE IF NOT EXISTS objection_telemetry_events (
+                  id INTEGER PRIMARY KEY AUTOINCREMENT,
+                  lead_id VARCHAR(64) NULL,
+                  visitor_id VARCHAR(64) NULL,
+                  phone VARCHAR(32) NULL,
+                  objection_type VARCHAR(64) NOT NULL,
+                  customer_message TEXT NOT NULL,
+                  bot_reframe TEXT NOT NULL,
+                  buying_temperature_before INT NOT NULL DEFAULT 0,
+                  buying_temperature_after INT NOT NULL DEFAULT 0,
+                  conversion_status VARCHAR(32) NOT NULL DEFAULT 'unresolved',
+                  created_at DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP
+                )"
+            );
+            $pdo->exec(
+                "CREATE TABLE IF NOT EXISTS conversion_attribution_telemetry (
+                  id INTEGER PRIMARY KEY AUTOINCREMENT,
+                  order_id VARCHAR(64) NOT NULL,
+                  visitor_id VARCHAR(64) NULL,
+                  phone VARCHAR(32) NULL,
+                  agent_id VARCHAR(32) NULL,
+                  closing_framework VARCHAR(64) NULL,
+                  turns_count INT NOT NULL DEFAULT 0,
+                  total_objections_handled INT NOT NULL DEFAULT 0,
+                  touchpoints TEXT NULL,
+                  created_at DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP
+                )"
+            );
+        } else {
+            $pdo->exec(
+                "CREATE TABLE IF NOT EXISTS objection_telemetry_events (
+                  id BIGINT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
+                  lead_id VARCHAR(64) NULL,
+                  visitor_id VARCHAR(64) NULL,
+                  phone VARCHAR(32) NULL,
+                  objection_type VARCHAR(64) NOT NULL,
+                  customer_message TEXT NOT NULL,
+                  bot_reframe TEXT NOT NULL,
+                  buying_temperature_before INT NOT NULL DEFAULT 0,
+                  buying_temperature_after INT NOT NULL DEFAULT 0,
+                  conversion_status VARCHAR(32) NOT NULL DEFAULT 'unresolved',
+                  created_at DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
+                  INDEX (objection_type),
+                  INDEX (phone),
+                  INDEX (created_at)
+                ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4"
+            );
+            $pdo->exec(
+                "CREATE TABLE IF NOT EXISTS conversion_attribution_telemetry (
+                  id BIGINT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
+                  order_id VARCHAR(64) NOT NULL,
+                  visitor_id VARCHAR(64) NULL,
+                  phone VARCHAR(32) NULL,
+                  agent_id VARCHAR(32) NULL,
+                  closing_framework VARCHAR(64) NULL,
+                  turns_count INT NOT NULL DEFAULT 0,
+                  total_objections_handled INT NOT NULL DEFAULT 0,
+                  touchpoints TEXT NULL,
+                  created_at DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
+                  INDEX (order_id),
+                  INDEX (agent_id),
+                  INDEX (closing_framework),
                   INDEX (created_at)
                 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4"
             );
@@ -1367,21 +1728,7 @@ function ensure_wamanager_migrations(PDO $pdo): void
         }
     } catch (\Throwable $e) {}
 
-    // Seed default primary account
-    try {
-        $stAcc = $pdo->prepare("SELECT id FROM wa_accounts WHERE id = ? LIMIT 1");
-        $stAcc->execute(['primary_cloud_api']);
-        if (!$stAcc->fetch()) {
-            $insAcc = $pdo->prepare("INSERT INTO wa_accounts (id, name, phone, provider_type, status, session_health, api_config) VALUES (?, ?, ?, ?, ?, ?, ?)");
-            $initialCfg = json_encode([
-                'access_token' => '',
-                'phone_number_id' => '',
-                'business_account_id' => '',
-                'webhook_verify_token' => 'automoviepro_wa_webhook_secure_key_2026'
-            ]);
-            $insAcc->execute(['primary_cloud_api', 'Official Cloud API (Primary)', '+8801968111593', 'cloud_api', 'disconnected', 100, $initialCfg]);
-        }
-    } catch (\Throwable $e) {}
+    // Multi-Account: No mock or pre-seeded accounts. Strictly managed by authentic user action.
 
     // Seed default auto-reply rules
     try {
@@ -1402,19 +1749,7 @@ function ensure_wamanager_migrations(PDO $pdo): void
 
     // Seed WAManager Pro Direct Relational Accounts & Groups
     try {
-        $stAcc2 = $pdo->prepare("SELECT id FROM accounts WHERE id = ? LIMIT 1");
-        $stAcc2->execute(['acc_cloud_official']);
-        if (!$stAcc2->fetch()) {
-            $pdo->prepare("INSERT INTO accounts (id, name, phone, provider_type, status, session_health, api_config, messages_sent_count) 
-                VALUES ('acc_cloud_official', 'অফিসিয়াল ক্লাউড এপিআই (Meta Cloud)', '+8801968111593', 'cloud_api', 'connected', 100, ?, 120)")
-                ->execute([json_encode(['access_token' => '', 'phone_number_id' => '', 'business_account_id' => ''])]);
-        }
-        $stAcc2->execute(['acc_qr_session_1']);
-        if (!$stAcc2->fetch()) {
-            $pdo->prepare("INSERT INTO accounts (id, name, phone, provider_type, status, session_health, api_config, messages_sent_count) 
-                VALUES ('acc_qr_session_1', 'ডেস্কটপ কিউআর সেশন (WhatsApp Web)', '+8801700000000', 'qr', 'connected', 95, ?, 45)")
-                ->execute([json_encode(['session_name' => 'Primary Web Session'])]);
-        }
+        // Accounts are managed directly by user (no auto-mock seeding)
 
         // Contact Groups
         $stGrp2 = $pdo->prepare("SELECT id FROM contact_groups WHERE id = ? LIMIT 1");

@@ -82,6 +82,7 @@ CUSTOMER_VIEW_FIELDS = frozenset(
         "stage_label",
         "production_stage",
         "progress_percent",
+        "progress_pct",
         "duration_sec",
         "error_class",
         "error_summary",
@@ -218,6 +219,10 @@ def ensure_job_columns() -> None:
             ("script_revision", "TEXT"),
             ("generation_fingerprint", "TEXT"),
             ("plan_snapshot_json", "TEXT"),
+            ("motion_theme", "TEXT"),
+            ("news_category", "TEXT"),
+            ("resolution", "TEXT"),
+            ("aspect_ratio", "TEXT"),
         ]
         for name, typ in migrations:
             if name not in cols:
@@ -278,6 +283,7 @@ def create_generation_job(
     *,
     channel_id: int,
     video_type: str,
+    video_category: str = "cinematic",
     requested_by: str = "",
     title_hint: str = "",
     production_plan_id: str = "",
@@ -285,16 +291,24 @@ def create_generation_job(
     script_revision: str = "",
     generation_fingerprint: str = "",
     plan_snapshot: Optional[Dict[str, Any]] = None,
+    motion_theme: str = "deep_cyber_mesh",
+    news_category: str = "",
+    resolution: str = "",
+    aspect_ratio: str = "",
 ) -> Dict[str, Any]:
     """Persist authoritative customer job BEFORE pipeline execution."""
     ensure_job_columns()
     video_type = "long" if video_type == "long" else "short"
+    video_category = str(video_category or "cinematic").lower().strip()
+    if video_category not in ("cinematic", "motion_graphics", "live_news"):
+        video_category = "cinematic"
     trace_id = uuid.uuid4().hex
     title = title_hint or f"{video_type} generation (in progress)"
     job_id = store.add_job(
         {
             "channel_id": int(channel_id),
             "video_type": video_type,
+            "video_category": video_category,
             "title": title,
             "description": "",
             "tags": "",
@@ -303,6 +317,10 @@ def create_generation_job(
             "upload_status": "queued",
             "error": None,
             "lang_code": "en",
+            "motion_theme": motion_theme,
+            "news_category": news_category,
+            "resolution": resolution,
+            "aspect_ratio": aspect_ratio,
         }
     )
     snap_json = None
@@ -664,7 +682,8 @@ def to_customer_view(
         "stage": row.get("customer_stage") or state,
         "stage_label": stage_label,
         "production_stage": production_stage,
-        "progress_percent": None,
+        "progress_percent": 100 if state in ("READY_FOR_REVIEW", "COMPLETED") else ((live.get("progress_pct") if live and live.get("active") else None) or STATE_ORDINAL.get(state, 15)),
+        "progress_pct": 100 if state in ("READY_FOR_REVIEW", "COMPLETED") else ((live.get("progress_pct") if live and live.get("active") else None) or STATE_ORDINAL.get(state, 15)),
         "duration_sec": duration_sec,
         "error_class": err_class,
         "error_summary": err or None,

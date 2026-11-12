@@ -1,7 +1,18 @@
 <?php
 declare(strict_types=1);
 
-session_start();
+if (session_status() === PHP_SESSION_NONE) {
+    $isSecure = (!empty($_SERVER['HTTPS']) && $_SERVER['HTTPS'] !== 'off') || (($_SERVER['SERVER_PORT'] ?? '') === '443');
+    session_set_cookie_params([
+        'lifetime' => 86400 * 7,
+        'path' => '/',
+        'domain' => '',
+        'secure' => $isSecure,
+        'httponly' => true,
+        'samesite' => 'Lax'
+    ]);
+    session_start();
+}
 
 require_once __DIR__ . '/local_demo.php';
 

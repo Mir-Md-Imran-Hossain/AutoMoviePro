@@ -465,7 +465,7 @@ def build_checklist(
                 source="pipeline.channel_api_slots.evaluate_readiness",
                 state=ITEM_NOT_CONFIGURED,
                 blocking=True,
-                message="Provider APIs not configured.",
+                message="Provider APIs not configured. Google AI Studio (aistudio.google.com) থেকে ফ্রি কী নিয়ে চ্যানেল ট্যাবে যুক্ত করতে পারেন।",
                 resume_tab="channel",
             )
         )
@@ -501,7 +501,7 @@ def build_checklist(
                 source="pipeline.channel_api_slots.evaluate_readiness",
                 state=ITEM_NOT_CONFIGURED,
                 blocking=True,
-                message=str(api_readiness.get("message") or "Provider APIs not configured."),
+                message=str(api_readiness.get("message") or "Provider APIs not configured. Google AI Studio (aistudio.google.com) থেকে ফ্রি কী যুক্ত করুন।"),
                 resume_tab="channel",
             )
         )

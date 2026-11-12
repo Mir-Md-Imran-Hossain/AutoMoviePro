@@ -119,7 +119,8 @@ class VisualPlannerAgent:
         start_time: float,
         scene_idx: int = 1,
         total_scenes: int = 1,
-        bible: Optional[Any] = None
+        bible: Optional[Any] = None,
+        aspect_ratio: str = "9:16"
     ) -> Dict[str, Any]:
 
         """Plans a single scene for Category A (Faceless B-Roll / Generative AI)."""
@@ -144,7 +145,7 @@ class VisualPlannerAgent:
                 topic_title=scene.get("topic") or scene.get("title_bn") or "Documentary",
                 niche=scene.get("niche", ""),
                 category="Category A",
-                aspect_ratio="16:9" if "16:9" in str(visual_dir) else "9:16"
+                aspect_ratio=aspect_ratio
             )
         decomp = align_engine.decompose_scene_dialogue(scene, scene_idx, total_scenes, bible)
 
@@ -338,9 +339,9 @@ class VisualPlannerAgent:
 
                 "negative": MANDATORY_NEGATIVE_PROMPT + domain_negative_armor + ", " + bible.negative_universe_constraints + extra_negatives,
 
-                "aspect_ratio": "16:9" if "16:9" in str(visual_dir) else "9:16",
+                "aspect_ratio": aspect_ratio,
 
-                "resolution": "1920x1080" if "16:9" in str(visual_dir) else "1080x1920",
+                "resolution": "1920x1080" if aspect_ratio == "16:9" else "1080x1920",
 
                 "style": "photorealistic_documentary"
 
@@ -367,7 +368,8 @@ class VisualPlannerAgent:
         start_time: float,
         scene_idx: int = 1,
         total_scenes: int = 1,
-        bible: Optional[Any] = None
+        bible: Optional[Any] = None,
+        aspect_ratio: str = "9:16"
     ) -> Dict[str, Any]:
 
         """Plans a single scene for Category B (Next-Gen Motion Graphics)."""
@@ -388,18 +390,19 @@ class VisualPlannerAgent:
                 topic_title=scene.get("topic") or scene.get("title_bn") or "Documentary",
                 niche=scene.get("niche", "General"),
                 category="Category B",
-                aspect_ratio="9:16"
+                aspect_ratio=aspect_ratio
             )
         decomp = align_engine.decompose_scene_dialogue(scene, scene_idx, total_scenes, bible)
 
         # Category B Visual Director: Extract Point Callouts and Animated Moving Actors
         from pipeline.category_b_visual_director import extract_category_b_visual_spec
+        is_wide = (aspect_ratio == "16:9")
         cat_b_spec = extract_category_b_visual_spec(
             dialogue_bn=dialogue,
             niche=scene.get("niche", "General"),
             scene_idx=scene_idx,
             total_scenes=total_scenes,
-            is_widescreen=False
+            is_widescreen=is_wide
         )
 
         # Multi-stage timing: split scene duration into 2 distinct animated stages
@@ -475,7 +478,7 @@ class VisualPlannerAgent:
                 "layer_1_background": {
                     "type": "full_screen_satellite_map",
                     "prompt": cat_b_spec.get("background_prompt") or cat_b_spec.get("bg_prompt", "8k high-tech motion background"),
-                    "aspect": "9:16"
+                    "aspect": aspect_ratio
                 },
                 "layer_2_cards": [
                     {
@@ -597,7 +600,7 @@ class VisualPlannerAgent:
 
         from pipeline.visual_alignment_engine import get_visual_alignment_engine
         align_engine = get_visual_alignment_engine()
-        aspect_ratio = "16:9" if script_data.get("format") == "long" or script_data.get("aspect_ratio") == "16:9" else "9:16"
+        aspect_ratio = "16:9" if (script_data.get("format_type") == "long" or script_data.get("format") == "long" or script_data.get("aspect_ratio") == "16:9" or "16:9" in str(script_data.get("aspect_ratio", ""))) else "9:16"
         bible = align_engine.construct_visual_bible(title_bn, script_data.get("niche", ""), category, aspect_ratio)
 
         for idx, sc in enumerate(scenes, 1):
@@ -605,29 +608,23 @@ class VisualPlannerAgent:
             a_spec = scenes_audio.get(scene_id, {})
 
             if "Category B" in category or "motion" in category.lower():
-                plan_item = self.plan_category_b_scene(sc, a_spec, current_time, scene_idx=idx, total_scenes=len(scenes), bible=bible)
+                plan_item = self.plan_category_b_scene(sc, a_spec, current_time, scene_idx=idx, total_scenes=len(scenes), bible=bible, aspect_ratio=aspect_ratio)
             else:
-                plan_item = self.plan_category_a_scene(sc, a_spec, current_time, scene_idx=idx, total_scenes=len(scenes), bible=bible)
+                plan_item = self.plan_category_a_scene(sc, a_spec, current_time, scene_idx=idx, total_scenes=len(scenes), bible=bible, aspect_ratio=aspect_ratio)
 
             planned_scenes.append(plan_item)
             current_time = plan_item["end_time_sec"]
 
-
-
         visual_plan = {
-
             "title_bn": title_bn,
-
             "category": category,
-
+            "aspect_ratio": aspect_ratio,
+            "standard_resolution": "1920x1080" if aspect_ratio == "16:9" else "1080x1920",
+            "resolution": "1920x1080" if aspect_ratio == "16:9" else "1080x1920",
             "total_scenes": len(planned_scenes),
-
             "total_runtime_sec": round(current_time, 2),
-
             "planned_scenes": planned_scenes,
-
             "timestamp": datetime.now().isoformat()
-
         }
 
         return visual_plan

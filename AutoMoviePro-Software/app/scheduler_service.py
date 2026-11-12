@@ -63,7 +63,7 @@ class SchedulerService:
             return
         if self._started:
             return
-        self.scheduler.add_job(self.heartbeat_job, "interval", minutes=5, id="heartbeat", replace_existing=True)
+        self.scheduler.add_job(self.heartbeat_job, "interval", minutes=1, id="heartbeat", replace_existing=True)
         # Timed upload check every minute
         self.scheduler.add_job(self.timed_upload_job, "interval", minutes=1, id="timed_upload", replace_existing=True)
         # Idle pre-generation while PC is free
@@ -146,15 +146,11 @@ class SchedulerService:
         if not session:
             return
         try:
-            from app.customer_auth import is_session_expired, clear_session, refresh_remote_account_state
+            from app.customer_auth import refresh_remote_account_state
 
-            if is_session_expired(session):
-                clear_session()
-                return
-            LicenseClient(session["api_base_url"], session["token"]).heartbeat()
             refresh_remote_account_state()
         except Exception as exc:
-            logger.warning("heartbeat failed: %s", exc)
+            logger.warning("heartbeat job failed: %s", exc)
 
     def captcha_watch_job(self) -> None:
         try:
@@ -259,6 +255,9 @@ class SchedulerService:
     def idle_pregenerate_job(self) -> None:
         session = store.get_session()
         if not session:
+            return
+        from app.customer_tiers import can_produce_video_studio
+        if not can_produce_video_studio(session.get("customer")):
             return
         if store.get_meta("live_lab_active") == "1":
             return
@@ -490,6 +489,11 @@ class SchedulerService:
         if pending:
             return int(pending[0]["id"])
         # Fallback: generate now if queue empty (PC may have been busy all day)
+        from app.customer_tiers import can_produce_video_studio
+        session = store.get_session()
+        if not can_produce_video_studio(session.get("customer") if session else None):
+            logger.debug("Scheduler fallback generate skipped — customer tier does not permit video studio")
+            return None
         if generation_is_busy() or self._generating:
             return None
         if not generation_try_acquire("timed_fallback"):

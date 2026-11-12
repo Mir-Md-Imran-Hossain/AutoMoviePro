@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>AutoMovie Pro</title>
   <link rel="icon" type="image/png" href="/static/img/logo-sm.png">
-  <link rel="stylesheet" href="/static/css/app.css?v=theme5">
+  <link rel="stylesheet" href="/static/css/app.css?v=dropdown_master_v2">
   <style>
     .brand-logo, .login-logo, .chat-head-logo {
       display: inline-block !important;
@@ -36,12 +36,20 @@
 </head>
 <body>
   <div id="app">
-    <header class="top">
+    <header class="top" style="display:none !important;">
       <div class="brand-wrap">
+        <button id="sidebarToggleBtn" class="sidebar-toggle-btn" title="সাইডবার মেনু টগল করুন (Toggle Sidebar)">☰</button>
         <img class="brand-logo" src="/static/img/logo-header.png" width="48" height="48" alt="AutoMovie Pro">
         <div class="brand">AutoMovie <span>Pro</span></div>
       </div>
       <div class="top-right">
+        <button id="widgetTopToggleBtn" class="btn" style="padding:4px 11px; font-size:0.82rem; background:#0f172a; color:#38bdf8; font-weight:700; border-radius:6px; display:inline-flex; align-items:center; gap:6px; margin-right:6px; border:1px solid #1e293b; cursor:pointer;" onclick="window.toggleDesktopWidget()" title="ডেস্কটপ উইজেট অন/অফ করুন (টাস্কবার ছাড়া স্ক্রিনে ভাসমান উইজেট)">
+          <span id="widgetTopDot" style="width:8px; height:8px; border-radius:50%; background:#10b981; display:inline-block; box-shadow:0 0 6px #10b981;"></span>
+          <span id="widgetTopLabel">উইজেট: চালু</span>
+        </button>
+        <button id="quickSetupTopBtn" class="btn" style="padding:4px 12px; font-size:0.82rem; background:linear-gradient(135deg, #0284c7, #2563eb); color:#fff; font-weight:700; border-radius:6px; display:inline-flex; align-items:center; gap:5px; margin-right:6px; border:1px solid #38bdf8; box-shadow:0 0 10px rgba(56,189,248,0.3); cursor:pointer;" onclick="window.openQuickSetupWizard()">
+          <span>⚡</span> <span id="quickSetupProgressLabel">কুইক সেটআপ: ২৫%</span>
+        </button>
         <a href="https://wa.me/8801968111593?text=Hello%20AutoMovie%20Pro%20Support" target="_blank" class="btn" style="padding:4px 12px; font-size:0.82rem; background:#10b981; color:#fff; font-weight:700; text-decoration:none; border-radius:6px; display:inline-flex; align-items:center; gap:5px; margin-right:6px;" title="অফিশিয়াল WhatsApp সাপোর্ট">
           <span>💬</span> WhatsApp সাপোর্ট
         </a>
@@ -52,72 +60,217 @@
           <select id="uiLangSelect" aria-label="UI language"></select>
         </label>
         <div id="userBox" class="muted" data-i18n="not_logged_in">লগইন হয়নি</div>
+        <button id="topLogoutBtn" class="btn ghost" style="display:none; padding:4px 10px; font-size:0.8rem; border-color:#ef4444; color:#f87171; margin-left:6px;" title="লগআউট">🚪 লগআউট</button>
       </div>
     </header>
 
-    <!-- LIVE SCROLLING NOTIFICATION BAR (Marquee) -->
-    <div id="liveTickerBar" style="background:#090e17; border-bottom:1px solid #1e293b; padding:6px 12px; display:flex; align-items:center; overflow:hidden; font-size:0.88rem; color:#38bdf8;">
-      <span style="background:#0284c7; color:#fff; font-size:0.75rem; font-weight:bold; padding:2px 8px; border-radius:4px; margin-right:10px; flex-shrink:0; text-transform:uppercase;">নোটিশ</span>
-      <marquee id="liveTickerText" behavior="scroll" direction="left" scrollamount="5" onmouseover="this.stop();" onmouseout="this.start();" style="color:#cbd5e1;">
-        স্বাগতম AutoMovie Pro-তে! সকল কোর এআই ও অটো-পাবলিশিং সিস্টেম স্বাভাবিকভাবে চলছে। প্রতিদিনের শিডিউল অনুযায়ী ভিডিও তৈরি শুরু হয়েছে।
-      </marquee>
+    <!-- LIVE SCROLLING NOTIFICATION BAR -->
+    <div id="liveTickerBar" class="live-ticker-container">
+      <span id="liveTickerBadge" class="ticker-badge">স্ট্যাটাস</span>
+      <div class="ticker-track-wrap">
+        <div id="liveTickerTrack" class="ticker-track">
+          <span id="liveTickerText" class="ticker-text">সিস্টেম স্ট্যাটাস বিশ্লেষণ করা হচ্ছে...</span>
+        </div>
+      </div>
     </div>
 
-    <section id="loginView" class="panel login-panel">
-      <img class="login-logo" src="/static/img/logo-login.png" width="96" height="96" alt="AutoMovie Pro">
-      <h1 data-i18n="login">ক্লায়েন্ট লাইসেন্স লগইন</h1>
-      <p class="muted" style="font-size:0.9rem; margin-bottom:1.25rem;">
-        ওয়েবসাইটে অর্ডার অনুমোদনের পর প্রাপ্ত <strong>Login ID</strong> ও <strong>Password</strong> প্রদান করুন।
-      </p>
-      <label><span data-i18n="login_id">Login ID</span> <input id="loginId" placeholder="যেমন: 01712345678 বা c_9821" autocomplete="username"></label>
-      <label><span data-i18n="password">Password</span> <input id="password" type="password" placeholder="আপনার গোপন পাসওয়ার্ড" autocomplete="current-password"></label>
-      
-      <details style="margin: 0.75rem 0 1rem; font-size: 0.82rem; color: #64748b;">
-        <summary style="cursor: pointer;">সার্ভার সেটিংস (Advanced Server URL)</summary>
-        <div style="margin-top: 0.5rem;">
-          <label style="font-size: 0.8rem;"><span data-i18n="api_base">API Base URL</span> <input id="apiBase" placeholder="https://automoviepro.com" value="https://automoviepro.com"></label>
+    <!-- FULLSCREEN SOFTWARE ACTIVATION & LOGIN GATE -->
+    <div id="loginGateWrapper" class="login-gate-screen">
+      <section id="loginView" class="panel login-panel">
+        <div style="margin-bottom:1.25rem;">
+          <img class="login-logo" src="/static/img/logo-login.png" width="96" height="96" alt="AutoMovie Pro" style="display:block; margin:0 auto 0.75rem; filter:drop-shadow(0 0 16px rgba(56,189,248,0.45));">
+          <div style="display:inline-flex; align-items:center; gap:6px; background:rgba(2,132,199,0.18); border:1px solid rgba(56,189,248,0.35); padding:4px 14px; border-radius:20px; font-size:0.78rem; font-weight:700; color:#38bdf8; margin-bottom:0.75rem;">
+            <span>🔒</span> হার্ডওয়্যার সুরক্ষিত · ক্লায়েন্ট লাইসেন্স অ্যাক্টিভেশন
+          </div>
+          <h1 style="font-size:1.65rem; font-weight:800; color:#f8fafc; margin:0 0 0.4rem;">AutoMovie <span style="background:linear-gradient(135deg,#38bdf8,#3b82f6); -webkit-background-clip:text; -webkit-text-fill-color:transparent;">Pro</span></h1>
+          <p class="muted" style="font-size:0.88rem; line-height:1.5; margin:0;">
+            automoviepro.com ওয়েবসাইটে আপনার অর্ডারের পর প্রাপ্ত <strong>Login ID</strong> ও <strong>Password</strong> প্রদান করে সফটওয়্যার অ্যাক্টিভেট করুন।
+          </p>
+          <div id="loginVoicePromptBanner" onclick="window.triggerLoginWelcomeVoice(true)" style="display:inline-flex; align-items:center; justify-content:center; gap:8px; background:rgba(2,132,199,0.14); border:1px solid rgba(56,189,248,0.35); border-radius:12px; padding:7px 15px; margin:0.85rem auto 0; cursor:pointer; transition:all 0.25s;" title="ক্লিক করে ভয়েস নির্দেশনা শুনুন">
+            <span style="font-size:1.15rem; display:inline-block; animation:pulse 1.2s infinite;">🔊</span>
+            <span id="loginVoicePromptText" style="font-size:0.82rem; color:#38bdf8; font-weight:600; text-align:left;">
+              <span style="color:#67e8f9; font-weight:700;">[AutoMovie Pro AI]:</span> হোয়াটসঅ্যাপে প্রেরিত Login ID ও Password দিয়ে সফটওয়্যার চালু করুন।
+            </span>
+          </div>
         </div>
-      </details>
 
-      <button id="loginBtn" class="btn" style="width:100%; padding:0.85rem; font-size:1.05rem; font-weight:bold; background:linear-gradient(135deg, #0284c7, #2563eb);" data-i18n="login">লগইন করুন</button>
-      <p id="loginErr" class="err" style="margin-top:0.75rem;"></p>
-      
-      <div style="display:flex; justify-content:space-between; align-items:center; margin-top:0.85rem; font-size:0.88rem;">
-        <a href="javascript:void(0)" id="openForgotPassBtn" onclick="window.openForgotPassModal()" style="color:#38bdf8; text-decoration:none; font-weight:500;">🔑 পাসওয়ার্ড ভুলে গেছেন? (WhatsApp/Telegram OTP)</a>
-        <a href="https://wa.me/8801968111593?text=Hello%20AutoMovie%20Pro%20Support" target="_blank" style="color:#10b981; text-decoration:none;">হেল্পলাইন</a>
-      </div>
+        <div style="text-align:left; margin-bottom:1rem;">
+          <label style="font-size:0.88rem; font-weight:600; color:#cbd5e1; margin-bottom:0.4rem; display:block;">
+            <span>Login ID (মোবাইল / ইমেইল / ক্লায়েন্ট আইডি)</span>
+            <input id="loginId" placeholder="যেমন: 01712345678 বা c_9821" autocomplete="username" style="margin-top:0.3rem;">
+          </label>
+          <label style="font-size:0.88rem; font-weight:600; color:#cbd5e1; margin-bottom:0.4rem; display:block;">
+            <span>Password (গোপন পাসওয়ার্ড)</span>
+            <div style="position:relative; display:flex; align-items:center; margin-top:0.3rem;">
+              <input id="password" type="password" placeholder="আপনার পাসওয়ার্ড" autocomplete="current-password" style="padding-right:45px;">
+              <button type="button" id="togglePasswordBtn" style="position:absolute; right:10px; background:none; border:none; color:#94a3b8; font-size:1.15rem; cursor:pointer; padding:4px;" title="পাসওয়ার্ড দেখুন/লুকান">👁️</button>
+            </div>
+          </label>
+        </div>
+        
+        <details style="margin: 0.5rem 0 1rem; font-size: 0.8rem; color: #64748b; text-align:left;">
+          <summary style="cursor: pointer; color:#94a3b8;">সার্ভার সেটিংস (Advanced Server URL)</summary>
+          <div style="margin-top: 0.4rem;">
+            <input id="apiBase" placeholder="https://automoviepro.com" value="https://automoviepro.com" style="font-size:0.82rem; padding:0.5rem 0.7rem;">
+          </div>
+        </details>
 
-      <div style="margin-top:1.5rem; padding-top:1rem; border-top:1px solid #1e293b; font-size:0.82rem; color:#94a3b8; text-align:center;">
-        🔒 <em>একক পিসি হার্ডওয়্যার লকিং সক্রিয়। প্রথম লগইনকৃত কম্পিউটারে লাইসেন্স আবদ্ধ হবে।</em><br>
-        সহায়তার জন্য WhatsApp: <a href="https://wa.me/8801968111593" target="_blank" style="color:#10b981; font-weight:bold;">01968111593</a>
-      </div>
-    </section>
+        <button id="loginBtn" class="btn" style="width:100%; padding:0.9rem; font-size:1.05rem; font-weight:bold; background:linear-gradient(135deg, #0284c7, #2563eb); border-radius:10px; box-shadow:0 0 20px rgba(2,132,199,0.4); cursor:pointer;">
+          🚀 লগইন ও সফটওয়্যার অ্যাক্টিভেট করুন
+        </button>
+        <p id="loginErr" class="err" style="margin-top:0.85rem; font-size:0.88rem; background:rgba(239,68,68,0.15); border:1px solid rgba(239,68,68,0.4); border-radius:8px; padding:10px 14px; display:none; color:#fca5a5; font-weight:600; text-align:left;"></p>
+        
+        <div style="display:flex; justify-content:space-between; align-items:center; margin-top:1.15rem; font-size:0.84rem; flex-wrap:wrap; gap:8px;">
+          <a href="javascript:void(0)" id="openForgotPassBtn" onclick="window.openForgotPassModal()" style="color:#38bdf8; text-decoration:none; font-weight:500;">🔑 পাসওয়ার্ড ভুলে গেছেন?</a>
+          <a href="https://automoviepro.com" target="_blank" style="color:#38bdf8; text-decoration:none; font-weight:500;">🌐 automoviepro.com</a>
+          <a href="https://wa.me/8801968111593?text=Hello%20AutoMovie%20Pro%20Support" target="_blank" style="color:#10b981; text-decoration:none; font-weight:600;">💬 হেল্পলাইন</a>
+        </div>
 
-    <section id="dashView" class="panel hidden">
-      <!-- TIER STATUS & LOCK BANNER -->
-      <div id="tierStatusBanner" style="display:none; margin-bottom: 1rem; padding: 10px 14px; border-radius: 8px; font-size: 0.9rem; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 8px;">
-        <div id="tierStatusMessage" style="display:flex; align-items:center; gap:8px;"></div>
-        <a id="tierUpgradeBtn" href="https://automoviepro.com/#pricing" target="_blank" class="btn btn-sm" style="background: linear-gradient(135deg, #0284c7, #2563eb); color: #fff; font-weight: bold; text-decoration: none; padding: 4px 12px; border-radius: 6px; font-size: 0.82rem;">
-          🚀 প্যাকেজ আপগ্রেড করুন
-        </a>
-      </div>
+        <div style="margin-top:1.25rem; padding-top:1rem; border-top:1px solid #1e293b; font-size:0.8rem; color:#94a3b8; text-align:center;">
+          🔒 <em>একক পিসি হার্ডওয়্যার লকিং সক্রিয়। প্রথম লগইনকৃত কম্পিউটারে লাইসেন্স আবদ্ধ থাকবে।</em><br>
+          সাহায্যের জন্য অফিসিয়াল WhatsApp: <a href="https://wa.me/8801968111593" target="_blank" style="color:#10b981; font-weight:bold; text-decoration:none;">01968111593</a>
+        </div>
+      </section>
+    </div>
 
-      <nav class="tabs">
-        <button data-tab="home" class="active" data-i18n="tab_home">ড্যাশবোর্ড (Studio)</button>
-        <button data-tab="videos" data-i18n="tab_videos">🎬 ভিডিও লাইব্রেরি</button>
-        <button data-tab="products" data-i18n="tab_products">📦 প্রোডাক্ট ও বিজ্ঞাপন</button>
-        <button data-tab="live" data-i18n="tab_live">লাইভ কার্যক্রম</button>
-        <button data-tab="channel" data-i18n="tab_channel">চ্যানেল সেটআপ</button>
-        <button data-tab="jobs" data-i18n="tab_jobs">জব লগ</button>
-        <button data-tab="settings" data-i18n="tab_settings">সেটিংস ও ভল্ট</button>
-      </nav>
+        <section id="dashView" class="hidden">
+      <!-- ========================================== -->
+      <!-- LEFT ENTERPRISE SIDEBAR NAVIGATION        -->
+      <!-- ========================================== -->
+      <aside class="dash-sidebar">
+        <!-- BRAND & LOGO -->
+        <div class="sidebar-brand-box">
+          <img src="/static/img/logo-header.png" class="sidebar-brand-logo" alt="AutoMovie Pro">
+          <div>
+            <div class="sidebar-brand-title">AutoMovie <span>Pro</span></div>
+            <div class="sidebar-brand-sub">Autonomous AI Studio</div>
+          </div>
+        </div>
 
-      <!-- FUTURISTIC JARVIS VOICE & LIVE PIPELINE HUD WIDGET -->
-      <div id="jarvisConsole" class="futuristic-hud">
+        <!-- TIER BADGE CONTAINER -->
+        <div id="sidebarTierStatus" class="sidebar-tier-box">
+          <div style="color:#94a3b8; font-size:0.75rem; font-weight:600;">প্যাকেজ লাইসেন্স:</div>
+          <div id="sidebarTierPill" style="margin-top:3px; font-weight:700; color:#38bdf8;">🎬 ভিডিও স্টুডিও</div>
+          <button type="button" class="btn btn-sm" style="width:100%; margin-top:8px; font-size:0.78rem; background:linear-gradient(135deg, #0284c7, #2563eb); color:#fff; font-weight:bold; border-radius:6px; padding:5px 8px; display:flex; align-items:center; justify-content:center; gap:6px; border:1px solid #38bdf8; cursor:pointer;" onclick="window.openQuickSetupWizard()">
+            <span>⚡</span> কুইক সেটআপ গাইড
+          </button>
+        </div>
+
+        <!-- SCROLLABLE NAVIGATION MENU WITH ACCORDIONS -->
+        <div class="sidebar-nav-scroll">
+          <!-- GROUP 1: CORE STUDIO (ACCORDION) -->
+          <div class="sidebar-accordion active" id="accStudio">
+            <div class="sidebar-group-header" onclick="window.toggleSidebarAccordion('accStudio')">
+              <span class="sidebar-group-title">🎬 কোর স্টুডিও</span>
+              <span class="sidebar-group-chevron">▼</span>
+            </div>
+            <div class="sidebar-group-items">
+              <button type="button" class="sidebar-nav-btn active" data-tab="home" title="স্টুডিও ড্যাশবোর্ড">
+                <span class="icon">🚀</span>
+                <span class="label">স্টুডিও ড্যাশবোর্ড</span>
+              </button>
+              <button type="button" class="sidebar-nav-btn" data-tab="videos" title="ভিডিও লাইব্রেরি">
+                <span class="icon">🎥</span>
+                <span class="label">ভিডিও লাইব্রেরি</span>
+              </button>
+              <button type="button" class="sidebar-nav-btn" data-tab="products" title="প্রোডাক্ট ও বিজ্ঞাপন">
+                <span class="icon">📦</span>
+                <span class="label">প্রোডাক্ট ও বিজ্ঞাপন</span>
+              </button>
+              <button type="button" class="sidebar-nav-btn" data-tab="live" title="লাইভ কার্যক্রম HUD">
+                <span class="icon">📡</span>
+                <span class="label">লাইভ কার্যক্রম HUD</span>
+              </button>
+              <button type="button" class="sidebar-nav-btn" data-tab="jobs" title="জব ও হিস্ট্রি">
+                <span class="icon">📋</span>
+                <span class="label">জব ও হিস্ট্রি</span>
+              </button>
+            </div>
+          </div>
+
+          <!-- GROUP 2: CONFIGURATION & SETTINGS (ACCORDION) -->
+          <div class="sidebar-accordion active" id="accConfig">
+            <div class="sidebar-group-header" onclick="window.toggleSidebarAccordion('accConfig')">
+              <span class="sidebar-group-title">⚙️ কনফিগারেশন ও সেটিংস</span>
+              <span class="sidebar-group-chevron">▼</span>
+            </div>
+            <div class="sidebar-group-items">
+              <button type="button" class="sidebar-nav-btn" data-tab="channel" title="চ্যানেল ও নিশ সেটআপ">
+                <span class="icon">📺</span>
+                <span class="label">চ্যানেল ও নিশ সেটআপ</span>
+              </button>
+              <button type="button" class="sidebar-nav-btn" data-tab="api-settings" title="API সেটিংস ভল্ট">
+                <span class="icon">🔑</span>
+                <span class="label">API সেটিংস ভল্ট</span>
+              </button>
+              <button type="button" class="sidebar-nav-btn" data-tab="cloud-settings" title="ক্লাউড ও ড্রাইভ ব্যাকআপ">
+                <span class="icon">☁️</span>
+                <span class="label">ক্লাউড ও ড্রাইভ ব্যাকআপ</span>
+              </button>
+              <button type="button" class="sidebar-nav-btn" data-tab="social-settings" title="অটো-কমেন্ট ও সোশ্যাল">
+                <span class="icon">💬</span>
+                <span class="label">অটো-কমেন্ট ও সোশ্যাল</span>
+              </button>
+              <button type="button" class="sidebar-nav-btn" data-tab="analytics-settings" title="অ্যানালিটিক্স ও গ্রোথ">
+                <span class="icon">📊</span>
+                <span class="label">অ্যানালিটিক্স ও গ্রোথ</span>
+              </button>
+              <button type="button" class="sidebar-nav-btn" data-tab="settings" title="সিস্টেম ডায়াগনস্টিকস">
+                <span class="icon">🛠️</span>
+                <span class="label">সিস্টেম ডায়াগনস্টিকস</span>
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- SIDEBAR FOOTER (USER & LOGOUT) -->
+        <div class="sidebar-footer">
+          <div class="sidebar-user-card">
+            <div class="user-avatar-circle">👤</div>
+            <div class="user-details-text">
+              <div id="sidebarUserNameText" class="user-name-line">Client User</div>
+              <div id="sidebarUserTierText" class="user-tier-line">Pro License</div>
+            </div>
+          </div>
+          <button type="button" id="sidebarLogoutActionBtn" class="sidebar-logout-btn">
+            <span>🚪</span> লগআউট করুন
+          </button>
+        </div>
+      </aside>
+
+      <!-- ========================================== -->
+      <!-- RIGHT MAIN CONTENT VIEWPORT                -->
+      <!-- ========================================== -->
+      <main class="dash-main-viewport">
+        <!-- TIER UPGRADE BANNER (IF RESTRICTED) -->
+        <div id="tierStatusBanner" style="display:none; margin-bottom: 1.25rem; padding: 10px 14px; border-radius: 8px; font-size: 0.9rem; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 8px;">
+          <div id="tierStatusMessage" style="display:flex; align-items:center; gap:8px;"></div>
+          <a id="tierUpgradeBtn" href="https://automoviepro.com/#pricing" target="_blank" class="btn btn-sm" style="background: linear-gradient(135deg, #0284c7, #2563eb); color: #fff; font-weight: bold; text-decoration: none; padding: 4px 12px; border-radius: 6px; font-size: 0.82rem;">
+            🚀 প্যাকেজ আপগ্রেড করুন
+          </a>
+        </div>
+
+        <!-- HIDDEN TABS WRAPPER (for JS compat) -->
+        <nav class="tabs" style="display:none !important;">
+          <button data-tab="home" class="active">হোম</button>
+          <button data-tab="videos">ভিডিও</button>
+          <button data-tab="products">প্রোডাক্ট</button>
+          <button data-tab="live">লাইভ</button>
+          <button data-tab="jobs">জব</button>
+          <button data-tab="channel">চ্যানেল</button>
+          <button data-tab="api-settings">API</button>
+          <button data-tab="cloud-settings">ক্লাউড</button>
+          <button data-tab="social-settings">সোশ্যাল</button>
+          <button data-tab="analytics-settings">অ্যানালিটিক্স</button>
+          <button data-tab="settings">সেটিংস</button>
+        </nav>
+
+        <div id="tab-home" class="tab">
+        <div id="jarvisConsole" class="futuristic-hud">
         <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:0.75rem; flex-wrap:wrap; gap:0.5rem;">
           <div style="display:flex; align-items:center; gap:8px;">
             <span style="height:10px; width:10px; background:#10b981; border-radius:50%; box-shadow:0 0 10px #10b981; animation:pulse 1.5s infinite;"></span>
-            <strong style="color:#38bdf8; font-size:1.05rem; letter-spacing:0.5px;">JARVIS AI PIPELINE HUD</strong>
+            <strong style="color:#38bdf8; font-size:1.05rem; letter-spacing:0.5px;">AUTOMOVIE PRO AI PIPELINE HUD</strong>
             <span id="jarvisLiveBadge" style="background:#0284c7; color:#fff; font-size:0.75rem; padding:2px 8px; border-radius:10px; font-weight:bold;">STANDBY</span>
           </div>
           <div style="display:flex; align-items:center; gap:10px; flex-wrap:wrap;">
@@ -128,6 +281,9 @@
             </div>
             <button id="jarvisSoundToggle" class="btn ghost" style="padding:4px 10px; font-size:0.85rem;" onclick="toggleJarvisSound()">
               🔊 সাউন্ড চালু
+            </button>
+            <button id="jarvisVoiceSettingsBtn" class="btn ghost" style="padding:4px 10px; font-size:0.85rem; border:1px solid #38bdf8; color:#38bdf8;" onclick="openJarvisVoiceSettingsModal()">
+              ⚙️ ভয়েস কন্ট্রোল
             </button>
             <button class="btn" style="padding:4px 10px; font-size:0.85rem; background:#0284c7;" onclick="playJarvisAudioCue('/assets/audio/voice_cues/welcome_bn.wav', 'আসসালামু আলাইকুম! অটোমুভি প্রো এআই পাইপলাইন সম্পূর্ণ প্রস্তুত।')">
               ▶ ভয়েস টেস্ট
@@ -201,11 +357,10 @@
 
         <!-- SPOKEN COMMENTARY TICKER -->
         <div id="jarvisCommentaryText" style="background:#070d14; border:1px solid #1a2538; border-radius:8px; padding:0.85rem; font-family:monospace; font-size:0.92rem; color:#e2e8f0; min-height:48px; display:flex; align-items:center; margin-top:0.75rem;">
-          <span style="color:#38bdf8; margin-right:8px;">[JARVIS]:</span> আসসালামু আলাইকুম! সিস্টেম প্রস্তুত। সকল ব্যাকগ্রাউন্ড অডিও ও পাইপলাইন লাইভ নিরীক্ষণ চলছে...
+          <span style="color:#38bdf8; margin-right:8px;">[AutoMovie Pro AI]:</span> আসসালামু আলাইকুম! সিস্টেম প্রস্তুত। সকল ব্যাকগ্রাউন্ড অডিও ও পাইপলাইন লাইভ নিরীক্ষণ চলছে...
         </div>
       </div>
 
-      <div id="tab-home" class="tab">
         <!-- ========================================== -->
         <!-- NON-TECHNICAL 1-CLICK STUDIO HERO CONTROL  -->
         <!-- ========================================== -->
@@ -233,6 +388,165 @@
             </div>
           </div>
 
+          <!-- VIDEO CATEGORY SELECTOR (Category 1: Cinematic vs Category 2: Motion Graphics) -->
+          <div style="background: rgba(15, 23, 42, 0.75); border: 1px solid #1e293b; border-radius: 14px; padding: 1.2rem; margin-bottom: 1.5rem; box-shadow: 0 4px 20px rgba(0,0,0,0.3);">
+            <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom: 1rem; flex-wrap:wrap; gap:8px;">
+              <div>
+                <div style="display:flex; align-items:center; gap:8px;">
+                  <span style="font-size:1.3rem;">🎯</span>
+                  <h3 style="margin:0; font-size:1.05rem; font-weight:700; color:#f8fafc;">ভিডিও স্টাইল ও ক্যাটাগরি নির্বাচন করুন</h3>
+                </div>
+                <p style="margin:4px 0 0; font-size:0.83rem; color:#94a3b8;">সিনেমাটিক স্টক ফুটেজ অথবা ওপেন সোর্স আইকন সমৃদ্ধ মোশন গ্রাফিক্স এক্সপ্লেইনার বেছে নিন:</p>
+              </div>
+              <span id="categoryActivePill" style="background: rgba(2, 132, 199, 0.2); border: 1px solid #0284c7; color:#38bdf8; font-size:0.75rem; font-weight:600; padding:4px 10px; border-radius:20px;">
+                🎬 সিনেমাটিক ক্যাটাগরি সক্রিয়
+              </span>
+            </div>
+
+            <!-- TWO CATEGORY CARDS -->
+            <div style="display:grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1rem;">
+              
+              <!-- CATEGORY 1: CINEMATIC -->
+              <div id="catCardCinematic" onclick="selectVideoCategory('cinematic')" style="cursor:pointer; background: #0f172a; border: 2px solid #0284c7; border-radius: 12px; padding: 1rem; position: relative; transition: all 0.2s ease; box-shadow: 0 0 15px rgba(2, 132, 199, 0.3);">
+                <div style="display:flex; justify-content:space-between; align-items:flex-start; margin-bottom:8px;">
+                  <span style="background: linear-gradient(135deg, #0284c7, #2563eb); color:#fff; font-size:0.75rem; font-weight:700; padding:3px 10px; border-radius:6px;">
+                    ক্যাটাগরি ১ • ডিফল্ট
+                  </span>
+                  <span id="catCheckCinematic" style="color:#38bdf8; font-size:1.1rem; font-weight:bold;">✓</span>
+                </div>
+                <div style="display:flex; align-items:center; gap:10px; margin: 8px 0 6px;">
+                  <div style="background:rgba(2, 132, 199, 0.2); border:1px solid #0284c7; border-radius:8px; width:40px; height:40px; display:flex; align-items:center; justify-content:center; font-size:1.4rem;">
+                    🎬
+                  </div>
+                  <div>
+                    <h4 style="margin:0; font-size:0.98rem; font-weight:700; color:#f8fafc;">সিনেমাটিক ও এআই ফুটেজ</h4>
+                    <span style="font-size:0.78rem; color:#94a3b8;">Cinematic & AI Footage</span>
+                  </div>
+                </div>
+                <p style="margin:6px 0 10px; font-size:0.82rem; color:#cbd5e1; line-height:1.4;">
+                  বাস্তবসম্মত 4K/FullHD স্টক ফুটেজ, সিনেমাটিক দৃশ্যপট, এআই ইমেজ ও ব্র্যান্ড লোগো ওয়াটারমার্ক দিয়ে তৈরি।
+                </p>
+                <div style="display:flex; gap:6px; flex-wrap:wrap; font-size:0.73rem;">
+                  <span style="background:#1e293b; color:#94a3b8; padding:2px 8px; border-radius:4px;">🎥 Pexels Stock HD</span>
+                  <span style="background:#1e293b; color:#94a3b8; padding:2px 8px; border-radius:4px;">🏷️ সিনেমাটিক সাবটাইটেল</span>
+                  <span style="background:#1e293b; color:#94a3b8; padding:2px 8px; border-radius:4px;">🎧 ব্যাকগ্রাউন্ড মিউজিক</span>
+                </div>
+              </div>
+
+              <!-- CATEGORY 2: MOTION GRAPHICS -->
+              <div id="catCardMotion" onclick="selectVideoCategory('motion_graphics')" style="cursor:pointer; background: #0b1120; border: 1px solid #334155; border-radius: 12px; padding: 1rem; position: relative; transition: all 0.2s ease;">
+                <div style="display:flex; justify-content:space-between; align-items:flex-start; margin-bottom:8px;">
+                  <span style="background: linear-gradient(135deg, #8b5cf6, #ec4899); color:#fff; font-size:0.75rem; font-weight:700; padding:3px 10px; border-radius:6px;">
+                    ক্যাটাগরি ২ • নতুন মোড
+                  </span>
+                  <span id="catCheckMotion" style="color:#64748b; font-size:1.1rem; font-weight:bold; display:none;">✓</span>
+                </div>
+                <div style="display:flex; align-items:center; gap:10px; margin: 8px 0 6px;">
+                  <div style="background:rgba(139, 92, 246, 0.2); border:1px solid #8b5cf6; border-radius:8px; width:40px; height:40px; display:flex; align-items:center; justify-content:center; font-size:1.4rem;">
+                    🎨
+                  </div>
+                  <div>
+                    <h4 style="margin:0; font-size:0.98rem; font-weight:700; color:#f8fafc;">মোশন গ্রাফিক্স ও এক্সপ্লেইনার</h4>
+                    <span style="font-size:0.78rem; color:#a78bfa;">Motion Graphics & Explainer</span>
+                  </div>
+                </div>
+                <p style="margin:6px 0 10px; font-size:0.82rem; color:#cbd5e1; line-height:1.4;">
+                  ওপেন-সোর্স ভেক্টর আইকন, টেক্সট কার্ড, স্ট্যাটাস কাউন্টার ও ডায়নামিক মোশন ব্যাকগ্রাউন্ড দিয়ে তৈরি আকর্ষণীয় এক্সপ্লেইনার ভিডিও।
+                </p>
+                <div style="display:flex; gap:6px; flex-wrap:wrap; font-size:0.73rem;">
+                  <span style="background:#1e293b; color:#a78bfa; padding:2px 8px; border-radius:4px;">⚡ ৭০+ ভেক্টর আইকন</span>
+                  <span style="background:#1e293b; color:#a78bfa; padding:2px 8px; border-radius:4px;">📊 টেক্সট কার্ড ও স্ট্যাটস</span>
+                  <span style="background:#1e293b; color:#a78bfa; padding:2px 8px; border-radius:4px;">🌌 অ্যানিমেটেড ব্যাকগ্রাউন্ড</span>
+                </div>
+              <!-- CATEGORY 3: LIVE NEWS -->
+              <div id="catCardLiveNews" onclick="selectVideoCategory('live_news')" style="cursor:pointer; background: #0b1120; border: 1px solid #334155; border-radius: 12px; padding: 1rem; position: relative; transition: all 0.2s ease;">
+                <div style="display:flex; justify-content:space-between; align-items:flex-start; margin-bottom:8px;">
+                  <span style="background: linear-gradient(135deg, #ef4444, #dc2626); color:#fff; font-size:0.75rem; font-weight:700; padding:3px 10px; border-radius:6px;">
+                    ক্যাটাগরি ৩ • লাইভ নিউজ
+                  </span>
+                  <span id="catCheckLiveNews" style="color:#ef4444; font-size:1.1rem; font-weight:bold; display:none;">✓</span>
+                </div>
+                <div style="display:flex; align-items:center; gap:10px; margin: 8px 0 6px;">
+                  <div style="background:rgba(239, 68, 68, 0.2); border:1px solid #ef4444; border-radius:8px; width:40px; height:40px; display:flex; align-items:center; justify-content:center; font-size:1.4rem;">
+                    📰
+                  </div>
+                  <div>
+                    <h4 style="margin:0; font-size:0.98rem; font-weight:700; color:#f8fafc;">লাইভ নিউজ বুলেটিন</h4>
+                    <span style="font-size:0.78rem; color:#f87171;">Live News & Headlines</span>
+                  </div>
+                </div>
+                <p style="margin:6px 0 10px; font-size:0.82rem; color:#cbd5e1; line-height:1.4;">
+                  আজকের তাজা খবর ও হেডলাইন থেকে অনুপ্রাণিত কপিরাইট-মুক্ত নিজস্ব এআই ভিজ্যুয়াল ও লাইভ ব্রডকাস্ট কাইরন সম্বলিত নিউজ বুলেটিন।
+                </p>
+                <div style="display:flex; gap:6px; flex-wrap:wrap; font-size:0.73rem;">
+                  <span style="background:#1e293b; color:#f87171; padding:2px 8px; border-radius:4px;">🔴 ব্রেকিং নিউজ কাইরন</span>
+                  <span style="background:#1e293b; color:#f87171; padding:2px 8px; border-radius:4px;">🛡️ কপিরাইট-মুক্ত AI ছবি</span>
+                  <span style="background:#1e293b; color:#f87171; padding:2px 8px; border-radius:4px;">⚡ মাল্টি-টিয়ার ফলব্যাক</span>
+                </div>
+              </div>
+
+            </div>
+
+            <!-- LIVE NEWS EXTRA SETTINGS (Visible when Live News is selected) -->
+            <div id="liveNewsConfigPanel" style="display:none; margin-top:1rem; padding-top:1rem; border-top:1px dashed #334155;">
+              <div style="display:grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 1rem; align-items:flex-end;">
+                <div>
+                  <label style="font-size:0.8rem; color:#cbd5e1; margin-bottom:4px; display:block;">নিউজ বিভাগ / ক্যাটাগরি ফিল্টার:</label>
+                  <select id="newsCategorySelect" style="width:100%; padding:7px 10px; background:#0b1120; border:1px solid #475569; border-radius:8px; color:#f8fafc; font-size:0.85rem;">
+                    <option value="" selected>🌐 সমস্ত প্রধান সংবাদ (Top Headlines)</option>
+                    <option value="জাতীয়">🇧🇩 জাতীয় ও রাজনীতি (National)</option>
+                    <option value="আন্তর্জাতিক">🌍 আন্তর্জাতিক সংবাদ (World News)</option>
+                    <option value="প্রযুক্তি">🤖 প্রযুক্তি ও বিজ্ঞান (Technology)</option>
+                    <option value="বাণিজ্য">💼 ব্যবসা ও অর্থনীতি (Business & Finance)</option>
+                    <option value="খেলাধুলা">🏆 খেলাধুলা (Sports)</option>
+                  </select>
+                </div>
+                <div>
+                  <label style="font-size:0.8rem; color:#cbd5e1; margin-bottom:4px; display:block;">এআই ভিজ্যুয়াল ফলব্যাক চেইন:</label>
+                  <div style="background:#0b1120; border:1px solid #334155; border-radius:8px; padding:7px 10px; font-size:0.8rem; color:#10b981; display:flex; align-items:center; gap:6px;">
+                    <span>🛡️</span>
+                    <span>Google Pro ➜ Agnes ➜ Pollinations</span>
+                  </div>
+                </div>
+                <div>
+                  <label style="font-size:0.8rem; color:#cbd5e1; margin-bottom:4px; display:block;">কপিরাইট সুরক্ষা:</label>
+                  <div style="background:#0b1120; border:1px solid #334155; border-radius:8px; padding:7px 10px; font-size:0.82rem; color:#38bdf8;">
+                    <span>১০০% কপিরাইট-মুক্ত নিজস্ব অনুপ্রাণিত এআই ছবি</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- MOTION GRAPHICS EXTRA SETTINGS (Visible when Motion Graphics is selected) -->
+            <div id="motionGraphicsConfigPanel" style="display:none; margin-top:1rem; padding-top:1rem; border-top:1px dashed #334155;">
+              <div style="display:grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 1rem; align-items:flex-end;">
+                <div>
+                  <label style="font-size:0.8rem; color:#cbd5e1; margin-bottom:4px; display:block;">মোশন ব্যাকগ্রাউন্ড থিম:</label>
+                  <select id="motionThemeSelect" style="width:100%; padding:7px 10px; background:#0b1120; border:1px solid #475569; border-radius:8px; color:#f8fafc; font-size:0.85rem;">
+                    <option value="deep_cyber_mesh" selected>🌌 ডিপ সাইবার মেশ (Cyber Mesh Blue/Purple)</option>
+                    <option value="clean_slate_pro">💼 ক্লিন স্লেট প্রো (Slate Business Minimal)</option>
+                    <option value="neon_pulse">⚡ নিওন পালস (Neon Pulse High Energy)</option>
+                    <option value="warm_gradient">🌅 ওয়ার্ম গ্রেডিয়েন্ট (Warm Sunset Amber)</option>
+                  </select>
+                </div>
+                <div>
+                  <label style="font-size:0.8rem; color:#cbd5e1; margin-bottom:4px; display:block;">ওপেন-সোর্স আইকন সিস্টেম:</label>
+                  <div style="background:#0b1120; border:1px solid #334155; border-radius:8px; padding:7px 10px; display:flex; align-items:center; gap:8px; font-size:0.82rem; color:#38bdf8;">
+                    <span>🛡️</span> <span>Lucide/Feather ভেক্টর ইঞ্জিন রেডি</span>
+                    <span style="margin-left:auto; background:#10b981; color:#fff; font-size:0.68rem; padding:1px 6px; border-radius:4px;">সক্রিয়</span>
+                  </div>
+                </div>
+                <div>
+                  <label style="font-size:0.8rem; color:#cbd5e1; margin-bottom:4px; display:block;">লেআউট ভ্যারাইটি:</label>
+                  <div style="background:#0b1120; border:1px solid #334155; border-radius:8px; padding:7px 10px; font-size:0.82rem; color:#94a3b8;">
+                    <span>৬টি ডায়নামিক এক্সপ্লেইনার কার্ড দৃশ্য অনুযায়ী সাজানো হবে</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+          </div>
+
           <!-- 3-STEP NON-TECH WORKFLOW GRID -->
           <div style="display:grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1rem; margin-bottom: 1.5rem;">
             
@@ -243,7 +557,7 @@
                 <strong style="color:#e2e8f0; font-size: 0.95rem;">চ্যানেল বা পেজ নির্বাচন</strong>
               </div>
               <label style="margin:0; font-size:0.82rem; color:#94a3b8;">কোন চ্যানেলের জন্য ভিডিও তৈরি করতে চান:</label>
-              <select id="megaChannelSelect" style="width:100%; margin-top:6px; padding:8px 10px; background:#0b1120; border:1px solid #334155; border-radius:8px; color:#f8fafc; font-size:0.9rem;"></select>
+              <select id="megaChannelSelect" style="margin-top:6px;"></select>
               <span id="megaChannelBadge" style="display:inline-block; margin-top:6px; font-size:0.75rem; color:#38bdf8;">ডিফল্ট চ্যানেল সক্রিয়</span>
             </div>
 
@@ -254,7 +568,7 @@
                 <strong style="color:#e2e8f0; font-size: 0.95rem;">বিষয় / টপিক লিখুন (ঐচ্ছিক)</strong>
               </div>
               <label style="margin:0; font-size:0.82rem; color:#94a3b8;">খালি রাখলে এআই স্বয়ংক্রিয় ভাইরাল টপিক বেছে নিবে:</label>
-              <input type="text" id="megaTopicInput" placeholder="যেমন: রহস্যময় প্রাচীন বিশ্ব বা এআই টেকনোলজি..." style="width:100%; margin-top:6px; padding:8px 10px; background:#0b1120; border:1px solid #334155; border-radius:8px; color:#f8fafc; font-size:0.9rem;">
+              <input type="text" id="megaTopicInput" placeholder="যেমন: রহস্যময় প্রাচীন বিশ্ব বা এআই টেকনোলজি..." style="width:100%; margin-top:6px; padding:8px 10px; background:#0b1120; border:1px solid #334155; border-radius:8px; color:#f8fafc; font-size:0.9rem;" data-field-guide="custom_topic">
               <div style="display:flex; gap:5px; flex-wrap:wrap; margin-top:8px;">
                 <span class="topic-chip" onclick="setQuickTopic('রহস্যময় প্রাচীন ইতিহাস')" style="cursor:pointer; background:#1e293b; color:#cbd5e1; font-size:0.75rem; padding:2px 8px; border-radius:6px; border:1px solid #334155;">🏛️ প্রাচীন ইতিহাস</span>
                 <span class="topic-chip" onclick="setQuickTopic('এআই ও ভবিষ্যৎ টেকনোলজি')" style="cursor:pointer; background:#1e293b; color:#cbd5e1; font-size:0.75rem; padding:2px 8px; border-radius:6px; border:1px solid #334155;">🤖 এআই টেকনোলজি</span>
@@ -542,7 +856,9 @@
       <!-- ========================================== -->
       <!-- TAB: VIDEO LIBRARY (Rendered Videos)       -->
       <!-- ========================================== -->
-      <div id="tab-videos" class="tab hidden">
+      
+
+        <div id="tab-videos" class="tab hidden">
         <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:1.25rem; flex-wrap:wrap; gap:1rem;">
           <div>
             <h2 style="margin:0; color:#f8fafc; display:flex; align-items:center; gap:8px;">
@@ -583,7 +899,9 @@
       <!-- ========================================== -->
       <!-- TAB: PRODUCTS & ADS (Promotional Videos)   -->
       <!-- ========================================== -->
-      <div id="tab-products" class="tab hidden">
+      
+
+        <div id="tab-products" class="tab hidden">
         <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:1.25rem; flex-wrap:wrap; gap:1rem;">
           <div>
             <h2 style="margin:0; color:#f8fafc; display:flex; align-items:center; gap:8px;">
@@ -614,7 +932,9 @@
         </div>
       </div>
 
-      <div id="tab-live" class="tab hidden">
+      
+
+        <div id="tab-live" class="tab hidden">
         <h2 data-i18n="live_title">লাইভ কার্যক্রম</h2>
         <p class="muted" data-i18n="live_hint">এই মুহূর্তে চলমান জেনারেশন / API / আপলোড স্ট্যাটাস।</p>
         <div id="livePanel" class="live-panel">
@@ -636,9 +956,29 @@
         <div id="liveEvents" class="list live-log"></div>
       </div>
 
-      <div id="tab-channel" class="tab hidden">
-        <h2 data-i18n="channel_setup">চ্যানেল সেটআপ</h2>
-        <p class="muted" data-i18n="channel_hint">সফটওয়্যারে একটিই চ্যানেল। নিশ ও ভাষা সেটআপের সময় বেছে নিন।</p>
+      
+
+        <div id="tab-jobs" class="tab hidden">
+        <h2 data-i18n="jobs">জব লগ</h2>
+        <div id="jobsList" class="list"></div>
+      </div>
+
+      
+
+                <div id="tab-channel" class="tab hidden">
+        <div class="channel-header-box">
+          <div>
+            <h2 class="section-title">
+              <span>📺</span> চ্যানেল ও নিশ কন্ট্রোল সেন্টার (Channel Setup)
+            </h2>
+            <p class="section-subtitle">
+              আপনার ইউটিউব চ্যানেল বা ফেসবুক পেজ কানেক্ট করুন এবং আপনার পছন্দের ভিডিও টপিক (নিশ) বেছে নিন।
+            </p>
+          </div>
+          <div id="channelReadinessPill" class="channel-status-pill ready">
+            ● চ্যানেল কনফিগারেশন সক্রিয়
+          </div>
+        </div>
 
         <!-- GOOGLE AI PRO SPECIAL PROMO BANNER -->
         <div class="google-pro-banner" style="background:linear-gradient(135deg, #1e1b4b, #312e81); border:1px solid #6366f1; border-radius:12px; padding:1.1rem 1.4rem; margin-bottom:1.5rem; display:flex; align-items:center; justify-content:space-between; gap:1.2rem; flex-wrap:wrap; box-shadow:0 6px 20px rgba(99,102,241,0.25);">
@@ -659,95 +999,221 @@
           </a>
         </div>
 
-        <section class="ws-section" id="configStatusSection">
-          <h3>Configuration status</h3>
-          <div id="configStatusPanel" class="card muted">Loading…</div>
-          <div id="providerMatrix" class="list"></div>
-          <div class="row">
-            <button type="button" class="btn ghost" id="cfgActivateBtn">Activate channel</button>
-            <button type="button" class="btn ghost" id="cfgDeactivateBtn">Deactivate channel</button>
-            <button type="button" class="btn ghost" id="cfgClaimOrphanBtn">Claim unowned channel</button>
-          </div>
-        </section>
-
-        <form id="channelForm" class="grid">
+        <form id="channelForm" class="channel-form-modern" onsubmit="return false;">
           <input type="hidden" name="channel_id" id="channelIdField" value="">
-          <label><span data-i18n="yt_name">YouTube চ্যানেল নাম</span> <input name="youtube_name" id="f_youtube_name"></label>
-          <label><span data-i18n="fb_name">Facebook পেজ নাম</span> <input name="facebook_name" id="f_facebook_name"></label>
-          <label><span data-i18n="tt_name">TikTok একাউন্ট নাম</span> <input name="tiktok_name" id="f_tiktok_name" placeholder="@username"></label>
 
-          <div id="nicheSetupBlock">
-            <label><span data-i18n="niche">নিশ</span> *
-              <button type="button" style="background:none; border:none; color:#38bdf8; cursor:pointer; font-size:0.9rem;" onclick="showFieldInfo('নিশ নির্বাচন', 'আপনার চ্যানেলের মূল বিষয়বস্তু নির্বাচন করুন। সিস্টেম এই নিশের উপর ভিত্তি করে প্রতিদিন ভাইরাল স্ক্রিপ্ট ও ভিডিও তৈরি করবে।')">ⓘ</button>
-              <input id="channelNicheFilter" data-i18n-placeholder="niche_search" placeholder="নিশ খুঁজুন…" style="margin-bottom:6px">
-              <select name="niche_id" id="channelNicheSelect" required></select>
-              <input type="hidden" name="niche" id="channelNicheName">
-            </label>
-            <p id="channelNicheBlurb" class="muted" style="margin-top:4px;min-height:2.4em"></p>
-            <div class="lang-setup">
-              <h3 data-i18n="languages_setup">ভাষা (সেটআপে ২টি)</h3>
-              <button type="button" style="background:none; border:none; color:#38bdf8; cursor:pointer; font-size:0.9rem;" onclick="showFieldInfo('ভাষা প্যাকেজ', 'কোর লাইসেন্সে ইংরেজি ও আপনার পছন্দের ১টি ভাষা অন্তর্ভুক্ত থাকে। অতিরিক্ত ভাষা কিনলে তা অ্যাডমিন ভেরিফিকেশনের পর আনলক হবে।')">ⓘ</button>
-              <p class="muted" data-i18n="lang_setup_hint">ইংরেজি ডিফল্ট। আরও একটি ভাষা সিলেক্ট করুন।</p>
-              <label><span data-i18n="english">ইংরেজি</span>
-                <input id="englishDefaultField" value="English (default)" disabled>
-              </label>
-              <label><span data-i18n="second_lang">দ্বিতীয় ভাষা</span> *
-                <select name="secondary_lang" id="secondaryLangSelect" required></select>
-              </label>
+          <!-- SECTION 1: PLATFORM CONNECTIONS -->
+          <div class="channel-card-section">
+            <h3 class="section-card-title">
+              <span>🌐</span> সোশ্যাল প্ল্যাটফর্ম কানেকশন (Social Accounts)
+            </h3>
+
+            <div class="platforms-connect-grid">
+              <!-- YOUTUBE CONNECT CARD -->
+              <div class="platform-connect-card yt-card">
+                <div class="platform-icon-bar">
+                  <span class="plat-logo">🔴 YouTube</span>
+                  <span id="ytStatusBadge" class="plat-badge connected">● কানেক্টেড</span>
+                </div>
+                <label class="field-label">
+                  YouTube চ্যানেল নাম
+                  <span class="info-badge" data-tooltip="আপনার ইউটিউব চ্যানেলের দৃশ্যমান নাম লিখুন (যেমন: Mystery Zone BD)।">ℹ</span>
+                </label>
+                <input name="youtube_name" id="f_youtube_name" placeholder="যেমন: Tech Insights BD" data-field-guide="channel_name">
+                
+                <button type="button" id="ytConnectBtn" class="btn btn-plat-connect yt-btn" onclick="window.triggerYouTubeOAuth && window.triggerYouTubeOAuth()" data-field-guide="youtube_connect">
+                  <span>🔗</span> YouTube চ্যানেল কানেক্ট করুন
+                  <span class="info-badge" data-tooltip="১-ক্লিকে গুগল অ্যাকাউন্ট অথরাইজ করে অটোমেটিক ভিডিও আপলোড সক্রিয় করুন।">ℹ</span>
+                </button>
+              </div>
+
+              <!-- FACEBOOK CONNECT CARD -->
+              <div class="platform-connect-card fb-card">
+                <div class="platform-icon-bar">
+                  <span class="plat-logo">🔵 Facebook</span>
+                  <span id="fbStatusBadge" class="plat-badge disconnected">○ সংযোগ বিচ্ছিন্ন</span>
+                </div>
+                <label class="field-label">
+                  Facebook পেজ নাম
+                  <span class="info-badge" data-tooltip="আপনার যে ফেসবুক পেজে ভিডিও বা রিল পোস্ট হবে তার নাম লিখুন।">ℹ</span>
+                </label>
+                <input name="facebook_name" id="f_facebook_name" placeholder="যেমন: Viral Facts Bangla" data-field-guide="channel_name">
+                
+                <button type="button" id="fbConnectBtn" class="btn btn-plat-connect fb-btn" onclick="window.triggerFacebookOAuth && window.triggerFacebookOAuth()" data-field-guide="facebook_connect">
+                  <span>🔗</span> Facebook পেজ কানেক্ট করুন
+                  <span class="info-badge" data-tooltip="ফেসবুক বিজনেস পেজের সাথে অটো-পোস্টিং পারমিশন সংযুক্ত করুন।">ℹ</span>
+                </button>
+              </div>
+
+              <!-- TIKTOK CONNECT CARD -->
+              <div class="platform-connect-card tt-card">
+                <div class="platform-icon-bar">
+                  <span class="plat-logo">⚫ TikTok</span>
+                  <span id="ttStatusBadge" class="plat-badge ready">ঐচ্ছিক</span>
+                </div>
+                <label class="field-label">
+                  TikTok একাউন্ট হ্যান্ডেল
+                  <span class="info-badge" data-tooltip="আপনার টিকটক ইউজারনেম লিখুন (যেমন: @automovie)">ℹ</span>
+                </label>
+                <input name="tiktok_name" id="f_tiktok_name" placeholder="@username">
+              </div>
             </div>
           </div>
 
-          <div id="frozenNicheLang" class="grid hidden">
-            <label><span data-i18n="niche">নিশ</span>
-              <input id="frozenNicheField" disabled>
-            </label>
-            <label><span data-i18n="languages_setup">ভাষা</span>
-              <input id="frozenLangField" disabled>
-            </label>
+          <!-- SECTION 2: NICHE & LANGUAGE SELECTION -->
+          <div class="channel-card-section">
+            <h3 class="section-card-title">
+              <span>🎯</span> নিশ ও ভাষার পছন্দ (Niche & Content Focus)
+            </h3>
+
+            <div class="niche-selection-grid">
+              <div class="form-group" id="nicheSetupBlock">
+                <label class="field-label">
+                  মূল নিশ / ক্যাটাগরি *
+                  <span class="info-badge" data-tooltip="আপনার চ্যানেল যে বিষয়ের উপর ভিডিও বানাবে (যেমন: রহস্য, মোটিভেশন, টেকনোলজি)। এআই স্বয়ংক্রিয়ভাবে এই নিশের ভাইরাল টপিক খুঁজবে।">ℹ</span>
+                </label>
+                <input id="channelNicheFilter" placeholder="🔍 নিশ ফিল্টার করুন (যেমন: রহস্য, বিজ্ঞান, ইসলামিক)..." style="margin-bottom:6px; width:100%;">
+                <select name="niche_id" id="channelNicheSelect" required style="width:100%;" data-field-guide="channel_niche"></select>
+                <input type="hidden" name="niche" id="channelNicheName">
+                <p id="channelNicheBlurb" class="muted" style="margin-top:4px; min-height:2.4em;"></p>
+              </div>
+
+              <div class="form-group">
+                <label class="field-label">
+                  ভিডিওর ভাষা প্যাকেজ (Language Focus) *
+                  <span class="info-badge" data-tooltip="ভিডিওর প্রাথমিক ও দ্বিতীয় ভাষা। ইংরেজি ডিফল্ট থাকবে, এর সাথে আপনার নির্বাচিত ভাষায় অডিও ও ক্যাপশন তৈরি হবে।">ℹ</span>
+                </label>
+                <div style="display:flex; flex-direction:column; gap:8px;">
+                  <div style="background:#1e293b; padding:8px 12px; border-radius:6px; font-size:0.88rem; color:#94a3b8; border:1px solid #334155;">
+                    <span>🇺🇸</span> English (ডিফল্ট গ্লোবাল মাস্টার)
+                    <input id="englishDefaultField" value="English (default)" type="hidden">
+                  </div>
+                  <div>
+                    <label style="font-size:0.8rem; color:#cbd5e1; margin-bottom:4px; display:block;">দ্বিতীয় ভাষা (আঞ্চলিক অডিও ও সাবটাইটেল):</label>
+                    <select name="secondary_lang" id="secondaryLangSelect" required style="width:100%;" data-field-guide="target_language"></select>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div id="frozenNicheLang" class="grid hidden">
+              <label><span>নিশ</span> <input id="frozenNicheField" disabled></label>
+              <label><span>ভাষা</span> <input id="frozenLangField" disabled></label>
+            </div>
           </div>
 
-          <label><span data-i18n="video_special">ভিডিও স্পেশাল</span> <textarea name="video_special"></textarea></label>
-          <label><span data-i18n="long_upload">লং আপলোড টাইম</span> <input name="long_upload_time" type="time" value="18:00"></label>
-          <label><span data-i18n="short_upload">শর্ট আপলোড টাইম</span> <input name="short_upload_time" type="time" value="12:00"></label>
+          <!-- SECTION 3: DAILY UPLOAD TIME PICKER SLOTS -->
+          <div class="channel-card-section">
+            <div style="display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:8px;">
+              <h3 class="section-card-title" style="margin:0;">
+                <span>⏰</span> দৈনিক অটো-আপলোড সময়সূচি (Daily Schedule Slots)
+                <span class="info-badge" data-tooltip="সফটওয়্যার প্রতিদিন এই নির্দিষ্ট সময়ে ভিডিও স্বয়ংক্রিয়ভাবে রেন্ডার ও আপলোড সম্পন্ন করবে।">ℹ</span>
+              </h3>
+              <!-- PRESET CHIPS -->
+              <div class="schedule-preset-chips">
+                <button type="button" class="preset-chip active" onclick="window.applySchedulePreset && window.applySchedulePreset('viral_reels')">
+                  ⚡ ৩টি রিল শিডিউল (সুপার ভাইরাল)
+                </button>
+                <button type="button" class="preset-chip" onclick="window.applySchedulePreset && window.applySchedulePreset('standard_two')">
+                  🎥 ১ লং + ১ শর্ট (স্ট্যান্ডার্ড)
+                </button>
+                <button type="button" class="preset-chip" onclick="window.applySchedulePreset && window.applySchedulePreset('single_daily')">
+                  🎯 ১টি মেগা ভিডিও/দিন
+                </button>
+              </div>
+            </div>
 
-          <div class="reel-schedule-box" style="background:#0f172a; border:1px solid #334155; border-radius:8px; padding:12px; margin:8px 0;">
-            <div style="font-weight:600; color:#38bdf8; margin-bottom:8px; display:flex; align-items:center; gap:6px;">
-              <span>🎬</span> <span>রিল / শর্টস শিডিউল ও টপিক সেটিংস (OmniReel / Shorts Publisher)</span>
+            <div class="time-slots-container">
+              <!-- SLOT 1 -->
+              <div class="time-slot-card">
+                <div class="slot-head">
+                  <span class="slot-badge">☀️ স্লট ০১ (সকাল)</span>
+                  <span class="slot-type">Shorts / Reel</span>
+                </div>
+                <input type="time" name="schedule_time_1" id="scheduleTime1" value="11:00" class="time-slot-input" onchange="window.syncScheduleInputs && window.syncScheduleInputs()" data-field-guide="schedule_time">
+              </div>
+
+              <!-- SLOT 2 -->
+              <div class="time-slot-card">
+                <div class="slot-head">
+                  <span class="slot-badge">🌤️ স্লট ০২ (বিকাল)</span>
+                  <span class="slot-type">Shorts / Reel</span>
+                </div>
+                <input type="time" name="schedule_time_2" id="scheduleTime2" value="16:30" class="time-slot-input" onchange="window.syncScheduleInputs && window.syncScheduleInputs()" data-field-guide="schedule_time">
+              </div>
+
+              <!-- SLOT 3 -->
+              <div class="time-slot-card">
+                <div class="slot-head">
+                  <span class="slot-badge">🌙 স্লট ০৩ (প্রাইম নাইট)</span>
+                  <span class="slot-type">Long / Reel</span>
+                </div>
+                <input type="time" name="schedule_time_3" id="scheduleTime3" value="20:30" class="time-slot-input" onchange="window.syncScheduleInputs && window.syncScheduleInputs()" data-field-guide="schedule_time">
+              </div>
             </div>
-            <div class="grid" style="grid-template-columns: 1fr 2fr; gap:10px;">
-              <label>
-                <span style="font-size:0.85rem;">দৈনিক রিল আপলোড সংখ্যা</span>
-                <input name="reels_per_day" type="number" min="1" max="10" value="2" placeholder="2 বা 3" style="font-size:0.9rem;">
+            
+            <input type="hidden" name="long_upload_time" id="f_long_upload_time" value="20:30">
+            <input type="hidden" name="short_upload_time" id="f_short_upload_time" value="11:00">
+            <input type="hidden" name="reel_schedule_times" id="f_reel_schedule_times" value="11:00, 16:30, 20:30">
+            <input type="hidden" name="reels_per_day" id="f_reels_per_day" value="3">
+            
+            <div style="margin-top:12px;">
+              <label style="font-size:0.85rem; color:#cbd5e1; display:block; margin-bottom:4px;">
+                রিল তৈরির টপিক ও বিষয়বস্তু (প্রতি লাইনে ১টি বিষয়)
+                <span class="info-badge" data-tooltip="আপনি চাইলে নির্দিষ্ট বিষয় লিখে দিতে পারেন যেগুলোর উপর প্রতিদিন স্বয়ংক্রিয় রিল তৈরি হবে।">ℹ</span>
               </label>
-              <label>
-                <span style="font-size:0.85rem;">রিল আপলোড সময়সূচি (কমা দিয়ে লিখুন)</span>
-                <input name="reel_schedule_times" type="text" value="11:00, 16:00, 20:30" placeholder="যেমন: 11:00, 16:00, 20:30" style="font-size:0.9rem;">
-              </label>
+              <textarea name="reel_topics" id="f_reel_topics" rows="2" placeholder="১-ক্লিকে ১০০% স্বয়ংক্রিয় এআই ভিডিও&#10;ঘরে বসে প্যাসিভ ইনকাম মাস্টারক্লাস&#10;রহস্যময় মহাবিশ্ব ও অজানা তথ্য" style="font-size:0.85rem; width:100%;" data-field-guide="custom_topic"></textarea>
             </div>
-            <label style="margin-top:8px;">
-              <span style="font-size:0.85rem;">রিল তৈরির টপিক ও বিষয়বস্তু (প্রতি লাইনে ১টি বিষয়)</span>
-              <textarea name="reel_topics" rows="3" placeholder="১-ক্লিকে ১০০% স্বয়ংক্রিয় এআই ভিডিও&#10;ঘরে বসে প্যাসিভ ইনকাম মাস্টারক্লাস&#10;মাল্টি-ল্যাঙ্গুয়েজ গ্লোবাল ডাবিং সাম্রাজ্য" style="font-size:0.85rem;"></textarea>
-            </label>
           </div>
-          <label><span data-i18n="example_script">উদাহরণ স্ক্রিপ্ট</span> <textarea name="example_script"></textarea></label>
-          <label><span data-i18n="gen_special">জেনারেশন স্পেশাল</span> <textarea name="generation_special"></textarea></label>
-          <label><span data-i18n="title_special">টাইটেল/ডেসক্রিপশন</span> <textarea name="title_desc_special"></textarea></label>
-          <label><span data-i18n="logo">লোগো</span> <input name="logo" type="file" accept="image/*"></label>
-          <label><span data-i18n="intro">ইন্ট্রো ভিডিও</span> <input name="intro" type="file" accept="video/*"></label>
 
-          <details class="api-dropdown" id="apiDropdown" open>
-            <summary data-i18n="api_connection" data-help="api_connection">API কানেকশন</summary>
-            <p class="muted api-drop-hint" data-i18n="api_hint" data-help="api_connection">
-              প্রতিটি কাজের জন্য আলাদা API। প্রয়োজনীয় স্লট খালি থাকলে অ্যাপ ইনঅ্যাকটিভ।
-            </p>
-            <div id="apiReadinessBanner" class="api-ready-banner muted"></div>
-            <div id="apiKeyGroups" class="api-key-groups"></div>
-            <div class="row" style="margin-top:0.6rem">
-              <button class="btn ghost" type="button" id="apiKeysSaveBtn" data-i18n="save_api_keys">API কী সেভ</button>
+          <!-- SECTION 4: ADVANCED CUSTOMIZATION (PROGRESSIVE DISCLOSURE) -->
+          <details class="advanced-studio-box">
+            <summary class="advanced-summary">
+              <span>⚙️ অতিরিক্ত ব্র্যান্ডিং ও প্রম্পট সেটিংস (ঐচ্ছিক — নতুনদের পরিবর্তন প্রয়োজন নেই)</span>
+            </summary>
+            <div class="advanced-content-grid">
+              <div class="form-group">
+                <label class="field-label">
+                  লোগো / ওয়াটারমার্ক
+                  <span class="info-badge" data-tooltip="ভিডিওর কোণায় আপনার চ্যানেলের লোগো দেখানোর জন্য পিএনজি ছবি দিন।">ℹ</span>
+                </label>
+                <input name="logo" type="file" accept="image/*" data-field-guide="channel_logo">
+              </div>
+              <div class="form-group">
+                <label class="field-label">
+                  কাস্টম ইন্ট্রো ভিডিও
+                  <span class="info-badge" data-tooltip="প্রতিটি ভিডিওর শুরুতে ২-৩ সেকেন্ডের এনিমেশন ইন্ট্রো যুক্ত করতে পারেন।">ℹ</span>
+                </label>
+                <input name="intro" type="file" accept="video/*">
+              </div>
+              <div class="form-group full-width">
+                <label class="field-label">
+                  ভিডিও স্পেশাল নির্দেশনা
+                  <span class="info-badge" data-tooltip="এআইকে কোনো বিশেষ নির্দেশনা দিতে চাইলে লিখুন (যেমন: ব্যাকগ্রাউন্ডে সাইবারপাঙ্ক স্টাইল মিউজিক রাখুন)।">ℹ</span>
+                </label>
+                <textarea name="video_special" rows="2" placeholder="ঐচ্ছিক কাস্টম নির্দেশনা..."></textarea>
+              </div>
+              <div class="form-group">
+                <label class="field-label">উদাহরণ স্ক্রিপ্ট</label>
+                <textarea name="example_script" rows="2"></textarea>
+              </div>
+              <div class="form-group">
+                <label class="field-label">জেনারেশন স্পেশাল</label>
+                <textarea name="generation_special" rows="2"></textarea>
+              </div>
+              <div class="form-group full-width">
+                <label class="field-label">টাইটেল/ডেসক্রিপশন ফরম্যাট</label>
+                <textarea name="title_desc_special" rows="2"></textarea>
+              </div>
             </div>
           </details>
 
-          <button class="btn" type="submit" id="channelSaveBtn" data-i18n="save_channel">সেভ চ্যানেল</button>
+          <!-- SAVE ACTION BUTTON -->
+          <div class="channel-actions-bar">
+            <button class="btn btn-save-channel" type="submit" id="channelSaveBtn">
+              💾 চ্যানেল কনফিগারেশন সেভ করুন
+            </button>
+          </div>
         </form>
 
         <div id="langPurchaseSection" class="api-section hidden">
@@ -775,16 +1241,185 @@
         <div id="channelList" class="list"></div>
       </div>
 
-      <div id="tab-jobs" class="tab hidden">
-        <h2 data-i18n="jobs">জব লগ</h2>
-        <div id="jobsList" class="list"></div>
+      
+
+                    <div id="tab-api-settings" class="tab hidden">
+        <!-- HEADER & GUIDE BUTTON -->
+        <div class="api-vault-header">
+          <div>
+            <h2 class="section-title">
+              <span>🔑</span> এআই ইঞ্জিন ও API চাবি ম্যানেজার (AI Vault)
+            </h2>
+            <p class="section-subtitle">
+              ভিডিও স্ক্রিপ্ট, সিন জেনারেশন ও ভয়েস ওভারের জন্য আপনার এআই চাবি কানেক্ট করুন। ফ্রি এপিআই দিয়েও ১০০% স্বয়ংক্রিয়ভাবে ভিডিও তৈরি করা যায়।
+            </p>
+          </div>
+          <button type="button" class="btn btn-help-guide" onclick="window.openApiKeyGuideModal && window.openApiKeyGuideModal()">
+            <span>📖</span> কিভাবে সম্পূর্ণ ফ্রি API কী পাবেন? (১-ক্লিক গাইড)
+          </button>
+        </div>
+
+        <!-- DYNAMIC REQUIREMENTS CHECKLIST & APP READINESS -->
+        <div id="apiDynamicChecklistCard" class="api-checklist-card">
+          <div class="checklist-header">
+            <div class="checklist-title-wrap">
+              <span id="apiReadinessStatusDot" class="status-dot warning"></span>
+              <strong id="apiReadinessMainTitle">সফটওয়্যার চালু করতে মাত্র ২টি জিনিস প্রয়োজন</strong>
+            </div>
+            <div class="checklist-progress-wrap">
+              <span id="apiReadinessCount">১/২ সম্পূর্ণ</span>
+              <div class="mini-progress-bar">
+                <div id="apiReadinessProgressFill" style="width: 50%;"></div>
+              </div>
+            </div>
+          </div>
+
+          <div class="checklist-grid">
+            <!-- MANDATORY: 1 TEXT AI -->
+            <div id="checkItemTextAi" class="checklist-item done">
+              <div class="check-icon">✓</div>
+              <div class="check-info">
+                <strong>১টি টেক্সট ও স্ক্রিপ্ট এআই (বাধ্যতামূলক)</strong>
+                <span class="muted">Gemini, Groq, OpenRouter বা Cerebras (যেকোনো ১টি)</span>
+                <span class="active-provider-badge" id="textAiBadge">Groq / Gemini Active ●</span>
+              </div>
+            </div>
+
+            <!-- MANDATORY: 1 IMAGE ENGINE -->
+            <div id="checkItemImageAi" class="checklist-item done">
+              <div class="check-icon">✓</div>
+              <div class="check-info">
+                <strong>১টি সিন ও ইমেজ ইঞ্জিন (বাধ্যতামূলক)</strong>
+                <span class="muted">Pollinations (১০০% ফ্রি ডিফল্ট), Pexels বা Gemini</span>
+                <span class="active-provider-badge">Pollinations Free Active ●</span>
+              </div>
+            </div>
+
+            <!-- OPTIONAL: VOICE TTS -->
+            <div id="checkItemTtsAi" class="checklist-item optional">
+              <div class="check-icon">○</div>
+              <div class="check-info">
+                <strong>স্টুডিও ন্যাচারাল ভয়েস (ঐচ্ছিক)</strong>
+                <span class="muted">ElevenLabs বা Google Studio TTS</span>
+                <span class="opt-badge">Edge TTS সক্রিয় (ফ্রি)</span>
+              </div>
+            </div>
+
+            <!-- OPTIONAL: STOCK FOOTAGE -->
+            <div id="checkItemPexelsAi" class="checklist-item optional">
+              <div class="check-icon">○</div>
+              <div class="check-info">
+                <strong>রিয়েল স্টক ফুটেজ (ঐচ্ছিক)</strong>
+                <span class="muted">Pexels Stock Video API</span>
+                <span class="opt-badge">ঐচ্ছিক</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- UNIFIED ADD API KEY FORM BAR -->
+        <div class="unified-key-bar-card">
+          <div class="bar-title">
+            <span>⚡</span> নতুন এআই চাবি যুক্ত করুন (Add Provider API Key)
+          </div>
+          
+          <form id="unifiedApiKeyForm" class="unified-key-form" onsubmit="window.handleUnifiedKeySubmit && window.handleUnifiedKeySubmit(event); return false;">
+            <div class="key-form-group model-select-group">
+              <label for="unifiedProviderSelect">
+                এআই মডেল নির্বাচন করুন 
+                <span class="info-badge" data-tooltip="যে কোম্পানির API Key আপনার কাছে আছে তা ড্রপডাউন থেকে সিলেক্ট করুন।">ℹ</span>
+              </label>
+              <select id="unifiedProviderSelect" required onchange="window.handleProviderChange && window.handleProviderChange(this.value)" data-field-guide="api_provider">
+                <optgroup label="📝 স্ক্রিপ্ট ও টেক্সট এআই (যেকোনো ১টি লাগবে)">
+                  <option value="groq" selected>Groq Cloud (ফ্রি ও রকেট স্পিড — সুপারিশকৃত)</option>
+                  <option value="google">Google Gemini (ফ্রি AI Studio কি)</option>
+                  <option value="openrouter">OpenRouter (Claude, Llama, DeepSeek)</option>
+                  <option value="cerebras">Cerebras Cloud (সুপারফাস্ট Llama 3)</option>
+                </optgroup>
+                <optgroup label="🎨 ইমেজ ও সিন এআই (যেকোনো ১টি লাগবে)">
+                  <option value="pollinations">Pollinations AI (ফ্রি মোড সক্রিয় / কাস্টম কী)</option>
+                  <option value="pexels">Pexels (ফ্রি স্টক ভিডিও ও ফটো)</option>
+                  <option value="image_google">Google Imagen 3 (গুগল এআই স্টুডিও)</option>
+                </optgroup>
+                <optgroup label="🎙️ প্রিমিয়াম স্টুডিও ভয়েস (ঐচ্ছিক)">
+                  <option value="elevenlabs">ElevenLabs (আল্ট্রা-রিয়েলিস্টিক ভয়েস ক্লোনিং)</option>
+                </optgroup>
+              </select>
+            </div>
+
+            <div class="key-form-group key-input-group">
+              <label for="unifiedKeyValueInput">
+                API Key (গোপন চাবি)
+                <span class="info-badge" data-tooltip="ওয়েবসাইট থেকে কপি করা API Key এখানে পেস্ট করুন। এটি আপনার পিসিতে নিরাপদে সংরক্ষিত থাকবে।">ℹ</span>
+              </label>
+              <div class="key-input-wrapper">
+                <input type="password" id="unifiedKeyValueInput" placeholder="gsk_xxxxxxxxxxxxxxxxxxxxxxxxxxxx" autocomplete="off" required data-field-guide="api_key">
+                <button type="button" class="btn-toggle-view" onclick="window.toggleUnifiedKeyVisibility && window.toggleUnifiedKeyVisibility()" title="চাবি দেখুন বা লুকান">👁️</button>
+              </div>
+            </div>
+
+            <div class="key-form-group key-alias-group">
+              <label for="unifiedKeyAlias">
+                অ্যাকাউন্ট লেবেল (ঐচ্ছিক)
+                <span class="info-badge" data-tooltip="একাধিক জিমেইল বা অ্যাকাউন্ট মনে রাখার জন্য একটি নাম দিন (যেমন: Personal Gmail 1)">ℹ</span>
+              </label>
+              <input type="text" id="unifiedKeyAlias" placeholder="যেমন: Primary Account">
+            </div>
+
+            <div class="key-form-group key-btn-group">
+              <button type="submit" id="addKeyBtn" class="btn btn-save-key">
+                <span>+</span> চাবি যোগ করুন
+              </button>
+            </div>
+          </form>
+          <div id="unifiedKeyFeedback" class="key-feedback-msg" style="display:none;"></div>
+        </div>
+
+        <!-- CONNECTED KEYS VAULT TABLE -->
+        <div class="connected-vault-section">
+          <div class="vault-section-header">
+            <h3>
+              <span>🔐</span> সংযুক্ত এআই চাবিসমূহ (Active Keys Vault)
+            </h3>
+            <span class="muted" id="vaultKeyCountBadge">লোড হচ্ছে...</span>
+          </div>
+
+          <div id="connectedKeysList" class="connected-keys-grid">
+            <!-- Rendered dynamically by JavaScript -->
+          </div>
+        </div>
+
+        <!-- HIDDEN WRAPPER FOR BACKWARD COMPATIBILITY -->
+        <div id="apiKeyGroups" style="display:none !important;"></div>
+        <div id="apiReadinessBanner" style="display:none !important;"></div>
+        <button id="apiKeysSaveBtn" style="display:none !important;"></button>
+
+        <section class="ws-section" id="configStatusSection" style="margin-top:2rem;">
+          <details>
+            <summary style="cursor:pointer; color:#94a3b8; font-size:0.88rem;">⚙️ অ্যাডভান্সড প্রভাইডার ম্যাট্রিক্স ও চ্যানেল অ্যাক্টিভেশন স্ট্যাটাস</summary>
+            <div id="configStatusPanel" class="card muted" style="margin-top:10px;">Loading…</div>
+            <div id="providerMatrix" class="list"></div>
+            <div class="row" style="margin-top:10px;">
+              <button type="button" class="btn ghost" id="cfgActivateBtn">Activate channel</button>
+              <button type="button" class="btn ghost" id="cfgDeactivateBtn">Deactivate channel</button>
+              <button type="button" class="btn ghost" id="cfgClaimOrphanBtn">Claim unowned channel</button>
+            </div>
+          </details>
+        </section>
       </div>
 
-      <div id="tab-settings" class="tab hidden">
-        <h2 data-i18n="settings">সেটিংস</h2>
-        <p class="muted" data-i18n="settings_hint">শর্ট সর্বোচ্চ ২ মিনিট, লং সর্বোচ্চ ৫ মিনিট।</p>
+        <div id="tab-cloud-settings" class="tab hidden">
+        <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:1.25rem; flex-wrap:wrap; gap:10px;">
+          <div>
+            <h2 style="margin:0; color:#38bdf8; display:flex; align-items:center; gap:8px;">
+              <span>☁️</span> ক্লাউড ও গুগল ড্রাইভ ব্যাকআপ
+            </h2>
+            <p class="muted" style="margin:4px 0 0; font-size:0.88rem;">
+              পিসি স্টোরেজ সুরক্ষিত রাখতে স্বয়ংক্রিয়ভাবে ভিডিও গুগল ড্রাইভে ব্যাকআপ এবং লোকাল স্পেস ফ্রি করুন।
+            </p>
+          </div>
+        </div>
 
-        <!-- 150 GB GOOGLE DRIVE CLOUD STORAGE VAULT CARD -->
         <div id="driveVaultCard" style="background:#0f172a; border:1px solid #1e293b; border-radius:14px; padding:1.5rem; margin-top:1.5rem; margin-bottom:1.5rem;">
           <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:1rem; flex-wrap:wrap; gap:0.5rem;">
             <div>
@@ -864,8 +1499,21 @@
           </div>
           <div id="vaultSyncMsg" style="margin-top:0.75rem; font-size:0.88rem;" class="muted"></div>
         </div>
+      </div>
 
-        <!-- TASK 1: YOUTUBE & FACEBOOK AUTO-REPLY SYSTEM PANEL -->
+
+              <div id="tab-social-settings" class="tab hidden">
+        <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:1.25rem; flex-wrap:wrap; gap:10px;">
+          <div>
+            <h2 style="margin:0; color:#10b981; display:flex; align-items:center; gap:8px;">
+              <span>💬</span> অটো-কমেন্ট রিপ্লাই ও সোশ্যাল এনগেজমেন্ট
+            </h2>
+            <p class="muted" style="margin:4px 0 0; font-size:0.88rem;">
+              ফেসবুক ও ইউটিউব ভিডিওর কমেন্টে এআই স্বয়ংক্রিয়ভাবে উত্তর দিয়ে ফলোয়ার ও সেলস বৃদ্ধি করে।
+            </p>
+          </div>
+        </div>
+
         <div id="autoReplyCard" class="card" style="background:#0f172a; border:1px solid #1e293b; border-radius:12px; padding:1.25rem; margin-bottom:1.5rem;">
           <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:1rem; flex-wrap:wrap; gap:10px;">
             <div style="display:flex; align-items:center; gap:10px;">
@@ -920,8 +1568,21 @@
             </div>
           </div>
         </div>
+      </div>
 
-        <!-- TASK 2: VIDEO PERFORMANCE & GROWTH ANALYTICS PANEL -->
+
+              <div id="tab-analytics-settings" class="tab hidden">
+        <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:1.25rem; flex-wrap:wrap; gap:10px;">
+          <div>
+            <h2 style="margin:0; color:#f59e0b; display:flex; align-items:center; gap:8px;">
+              <span>📊</span> পারফরম্যান্স অ্যানালিটিক্স ও গ্রোথ গাইড
+            </h2>
+            <p class="muted" style="margin:4px 0 0; font-size:0.88rem;">
+              সকল আপলোডকৃত ভিডিওর মোট ভিউ, লাইক, কমেন্ট পর্যবেক্ষণ ও চ্যানেল গ্রোথের জন্য এআই পরামর্শ।
+            </p>
+          </div>
+        </div>
+
         <div id="analyticsCard" class="card" style="background:#0f172a; border:1px solid #1e293b; border-radius:12px; padding:1.25rem; margin-bottom:1.5rem;">
           <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:1rem; flex-wrap:wrap; gap:10px;">
             <div style="display:flex; align-items:center; gap:10px;">
@@ -970,14 +1631,87 @@
             </ul>
           </div>
         </div>
-
-        <button class="btn ghost" id="logoutBtn" data-i18n="logout">লগআউট</button>
-        <button class="btn ghost" id="hiddenBtn" data-i18n="system_opt">সিস্টেম অপটিমাইজেশন চালান</button>
       </div>
+
+
+              <div id="tab-settings" class="tab hidden">
+        <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:1.25rem; flex-wrap:wrap; gap:10px;">
+          <div>
+            <h2 style="margin:0; color:#38bdf8; display:flex; align-items:center; gap:8px;">
+              <span>⚙️</span> সিস্টেম অপটিমাইজেশন ও সেটিংস হাব
+            </h2>
+            <p class="muted" style="margin:4px 0 0; font-size:0.88rem;">
+              সিস্টেম ডায়াগনস্টিকস ও সেটিংস শর্টকাট।
+            </p>
+          </div>
+        </div>
+        <div class="card" style="background:#0f172a; border:1px solid #1e293b; border-radius:12px; padding:1.25rem; margin-bottom:1.25rem;">
+          <h3 style="color:#e2e8f0; margin-top:0;">সেটিংস নেভিগেশন শর্টকাট</h3>
+          <p class="muted" style="font-size:0.88rem;">বাম পাশের সাইড প্যানেল থেকে আপনার প্রয়োজনীয় সেকশন নির্বাচন করুন:</p>
+          <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(200px, 1fr)); gap:10px; margin-top:1rem;">
+            <button type="button" class="btn ghost sidebar-nav-btn" data-tab="channel" style="text-align:left; padding:10px;">📺 চ্যানেল ও নিশ সেটআপ</button>
+            <button type="button" class="btn ghost sidebar-nav-btn" data-tab="api-settings" style="text-align:left; padding:10px;">🔑 API কী ও প্রোভাইডার</button>
+            <button type="button" class="btn ghost sidebar-nav-btn" data-tab="cloud-settings" style="text-align:left; padding:10px;">☁️ ক্লাউড ও ড্রাইভ ব্যাকআপ</button>
+            <button type="button" class="btn ghost sidebar-nav-btn" data-tab="social-settings" style="text-align:left; padding:10px;">💬 অটো কমেন্ট রিপ্লাই</button>
+            <button type="button" class="btn ghost sidebar-nav-btn" data-tab="analytics-settings" style="text-align:left; padding:10px;">📊 অ্যানালিটিক্স ও গ্রোথ</button>
+          </div>
+        </div>
+
+        <!-- DESKTOP COMPANION HUD WIDGET CARD -->
+        <div class="card" style="background:#0b1329; border:1px solid #0284c7; border-radius:12px; padding:1.25rem; margin-bottom:1.25rem; box-shadow:0 0 15px rgba(2,132,199,0.15);">
+          <div style="display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:10px; margin-bottom:0.75rem;">
+            <div style="display:flex; align-items:center; gap:10px;">
+              <span style="font-size:1.4rem;">🖥️</span>
+              <div>
+                <h3 style="color:#38bdf8; margin:0; font-size:1.1rem;">ডেস্কটপ কমপ্যানিয়ন উইজেট (Desktop Companion Widget HUD)</h3>
+                <p class="muted" style="margin:2px 0 0; font-size:0.84rem;">
+                  সফটওয়্যার মিনিমাইজ বা কেটে দিলেও ব্যাকগ্রাউন্ডে উইজেট ওপেন থাকবে এবং রিয়েল-টাইম স্ট্যাটাস দেখাবে।
+                </p>
+              </div>
+            </div>
+            <div id="settingsWidgetStatusBadge" style="display:flex; align-items:center; gap:6px; background:#0f172a; padding:4px 10px; border-radius:20px; border:1px solid #1e293b;">
+              <span id="settingsWidgetDot" style="width:8px; height:8px; border-radius:50%; background:#10b981; display:inline-block; box-shadow:0 0 8px #10b981;"></span>
+              <span id="settingsWidgetStatusText" style="font-size:0.82rem; font-weight:bold; color:#10b981;">উইজেট সক্রিয় (Active)</span>
+            </div>
+          </div>
+
+          <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(240px, 1fr)); gap:12px; background:#070d1e; padding:12px; border-radius:8px; border:1px solid #1e293b; margin-bottom:1rem;">
+            <label style="display:flex; align-items:center; gap:8px; cursor:pointer; color:#e2e8f0; font-size:0.88rem; margin:0;">
+              <input type="checkbox" id="widgetSettingEnabled" checked onchange="window.saveWidgetSetting('enabled', this.checked)" style="width:18px; height:18px; accent-color:#0284c7;">
+              <span>উইজেট চালু রাখুন (Widget Active)</span>
+            </label>
+            <label style="display:flex; align-items:center; gap:8px; cursor:pointer; color:#e2e8f0; font-size:0.88rem; margin:0;">
+              <input type="checkbox" id="widgetSettingAlwaysOnTop" checked onchange="window.saveWidgetSetting('always_on_top', this.checked)" style="width:18px; height:18px; accent-color:#0284c7;">
+              <span>সর্বদা স্ক্রিনের উপরে রাখুন (Always on Top)</span>
+            </label>
+            <label style="display:flex; align-items:center; gap:8px; cursor:pointer; color:#e2e8f0; font-size:0.88rem; margin:0;">
+              <input type="checkbox" id="widgetSettingKeepAlive" checked onchange="window.saveWidgetSetting('keep_active_on_minimize', this.checked)" style="width:18px; height:18px; accent-color:#0284c7;">
+              <span>সফটওয়্যার কেটে দিলেও উইজেট চালু থাকবে</span>
+            </label>
+          </div>
+
+          <div style="display:flex; gap:10px; flex-wrap:wrap; align-items:center;">
+            <button type="button" class="btn" style="background:#0284c7; color:#fff; font-size:0.85rem; font-weight:bold; padding:6px 14px;" onclick="window.restartDesktopWidget()">
+              🚀 উইজেট রিস্টার্ট করুন
+            </button>
+            <button type="button" class="btn ghost" id="btnToggleWidgetAction" style="border-color:#ef4444; color:#f87171; font-size:0.85rem; padding:6px 14px;" onclick="window.toggleDesktopWidget()">
+              🛑 উইজেট বন্ধ করুন
+            </button>
+          </div>
+        </div>
+
+        <div style="display:flex; gap:10px; margin-top:1.5rem;">
+          <button class="btn ghost" id="logoutBtn" data-i18n="logout" style="border-color:#ef4444; color:#f87171;">🚪 লগআউট</button>
+          <button class="btn ghost" id="hiddenBtn" data-i18n="system_opt">🛠️ সিস্টেম অপটিমাইজেশন চালান</button>
+        </div>
+      </div>
+
+      </main>
     </section>
+
   </div>
 
-  <button id="chatFab" class="chat-fab" data-i18n="help" data-i18n-title="agent_help" title="এজেন্ট হেল্প">Help</button>
+  <button id="chatFab" class="chat-fab" data-i18n="help" data-i18n-title="agent_help" title="এআই এজেন্ট হেল্প" style="display:flex; align-items:center; justify-content:center; gap:4px;">🤖 <span>Help</span></button>
   <div id="chatPanel" class="chat-panel hidden">
     <div class="chat-head">
       <img src="/static/img/logo-header.png" width="36" height="36" alt="" class="chat-head-logo">
@@ -1023,6 +1757,97 @@
       </div>
       <p id="fieldInfoDesc" style="color:#cbd5e1; font-size:0.95rem; line-height:1.6; margin-bottom:1rem;"></p>
       <button class="btn" style="width:100%;" onclick="document.getElementById('fieldInfoModal').style.display='none'">ঠিক আছে</button>
+    </div>
+  </div>
+
+  <!-- JARVIS AI VOICE SETTINGS & SECTOR CONTROL MODAL -->
+  <div id="jarvisVoiceSettingsModal" style="display:none; position:fixed; inset:0; background:rgba(0,0,0,0.8); z-index:9999; backdrop-filter:blur(6px); align-items:center; justify-content:center; padding:1rem;">
+    <div style="background:#0f172a; border:1px solid #38bdf8; border-radius:16px; max-width:540px; width:100%; padding:1.75rem; box-shadow:0 20px 45px rgba(0,0,0,0.6); color:#f8fafc;">
+      <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:1.25rem; border-bottom:1px solid #1e293b; padding-bottom:0.75rem;">
+        <div style="display:flex; align-items:center; gap:8px;">
+          <span style="font-size:1.4rem;">🎙️</span>
+          <strong style="color:#38bdf8; font-size:1.15rem;">ভয়েস কন্ট্রোল ও অডিও সেক্টর</strong>
+        </div>
+        <button class="btn ghost" style="padding:2px 8px;" onclick="closeJarvisVoiceSettingsModal()">✕</button>
+      </div>
+
+      <!-- Master Controls -->
+      <div style="background:#1e293b; border-radius:10px; padding:1rem; margin-bottom:1.25rem;">
+        <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:0.85rem;">
+          <label style="margin:0; font-weight:600; color:#e2e8f0; display:flex; align-items:center; gap:8px;">
+            <span>🔊</span> মাস্টার সাউন্ড / মিউট:
+          </label>
+          <label class="switch-toggle" style="display:flex; align-items:center; gap:8px; cursor:pointer;">
+            <input type="checkbox" id="jarvisModalMuteToggle" onchange="toggleJarvisModalMute(this.checked)" style="width:18px; height:18px; accent-color:#38bdf8;">
+            <span id="jarvisModalMuteLabel" style="font-size:0.88rem; color:#38bdf8; font-weight:bold;">চালু</span>
+          </label>
+        </div>
+
+        <div style="margin-bottom:0.85rem;">
+          <div style="display:flex; justify-content:space-between; font-size:0.85rem; color:#94a3b8; margin-bottom:4px;">
+            <span>ভলিউম লেভেল:</span>
+            <span id="jarvisModalVolumeVal" style="color:#38bdf8; font-weight:bold;">85%</span>
+          </div>
+          <input type="range" id="jarvisModalVolumeSlider" min="0" max="100" value="85" style="width:100%; accent-color:#38bdf8;" oninput="updateJarvisModalVolume(this.value)">
+        </div>
+
+        <div>
+          <label style="font-size:0.85rem; color:#94a3b8; display:block; margin-bottom:4px;">ভয়েস ভাষা (Voice & Commentary Language):</label>
+          <select id="jarvisVoiceLanguageSelect" style="width:100%; padding:6px 10px; background:#0b1120; border:1px solid #334155; border-radius:8px; color:#fff;" onchange="changeJarvisVoiceLanguage(this.value)">
+            <option value="bn">বাংলা (Google AI Studio Natural Female / Kore)</option>
+            <option value="en">English (Microsoft Edge Online Natural / Jenny)</option>
+          </select>
+        </div>
+      </div>
+
+      <!-- Granular Audio Sectors -->
+      <div style="margin-bottom:1.25rem;">
+        <div style="font-size:0.9rem; font-weight:bold; color:#94a3b8; margin-bottom:0.75rem; text-transform:uppercase; letter-spacing:0.5px;">
+          অডিও সেক্টর নির্বাচন (Granular Audio Toggles)
+        </div>
+        
+        <div style="display:flex; flex-direction:column; gap:8px;">
+          <!-- Sector 1 -->
+          <label style="display:flex; align-items:flex-start; justify-content:space-between; background:#111827; border:1px solid #1e293b; padding:0.75rem 1rem; border-radius:8px; cursor:pointer;">
+            <div>
+              <div style="font-weight:600; font-size:0.92rem; color:#f8fafc;">📡 লাইভ পাইপলাইন কমেন্ট্রি</div>
+              <div style="font-size:0.8rem; color:#94a3b8;">টপিক রিসার্চ, স্ক্রিপ্ট, অডিও, ভিডিও রেন্ডার ও সোশ্যাল আপলোড লাইভ কমেন্ট্রি</div>
+            </div>
+            <input type="checkbox" id="sectorLivePipelineToggle" checked onchange="toggleAudioSector('live_pipeline_commentary', this.checked)" style="width:18px; height:18px; accent-color:#38bdf8; margin-left:10px;">
+          </label>
+
+          <!-- Sector 2 -->
+          <label style="display:flex; align-items:flex-start; justify-content:space-between; background:#111827; border:1px solid #1e293b; padding:0.75rem 1rem; border-radius:8px; cursor:pointer;">
+            <div>
+              <div style="font-weight:600; font-size:0.92rem; color:#f8fafc;">👆 ফিল্ড ও সেটিংস ইন্টারঅ্যাক্টিভ সহায়িকা</div>
+              <div style="font-size:0.8rem; color:#94a3b8;">চ্যানেল, এপিআই বা শিডিউল ইনপুটে কার্সর বা ক্লিক করলে তাৎক্ষণিক ভয়েস নির্দেশনা</div>
+            </div>
+            <input type="checkbox" id="sectorFieldGuidanceToggle" checked onchange="toggleAudioSector('interactive_field_guidance', this.checked)" style="width:18px; height:18px; accent-color:#38bdf8; margin-left:10px;">
+          </label>
+
+          <!-- Sector 3 -->
+          <label style="display:flex; align-items:flex-start; justify-content:space-between; background:#111827; border:1px solid #1e293b; padding:0.75rem 1rem; border-radius:8px; cursor:pointer;">
+            <div>
+              <div style="font-weight:600; font-size:0.92rem; color:#f8fafc;">🚨 সিস্টেম সতর্কতা ও প্রি-ফ্লাইট চেক</div>
+              <div style="font-size:0.8rem; color:#94a3b8;">চ্যানেল অনুপস্থিত, এপিআই খালি, কম গুগল কী বা পলিনেশনস ব্যাকআপ সতর্কতা</div>
+            </div>
+            <input type="checkbox" id="sectorSystemAdvisoryToggle" checked onchange="toggleAudioSector('system_advisory_alerts', this.checked)" style="width:18px; height:18px; accent-color:#38bdf8; margin-left:10px;">
+          </label>
+
+          <!-- Sector 4 -->
+          <label style="display:flex; align-items:flex-start; justify-content:space-between; background:#111827; border:1px solid #1e293b; padding:0.75rem 1rem; border-radius:8px; cursor:pointer;">
+            <div>
+              <div style="font-weight:600; font-size:0.92rem; color:#f8fafc;">🏁 শুধুমাত্র মাইলস্টোন নোটিফিকেশন</div>
+              <div style="font-size:0.8rem; color:#94a3b8;">মাঝখানের সব ধাপ এড়িয়ে শুধুমাত্র ভিডিও তৈরি ও নির্দিষ্ট প্ল্যাটফর্মে আপলোড শেষ হলে জানাবে</div>
+            </div>
+            <input type="checkbox" id="sectorMilestoneOnlyToggle" onchange="toggleAudioSector('milestone_only_notifications', this.checked)" style="width:18px; height:18px; accent-color:#38bdf8; margin-left:10px;">
+          </label>
+        </div>
+      </div>
+
+      <button class="btn" style="width:100%; padding:0.85rem; font-weight:bold; background:linear-gradient(135deg, #0284c7, #2563eb);" onclick="closeJarvisVoiceSettingsModal()">
+        সংরক্ষণ ও বন্ধ করুন
+      </button>
     </div>
   </div>
 
@@ -1089,7 +1914,7 @@
       <form id="feedbackForm" onsubmit="window.handleFeedbackSubmit(event)">
         <label style="display:block; margin-bottom:0.75rem;">
           <span style="font-size:0.88rem; color:#94a3b8;">ক্যাটাগরি বা বিষয়:</span>
-          <select id="feedbackType" style="width:100%; margin-top:4px; padding:0.65rem; background:#090e17; border:1px solid #334155; border-radius:8px; color:#fff;">
+          <select id="feedbackType" style="margin-top:4px;">
             <option value="Bug / Error Report">⚠️ কারিগরি সমস্যা বা বাগ রিপোর্ট (Bug / Error)</option>
             <option value="New Feature Suggestion">💡 নতুন ফিচার বা উন্নত ফাংশনালিটি পরামর্শ</option>
             <option value="New Theme Suggestion">🎨 নতুন থিম বা ভিজ্যুয়াল স্টাইল পরামর্শ</option>
@@ -1393,7 +2218,7 @@
   </div>
 
   <script src="/static/js/i18n.js"></script>
-  <script src="/static/js/app.js"></script>
+  <script src="/static/js/app.js?v=widget_companion_v1"></script>
 
   <!-- JARVIS AUDIO & INTERACTION ENGINE -->
   <script>
@@ -1401,6 +2226,28 @@
     let jarvisVolume = 0.85;
     const jarvisAudio = new Audio();
     jarvisAudio.volume = jarvisVolume;
+
+    window.jarvisSectors = {
+      live_pipeline_commentary: true,
+      interactive_field_guidance: true,
+      system_advisory_alerts: true,
+      milestone_only_notifications: false
+    };
+
+    function updateJarvisSoundUi() {
+      const btn = document.getElementById('jarvisSoundToggle');
+      if (btn) {
+        btn.innerText = jarvisSoundEnabled ? '🔊 সাউন্ড চালু' : '🔇 সাউন্ড বন্ধ';
+        btn.style.color = jarvisSoundEnabled ? '#38bdf8' : '#94a3b8';
+      }
+      const modalToggle = document.getElementById('jarvisModalMuteToggle');
+      if (modalToggle) modalToggle.checked = jarvisSoundEnabled;
+      const modalLabel = document.getElementById('jarvisModalMuteLabel');
+      if (modalLabel) {
+        modalLabel.innerText = jarvisSoundEnabled ? 'চালু' : 'বন্ধ (মিউট)';
+        modalLabel.style.color = jarvisSoundEnabled ? '#38bdf8' : '#ef4444';
+      }
+    }
 
     async function loadVoiceSettings() {
       try {
@@ -1411,16 +2258,19 @@
           jarvisVolume = typeof data.settings.volume === 'number' ? data.settings.volume : 0.85;
           jarvisAudio.volume = jarvisVolume;
 
+          if (data.settings.sectors) {
+            window.jarvisSectors = Object.assign(window.jarvisSectors, data.settings.sectors);
+          }
+          if (data.settings.default_language) {
+            localStorage.setItem('amp_ui_lang', data.settings.default_language);
+          }
+
           const slider = document.getElementById('jarvisVolumeSlider');
           if (slider) slider.value = Math.round(jarvisVolume * 100);
           const valEl = document.getElementById('jarvisVolumeVal');
           if (valEl) valEl.innerText = Math.round(jarvisVolume * 100) + '%';
 
-          const btn = document.getElementById('jarvisSoundToggle');
-          if (btn) {
-            btn.innerText = jarvisSoundEnabled ? '🔊 সাউন্ড চালু' : '🔇 সাউন্ড বন্ধ';
-            btn.style.color = jarvisSoundEnabled ? '#38bdf8' : '#94a3b8';
-          }
+          updateJarvisSoundUi();
         }
       } catch (err) {
         console.warn('Could not load voice settings from server:', err);
@@ -1447,14 +2297,10 @@
 
     async function toggleJarvisSound() {
       jarvisSoundEnabled = !jarvisSoundEnabled;
-      const btn = document.getElementById('jarvisSoundToggle');
+      updateJarvisSoundUi();
       if (jarvisSoundEnabled) {
-        btn.innerText = '🔊 সাউন্ড চালু';
-        btn.style.color = '#38bdf8';
         playJarvisAudioCue('/assets/audio/voice_cues/startup_chime.wav');
       } else {
-        btn.innerText = '🔇 সাউন্ড বন্ধ';
-        btn.style.color = '#94a3b8';
         jarvisAudio.pause();
       }
 
@@ -1469,11 +2315,124 @@
       }
     }
 
+    // Modal Handlers
+    function openJarvisVoiceSettingsModal() {
+      const modal = document.getElementById('jarvisVoiceSettingsModal');
+      if (!modal) return;
+      modal.style.display = 'flex';
+      updateJarvisSoundUi();
+
+      const slider = document.getElementById('jarvisModalVolumeSlider');
+      if (slider) slider.value = Math.round(jarvisVolume * 100);
+      const valSpan = document.getElementById('jarvisModalVolumeVal');
+      if (valSpan) valSpan.textContent = Math.round(jarvisVolume * 100) + '%';
+
+      const langSelect = document.getElementById('jarvisVoiceLanguageSelect');
+      const curLang = localStorage.getItem('amp_ui_lang') || 'bn';
+      if (langSelect) langSelect.value = curLang;
+
+      // Sectors
+      const sec1 = document.getElementById('sectorLivePipelineToggle');
+      if (sec1) sec1.checked = !!window.jarvisSectors.live_pipeline_commentary;
+      const sec2 = document.getElementById('sectorFieldGuidanceToggle');
+      if (sec2) sec2.checked = !!window.jarvisSectors.interactive_field_guidance;
+      const sec3 = document.getElementById('sectorSystemAdvisoryToggle');
+      if (sec3) sec3.checked = !!window.jarvisSectors.system_advisory_alerts;
+      const sec4 = document.getElementById('sectorMilestoneOnlyToggle');
+      if (sec4) sec4.checked = !!window.jarvisSectors.milestone_only_notifications;
+    }
+    window.openJarvisVoiceSettingsModal = openJarvisVoiceSettingsModal;
+
+    function closeJarvisVoiceSettingsModal() {
+      const modal = document.getElementById('jarvisVoiceSettingsModal');
+      if (modal) modal.style.display = 'none';
+    }
+    window.closeJarvisVoiceSettingsModal = closeJarvisVoiceSettingsModal;
+
+    function toggleJarvisModalMute(checked) {
+      jarvisSoundEnabled = !!checked;
+      updateJarvisSoundUi();
+      if (!jarvisSoundEnabled) jarvisAudio.pause();
+      fetch('/api/voice/settings', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ is_muted: !jarvisSoundEnabled })
+      }).catch(() => {});
+    }
+    window.toggleJarvisModalMute = toggleJarvisModalMute;
+
+    function updateJarvisModalVolume(val) {
+      updateJarvisVolume(val);
+      const valSpan = document.getElementById('jarvisModalVolumeVal');
+      if (valSpan) valSpan.textContent = Math.round((val / 100) * 100) + '%';
+    }
+    window.updateJarvisModalVolume = updateJarvisModalVolume;
+
+    function changeJarvisVoiceLanguage(lang) {
+      localStorage.setItem('amp_ui_lang', lang);
+      fetch('/api/voice/settings', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ default_language: lang })
+      }).catch(() => {});
+      if (lang === 'en') {
+        speakTextInUiLanguage('AutoMovie Pro voice assistant switched to natural English.');
+      } else {
+        playJarvisAudioCue('/assets/audio/voice_cues/welcome_bn.wav', 'অটোমুভি প্রো ভয়েস সহকারী বাংলায় সেট করা হয়েছে।');
+      }
+    }
+    window.changeJarvisVoiceLanguage = changeJarvisVoiceLanguage;
+
+    function toggleAudioSector(sectorKey, enabled) {
+      if (!window.jarvisSectors) window.jarvisSectors = {};
+      window.jarvisSectors[sectorKey] = !!enabled;
+      fetch('/api/voice/settings', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ sectors: { [sectorKey]: !!enabled } })
+      }).catch(() => {});
+    }
+    window.toggleAudioSector = toggleAudioSector;
+
+    window.playJarvisVoiceAdvisory = function(advisory) {
+      if (!advisory || !advisory.text) return;
+      const cBox = document.getElementById('jarvisCommentaryText');
+      if (cBox) {
+        const isBlock = advisory.status === 'blocked';
+        const color = isBlock ? '#ef4444' : '#f59e0b';
+        const title = isBlock ? '[সিস্টেম সেটআপ বাকি]' : '[সিস্টেম নোটিশ]';
+        cBox.innerHTML = `<span style="color:${color}; margin-right:8px; display:inline-flex; align-items:center; gap:5px;"><span style="display:inline-block; width:8px; height:8px; border-radius:50%; background:${color}; box-shadow:0 0 8px ${color}; animation:pulse 0.9s infinite;"></span>${title}:</span> ${advisory.text}`;
+        cBox.style.boxShadow = `0 0 16px ${color}66`;
+        cBox.style.borderColor = color;
+        setTimeout(() => {
+          cBox.style.boxShadow = 'none';
+          cBox.style.borderColor = '#1a2538';
+        }, 5000);
+      }
+      // Only play pre-recorded studio audio file if provided
+      if (advisory.audio_file) {
+        playJarvisAudioCue(advisory.audio_file, advisory.text);
+      }
+    };
+
     function speakTextInUiLanguage(text) {
       if (!jarvisSoundEnabled || !window.speechSynthesis) return;
       try {
         window.speechSynthesis.cancel();
         const currentLang = localStorage.getItem('amp_ui_lang') || 'bn';
+        
+        // CRITICAL: On Windows, SpeechSynthesis has NO native Bengali voice installed by default.
+        // Sending Bengali unicode text to English Microsoft David results in a garbled robotic male voice.
+        // Prevent browser SpeechSynthesis from butchering Bengali!
+        if (currentLang === 'bn') {
+          const voices = window.speechSynthesis.getVoices() || [];
+          const hasBnVoice = voices.some(v => v.lang && (v.lang.startsWith("bn") || v.lang.includes("BD")));
+          if (!hasBnVoice) {
+            console.debug('Native Bengali TTS not available in Windows. Skipping synthetic speech.');
+            return;
+          }
+        }
+
         const langMap = {
           'bn': 'bn-BD',
           'en': 'en-US',
@@ -1482,15 +2441,27 @@
           'ta': 'ta-IN',
           'ml': 'ml-IN'
         };
-        const targetLocale = langMap[currentLang] || 'bn-BD';
+        const targetLocale = langMap[currentLang] || (currentLang === 'en' ? 'en-US' : 'bn-BD');
         const utterance = new SpeechSynthesisUtterance(text);
         utterance.lang = targetLocale;
         utterance.volume = jarvisVolume;
         utterance.rate = 1.0;
-        utterance.pitch = 1.05;
+        utterance.pitch = 1.02;
         
         const voices = window.speechSynthesis.getVoices();
-        const matchedVoice = voices.find(v => v.lang.startsWith(currentLang) || v.lang.includes(targetLocale));
+        let matchedVoice = null;
+        if (currentLang === 'en') {
+          matchedVoice = voices.find(v => 
+            v.name.includes("Jenny") || 
+            v.name.includes("Aria") || 
+            v.name.includes("Natural") || 
+            v.name.includes("Online (Natural)") || 
+            v.name.includes("Google US English") ||
+            (v.lang.startsWith("en") && !v.name.includes("Desktop"))
+          ) || voices.find(v => v.lang.startsWith("en"));
+        } else {
+          matchedVoice = voices.find(v => v.lang.startsWith(currentLang) || v.lang.includes(targetLocale));
+        }
         if (matchedVoice) utterance.voice = matchedVoice;
         
         window.speechSynthesis.speak(utterance);
@@ -1500,45 +2471,92 @@
     }
     window.speakTextInUiLanguage = speakTextInUiLanguage;
 
+    function normalizeAudioUrl(url) {
+      if (!url) return '';
+      let filename = url;
+      if (url.includes('\\') || url.includes('/')) {
+        const parts = url.split(/[\\\/]/);
+        filename = parts[parts.length - 1];
+      }
+      if (filename.endsWith('.wav') || filename.endsWith('.mp3')) {
+        return '/assets/audio/voice_cues/' + filename;
+      }
+      return url;
+    }
+
     function playJarvisAudioCue(audioUrl, commentaryText) {
       if (commentaryText) {
         const cBox = document.getElementById('jarvisCommentaryText');
         if (cBox) {
-          cBox.innerHTML = `<span style="color:#38bdf8; margin-right:8px;">[JARVIS]:</span> ${commentaryText}`;
-          cBox.style.boxShadow = '0 0 15px rgba(56, 189, 248, 0.4)';
-          setTimeout(() => { cBox.style.boxShadow = 'none'; }, 2000);
+          cBox.innerHTML = `<span style="color:#38bdf8; margin-right:8px; display:inline-flex; align-items:center; gap:5px;"><span style="display:inline-block; width:8px; height:8px; border-radius:50%; background:#38bdf8; box-shadow:0 0 8px #38bdf8; animation:pulse 0.9s infinite;"></span>[AutoMovie Pro]:</span> ${commentaryText}`;
+          cBox.style.boxShadow = '0 0 16px rgba(56, 189, 248, 0.45)';
+          cBox.style.borderColor = '#38bdf8';
+          setTimeout(() => { 
+            cBox.style.boxShadow = 'none'; 
+            cBox.style.borderColor = '#1a2538';
+          }, 3500);
         }
       }
       if (!jarvisSoundEnabled) return;
 
-      const currentLang = localStorage.getItem('amp_ui_lang') || 'bn';
-      if (currentLang !== 'bn' || !audioUrl) {
-        if (commentaryText) {
-          speakTextInUiLanguage(commentaryText);
-        }
+      const cleanUrl = normalizeAudioUrl(audioUrl);
+      if (!cleanUrl) {
+        // Only visual text display when audio file is not provided; no synthetic robotic fallbacks
         return;
       }
 
       try {
-        jarvisAudio.src = audioUrl;
+        jarvisAudio.src = cleanUrl;
         jarvisAudio.volume = jarvisVolume;
-        jarvisAudio.play().catch(e => {
-          console.debug('Audio autoplay fallback to speech synthesis:', e);
-          if (commentaryText) speakTextInUiLanguage(commentaryText);
-        });
+        const playPromise = jarvisAudio.play();
+        if (playPromise !== undefined) {
+          playPromise.catch(e => {
+            console.debug('Autoplay policy caught or audio play failed:', e);
+          });
+        }
       } catch (err) {
-        if (commentaryText) speakTextInUiLanguage(commentaryText);
+        console.debug('Audio play exception:', err);
       }
     }
     window.playJarvisAudioCue = playJarvisAudioCue;
 
-    // Auto-check legal consent
-    function checkLegalConsent() {
-      const consented = localStorage.getItem('amp_legal_consented_v2026');
-      if (!consented) {
-        const modal = document.getElementById('legalTermsModal');
-        if (modal) modal.style.display = 'flex';
+    // Interactive Field Guidance Handler (kept silent to avoid interrupting users)
+    function handleFieldGuideTrigger(e) {
+      // Intentionally silent
+    }
+
+    // Dashboard Welcome Voice - Plays ONLY when user is authenticated & dashboard is active
+    let ampDashboardWelcomed = false;
+    function triggerDashboardWelcome() {
+      if (ampDashboardWelcomed) return;
+
+      // CRITICAL: Block playing dashboard welcome if user is still on the login page!
+      const loginOverlay = document.getElementById('loginGateWrapper') || document.getElementById('loginView');
+      if (loginOverlay) {
+        const disp = window.getComputedStyle(loginOverlay).display;
+        if (disp !== 'none') {
+          return; // Login screen is visible, keep dashboard welcome silent!
+        }
       }
+
+      ampDashboardWelcomed = true;
+      playJarvisAudioCue(
+        '/assets/audio/voice_cues/welcome_bn.wav', 
+        'আসসালামু আলাইকুম! অটোমুভি প্রো এআই স্টুডিওতে স্বাগতম। আপনার ড্যাশবোর্ড প্রস্তুত।'
+      );
+    }
+    window.triggerDashboardWelcome = triggerDashboardWelcome;
+    window.triggerStartupWelcome = triggerDashboardWelcome;
+
+    // Legal consent modal controller
+    function showLegalConsentModal() {
+      const modal = document.getElementById('legalTermsModal');
+      if (modal) modal.style.display = 'flex';
+    }
+
+    function hideLegalConsentModal() {
+      const modal = document.getElementById('legalTermsModal');
+      if (modal) modal.style.display = 'none';
     }
 
     document.getElementById('legalConsentCheckbox')?.addEventListener('change', function() {
@@ -1547,18 +2565,20 @@
     });
 
     async function acceptLegalTerms() {
+      const currentLoginId = (window.currentSessionUser && window.currentSessionUser.login_id) ||
+                             localStorage.getItem('amp_last_login_id') ||
+                             'testuser_pro';
       try {
         await fetch('/api/legal/consent', {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({ user_id: 'admin' })
+          body: JSON.stringify({ user_id: currentLoginId })
         });
       } catch (err) {
         console.warn('Consent sync error:', err);
       }
-      localStorage.setItem('amp_legal_consented_v2026', 'true');
-      const modal = document.getElementById('legalTermsModal');
-      if (modal) modal.style.display = 'none';
+      localStorage.setItem('amp_legal_consented_' + currentLoginId, 'true');
+      hideLegalConsentModal();
       playJarvisAudioCue('/assets/audio/voice_cues/welcome_bn.wav', 'সম্মতি গৃহীত হয়েছে। স্বাগতম AutoMovie Pro-তে!');
       if (typeof window.refreshDashboard === 'function') {
         window.refreshDashboard();
@@ -1572,11 +2592,176 @@
       document.getElementById('fieldInfoModal').style.display = 'flex';
     }
 
-    // Initialize on load
+    // Initialize voice settings on load (Dashboard voice welcome triggers only after login via showDash)
     window.addEventListener('load', () => {
       loadVoiceSettings();
-      checkLegalConsent();
     });
+
+    // If browser strictly blocks unmuted autoplay until user gesture:
+    const onFirstUserAction = () => {
+      const loginOverlay = document.getElementById('loginGateWrapper') || document.getElementById('loginView');
+      const isLoginVisible = loginOverlay && window.getComputedStyle(loginOverlay).display !== 'none';
+      if (!isLoginVisible) {
+        triggerDashboardWelcome();
+      }
+      window.removeEventListener('pointerdown', onFirstUserAction);
+      window.removeEventListener('keydown', onFirstUserAction);
+    };
+    window.addEventListener('pointerdown', onFirstUserAction);
+    window.addEventListener('keydown', onFirstUserAction);
   </script>
+
+  <!-- ===================================================================== -->
+  <!-- 1. FREE API KEY GUIDE MODAL (১-ক্লিক টিউটোরিয়াল)                       -->
+  <!-- ===================================================================== -->
+  <div id="apiKeyGuideModal" class="modal-backdrop" style="display:none;">
+    <div class="modal-box guide-modal-box">
+      <div class="modal-head">
+        <div style="display:flex; align-items:center; gap:10px;">
+          <span style="font-size:1.4rem;">📖</span>
+          <strong style="font-size:1.15rem; color:#f8fafc;">ফ্রি API Key পাওয়ার সহজ নিয়ম ও সরাসরি লিংক</strong>
+        </div>
+        <button type="button" class="btn ghost modal-close-btn" onclick="window.closeApiKeyGuideModal()">✕</button>
+      </div>
+
+      <div class="guide-tabs-bar">
+        <button class="guide-tab-btn active" onclick="window.switchGuideTab('groq')">Groq (রকেট স্পিড)</button>
+        <button class="guide-tab-btn" onclick="window.switchGuideTab('google')">Google Gemini</button>
+        <button class="guide-tab-btn" onclick="window.switchGuideTab('openrouter')">OpenRouter</button>
+        <button class="guide-tab-btn" onclick="window.switchGuideTab('cerebras')">Cerebras</button>
+        <button class="guide-tab-btn" onclick="window.switchGuideTab('pollinations')">Pollinations</button>
+        <button class="guide-tab-btn" onclick="window.switchGuideTab('pexels')">Pexels</button>
+        <button class="guide-tab-btn" onclick="window.switchGuideTab('elevenlabs')">ElevenLabs</button>
+      </div>
+
+      <div class="guide-tab-content" id="guideContentBox">
+        <!-- Content injected by JavaScript -->
+      </div>
+
+      <div class="modal-foot">
+        <span class="muted" style="font-size:0.85rem;">💡 কোনো ক্রেডিট কার্ডের প্রয়োজন নেই। সবগুলো সার্ভিস সম্পূর্ণ ফ্রি টায়ারে ব্যবহার করা যায়।</span>
+        <button type="button" class="btn" onclick="window.closeApiKeyGuideModal()">বুঝেছি, বন্ধ করুন</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===================================================================== -->
+  <!-- 2. INTERACTIVE 4-STEP QUICK SETUP WIZARD (কুইক সেটআপ গাইড)             -->
+  <!-- ===================================================================== -->
+  <div id="quickSetupWizardModal" class="modal-backdrop" style="display:none;">
+    <div class="modal-box wizard-modal-box" style="max-width:680px;">
+      <div class="modal-head">
+        <div style="display:flex; align-items:center; gap:10px;">
+          <span style="font-size:1.4rem;">⚡</span>
+          <div>
+            <strong style="font-size:1.15rem; color:#38bdf8;">AutoMovie Pro কুইক সেটআপ উইজার্ড</strong>
+            <div style="font-size:0.8rem; color:#94a3b8;">মাত্র ৪টি সহজ ধাপে সম্পূর্ণ অটোমেশন প্রস্তুত করুন</div>
+          </div>
+        </div>
+        <button type="button" class="btn ghost modal-close-btn" onclick="window.closeQuickSetupWizard()">✕</button>
+      </div>
+
+      <!-- STEPPER BAR -->
+      <div class="wizard-stepper-bar">
+        <div class="wizard-step-node active" id="wizNode1">
+          <div class="step-circle">১</div>
+          <div class="step-text">এআই চাবি</div>
+        </div>
+        <div class="wizard-step-node" id="wizNode2">
+          <div class="step-circle">২</div>
+          <div class="step-text">চ্যানেল নাম</div>
+        </div>
+        <div class="wizard-step-node" id="wizNode3">
+          <div class="step-circle">৩</div>
+          <div class="step-text">নিশ নির্বাচন</div>
+        </div>
+        <div class="wizard-step-node" id="wizNode4">
+          <div class="step-circle">৪</div>
+          <div class="step-text">সময়সূচি</div>
+        </div>
+      </div>
+
+      <!-- STEP PANELS -->
+      <div id="wizardPanelsContainer">
+        <!-- STEP 1 PANEL -->
+        <div class="wizard-step-panel" id="wizPanel1">
+          <h4 style="color:#f8fafc; margin-top:0;">ধাপ ০১: এআই চাবি কানেক্ট করুন</h4>
+          <p class="muted" style="font-size:0.88rem; line-height:1.5;">
+            ভিডিও স্ক্রিপ্ট ও কনটেন্ট তৈরির জন্য যেকোনো ১টি ফ্রি টেক্সট এআই চাবি প্রয়োজন। সবচেয়ে সহজ হলো <strong>Groq</strong> অথবা <strong>Google Gemini</strong>।
+          </p>
+          <div style="background:#111827; padding:1rem; border-radius:10px; border:1px solid #1e293b; margin:1rem 0;">
+            <label style="font-size:0.85rem; color:#cbd5e1; display:block; margin-bottom:6px;">আপনার Groq বা Gemini API Key পেস্ট করুন:</label>
+            <input type="password" id="wizApiKeyInput" placeholder="gsk_... অথবা AIzaSy..." style="width:100%; font-size:0.95rem;">
+            <div style="display:flex; justify-content:space-between; align-items:center; margin-top:8px;">
+              <a href="javascript:void(0)" onclick="window.openApiKeyGuideModal()" style="color:#38bdf8; font-size:0.82rem; text-decoration:none;">📖 কিভাবে ফ্রি চাবি পাবেন দেখতে ক্লিক করুন</a>
+              <button type="button" class="btn btn-sm" onclick="window.saveWizardApiKey()" style="background:#10b981; color:#fff;">✓ চাবি সেভ করুন</button>
+            </div>
+            <div id="wizKeyStatusMsg" style="margin-top:6px; font-size:0.82rem; color:#34d399; display:none;"></div>
+          </div>
+        </div>
+
+        <!-- STEP 2 PANEL -->
+        <div class="wizard-step-panel" id="wizPanel2" style="display:none;">
+          <h4 style="color:#f8fafc; margin-top:0;">ধাপ ০২: আপনার চ্যানেল বা পেজের নাম</h4>
+          <p class="muted" style="font-size:0.88rem; line-height:1.5;">
+            যে প্ল্যাটফর্মে ভিডিও আপলোড হবে তার নাম লিখুন। পরবর্তীতে ড্যাশবোর্ড থেকে ১-ক্লিকে অ্যাকাউন্ট কানেক্ট করা যাবে।
+          </p>
+          <div style="margin:1rem 0;">
+            <label style="font-size:0.85rem; color:#cbd5e1; display:block; margin-bottom:6px;">YouTube চ্যানেল বা ফেসবুক পেজের নাম:</label>
+            <input type="text" id="wizChannelNameInput" placeholder="যেমন: My Viral Studio BD" style="width:100%; font-size:1rem; padding:8px;">
+          </div>
+        </div>
+
+        <!-- STEP 3 PANEL -->
+        <div class="wizard-step-panel" id="wizPanel3" style="display:none;">
+          <h4 style="color:#f8fafc; margin-top:0;">ধাপ ০৩: পছন্দের নিশ ও টপিক</h4>
+          <p class="muted" style="font-size:0.88rem; line-height:1.5;">
+            আপনার চ্যানেল কোন ক্যাটাগরির ভিডিও বানাবে তা বেছে নিন। এআই প্রতিদিন এই নিশের সেরা ভাইরাল স্ক্রিপ্ট তৈরি করবে।
+          </p>
+          <div style="margin:1rem 0;">
+            <label style="font-size:0.85rem; color:#cbd5e1; display:block; margin-bottom:6px;">নিশ ক্যাটাগরি বেছে নিন:</label>
+            <select id="wizNicheSelect">
+              <option value="tech_ai">🤖 টেকনোলজি ও কৃত্রিম বুদ্ধিমত্তা (Tech & AI)</option>
+              <option value="islamic_knowledge">🕌 ইসলামিক জ্ঞান ও শিক্ষা (Islamic Knowledge)</option>
+              <option value="motivation_success">🔥 মোটিভেশন ও মাইন্ডসেট (Motivation & Success)</option>
+              <option value="history_mysteries">🏛️ ঐতিহাসিক রহস্য ও তথ্য (History & Mysteries)</option>
+              <option value="health_fitness">💪 স্বাস্থ্য ও ফিটনেস টিপস (Health & Fitness)</option>
+              <option value="finance_crypto">💰 অর্থ উপার্জন ও বিনিয়োগ (Finance & Wealth)</option>
+            </select>
+          </div>
+        </div>
+
+        <!-- STEP 4 PANEL -->
+        <div class="wizard-step-panel" id="wizPanel4" style="display:none;">
+          <h4 style="color:#f8fafc; margin-top:0;">ধাপ ০৪: দৈনিক আপলোড সময়সূচি</h4>
+          <p class="muted" style="font-size:0.88rem; line-height:1.5;">
+            প্রতিদিন কোন সময়ে ভিডিও প্রকাশিত হবে? আমরা সর্বোচ্চ ভিউ পাওয়ার প্রাইম টাইম নির্বাচন করে রেখেছি:
+          </p>
+          <div style="display:grid; grid-template-columns:1fr 1fr 1fr; gap:10px; margin:1rem 0;">
+            <div style="background:#111827; padding:10px; border-radius:8px; border:1px solid #10b981; text-align:center;">
+              <div style="font-size:0.8rem; color:#34d399; font-weight:bold;">☀️ সকাল ১১:০০</div>
+              <div style="font-size:0.75rem; color:#94a3b8;">Shorts 1</div>
+            </div>
+            <div style="background:#111827; padding:10px; border-radius:8px; border:1px solid #10b981; text-align:center;">
+              <div style="font-size:0.8rem; color:#34d399; font-weight:bold;">🌤️ বিকাল ৪:৩০</div>
+              <div style="font-size:0.75rem; color:#94a3b8;">Shorts 2</div>
+            </div>
+            <div style="background:#111827; padding:10px; border-radius:8px; border:1px solid #10b981; text-align:center;">
+              <div style="font-size:0.8rem; color:#34d399; font-weight:bold;">🌙 রাত ৮:৩০</div>
+              <div style="font-size:0.75rem; color:#94a3b8;">Long / Reel</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- WIZARD FOOTER NAVIGATION -->
+      <div class="modal-foot">
+        <button type="button" class="btn ghost" id="wizPrevBtn" onclick="window.wizardPrevStep()" style="display:none;">← পূর্ববর্তী</button>
+        <div style="flex:1;"></div>
+        <button type="button" class="btn" id="wizNextBtn" onclick="window.wizardNextStep()" style="background:linear-gradient(135deg, #0284c7, #2563eb); font-weight:bold;">পরবর্তী ধাপ →</button>
+      </div>
+    </div>
+  </div>
+
 </body>
 </html>

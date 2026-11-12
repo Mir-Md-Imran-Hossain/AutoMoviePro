@@ -144,7 +144,7 @@ try {
                     'active_chat_sessions_today' => $recentChats,
                 ],
                 'pricing' => [
-                    'price_amount' => (float) setting($pdo, 'price_amount', '2998'),
+                    'price_amount' => (float) setting($pdo, 'price_amount', '3999'),
                     'language_addon_price' => (float) setting($pdo, 'language_addon_price', '499'),
                     'google_pro_price' => 120.0,
                 ],
@@ -221,7 +221,7 @@ try {
             send_json([
                 'ok' => true,
                 'pricing' => [
-                    'price_amount' => (float) setting($pdo, 'price_amount', '2998'),
+                    'price_amount' => (float) setting($pdo, 'price_amount', '3999'),
                     'language_addon_price' => (float) setting($pdo, 'language_addon_price', '499'),
                 ],
                 'payment_info' => [
@@ -249,7 +249,7 @@ try {
             send_json([
                 'ok' => true,
                 'message' => 'Pricing updated successfully.',
-                'price_amount' => (float) setting($pdo, 'price_amount', '2998'),
+                'price_amount' => (float) setting($pdo, 'price_amount', '3999'),
                 'language_addon_price' => (float) setting($pdo, 'language_addon_price', '499')
             ]);
             break;
@@ -565,14 +565,16 @@ try {
                 $reviews = amp_get_default_50_reviews();
             }
             $pdo->exec("DELETE FROM reviews");
-            $ins = $pdo->prepare("INSERT INTO reviews (name, rating, review_text, platform, is_approved, created_at) VALUES (?, ?, ?, ?, 1, NOW())");
+            $nowVal = date('Y-m-d H:i:s');
+            $ins = $pdo->prepare("INSERT INTO reviews (name, rating, review_text, platform, is_approved, created_at) VALUES (?, ?, ?, ?, 1, ?)");
             $count = 0;
             foreach ($reviews as $r) {
                 $ins->execute([
                     $r['name'],
                     (int) ($r['rating'] ?? 5),
                     $r['review_text'],
-                    $r['platform'] ?? 'General'
+                    $r['platform'] ?? 'General',
+                    $nowVal,
                 ]);
                 $count++;
             }

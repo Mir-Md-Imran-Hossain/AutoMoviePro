@@ -90,6 +90,12 @@ class ClosedLoopQualitySentinel:
                     defective_scenes.append((idx - 1, sc_id, "missing_keywords"))
                     continue
 
+                # Rule 4: Dialogue must explicitly ground the topic subject instead of vague "এটি / এই প্রযুক্তি"
+                vague_patterns = [r'^এটি\s', r'^এই\s+প্রযুক্তি', r'^এরকম\s', r'^এই\s+সৃষ্টি', r'^ওপর\s+থেকে\s+দেখলে\s+এটি']
+                if any(re.search(pat, dlg) for pat in vague_patterns):
+                    defective_scenes.append((idx - 1, sc_id, "vague_dialogue_pronoun"))
+                    continue
+
             if not defective_scenes:
                 logger.info(f"✅ [Sector 1 Gate PASSED] All {len(scenes)} scenes verified with concrete visual grounding.")
                 script_data["script_audit_gate"] = {
@@ -105,6 +111,10 @@ class ClosedLoopQualitySentinel:
             for s_idx, sc_id, flaw in defective_scenes:
                 sc = scenes[s_idx]
                 dlg = sc.get("dialogue_bn", "")
+                if flaw == "vague_dialogue_pronoun":
+                    topic_core = title_bn.split("!")[0].split("?")[0].strip()
+                    dlg = re.sub(r'^(এটি|এই প্রযুক্তি|এই সৃষ্টি|এরকম এক বিষয়|ওপর থেকে দেখলে এটি)\s*', f"{topic_core}-এর দিকে তাকালে ", dlg)
+                    sc["dialogue_bn"] = dlg
                 # Extract concrete nouns from dialogue or generate precision fallback
                 extracted_entity = cls._extract_concrete_physical_subject(dlg, title_bn)
                 sc["concrete_visual_subject"] = extracted_entity["subject"]

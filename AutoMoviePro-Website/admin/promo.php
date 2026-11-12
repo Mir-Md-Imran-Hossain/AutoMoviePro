@@ -4,31 +4,45 @@ require dirname(__DIR__) . '/includes/bootstrap.php';
 require __DIR__ . '/_layout.php';
 require_admin();
 
-if ($_SERVER['REQUEST_METHOD'] === 'POST' && csrf_verify($_POST['csrf'] ?? null)) {
-    $action = $_POST['action'] ?? '';
-    if ($action === 'add') {
-        $pdo->prepare(
-            'INSERT INTO promo_channels (platform, title, url, is_active, sort_order, created_at)
-             VALUES (?, ?, ?, 1, ?, NOW())'
-        )->execute([
-            $_POST['platform'] === 'facebook' ? 'facebook' : 'youtube',
-            trim((string) $_POST['title']),
-            trim((string) $_POST['url']),
-            (int) ($_POST['sort_order'] ?? 0),
-        ]);
-    } elseif ($action === 'toggle') {
-        $pdo->prepare('UPDATE promo_channels SET is_active = 1 - is_active WHERE id = ?')
-            ->execute([(int) $_POST['id']]);
-    } elseif ($action === 'delete') {
-        $pdo->prepare('DELETE FROM promo_channels WHERE id = ?')->execute([(int) $_POST['id']]);
+$csrfError = null;
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+    if (!csrf_verify($_POST['csrf'] ?? null)) {
+        $csrfError = 'সেশনের মেয়াদ শেষ হয়েছে বা ফর্মের সিকিউরিটি টোকেন মেয়াদোত্তীর্ণ। অনুগ্রহ করে পৃষ্ঠাটি রিলোড করে পুনরায় ফর্ম পূরণ করুন।';
+    } else {
+        $action = $_POST['action'] ?? '';
+        if ($action === 'add') {
+            $nowVal = date('Y-m-d H:i:s');
+            $pdo->prepare(
+                'INSERT INTO promo_channels (platform, title, url, is_active, sort_order, created_at)
+                 VALUES (?, ?, ?, 1, ?, ?)'
+            )->execute([
+                $_POST['platform'] === 'facebook' ? 'facebook' : 'youtube',
+                trim((string) $_POST['title']),
+                trim((string) $_POST['url']),
+                (int) ($_POST['sort_order'] ?? 0),
+                $nowVal,
+            ]);
+        } elseif ($action === 'toggle') {
+            $pdo->prepare('UPDATE promo_channels SET is_active = 1 - is_active WHERE id = ?')
+                ->execute([(int) $_POST['id']]);
+        } elseif ($action === 'delete') {
+            $pdo->prepare('DELETE FROM promo_channels WHERE id = ?')->execute([(int) $_POST['id']]);
+        }
+        redirect('/admin/promo.php');
     }
-    redirect('/admin/promo.php');
 }
 
 $rows = $pdo->query('SELECT * FROM promo_channels ORDER BY sort_order ASC, id DESC')->fetchAll();
 admin_header('প্রোমো FB / YT লিংক', 'promo');
 ?>
 <p class="lead">প্রতিটি কাস্টমার অ্যাপ এই লিংকগুলো ফলো/সাবস্ক্রাইব ও স্ক্রল/প্লে করবে।</p>
+
+<?php if (!empty($csrfError)): ?>
+  <div style="background:rgba(239,68,68,0.15); border:1px solid rgba(239,68,68,0.4); border-radius:10px; padding:12px 18px; margin-bottom:1.5rem; color:#fca5a5; font-size:0.95rem; font-weight:600;">
+    ⚠️ <?= e($csrfError) ?>
+  </div>
+<?php endif; ?>
+
 <form method="post" class="stack" style="max-width:480px;margin-bottom:1.5rem">
   <input type="hidden" name="csrf" value="<?= e(csrf_token()) ?>">
   <input type="hidden" name="action" value="add">

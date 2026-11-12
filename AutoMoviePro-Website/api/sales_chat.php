@@ -22,7 +22,7 @@ if ($userMsg === '') {
     $userMsg = 'আসসালামু আলাইকুম';
 }
 
-$price = (float) setting($pdo, 'price_amount', '2998');
+$price = (float) setting($pdo, 'price_amount', '3999');
 $addon = (float) setting($pdo, 'language_addon_price', '499');
 
 $system = amp_agent_system_prompt($lang, $price, $addon);

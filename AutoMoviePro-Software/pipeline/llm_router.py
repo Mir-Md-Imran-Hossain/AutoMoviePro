@@ -596,5 +596,10 @@ def extract_json_object(text: str) -> str:
     if text.startswith("```"):
         text = re.sub(r"^```(?:json)?\s*", "", text)
         text = re.sub(r"\s*```$", "", text)
+    text = re.sub(r"```(?:json)?\s*", "", text)
+    text = re.sub(r"\s*```", "", text)
     m = re.search(r"\{.*\}", text, re.S)
-    return m.group(0) if m else text
+    res = m.group(0) if m else text
+    # Fix common LLM trailing commas before closing braces/brackets
+    res = re.sub(r",\s*([\}\]])", r"\1", res)
+    return res

@@ -2,7 +2,7 @@
   "version": "1.0.0",
   "engine": "FirstShot90PromptEvolutionEngine",
   "last_updated": "2026-11-02",
-  "total_heuristic_rules": 1631,
+  "total_heuristic_rules": 1742,
   "memory_entries": [
     {
       "id": "EVO-MEM-001",
@@ -17945,6 +17945,1227 @@
       "lesson_learned": "When dialogue covers 'ভিডিওর তথ্যগুলো ভালো লাগলে লাইক এবং আমাদের পেইজ ও চ্যানেলে ফ...', ensure prompt explicitly anchors to: 'Photorealistic 8K optical cinematography of High-vantage wide camera tilt shot across the complete expanse of a massive ...'",
       "first_shot_rules": [
         "Strictly avoid past failure mode: ভিডিওর বিষয়বস্তু হলো 'পাহাড়ের ওপর জাহাজ তোলে এই দানব লিফট! কীভাবে সম্ভব?' এবং পূ",
+        "Ensure concrete noun is prioritized over decorative adjectives."
+      ],
+      "negative_armor": "unrelated stock elements, modern artifacts, fantasy cgi"
+    },
+    {
+      "id": "EVO-MEM-1632",
+      "domain": "Distilled Reflexion (Score: 30.0)",
+      "flaw_pattern": "Visual is low-resolution, out-of-focus or lacking sharp edge definition.",
+      "lesson_learned": "When dialogue covers 'বাংলার মাটির নিচে চাপা পড়া ২৫০০ বছরের গুপ্ত দুর্গনগরী: উয়ারী...', ensure prompt explicitly anchors to: '8K Hasselblad H6D-100c medium format, razor-sharp optical focus, extreme macro documentary detail of Cinematic wide esta...'",
+      "first_shot_rules": [
+        "Strictly avoid past failure mode: Visual is low-resolution, out-of-focus or lacking sharp edge definition.",
+        "Ensure concrete noun is prioritized over decorative adjectives."
+      ],
+      "negative_armor": "unrelated stock elements, modern artifacts, fantasy cgi"
+    },
+    {
+      "id": "EVO-MEM-1633",
+      "domain": "Distilled Reflexion (Score: 45.0)",
+      "flaw_pattern": "The visual depicts a medieval or later-period Islamic/Rajput-style fort or palace structure with domes, which does not accurately represent ",
+      "lesson_learned": "When dialogue covers 'বাংলার মাটির নিচে চাপা পড়া ২৫০০ বছরের গুপ্ত দুর্গনগরী: উয়ারী...', ensure prompt explicitly anchors to: 'Photorealistic 8K optical cinematography of an ancient 2500-year-old Wari-Bateshwar archaeological fortress site with mu...'",
+      "first_shot_rules": [
+        "Strictly avoid past failure mode: The visual depicts a medieval or later-period Islamic/Rajput-style fort or palac",
+        "Ensure concrete noun is prioritized over decorative adjectives."
+      ],
+      "negative_armor": "unrelated stock elements, modern artifacts, fantasy cgi"
+    },
+    {
+      "id": "EVO-MEM-1634",
+      "domain": "Distilled Reflexion (Score: 45.0)",
+      "flaw_pattern": "The visual displays modern metallic bolts, nuts, and industrial machinery parts embedded in weathered wood, which bears no resemblance to th",
+      "lesson_learned": "When dialogue covers 'সহজ ভাষায় বলতে গেলে, বাংলার মাটির নিচে চাপা পড়া ২৫০০ বছরের গ...', ensure prompt explicitly anchors to: 'Photorealistic 8K optical cinematography of Close-up optical detail capturing distinct surface textures, ancient brickwo...'",
+      "first_shot_rules": [
+        "Strictly avoid past failure mode: The visual displays modern metallic bolts, nuts, and industrial machinery parts ",
+        "Ensure concrete noun is prioritized over decorative adjectives."
+      ],
+      "negative_armor": "unrelated stock elements, modern artifacts, fantasy cgi"
+    },
+    {
+      "id": "EVO-MEM-1635",
+      "domain": "Distilled Reflexion (Score: 50.0)",
+      "flaw_pattern": "The visual shows a close-up of modern-looking or generic brickwork with golden hour lighting, but it fails to capture the required 'High-Van",
+      "lesson_learned": "When dialogue covers 'সহজ ভাষায় বলতে গেলে, বাংলার মাটির নিচে চাপা পড়া ২৫০০ বছরের গ...', ensure prompt explicitly anchors to: 'High-Vantage Wide Aerial Survey, cinematic 8K documentary shot capturing a close-up optical detail of the ancient Wari-B...'",
+      "first_shot_rules": [
+        "Strictly avoid past failure mode: The visual shows a close-up of modern-looking or generic brickwork with golden h",
+        "Ensure concrete noun is prioritized over decorative adjectives."
+      ],
+      "negative_armor": "unrelated stock elements, modern artifacts, fantasy cgi"
+    },
+    {
+      "id": "EVO-MEM-1636",
+      "domain": "Distilled Reflexion (Score: 50.0)",
+      "flaw_pattern": "The visual displays a close-up of brickwork with golden hour lighting, but it fails to capture the required 'High-Vantage Wide Aerial Survey",
+      "lesson_learned": "When dialogue covers 'সহজ ভাষায় বলতে গেলে, বাংলার মাটির নিচে চাপা পড়া ২৫০০ বছরের গ...', ensure prompt explicitly anchors to: 'Photorealistic 8K optical cinematography captured from a High-Vantage Wide Aerial Survey, showing Close-up optical detai...'",
+      "first_shot_rules": [
+        "Strictly avoid past failure mode: The visual displays a close-up of brickwork with golden hour lighting, but it fa",
+        "Ensure concrete noun is prioritized over decorative adjectives."
+      ],
+      "negative_armor": "unrelated stock elements, modern artifacts, fantasy cgi"
+    },
+    {
+      "id": "EVO-MEM-1637",
+      "domain": "Distilled Reflexion (Score: 55.0)",
+      "flaw_pattern": "The visual displays a close-up of weathered wooden planks with metal fixtures/bolts, which resembles generic old furniture or a wooden crate",
+      "lesson_learned": "When dialogue covers 'সহজ ভাষায় বলতে গেলে, বাংলার মাটির নিচে চাপা পড়া ২৫০০ বছরের গ...', ensure prompt explicitly anchors to: 'Photorealistic 8K optical cinematography of an authentic Ancient Subterranean Archaeology & Lost Civilizations environme...'",
+      "first_shot_rules": [
+        "Strictly avoid past failure mode: The visual displays a close-up of weathered wooden planks with metal fixtures/bo",
+        "Ensure concrete noun is prioritized over decorative adjectives."
+      ],
+      "negative_armor": "unrelated stock elements, modern artifacts, fantasy cgi"
+    },
+    {
+      "id": "EVO-MEM-1638",
+      "domain": "Distilled Reflexion (Score: 50.0)",
+      "flaw_pattern": "The visual violates the strict negative constraint 'zero people' by explicitly showing human figures on top of the fortress. Additionally, t",
+      "lesson_learned": "When dialogue covers 'এখন প্রশ্ন হলো—প্রকৃতি বা প্রকৌশলের কোন জাদুকরী নিয়মে বাংলার...', ensure prompt explicitly anchors to: 'Photorealistic 8K optical cinematography of Aerial top-down survey view revealing spatial scale and geometric precision ...'",
+      "first_shot_rules": [
+        "Strictly avoid past failure mode: The visual violates the strict negative constraint 'zero people' by explicitly s",
+        "Ensure concrete noun is prioritized over decorative adjectives."
+      ],
+      "negative_armor": "unrelated stock elements, modern artifacts, fantasy cgi"
+    },
+    {
+      "id": "EVO-MEM-1639",
+      "domain": "Distilled Reflexion (Score: 45.0)",
+      "flaw_pattern": "The visual still violates the strict negative constraint 'zero people' by displaying human figures standing on top of the fortress structure",
+      "lesson_learned": "When dialogue covers 'এখন প্রশ্ন হলো—প্রকৃতি বা প্রকৌশলের কোন জাদুকরী নিয়মে বাংলার...', ensure prompt explicitly anchors to: 'Photorealistic 8K optical cinematography of Aerial top-down survey view revealing spatial scale and geometric precision ...'",
+      "first_shot_rules": [
+        "Strictly avoid past failure mode: The visual still violates the strict negative constraint 'zero people' by displa",
+        "Ensure concrete noun is prioritized over decorative adjectives."
+      ],
+      "negative_armor": "unrelated stock elements, modern artifacts, fantasy cgi"
+    },
+    {
+      "id": "EVO-MEM-1640",
+      "domain": "Distilled Reflexion (Score: 50.0)",
+      "flaw_pattern": "দৃশ্যটিতে উয়ারী-বটেশ্বর দুর্গনগরীর স্থাপত্য বা প্রাচীন ধ্বংসাবশেষ দেখা গেলেও স্ক্রিপ্ট অনুযায়ী বাধ্যতামূলক বৈজ্ঞানিক পরিমাপ বা স্থানিক বিন্য",
+      "lesson_learned": "When dialogue covers 'একটু কল্পনা করে দেখুন, বাংলার মাটির নিচে চাপা পড়া ২৫০০ বছরের...', ensure prompt explicitly anchors to: 'Photorealistic 8K optical cinematography of scientific measurement equipment, spatial layout grid, and archaeological su...'",
+      "first_shot_rules": [
+        "Strictly avoid past failure mode: দৃশ্যটিতে উয়ারী-বটেশ্বর দুর্গনগরীর স্থাপত্য বা প্রাচীন ধ্বংসাবশেষ দেখা গেলেও স্ক",
+        "Ensure concrete noun is prioritized over decorative adjectives."
+      ],
+      "negative_armor": "unrelated stock elements, modern artifacts, fantasy cgi"
+    },
+    {
+      "id": "EVO-MEM-1641",
+      "domain": "Distilled Reflexion (Score: 50.0)",
+      "flaw_pattern": "The visual shows a close-up of stone spheres and architecture under golden hour light, but it completely lacks the mandatory elements of 'Sc",
+      "lesson_learned": "When dialogue covers 'একটু কল্পনা করে দেখুন, বাংলার মাটির নিচে চাপা পড়া ২৫০০ বছরের...', ensure prompt explicitly anchors to: 'Photorealistic 8K optical cinematography of Scientific measurement or spatial layout perspective analyzing Ancient Wari ...'",
+      "first_shot_rules": [
+        "Strictly avoid past failure mode: The visual shows a close-up of stone spheres and architecture under golden hour ",
+        "Ensure concrete noun is prioritized over decorative adjectives."
+      ],
+      "negative_armor": "unrelated stock elements, modern artifacts, fantasy cgi"
+    },
+    {
+      "id": "EVO-MEM-1642",
+      "domain": "Distilled Reflexion (Score: 50.0)",
+      "flaw_pattern": "The visual shows a fortress wall under golden hour light with lens flare, but it completely lacks the mandatory elements of 'Scientific', 'm",
+      "lesson_learned": "When dialogue covers 'একটু কল্পনা করে দেখুন, বাংলার মাটির নিচে চাপা পড়া ২৫০০ বছরের...', ensure prompt explicitly anchors to: 'Photorealistic 8K optical cinematography of a scientific measurement and spatial layout perspective analyzing Ancient Wa...'",
+      "first_shot_rules": [
+        "Strictly avoid past failure mode: The visual shows a fortress wall under golden hour light with lens flare, but it",
+        "Ensure concrete noun is prioritized over decorative adjectives."
+      ],
+      "negative_armor": "unrelated stock elements, modern artifacts, fantasy cgi"
+    },
+    {
+      "id": "EVO-MEM-1643",
+      "domain": "Distilled Reflexion (Score: 45.0)",
+      "flaw_pattern": "প্রদত্ত ভিজ্যুয়ালটি উয়ারী-বটেশ্বরের প্রাচীন দুর্গনগরীর কেন্দ্রীয় অংশ বা সঠিক স্কেল এবং সুনির্দিষ্ট পরিমাপের পরিবর্তে একটি আধুনিক বা কাল্পনি",
+      "lesson_learned": "When dialogue covers 'বিশেষ করে এর কেন্দ্রীয় অংশটির নির্ভুল পরিমাপ প্রমাণ করে, বাং...', ensure prompt explicitly anchors to: 'Photorealistic 8K optical cinematography of an extreme close-up showing monumental scale comparison of the ancient Wari-...'",
+      "first_shot_rules": [
+        "Strictly avoid past failure mode: প্রদত্ত ভিজ্যুয়ালটি উয়ারী-বটেশ্বরের প্রাচীন দুর্গনগরীর কেন্দ্রীয় অংশ বা সঠিক স্",
+        "Ensure concrete noun is prioritized over decorative adjectives."
+      ],
+      "negative_armor": "unrelated stock elements, modern artifacts, fantasy cgi"
+    },
+    {
+      "id": "EVO-MEM-1644",
+      "domain": "Distilled Reflexion (Score: 42.5)",
+      "flaw_pattern": "প্রদত্ত ভিজ্যুয়ালটিতে উয়ারী-বটেশ্বরের প্রাচীন দুর্গনগরীর কেন্দ্রীয় অংশ, সঠিক স্কেল বা পরিমাপের কোনো তুলনামূলক দৃশ্য দেখা যাচ্ছে না। এটি একট",
+      "lesson_learned": "When dialogue covers 'বিশেষ করে এর কেন্দ্রীয় অংশটির নির্ভুল পরিমাপ প্রমাণ করে, বাং...', ensure prompt explicitly anchors to: 'Photorealistic 8K optical cinematography of Colossal scale comparison shot showing monumental proportions of Ancient War...'",
+      "first_shot_rules": [
+        "Strictly avoid past failure mode: প্রদত্ত ভিজ্যুয়ালটিতে উয়ারী-বটেশ্বরের প্রাচীন দুর্গনগরীর কেন্দ্রীয় অংশ, সঠিক স্",
+        "Ensure concrete noun is prioritized over decorative adjectives."
+      ],
+      "negative_armor": "unrelated stock elements, modern artifacts, fantasy cgi"
+    },
+    {
+      "id": "EVO-MEM-1645",
+      "domain": "Distilled Reflexion (Score: 50.0)",
+      "flaw_pattern": "প্রদত্ত ভিজ্যুয়ালটিতে উয়ারী-বটেশ্বরের প্রাচীন দুর্গনগরীর কেন্দ্রীয় অংশ, সঠিক স্কেল বা পরিমাপের কোনো তুলনামূলক দৃশ্য দেখা যাচ্ছে না। এটি একট",
+      "lesson_learned": "When dialogue covers 'বিশেষ করে এর কেন্দ্রীয় অংশটির নির্ভুল পরিমাপ প্রমাণ করে, বাং...', ensure prompt explicitly anchors to: 'Photorealistic 8K optical cinematography of Colossal scale comparison shot showing monumental proportions of Ancient War...'",
+      "first_shot_rules": [
+        "Strictly avoid past failure mode: প্রদত্ত ভিজ্যুয়ালটিতে উয়ারী-বটেশ্বরের প্রাচীন দুর্গনগরীর কেন্দ্রীয় অংশ, সঠিক স্",
+        "Ensure concrete noun is prioritized over decorative adjectives."
+      ],
+      "negative_armor": "unrelated stock elements, modern artifacts, fantasy cgi"
+    },
+    {
+      "id": "EVO-MEM-1646",
+      "domain": "Distilled Reflexion (Score: 50.0)",
+      "flaw_pattern": "The visual depicts a modern or medieval brick structure with a flat concrete roof and visible modern debris/wires on the roof, rather than t",
+      "lesson_learned": "When dialogue covers 'কিন্তু এখানে লুকিয়ে থাকা সবচেয়ে অবিশ্বাস্য মোড়টি হলো—বাংলার ...', ensure prompt explicitly anchors to: 'Photorealistic 8K optical cinematography of Atmospheric sunset golden hour panorama capturing the true environment of An...'",
+      "first_shot_rules": [
+        "Strictly avoid past failure mode: The visual depicts a modern or medieval brick structure with a flat concrete roo",
+        "Ensure concrete noun is prioritized over decorative adjectives."
+      ],
+      "negative_armor": "unrelated stock elements, modern artifacts, fantasy cgi"
+    },
+    {
+      "id": "EVO-MEM-1647",
+      "domain": "Distilled Reflexion (Score: 50.0)",
+      "flaw_pattern": "The visual contains modern human figures walking on the structures (e.g., people visible on the steps/platform), directly violating the stri",
+      "lesson_learned": "When dialogue covers 'ভিডিওর তথ্যগুলো ভালো লাগলে লাইক এবং আমাদের পেইজ ও চ্যানেলে ফ...', ensure prompt explicitly anchors to: 'Photorealistic 8K optical cinematography of High-vantage wide camera tilt shot across the complete expanse of Ancient Wa...'",
+      "first_shot_rules": [
+        "Strictly avoid past failure mode: The visual contains modern human figures walking on the structures (e.g., people",
+        "Ensure concrete noun is prioritized over decorative adjectives."
+      ],
+      "negative_armor": "unrelated stock elements, modern artifacts, fantasy cgi"
+    },
+    {
+      "id": "EVO-MEM-1648",
+      "domain": "Distilled Reflexion (Score: 50.0)",
+      "flaw_pattern": "The visual still fails to meet the strict constraints. While the fortress architecture is present, human figures are visible at the bottom r",
+      "lesson_learned": "When dialogue covers 'ভিডিওর তথ্যগুলো ভালো লাগলে লাইক এবং আমাদের পেইজ ও চ্যানেলে ফ...', ensure prompt explicitly anchors to: 'Photorealistic 8K optical cinematography of High-vantage wide camera tilt shot across the complete expanse of Ancient Wa...'",
+      "first_shot_rules": [
+        "Strictly avoid past failure mode: The visual still fails to meet the strict constraints. While the fortress archit",
+        "Ensure concrete noun is prioritized over decorative adjectives."
+      ],
+      "negative_armor": "unrelated stock elements, modern artifacts, fantasy cgi"
+    },
+    {
+      "id": "EVO-MEM-1649",
+      "domain": "Distilled Reflexion (Score: 50.0)",
+      "flaw_pattern": "The visual shows a fort-like structure (resembling Mehrangarh Fort in India or similar medieval architecture), which does not match the arch",
+      "lesson_learned": "When dialogue covers 'ভিডিওর তথ্যগুলো ভালো লাগলে লাইক এবং আমাদের পেইজ ও চ্যানেলে ফ...', ensure prompt explicitly anchors to: 'Photorealistic 8K optical cinematography of High-vantage wide camera tilt shot across the complete expanse of Ancient Wa...'",
+      "first_shot_rules": [
+        "Strictly avoid past failure mode: The visual shows a fort-like structure (resembling Mehrangarh Fort in India or s",
+        "Ensure concrete noun is prioritized over decorative adjectives."
+      ],
+      "negative_armor": "unrelated stock elements, modern artifacts, fantasy cgi"
+    },
+    {
+      "id": "EVO-MEM-1650",
+      "domain": "Distilled Reflexion (Score: 50.0)",
+      "flaw_pattern": "The visual depicts medieval stone fort architecture with pillared corridors and stone steps (resembling Mehrangarh Fort or similar Indian mo",
+      "lesson_learned": "When dialogue covers 'ভিডিওর তথ্যগুলো ভালো লাগলে লাইক এবং আমাদের পেইজ ও চ্যানেলে ফ...', ensure prompt explicitly anchors to: 'Photorealistic 8K cinematic documentary shot of the ancient Wari Bateshwar archaeological site, showing 2500-year-old mu...'",
+      "first_shot_rules": [
+        "Strictly avoid past failure mode: The visual depicts medieval stone fort architecture with pillared corridors and ",
+        "Ensure concrete noun is prioritized over decorative adjectives."
+      ],
+      "negative_armor": "unrelated stock elements, modern artifacts, fantasy cgi"
+    },
+    {
+      "id": "EVO-MEM-1651",
+      "domain": "Distilled Reflexion (Score: 50.0)",
+      "flaw_pattern": "The visual depicts standard stone fort architecture (resembling medieval or colonial red brick structures with structured steps and courtyar",
+      "lesson_learned": "When dialogue covers 'ভিডিওর তথ্যগুলো ভালো লাগলে লাইক এবং আমাদের পেইজ ও চ্যানেলে ফ...', ensure prompt explicitly anchors to: 'Photorealistic 8K optical cinematography of an authentic archaeological excavation site at Ancient Wari-Bateshwar, showi...'",
+      "first_shot_rules": [
+        "Strictly avoid past failure mode: The visual depicts standard stone fort architecture (resembling medieval or colo",
+        "Ensure concrete noun is prioritized over decorative adjectives."
+      ],
+      "negative_armor": "unrelated stock elements, modern artifacts, fantasy cgi"
+    },
+    {
+      "id": "EVO-MEM-1652",
+      "domain": "Distilled Reflexion (Score: 30.0)",
+      "flaw_pattern": "Visual is low-resolution, out-of-focus or lacking sharp edge definition.",
+      "lesson_learned": "When dialogue covers 'মহাকাশের গভীর থেকে আসা রহস্যময় রেডিও সংকেত: 'ওয়াও সিগন্যাল...', ensure prompt explicitly anchors to: '8K Hasselblad H6D-100c medium format, razor-sharp optical focus, extreme macro documentary detail of Cinematic wide esta...'",
+      "first_shot_rules": [
+        "Strictly avoid past failure mode: Visual is low-resolution, out-of-focus or lacking sharp edge definition.",
+        "Ensure concrete noun is prioritized over decorative adjectives."
+      ],
+      "negative_armor": "unrelated stock elements, modern artifacts, fantasy cgi"
+    },
+    {
+      "id": "EVO-MEM-1653",
+      "domain": "Distilled Reflexion (Score: 30.0)",
+      "flaw_pattern": "Visual is low-resolution, out-of-focus or lacking sharp edge definition.",
+      "lesson_learned": "When dialogue covers 'মহাকাশের গভীর থেকে আসা রহস্যময় রেডিও সংকেত: 'ওয়াও সিগন্যাল...', ensure prompt explicitly anchors to: '8K Hasselblad H6D-100c medium format, razor-sharp optical focus, extreme macro documentary detail of Cinematic wide esta...'",
+      "first_shot_rules": [
+        "Strictly avoid past failure mode: Visual is low-resolution, out-of-focus or lacking sharp edge definition.",
+        "Ensure concrete noun is prioritized over decorative adjectives."
+      ],
+      "negative_armor": "unrelated stock elements, modern artifacts, fantasy cgi"
+    },
+    {
+      "id": "EVO-MEM-1654",
+      "domain": "Distilled Reflexion (Score: 30.0)",
+      "flaw_pattern": "Visual is low-resolution, out-of-focus or lacking sharp edge definition.",
+      "lesson_learned": "When dialogue covers 'মহাকাশের গভীর থেকে আসা রহস্যময় রেডিও সংকেত: 'ওয়াও সিগন্যাল...', ensure prompt explicitly anchors to: '8K Hasselblad H6D-100c medium format, razor-sharp optical focus, extreme macro documentary detail of Cinematic wide esta...'",
+      "first_shot_rules": [
+        "Strictly avoid past failure mode: Visual is low-resolution, out-of-focus or lacking sharp edge definition.",
+        "Ensure concrete noun is prioritized over decorative adjectives."
+      ],
+      "negative_armor": "unrelated stock elements, modern artifacts, fantasy cgi"
+    },
+    {
+      "id": "EVO-MEM-1655",
+      "domain": "Distilled Reflexion (Score: 15.0)",
+      "flaw_pattern": "ভিস্যুয়ালটি সম্পূর্ণ অপ্রাসঙ্গিক। ডায়ালগ ও স্ক্রিপ্ট অনুযায়ী 'ওয়াও সিগন্যাল' বা মহাকাশের রেডিও টেলিস্কোপ ও সিগন্যালের গঠন দেখানোর কথা থা",
+      "lesson_learned": "When dialogue covers 'সহজ ভাষায় বলতে গেলে, মহাকাশের গভীর থেকে আসা রহস্যময় রেডিও স...', ensure prompt explicitly anchors to: 'Photorealistic 8K optical cinematography of Close-up optical detail capturing distinct surface textures and craftsmanshi...'",
+      "first_shot_rules": [
+        "Strictly avoid past failure mode: ভিস্যুয়ালটি সম্পূর্ণ অপ্রাসঙ্গিক। ডায়ালগ ও স্ক্রিপ্ট অনুযায়ী 'ওয়াও সিগন্যাল'",
+        "Ensure concrete noun is prioritized over decorative adjectives."
+      ],
+      "negative_armor": "unrelated stock elements, modern artifacts, fantasy cgi"
+    },
+    {
+      "id": "EVO-MEM-1656",
+      "domain": "Distilled Reflexion (Score: 10.0)",
+      "flaw_pattern": "The visual depicts a close-up of rusty metal bolts on a wooden beam or deck with the sea in the background. This completely fails to represe",
+      "lesson_learned": "When dialogue covers 'সহজ ভাষায় বলতে গেলে, মহাকাশের গভীর থেকে আসা রহস্যময় রেডিও স...', ensure prompt explicitly anchors to: 'Photorealistic 8K optical cinematography of Close-up optical detail capturing distinct surface textures and craftsmanshi...'",
+      "first_shot_rules": [
+        "Strictly avoid past failure mode: The visual depicts a close-up of rusty metal bolts on a wooden beam or deck with",
+        "Ensure concrete noun is prioritized over decorative adjectives."
+      ],
+      "negative_armor": "unrelated stock elements, modern artifacts, fantasy cgi"
+    },
+    {
+      "id": "EVO-MEM-1657",
+      "domain": "Distilled Reflexion (Score: 50.0)",
+      "flaw_pattern": "The visual displays a futuristic vehicle or rover on a sandy surface rather than the required 'Field survey perspective and physical compone",
+      "lesson_learned": "When dialogue covers 'সাধারণ মানুষ হয়তো ভাবেন মহাকাশের গভীর থেকে আসা রহস্যময় রেডি...', ensure prompt explicitly anchors to: 'Photorealistic 8K optical cinematography of a scientific field survey perspective showing complex physical radio astrono...'",
+      "first_shot_rules": [
+        "Strictly avoid past failure mode: The visual displays a futuristic vehicle or rover on a sandy surface rather than",
+        "Ensure concrete noun is prioritized over decorative adjectives."
+      ],
+      "negative_armor": "unrelated stock elements, modern artifacts, fantasy cgi"
+    },
+    {
+      "id": "EVO-MEM-1658",
+      "domain": "Distilled Reflexion (Score: 45.0)",
+      "flaw_pattern": "The visual depicts a futuristic rover or vehicle parked on a sandy surface, which completely deviates from the required focal entity: 'Field",
+      "lesson_learned": "When dialogue covers 'সাধারণ মানুষ হয়তো ভাবেন মহাকাশের গভীর থেকে আসা রহস্যময় রেডি...', ensure prompt explicitly anchors to: 'Photorealistic 8K optical cinematography of Field survey perspective and physical components related to Mysterious Space...'",
+      "first_shot_rules": [
+        "Strictly avoid past failure mode: The visual depicts a futuristic rover or vehicle parked on a sandy surface, whic",
+        "Ensure concrete noun is prioritized over decorative adjectives."
+      ],
+      "negative_armor": "unrelated stock elements, modern artifacts, fantasy cgi"
+    },
+    {
+      "id": "EVO-MEM-1659",
+      "domain": "Distilled Reflexion (Score: 48.0)",
+      "flaw_pattern": "The visual continues to depict a futuristic rover or heavy machinery vehicle parked on a sandy surface rather than the required scientific f",
+      "lesson_learned": "When dialogue covers 'সাধারণ মানুষ হয়তো ভাবেন মহাকাশের গভীর থেকে আসা রহস্যময় রেডি...', ensure prompt explicitly anchors to: 'Photorealistic 8K optical cinematography from an Overhead Top-Down Orthographic View of a scientific field survey perspe...'",
+      "first_shot_rules": [
+        "Strictly avoid past failure mode: The visual continues to depict a futuristic rover or heavy machinery vehicle par",
+        "Ensure concrete noun is prioritized over decorative adjectives."
+      ],
+      "negative_armor": "unrelated stock elements, modern artifacts, fantasy cgi"
+    },
+    {
+      "id": "EVO-MEM-1660",
+      "domain": "Distilled Reflexion (Score: 50.0)",
+      "flaw_pattern": "The visual shows an overhead orthographic view of agricultural fields and rural roads, matching the camera angle. However, it completely fai",
+      "lesson_learned": "When dialogue covers 'সাধারণ মানুষ হয়তো ভাবেন মহাকাশের গভীর থেকে আসা রহস্যময় রেডি...', ensure prompt explicitly anchors to: 'Photorealistic 8K optical cinematography of deep space radio astronomy survey perspective and precision physical antenna...'",
+      "first_shot_rules": [
+        "Strictly avoid past failure mode: The visual shows an overhead orthographic view of agricultural fields and rural ",
+        "Ensure concrete noun is prioritized over decorative adjectives."
+      ],
+      "negative_armor": "unrelated stock elements, modern artifacts, fantasy cgi"
+    },
+    {
+      "id": "EVO-MEM-1661",
+      "domain": "Distilled Reflexion (Score: 45.0)",
+      "flaw_pattern": "The visual displays an overhead orthographic view of agricultural fields and rural roads, but completely fails to incorporate physical compo",
+      "lesson_learned": "When dialogue covers 'সাধারণ মানুষ হয়তো ভাবেন মহাকাশের গভীর থেকে আসা রহস্যময় রেডি...', ensure prompt explicitly anchors to: 'Photorealistic 8K optical cinematography of an authentic deep space radio astronomy survey site, showing scientific para...'",
+      "first_shot_rules": [
+        "Strictly avoid past failure mode: The visual displays an overhead orthographic view of agricultural fields and rur",
+        "Ensure concrete noun is prioritized over decorative adjectives."
+      ],
+      "negative_armor": "unrelated stock elements, modern artifacts, fantasy cgi"
+    },
+    {
+      "id": "EVO-MEM-1662",
+      "domain": "Distilled Reflexion (Score: 30.0)",
+      "flaw_pattern": "Visual is low-resolution, out-of-focus or lacking sharp edge definition.",
+      "lesson_learned": "When dialogue covers 'প্রথম ধাপে দেখা যায়, মহাকাশের গভীর থেকে আসা রহস্যময় রেডিও স...', ensure prompt explicitly anchors to: '8K Hasselblad H6D-100c medium format, razor-sharp optical focus, extreme macro documentary detail of Focused cinematic p...'",
+      "first_shot_rules": [
+        "Strictly avoid past failure mode: Visual is low-resolution, out-of-focus or lacking sharp edge definition.",
+        "Ensure concrete noun is prioritized over decorative adjectives."
+      ],
+      "negative_armor": "unrelated stock elements, modern artifacts, fantasy cgi"
+    },
+    {
+      "id": "EVO-MEM-1663",
+      "domain": "Distilled Reflexion (Score: 30.0)",
+      "flaw_pattern": "Visual is low-resolution, out-of-focus or lacking sharp edge definition.",
+      "lesson_learned": "When dialogue covers 'প্রথম ধাপে দেখা যায়, মহাকাশের গভীর থেকে আসা রহস্যময় রেডিও স...', ensure prompt explicitly anchors to: '8K Hasselblad H6D-100c medium format, razor-sharp optical focus, extreme macro documentary detail of Focused cinematic p...'",
+      "first_shot_rules": [
+        "Strictly avoid past failure mode: Visual is low-resolution, out-of-focus or lacking sharp edge definition.",
+        "Ensure concrete noun is prioritized over decorative adjectives."
+      ],
+      "negative_armor": "unrelated stock elements, modern artifacts, fantasy cgi"
+    },
+    {
+      "id": "EVO-MEM-1664",
+      "domain": "Distilled Reflexion (Score: 30.0)",
+      "flaw_pattern": "Visual is low-resolution, out-of-focus or lacking sharp edge definition.",
+      "lesson_learned": "When dialogue covers 'প্রথম ধাপে দেখা যায়, মহাকাশের গভীর থেকে আসা রহস্যময় রেডিও স...', ensure prompt explicitly anchors to: '8K Hasselblad H6D-100c medium format, razor-sharp optical focus, extreme macro documentary detail of Focused cinematic p...'",
+      "first_shot_rules": [
+        "Strictly avoid past failure mode: Visual is low-resolution, out-of-focus or lacking sharp edge definition.",
+        "Ensure concrete noun is prioritized over decorative adjectives."
+      ],
+      "negative_armor": "unrelated stock elements, modern artifacts, fantasy cgi"
+    },
+    {
+      "id": "EVO-MEM-1665",
+      "domain": "Distilled Reflexion (Score: 30.0)",
+      "flaw_pattern": "Visual is low-resolution, out-of-focus or lacking sharp edge definition.",
+      "lesson_learned": "When dialogue covers 'প্রথম ধাপে দেখা যায়, মহাকাশের গভীর থেকে আসা রহস্যময় রেডিও স...', ensure prompt explicitly anchors to: '8K Hasselblad H6D-100c medium format, razor-sharp optical focus, extreme macro documentary detail of Focused cinematic p...'",
+      "first_shot_rules": [
+        "Strictly avoid past failure mode: Visual is low-resolution, out-of-focus or lacking sharp edge definition.",
+        "Ensure concrete noun is prioritized over decorative adjectives."
+      ],
+      "negative_armor": "unrelated stock elements, modern artifacts, fantasy cgi"
+    },
+    {
+      "id": "EVO-MEM-1666",
+      "domain": "Distilled Reflexion (Score: 30.0)",
+      "flaw_pattern": "Visual is low-resolution, out-of-focus or lacking sharp edge definition.",
+      "lesson_learned": "When dialogue covers 'প্রথম ধাপে দেখা যায়, মহাকাশের গভীর থেকে আসা রহস্যময় রেডিও স...', ensure prompt explicitly anchors to: '8K Hasselblad H6D-100c medium format, razor-sharp optical focus, extreme macro documentary detail of Focused cinematic p...'",
+      "first_shot_rules": [
+        "Strictly avoid past failure mode: Visual is low-resolution, out-of-focus or lacking sharp edge definition.",
+        "Ensure concrete noun is prioritized over decorative adjectives."
+      ],
+      "negative_armor": "unrelated stock elements, modern artifacts, fantasy cgi"
+    },
+    {
+      "id": "EVO-MEM-1667",
+      "domain": "Distilled Reflexion (Score: 50.0)",
+      "flaw_pattern": "ভিজুয়ালটিতে মহাকাশের গভীর থেকে আসা রহস্যময় রেডিও সংকেত বা 'ওয়াও সিগন্যাল' সম্পর্কিত বৈজ্ঞানিক বা মহাজাগতিক পরিবেশের পরিবর্তে একটি কাল্পনিক গ",
+      "lesson_learned": "When dialogue covers 'কিন্তু এখানে লুকিয়ে থাকা সবচেয়ে অবিশ্বাস্য মোড়টি হলো—মহাকাশে...', ensure prompt explicitly anchors to: 'Photorealistic 8K optical cinematography capturing the true environment of Mysterious Space Radio Signal and Wow Signal ...'",
+      "first_shot_rules": [
+        "Strictly avoid past failure mode: ভিজুয়ালটিতে মহাকাশের গভীর থেকে আসা রহস্যময় রেডিও সংকেত বা 'ওয়াও সিগন্যাল' সম্পর্",
+        "Ensure concrete noun is prioritized over decorative adjectives."
+      ],
+      "negative_armor": "unrelated stock elements, modern artifacts, fantasy cgi"
+    },
+    {
+      "id": "EVO-MEM-1668",
+      "domain": "Distilled Reflexion (Score: 45.0)",
+      "flaw_pattern": "দৃশ্যটিতে রেডিও টেলিস্কোপ বা সেটলাইট ডিশ দেখানো হয়েছে যা 'ওয়াও সিগন্যাল' বা রেডিও অ্যাস্ট্রোনমির সাথে কিছুটা সম্পর্কিত হলেও, স্ক্রিপ্টের পূ",
+      "lesson_learned": "When dialogue covers 'কিন্তু এখানে লুকিয়ে থাকা সবচেয়ে অবিশ্বাস্য মোড়টি হলো—মহাকাশে...', ensure prompt explicitly anchors to: 'Photorealistic 8K optical cinematography of Atmospheric sunset golden hour panorama capturing deep space radio telescope...'",
+      "first_shot_rules": [
+        "Strictly avoid past failure mode: দৃশ্যটিতে রেডিও টেলিস্কোপ বা সেটলাইট ডিশ দেখানো হয়েছে যা 'ওয়াও সিগন্যাল' বা রেড",
+        "Ensure concrete noun is prioritized over decorative adjectives."
+      ],
+      "negative_armor": "unrelated stock elements, modern artifacts, fantasy cgi"
+    },
+    {
+      "id": "EVO-MEM-1669",
+      "domain": "Distilled Reflexion (Score: 50.0)",
+      "flaw_pattern": "The visual depicts a standard terrestrial telecommunication cell tower with an industrial building, which incorrectly represents a 'Mysterio",
+      "lesson_learned": "When dialogue covers 'বাস্তব ডেটা ও চাক্ষুষ প্রমাণ বিশ্লেষণ করলে দেখা যায়, মহাকাশে...', ensure prompt explicitly anchors to: 'Photorealistic 8K optical cinematography of a massive radio telescope dish array pointing toward the deep starry night s...'",
+      "first_shot_rules": [
+        "Strictly avoid past failure mode: The visual depicts a standard terrestrial telecommunication cell tower with an i",
+        "Ensure concrete noun is prioritized over decorative adjectives."
+      ],
+      "negative_armor": "unrelated stock elements, modern artifacts, fantasy cgi"
+    },
+    {
+      "id": "EVO-MEM-1670",
+      "domain": "Distilled Reflexion (Score: 30.0)",
+      "flaw_pattern": "Visual is low-resolution, out-of-focus or lacking sharp edge definition.",
+      "lesson_learned": "When dialogue covers 'একটু গভীরভাবে লক্ষ্য করলে দেখা যায়, মহাকাশের গভীর থেকে আসা র...', ensure prompt explicitly anchors to: '8K Hasselblad H6D-100c medium format, razor-sharp optical focus, extreme macro documentary detail of Epic cinematic angl...'",
+      "first_shot_rules": [
+        "Strictly avoid past failure mode: Visual is low-resolution, out-of-focus or lacking sharp edge definition.",
+        "Ensure concrete noun is prioritized over decorative adjectives."
+      ],
+      "negative_armor": "unrelated stock elements, modern artifacts, fantasy cgi"
+    },
+    {
+      "id": "EVO-MEM-1671",
+      "domain": "Distilled Reflexion (Score: 30.0)",
+      "flaw_pattern": "Visual is low-resolution, out-of-focus or lacking sharp edge definition.",
+      "lesson_learned": "When dialogue covers 'একটু গভীরভাবে লক্ষ্য করলে দেখা যায়, মহাকাশের গভীর থেকে আসা র...', ensure prompt explicitly anchors to: '8K Hasselblad H6D-100c medium format, razor-sharp optical focus, extreme macro documentary detail of Epic cinematic angl...'",
+      "first_shot_rules": [
+        "Strictly avoid past failure mode: Visual is low-resolution, out-of-focus or lacking sharp edge definition.",
+        "Ensure concrete noun is prioritized over decorative adjectives."
+      ],
+      "negative_armor": "unrelated stock elements, modern artifacts, fantasy cgi"
+    },
+    {
+      "id": "EVO-MEM-1672",
+      "domain": "Distilled Reflexion (Score: 30.0)",
+      "flaw_pattern": "Visual is low-resolution, out-of-focus or lacking sharp edge definition.",
+      "lesson_learned": "When dialogue covers 'একটু গভীরভাবে লক্ষ্য করলে দেখা যায়, মহাকাশের গভীর থেকে আসা র...', ensure prompt explicitly anchors to: '8K Hasselblad H6D-100c medium format, razor-sharp optical focus, extreme macro documentary detail of Epic cinematic angl...'",
+      "first_shot_rules": [
+        "Strictly avoid past failure mode: Visual is low-resolution, out-of-focus or lacking sharp edge definition.",
+        "Ensure concrete noun is prioritized over decorative adjectives."
+      ],
+      "negative_armor": "unrelated stock elements, modern artifacts, fantasy cgi"
+    },
+    {
+      "id": "EVO-MEM-1673",
+      "domain": "Distilled Reflexion (Score: 30.0)",
+      "flaw_pattern": "Visual is low-resolution, out-of-focus or lacking sharp edge definition.",
+      "lesson_learned": "When dialogue covers 'একটু গভীরভাবে লক্ষ্য করলে দেখা যায়, মহাকাশের গভীর থেকে আসা র...', ensure prompt explicitly anchors to: '8K Hasselblad H6D-100c medium format, razor-sharp optical focus, extreme macro documentary detail of Epic cinematic angl...'",
+      "first_shot_rules": [
+        "Strictly avoid past failure mode: Visual is low-resolution, out-of-focus or lacking sharp edge definition.",
+        "Ensure concrete noun is prioritized over decorative adjectives."
+      ],
+      "negative_armor": "unrelated stock elements, modern artifacts, fantasy cgi"
+    },
+    {
+      "id": "EVO-MEM-1674",
+      "domain": "Distilled Reflexion (Score: 30.0)",
+      "flaw_pattern": "Visual is low-resolution, out-of-focus or lacking sharp edge definition.",
+      "lesson_learned": "When dialogue covers 'একটু গভীরভাবে লক্ষ্য করলে দেখা যায়, মহাকাশের গভীর থেকে আসা র...', ensure prompt explicitly anchors to: '8K Hasselblad H6D-100c medium format, razor-sharp optical focus, extreme macro documentary detail of Epic cinematic angl...'",
+      "first_shot_rules": [
+        "Strictly avoid past failure mode: Visual is low-resolution, out-of-focus or lacking sharp edge definition.",
+        "Ensure concrete noun is prioritized over decorative adjectives."
+      ],
+      "negative_armor": "unrelated stock elements, modern artifacts, fantasy cgi"
+    },
+    {
+      "id": "EVO-MEM-1675",
+      "domain": "Distilled Reflexion (Score: 30.0)",
+      "flaw_pattern": "Visual is low-resolution, out-of-focus or lacking sharp edge definition.",
+      "lesson_learned": "When dialogue covers 'একটু গভীরভাবে লক্ষ্য করলে দেখা যায়, মহাকাশের গভীর থেকে আসা র...', ensure prompt explicitly anchors to: '8K Hasselblad H6D-100c medium format, razor-sharp optical focus, extreme macro documentary detail of Epic cinematic angl...'",
+      "first_shot_rules": [
+        "Strictly avoid past failure mode: Visual is low-resolution, out-of-focus or lacking sharp edge definition.",
+        "Ensure concrete noun is prioritized over decorative adjectives."
+      ],
+      "negative_armor": "unrelated stock elements, modern artifacts, fantasy cgi"
+    },
+    {
+      "id": "EVO-MEM-1676",
+      "domain": "Distilled Reflexion (Score: 45.0)",
+      "flaw_pattern": "The visual displays an old internal tape drive (Iomega Ditto Max 10GB) with a green circuit board, which does not match the deep space radio",
+      "lesson_learned": "When dialogue covers 'সহজ ভাষায় বলতে গেলে, মহাকাশের গভীর থেকে আসা রহস্যময় রেডিও স...', ensure prompt explicitly anchors to: 'Photorealistic 8K optical cinematography of preserved physical components and authentic engineering details of Mysteriou...'",
+      "first_shot_rules": [
+        "Strictly avoid past failure mode: The visual displays an old internal tape drive (Iomega Ditto Max 10GB) with a gr",
+        "Ensure concrete noun is prioritized over decorative adjectives."
+      ],
+      "negative_armor": "unrelated stock elements, modern artifacts, fantasy cgi"
+    },
+    {
+      "id": "EVO-MEM-1677",
+      "domain": "Distilled Reflexion (Score: 30.0)",
+      "flaw_pattern": "Visual is low-resolution, out-of-focus or lacking sharp edge definition.",
+      "lesson_learned": "When dialogue covers 'সহজ ভাষায় বলতে গেলে, মহাকাশের গভীর থেকে আসা রহস্যময় রেডিও স...', ensure prompt explicitly anchors to: '8K Hasselblad H6D-100c medium format, razor-sharp optical focus, extreme macro documentary detail of Preserved physical ...'",
+      "first_shot_rules": [
+        "Strictly avoid past failure mode: Visual is low-resolution, out-of-focus or lacking sharp edge definition.",
+        "Ensure concrete noun is prioritized over decorative adjectives."
+      ],
+      "negative_armor": "unrelated stock elements, modern artifacts, fantasy cgi"
+    },
+    {
+      "id": "EVO-MEM-1678",
+      "domain": "Distilled Reflexion (Score: 30.0)",
+      "flaw_pattern": "Visual is low-resolution, out-of-focus or lacking sharp edge definition.",
+      "lesson_learned": "When dialogue covers 'সহজ ভাষায় বলতে গেলে, মহাকাশের গভীর থেকে আসা রহস্যময় রেডিও স...', ensure prompt explicitly anchors to: '8K Hasselblad H6D-100c medium format, razor-sharp optical focus, extreme macro documentary detail of Preserved physical ...'",
+      "first_shot_rules": [
+        "Strictly avoid past failure mode: Visual is low-resolution, out-of-focus or lacking sharp edge definition.",
+        "Ensure concrete noun is prioritized over decorative adjectives."
+      ],
+      "negative_armor": "unrelated stock elements, modern artifacts, fantasy cgi"
+    },
+    {
+      "id": "EVO-MEM-1679",
+      "domain": "Distilled Reflexion (Score: 25.0)",
+      "flaw_pattern": "প্রদত্ত ভিজ্যুয়ালটিতে একটি পুরনো Iomega Zip ড্রাইভ দেখানো হয়েছে, যার সাথে মহাকাশের গভীর থেকে আসা রহস্যময় রেডিও সংকেত বা 'ওয়াও সিগন্যাল'-",
+      "lesson_learned": "When dialogue covers 'সহজ ভাষায় বলতে গেলে, মহাকাশের গভীর থেকে আসা রহস্যময় রেডিও স...', ensure prompt explicitly anchors to: 'Photorealistic 8K optical cinematography of Preserved physical components and authentic engineering details of Mysteriou...'",
+      "first_shot_rules": [
+        "Strictly avoid past failure mode: প্রদত্ত ভিজ্যুয়ালটিতে একটি পুরনো Iomega Zip ড্রাইভ দেখানো হয়েছে, যার সাথে মহাক",
+        "Ensure concrete noun is prioritized over decorative adjectives."
+      ],
+      "negative_armor": "unrelated stock elements, modern artifacts, fantasy cgi"
+    },
+    {
+      "id": "EVO-MEM-1680",
+      "domain": "Distilled Reflexion (Score: 30.0)",
+      "flaw_pattern": "Visual is low-resolution, out-of-focus or lacking sharp edge definition.",
+      "lesson_learned": "When dialogue covers 'সহজ ভাষায় বলতে গেলে, মহাকাশের গভীর থেকে আসা রহস্যময় রেডিও স...', ensure prompt explicitly anchors to: '8K Hasselblad H6D-100c medium format, razor-sharp optical focus, extreme macro documentary detail of Preserved physical ...'",
+      "first_shot_rules": [
+        "Strictly avoid past failure mode: Visual is low-resolution, out-of-focus or lacking sharp edge definition.",
+        "Ensure concrete noun is prioritized over decorative adjectives."
+      ],
+      "negative_armor": "unrelated stock elements, modern artifacts, fantasy cgi"
+    },
+    {
+      "id": "EVO-MEM-1681",
+      "domain": "Distilled Reflexion (Score: 30.0)",
+      "flaw_pattern": "Visual is low-resolution, out-of-focus or lacking sharp edge definition.",
+      "lesson_learned": "When dialogue covers 'সহজ ভাষায় বলতে গেলে, মহাকাশের গভীর থেকে আসা রহস্যময় রেডিও স...', ensure prompt explicitly anchors to: '8K Hasselblad H6D-100c medium format, razor-sharp optical focus, extreme macro documentary detail of Preserved physical ...'",
+      "first_shot_rules": [
+        "Strictly avoid past failure mode: Visual is low-resolution, out-of-focus or lacking sharp edge definition.",
+        "Ensure concrete noun is prioritized over decorative adjectives."
+      ],
+      "negative_armor": "unrelated stock elements, modern artifacts, fantasy cgi"
+    },
+    {
+      "id": "EVO-MEM-1682",
+      "domain": "Distilled Reflexion (Score: 50.0)",
+      "flaw_pattern": "The visual depicts a generic foggy landscape with rolling hills and trees, but completely fails to represent the required 'Mysterious Space ",
+      "lesson_learned": "When dialogue covers 'সাধারণ মানুষ হয়তো ভাবেন মহাকাশের গভীর থেকে আসা রহস্যময় রেডি...', ensure prompt explicitly anchors to: 'Photorealistic 8K optical cinematography of giant radio telescope arrays in a remote valley surrounded by morning mist r...'",
+      "first_shot_rules": [
+        "Strictly avoid past failure mode: The visual depicts a generic foggy landscape with rolling hills and trees, but c",
+        "Ensure concrete noun is prioritized over decorative adjectives."
+      ],
+      "negative_armor": "unrelated stock elements, modern artifacts, fantasy cgi"
+    },
+    {
+      "id": "EVO-MEM-1683",
+      "domain": "Distilled Reflexion (Score: 30.0)",
+      "flaw_pattern": "Visual is low-resolution, out-of-focus or lacking sharp edge definition.",
+      "lesson_learned": "When dialogue covers 'সাধারণ মানুষ হয়তো ভাবেন মহাকাশের গভীর থেকে আসা রহস্যময় রেডি...', ensure prompt explicitly anchors to: '8K Hasselblad H6D-100c medium format, razor-sharp optical focus, extreme macro documentary detail of Morning mist rollin...'",
+      "first_shot_rules": [
+        "Strictly avoid past failure mode: Visual is low-resolution, out-of-focus or lacking sharp edge definition.",
+        "Ensure concrete noun is prioritized over decorative adjectives."
+      ],
+      "negative_armor": "unrelated stock elements, modern artifacts, fantasy cgi"
+    },
+    {
+      "id": "EVO-MEM-1684",
+      "domain": "Distilled Reflexion (Score: 30.0)",
+      "flaw_pattern": "Visual is low-resolution, out-of-focus or lacking sharp edge definition.",
+      "lesson_learned": "When dialogue covers 'সাধারণ মানুষ হয়তো ভাবেন মহাকাশের গভীর থেকে আসা রহস্যময় রেডি...', ensure prompt explicitly anchors to: '8K Hasselblad H6D-100c medium format, razor-sharp optical focus, extreme macro documentary detail of Morning mist rollin...'",
+      "first_shot_rules": [
+        "Strictly avoid past failure mode: Visual is low-resolution, out-of-focus or lacking sharp edge definition.",
+        "Ensure concrete noun is prioritized over decorative adjectives."
+      ],
+      "negative_armor": "unrelated stock elements, modern artifacts, fantasy cgi"
+    },
+    {
+      "id": "EVO-MEM-1685",
+      "domain": "Distilled Reflexion (Score: 45.0)",
+      "flaw_pattern": "The visual depicts a scenic morning landscape with mist over hills, which satisfies the scenic mist elements, but completely fails to repres",
+      "lesson_learned": "When dialogue covers 'সাধারণ মানুষ হয়তো ভাবেন মহাকাশের গভীর থেকে আসা রহস্যময় রেডি...', ensure prompt explicitly anchors to: 'Photorealistic 8K optical shot of massive radio telescope dish array pointing toward the deep cosmos during early mornin...'",
+      "first_shot_rules": [
+        "Strictly avoid past failure mode: The visual depicts a scenic morning landscape with mist over hills, which satisf",
+        "Ensure concrete noun is prioritized over decorative adjectives."
+      ],
+      "negative_armor": "unrelated stock elements, modern artifacts, fantasy cgi"
+    },
+    {
+      "id": "EVO-MEM-1686",
+      "domain": "Distilled Reflexion (Score: 30.0)",
+      "flaw_pattern": "Visual is low-resolution, out-of-focus or lacking sharp edge definition.",
+      "lesson_learned": "When dialogue covers 'সাধারণ মানুষ হয়তো ভাবেন মহাকাশের গভীর থেকে আসা রহস্যময় রেডি...', ensure prompt explicitly anchors to: '8K Hasselblad H6D-100c medium format, razor-sharp optical focus, extreme macro documentary detail of Morning mist rollin...'",
+      "first_shot_rules": [
+        "Strictly avoid past failure mode: Visual is low-resolution, out-of-focus or lacking sharp edge definition.",
+        "Ensure concrete noun is prioritized over decorative adjectives."
+      ],
+      "negative_armor": "unrelated stock elements, modern artifacts, fantasy cgi"
+    },
+    {
+      "id": "EVO-MEM-1687",
+      "domain": "Distilled Reflexion (Score: 30.0)",
+      "flaw_pattern": "Visual is low-resolution, out-of-focus or lacking sharp edge definition.",
+      "lesson_learned": "When dialogue covers 'সাধারণ মানুষ হয়তো ভাবেন মহাকাশের গভীর থেকে আসা রহস্যময় রেডি...', ensure prompt explicitly anchors to: '8K Hasselblad H6D-100c medium format, razor-sharp optical focus, extreme macro documentary detail of Morning mist rollin...'",
+      "first_shot_rules": [
+        "Strictly avoid past failure mode: Visual is low-resolution, out-of-focus or lacking sharp edge definition.",
+        "Ensure concrete noun is prioritized over decorative adjectives."
+      ],
+      "negative_armor": "unrelated stock elements, modern artifacts, fantasy cgi"
+    },
+    {
+      "id": "EVO-MEM-1688",
+      "domain": "Distilled Reflexion (Score: 30.0)",
+      "flaw_pattern": "Visual is low-resolution, out-of-focus or lacking sharp edge definition.",
+      "lesson_learned": "When dialogue covers 'এখন প্রশ্ন হলো—প্রকৃতি বা প্রকৌশলের কোন জাদুকরী নিয়মে মহাকাশ...', ensure prompt explicitly anchors to: '8K Hasselblad H6D-100c medium format, razor-sharp optical focus, extreme macro documentary detail of Dramatic atmospheri...'",
+      "first_shot_rules": [
+        "Strictly avoid past failure mode: Visual is low-resolution, out-of-focus or lacking sharp edge definition.",
+        "Ensure concrete noun is prioritized over decorative adjectives."
+      ],
+      "negative_armor": "unrelated stock elements, modern artifacts, fantasy cgi"
+    },
+    {
+      "id": "EVO-MEM-1689",
+      "domain": "Distilled Reflexion (Score: 30.0)",
+      "flaw_pattern": "Visual is low-resolution, out-of-focus or lacking sharp edge definition.",
+      "lesson_learned": "When dialogue covers 'এখন প্রশ্ন হলো—প্রকৃতি বা প্রকৌশলের কোন জাদুকরী নিয়মে মহাকাশ...', ensure prompt explicitly anchors to: '8K Hasselblad H6D-100c medium format, razor-sharp optical focus, extreme macro documentary detail of Dramatic atmospheri...'",
+      "first_shot_rules": [
+        "Strictly avoid past failure mode: Visual is low-resolution, out-of-focus or lacking sharp edge definition.",
+        "Ensure concrete noun is prioritized over decorative adjectives."
+      ],
+      "negative_armor": "unrelated stock elements, modern artifacts, fantasy cgi"
+    },
+    {
+      "id": "EVO-MEM-1690",
+      "domain": "Distilled Reflexion (Score: 30.0)",
+      "flaw_pattern": "Visual is low-resolution, out-of-focus or lacking sharp edge definition.",
+      "lesson_learned": "When dialogue covers 'এখন প্রশ্ন হলো—প্রকৃতি বা প্রকৌশলের কোন জাদুকরী নিয়মে মহাকাশ...', ensure prompt explicitly anchors to: '8K Hasselblad H6D-100c medium format, razor-sharp optical focus, extreme macro documentary detail of Dramatic atmospheri...'",
+      "first_shot_rules": [
+        "Strictly avoid past failure mode: Visual is low-resolution, out-of-focus or lacking sharp edge definition.",
+        "Ensure concrete noun is prioritized over decorative adjectives."
+      ],
+      "negative_armor": "unrelated stock elements, modern artifacts, fantasy cgi"
+    },
+    {
+      "id": "EVO-MEM-1691",
+      "domain": "Distilled Reflexion (Score: 30.0)",
+      "flaw_pattern": "Visual is low-resolution, out-of-focus or lacking sharp edge definition.",
+      "lesson_learned": "When dialogue covers 'এখন প্রশ্ন হলো—প্রকৃতি বা প্রকৌশলের কোন জাদুকরী নিয়মে মহাকাশ...', ensure prompt explicitly anchors to: '8K Hasselblad H6D-100c medium format, razor-sharp optical focus, extreme macro documentary detail of Dramatic atmospheri...'",
+      "first_shot_rules": [
+        "Strictly avoid past failure mode: Visual is low-resolution, out-of-focus or lacking sharp edge definition.",
+        "Ensure concrete noun is prioritized over decorative adjectives."
+      ],
+      "negative_armor": "unrelated stock elements, modern artifacts, fantasy cgi"
+    },
+    {
+      "id": "EVO-MEM-1692",
+      "domain": "Distilled Reflexion (Score: 30.0)",
+      "flaw_pattern": "Visual is low-resolution, out-of-focus or lacking sharp edge definition.",
+      "lesson_learned": "When dialogue covers 'এখন প্রশ্ন হলো—প্রকৃতি বা প্রকৌশলের কোন জাদুকরী নিয়মে মহাকাশ...', ensure prompt explicitly anchors to: '8K Hasselblad H6D-100c medium format, razor-sharp optical focus, extreme macro documentary detail of Dramatic atmospheri...'",
+      "first_shot_rules": [
+        "Strictly avoid past failure mode: Visual is low-resolution, out-of-focus or lacking sharp edge definition.",
+        "Ensure concrete noun is prioritized over decorative adjectives."
+      ],
+      "negative_armor": "unrelated stock elements, modern artifacts, fantasy cgi"
+    },
+    {
+      "id": "EVO-MEM-1693",
+      "domain": "Distilled Reflexion (Score: 30.0)",
+      "flaw_pattern": "Visual is low-resolution, out-of-focus or lacking sharp edge definition.",
+      "lesson_learned": "When dialogue covers 'এখন প্রশ্ন হলো—প্রকৃতি বা প্রকৌশলের কোন জাদুকরী নিয়মে মহাকাশ...', ensure prompt explicitly anchors to: '8K Hasselblad H6D-100c medium format, razor-sharp optical focus, extreme macro documentary detail of Dramatic atmospheri...'",
+      "first_shot_rules": [
+        "Strictly avoid past failure mode: Visual is low-resolution, out-of-focus or lacking sharp edge definition.",
+        "Ensure concrete noun is prioritized over decorative adjectives."
+      ],
+      "negative_armor": "unrelated stock elements, modern artifacts, fantasy cgi"
+    },
+    {
+      "id": "EVO-MEM-1694",
+      "domain": "Distilled Reflexion (Score: 10.0)",
+      "flaw_pattern": "The attached visual depicts a close-up product shot of a DSLR camera and manual lens on a table. This is completely irrelevant to the dialog",
+      "lesson_learned": "When dialogue covers 'প্রথম ধাপে দেখা যায়, মহাকাশের গভীর থেকে আসা রহস্যময় রেডিও স...', ensure prompt explicitly anchors to: 'Photorealistic 8K optical cinematography of High-resolution 35mm optical framing of the central structure of Mysterious ...'",
+      "first_shot_rules": [
+        "Strictly avoid past failure mode: The attached visual depicts a close-up product shot of a DSLR camera and manual ",
+        "Ensure concrete noun is prioritized over decorative adjectives."
+      ],
+      "negative_armor": "unrelated stock elements, modern artifacts, fantasy cgi"
+    },
+    {
+      "id": "EVO-MEM-1695",
+      "domain": "Distilled Reflexion (Score: 30.0)",
+      "flaw_pattern": "Visual is low-resolution, out-of-focus or lacking sharp edge definition.",
+      "lesson_learned": "When dialogue covers 'প্রথম ধাপে দেখা যায়, মহাকাশের গভীর থেকে আসা রহস্যময় রেডিও স...', ensure prompt explicitly anchors to: '8K Hasselblad H6D-100c medium format, razor-sharp optical focus, extreme macro documentary detail of High-resolution 35m...'",
+      "first_shot_rules": [
+        "Strictly avoid past failure mode: Visual is low-resolution, out-of-focus or lacking sharp edge definition.",
+        "Ensure concrete noun is prioritized over decorative adjectives."
+      ],
+      "negative_armor": "unrelated stock elements, modern artifacts, fantasy cgi"
+    },
+    {
+      "id": "EVO-MEM-1696",
+      "domain": "Distilled Reflexion (Score: 30.0)",
+      "flaw_pattern": "Visual is low-resolution, out-of-focus or lacking sharp edge definition.",
+      "lesson_learned": "When dialogue covers 'প্রথম ধাপে দেখা যায়, মহাকাশের গভীর থেকে আসা রহস্যময় রেডিও স...', ensure prompt explicitly anchors to: '8K Hasselblad H6D-100c medium format, razor-sharp optical focus, extreme macro documentary detail of High-resolution 35m...'",
+      "first_shot_rules": [
+        "Strictly avoid past failure mode: Visual is low-resolution, out-of-focus or lacking sharp edge definition.",
+        "Ensure concrete noun is prioritized over decorative adjectives."
+      ],
+      "negative_armor": "unrelated stock elements, modern artifacts, fantasy cgi"
+    },
+    {
+      "id": "EVO-MEM-1697",
+      "domain": "Distilled Reflexion (Score: 25.0)",
+      "flaw_pattern": "The visual displays a standard Canon RF 35mm camera lens on a plain brown background, which has zero connection to the spoken dialogue or vi",
+      "lesson_learned": "When dialogue covers 'প্রথম ধাপে দেখা যায়, মহাকাশের গভীর থেকে আসা রহস্যময় রেডিও স...', ensure prompt explicitly anchors to: 'Photorealistic 8K optical cinematography of a massive deep space radio telescope array receiving mysterious cosmic radio...'",
+      "first_shot_rules": [
+        "Strictly avoid past failure mode: The visual displays a standard Canon RF 35mm camera lens on a plain brown backgr",
+        "Ensure concrete noun is prioritized over decorative adjectives."
+      ],
+      "negative_armor": "unrelated stock elements, modern artifacts, fantasy cgi"
+    },
+    {
+      "id": "EVO-MEM-1698",
+      "domain": "Distilled Reflexion (Score: 30.0)",
+      "flaw_pattern": "Visual is low-resolution, out-of-focus or lacking sharp edge definition.",
+      "lesson_learned": "When dialogue covers 'প্রথম ধাপে দেখা যায়, মহাকাশের গভীর থেকে আসা রহস্যময় রেডিও স...', ensure prompt explicitly anchors to: '8K Hasselblad H6D-100c medium format, razor-sharp optical focus, extreme macro documentary detail of High-resolution 35m...'",
+      "first_shot_rules": [
+        "Strictly avoid past failure mode: Visual is low-resolution, out-of-focus or lacking sharp edge definition.",
+        "Ensure concrete noun is prioritized over decorative adjectives."
+      ],
+      "negative_armor": "unrelated stock elements, modern artifacts, fantasy cgi"
+    },
+    {
+      "id": "EVO-MEM-1699",
+      "domain": "Distilled Reflexion (Score: 30.0)",
+      "flaw_pattern": "Visual is low-resolution, out-of-focus or lacking sharp edge definition.",
+      "lesson_learned": "When dialogue covers 'প্রথম ধাপে দেখা যায়, মহাকাশের গভীর থেকে আসা রহস্যময় রেডিও স...', ensure prompt explicitly anchors to: '8K Hasselblad H6D-100c medium format, razor-sharp optical focus, extreme macro documentary detail of High-resolution 35m...'",
+      "first_shot_rules": [
+        "Strictly avoid past failure mode: Visual is low-resolution, out-of-focus or lacking sharp edge definition.",
+        "Ensure concrete noun is prioritized over decorative adjectives."
+      ],
+      "negative_armor": "unrelated stock elements, modern artifacts, fantasy cgi"
+    },
+    {
+      "id": "EVO-MEM-1700",
+      "domain": "Distilled Reflexion (Score: 30.0)",
+      "flaw_pattern": "Visual is low-resolution, out-of-focus or lacking sharp edge definition.",
+      "lesson_learned": "When dialogue covers 'দ্বিতীয় ধাপে যখন আমরা এর ভেতরের কার্যপ্রণালী পর্যবেক্ষণ করি,...', ensure prompt explicitly anchors to: '8K Hasselblad H6D-100c medium format, razor-sharp optical focus, extreme macro documentary detail of Dramatic clouds gat...'",
+      "first_shot_rules": [
+        "Strictly avoid past failure mode: Visual is low-resolution, out-of-focus or lacking sharp edge definition.",
+        "Ensure concrete noun is prioritized over decorative adjectives."
+      ],
+      "negative_armor": "unrelated stock elements, modern artifacts, fantasy cgi"
+    },
+    {
+      "id": "EVO-MEM-1701",
+      "domain": "Distilled Reflexion (Score: 30.0)",
+      "flaw_pattern": "Visual is low-resolution, out-of-focus or lacking sharp edge definition.",
+      "lesson_learned": "When dialogue covers 'দ্বিতীয় ধাপে যখন আমরা এর ভেতরের কার্যপ্রণালী পর্যবেক্ষণ করি,...', ensure prompt explicitly anchors to: '8K Hasselblad H6D-100c medium format, razor-sharp optical focus, extreme macro documentary detail of Dramatic clouds gat...'",
+      "first_shot_rules": [
+        "Strictly avoid past failure mode: Visual is low-resolution, out-of-focus or lacking sharp edge definition.",
+        "Ensure concrete noun is prioritized over decorative adjectives."
+      ],
+      "negative_armor": "unrelated stock elements, modern artifacts, fantasy cgi"
+    },
+    {
+      "id": "EVO-MEM-1702",
+      "domain": "Distilled Reflexion (Score: 30.0)",
+      "flaw_pattern": "Visual is low-resolution, out-of-focus or lacking sharp edge definition.",
+      "lesson_learned": "When dialogue covers 'দ্বিতীয় ধাপে যখন আমরা এর ভেতরের কার্যপ্রণালী পর্যবেক্ষণ করি,...', ensure prompt explicitly anchors to: '8K Hasselblad H6D-100c medium format, razor-sharp optical focus, extreme macro documentary detail of Dramatic clouds gat...'",
+      "first_shot_rules": [
+        "Strictly avoid past failure mode: Visual is low-resolution, out-of-focus or lacking sharp edge definition.",
+        "Ensure concrete noun is prioritized over decorative adjectives."
+      ],
+      "negative_armor": "unrelated stock elements, modern artifacts, fantasy cgi"
+    },
+    {
+      "id": "EVO-MEM-1703",
+      "domain": "Distilled Reflexion (Score: 30.0)",
+      "flaw_pattern": "Visual is low-resolution, out-of-focus or lacking sharp edge definition.",
+      "lesson_learned": "When dialogue covers 'দ্বিতীয় ধাপে যখন আমরা এর ভেতরের কার্যপ্রণালী পর্যবেক্ষণ করি,...', ensure prompt explicitly anchors to: '8K Hasselblad H6D-100c medium format, razor-sharp optical focus, extreme macro documentary detail of Dramatic clouds gat...'",
+      "first_shot_rules": [
+        "Strictly avoid past failure mode: Visual is low-resolution, out-of-focus or lacking sharp edge definition.",
+        "Ensure concrete noun is prioritized over decorative adjectives."
+      ],
+      "negative_armor": "unrelated stock elements, modern artifacts, fantasy cgi"
+    },
+    {
+      "id": "EVO-MEM-1704",
+      "domain": "Distilled Reflexion (Score: 30.0)",
+      "flaw_pattern": "Visual is low-resolution, out-of-focus or lacking sharp edge definition.",
+      "lesson_learned": "When dialogue covers 'দ্বিতীয় ধাপে যখন আমরা এর ভেতরের কার্যপ্রণালী পর্যবেক্ষণ করি,...', ensure prompt explicitly anchors to: '8K Hasselblad H6D-100c medium format, razor-sharp optical focus, extreme macro documentary detail of Dramatic clouds gat...'",
+      "first_shot_rules": [
+        "Strictly avoid past failure mode: Visual is low-resolution, out-of-focus or lacking sharp edge definition.",
+        "Ensure concrete noun is prioritized over decorative adjectives."
+      ],
+      "negative_armor": "unrelated stock elements, modern artifacts, fantasy cgi"
+    },
+    {
+      "id": "EVO-MEM-1705",
+      "domain": "Distilled Reflexion (Score: 30.0)",
+      "flaw_pattern": "Visual is low-resolution, out-of-focus or lacking sharp edge definition.",
+      "lesson_learned": "When dialogue covers 'দ্বিতীয় ধাপে যখন আমরা এর ভেতরের কার্যপ্রণালী পর্যবেক্ষণ করি,...', ensure prompt explicitly anchors to: '8K Hasselblad H6D-100c medium format, razor-sharp optical focus, extreme macro documentary detail of Dramatic clouds gat...'",
+      "first_shot_rules": [
+        "Strictly avoid past failure mode: Visual is low-resolution, out-of-focus or lacking sharp edge definition.",
+        "Ensure concrete noun is prioritized over decorative adjectives."
+      ],
+      "negative_armor": "unrelated stock elements, modern artifacts, fantasy cgi"
+    },
+    {
+      "id": "EVO-MEM-1706",
+      "domain": "Distilled Reflexion (Score: 30.0)",
+      "flaw_pattern": "Visual is low-resolution, out-of-focus or lacking sharp edge definition.",
+      "lesson_learned": "When dialogue covers 'একটু কল্পনা করে দেখুন, মহাকাশের গভীর থেকে আসা রহস্যময় রেডিও...', ensure prompt explicitly anchors to: '8K Hasselblad H6D-100c medium format, razor-sharp optical focus, extreme macro documentary detail of Surrounding operati...'",
+      "first_shot_rules": [
+        "Strictly avoid past failure mode: Visual is low-resolution, out-of-focus or lacking sharp edge definition.",
+        "Ensure concrete noun is prioritized over decorative adjectives."
+      ],
+      "negative_armor": "unrelated stock elements, modern artifacts, fantasy cgi"
+    },
+    {
+      "id": "EVO-MEM-1707",
+      "domain": "Distilled Reflexion (Score: 30.0)",
+      "flaw_pattern": "Visual is low-resolution, out-of-focus or lacking sharp edge definition.",
+      "lesson_learned": "When dialogue covers 'একটু কল্পনা করে দেখুন, মহাকাশের গভীর থেকে আসা রহস্যময় রেডিও...', ensure prompt explicitly anchors to: '8K Hasselblad H6D-100c medium format, razor-sharp optical focus, extreme macro documentary detail of Surrounding operati...'",
+      "first_shot_rules": [
+        "Strictly avoid past failure mode: Visual is low-resolution, out-of-focus or lacking sharp edge definition.",
+        "Ensure concrete noun is prioritized over decorative adjectives."
+      ],
+      "negative_armor": "unrelated stock elements, modern artifacts, fantasy cgi"
+    },
+    {
+      "id": "EVO-MEM-1708",
+      "domain": "Distilled Reflexion (Score: 30.0)",
+      "flaw_pattern": "Visual is low-resolution, out-of-focus or lacking sharp edge definition.",
+      "lesson_learned": "When dialogue covers 'একটু কল্পনা করে দেখুন, মহাকাশের গভীর থেকে আসা রহস্যময় রেডিও...', ensure prompt explicitly anchors to: '8K Hasselblad H6D-100c medium format, razor-sharp optical focus, extreme macro documentary detail of Surrounding operati...'",
+      "first_shot_rules": [
+        "Strictly avoid past failure mode: Visual is low-resolution, out-of-focus or lacking sharp edge definition.",
+        "Ensure concrete noun is prioritized over decorative adjectives."
+      ],
+      "negative_armor": "unrelated stock elements, modern artifacts, fantasy cgi"
+    },
+    {
+      "id": "EVO-MEM-1709",
+      "domain": "Distilled Reflexion (Score: 30.0)",
+      "flaw_pattern": "Visual is low-resolution, out-of-focus or lacking sharp edge definition.",
+      "lesson_learned": "When dialogue covers 'একটু কল্পনা করে দেখুন, মহাকাশের গভীর থেকে আসা রহস্যময় রেডিও...', ensure prompt explicitly anchors to: '8K Hasselblad H6D-100c medium format, razor-sharp optical focus, extreme macro documentary detail of Surrounding operati...'",
+      "first_shot_rules": [
+        "Strictly avoid past failure mode: Visual is low-resolution, out-of-focus or lacking sharp edge definition.",
+        "Ensure concrete noun is prioritized over decorative adjectives."
+      ],
+      "negative_armor": "unrelated stock elements, modern artifacts, fantasy cgi"
+    },
+    {
+      "id": "EVO-MEM-1710",
+      "domain": "Distilled Reflexion (Score: 30.0)",
+      "flaw_pattern": "Visual is low-resolution, out-of-focus or lacking sharp edge definition.",
+      "lesson_learned": "When dialogue covers 'একটু কল্পনা করে দেখুন, মহাকাশের গভীর থেকে আসা রহস্যময় রেডিও...', ensure prompt explicitly anchors to: '8K Hasselblad H6D-100c medium format, razor-sharp optical focus, extreme macro documentary detail of Surrounding operati...'",
+      "first_shot_rules": [
+        "Strictly avoid past failure mode: Visual is low-resolution, out-of-focus or lacking sharp edge definition.",
+        "Ensure concrete noun is prioritized over decorative adjectives."
+      ],
+      "negative_armor": "unrelated stock elements, modern artifacts, fantasy cgi"
+    },
+    {
+      "id": "EVO-MEM-1711",
+      "domain": "Distilled Reflexion (Score: 30.0)",
+      "flaw_pattern": "Visual is low-resolution, out-of-focus or lacking sharp edge definition.",
+      "lesson_learned": "When dialogue covers 'একটু কল্পনা করে দেখুন, মহাকাশের গভীর থেকে আসা রহস্যময় রেডিও...', ensure prompt explicitly anchors to: '8K Hasselblad H6D-100c medium format, razor-sharp optical focus, extreme macro documentary detail of Surrounding operati...'",
+      "first_shot_rules": [
+        "Strictly avoid past failure mode: Visual is low-resolution, out-of-focus or lacking sharp edge definition.",
+        "Ensure concrete noun is prioritized over decorative adjectives."
+      ],
+      "negative_armor": "unrelated stock elements, modern artifacts, fantasy cgi"
+    },
+    {
+      "id": "EVO-MEM-1712",
+      "domain": "Distilled Reflexion (Score: 10.0)",
+      "flaw_pattern": "Visual depicts a person (cameraman) holding a modern cinema camera inside a room, which completely violates the topic of 'Mysterious Space R",
+      "lesson_learned": "When dialogue covers 'গবেষক ও বিজ্ঞানীদের দীর্ঘ অনুসন্ধানে উঠে এসেছে, মহাকাশের গভী...', ensure prompt explicitly anchors to: 'Photorealistic 8K optical cinematography of a massive radio telescope dish pointing towards deep space, surrounded by co...'",
+      "first_shot_rules": [
+        "Strictly avoid past failure mode: Visual depicts a person (cameraman) holding a modern cinema camera inside a room",
+        "Ensure concrete noun is prioritized over decorative adjectives."
+      ],
+      "negative_armor": "unrelated stock elements, modern artifacts, fantasy cgi"
+    },
+    {
+      "id": "EVO-MEM-1713",
+      "domain": "Distilled Reflexion (Score: 30.0)",
+      "flaw_pattern": "Visual is low-resolution, out-of-focus or lacking sharp edge definition.",
+      "lesson_learned": "When dialogue covers 'গবেষক ও বিজ্ঞানীদের দীর্ঘ অনুসন্ধানে উঠে এসেছে, মহাকাশের গভী...', ensure prompt explicitly anchors to: '8K Hasselblad H6D-100c medium format, razor-sharp optical focus, extreme macro documentary detail of Low-angle heroic ci...'",
+      "first_shot_rules": [
+        "Strictly avoid past failure mode: Visual is low-resolution, out-of-focus or lacking sharp edge definition.",
+        "Ensure concrete noun is prioritized over decorative adjectives."
+      ],
+      "negative_armor": "unrelated stock elements, modern artifacts, fantasy cgi"
+    },
+    {
+      "id": "EVO-MEM-1714",
+      "domain": "Distilled Reflexion (Score: 30.0)",
+      "flaw_pattern": "Visual is low-resolution, out-of-focus or lacking sharp edge definition.",
+      "lesson_learned": "When dialogue covers 'গবেষক ও বিজ্ঞানীদের দীর্ঘ অনুসন্ধানে উঠে এসেছে, মহাকাশের গভী...', ensure prompt explicitly anchors to: '8K Hasselblad H6D-100c medium format, razor-sharp optical focus, extreme macro documentary detail of Low-angle heroic ci...'",
+      "first_shot_rules": [
+        "Strictly avoid past failure mode: Visual is low-resolution, out-of-focus or lacking sharp edge definition.",
+        "Ensure concrete noun is prioritized over decorative adjectives."
+      ],
+      "negative_armor": "unrelated stock elements, modern artifacts, fantasy cgi"
+    },
+    {
+      "id": "EVO-MEM-1715",
+      "domain": "Distilled Reflexion (Score: 10.0)",
+      "flaw_pattern": "The attached visual completely violates the visual contract. Instead of displaying a deep space radio astronomy environment, a telescope, or",
+      "lesson_learned": "When dialogue covers 'গবেষক ও বিজ্ঞানীদের দীর্ঘ অনুসন্ধানে উঠে এসেছে, মহাকাশের গভী...', ensure prompt explicitly anchors to: 'Photorealistic 8K optical cinematography of a massive radio telescope dish gazing toward deep space under a dramatic sta...'",
+      "first_shot_rules": [
+        "Strictly avoid past failure mode: The attached visual completely violates the visual contract. Instead of displayi",
+        "Ensure concrete noun is prioritized over decorative adjectives."
+      ],
+      "negative_armor": "unrelated stock elements, modern artifacts, fantasy cgi"
+    },
+    {
+      "id": "EVO-MEM-1716",
+      "domain": "Distilled Reflexion (Score: 10.0)",
+      "flaw_pattern": "The visual depicts a person studying inside a modern library at night, which completely violates the required topic of 'Mysterious Space Rad",
+      "lesson_learned": "When dialogue covers 'বিশেষ করে এর কেন্দ্রীয় অংশটির নির্ভুল পরিমাপ প্রমাণ করে, মহা...', ensure prompt explicitly anchors to: 'Photorealistic 8K optical cinematography of an authentic deep space radio astronomy observatory at twilight, capturing t...'",
+      "first_shot_rules": [
+        "Strictly avoid past failure mode: The visual depicts a person studying inside a modern library at night, which com",
+        "Ensure concrete noun is prioritized over decorative adjectives."
+      ],
+      "negative_armor": "unrelated stock elements, modern artifacts, fantasy cgi"
+    },
+    {
+      "id": "EVO-MEM-1717",
+      "domain": "Distilled Reflexion (Score: 30.0)",
+      "flaw_pattern": "Visual is low-resolution, out-of-focus or lacking sharp edge definition.",
+      "lesson_learned": "When dialogue covers 'বিশেষ করে এর কেন্দ্রীয় অংশটির নির্ভুল পরিমাপ প্রমাণ করে, মহা...', ensure prompt explicitly anchors to: '8K Hasselblad H6D-100c medium format, razor-sharp optical focus, extreme macro documentary detail of Photorealistic 8K t...'",
+      "first_shot_rules": [
+        "Strictly avoid past failure mode: Visual is low-resolution, out-of-focus or lacking sharp edge definition.",
+        "Ensure concrete noun is prioritized over decorative adjectives."
+      ],
+      "negative_armor": "unrelated stock elements, modern artifacts, fantasy cgi"
+    },
+    {
+      "id": "EVO-MEM-1718",
+      "domain": "Distilled Reflexion (Score: 30.0)",
+      "flaw_pattern": "Visual is low-resolution, out-of-focus or lacking sharp edge definition.",
+      "lesson_learned": "When dialogue covers 'বিশেষ করে এর কেন্দ্রীয় অংশটির নির্ভুল পরিমাপ প্রমাণ করে, মহা...', ensure prompt explicitly anchors to: '8K Hasselblad H6D-100c medium format, razor-sharp optical focus, extreme macro documentary detail of Photorealistic 8K t...'",
+      "first_shot_rules": [
+        "Strictly avoid past failure mode: Visual is low-resolution, out-of-focus or lacking sharp edge definition.",
+        "Ensure concrete noun is prioritized over decorative adjectives."
+      ],
+      "negative_armor": "unrelated stock elements, modern artifacts, fantasy cgi"
+    },
+    {
+      "id": "EVO-MEM-1719",
+      "domain": "Distilled Reflexion (Score: 15.0)",
+      "flaw_pattern": "The visual depicts a mundane desk study setup with a notebook, pen, calculator, and papers, which completely fails to match the dialogue abo",
+      "lesson_learned": "When dialogue covers 'বিশেষ করে এর কেন্দ্রীয় অংশটির নির্ভুল পরিমাপ প্রমাণ করে, মহা...', ensure prompt explicitly anchors to: 'Photorealistic 8K optical cinematography of a deep space radio telescope dish array under a twilight sky, capturing cosm...'",
+      "first_shot_rules": [
+        "Strictly avoid past failure mode: The visual depicts a mundane desk study setup with a notebook, pen, calculator, ",
+        "Ensure concrete noun is prioritized over decorative adjectives."
+      ],
+      "negative_armor": "unrelated stock elements, modern artifacts, fantasy cgi"
+    },
+    {
+      "id": "EVO-MEM-1720",
+      "domain": "Distilled Reflexion (Score: 30.0)",
+      "flaw_pattern": "Visual is low-resolution, out-of-focus or lacking sharp edge definition.",
+      "lesson_learned": "When dialogue covers 'বিশেষ করে এর কেন্দ্রীয় অংশটির নির্ভুল পরিমাপ প্রমাণ করে, মহা...', ensure prompt explicitly anchors to: '8K Hasselblad H6D-100c medium format, razor-sharp optical focus, extreme macro documentary detail of Photorealistic 8K t...'",
+      "first_shot_rules": [
+        "Strictly avoid past failure mode: Visual is low-resolution, out-of-focus or lacking sharp edge definition.",
+        "Ensure concrete noun is prioritized over decorative adjectives."
+      ],
+      "negative_armor": "unrelated stock elements, modern artifacts, fantasy cgi"
+    },
+    {
+      "id": "EVO-MEM-1721",
+      "domain": "Distilled Reflexion (Score: 30.0)",
+      "flaw_pattern": "Visual is low-resolution, out-of-focus or lacking sharp edge definition.",
+      "lesson_learned": "When dialogue covers 'বিশেষ করে এর কেন্দ্রীয় অংশটির নির্ভুল পরিমাপ প্রমাণ করে, মহা...', ensure prompt explicitly anchors to: '8K Hasselblad H6D-100c medium format, razor-sharp optical focus, extreme macro documentary detail of Photorealistic 8K t...'",
+      "first_shot_rules": [
+        "Strictly avoid past failure mode: Visual is low-resolution, out-of-focus or lacking sharp edge definition.",
+        "Ensure concrete noun is prioritized over decorative adjectives."
+      ],
+      "negative_armor": "unrelated stock elements, modern artifacts, fantasy cgi"
+    },
+    {
+      "id": "EVO-MEM-1722",
+      "domain": "Distilled Reflexion (Score: 20.0)",
+      "flaw_pattern": "ভিজুয়ালে একটি সাধারণ জলাশয়ে গাছের প্রতিফলন দেখা যাচ্ছে, যা ডায়ালগের 'মহাকাশের গভীর থেকে আসা রহস্যময় রেডিও সংকেত' বা 'ওয়াও সিগন্যাল' (My",
+      "lesson_learned": "When dialogue covers 'কিন্তু এখানে লুকিয়ে থাকা সবচেয়ে অবিশ্বাস্য মোড়টি হলো—মহাকাশে...', ensure prompt explicitly anchors to: 'Photorealistic 8K optical cinematography of Reflective ground or water surface mirroring the authentic cosmic waveform o...'",
+      "first_shot_rules": [
+        "Strictly avoid past failure mode: ভিজুয়ালে একটি সাধারণ জলাশয়ে গাছের প্রতিফলন দেখা যাচ্ছে, যা ডায়ালগের 'মহাকাশের",
+        "Ensure concrete noun is prioritized over decorative adjectives."
+      ],
+      "negative_armor": "unrelated stock elements, modern artifacts, fantasy cgi"
+    },
+    {
+      "id": "EVO-MEM-1723",
+      "domain": "Distilled Reflexion (Score: 30.0)",
+      "flaw_pattern": "Visual is low-resolution, out-of-focus or lacking sharp edge definition.",
+      "lesson_learned": "When dialogue covers 'কিন্তু এখানে লুকিয়ে থাকা সবচেয়ে অবিশ্বাস্য মোড়টি হলো—মহাকাশে...', ensure prompt explicitly anchors to: '8K Hasselblad H6D-100c medium format, razor-sharp optical focus, extreme macro documentary detail of Reflective ground o...'",
+      "first_shot_rules": [
+        "Strictly avoid past failure mode: Visual is low-resolution, out-of-focus or lacking sharp edge definition.",
+        "Ensure concrete noun is prioritized over decorative adjectives."
+      ],
+      "negative_armor": "unrelated stock elements, modern artifacts, fantasy cgi"
+    },
+    {
+      "id": "EVO-MEM-1724",
+      "domain": "Distilled Reflexion (Score: 30.0)",
+      "flaw_pattern": "Visual is low-resolution, out-of-focus or lacking sharp edge definition.",
+      "lesson_learned": "When dialogue covers 'কিন্তু এখানে লুকিয়ে থাকা সবচেয়ে অবিশ্বাস্য মোড়টি হলো—মহাকাশে...', ensure prompt explicitly anchors to: '8K Hasselblad H6D-100c medium format, razor-sharp optical focus, extreme macro documentary detail of Reflective ground o...'",
+      "first_shot_rules": [
+        "Strictly avoid past failure mode: Visual is low-resolution, out-of-focus or lacking sharp edge definition.",
+        "Ensure concrete noun is prioritized over decorative adjectives."
+      ],
+      "negative_armor": "unrelated stock elements, modern artifacts, fantasy cgi"
+    },
+    {
+      "id": "EVO-MEM-1725",
+      "domain": "Distilled Reflexion (Score: 10.0)",
+      "flaw_pattern": "প্রদত্ত ভিজ্যুয়ালটিতে 'মহাকাশের গভীর থেকে আসা রহস্যময় রেডিও সংকেত' বা 'ওয়াও সিগন্যাল' এর কোনো অস্তিত্ব নেই। এটি একটি সাধারণ রাস্তায় রাখা",
+      "lesson_learned": "When dialogue covers 'দিনের পর দিন হাজারো প্রতিকূলতা পেরিয়েও মহাকাশের গভীর থেকে আস...', ensure prompt explicitly anchors to: 'Photorealistic 8K optical cinematography of Slow cinematic camera track past the perimeter boundaries of Mysterious Spac...'",
+      "first_shot_rules": [
+        "Strictly avoid past failure mode: প্রদত্ত ভিজ্যুয়ালটিতে 'মহাকাশের গভীর থেকে আসা রহস্যময় রেডিও সংকেত' বা 'ওয়াও স",
+        "Ensure concrete noun is prioritized over decorative adjectives."
+      ],
+      "negative_armor": "unrelated stock elements, modern artifacts, fantasy cgi"
+    },
+    {
+      "id": "EVO-MEM-1726",
+      "domain": "Distilled Reflexion (Score: 30.0)",
+      "flaw_pattern": "Visual is low-resolution, out-of-focus or lacking sharp edge definition.",
+      "lesson_learned": "When dialogue covers 'দিনের পর দিন হাজারো প্রতিকূলতা পেরিয়েও মহাকাশের গভীর থেকে আস...', ensure prompt explicitly anchors to: '8K Hasselblad H6D-100c medium format, razor-sharp optical focus, extreme macro documentary detail of Slow cinematic came...'",
+      "first_shot_rules": [
+        "Strictly avoid past failure mode: Visual is low-resolution, out-of-focus or lacking sharp edge definition.",
+        "Ensure concrete noun is prioritized over decorative adjectives."
+      ],
+      "negative_armor": "unrelated stock elements, modern artifacts, fantasy cgi"
+    },
+    {
+      "id": "EVO-MEM-1727",
+      "domain": "Distilled Reflexion (Score: 30.0)",
+      "flaw_pattern": "Visual is low-resolution, out-of-focus or lacking sharp edge definition.",
+      "lesson_learned": "When dialogue covers 'দিনের পর দিন হাজারো প্রতিকূলতা পেরিয়েও মহাকাশের গভীর থেকে আস...', ensure prompt explicitly anchors to: '8K Hasselblad H6D-100c medium format, razor-sharp optical focus, extreme macro documentary detail of Slow cinematic came...'",
+      "first_shot_rules": [
+        "Strictly avoid past failure mode: Visual is low-resolution, out-of-focus or lacking sharp edge definition.",
+        "Ensure concrete noun is prioritized over decorative adjectives."
+      ],
+      "negative_armor": "unrelated stock elements, modern artifacts, fantasy cgi"
+    },
+    {
+      "id": "EVO-MEM-1728",
+      "domain": "Distilled Reflexion (Score: 0.0)",
+      "flaw_pattern": "প্রদত্ত ভিজ্যুয়ালটিতে একটি সামুদ্রিক পাখি (গাঙচিল) বা স্যাল এবং একটি সাধারণ রাস্তার দৃশ্য দেখা যাচ্ছে, যার সাথে 'ওয়াও সিগন্যাল' বা মহাকাশে",
+      "lesson_learned": "When dialogue covers 'দিনের পর দিন হাজারো প্রতিকূলতা পেরিয়েও মহাকাশের গভীর থেকে আস...', ensure prompt explicitly anchors to: 'Photorealistic 8K optical cinematography of a slow cinematic camera track past the perimeter boundaries of a Mysterious ...'",
+      "first_shot_rules": [
+        "Strictly avoid past failure mode: প্রদত্ত ভিজ্যুয়ালটিতে একটি সামুদ্রিক পাখি (গাঙচিল) বা স্যাল এবং একটি সাধারণ রাস",
+        "Ensure concrete noun is prioritized over decorative adjectives."
+      ],
+      "negative_armor": "unrelated stock elements, modern artifacts, fantasy cgi"
+    },
+    {
+      "id": "EVO-MEM-1729",
+      "domain": "Distilled Reflexion (Score: 30.0)",
+      "flaw_pattern": "Visual is low-resolution, out-of-focus or lacking sharp edge definition.",
+      "lesson_learned": "When dialogue covers 'দিনের পর দিন হাজারো প্রতিকূলতা পেরিয়েও মহাকাশের গভীর থেকে আস...', ensure prompt explicitly anchors to: '8K Hasselblad H6D-100c medium format, razor-sharp optical focus, extreme macro documentary detail of Slow cinematic came...'",
+      "first_shot_rules": [
+        "Strictly avoid past failure mode: Visual is low-resolution, out-of-focus or lacking sharp edge definition.",
+        "Ensure concrete noun is prioritized over decorative adjectives."
+      ],
+      "negative_armor": "unrelated stock elements, modern artifacts, fantasy cgi"
+    },
+    {
+      "id": "EVO-MEM-1730",
+      "domain": "Distilled Reflexion (Score: 30.0)",
+      "flaw_pattern": "Visual is low-resolution, out-of-focus or lacking sharp edge definition.",
+      "lesson_learned": "When dialogue covers 'দিনের পর দিন হাজারো প্রতিকূলতা পেরিয়েও মহাকাশের গভীর থেকে আস...', ensure prompt explicitly anchors to: '8K Hasselblad H6D-100c medium format, razor-sharp optical focus, extreme macro documentary detail of Slow cinematic came...'",
+      "first_shot_rules": [
+        "Strictly avoid past failure mode: Visual is low-resolution, out-of-focus or lacking sharp edge definition.",
+        "Ensure concrete noun is prioritized over decorative adjectives."
+      ],
+      "negative_armor": "unrelated stock elements, modern artifacts, fantasy cgi"
+    },
+    {
+      "id": "EVO-MEM-1731",
+      "domain": "Distilled Reflexion (Score: 50.0)",
+      "flaw_pattern": "The visual displays an anomalous spacecraft structure on a desolate terrain under a starry sky rather than the required 'Overhead Top-Down O",
+      "lesson_learned": "When dialogue covers 'এই অভাবনীয় ঘটনাটি সম্পর্কে আপনার দৃষ্টিভঙ্গি কী? পুরো বিষয়টি...', ensure prompt explicitly anchors to: 'Photorealistic 8K optical cinematography of Thought-provoking twilight shot of Mysterious Space Radio Signal under clear...'",
+      "first_shot_rules": [
+        "Strictly avoid past failure mode: The visual displays an anomalous spacecraft structure on a desolate terrain unde",
+        "Ensure concrete noun is prioritized over decorative adjectives."
+      ],
+      "negative_armor": "unrelated stock elements, modern artifacts, fantasy cgi"
+    },
+    {
+      "id": "EVO-MEM-1732",
+      "domain": "Distilled Reflexion (Score: 50.0)",
+      "flaw_pattern": "The visual still fails to meet the strict camera angle requirement of an 'Overhead Top-Down Orthographic View'. It shows a horizontal horizo",
+      "lesson_learned": "When dialogue covers 'এই অভাবনীয় ঘটনাটি সম্পর্কে আপনার দৃষ্টিভঙ্গি কী? পুরো বিষয়টি...', ensure prompt explicitly anchors to: 'Photorealistic 8K optical cinematography from an Overhead Top-Down Orthographic View of a Thought-provoking twilight sho...'",
+      "first_shot_rules": [
+        "Strictly avoid past failure mode: The visual still fails to meet the strict camera angle requirement of an 'Overhe",
+        "Ensure concrete noun is prioritized over decorative adjectives."
+      ],
+      "negative_armor": "unrelated stock elements, modern artifacts, fantasy cgi"
+    },
+    {
+      "id": "EVO-MEM-1733",
+      "domain": "Distilled Reflexion (Score: 50.0)",
+      "flaw_pattern": "The visual continues to fail the strict camera angle requirement of an 'Overhead Top-Down Orthographic View'. It displays an eye-level or si",
+      "lesson_learned": "When dialogue covers 'এই অভাবনীয় ঘটনাটি সম্পর্কে আপনার দৃষ্টিভঙ্গি কী? পুরো বিষয়টি...', ensure prompt explicitly anchors to: 'Strict Overhead Top-Down Orthographic View 8K cinematic documentary shot of Thought-provoking twilight shot of Mysteriou...'",
+      "first_shot_rules": [
+        "Strictly avoid past failure mode: The visual continues to fail the strict camera angle requirement of an 'Overhead",
+        "Ensure concrete noun is prioritized over decorative adjectives."
+      ],
+      "negative_armor": "unrelated stock elements, modern artifacts, fantasy cgi"
+    },
+    {
+      "id": "EVO-MEM-1734",
+      "domain": "Distilled Reflexion (Score: 50.0)",
+      "flaw_pattern": "The visual displays an anomalous spacecraft or structure on a terrain under a starry sky, but it fails to follow the strict pre-determined s",
+      "lesson_learned": "When dialogue covers 'এই অভাবনীয় ঘটনাটি সম্পর্কে আপনার দৃষ্টিভঙ্গি কী? পুরো বিষয়টি...', ensure prompt explicitly anchors to: 'Photorealistic 8K optical cinematography of Thought-provoking twilight shot of Mysterious Space Radio Signal under clear...'",
+      "first_shot_rules": [
+        "Strictly avoid past failure mode: The visual displays an anomalous spacecraft or structure on a terrain under a st",
+        "Ensure concrete noun is prioritized over decorative adjectives."
+      ],
+      "negative_armor": "unrelated stock elements, modern artifacts, fantasy cgi"
+    },
+    {
+      "id": "EVO-MEM-1735",
+      "domain": "Distilled Reflexion (Score: 50.0)",
+      "flaw_pattern": "The visual displays an alien landscape with a structure under a starry sky, but it fails to adhere to the strict pre-determined script visua",
+      "lesson_learned": "When dialogue covers 'এই অভাবনীয় ঘটনাটি সম্পর্কে আপনার দৃষ্টিভঙ্গি কী? পুরো বিষয়টি...', ensure prompt explicitly anchors to: 'Photorealistic 8K cinematic overhead top-down orthographic view of Thought-provoking twilight shot of Mysterious Space R...'",
+      "first_shot_rules": [
+        "Strictly avoid past failure mode: The visual displays an alien landscape with a structure under a starry sky, but ",
+        "Ensure concrete noun is prioritized over decorative adjectives."
+      ],
+      "negative_armor": "unrelated stock elements, modern artifacts, fantasy cgi"
+    },
+    {
+      "id": "EVO-MEM-1736",
+      "domain": "Distilled Reflexion (Score: 50.0)",
+      "flaw_pattern": "The visual displays an alien structure under a starry sky, but it completely fails to adhere to the mandated 'Overhead Top-Down Orthographic",
+      "lesson_learned": "When dialogue covers 'এই অভাবনীয় ঘটনাটি সম্পর্কে আপনার দৃষ্টিভঙ্গি কী? পুরো বিষয়টি...', ensure prompt explicitly anchors to: 'Photorealistic 8K overhead top-down orthographic view of a mysterious space radio signal anomaly under a clear starry sk...'",
+      "first_shot_rules": [
+        "Strictly avoid past failure mode: The visual displays an alien structure under a starry sky, but it completely fai",
+        "Ensure concrete noun is prioritized over decorative adjectives."
+      ],
+      "negative_armor": "unrelated stock elements, modern artifacts, fantasy cgi"
+    },
+    {
+      "id": "EVO-MEM-1737",
+      "domain": "Distilled Reflexion (Score: 10.0)",
+      "flaw_pattern": "The provided visual depicts 'De Majestic' building in Bandung (an architectural/street scene with Indonesian flags) which has zero relation ",
+      "lesson_learned": "When dialogue covers 'ভিডিওর তথ্যগুলো ভালো লাগলে লাইক এবং আমাদের পেইজ ও চ্যানেলে ফ...', ensure prompt explicitly anchors to: 'Photorealistic 8K optical cinematography of Final majestic cinematic tribute shot of Mysterious Space Radio Signal fadin...'",
+      "first_shot_rules": [
+        "Strictly avoid past failure mode: The provided visual depicts 'De Majestic' building in Bandung (an architectural/",
+        "Ensure concrete noun is prioritized over decorative adjectives."
+      ],
+      "negative_armor": "unrelated stock elements, modern artifacts, fantasy cgi"
+    },
+    {
+      "id": "EVO-MEM-1738",
+      "domain": "Distilled Reflexion (Score: 30.0)",
+      "flaw_pattern": "Visual is low-resolution, out-of-focus or lacking sharp edge definition.",
+      "lesson_learned": "When dialogue covers 'ভিডিওর তথ্যগুলো ভালো লাগলে লাইক এবং আমাদের পেইজ ও চ্যানেলে ফ...', ensure prompt explicitly anchors to: '8K Hasselblad H6D-100c medium format, razor-sharp optical focus, extreme macro documentary detail of Final majestic cine...'",
+      "first_shot_rules": [
+        "Strictly avoid past failure mode: Visual is low-resolution, out-of-focus or lacking sharp edge definition.",
+        "Ensure concrete noun is prioritized over decorative adjectives."
+      ],
+      "negative_armor": "unrelated stock elements, modern artifacts, fantasy cgi"
+    },
+    {
+      "id": "EVO-MEM-1739",
+      "domain": "Distilled Reflexion (Score: 30.0)",
+      "flaw_pattern": "Visual is low-resolution, out-of-focus or lacking sharp edge definition.",
+      "lesson_learned": "When dialogue covers 'ভিডিওর তথ্যগুলো ভালো লাগলে লাইক এবং আমাদের পেইজ ও চ্যানেলে ফ...', ensure prompt explicitly anchors to: '8K Hasselblad H6D-100c medium format, razor-sharp optical focus, extreme macro documentary detail of Final majestic cine...'",
+      "first_shot_rules": [
+        "Strictly avoid past failure mode: Visual is low-resolution, out-of-focus or lacking sharp edge definition.",
+        "Ensure concrete noun is prioritized over decorative adjectives."
+      ],
+      "negative_armor": "unrelated stock elements, modern artifacts, fantasy cgi"
+    },
+    {
+      "id": "EVO-MEM-1740",
+      "domain": "Distilled Reflexion (Score: 30.0)",
+      "flaw_pattern": "Visual is low-resolution, out-of-focus or lacking sharp edge definition.",
+      "lesson_learned": "When dialogue covers 'ভিডিওর তথ্যগুলো ভালো লাগলে লাইক এবং আমাদের পেইজ ও চ্যানেলে ফ...', ensure prompt explicitly anchors to: '8K Hasselblad H6D-100c medium format, razor-sharp optical focus, extreme macro documentary detail of Final majestic cine...'",
+      "first_shot_rules": [
+        "Strictly avoid past failure mode: Visual is low-resolution, out-of-focus or lacking sharp edge definition.",
+        "Ensure concrete noun is prioritized over decorative adjectives."
+      ],
+      "negative_armor": "unrelated stock elements, modern artifacts, fantasy cgi"
+    },
+    {
+      "id": "EVO-MEM-1741",
+      "domain": "Distilled Reflexion (Score: 30.0)",
+      "flaw_pattern": "Visual is low-resolution, out-of-focus or lacking sharp edge definition.",
+      "lesson_learned": "When dialogue covers 'ভিডিওর তথ্যগুলো ভালো লাগলে লাইক এবং আমাদের পেইজ ও চ্যানেলে ফ...', ensure prompt explicitly anchors to: '8K Hasselblad H6D-100c medium format, razor-sharp optical focus, extreme macro documentary detail of Final majestic cine...'",
+      "first_shot_rules": [
+        "Strictly avoid past failure mode: Visual is low-resolution, out-of-focus or lacking sharp edge definition.",
+        "Ensure concrete noun is prioritized over decorative adjectives."
+      ],
+      "negative_armor": "unrelated stock elements, modern artifacts, fantasy cgi"
+    },
+    {
+      "id": "EVO-MEM-1742",
+      "domain": "Distilled Reflexion (Score: 30.0)",
+      "flaw_pattern": "Visual is low-resolution, out-of-focus or lacking sharp edge definition.",
+      "lesson_learned": "When dialogue covers 'ভিডিওর তথ্যগুলো ভালো লাগলে লাইক এবং আমাদের পেইজ ও চ্যানেলে ফ...', ensure prompt explicitly anchors to: '8K Hasselblad H6D-100c medium format, razor-sharp optical focus, extreme macro documentary detail of Final majestic cine...'",
+      "first_shot_rules": [
+        "Strictly avoid past failure mode: Visual is low-resolution, out-of-focus or lacking sharp edge definition.",
         "Ensure concrete noun is prioritized over decorative adjectives."
       ],
       "negative_armor": "unrelated stock elements, modern artifacts, fantasy cgi"

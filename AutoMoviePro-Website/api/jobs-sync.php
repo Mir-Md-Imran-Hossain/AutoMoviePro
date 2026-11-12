@@ -28,10 +28,11 @@ $channel = (string) ($data['channel_name'] ?? '');
 $uploadedAt = !empty($data['uploaded_at']) ? $data['uploaded_at'] : null;
 $meta = isset($data['meta']) ? json_encode($data['meta'], JSON_UNESCAPED_UNICODE) : null;
 
+$nowVal = date('Y-m-d H:i:s');
 $stmt = $pdo->prepare(
     'INSERT INTO customer_jobs
      (customer_id, channel_name, video_type, title, description, platform, upload_status, uploaded_at, remote_url, local_path, meta_json, created_at)
-     VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, NOW())'
+     VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)'
 );
 $stmt->execute([
     (int) $customer['id'],
@@ -45,6 +46,7 @@ $stmt->execute([
     $remote !== '' ? $remote : null,
     $local !== '' ? $local : null,
     $meta,
+    $nowVal,
 ]);
 
 $jobId = (int) $pdo->lastInsertId();

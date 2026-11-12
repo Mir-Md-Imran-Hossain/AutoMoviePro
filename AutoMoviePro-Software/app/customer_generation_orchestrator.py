@@ -28,6 +28,15 @@ from app.customer_production_plan import (
     load_production_plan,
 )
 
+
+# --- Phase 1: AutoMovie Pro Principal Agent Interceptor Hook ---
+try:
+    from pipeline.principal_agent import get_principal_agent
+    _PRINCIPAL_AGENT = get_principal_agent()
+except Exception:
+    _PRINCIPAL_AGENT = None
+# -------------------------------------------------------------
+
 CONTRACT_VERSION = "C06-D.1"
 
 EXECUTION_PHASES = (
@@ -260,10 +269,15 @@ def admit_generation(
             "plan": plan,
         }
 
-    lang = str(plan.get("language") or channel.get("lang_code") or "").strip()
-    entitled_lang = str(channel.get("lang_code") or channel.get("language") or lang).strip()
-    if lang and entitled_lang and lang.lower() != entitled_lang.lower():
-        blocks.append("language_entitlement_mismatch")
+    from pipeline.lang_config import is_localization_enabled
+    if not is_localization_enabled():
+        lang = "bn"
+        entitled_lang = "bn"
+    else:
+        lang = str(plan.get("language") or channel.get("lang_code") or "").strip()
+        entitled_lang = str(channel.get("lang_code") or channel.get("language") or lang).strip()
+        if lang and entitled_lang and lang.lower() != entitled_lang.lower():
+            blocks.append("language_entitlement_mismatch")
 
     if blocks:
         return {
@@ -276,12 +290,36 @@ def admit_generation(
         }
 
     snapshot = capture_immutable_snapshot(plan)
+
+    # Master Sentinel Gate 1 Hook
+    sentinel_audit = {}
+    try:
+        from pipeline.master_sentinel_agent import Agent_ScriptRetention
+        script_text = ""
+        beats = plan.get("dialogue_beats") or plan.get("beats") or []
+        if isinstance(beats, list):
+            script_text = " ".join(str(b.get("dialogue") or b.get("text") or "") for b in beats if isinstance(b, dict))
+        if not script_text and plan.get("script"):
+            script_text = str(plan.get("script"))
+        if script_text:
+            sentinel_script = Agent_ScriptRetention()
+            audit_res = sentinel_script.audit_script(script_text, niche=str(plan.get("niche") or "General"))
+            sentinel_audit["gate_1_script"] = {
+                "hook_score": audit_res.hook_score,
+                "robotic_score": audit_res.robotic_score,
+                "passed": audit_res.passed,
+                "attempt_count": audit_res.attempt_count,
+            }
+    except Exception:
+        pass
+
     return {
         "ok": True,
         "status": "ADMITTED",
         "plan": plan,
         "snapshot": snapshot,
         "readiness": readiness,
+        "sentinel_audit": sentinel_audit,
     }
 
 
@@ -635,6 +673,12 @@ def evaluate_false_success(
 
 
 def _set_phase(job_id, phase, detail=""):
+    # Principal Agent Non-Destructive Interception
+    if _PRINCIPAL_AGENT is not None:
+        try:
+            _PRINCIPAL_AGENT.intercept_generation_phase(str(job_id), str(phase), {"detail": detail})
+        except Exception:
+            pass
     state = PHASE_TO_CUSTOMER_STATE.get(phase, "GENERATING")
     upload_map = {
         "QUEUED": "queued",

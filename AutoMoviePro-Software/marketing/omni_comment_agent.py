@@ -26,16 +26,24 @@ PROFILES_DIR = ROOT_DIR / "Profiles"
 # System Prompt Templates for Deep Contextual Replies
 BRAND_PROMPTS = {
     "automovie_pro_page": """
-You are the Senior Customer Relations Consultant for AutoMovie Pro (অটোমুভি প্রো).
-Brand Tone: Warm, highly courteous, professional, encouraging Bengali (বাংলা).
-Key Knowledge:
-- AutoMovie Pro is a 100% industrial automated video creation software.
-- Features: Auto trending topic research, deep emotional cinematic script writing, human-like voiceover, 50+ languages auto-dubbing, auto upload to Facebook & YouTube with viral SEO, tags, and thumbnails.
-- Pricing: Lifetime Deal is only ৳2,998 (one-time payment, no monthly fees). Additional language addon is ৳499.
-- Official Website: https://automoviepro.com
-- Helpline / WhatsApp: +880 1684-355055
-- Payment Agents: bKash (01756160993), Nagad (01611-824811), Personal (01717820998).
-Rule: Answer the user's specific question directly with immense clarity and polite emojis. If asking how to buy, guide them to the website or WhatsApp hotline.
+You are a Senior Customer Relations Consultant (100% human team member: Nirob / Tania / Ayesha) at the Dhaka Office for AutoMovie Pro (অটোমুভি প্রো).
+Brand Tone: Warm, highly courteous, deeply empathetic, persuasive, authentic Bengali (বাংলা). Strictly avoid robotic sounding phrases or claiming to be an AI.
+Key Knowledge & 9 Strategic Persuasion Pillars:
+1. Passive Income Dream: 90-95% of people want to earn passive income from home. AutoMovie Pro allows anyone to build a faceless video empire (YouTube Shorts, FB Reels, TikTok) with a 1-time investment (৳3,999) + free Google API setup, achieving sustainable income in 2-3 months.
+2. Effortless Greed Psychology: Zero camera appearance, zero microphone/voice recording, zero editing hassle. 100% automated script, voice, visual, subtitle, and multi-channel scheduling.
+3. Competitor Urgency & First-Mover Advantage: If the user delays, competitors will occupy and saturate the niche. Starting today locks in first-mover market share.
+4. Scarcity & 8-10 Days Price Hike: The special ৳3,999 lifetime deal is active for only 8-10 days before returning to the regular price of ৳10,000.
+5. 3rd Free International Language Bonus (9 Platforms): Today's order includes a 3rd language (Hindi/Urdu/English worth ৳499) completely FREE! 3 FB pages, 3 YT channels, 3 TikTok accounts simultaneously (9 platforms instead of 6, tripling passive income).
+6. ৳500 Token Booking System: If funds are temporarily tight today, visitors can lock today's ৳3,999 special offer and the 3rd language free bonus with a ৳500 booking fee, paying the balance later.
+7. Packages:
+   - Video Studio: ৳3,999 (Reg ৳10,000)
+   - FB Business Manager: ৳২,৯৯৯ (Reg ৳৮,৫০০)
+   - FB Profile & Page: ৳১,৯৯৯ (Reg ৳৫,৫০০)
+   - WhatsApp Suite: ৳৯৯৯ (Reg ৳২,৯৯৯)
+8. Transparent Cloud Server Lottery Algorithm: If anyone asks why yesterday was also called the last day, explain transparently that our cloud automation algorithm selects a small lucky visitor cohort daily; they were chosen again today, but once slots fill, the system gives no further chance.
+9. Official Hotline & WhatsApp: +8801968111593 | Website: https://automoviepro.com
+Payment Agents: bKash Agent (01756160993), Nagad Agent (01611-824811), Personal (01717820998).
+Rule: Answer the user's specific question directly with immense clarity, warm politeness, and structured emojis. If asking about price, feature, or hesitation, gracefully weave in the 3rd language bonus, 9 platforms income potential, and ৳500 booking option.
 """,
     "assunnah_path_page": """
 You are the Respectful Dawah & Community Assistant for As-Sunnah Path (আস-সুন্নাহ পাথ).
@@ -501,12 +509,16 @@ Please generate a deeply respectful, context-aware reply in Bengali:
         # Intelligent Heuristic Fallback based on Entity and Question Keywords
         lower_q = user_comment.lower()
         if "automovie" in entity_id:
-            if any(k in user_comment for k in ["দাম", "টাকা", "price", "কত"]):
-                return f"ধন্যবাদ {commenter_name}! 🌟 AutoMovie Pro-এর লাইফটাইম লাইসেন্স এখন সীমিত সময়ের বিশেষ অফারে মাত্র ৳২,৯৯৮ (আজীবন ব্যবহার, কোনো মাসিক সাবস্ক্রিপশন নেই)। বিস্তারিত দেখতে বা সরাসরি অর্ডার করতে ভিজিট করুন: https://automoviepro.com অথবা আমাদের হটলাইনে যোগাযোগ করুন: +880 1684-355055।"
-            elif any(k in user_comment for k in ["কিভাবে", "পেমেন্ট", "বিকাশ", "নগদ", "payment"]):
-                return f"প্রিয় {commenter_name}, বিকাশ এজেন্ট (01756160993) অথবা নগদ এজেন্টে (01611-824811) ক্যাশ আউট করে লাস্ট ৩-৪ ডিজিট আমাদের ওয়েবসাইটে সাবমিট করলেই তৎক্ষণাৎ সফটওয়্যার ডাউনলোড ও লাইসেন্স পেয়ে যাবেন। সহায়তার জন্য WhatsApp: +880 1684-355055।"
+            if any(k in lower_q or k in user_comment for k in ["গতকাল", "মিথ্যা", "লাস্ট ডেট", "আজকেও"]):
+                return f"ধন্যবাদ {commenter_name} চমৎকার প্রশ্নের জন্য! 🎯 আমাদের ক্লাউড অটোমেশন অ্যালগরিদম প্রতিদিন সীমিত সংখ্যক ভিজিটরকে স্পেশাল ৩,৯৯৯ অফারের সুযোগ দেয়। আপনি ভাগ্যবান যে আজও স্লটটি পেয়েছেন। তবে দ্রুত বুক না করলে কালকে হয়তো রেগুলার ১০,০০০ টাকা মূল্য দেখতে হবে। বিস্তারিত বা মাত্র ৫০০ টাকা দিয়ে অফার লক করতে ভিজিট করুন: https://automoviepro.com অথবা WhatsApp: +8801968111593।"
+            elif any(k in lower_q or k in user_comment for k in ["দাম", "টাকা", "price", "কত", "প্যাকেজ"]):
+                return f"ধন্যবাদ {commenter_name}! 🌟 AutoMovie Pro-এর ৪টি বিশেষ প্যাকেজ রয়েছে:\n১. 4K AI Video Studio: মাত্র ৳৩,৯৯৯ (রেগুলার ৳১০,০০০, ৩য় ভাষা ফ্রি বোনাস)\n২. FB Business Manager & Ad: মাত্র ৳২,৯৯৯ (রেগুলার ৳৮,৫০০)\n৩. FB Profile & Page Auto-Pilot: মাত্র ৳১,৯৯৯ (রেগুলার ৳৫,৫০০)\n৪. WAManager Pro (WhatsApp Suite): মাত্র ৳৯৯৯/বছর (রেগুলার ৳২,৯৯৯)\n\nআজ টাকা ম্যানেজে সাময়িক সমস্যা থাকলে মাত্র ৫০০ টাকা টোকেন বুকিং দিয়ে অফারটি লক করে রাখতে পারেন! বিস্তারিত জানতে ভিজিট করুন: https://automoviepro.com অথবা WhatsApp: +8801968111593।"
+            elif any(k in lower_q or k in user_comment for k in ["বুক", "book", "৫০০", "টোকেন", "লক"]):
+                return f"প্রিয় {commenter_name}, জ্বী অবশ্যই! আজকের ৩,৯৯৯ টাকার অফার ও ৩য় আন্তর্জাতিক ভাষা ফ্রি বোনাসটি হাতছাড়া না করতে মাত্র ৫০০ টাকা টোকেন বুকিং ফি দিয়ে অফারটি এখনই লক করে রাখতে পারবেন। পরবর্তীতে বাকি টাকা দিয়ে ফুল লাইসেন্স বুঝে নিতে পারবেন। অর্ডার লিংক: https://automoviepro.com/order.php অথবা WhatsApp: +8801968111593।"
+            elif any(k in lower_q or k in user_comment for k in ["কিভাবে", "পেমেন্ট", "বিকাশ", "নগদ", "payment", "অর্ডার"]):
+                return f"প্রিয় {commenter_name}, বিকাশ এজেন্ট (01756160993) অথবা নগদ এজেন্টে (01611-824811) ক্যাশ আউট করে ট্রানজেকশন আইডি আমাদের ওয়েবসাইটে সাবমিট করলেই ৫ মিনিটের মধ্যে সফটওয়্যার ও লাইসেন্স পেয়ে যাবেন। চাইলে আজ মাত্র ৫০০ টাকা দিয়েও বুকিং কনফার্ম করতে পারেন। সহায়তা: +8801968111593।"
             else:
-                return f"ধন্যবাদ {commenter_name} আপনার মূল্যবান মন্তব্যের জন্য! 🚀 অটোমুভি প্রো দিয়ে কোনো অভিজ্ঞতা ছাড়াই ফুল অটোপাইলটে ফেসবুক ও ইউটিউবের ভিডিও বানাতে পারবেন। যেকোনো তথ্যের জন্য ইনবক্স করুন অথবা আমাদের অফিসিয়াল সাইট automoviepro.com দেখুন।"
+                return f"ধন্যবাদ {commenter_name}! 🚀 AutoMovie Pro দিয়ে কোনো ক্যামেরা ফেস বা ভয়েস রেকর্ড ছাড়াই ফুল অটোপাইলটে ফেসবুক ও ইউটিউবের সিনেমাটিক ভিডিও বানিয়ে প্যাসিভ ইনকাম করতে পারবেন। আজকের স্পেশাল ডাবল বোনাসে ৩য় ভাষা ফ্রি পাচ্ছেন! বিস্তারিত জানতে ভিজিট করুন: https://automoviepro.com অথবা সরাসরি WhatsApp-এ কথা বলুন: +8801968111593।"
         else:
             # As-Sunnah Path
             if any(k in user_comment for k in ["মাশাআল্লাহ", "আলহামদুলিল্লাহ", "জাযাকাল্লাহ", "আমিন"]):
@@ -531,7 +543,7 @@ if __name__ == "__main__":
     # Test sample reply generation
     test_reply = OmniCommentReplyAgent.generate_reply(
         entity_id="automovie_pro_page",
-        post_context="ইন্ডাস্ট্রিয়াল ভিডিও অটোমেশন লাইফটাইম ডিল মাত্র ৳২৯৯৮",
+        post_context="ইন্ডাস্ট্রিয়াল ভিডিও অটোমেশন লাইফটাইম ডিল মাত্র ৳৩,৯৯৯",
         commenter_name="তানভীর আহমেদ",
         user_comment="ভাই এই সফটওয়্যারটির প্যাকেজ মূল্য কত এবং কিভাবে কিনব?"
     )

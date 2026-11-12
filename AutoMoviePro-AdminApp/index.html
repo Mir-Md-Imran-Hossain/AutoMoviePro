@@ -310,6 +310,10 @@
       return v.replace(/\/+$/, '');
     }
 
+    function getApiKey() {
+      return localStorage.getItem('amp_agent_key') || 'amp_agent_master_live_key_2026';
+    }
+
     function switchTab(tabName) {
       document.querySelectorAll('.tab-view').forEach(el => el.classList.remove('active'));
       document.querySelectorAll('.mobile-tab-item').forEach(el => el.classList.remove('active'));
@@ -326,7 +330,9 @@
     async function loadMetrics() {
       const base = getEndpoint();
       try {
-        const res = await fetch(`${base}/api/admin_mobile.php?action=metrics`);
+        const res = await fetch(`${base}/api/admin_mobile.php?action=metrics`, {
+          headers: { 'X-Agent-Key': getApiKey() }
+        });
         const data = await res.json();
         if (data.ok) {
           const m = data.metrics;
@@ -434,7 +440,7 @@
       try {
         const res = await fetch(`${base}/api/admin_mobile.php?action=wa_send`, {
           method: 'POST',
-          headers: {'Content-Type': 'application/json'},
+          headers: {'Content-Type': 'application/json', 'X-Agent-Key': getApiKey()},
           body: JSON.stringify({ phone: phone, message: msg })
         });
         const d = await res.json();
@@ -460,7 +466,7 @@
       try {
         const res = await fetch(`${base}/api/admin_mobile.php?action=killswitch`, {
           method: 'POST',
-          headers: {'Content-Type': 'application/json'},
+          headers: {'Content-Type': 'application/json', 'X-Agent-Key': getApiKey()},
           body: JSON.stringify({ customer_id: cid, status: newStatus })
         });
         const d = await res.json();
@@ -481,7 +487,7 @@
       try {
         const res = await fetch(`${base}/api/admin_mobile.php?action=broadcast`, {
           method: 'POST',
-          headers: {'Content-Type': 'application/json'},
+          headers: {'Content-Type': 'application/json', 'X-Agent-Key': getApiKey()},
           body: JSON.stringify({ notice: txt })
         });
         const d = await res.json();

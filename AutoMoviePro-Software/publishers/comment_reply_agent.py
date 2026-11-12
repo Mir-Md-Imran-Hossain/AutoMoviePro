@@ -75,6 +75,78 @@ def simulate_typing_delay(reply_text: str, min_delay: float = 1.0, max_delay: fl
     return delay
 
 
+AUTHORIZED_DOMAINS = [
+    "automoviepro.com",
+    "www.automoviepro.com",
+    "facebook.com",
+    "youtube.com",
+    "youtu.be",
+]
+
+SUSPICIOUS_SHORTENERS = [
+    r"bit\.ly", r"tinyurl\.com", r"t\.me", r"wa\.me", r"telegram\.me",
+    r"chat\.whatsapp\.com", r"is\.gd", r"cutt\.ly", r"rb\.gy", r"goo\.gl",
+]
+
+SPAM_TLDS = [
+    r"\.xyz\b", r"\.top\b", r"\.site\b", r"\.club\b", r"\.vip\b", r"\.buzz\b",
+    r"\.loan\b", r"\.fit\b", r"\.cam\b", r"\.tk\b", r"\.ml\b", r"\.ga\b",
+    r"\.cf\b", r"\.gq\b", r"\.ru\b", r"\.fun\b", r"\.bid\b", r"\.click\b",
+]
+
+SCAM_FRAUD_PATTERNS = [
+    r"earn\s+\$?[0-9]+\s*(?:daily|per day|hourly|weekly|a day)",
+    r"crypto(?:currency)?\s*(?:trading|investment|expert|mining|profit|signals)",
+    r"binary\s+options",
+    r"forex\s+(?:trading|signals|investment|account)",
+    r"double\s+your\s+(?:money|income|bitcoin|crypto)",
+    r"guaranteed\s+(?:profit|return|income)",
+    r"ঘরে\s*বসে\s*(?:দৈনিক|প্রতিদিন|ইনকাম|টাকা\s*আয়)",
+    r"ফ্রি\s*(?:টাকা|বোনাস|লটারি|গিভঅ্যাওয়ে)",
+    r"টাকা\s*ডাবল",
+    r"টেলিগ্রামে\s*মেসেজ\s*দিন",
+    r"হোয়াটসঅ্যাপে\s*(?:নক|মেসেজ)\s*দিন",
+    r"অনলাইন\s*জুয়া",
+    r"ক্যাসিনো",
+    r"পাসওয়ার্ড\s*দিন",
+    r"ওটিপি\s*পাঠান",
+]
+
+
+class SpamShield:
+    """Multi-layer anti-spam, malicious link, and abuse filtering for incoming comments."""
+    _user_timestamps: Dict[str, List[float]] = {}
+
+    @classmethod
+    def evaluate_comment(cls, commenter_id: str, commenter_name: str, text: str) -> Tuple[bool, str]:
+        if not text:
+            return True, "EMPTY_COMMENT"
+
+        import time
+        now = time.time()
+        uid = commenter_id or commenter_name or "anon"
+        history = [t for t in cls._user_timestamps.get(uid, []) if now - t < 600]
+        if len(history) >= 3:
+            return True, "RATE_LIMIT_EXCEEDED"
+        history.append(now)
+        cls._user_timestamps[uid] = history
+
+        for s in SUSPICIOUS_SHORTENERS + SPAM_TLDS:
+            if re.search(s, text, re.IGNORECASE):
+                return True, "SUSPICIOUS_LINK_SHORTENER"
+
+        url_matches = re.findall(r"(?:https?:\/\/|www\.)[^\s\/$.?#].[^\s]*", text, re.IGNORECASE)
+        for url in url_matches:
+            if not any(ad in url.lower() for ad in AUTHORIZED_DOMAINS):
+                return True, f"UNAUTHORIZED_LINK:{url[:30]}"
+
+        for p in SCAM_FRAUD_PATTERNS:
+            if re.search(p, text, re.IGNORECASE):
+                return True, f"SCAM_KEYWORD:{p[:20]}"
+
+        return False, "CLEAN"
+
+
 def draft_comment_reply(
     comment_text: str = "",
     video_context: str = "",
@@ -124,11 +196,15 @@ def draft_comment_reply(
 
     # Local natural human creator fallbacks by language
     if lang == "bn":
-        if any(x in comment.lower() for x in ("price", "মূল্য", "কত", "cost", "কোথায়", "পাব")):
-            return "বিস্তারিত জানতে ডেসক্রিপশন বক্স চেক করতে পারেন, সাথে থাকার জন্য অনেক ধন্যবাদ!"
+        if any(x in comment.lower() or x in comment for x in ("price", "মূল্য", "কত", "cost", "কোথায়", "পাব", "দাম", "টাকা", "কিনব", "নিতে চাই", "নিব", "অর্ডার", "পেমেন্ট", "বিকাশ", "নগদ", "payment", "buy", "order")):
+            return "ধন্যবাদ! 🎬 অটোমুভি প্রো ফুল ভিডিও স্টুডিওর ২য় স্পেশাল অফার চলছে মাত্র ৳৩,৯৯৯ (রেগুলার ৳১০,০০০, আর ৮-১০ দিন কার্যকর)। আজকের অফারে পাচ্ছেন ৩য় আন্তর্জাতিক ভাষা সম্পূর্ণ ফ্রি—যা দিয়ে ৩টি ফেসবুক, ৩টি ইউটিউব ও ৩টি টিকটক (মোট ৯টি প্ল্যাটফর্মে) ভিডিও আপলোড করে ট্রিপল প্যাসিভ ইনকাম করতে পারবেন! আজই মাত্র ৫০০ টাকা টোকেন বুকিং ফি দিয়ে অফারটি লক করতে পারেন। বিস্তারিত জানতে ভিজিট করুন: https://automoviepro.com অথবা সরাসরি হোয়াটসঅ্যাপে নক দিন: +8801968111593 ✨"
+        if any(x in comment.lower() or x in comment for x in ("কীভাবে কাজ করে", "কিভাবে কাজ করে", "ফিচার", "ভিডিও কিভাবে", "সফটওয়্যার", "ডাবিং", "ভাষা")):
+            return "ধন্যবাদ! 🚀 AutoMovie Pro কোনো এডিটিং বা ক্যামেরা ফেস করার ঝামেলা ছাড়াই ১-ক্লিকে ভাইরাল স্ক্রিপ্ট, মানুষের মতো ভয়েস, সিনেমাটিক ফুটেজ ও ৬০+ ভাষায় স্বয়ংক্রিয় ডাবিং করে ফেসবুক ও ইউটিউবে আপলোড করে। আজকের অর্ডারে ৩য় ভাষা ফ্রি! সাইট ভিজিট করুন: https://automoviepro.com অথবা WhatsApp: +8801968111593"
+        if any(x in comment for x in ("মাশাআল্লাহ", "আলহামদুলিল্লাহ", "জাযাকাল্লাহ", "দারুণ", "চমৎকার", "অনেক সুন্দর", "সুন্দর", "great", "nice", "awesome")):
+            return f"অনেক অনেক ধন্যবাদ আপনার সুন্দর ও অনুপ্রেরণাদায়ক মতামতের জন্য! 🙏 {title} ভালো লাগলে শেয়ার করতে পারেন, নিয়মিত এমন দারুণ ভিডিও পেতে আমাদের সাথেই থাকুন।"
         if video_context:
             return f"অনেক ধন্যবাদ! {title}-এর মূল বিষয়বস্তু নিয়ে আপনার দারুণ মতামতের জন্য কৃতজ্ঞ। সাথে থাকুন!"
-        return "অনেক ধন্যবাদ আপনার সুন্দর মতামতের জন্য! পরবর্তী ভিডিওগুলোতে আরও দারুণ বিষয় নিয়ে আসছি।"
+        return "অনেক ধন্যবাদ আপনার সুন্দর মতামতের জন্য! পরবর্তী ভিডিওগুলোতে আরও আকর্ষণীয় বিষয় নিয়ে আসছি, সাথে থাকুন।"
     elif lang == "ar":
         return f"شكراً جزيلاً لمشاركتك رأيك القيّم حول {title}! نسعد دائماً بوجودك معنا."
     elif lang == "hi":
@@ -136,7 +212,7 @@ def draft_comment_reply(
 
     # Default English fallback
     if any(x in comment.lower() for x in ("price", "cost", "buy", "where", "how to")):
-        return f"Appreciate you tuning in! Be sure to check the description for full background details on {title}."
+        return f"Appreciate you tuning in! Be sure to check https://automoviepro.com for full lifetime packages on {title}."
     return f"Really glad this resonated with you! More deep dives like {title} coming up tomorrow."
 
 
@@ -452,22 +528,138 @@ def reply_tiktok_post(post: Dict[str, Any], channel: Dict[str, Any], *, max_repl
     return {"ok": True, "replied": replied, "url": url, "scanned": len(comments)}
 
 
+def _collect_facebook_comments(page, limit: int = 10) -> List[Dict[str, Any]]:
+    """Scans and extracts incoming comments on a Facebook video or reel."""
+    out: List[Dict[str, Any]] = []
+    try:
+        page.evaluate("window.scrollBy(0, 700)")
+    except Exception:
+        pass
+    try:
+        from publishers.human_browser import human_sleep as hs
+        hs(1.5, 2.5)
+    except Exception:
+        pass
+
+    candidates = page.locator(
+        "div[role='article'], "
+        "div[aria-label*='Comment by' i], "
+        "div[aria-label*='মন্তব্য' i], "
+        "ul > li div[role='article']"
+    )
+    try:
+        n = min(candidates.count(), limit * 2)
+    except Exception:
+        n = 0
+
+    seen_texts = set()
+    for i in range(n):
+        if len(out) >= limit:
+            break
+        art = candidates.nth(i)
+        try:
+            full_txt = (art.inner_text() or "").strip()
+            if not full_txt or len(full_txt) < 3:
+                continue
+
+            lines = [l.strip() for l in full_txt.split("\n") if l.strip()]
+            if not lines:
+                continue
+
+            author = lines[0] if len(lines) > 1 else "fb_viewer"
+            text = " ".join(lines[1:]) if len(lines) > 1 else lines[0]
+
+            text = re.sub(
+                r"\b(Like|Reply|Share|React|লাইক|উত্তর|শেয়ার|মিনিট আগে|ঘণ্টা আগে|\d+[mhd])\b",
+                "",
+                text,
+            ).strip()
+
+            if len(text) < 3 or text in seen_texts:
+                continue
+
+            seen_texts.add(text)
+            out.append({
+                "author": author[:60],
+                "text": text[:500],
+                "locator": art,
+                "index": i,
+            })
+        except Exception:
+            continue
+    return out
+
+
+def _reply_on_facebook_thread(page, comment_item: Dict[str, Any], reply: str) -> bool:
+    """Clicks the reply button on the specific comment and submits the response."""
+    from publishers.human_browser import human_click, human_paste_text, human_sleep
+
+    locator = comment_item.get("locator")
+    try:
+        if locator:
+            reply_btns = locator.locator(
+                "span:has-text('Reply'), div[role='button']:has-text('Reply'), "
+                "span:has-text('উত্তর'), div[role='button']:has-text('উত্তর')"
+            )
+            if reply_btns.count() and reply_btns.first.is_visible():
+                human_click(page, reply_btns.first)
+                human_sleep(0.8, 1.5)
+
+        box = page.locator(
+            "div[role='textbox'][contenteditable='true'], "
+            "div[contenteditable='true'], "
+            "div[aria-label*='Write a reply' i], "
+            "div[aria-label*='উত্তর লিখুন' i], "
+            "textarea"
+        )
+        if not box.count():
+            return False
+
+        target_box = box.last if box.count() > 1 else box.first
+        simulate_typing_delay(reply)
+        human_paste_text(page, target_box, reply[:400])
+        human_sleep(0.5, 1.2)
+
+        page.keyboard.press("Enter")
+        human_sleep(1.5, 2.5)
+
+        submit_btn = page.locator(
+            "div[aria-label*='Comment' i][role='button'], "
+            "div[aria-label*='Post' i][role='button'], "
+            "div[aria-label*='পাঠান' i][role='button']"
+        )
+        if submit_btn.count() and submit_btn.last.is_visible():
+            human_click(page, submit_btn.last)
+            human_sleep(1.0, 2.0)
+
+        return True
+    except Exception as exc:
+        logger.debug("Facebook comment reply thread failed: %s", exc)
+        return False
+
+
 def reply_facebook_post(post: Dict[str, Any], channel: Dict[str, Any], *, max_replies: int = 3) -> Dict[str, Any]:
     url = str(post.get("remote_url") or "")
     if not url:
         return {"ok": False, "error": "no_video_url", "replied": 0}
     lang = str(post.get("lang_code") or "en")
+    v_title = str(post.get("title") or "")
+    v_context = str(post.get("description") or "")
+    ch_name = str(channel.get("facebook_name") or "AutoMovie Pro")
+    niche = str(channel.get("niche") or "")
 
     if url.startswith("dry-run://"):
-        comment_sample = "Loved this documentary. Very eye-opening!"
+        comment_sample = "অটোমুভি প্রো এর প্যাকেজ মূল্য কত এবং কিভাবে নিব?"
         key = f"dry_fb_user|{comment_sample}"
         if not _already_replied(int(post["id"]), key):
             reply = draft_comment_reply(
-                video_title=str(post.get("title") or ""),
+                video_title=v_title,
+                video_context=v_context,
                 comment_text=comment_sample,
-                channel_name=str(channel.get("facebook_name") or "AutoMovie Pro"),
+                channel_name=ch_name,
                 lang_code=lang,
-                niche=str(channel.get("niche") or ""),
+                niche=niche,
+                author_name="dry_fb_user",
             )
             store.add_post_message(
                 int(post["id"]),
@@ -496,57 +688,61 @@ def reply_facebook_post(post: Dict[str, Any], channel: Dict[str, Any], *, max_re
 
     replied = 0
     from publishers.stealth_session import stealth_browser
-    from publishers.human_browser import assert_no_captcha, human_sleep, human_paste_text
+    from publishers.human_browser import assert_no_captcha, human_sleep
 
     with stealth_browser(storage_state=store_path, user_data_dir=profile, headless=False) as (
         _pw, _b, page, engine,
     ):
-        logger.info("Facebook comment reply via %s for %s", engine, url)
+        logger.info("Facebook video comment reply via %s for %s", engine, url)
         page.goto(url, wait_until="domcontentloaded", timeout=90000)
-        human_sleep(2.0, 3.5)
+        human_sleep(3.0, 5.0)
         assert_no_captcha(page, platform="facebook", url=page.url)
-        comments = []
-        articles = page.locator("div[role='article']")
-        n = min(articles.count(), 8)
-        for i in range(n):
-            art = articles.nth(i)
-            try:
-                txt = (art.inner_text() or "").strip()
-                if txt and len(txt) > 3:
-                    comments.append({"author": "fb_user", "text": txt[:300]})
-            except Exception:
-                continue
-        for idx, c in enumerate(comments):
+
+        comments = _collect_facebook_comments(page, limit=12)
+        for c in comments:
             if replied >= max_replies:
                 break
-            key = re.sub(r"\s+", " ", f"{c.get('author')}|{c.get('text')}")[:180]
+            author = str(c.get("author") or "fb_user")
+            text = str(c.get("text") or "")
+            key = re.sub(r"\s+", " ", f"{author}|{text}")[:180]
+
             if _already_replied(int(post["id"]), key):
                 continue
+
+            # Anti-Spam & Abuse Shield
+            is_spam, reason = SpamShield.evaluate_comment(author, author, text)
+            if is_spam:
+                logger.info("Skipping spam comment from '%s': %s", author, reason)
+                _mark_replied(int(post["id"]), key)
+                continue
+
             reply = draft_comment_reply(
-                video_title=str(post.get("title") or ""),
-                comment_text=str(c.get("text") or ""),
-                channel_name=str(channel.get("facebook_name") or "AutoMovie Pro"),
+                video_title=v_title,
+                video_context=v_context,
+                comment_text=text,
+                channel_name=ch_name,
                 lang_code=lang,
-                niche=str(channel.get("niche") or ""),
+                niche=niche,
+                author_name=author,
             )
             if not reply:
                 continue
-            box = page.locator("div[role='textbox'], div[contenteditable='true']")
-            if box.count():
-                human_paste_text(page, box.first, reply[:300])
-                page.keyboard.press("Enter")
+
+            if _reply_on_facebook_thread(page, c, reply):
                 store.add_post_message(
                     int(post["id"]),
                     platform="facebook",
-                    author=str(c.get("author") or ""),
-                    message=str(c.get("text") or ""),
+                    author=author,
+                    message=text,
                     reply=reply,
                     lang_code=lang,
                 )
                 _mark_replied(int(post["id"]), key)
                 replied += 1
-                human_sleep(1.5, 3.0)
-    return {"ok": True, "replied": replied, "url": url}
+                logger.info("✅ Replied to Facebook comment from '%s' on post %s", author, post["id"])
+                human_sleep(2.0, 4.0)
+
+    return {"ok": True, "replied": replied, "url": url, "scanned": len(comments)}
 
 
 def run_comment_reply_pass(*, max_posts: int = 5, max_replies_each: int = 2) -> Dict[str, Any]:

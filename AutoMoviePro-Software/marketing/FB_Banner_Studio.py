@@ -17,7 +17,7 @@ with open(LOGO_PATH, "rb") as f:
 
 SHARED_FOOTER_HTML = """
   <div class="footer">
-    <div class="contact-col">📞 হেল্পলাইন / WhatsApp: <span>+880 1684-355055</span></div>
+    <div class="contact-col">📞 হেল্পলাইন / WhatsApp: <span>+8801968111593</span></div>
     <div class="pay-col">
       <div>বিকাশ এজেন্ট: <b>01756160993</b></div>
       <div>নগদ এজেন্ট: <b>01611-824811</b></div>
@@ -135,15 +135,15 @@ TEMPLATES = [
       </div>
     </div>
     <div class="price-card">
-      <div class="price-title">এককালীন লাইফটাইম ডিল</div>
-      <div class="old-price">৳৮,৯৯৯</div>
-      <div class="price-amount">৳২,৯৯৮</div>
-      <div class="price-sub">আজীবন ব্যবহার • নো মান্থলি সাবস্ক্রিপশন</div>
+      <div class="price-title">২য় স্পেশাল লাইফটাইম ডিল</div>
+      <div class="old-price">৳১০,০০০</div>
+      <div class="price-amount">৳৩,৯৯৯</div>
+      <div class="price-sub">৩য় ভাষা সম্পূর্ণ ফ্রি • ৯ প্ল্যাটফর্মে ট্রিপল আয়</div>
       <div class="cta-btn">অর্ডার করতে ভিজিট করুন</div>
     </div>
   </div>
   <div class="footer">
-    <div class="contact-col">📞 হেল্পলাইন / WhatsApp: <span>+880 1684-355055</span></div>
+    <div class="contact-col">📞 হেল্পলাইন / WhatsApp: <span>+8801968111593</span></div>
     <div class="pay-col">
       <div>বিকাশ এজেন্ট: <b>01756160993</b></div>
       <div>নগদ এজেন্ট: <b>01611-824811</b></div>
@@ -274,7 +274,7 @@ TEMPLATES = [
     </div>
   </div>
   <div class="footer">
-    <div class="contact-col">📞 হেল্পলাইন / WhatsApp: <span>+880 1684-355055</span></div>
+    <div class="contact-col">📞 হেল্পলাইন / WhatsApp: <span>+8801968111593</span></div>
     <div class="pay-col">
       <div>বিকাশ এজেন্ট: <b>01756160993</b></div>
       <div>নগদ এজেন্ট: <b>01611-824811</b></div>
@@ -382,14 +382,14 @@ TEMPLATES = [
       </div>
     </div>
     <div class="price-card">
-      <div class="price-title">আজীবন ব্যবহারের লাইসেন্স</div>
-      <div class="price-amount">৳২,৯৯৮</div>
-      <div class="price-sub">লাইফটাইম এক্সেস • আনলিমিটেড ভিডিও তৈরি</div>
+      <div class="price-title">২য় স্পেশাল লাইফটাইম ডিল</div>
+      <div class="price-amount">৳৩,৯৯৯</div>
+      <div class="price-sub">৩য় ভাষা সম্পূর্ণ ফ্রি • ৯ প্ল্যাটফর্মে ট্রিপল আয়</div>
       <div class="cta-btn">অর্ডার করতে ভিজিট করুন</div>
     </div>
   </div>
   <div class="footer">
-    <div class="contact-col">📞 হেল্পলাইন / WhatsApp: <span>+880 1684-355055</span></div>
+    <div class="contact-col">📞 হেল্পলাইন / WhatsApp: <span>+8801968111593</span></div>
     <div class="pay-col">
       <div>বিকাশ এজেন্ট: <b>01756160993</b></div>
       <div>নগদ এজেন্ট: <b>01611-824811</b></div>
@@ -499,14 +499,14 @@ TEMPLATES = [
       </div>
     </div>
     <div class="price-card">
-      <div class="price-title">সফটওয়্যার লাইফটাইম ডিল</div>
-      <div class="price-amount">৳২,৯৯৮</div>
-      <div class="price-sub">প্রতিটি অতিরিক্ত ভাষা অ্যাড-অন মাত্র ৳৪৯৯</div>
+      <div class="price-title">২য় স্পেশাল লাইফটাইম ডিল</div>
+      <div class="price-amount">৳৩,৯৯৯</div>
+      <div class="price-sub">৩য় ভাষা সম্পূর্ণ ফ্রি • ৯ প্ল্যাটফর্মে ট্রিপল আয়</div>
       <div class="cta-btn">অর্ডার করতে ভিজিট করুন</div>
     </div>
   </div>
   <div class="footer">
-    <div class="contact-col">📞 হেল্পলাইন / WhatsApp: <span>+880 1684-355055</span></div>
+    <div class="contact-col">📞 হেল্পলাইন / WhatsApp: <span>+8801968111593</span></div>
     <div class="pay-col">
       <div>বিকাশ এজেন্ট: <b>01756160993</b></div>
       <div>নগদ এজেন্ট: <b>01611-824811</b></div>
@@ -599,14 +599,14 @@ TEMPLATES = [
       </div>
     </div>
     <div class="price-card">
-      <div class="price-title">আজীবন ব্যবহারের ডিল</div>
-      <div class="price-amount">৳২,৯৯৮</div>
-      <div class="price-sub">লাইফটাইম এক্সেস • আনলিমিটেড রিলস</div>
+      <div class="price-title">২য় স্পেশাল লাইফটাইম ডিল</div>
+      <div class="price-amount">৳৩,৯৯৯</div>
+      <div class="price-sub">৩য় ভাষা সম্পূর্ণ ফ্রি • ৯ প্ল্যাটফর্মে ট্রিপল আয়</div>
       <div class="cta-btn">অর্ডার করতে ভিজিট করুন</div>
     </div>
   </div>
   <div class="footer">
-    <div class="contact-col">📞 হেল্পলাইন / WhatsApp: <span>+880 1684-355055</span></div>
+    <div class="contact-col">📞 হেল্পলাইন / WhatsApp: <span>+8801968111593</span></div>
     <div class="pay-col">
       <div>বিকাশ এজেন্ট: <b>01756160993</b></div>
       <div>নগদ এজেন্ট: <b>01611-824811</b></div>
@@ -699,14 +699,14 @@ TEMPLATES = [
       </div>
     </div>
     <div class="price-card">
-      <div class="price-title">এককালীন লাইফটাইম ডিল</div>
-      <div class="price-amount">৳২,৯৯৮</div>
-      <div class="price-sub">আজীবন ব্যবহার • আনলিমিটেড ক্লায়েন্ট ভিডিও</div>
+      <div class="price-title">২য় স্পেশাল লাইফটাইম ডিল</div>
+      <div class="price-amount">৳৩,৯৯৯</div>
+      <div class="price-sub">৩য় ভাষা সম্পূর্ণ ফ্রি • ৯ প্ল্যাটফর্মে ট্রিপল আয়</div>
       <div class="cta-btn">অর্ডার করতে ভিজিট করুন</div>
     </div>
   </div>
   <div class="footer">
-    <div class="contact-col">📞 হেল্পলাইন / WhatsApp: <span>+880 1684-355055</span></div>
+    <div class="contact-col">📞 হেল্পলাইন / WhatsApp: <span>+8801968111593</span></div>
     <div class="pay-col">
       <div>বিকাশ এজেন্ট: <b>01756160993</b></div>
       <div>নগদ এজেন্ট: <b>01611-824811</b></div>
@@ -821,7 +821,654 @@ TEMPLATES = [
     </div>
   </div>
   <div class="footer">
-    <div class="contact-col">📞 হেল্পলাইন / WhatsApp: <span>+880 1684-355055</span></div>
+    <div class="contact-col">📞 হেল্পলাইন / WhatsApp: <span>+8801968111593</span></div>
+    <div class="pay-col">
+      <div>বিকাশ এজেন্ট: <b>01756160993</b></div>
+      <div>নগদ এজেন্ট: <b>01611-824811</b></div>
+      <div>পার্সোনাল: <b>01717820998</b></div>
+    </div>
+    <div class="web-link">🌐 automoviepro.com</div>
+  </div>
+</body>
+</html>"""
+    },
+    # ==========================================================================
+    # 8. Product 1: 4K AI Video Studio Dedicated Banner (৳৩,৯৯৯ | Reg ৳১০,০০০)
+    # ==========================================================================
+    {
+        "id": "banner_prod1_video_studio",
+        "html": """<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<link href="https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@500;600;700&family=Inter:wght@600;800;900&display=swap" rel="stylesheet">
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    width: 1200px; height: 630px;
+    background: radial-gradient(circle at 85% 15%, rgba(99, 102, 241, 0.3) 0%, transparent 50%),
+                radial-gradient(circle at 10% 90%, rgba(56, 189, 248, 0.2) 0%, transparent 40%),
+                #070B14;
+    font-family: 'Hind Siliguri', 'Inter', sans-serif;
+    color: #FFFFFF;
+    display: flex; flex-direction: column; justify-content: space-between;
+    padding: 38px 48px; position: relative; overflow: hidden;
+  }
+  .bg-grid {
+    position: absolute; inset: 0;
+    background-image: linear-gradient(to right, rgba(255,255,255,0.03) 1px, transparent 1px),
+                      linear-gradient(to bottom, rgba(255,255,255,0.03) 1px, transparent 1px);
+    background-size: 40px 40px; pointer-events: none;
+  }
+  .header { display: flex; justify-content: space-between; align-items: center; z-index: 2; }
+  .brand { display: flex; align-items: center; gap: 15px; }
+  .brand-logo-img { width: 48px; height: 48px; object-fit: contain; filter: drop-shadow(0 0 16px rgba(99, 102, 241, 0.8)); }
+  .brand-name { font-family: 'Inter', sans-serif; font-size: 27px; font-weight: 800; }
+  .brand-name span { color: #818CF8; }
+  .ltd-badge {
+    background: rgba(99, 102, 241, 0.15); border: 1px solid rgba(99, 102, 241, 0.5);
+    color: #A5B4FC; padding: 7px 18px; border-radius: 30px; font-weight: 700; font-size: 15px;
+  }
+  .content { display: flex; justify-content: space-between; align-items: center; z-index: 2; margin: 12px 0; }
+  .main-info { max-width: 660px; }
+  .tagline { color: #38BDF8; font-size: 19px; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 6px; }
+  .headline { font-size: 42px; font-weight: 700; line-height: 1.25; margin-bottom: 18px; }
+  .headline span { background: linear-gradient(90deg, #60A5FA, #A78BFA); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+  .features-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 11px; }
+  .feature-item {
+    background: rgba(255, 255, 255, 0.04); border: 1px solid rgba(255, 255, 255, 0.08);
+    backdrop-filter: blur(10px); padding: 11px 15px; border-radius: 12px;
+    display: flex; align-items: center; gap: 10px; font-size: 16px; font-weight: 600;
+  }
+  .feature-icon { color: #34D399; font-size: 17px; font-weight: 800; }
+  .price-card {
+    background: linear-gradient(145deg, rgba(30, 41, 59, 0.85), rgba(15, 23, 42, 0.95));
+    border: 1px solid rgba(99, 102, 241, 0.45);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.55), 0 0 30px rgba(99, 102, 241, 0.25);
+    border-radius: 24px; padding: 26px 32px; text-align: center; width: 380px;
+  }
+  .price-title { color: #94A3B8; font-size: 16px; font-weight: 600; text-transform: uppercase; margin-bottom: 4px; }
+  .old-price { color: #64748B; font-size: 20px; text-decoration: line-through; }
+  .price-amount { font-family: 'Inter', sans-serif; font-size: 52px; font-weight: 900; color: #38BDF8; margin: 2px 0; }
+  .price-sub { color: #10B981; font-size: 15px; font-weight: 700; margin-bottom: 16px; }
+  .cta-btn {
+    background: linear-gradient(135deg, #3B82F6, #6366F1); color: #fff;
+    padding: 12px; border-radius: 12px; font-weight: 700; font-size: 16px; display: block;
+    box-shadow: 0 10px 20px rgba(59, 130, 246, 0.4);
+  }
+  .footer {
+    display: flex; justify-content: space-between; align-items: center;
+    border-top: 1px solid rgba(255, 255, 255, 0.12); padding-top: 14px; z-index: 2;
+  }
+  .contact-col { display: flex; align-items: center; gap: 8px; color: #E2E8F0; font-size: 15.5px; font-weight: 700; }
+  .contact-col span { color: #22C55E; font-size: 17px; }
+  .pay-col {
+    background: rgba(255, 255, 255, 0.05); border: 1px solid rgba(255, 255, 255, 0.12);
+    padding: 6px 14px; border-radius: 8px; color: #CBD5E1; font-size: 13.5px; display: flex; gap: 12px;
+  }
+  .pay-col b { color: #38BDF8; font-weight: 700; }
+  .web-link { font-family: 'Inter', sans-serif; color: #38BDF8; font-size: 18px; font-weight: 800; }
+</style>
+</head>
+<body>
+  <div class="bg-grid"></div>
+  <div class="header">
+    <div class="brand">
+      <img src="{LOGO_BASE64}" class="brand-logo-img">
+      <div class="brand-name">AutoMovie Pro <span>4K Video Studio</span></div>
+    </div>
+    <div class="ltd-badge">🎬 সম্পূর্ণ স্বয়ংক্রিয় এআই ভিডিও পাওয়ারহাউজ</div>
+  </div>
+  <div class="content">
+    <div class="main-info">
+      <div class="tagline">ক্যামেরা ও ভয়েস ছাড়া প্যাসিভ ইনকাম</div>
+      <div class="headline">ফেসলেস ভিডিও বানিয়ে ইউটিউব ও ফেসবুকে <span>ট্রিপল প্যাসিভ ইনকাম!</span></div>
+      <div class="features-grid">
+        <div class="feature-item"><span class="feature-icon">✓</span> ট্রেন্ডিং টপিক রিসার্চ ও ইমোশনাল স্ক্রিপ্ট</div>
+        <div class="feature-item"><span class="feature-icon">✓</span> মানুষের মতো ন্যাচারাল খাঁটি বাংলা ভয়েস</div>
+        <div class="feature-item"><span class="feature-icon">✓</span> ৬০+ ভাষায় অটো ডাবিং ও গ্লোবাল অডিয়েন্স</div>
+        <div class="feature-item"><span class="feature-icon">✓</span> ৩টি FB, ৩টি YT ও ৩টি TikTok (৯ প্ল্যাটফর্মে) আপলোড</div>
+      </div>
+    </div>
+    <div class="price-card">
+      <div class="price-title">সীমিত সময়ের ২য় স্পেশাল অফার</div>
+      <div class="old-price">৳১০,০০০</div>
+      <div class="price-amount">৳৩,৯৯৯</div>
+      <div class="price-sub">৩য় ভাষা সম্পূর্ণ ফ্রি • ৯ প্ল্যাটফর্মে ট্রিপল আয়</div>
+      <div class="cta-btn">অর্ডার করতে এখনই ভিজিট করুন</div>
+    </div>
+  </div>
+  <div class="footer">
+    <div class="contact-col">📞 হেল্পলাইন / WhatsApp: <span>+8801968111593</span></div>
+    <div class="pay-col">
+      <div>বিকাশ এজেন্ট: <b>01756160993</b></div>
+      <div>নগদ এজেন্ট: <b>01611-824811</b></div>
+      <div>পার্সোনাল: <b>01717820998</b></div>
+    </div>
+    <div class="web-link">🌐 automoviepro.com</div>
+  </div>
+</body>
+</html>"""
+    },
+
+    # ==========================================================================
+    # 9. Product 2: FB Business Manager & Ad Automation (৳২,৯৯৯ | Reg ৳৮,৫০০)
+    # ==========================================================================
+    {
+        "id": "banner_prod2_fb_business",
+        "html": """<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<link href="https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@500;600;700&family=Inter:wght@600;800;900&display=swap" rel="stylesheet">
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    width: 1200px; height: 630px;
+    background: radial-gradient(circle at 85% 15%, rgba(16, 185, 129, 0.25) 0%, transparent 50%),
+                radial-gradient(circle at 10% 90%, rgba(99, 102, 241, 0.2) 0%, transparent 40%),
+                #080E18;
+    font-family: 'Hind Siliguri', 'Inter', sans-serif;
+    color: #FFFFFF;
+    display: flex; flex-direction: column; justify-content: space-between;
+    padding: 38px 48px; position: relative; overflow: hidden;
+  }
+  .bg-grid {
+    position: absolute; inset: 0;
+    background-image: linear-gradient(to right, rgba(255,255,255,0.03) 1px, transparent 1px),
+                      linear-gradient(to bottom, rgba(255,255,255,0.03) 1px, transparent 1px);
+    background-size: 40px 40px; pointer-events: none;
+  }
+  .header { display: flex; justify-content: space-between; align-items: center; z-index: 2; }
+  .brand { display: flex; align-items: center; gap: 15px; }
+  .brand-logo-img { width: 48px; height: 48px; object-fit: contain; filter: drop-shadow(0 0 16px rgba(16, 185, 129, 0.7)); }
+  .brand-name { font-family: 'Inter', sans-serif; font-size: 27px; font-weight: 800; }
+  .brand-name span { color: #34D399; }
+  .ltd-badge {
+    background: rgba(16, 185, 129, 0.15); border: 1px solid rgba(16, 185, 129, 0.5);
+    color: #34D399; padding: 7px 18px; border-radius: 30px; font-weight: 700; font-size: 15px;
+  }
+  .content { display: flex; justify-content: space-between; align-items: center; z-index: 2; margin: 12px 0; }
+  .main-info { max-width: 660px; }
+  .tagline { color: #10B981; font-size: 19px; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 6px; }
+  .headline { font-size: 42px; font-weight: 700; line-height: 1.25; margin-bottom: 18px; }
+  .headline span { background: linear-gradient(90deg, #34D399, #60A5FA); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+  .features-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 11px; }
+  .feature-item {
+    background: rgba(255, 255, 255, 0.04); border: 1px solid rgba(255, 255, 255, 0.08);
+    backdrop-filter: blur(10px); padding: 11px 15px; border-radius: 12px;
+    display: flex; align-items: center; gap: 10px; font-size: 16px; font-weight: 600;
+  }
+  .feature-icon { color: #10B981; font-size: 17px; font-weight: 800; }
+  .price-card {
+    background: linear-gradient(145deg, rgba(30, 41, 59, 0.85), rgba(15, 23, 42, 0.95));
+    border: 1px solid rgba(16, 185, 129, 0.45);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.55), 0 0 30px rgba(16, 185, 129, 0.2);
+    border-radius: 24px; padding: 26px 32px; text-align: center; width: 380px;
+  }
+  .price-title { color: #94A3B8; font-size: 16px; font-weight: 600; text-transform: uppercase; margin-bottom: 4px; }
+  .old-price { color: #64748B; font-size: 20px; text-decoration: line-through; }
+  .price-amount { font-family: 'Inter', sans-serif; font-size: 52px; font-weight: 900; color: #34D399; margin: 2px 0; }
+  .price-sub { color: #38BDF8; font-size: 15px; font-weight: 700; margin-bottom: 16px; }
+  .cta-btn {
+    background: linear-gradient(135deg, #10B981, #059669); color: #fff;
+    padding: 12px; border-radius: 12px; font-weight: 700; font-size: 16px; display: block;
+    box-shadow: 0 10px 20px rgba(16, 185, 129, 0.4);
+  }
+  .footer {
+    display: flex; justify-content: space-between; align-items: center;
+    border-top: 1px solid rgba(255, 255, 255, 0.12); padding-top: 14px; z-index: 2;
+  }
+  .contact-col { display: flex; align-items: center; gap: 8px; color: #E2E8F0; font-size: 15.5px; font-weight: 700; }
+  .contact-col span { color: #22C55E; font-size: 17px; }
+  .pay-col {
+    background: rgba(255, 255, 255, 0.05); border: 1px solid rgba(255, 255, 255, 0.12);
+    padding: 6px 14px; border-radius: 8px; color: #CBD5E1; font-size: 13.5px; display: flex; gap: 12px;
+  }
+  .pay-col b { color: #38BDF8; font-weight: 700; }
+  .web-link { font-family: 'Inter', sans-serif; color: #38BDF8; font-size: 18px; font-weight: 800; }
+</style>
+</head>
+<body>
+  <div class="bg-grid"></div>
+  <div class="header">
+    <div class="brand">
+      <img src="{LOGO_BASE64}" class="brand-logo-img">
+      <div class="brand-name">AutoMovie Pro <span>FB Business Manager</span></div>
+    </div>
+    <div class="ltd-badge">💼 এফ-কমার্স ও বিজনেস ওনারদের জন্য</div>
+  </div>
+  <div class="content">
+    <div class="main-info">
+      <div class="tagline">ফেসবুক পেজ সেলস ও বিজ্ঞাপন অটোমেশন</div>
+      <div class="headline">আপনার ব্যবসার পেজ চলবে <span>সম্পূর্ণ সেলস অটোমেশনে!</span></div>
+      <div class="features-grid">
+        <div class="feature-item"><span class="feature-icon">✓</span> ২৪/৭ স্বয়ংক্রিয় পেজ পরিচালনা ও প্রোডাক্ট পোস্ট</div>
+        <div class="feature-item"><span class="feature-icon">✓</span> ৩০-৭০ সেকেন্ডের কাইনেটিক বিজ্ঞাপন ভিডিও মেকার</div>
+        <div class="feature-item"><span class="feature-icon">✓</span> টার্গেটেড ফেসবুক গ্রুপে নিরাপদ অর্গানিক পোস্ট শেয়ার</div>
+        <div class="feature-item"><span class="feature-icon">✓</span> ইনবক্স ও কমেন্ট মনিটরিং ও স্প্যাম প্রটেকশন</div>
+      </div>
+    </div>
+    <div class="price-card">
+      <div class="price-title">বিজনেস লাইফটাইম ডিল</div>
+      <div class="old-price">৳৮,৫০০</div>
+      <div class="price-amount">৳২,৯৯৯</div>
+      <div class="price-sub">আজীবন এক্সেস • জিরো মান্থলি সাবস্ক্রিপশন</div>
+      <div class="cta-btn">অর্ডার করতে এখনই ভিজিট করুন</div>
+    </div>
+  </div>
+  <div class="footer">
+    <div class="contact-col">📞 হেল্পলাইন / WhatsApp: <span>+8801968111593</span></div>
+    <div class="pay-col">
+      <div>বিকাশ এজেন্ট: <b>01756160993</b></div>
+      <div>নগদ এজেন্ট: <b>01611-824811</b></div>
+      <div>পার্সোনাল: <b>01717820998</b></div>
+    </div>
+    <div class="web-link">🌐 automoviepro.com</div>
+  </div>
+</body>
+</html>"""
+    },
+
+    # ==========================================================================
+    # 10. Product 3: FB Profile & Page Post Automation (৳১,৯৯৯ | Reg ৳৫,৫০০)
+    # ==========================================================================
+    {
+        "id": "banner_prod3_profile_page",
+        "html": """<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<link href="https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@500;600;700&family=Inter:wght@600;800;900&display=swap" rel="stylesheet">
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    width: 1200px; height: 630px;
+    background: radial-gradient(circle at 85% 15%, rgba(245, 158, 11, 0.25) 0%, transparent 50%),
+                radial-gradient(circle at 10% 90%, rgba(99, 102, 241, 0.2) 0%, transparent 40%),
+                #0B0D16;
+    font-family: 'Hind Siliguri', 'Inter', sans-serif;
+    color: #FFFFFF;
+    display: flex; flex-direction: column; justify-content: space-between;
+    padding: 38px 48px; position: relative; overflow: hidden;
+  }
+  .bg-grid {
+    position: absolute; inset: 0;
+    background-image: linear-gradient(to right, rgba(255,255,255,0.03) 1px, transparent 1px),
+                      linear-gradient(to bottom, rgba(255,255,255,0.03) 1px, transparent 1px);
+    background-size: 40px 40px; pointer-events: none;
+  }
+  .header { display: flex; justify-content: space-between; align-items: center; z-index: 2; }
+  .brand { display: flex; align-items: center; gap: 15px; }
+  .brand-logo-img { width: 48px; height: 48px; object-fit: contain; filter: drop-shadow(0 0 16px rgba(245, 158, 11, 0.7)); }
+  .brand-name { font-family: 'Inter', sans-serif; font-size: 27px; font-weight: 800; }
+  .brand-name span { color: #FBBF24; }
+  .ltd-badge {
+    background: rgba(245, 158, 11, 0.15); border: 1px solid rgba(245, 158, 11, 0.5);
+    color: #FBBF24; padding: 7px 18px; border-radius: 30px; font-weight: 700; font-size: 15px;
+  }
+  .content { display: flex; justify-content: space-between; align-items: center; z-index: 2; margin: 12px 0; }
+  .main-info { max-width: 660px; }
+  .tagline { color: #F59E0B; font-size: 19px; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 6px; }
+  .headline { font-size: 42px; font-weight: 700; line-height: 1.25; margin-bottom: 18px; }
+  .headline span { background: linear-gradient(90deg, #FBBF24, #F87171); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+  .features-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 11px; }
+  .feature-item {
+    background: rgba(255, 255, 255, 0.04); border: 1px solid rgba(255, 255, 255, 0.08);
+    backdrop-filter: blur(10px); padding: 11px 15px; border-radius: 12px;
+    display: flex; align-items: center; gap: 10px; font-size: 16px; font-weight: 600;
+  }
+  .feature-icon { color: #F59E0B; font-size: 17px; font-weight: 800; }
+  .price-card {
+    background: linear-gradient(145deg, rgba(30, 41, 59, 0.85), rgba(15, 23, 42, 0.95));
+    border: 1px solid rgba(245, 158, 11, 0.45);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.55), 0 0 30px rgba(245, 158, 11, 0.2);
+    border-radius: 24px; padding: 26px 32px; text-align: center; width: 380px;
+  }
+  .price-title { color: #94A3B8; font-size: 16px; font-weight: 600; text-transform: uppercase; margin-bottom: 4px; }
+  .old-price { color: #64748B; font-size: 20px; text-decoration: line-through; }
+  .price-amount { font-family: 'Inter', sans-serif; font-size: 52px; font-weight: 900; color: #FBBF24; margin: 2px 0; }
+  .price-sub { color: #34D399; font-size: 15px; font-weight: 700; margin-bottom: 16px; }
+  .cta-btn {
+    background: linear-gradient(135deg, #F59E0B, #D97706); color: #fff;
+    padding: 12px; border-radius: 12px; font-weight: 700; font-size: 16px; display: block;
+    box-shadow: 0 10px 20px rgba(245, 158, 11, 0.4);
+  }
+  .footer {
+    display: flex; justify-content: space-between; align-items: center;
+    border-top: 1px solid rgba(255, 255, 255, 0.12); padding-top: 14px; z-index: 2;
+  }
+  .contact-col { display: flex; align-items: center; gap: 8px; color: #E2E8F0; font-size: 15.5px; font-weight: 700; }
+  .contact-col span { color: #22C55E; font-size: 17px; }
+  .pay-col {
+    background: rgba(255, 255, 255, 0.05); border: 1px solid rgba(255, 255, 255, 0.12);
+    padding: 6px 14px; border-radius: 8px; color: #CBD5E1; font-size: 13.5px; display: flex; gap: 12px;
+  }
+  .pay-col b { color: #38BDF8; font-weight: 700; }
+  .web-link { font-family: 'Inter', sans-serif; color: #38BDF8; font-size: 18px; font-weight: 800; }
+</style>
+</head>
+<body>
+  <div class="bg-grid"></div>
+  <div class="header">
+    <div class="brand">
+      <img src="{LOGO_BASE64}" class="brand-logo-img">
+      <div class="brand-name">AutoMovie Pro <span>Profile & Page Auto-Pilot</span></div>
+    </div>
+    <div class="ltd-badge">📱 পার্সোনাল ব্র্যান্ডিং ও ইনফ্লুয়েন্সার গ্রোথ</div>
+  </div>
+  <div class="content">
+    <div class="main-info">
+      <div class="tagline">ব্যক্তিগত প্রোফাইল ও পেজ অটোমেশন</div>
+      <div class="headline">প্রোফাইল থেকে গড়ে তুলুন <span>স্ট্রং পার্সোনাল ব্র্যান্ড!</span></div>
+      <div class="features-grid">
+        <div class="feature-item"><span class="feature-icon">✓</span> ইসলামিক হাদিস, মোটিভেশনাল উক্তি ও কোট ব্যানার</div>
+        <div class="feature-item"><span class="feature-icon">✓</span> মানুষের মতো স্বাভাবিক অনুভূতির আবেগঘন স্ট্যাটাস</div>
+        <div class="feature-item"><span class="feature-icon">✓</span> ১০০% হিউম্যান মাউস মুভমেন্ট ও অ্যান্টি-ব্যান সেফটি</div>
+        <div class="feature-item"><span class="feature-icon">✓</span> ডেইলি শিডিউল অনুযায়ী প্রোফাইল সার্বক্ষণিক সচল</div>
+      </div>
+    </div>
+    <div class="price-card">
+      <div class="price-title">প্রোফাইল লাইফটাইম ডিল</div>
+      <div class="old-price">৳৫,৫০০</div>
+      <div class="price-amount">৳১,৯৯৯</div>
+      <div class="price-sub">আজীবন এক্সেস • জিরো রিনিউয়াল ফি</div>
+      <div class="cta-btn">অর্ডার করতে এখনই ভিজিট করুন</div>
+    </div>
+  </div>
+  <div class="footer">
+    <div class="contact-col">📞 হেল্পলাইন / WhatsApp: <span>+8801968111593</span></div>
+    <div class="pay-col">
+      <div>বিকাশ এজেন্ট: <b>01756160993</b></div>
+      <div>নগদ এজেন্ট: <b>01611-824811</b></div>
+      <div>পার্সোনাল: <b>01717820998</b></div>
+    </div>
+    <div class="web-link">🌐 automoviepro.com</div>
+  </div>
+</body>
+</html>"""
+    },
+
+    # ==========================================================================
+    # 11. Product 4: WAManager Pro (WhatsApp Marketing Suite) (৳৯৯৯/বছর | Reg ৳২,৯৯৯)
+    # ==========================================================================
+    {
+        "id": "banner_prod4_wa_marketing",
+        "html": """<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<link href="https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@500;600;700&family=Inter:wght@600;800;900&display=swap" rel="stylesheet">
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    width: 1200px; height: 630px;
+    background: radial-gradient(circle at 85% 15%, rgba(37, 211, 102, 0.25) 0%, transparent 50%),
+                radial-gradient(circle at 10% 90%, rgba(18, 140, 126, 0.2) 0%, transparent 40%),
+                #07120E;
+    font-family: 'Hind Siliguri', 'Inter', sans-serif;
+    color: #FFFFFF;
+    display: flex; flex-direction: column; justify-content: space-between;
+    padding: 38px 48px; position: relative; overflow: hidden;
+  }
+  .bg-grid {
+    position: absolute; inset: 0;
+    background-image: linear-gradient(to right, rgba(255,255,255,0.03) 1px, transparent 1px),
+                      linear-gradient(to bottom, rgba(255,255,255,0.03) 1px, transparent 1px);
+    background-size: 40px 40px; pointer-events: none;
+  }
+  .header { display: flex; justify-content: space-between; align-items: center; z-index: 2; }
+  .brand { display: flex; align-items: center; gap: 15px; }
+  .brand-logo-img { width: 48px; height: 48px; object-fit: contain; filter: drop-shadow(0 0 16px rgba(37, 211, 102, 0.8)); }
+  .brand-name { font-family: 'Inter', sans-serif; font-size: 27px; font-weight: 800; }
+  .brand-name span { color: #25D366; }
+  .ltd-badge {
+    background: rgba(37, 211, 102, 0.15); border: 1px solid rgba(37, 211, 102, 0.5);
+    color: #25D366; padding: 7px 18px; border-radius: 30px; font-weight: 700; font-size: 15px;
+  }
+  .content { display: flex; justify-content: space-between; align-items: center; z-index: 2; margin: 12px 0; }
+  .main-info { max-width: 660px; }
+  .tagline { color: #25D366; font-size: 19px; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 6px; }
+  .headline { font-size: 42px; font-weight: 700; line-height: 1.25; margin-bottom: 18px; }
+  .headline span { background: linear-gradient(90deg, #25D366, #38BDF8); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+  .features-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 11px; }
+  .feature-item {
+    background: rgba(255, 255, 255, 0.04); border: 1px solid rgba(255, 255, 255, 0.08);
+    backdrop-filter: blur(10px); padding: 11px 15px; border-radius: 12px;
+    display: flex; align-items: center; gap: 10px; font-size: 16px; font-weight: 600;
+  }
+  .feature-icon { color: #25D366; font-size: 17px; font-weight: 800; }
+  .price-card {
+    background: linear-gradient(145deg, rgba(20, 35, 28, 0.85), rgba(10, 20, 16, 0.95));
+    border: 1px solid rgba(37, 211, 102, 0.45);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.55), 0 0 30px rgba(37, 211, 102, 0.25);
+    border-radius: 24px; padding: 26px 32px; text-align: center; width: 380px;
+  }
+  .price-title { color: #94A3B8; font-size: 16px; font-weight: 600; text-transform: uppercase; margin-bottom: 4px; }
+  .old-price { color: #64748B; font-size: 20px; text-decoration: line-through; }
+  .price-amount { font-family: 'Inter', sans-serif; font-size: 52px; font-weight: 900; color: #25D366; margin: 2px 0; }
+  .price-sub { color: #38BDF8; font-size: 15px; font-weight: 700; margin-bottom: 16px; }
+  .cta-btn {
+    background: linear-gradient(135deg, #25D366, #128C7E); color: #fff;
+    padding: 12px; border-radius: 12px; font-weight: 700; font-size: 16px; display: block;
+    box-shadow: 0 10px 20px rgba(37, 211, 102, 0.4);
+  }
+  .footer {
+    display: flex; justify-content: space-between; align-items: center;
+    border-top: 1px solid rgba(255, 255, 255, 0.12); padding-top: 14px; z-index: 2;
+  }
+  .contact-col { display: flex; align-items: center; gap: 8px; color: #E2E8F0; font-size: 15.5px; font-weight: 700; }
+  .contact-col span { color: #22C55E; font-size: 17px; }
+  .pay-col {
+    background: rgba(255, 255, 255, 0.05); border: 1px solid rgba(255, 255, 255, 0.12);
+    padding: 6px 14px; border-radius: 8px; color: #CBD5E1; font-size: 13.5px; display: flex; gap: 12px;
+  }
+  .pay-col b { color: #38BDF8; font-weight: 700; }
+  .web-link { font-family: 'Inter', sans-serif; color: #38BDF8; font-size: 18px; font-weight: 800; }
+</style>
+</head>
+<body>
+  <div class="bg-grid"></div>
+  <div class="header">
+    <div class="brand">
+      <img src="{LOGO_BASE64}" class="brand-logo-img">
+      <div class="brand-name">WAManager Pro <span>WhatsApp Suite</span></div>
+    </div>
+    <div class="ltd-badge">📱 ডিরেক্ট সেলস ও বাল্ক মার্কেটিং ইঞ্জিন</div>
+  </div>
+  <div class="content">
+    <div class="main-info">
+      <div class="tagline">টার্গেটেড কাস্টমার লিড ও বাল্ক মেসেজিং</div>
+      <div class="headline">হাজার হাজার কাস্টমারের ইনবক্সে পৌঁছান <span>১-ক্লিকেই নিরাপদে!</span></div>
+      <div class="features-grid">
+        <div class="feature-item"><span class="feature-icon">✓</span> আনলিমিটেড বাল্ক মেসেজ ও অ্যান্টি-ব্যান স্পিনট্যাক্স</div>
+        <div class="feature-item"><span class="feature-icon">✓</span> ২৪/৭ স্বয়ংক্রিয় চ্যাটবট ও ইনস্ট্যান্ট সেলস রিপ্লাই</div>
+        <div class="feature-item"><span class="feature-icon">✓</span> গুগল ম্যাপস ও বি২বি ডিরেক্টরি লিড স্ক্র্যাপার</div>
+        <div class="feature-item"><span class="feature-icon">✓</span> অ্যাক্টিভ WhatsApp নম্বর ফিল্টারিং ও ভেরিফিকেশন</div>
+      </div>
+    </div>
+    <div class="price-card">
+      <div class="price-title">১ বছর বাৎসরিক লাইসেন্স</div>
+      <div class="old-price">৳২,৯৯৯</div>
+      <div class="price-amount">৳৯৯৯</div>
+      <div class="price-sub">আনলিমিটেড মেসেজিং • ফুল চ্যাটবট অটোমেশন</div>
+      <div class="cta-btn">অর্ডার করতে এখনই ভিজিট করুন</div>
+    </div>
+  </div>
+  <div class="footer">
+    <div class="contact-col">📞 হেল্পলাইন / WhatsApp: <span>+8801968111593</span></div>
+    <div class="pay-col">
+      <div>বিকাশ এজেন্ট: <b>01756160993</b></div>
+      <div>নগদ এজেন্ট: <b>01611-824811</b></div>
+      <div>পার্সোনাল: <b>01717820998</b></div>
+    </div>
+    <div class="web-link">🌐 automoviepro.com</div>
+  </div>
+</body>
+</html>"""
+    },
+
+    # ==========================================================================
+    # 12. Master Showcase: All 4 Flagship Engines Comparison Banner
+    # ==========================================================================
+    {
+        "id": "banner_all_4_products_master",
+        "html": """<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<link href="https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@500;600;700&family=Inter:wght@600;800;900&display=swap" rel="stylesheet">
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    width: 1200px; height: 630px;
+    background: radial-gradient(circle at 50% 20%, rgba(99, 102, 241, 0.22) 0%, transparent 60%),
+                radial-gradient(circle at 10% 90%, rgba(16, 185, 129, 0.18) 0%, transparent 40%),
+                radial-gradient(circle at 90% 90%, rgba(245, 158, 11, 0.18) 0%, transparent 40%),
+                #070A12;
+    font-family: 'Hind Siliguri', 'Inter', sans-serif;
+    color: #FFFFFF;
+    display: flex; flex-direction: column; justify-content: space-between;
+    padding: 30px 45px; position: relative; overflow: hidden;
+  }
+  .bg-grid {
+    position: absolute; inset: 0;
+    background-image: linear-gradient(to right, rgba(255,255,255,0.03) 1px, transparent 1px),
+                      linear-gradient(to bottom, rgba(255,255,255,0.03) 1px, transparent 1px);
+    background-size: 40px 40px; pointer-events: none;
+  }
+  .header { display: flex; justify-content: space-between; align-items: center; z-index: 2; }
+  .brand { display: flex; align-items: center; gap: 14px; }
+  .brand-logo-img { width: 44px; height: 44px; object-fit: contain; filter: drop-shadow(0 0 16px rgba(99, 102, 241, 0.8)); }
+  .brand-name { font-family: 'Inter', sans-serif; font-size: 26px; font-weight: 800; }
+  .brand-name span { color: #818CF8; }
+  .ltd-badge {
+    background: rgba(239, 68, 68, 0.15); border: 1px solid rgba(239, 68, 68, 0.45);
+    color: #F87171; padding: 6px 16px; border-radius: 30px; font-weight: 700; font-size: 14.5px;
+  }
+  .hero-title { text-align: center; z-index: 2; margin: 6px 0 10px 0; }
+  .hero-tagline { color: #38BDF8; font-size: 16px; font-weight: 700; text-transform: uppercase; letter-spacing: 1.2px; margin-bottom: 2px; }
+  .hero-headline { font-size: 32px; font-weight: 800; }
+  .hero-headline span { background: linear-gradient(90deg, #60A5FA, #34D399, #FBBF24); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+  
+  .cards-grid {
+    display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px; z-index: 2;
+  }
+  .prod-card {
+    background: rgba(255, 255, 255, 0.04); border: 1px solid rgba(255, 255, 255, 0.09);
+    backdrop-filter: blur(12px); border-radius: 16px; padding: 18px 14px; text-align: center;
+    display: flex; flex-direction: column; justify-content: space-between; position: relative;
+  }
+  .card-1 { border-color: rgba(99, 102, 241, 0.45); background: rgba(99, 102, 241, 0.06); }
+  .card-2 { border-color: rgba(16, 185, 129, 0.45); background: rgba(16, 185, 129, 0.06); }
+  .card-3 { border-color: rgba(245, 158, 11, 0.45); background: rgba(245, 158, 11, 0.06); }
+  .card-4 { border-color: rgba(37, 211, 102, 0.45); background: rgba(37, 211, 102, 0.06); }
+  
+  .prod-badge { font-size: 12px; font-weight: 700; padding: 3px 8px; border-radius: 20px; display: inline-block; margin-bottom: 8px; }
+  .badge-1 { background: rgba(99, 102, 241, 0.2); color: #A5B4FC; }
+  .badge-2 { background: rgba(16, 185, 129, 0.2); color: #34D399; }
+  .badge-3 { background: rgba(245, 158, 11, 0.2); color: #FBBF24; }
+  .badge-4 { background: rgba(37, 211, 102, 0.2); color: #25D366; }
+  
+  .prod-name { font-size: 17px; font-weight: 700; line-height: 1.25; margin-bottom: 8px; }
+  .prod-desc { font-size: 12.5px; color: #CBD5E1; line-height: 1.4; margin-bottom: 12px; min-height: 48px; }
+  .prod-old-price { font-size: 14px; color: #64748B; text-decoration: line-through; }
+  .prod-price { font-family: 'Inter', sans-serif; font-size: 28px; font-weight: 900; margin: 2px 0 4px 0; }
+  .p-1 { color: #818CF8; }
+  .p-2 { color: #34D399; }
+  .p-3 { color: #FBBF24; }
+  .p-4 { color: #25D366; }
+  .prod-type { font-size: 12px; font-weight: 700; color: #94A3B8; }
+  
+  .footer {
+    display: flex; justify-content: space-between; align-items: center;
+    border-top: 1px solid rgba(255, 255, 255, 0.12); padding-top: 12px; z-index: 2;
+  }
+  .contact-col { display: flex; align-items: center; gap: 8px; color: #E2E8F0; font-size: 15px; font-weight: 700; }
+  .contact-col span { color: #22C55E; font-size: 16.5px; }
+  .pay-col {
+    background: rgba(255, 255, 255, 0.05); border: 1px solid rgba(255, 255, 255, 0.12);
+    padding: 5px 12px; border-radius: 8px; color: #CBD5E1; font-size: 13px; display: flex; gap: 10px;
+  }
+  .pay-col b { color: #38BDF8; font-weight: 700; }
+  .web-link { font-family: 'Inter', sans-serif; color: #38BDF8; font-size: 17px; font-weight: 800; }
+</style>
+</head>
+<body>
+  <div class="bg-grid"></div>
+  <div class="header">
+    <div class="brand">
+      <img src="{LOGO_BASE64}" class="brand-logo-img">
+      <div class="brand-name">AutoMovie Pro <span>Flagship Suite</span></div>
+    </div>
+    <div class="ltd-badge">⚡ সীমিত সময়ের ২য় স্পেশাল অফার</div>
+  </div>
+  
+  <div class="hero-title">
+    <div class="hero-tagline">আপনার ক্যারিয়ার ও ব্যবসার জন্য সম্পূর্ণ স্বয়ংক্রিয় এআই টুলস</div>
+    <div class="hero-headline">সেরা ৪টি অটোমেশন ইঞ্জিন — <span>প্যাসিভ ইনকাম ও সেলস বৃদ্ধির হাতিয়ার!</span></div>
+  </div>
+  
+  <div class="cards-grid">
+    <!-- Product 1 -->
+    <div class="prod-card card-1">
+      <div>
+        <div class="prod-badge badge-1">🎬 প্যাকেজ ১ • ভিডিও স্টুডিও</div>
+        <div class="prod-name">4K AI Video Studio</div>
+        <div class="prod-desc">টপিক রিসার্চ, চিত্রনাট্য, ৬০+ ভাষায় ডাবিং ও ৯ প্ল্যাটফর্মে অটো আপলোড</div>
+      </div>
+      <div>
+        <div class="prod-old-price">৳১০,০০০</div>
+        <div class="prod-price p-1">৳৩,৯৯৯</div>
+        <div class="prod-type">লাইফটাইম লাইসেন্স (৩য় ভাষা ফ্রি)</div>
+      </div>
+    </div>
+    
+    <!-- Product 2 -->
+    <div class="prod-card card-2">
+      <div>
+        <div class="prod-badge badge-2">💼 প্যাকেজ ২ • বিজনেস পেজ</div>
+        <div class="prod-name">FB Business Manager</div>
+        <div class="prod-desc">২৪/৭ পেজ পোস্ট, কাইনেটিক বিজ্ঞাপন ও গ্রুপে নিরাপদ অর্গানিক শেয়ার</div>
+      </div>
+      <div>
+        <div class="prod-old-price">৳৮,৫০০</div>
+        <div class="prod-price p-2">৳২,৯৯৯</div>
+        <div class="prod-type">লাইফটাইম লাইসেন্স (এফ-কমার্স)</div>
+      </div>
+    </div>
+    
+    <!-- Product 3 -->
+    <div class="prod-card card-3">
+      <div>
+        <div class="prod-badge badge-3">📱 প্যাকেজ ৩ • প্রোফাইল অটোপাইলট</div>
+        <div class="prod-name">FB Profile & Page</div>
+        <div class="prod-desc">ইসলামিক হাদিস, মোটিভেশনাল উক্তি, কোট ব্যানার ও হিউম্যান মাউস মুভমেন্ট</div>
+      </div>
+      <div>
+        <div class="prod-old-price">৳৫,৫০০</div>
+        <div class="prod-price p-3">৳১,৯৯৯</div>
+        <div class="prod-type">লাইফটাইম লাইসেন্স (পার্সোনাল ব্র্যান্ড)</div>
+      </div>
+    </div>
+    
+    <!-- Product 4 -->
+    <div class="prod-card card-4">
+      <div>
+        <div class="prod-badge badge-4">📱 প্যাকেজ ৪ • হোয়াটসঅ্যাপ মার্কেটিং</div>
+        <div class="prod-name">WAManager Pro Suite</div>
+        <div class="prod-desc">আনলিমিটেড বাল্ক মেসেজিং, অ্যান্টি-ব্যান স্পিনট্যাক্স, চ্যাটবট ও বি২বি স্ক্র্যাপার</div>
+      </div>
+      <div>
+        <div class="prod-old-price">৳২,৯৯৯</div>
+        <div class="prod-price p-4">৳৯৯৯</div>
+        <div class="prod-type">১ বছর বাৎসরিক লাইসেন্স</div>
+      </div>
+    </div>
+  </div>
+  
+  <div class="footer">
+    <div class="contact-col">📞 হেল্পলাইন / WhatsApp: <span>+8801968111593</span></div>
     <div class="pay-col">
       <div>বিকাশ এজেন্ট: <b>01756160993</b></div>
       <div>নগদ এজেন্ট: <b>01611-824811</b></div>

@@ -5,32 +5,31 @@ require __DIR__ . '/_layout.php';
 require_admin();
 
 $message = '';
+$error = '';
 
 require_once dirname(__DIR__) . '/includes/billing.php';
 
-if ($_SERVER['REQUEST_METHOD'] === 'POST' && csrf_verify($_POST['csrf'] ?? null)) {
-    $orderId = (int) ($_POST['order_id'] ?? 0);
-    $action = $_POST['action'] ?? '';
-    
-    if ($action === 'deliver_google_pro') {
-        $subId = (int) ($_POST['sub_id'] ?? 0);
-        $targetEmail = trim((string) ($_POST['target_email'] ?? ''));
-        $googleProKey = trim((string) ($_POST['google_pro_key'] ?? ''));
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+    if (!csrf_verify($_POST['csrf'] ?? null)) {
+        $error = 'সেশনের মেয়াদ শেষ হয়েছে বা ফর্মের টোকেন মেয়াদোত্তীর্ণ। অনুগ্রহ করে পৃষ্ঠাটি রিলোড করে পুনরায় ফর্ম পূরণ করুন।';
+    } else {
+        $orderId = (int) ($_POST['order_id'] ?? 0);
+        $action = $_POST['action'] ?? '';
+        
+        if ($action === 'deliver_google_pro') {
+            $subId = (int) ($_POST['sub_id'] ?? 0);
+            $targetEmail = trim((string) ($_POST['target_email'] ?? ''));
+            $googleProKey = trim((string) ($_POST['google_pro_key'] ?? ''));
 
-        $subStmt = $pdo->prepare('SELECT s.*, c.name, c.whatsapp FROM google_pro_subscriptions s JOIN customers c ON s.customer_id = c.id WHERE s.id = ?');
-        $subStmt->execute([$subId]);
-        $sub = $subStmt->fetch();
-        if ($sub) {
-            $months = max(1, (int) ($sub['plan_duration_months'] ?? 1));
-            $days = $months * 30;
-            $driver = (string) $pdo->getAttribute(PDO::ATTR_DRIVER_NAME);
-            if ($driver === 'sqlite') {
-                $upSql = "UPDATE google_pro_subscriptions SET status = 'active', target_email = ?, google_pro_key = ?, expires_at = datetime('now', '+' || ? || ' days') WHERE id = ?";
-                $pdo->prepare($upSql)->execute([$targetEmail, $googleProKey, $days, $subId]);
-            } else {
-                $upSql = "UPDATE google_pro_subscriptions SET status = 'active', target_email = ?, google_pro_key = ?, expires_at = DATE_ADD(NOW(), INTERVAL ? DAY) WHERE id = ?";
-                $pdo->prepare($upSql)->execute([$targetEmail, $googleProKey, $days, $subId]);
-            }
+            $subStmt = $pdo->prepare('SELECT s.*, c.name, c.whatsapp FROM google_pro_subscriptions s JOIN customers c ON s.customer_id = c.id WHERE s.id = ?');
+            $subStmt->execute([$subId]);
+            $sub = $subStmt->fetch();
+            if ($sub) {
+                $months = max(1, (int) ($sub['plan_duration_months'] ?? 1));
+                $days = $months * 30;
+                $expiresAt = date('Y-m-d H:i:s', strtotime("+{$days} days"));
+                $upSql = "UPDATE google_pro_subscriptions SET status = 'active', target_email = ?, google_pro_key = ?, expires_at = ? WHERE id = ?";
+                $pdo->prepare($upSql)->execute([$targetEmail, $googleProKey, $expiresAt, $subId]);
 
             if (!empty($sub['order_id'])) {
                 $pdo->prepare("UPDATE orders SET status = 'approved' WHERE id = ? AND status != 'approved'")->execute([(int) $sub['order_id']]);
@@ -63,8 +62,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && csrf_verify($_POST['csrf'] ?? null)
         }
 
         if ($order && in_array($action, ['approve', 'approve_and_send', 'approve_only'], true) && in_array($order['status'], ['pending_payment', 'under_review'], true)) {
-            $sendNotif = ($action !== 'approve_only');
-            $res = amp_approve_order($pdo, $config, $orderId, $sendNotif);
+            // Pass false to amp_approve_order to prevent double dispatch; custom message is dispatched below
+            $res = amp_approve_order($pdo, $config, $orderId, false);
             if ($res['ok']) {
                 $cleanWa = preg_replace('/\D+/', '', (string)$order['whatsapp']);
                 if (str_starts_with($cleanWa, '01')) {
@@ -86,15 +85,28 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && csrf_verify($_POST['csrf'] ?? null)
                        . "🔒 সিকিউর ওয়ান-টাইম ডাউনলোড লিংক (৭২ ঘণ্টা মেয়াদ):\n"
                        . "📥 {$dlLink}\n\n"
                        . "সফটওয়্যারটি ডাউনলোড করে রান করুন এবং উপরোক্ত Login ID ও Password দিয়ে লগইন করুন। কোনো সমস্যায় এই হোয়াটসঅ্যাপে যোগাযোগ করুন। ধন্যবাদ!";
-                $waShareUrl = "https://wa.me/{$cleanWa}?text=" . rawurlencode($waMsg);
 
-                // Auto dispatch through WhatsApp gateway and register in WAManager Request Dispatcher
-                whatsapp_queue($pdo, $config, $cleanWa, $waMsg, (int)($order['customer_id'] ?? 0));
-                try {
-                    $dispId = 'disp_' . round(microtime(true) * 1000) . '_' . mt_rand(100, 999);
-                    $pdo->prepare("INSERT INTO request_dispatches (id, trigger_type, customer_name, phone, order_id, package_name, message_content, status, sent_at, created_at) VALUES (?, 'order_approved', ?, ?, ?, ?, ?, 'sent', CURRENT_TIMESTAMP, CURRENT_TIMESTAMP)")
-                        ->execute([$dispId, $order['name'], '+' . $cleanWa, (string)$orderId, $prodTitle, $waMsg]);
-                } catch (\Throwable $eDisp) {}
+                $dispRes = null;
+                if ($action === 'approve_and_send' || $action === 'approve') {
+                    // Unified Anti-ban WhatsApp Dispatch directly from server
+                    $dispRes = whatsapp_antiban_dispatch(
+                        $pdo, 
+                        $config, 
+                        $cleanWa, 
+                        $waMsg, 
+                        'high', 
+                        'order_approved', 
+                        (int)($order['customer_id'] ?? 0),
+                        (string)$orderId,
+                        $order['name']
+                    );
+                }
+
+                // License delivery confirmation email is sent even if WhatsApp notification flag is separate
+                amp_send_license_delivery_email($pdo, $order, $res['login_id'], $res['password'], $res['token'] ?? '', $dlLink, $config);
+
+                $deliveredAuto = ($dispRes !== null && !empty($dispRes['delivered_auto']));
+                $directWaUrl = $dispRes['direct_wa_url'] ?? ('https://api.whatsapp.com/send?phone=' . $cleanWa . '&text=' . rawurlencode($waMsg));
 
                 $approvedCard = [
                     'order_id' => $orderId,
@@ -104,21 +116,25 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && csrf_verify($_POST['csrf'] ?? null)
                     'login_id' => $res['login_id'],
                     'password' => $res['password'],
                     'token' => $res['token'] ?? '',
-                    'wa_share_url' => $waShareUrl,
-                    'auto_dispatch' => ($action === 'approve_and_send'),
+                    'download_url' => $dlLink,
+                    'auto_dispatched' => $deliveredAuto,
+                    'direct_wa_url' => $directWaUrl,
+                    'wa_body' => $waMsg,
+                    'account_used' => $dispRes['account_used'] ?? 'সিস্টেম অটোমেটেড গেটওয়ে',
                 ];
-                if ($action === 'approve_and_send') {
-                    $autoDispatchUrl = $waShareUrl;
-                    $message = "অর্ডার #{$orderId} ১-ক্লিকে সফলভাবে অনুমোদিত হয়েছে! ইমেইল প্রেরণ করা হয়েছে এবং WhatsApp মেসেজিং উইন্ডো স্বয়ংক্রিয়ভাবে ওপেন করা হয়েছে।";
-                } elseif ($action === 'approve_only') {
+
+                if ($action === 'approve_only') {
                     $message = "অর্ডার #{$orderId} শুধুমাত্র অনুমোদিত হয়েছে (কোনো অটোমেটিক মেসেজ পাঠানো হয়নি)।";
+                } elseif ($deliveredAuto) {
+                    $message = "অর্ডার #{$orderId} সফলভাবে অনুমোদিত হয়েছে এবং আমাদের Meta Cloud API গেটওয়ের মাধ্যমে গ্রাহকের WhatsApp নম্বরে (+{$cleanWa}) স্বয়ংক্রিয়ভাবে অ্যাক্টিভেশন মেসেজ ও সিকিউর ডাউনলোড লিংক পৌঁছে দেওয়া হয়েছে।";
                 } else {
-                    $message = "অর্ডার #{$orderId} সফলভাবে অ্যাপ্রুভ হয়েছে। লগইন তথ্য নিচে প্রদর্শিত হলো।";
+                    $message = "অর্ডার #{$orderId} সফলভাবে অনুমোদিত হয়েছে। লাইসেন্স আইডি ও পাসওয়ার্ড তৈরি হয়েছে। নিচে ১-ক্লিক বাটনে ট্যাপ করে গ্রাহকের WhatsApp নম্বরে (+{$cleanWa}) মেসেজ পাঠিয়ে দিন।";
                 }
             } else {
                 $message = "অ্যাপ্রুভ ব্যর্থ: " . ($res['error'] ?? 'Unknown error');
             }
         }
+    }
     }
 }
 
@@ -222,7 +238,9 @@ try {
 } catch (\Throwable) {}
 
 admin_header('পেমেন্ট কিউ ও প্যাকেজ রেভিনিউ অ্যানালিটিক্স', 'orders');
-if ($message): ?><p class="ok"><?= e($message) ?></p><?php endif; ?>
+?>
+<?php if ($message): ?><p class="ok"><?= e($message) ?></p><?php endif; ?>
+<?php if ($error): ?><p class="err" style="background:rgba(239,68,68,0.15); border:1px solid rgba(239,68,68,0.4); border-radius:8px; padding:10px 14px; margin-bottom:1.5rem; color:#fca5a5; font-size:0.95rem; font-weight:700;">⚠️ <?= e($error) ?></p><?php endif; ?>
 
 <!-- PACKAGE-BASED REVENUE ANALYTICS -->
 <div style="margin-bottom: 2rem;">
@@ -288,37 +306,36 @@ if ($message): ?><p class="ok"><?= e($message) ?></p><?php endif; ?>
 
 <?php if ($approvedCard): ?>
   <div style="background: linear-gradient(135deg, #064e3b, #022c22); border: 2px solid #10b981; border-radius: 14px; padding: 1.5rem; margin-bottom: 2rem; color: #fff; box-shadow:0 8px 24px rgba(16,185,129,0.25);">
-    <h3 style="color:#6ee7b7; margin-top:0; margin-bottom:0.5rem; font-size:1.25rem;">🎉 অর্ডার #<?= (int) $approvedCard['order_id'] ?> সফলভাবে অনুমোদিত ও আজীবন মেয়াদের (Lifetime) লাইসেন্স অ্যাক্টিভ হয়েছে!</h3>
-    <p style="color:#d1fae5; font-size:0.9rem; margin-bottom:1rem;">গ্রাহকের জন্য অ্যাকাউন্ট প্রস্তুত এবং আজীবন মেয়াদের লাইসেন্স টোকেন জেনারেট করা হয়েছে।</p>
-    <div style="display:grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap:0.75rem; margin:1rem 0; background:rgba(0,0,0,0.35); padding:1rem; border-radius:10px; border:1px solid rgba(255,255,255,0.1);">
-      <div><strong>গ্রাহক:</strong> <?= e($approvedCard['name']) ?></div>
-      <div><strong>WhatsApp:</strong> <?= e($approvedCard['whatsapp']) ?></div>
-      <div><strong>Login ID:</strong> <span style="font-family:monospace; background:#0f172a; padding:3px 8px; border-radius:4px; color:#38bdf8; font-weight:bold;"><?= e($approvedCard['login_id']) ?></span></div>
-      <div><strong>Password:</strong> <span style="font-family:monospace; background:#0f172a; padding:3px 8px; border-radius:4px; color:#f59e0b; font-weight:bold;"><?= e($approvedCard['password']) ?></span></div>
-    </div>
-    <div style="display:flex; gap:10px; flex-wrap:wrap; align-items:center;">
-      <a href="<?= e($approvedCard['wa_share_url']) ?>" target="_blank" rel="noopener" class="btn" style="background:#10b981; color:#022c22; font-weight:bold; font-size:0.95rem; padding:0.65rem 1.25rem; border-radius:8px; text-decoration:none; display:inline-flex; align-items:center; gap:8px;">
-        📲 WhatsApp মেসেজ উইন্ডো খুলুন (Send on WhatsApp)
-      </a>
-      <?php if (!empty($approvedCard['auto_dispatch'])): ?>
-        <span style="color:#a7f3d0; font-size:0.85rem;">✓ WhatsApp উইন্ডো স্বয়ংক্রিয়ভাবে ওপেন করা হয়েছে</span>
+    <h3 style="color:#6ee7b7; margin-top:0; margin-bottom:0.5rem; font-size:1.25rem;">🎉 অর্ডার #<?= (int) $approvedCard['order_id'] ?> সফলভাবে অনুমোদিত হয়েছে!</h3>
+    <div style="color:#d1fae5; font-size:0.9rem; margin-bottom:1rem;">
+      <?php if (!empty($approvedCard['auto_dispatched'])): ?>
+        ✅ আমাদের WhatsApp ক্লাউড গেটওয়ের মাধ্যমে গ্রাহকের WhatsApp নম্বরে (+<?= e($approvedCard['clean_wa']) ?>) স্বয়ংক্রিয়ভাবে লাইসেন্স কি, পাসওয়ার্ড ও ওয়ান-টাইম ডাউনলোড লিংক ডেলিভারি করা হয়েছে (অ্যাকাউন্ট: <?= e($approvedCard['account_used']) ?>)।
+      <?php else: ?>
+        <div style="background:rgba(245,158,11,0.15); border:1px solid rgba(245,158,11,0.4); padding:10px 14px; border-radius:8px; margin-bottom:12px; color:#fef3c7;">
+          <strong>⚡ ১-ক্লিকে তাৎক্ষণিক WhatsApp ডেলিভারি:</strong> সার্ভার Meta Cloud API টোকেন সেটআপ না থাকলে নিচের বাটনে ১-ক্লিক করলেই আপনার WhatsApp থেকে গ্রাহকের মোবাইলে সরাসরি মেসেজটি চলে যাবে।
+        </div>
+        <div style="display:flex; gap:10px; align-items:center; flex-wrap:wrap;">
+          <a href="<?= e($approvedCard['direct_wa_url']) ?>" target="_blank" rel="noopener" class="btn" style="background:#25d366; color:#000; font-weight:800; font-size:0.95rem; padding:10px 18px; border-radius:8px; text-decoration:none; display:inline-flex; align-items:center; gap:8px; box-shadow:0 4px 14px rgba(37,211,102,0.4);">
+            🚀 গ্রাহকের WhatsApp-এ এখনই পাঠান (+<?= e($approvedCard['clean_wa']) ?>)
+          </a>
+          <button type="button" class="btn btn-ghost" onclick="navigator.clipboard.writeText(<?= json_encode($approvedCard['wa_body'] ?? '') ?>); alert('WhatsApp মেসেজ সফলভাবে কপি হয়েছে!');" style="color:#a7f3d0; border-color:#059669; padding:10px 16px; border-radius:8px; font-weight:600;">
+            📋 মেসেজ কপি করুন
+          </button>
+        </div>
       <?php endif; ?>
     </div>
+    <div style="display:grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap:0.75rem; margin:1rem 0; background:rgba(0,0,0,0.35); padding:1rem; border-radius:10px; border:1px solid rgba(255,255,255,0.1);">
+      <div><strong>গ্রাহক:</strong> <?= e($approvedCard['name']) ?></div>
+      <div><strong>WhatsApp:</strong> +<?= e($approvedCard['clean_wa']) ?></div>
+      <div><strong>Login ID:</strong> <span style="font-family:monospace; background:#0f172a; padding:3px 8px; border-radius:4px; color:#38bdf8; font-weight:bold;"><?= e($approvedCard['login_id']) ?></span></div>
+      <div><strong>Password:</strong> <span style="font-family:monospace; background:#0f172a; padding:3px 8px; border-radius:4px; color:#f59e0b; font-weight:bold;"><?= e($approvedCard['password']) ?></span></div>
+      <div style="grid-column: 1 / -1;"><strong>সিকিউর ওয়ান-টাইম ডাউনলোড লিংক:</strong> <span style="font-family:monospace; font-size:0.8rem; background:#0f172a; padding:3px 8px; border-radius:4px; color:#a7f3d0; word-break:break-all;"><?= e($approvedCard['download_url']) ?></span></div>
+    </div>
   </div>
-  <?php if (!empty($autoDispatchUrl)): ?>
-    <script>
-      window.addEventListener('DOMContentLoaded', function() {
-        const w = window.open(<?= json_encode($autoDispatchUrl) ?>, '_blank');
-        if (!w) {
-          console.log('Popup blocked; admin can click the green button directly.');
-        }
-      });
-    </script>
-  <?php endif; ?>
 <?php endif; ?>
 
 <h3>পেন্ডিং ও আন্ডার-রিভিউ সফটওয়্যার অর্ডার</h3>
-<p style="color:#64748b; font-size:0.9rem; margin-bottom:1rem;">গ্রাহকদের পাঠানো বিকাশ, নগদ ও বাইন্যান্স পেমেন্ট যাচাই করে অনুমোদন করুন। ১-ক্লিক বাটনে স্বয়ংক্রিয়ভাবে ইমেইল যাবে এবং WhatsApp মেসেজ ওপেন হবে।</p>
+<p style="color:#64748b; font-size:0.9rem; margin-bottom:1rem;">গ্রাহকদের পাঠানো বিকাশ, নগদ ও বাইন্যান্স পেমেন্ট যাচাই করে অনুমোদন করুন। অনুমোদনের সাথে সাথে আমাদের WhatsApp মার্কেটিং সিস্টেমের মাধ্যমে গ্রাহকের WhatsApp-এ স্বয়ংক্রিয়ভাবে লগইন আইডি, পাসওয়ার্ড ও ওয়ান-টাইম ডাউনলোড লিংক চলে যাবে।</p>
 <table class="data" style="margin-bottom:2.5rem;">
   <thead>
     <tr>
@@ -382,8 +399,8 @@ if ($message): ?><p class="ok"><?= e($message) ?></p><?php endif; ?>
         <form method="post" style="display:inline-flex; align-items:center; gap:6px; flex-wrap:wrap;">
           <input type="hidden" name="csrf" value="<?= e(csrf_token()) ?>">
           <input type="hidden" name="order_id" value="<?= (int) $o['id'] ?>">
-          <button class="btn btn-sm btn-ok" name="action" value="approve_and_send" style="background:linear-gradient(135deg, #10b981, #059669); font-weight:bold; padding:6px 12px; border-radius:6px; white-space:nowrap;" onclick="return confirm('অর্ডার #<?= (int) $o['id'] ?> ১-ক্লিকে অনুমোদন ও সরাসরি WhatsApp + Email পাঠাবেন?');">
-            ⚡ অনুমোদন ও সরাসরি WhatsApp+Email
+          <button class="btn btn-sm btn-ok" name="action" value="approve_and_send" style="background:linear-gradient(135deg, #10b981, #059669); font-weight:bold; padding:6px 12px; border-radius:6px; white-space:nowrap;" onclick="return confirm('অর্ডার #<?= (int) $o['id'] ?> অনুমোদন করবেন? আমাদের WhatsApp সিস্টেম স্বয়ংক্রিয়ভাবে গ্রাহকের নম্বরে লাইসেন্স ও ডাউনলোড লিংক পাঠিয়ে দেবে।');">
+            ⚡ অনুমোদন ও অটো WhatsApp ডেলিভারি
           </button>
           <button class="btn btn-sm btn-ghost" name="action" value="approve_only" style="padding:6px 10px; font-size:0.8rem; border-color:#0284c7; color:#38bdf8; white-space:nowrap;" onclick="return confirm('মেসেজ ছাড়া শুধুমাত্র অর্ডার #<?= (int) $o['id'] ?> অনুমোদন করবেন?');">
             অনুমোদন (মেসেজ ছাড়া)

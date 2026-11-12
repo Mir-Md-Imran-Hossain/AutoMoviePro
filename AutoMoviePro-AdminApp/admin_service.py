@@ -26,6 +26,7 @@ class AdminAppService:
     def __init__(self, site_endpoint: str = "http://127.0.0.1:8080"):
         self.site_endpoint = site_endpoint.rstrip("/")
         self.base_dir = Path(__file__).resolve().parent.parent
+        self.agent_key = os.getenv("AMP_AGENT_MASTER_SECRET", "amp_agent_master_live_key_2026")
 
     def _get_db_path(self) -> Path:
         custom = os.getenv("AMP_DATABASE_PATH")
@@ -113,7 +114,7 @@ class AdminAppService:
         """
         url = f"{self.site_endpoint}/api/admin_mobile.php?action=metrics"
         try:
-            req = urllib.request.Request(url, headers={"User-Agent": "AutoMoviePro-AdminApp/1.0"})
+            req = urllib.request.Request(url, headers={"User-Agent": "AutoMoviePro-AdminApp/1.0", "X-Agent-Key": self.agent_key})
             with urllib.request.urlopen(req, timeout=4) as resp:
                 data = json.loads(resp.read().decode("utf-8"))
                 m = data.get("metrics", {})
@@ -185,7 +186,7 @@ class AdminAppService:
             req = urllib.request.Request(
                 url,
                 data=payload,
-                headers={"Content-Type": "application/json", "User-Agent": "AutoMoviePro-AdminApp/1.0"},
+                headers={"Content-Type": "application/json", "User-Agent": "AutoMoviePro-AdminApp/1.0", "X-Agent-Key": self.agent_key},
                 method="POST"
             )
             with urllib.request.urlopen(req, timeout=4) as resp:
@@ -260,7 +261,7 @@ class AdminAppService:
             req = urllib.request.Request(
                 url,
                 data=payload,
-                headers={"Content-Type": "application/json", "User-Agent": "AutoMoviePro-AdminApp/1.0"},
+                headers={"Content-Type": "application/json", "User-Agent": "AutoMoviePro-AdminApp/1.0", "X-Agent-Key": self.agent_key},
                 method="POST"
             )
             with urllib.request.urlopen(req, timeout=4) as resp:

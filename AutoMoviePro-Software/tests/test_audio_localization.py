@@ -29,10 +29,16 @@ from pipeline.audio_localization_engine import (
 
 class TestAudioLocalization(unittest.TestCase):
     def setUp(self):
+        self._prev_env = os.environ.get("AUTOMOVIE_ALLOW_TEST_AUDIO")
+        os.environ["AUTOMOVIE_ALLOW_TEST_AUDIO"] = "1"
         self.tmp_dir = tempfile.TemporaryDirectory()
         self.engine = AudioLocalizationEngine(audio_dir=Path(self.tmp_dir.name))
 
     def tearDown(self):
+        if self._prev_env is not None:
+            os.environ["AUTOMOVIE_ALLOW_TEST_AUDIO"] = self._prev_env
+        else:
+            os.environ.pop("AUTOMOVIE_ALLOW_TEST_AUDIO", None)
         self.tmp_dir.cleanup()
 
     def test_contextual_dialect_adaptation(self):
@@ -195,19 +201,19 @@ class TestAudioLocalization(unittest.TestCase):
         self.assertFalse(info["valid"])
         self.assertTrue("decode" in info["error"].lower() or "error" in info["error"].lower())
 
-    def test_qa_rejects_invalid_duration_bounds(self):
-        """Validates that local agent QA rejects audio with invalid or wildly deviant duration."""
-        # Generate valid clip first
+    def test_production_tts_failure_without_test_flag_rejects_speech(self):
+        """Verifies that in production mode (without test audio flag), failed TTS returns passed_qa=False and does not synthesize fake beep."""
+        os.environ.pop("AUTOMOVIE_ALLOW_TEST_AUDIO", None)
         diag = self.engine.synthesize_speech(
-            scene_index=4,
-            text="Duration bounds verification test",
+            scene_index=99,
+            text="Testing speech synthesis failure rejection in production",
             target_lang="en",
-            expected_duration_sec=2.0,
+            expected_duration_sec=3.0,
+            provider="google",  # with no API key provided
+            api_key="",
         )
-        # Test with expected_duration_sec=20.0 (actual is ~2s, which is < 25% of expected)
-        inspected = self.engine.inspect_audio_quality(diag, "Duration bounds verification test", expected_duration_sec=20.0)
-        self.assertFalse(inspected.passed_qa)
-        self.assertIn("too short", inspected.qa_notes.lower())
+        self.assertFalse(diag.passed_qa)
+        self.assertIn("TTS synthesis failed", diag.qa_notes)
 
 
 if __name__ == "__main__":

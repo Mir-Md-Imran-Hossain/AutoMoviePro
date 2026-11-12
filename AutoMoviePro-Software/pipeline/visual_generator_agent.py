@@ -745,7 +745,8 @@ class VisualGeneratorAgent:
                 total_scenes=int(scene_plan.get("total_scenes", 10)),
                 audio_path=Path(scene_plan.get("audio_file_path", "")) if scene_plan.get("audio_file_path") else None,
                 niche=scene_plan.get("niche", "Technology"),
-                topic_title=scene_plan.get("topic_bn") or scene_plan.get("title_bn") or "AutoMovie Pro"
+                topic_title=scene_plan.get("topic_bn") or scene_plan.get("title_bn") or "AutoMovie Pro",
+                aspect=aspect
             )
             if clip_out.exists() and clip_out.stat().st_size > 10000:
                 actual_dur = round(ffprobe_duration(clip_out), 2)
@@ -1090,8 +1091,9 @@ class VisualGeneratorAgent:
 
             "total_runtime_sec": round(total_runtime, 2),
 
-            "standard_resolution": "1080x1920",
-
+            "standard_resolution": "1920x1080" if aspect == "16:9" else "1080x1920",
+            "aspect_ratio": aspect,
+            "resolution": "1920x1080" if aspect == "16:9" else "1080x1920",
             "rendered_scenes": rendered_scenes,
 
             "timestamp": datetime.now().isoformat()

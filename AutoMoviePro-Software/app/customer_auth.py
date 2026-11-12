@@ -327,9 +327,18 @@ def evaluate_session(session: Optional[Dict[str, Any]] = None) -> Dict[str, Any]
     except Exception:
         rel = None
 
-    from app.customer_tiers import normalize_tier_id
+    from app.customer_tiers import normalize_tier_id, TIER_WAMANAGER
     raw_tier = customer.get("tier") or customer.get("plan") or customer.get("plan_name")
     resolved_tier = normalize_tier_id(raw_tier) if (raw_tier or auth_mode != "local_dev") else "dev"
+
+    if resolved_tier == TIER_WAMANAGER:
+        auth_state = ENTITLEMENT_REQUIRED
+        block_reason = "product_mismatch_wamanager"
+        production_access = False
+        msg = {
+            "message_key": "product_mismatch_wamanager",
+            "message": "আপনার অ্যাকাউন্টটি WhatsApp Marketing & Manager Pro সফটওয়্যারের জন্য অনুমোদিত। AutoMovie Pro (ভিডিও স্টুডিও ও সোশ্যাল অটোমেশন) সফটওয়্যার ব্যবহার করার অনুমতি আপনার প্ল্যানে অন্তর্ভুক্ত নয়।"
+        }
 
     return to_identity_projection(
         {
@@ -424,11 +433,33 @@ def authenticate(login_id: str, password: str, api_base: str) -> Dict[str, Any]:
     from app.auth.hardware_id import get_hardware_fingerprint
 
     current_hwid = get_hardware_fingerprint()
-    client = LicenseClient(api_base)
-    try:
-        data = client.login(login_id, password, hwid=current_hwid)
-    except Exception as exc:
-        raw_err = str(exc)
+
+    # Determine candidate endpoints: primary input first, followed by smart fallback
+    candidate_endpoints = [api_base]
+    if "automoviepro.com" in api_base and "http://127.0.0.1:8080" not in candidate_endpoints:
+        candidate_endpoints.append("http://127.0.0.1:8080")
+    elif "127.0.0.1" in api_base and "https://automoviepro.com" not in candidate_endpoints:
+        candidate_endpoints.append("https://automoviepro.com")
+
+    data = None
+    last_exc = None
+    active_api_base = api_base
+
+    for ep in candidate_endpoints:
+        try:
+            client = LicenseClient(ep)
+            res_data = client.login(login_id, password, hwid=current_hwid)
+            if res_data and res_data.get("ok"):
+                data = res_data
+                active_api_base = ep
+                last_exc = None
+                break
+        except Exception as exc:
+            last_exc = exc
+            logger.info("license login candidate failed for ep=%s login_id=%s: %s", ep, login_id, sanitize_auth_error(str(exc)))
+
+    if not data:
+        raw_err = str(last_exc) if last_exc else "login_failed"
         logger.info("license login failed for login_id=%s err=%s", login_id, sanitize_auth_error(raw_err))
         err_code = "login_failed"
         custom_msg = "লগইন ব্যর্থ হয়েছে। অনুগ্রহ করে ইউজার আইডি ও পাসওয়ার্ড সঠিক দিন।"
@@ -438,6 +469,16 @@ def authenticate(login_id: str, password: str, api_base: str) -> Dict[str, Any]:
         elif "account_blocked" in raw_err or "account_disabled" in raw_err:
             err_code = "account_disabled"
             custom_msg = "আপনার অ্যাকাউন্টটি অ্যাডমিন প্যানেল থেকে ডিঅ্যাক্টিভেট বা ব্লক করা হয়েছে।"
+        elif "product_mismatch" in raw_err:
+            err_code = "product_mismatch"
+            if ":" in raw_err:
+                custom_msg = raw_err.split(":", 1)[1].strip()
+            else:
+                custom_msg = "আপনার অ্যাকাউন্টটি এই সফটওয়্যারের জন্য অনুমোদিত নয়।"
+        elif ":" in raw_err and not raw_err.startswith("HTTP Error 401") and not raw_err.startswith("invalid_credentials"):
+            server_part = raw_err.split(":", 1)[1].strip()
+            if any(ord(char) > 127 for char in server_part):
+                custom_msg = server_part
         return {
             "ok": False,
             "auth_state": ACCOUNT_DISABLED if err_code == "account_disabled" else AUTH_ERROR,
@@ -446,6 +487,8 @@ def authenticate(login_id: str, password: str, api_base: str) -> Dict[str, Any]:
             "message_key": err_code,
             "hint": sanitize_auth_error(raw_err, 160),
         }
+
+    api_base = active_api_base
 
     customer = dict(data.get("customer") or {})
     token = data.get("token")
@@ -531,6 +574,10 @@ def can_customer_produce(
     foundation: Optional[Dict[str, Any]] = None,
 ) -> Dict[str, Any]:
     """ONE authoritative production access decision: Auth ∧ Account ∧ Entitlement ∧ C01 readiness."""
+    session = store.get_session()
+    if session and str(session.get("auth_mode") or "") != "local_dev":
+        refresh_remote_account_state()
+
     identity = evaluate_session()
     auth_state = identity.get("auth_state")
     if auth_state in (UNAUTHENTICATED, SESSION_EXPIRED):
@@ -635,8 +682,9 @@ def can_customer_produce(
 
 
 def refresh_remote_account_state() -> Dict[str, Any]:
-    """Best-effort LicenseClient.me() and heartbeat refresh into session.
-    Enforces remote kill-switch: if blocked by admin, session is immediately revoked.
+    """Authoritative remote license server verification.
+    Enforces real-time remote kill-switch: if the account is non-existent, blocked, revoked,
+    expired, or locked to another PC on the server, the local session is immediately erased.
     """
     session = store.get_session()
     if not session:
@@ -646,30 +694,61 @@ def refresh_remote_account_state() -> Dict[str, Any]:
     if is_session_expired(session):
         clear_session()
         return evaluate_session()
-    try:
-        from app.api_client import LicenseClient
-        from app.auth.hardware_id import get_hardware_fingerprint
 
-        client = LicenseClient(session.get("api_base_url"), session.get("token"))
-        # Execute heartbeat with hardware fingerprint check
-        client.heartbeat(hwid=get_hardware_fingerprint())
-        me = client.me()
+    from app.api_client import LicenseClient
+    from app.auth.hardware_id import get_hardware_fingerprint
+
+    hwid = get_hardware_fingerprint()
+    api_base = str(session.get("api_base_url") or "")
+    token = str(session.get("token") or "")
+
+    try:
+        client = LicenseClient(api_base, token)
+        # 1. Execute heartbeat with hardware fingerprint check
+        client.heartbeat(hwid=hwid)
+        # 2. Fetch authoritative customer profile from server
+        me = client.me(hwid=hwid)
         if me.get("ok") and me.get("customer"):
             customer = {**(session.get("customer") or {}), **(me.get("customer") or {})}
-            if customer.get("status") not in {"active", "ok"}:
+            if str(customer.get("status") or "").lower() not in {"active", "ok"}:
+                logger.warning("Remote customer status is '%s' — clearing local session immediately", customer.get("status"))
                 clear_session()
                 return evaluate_session()
             persist_session(
                 login_id=str(session.get("login_id") or customer.get("login_id") or ""),
-                token=str(session.get("token") or ""),
+                token=token,
                 customer=customer,
-                api_base=str(session.get("api_base_url") or ""),
+                api_base=api_base,
                 auth_mode="license",
             )
+        else:
+            logger.warning("Remote server returned non-ok for user — clearing local session")
+            clear_session()
+            return evaluate_session()
     except Exception as exc:
         err_str = str(exc)
-        logger.info("remote account refresh / heartbeat failed: %s", sanitize_auth_error(err_str))
-        if "ACCOUNT_BLOCKED" in err_str or "account_blocked" in err_str or "license_revoked" in err_str:
+        logger.info("remote account verification failed: %s", sanitize_auth_error(err_str))
+        fatal_signatures = (
+            "ACCOUNT_BLOCKED",
+            "ACCOUNT_RESTRICTED",
+            "account_blocked",
+            "account_disabled",
+            "account_banned",
+            "license_revoked",
+            "hwid_mismatch",
+            "device_locked",
+            "device_locked_to_another_pc",
+            "unauthorized",
+            "token_expired",
+            "invalid_credentials",
+            "customer_not_found",
+            "product_mismatch",
+            "product_blocked",
+            "401",
+            "403",
+        )
+        if any(sig in err_str for sig in fatal_signatures):
+            logger.warning("Fatal license restriction received (%s) — terminating local session immediately", err_str)
             clear_session()
             return evaluate_session()
     return evaluate_session()

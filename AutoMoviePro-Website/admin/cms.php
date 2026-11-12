@@ -18,7 +18,7 @@ $i18nKeys = [
 ];
 
 $globalKeys = [
-    'price_amount' => 'কোর প্রাইস (৳) — ডিফল্ট 2998',
+    'price_amount' => 'কোর প্রাইস (৳) — ডিফল্ট 3999',
     'language_addon_price' => 'অতিরিক্ত ভাষা প্রাইস (৳) — ডিফল্ট 499',
     'whatsapp_number' => 'সেলস WhatsApp (লিংক-অনলি; সাইটে নম্বর দেখাবে না)',
 ];

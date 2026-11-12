@@ -63,10 +63,11 @@ if ($action === 'activate') {
         if ($cust) {
             // Auto-provision WAManager Pro license for this customer
             $licId = 'wam_' . bin2hex(random_bytes(8));
+            $nowVal = date('Y-m-d H:i:s');
             $pdo->prepare(
                 "INSERT INTO wamanager_licenses (id, license_key, customer_name, customer_phone, customer_email, plan_tier, status, max_devices, created_at)
-                 VALUES (?, ?, ?, ?, ?, 'wamanager_pro', 'active', 1, NOW())"
-            )->execute([$licId, $licenseKey, (string)$cust['name'], (string)$cust['whatsapp'], (string)($cust['email'] ?? '')]);
+                 VALUES (?, ?, ?, ?, ?, 'wamanager_pro', 'active', 1, ?)"
+            )->execute([$licId, $licenseKey, (string)$cust['name'], (string)$cust['whatsapp'], (string)($cust['email'] ?? ''), $nowVal]);
 
             $st->execute([$licenseKey]);
             $lic = $st->fetch(PDO::FETCH_ASSOC);
@@ -99,8 +100,9 @@ if ($action === 'activate') {
 
     // First time activation on this hardware -> Bind it
     if ($boundHwid === '') {
-        $pdo->prepare("UPDATE wamanager_licenses SET hardware_id = ?, machine_name = ?, activated_at = NOW() WHERE id = ?")
-            ->execute([$hardwareId, $machineName, $lic['id']]);
+        $nowVal = date('Y-m-d H:i:s');
+        $pdo->prepare("UPDATE wamanager_licenses SET hardware_id = ?, machine_name = ?, activated_at = ? WHERE id = ?")
+            ->execute([$hardwareId, $machineName, $nowVal, $lic['id']]);
     }
 
     $token = wam_sign_token($licenseKey, $hardwareId, $licenseSecret);
@@ -185,10 +187,11 @@ elseif ($action === 'admin_generate') {
     $licKey = 'WAM-' . substr($keyRaw, 0, 4) . '-' . substr($keyRaw, 4, 4) . '-' . substr($keyRaw, 8, 4);
 
     $id = 'wam_' . bin2hex(random_bytes(8));
+    $nowVal = date('Y-m-d H:i:s');
     $pdo->prepare(
         "INSERT INTO wamanager_licenses (id, license_key, customer_name, customer_phone, customer_email, plan_tier, status, max_devices, created_at)
-         VALUES (?, ?, ?, ?, ?, ?, 'active', 1, NOW())"
-    )->execute([$id, $licKey, $custName, $custPhone, $custEmail, $planTier]);
+         VALUES (?, ?, ?, ?, ?, ?, 'active', 1, ?)"
+    )->execute([$id, $licKey, $custName, $custPhone, $custEmail, $planTier, $nowVal]);
 
     echo json_encode([
         'ok' => true,

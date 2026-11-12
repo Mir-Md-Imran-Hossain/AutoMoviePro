@@ -24,10 +24,11 @@ if ($message === '' && $reason === '') {
 $customerId = $customer ? (int) $customer['id'] : null;
 $customerName = $customer ? ($customer['name'] ?? $customer['login_id'] ?? '') : ($contact ?: 'Client Guest');
 
+$nowVal = date('Y-m-d H:i:s');
 $ins = $pdo->prepare(
     'INSERT INTO agent_tickets
       (customer_id, message, reason, screenshot_note, activity_hint, needs_app_update, status, created_at)
-     VALUES (?, ?, ?, ?, ?, ?, \'open\', NOW())'
+     VALUES (?, ?, ?, ?, ?, ?, \'open\', ?)'
 );
 $ins->execute([
     $customerId,
@@ -36,6 +37,7 @@ $ins->execute([
     $shot !== '' ? $shot : null,
     $hint !== '' ? $hint : null,
     $needsUpdate,
+    $nowVal,
 ]);
 $rawTicketId = (int) $pdo->lastInsertId();
 $formattedTicketId = 'AMP-TK' . str_pad((string)$rawTicketId, 4, '0', STR_PAD_LEFT);

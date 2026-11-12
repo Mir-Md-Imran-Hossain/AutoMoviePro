@@ -27,6 +27,7 @@ from typing import Any, Dict, List, Optional, Tuple, Union
 from pipeline.principal_agent import get_principal_agent
 from pipeline.tts_google import KEY_ROTATOR, audio_duration, synthesize_narration
 from pipeline.api_keys import load_api_bundle
+from pipeline.compose import ffmpeg_bin
 
 logger = logging.getLogger("AutoMoviePro.LocalizationTTS")
 if not logger.handlers:
@@ -47,8 +48,8 @@ class LocalizationTTSAgent:
         self.principal_agent = get_principal_agent()
         self.master_rules = self.principal_agent.rules
         self.cutoff_rms_threshold = 0.018
-        self.lead_in_sec = 0.20        # 200ms acoustic lead-in: prevents DAC/codec head clipping
-        self.silence_padding_sec = 0.40  # 400ms natural breathing room: eliminates tail truncation
+        self.lead_in_sec = 0.25        # 250ms acoustic lead-in: prevents DAC/codec head clipping
+        self.silence_padding_sec = 0.45  # 450ms natural breathing room: eliminates tail truncation
         bundle = load_api_bundle()
         self.google_keys = bundle.get("google_keys") or []
         logger.info("Localization TTS Agent initialized with %d healthy rotated Google API keys.", len(self.google_keys))
@@ -108,7 +109,7 @@ class LocalizationTTSAgent:
         try:
             # Check if wav or probe with ffmpeg
             cmd = [
-                "ffmpeg", "-nostdin", "-hide_banner", "-i", str(audio_path),
+                ffmpeg_bin(), "-nostdin", "-hide_banner", "-i", str(audio_path),
                 "-af", f"astats=metadata=1:reset=1", "-f", "null", "-"
             ]
             res = subprocess.run(cmd, stdout=subprocess.PIPE, stderr=subprocess.PIPE, text=True, timeout=10)
@@ -119,7 +120,7 @@ class LocalizationTTSAgent:
 
             # Trailing cutoff RMS check via astats on tail
             tail_cmd = [
-                "ffmpeg", "-nostdin", "-hide_banner", "-sseof", f"-{win_sec}", "-i", str(audio_path),
+                ffmpeg_bin(), "-nostdin", "-hide_banner", "-sseof", f"-{win_sec}", "-i", str(audio_path),
                 "-af", "volumedetect", "-f", "null", "-"
             ]
             tail_res = subprocess.run(tail_cmd, stdout=subprocess.PIPE, stderr=subprocess.PIPE, text=True, timeout=8)
@@ -140,14 +141,14 @@ class LocalizationTTSAgent:
         self,
         in_audio: Path,
         out_audio: Path,
-        pad_sec: float = 0.40,
-        lead_sec: float = 0.20
+        pad_sec: float = 0.45,
+        lead_sec: float = 0.25
     ) -> Path:
         """Appends smooth non-distorting natural silence padding (both leading and trailing) to prevent speech cutoffs."""
         try:
             lead_ms = max(50, int(lead_sec * 1000))
             cmd = [
-                "ffmpeg", "-y", "-hide_banner", "-loglevel", "error",
+                ffmpeg_bin(), "-y", "-hide_banner", "-loglevel", "error",
                 "-i", str(in_audio),
                 "-af", f"aresample=48000,adelay={lead_ms}|{lead_ms},apad=pad_dur={pad_sec:.3f}",
                 "-c:a", "aac", "-b:a", "256k", "-ar", "48000",
@@ -222,7 +223,7 @@ class LocalizationTTSAgent:
             if synth_path and Path(synth_path).exists():
                 warm_edge_path = raw_audio_path
                 cmd_warmth = [
-                    "ffmpeg", "-y", "-hide_banner", "-loglevel", "error",
+                    ffmpeg_bin(), "-y", "-hide_banner", "-loglevel", "error",
                     "-i", str(synth_path),
                     "-af", "equalizer=f=180:width_type=q:w=1.0:g=2.0,equalizer=f=3500:width_type=q:w=1.5:g=-1.0,compand=attacks=0.02:decays=0.1:points=-60/-60|-24/-20|0/-3:gain=1.2",
                     "-c:a", "aac", "-b:a", "256k", "-ar", "48000",

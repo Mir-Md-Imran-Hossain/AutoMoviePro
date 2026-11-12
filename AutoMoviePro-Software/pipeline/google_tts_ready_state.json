@@ -1,8 +1,8 @@
 {
   "ready": true,
-  "success_fingerprint12": "e756167d8360",
-  "success_suffix": "N1Ug",
+  "success_fingerprint12": "544d514d8d2f",
+  "success_suffix": "AOdA",
   "model": "gemini-2.5-flash-preview-tts",
   "endpoint": "sdk:google.genai.models.generate_content",
-  "proven_at": "2026-11-12T03:25:15Z"
+  "proven_at": "2026-11-12T08:32:20Z"
 }

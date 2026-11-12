@@ -4,7 +4,7 @@ OmniSocial AI - Google Gemini Deep Multimodal Ad Inspector
 =============================================================================
 Strict multi-pass quality inspection for business promotional Reels & videos:
 1. Script / Fact / Claim Guard:
-   - Price verification: Exact 2998 BDT (AutoMovie Pro Lifetime), 4999 BDT (Agency Bundle), 1999 BDT (OmniSocial), or 120 BDT (Google Pro monthly).
+   - Price verification: Exact 3999 BDT (AutoMovie Pro Lifetime), 500 BDT (Token Booking), 2999 BDT (FB Business Manager), 1999 BDT (OmniSocial), or 199/999/1299 BDT (Google Pro API).
    - No hallucinatory or exaggerated claims (no fake earnings guarantee, no impossible promises).
    - Mandatory features: Auto topic research, emotional script, voiceover, auto scheduling.
    - Flawless Bengali grammar, typography, and spelling.
@@ -19,6 +19,10 @@ Strict multi-pass quality inspection for business promotional Reels & videos:
 
 import os
 import sys
+try:
+    sys.stdout.reconfigure(encoding='utf-8')
+except Exception:
+    pass
 import json
 import base64
 import time
@@ -124,14 +128,16 @@ You are the Chief Quality Assurance Inspector for AutoMovie Pro business promoti
 Audit this Bengali commercial script with zero tolerance for errors:
 
 STRICT RULES:
-1. Pricing Authenticity:
-   - If price is mentioned, it MUST be authentic:
-     • Omni Social Media Content Automation: ৳৩,৯৯৯ (Regular ৳১০,০০০)
-     • Omni FB Business Manager & Ad: ৳২,৯৯৯ (Regular ৳৮,৫০০)
-     • Omni Facebook Profile & Page Post: ৳১,৯৯৯ (Regular ৳৬,৫০০)
+1. Pricing Authenticity & Multi-Product Verification:
+   - If price is mentioned, it MUST be authentic to one of the 4 flagship packages:
+     • Product 1: 4K AI Video Studio: ৳৩,৯৯৯ (Regular ৳১০,০০০)
+     • Product 2: FB Business Manager & Ad: ৳২,৯৯৯ (Regular ৳৮,৫০০)
+     • Product 3: FB Profile & Page Auto-Pilot: ৳১,৯৯৯ (Regular ৳৫,৫০০)
+     • Product 4: WAManager Pro (WhatsApp Suite): ৳৯৯৯/বছর (Regular ৳২,৯৯৯)
      • Multi-Language Add-on: ৳৪৯৯
      • Special Gemini Pro API: ৳১৯৯ (১ মাস), ৳৯৯৯ (১২ মাস), ৳১,২৯৯ (১৮ মাস), ৳১,৯৯৯ (২টি একাউন্ট)
-   - Any imaginary price (e.g. 500 Tk, 50,000 Tk, free) is a FATAL FLAW.
+   - FORBIDDEN IN PUBLIC ADS: Any mention of '৫০০ টাকা' / '500 Tk' / 'টোকেন বুকিং' in public ad scripts is a FATAL FLAW (Token booking is strictly for sales agent inbox closing, never public ads).
+   - Any imaginary price (e.g. 50,000 Tk, free) is a FATAL FLAW.
 2. Fact & Claim Veracity:
    - Must emphasize: 100% automated topic research, emotional storytelling scriptwriting, voiceover, multi-language dubbing, and automated scheduling.
    - Absolutely NO misleading claims like 'earn 1 lakh taka on day 1 guaranteed'.
@@ -185,18 +191,24 @@ Respond ONLY with valid JSON:
         passed = True
         score = 96
 
+        # Check forbidden token booking in public ads
+        if "৫০০" in script_text or "500" in script_text or "টোকেন বুকিং" in script_text:
+            flaws.append("পাবলিক বিজ্ঞাপনে ৫০০ টাকা টোকেন বুকিং উল্লেখ করা যাবে না (টোকেন বুকিং শুধুমাত্র ইনবক্স/এজেন্ট ক্লোজিংয়ে প্রযোজ্য)")
+            passed = False
+            score -= 35
+
         # Check pricing against official AutoMovie Pro packages
         valid_prices = [
             "৩,৯৯৯", "3999", "১০,০০০", "10000",
             "২,৯৯৯", "2999", "৮,৫০০", "8500",
-            "১,৯৯৯", "1999", "৬,৫০০", "6500",
+            "১,৯৯৯", "1999", "৫,৫০০", "5500",
             "৪৯৯", "499", "১৯৯", "199", "৯৯৯", "999", "১,২৯৯", "1299"
         ]
         has_price_mention = "টাকা" in script_text or "৳" in script_text or "Tk" in script_text
         if has_price_mention:
             price_matched = any(p in script_text for p in valid_prices)
             if not price_matched:
-                flaws.append("অসমর্থিত বা ভুল মূল্যের উল্লেখ রয়েছে (অফিসিয়াল প্যাকেজ মূল্য: ৩,৯৯৯ ৳, ২,৯৯৯ ৳, ১,৯৯৯ ৳ বা ১৯৯ ৳)")
+                flaws.append("অসমর্থিত বা ভুল মূল্যের উল্লেখ রয়েছে (অফিসিয়াল প্যাকেজ মূল্য: ৩,৯৯৯ ৳, ২,৯৯৯ ৳, ১,৯৯৯ ৳, ৯৯৯ ৳ বা ১৯৯ ৳)")
                 passed = False
                 score -= 30
 

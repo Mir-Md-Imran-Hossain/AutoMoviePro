@@ -4,6 +4,52 @@ declare(strict_types=1);
 header('Content-Type: application/json; charset=utf-8');
 require __DIR__ . '/../includes/bootstrap.php';
 
+// Authentication Guard: require X-Agent-Key or valid admin session
+$agentKeyHeader = trim((string) ($_SERVER['HTTP_X_AGENT_KEY'] ?? $_SERVER['HTTP_AUTHORIZATION'] ?? ''));
+if (str_starts_with($agentKeyHeader, 'Bearer ')) {
+    $agentKeyHeader = trim(substr($agentKeyHeader, 7));
+}
+if (empty($agentKeyHeader) && function_exists('getallheaders')) {
+    $allHdrs = getallheaders();
+    foreach ($allHdrs as $k => $v) {
+        if (strcasecmp($k, 'X-Agent-Key') === 0) {
+            $agentKeyHeader = trim((string) $v);
+            break;
+        }
+    }
+}
+
+$configuredKey = setting($pdo, 'agent_master_secret', '');
+if (empty($configuredKey)) {
+    $configuredKey = setting($pdo, 'agent_internal_secret_key', '');
+}
+if (empty($configuredKey)) {
+    $configuredKey = $config['agent_master_secret'] ?? getenv('AMP_AGENT_MASTER_SECRET') ?: 'amp_agent_master_live_key_2026';
+    set_setting($pdo, 'agent_master_secret', $configuredKey);
+}
+
+$rawInput = file_get_contents('php://input');
+$bodyData = json_decode($rawInput ?: '', true);
+
+$providedKey = trim((string) ($agentKeyHeader ?: ($_GET['key'] ?? ($bodyData['key'] ?? ($_POST['key'] ?? '')))));
+$isAuthorized = false;
+
+if (!empty($providedKey) && hash_equals($configuredKey, $providedKey)) {
+    $isAuthorized = true;
+} elseif (!empty($_SESSION['admin_logged_in'])) {
+    $isAuthorized = true;
+}
+
+if (!$isAuthorized) {
+    http_response_code(401);
+    echo json_encode([
+        'ok' => false,
+        'error' => 'unauthorized',
+        'message' => 'Unauthorized access. Valid Agent Key or Admin Session required.'
+    ], JSON_UNESCAPED_UNICODE);
+    exit;
+}
+
 $method = $_SERVER['REQUEST_METHOD'];
 $action = $_GET['action'] ?? 'metrics';
 
@@ -13,7 +59,9 @@ if ($method === 'GET' && $action === 'metrics') {
     $totalRev = (float) $revStmt->fetchColumn();
 
     // 2. Today's revenue
-    $todayStmt = $pdo->query("SELECT COALESCE(SUM(amount), 0) FROM orders WHERE status IN ('approved', 'active') AND DATE(created_at) = CURDATE()");
+    $today = date('Y-m-d');
+    $todayStmt = $pdo->prepare("SELECT COALESCE(SUM(amount), 0) FROM orders WHERE status IN ('approved', 'active') AND DATE(created_at) = ?");
+    $todayStmt->execute([$today]);
     $todayRev = (float) $todayStmt->fetchColumn();
 
     // 3. Customers count
@@ -67,8 +115,7 @@ if ($method === 'GET' && $action === 'metrics') {
 }
 
 if ($method === 'POST') {
-    $raw = file_get_contents('php://input');
-    $data = json_decode($raw, true) ?? $_POST;
+    $data = is_array($bodyData) ? $bodyData : ($_POST ?: []);
 
     if ($action === 'killswitch') {
         $customerId = (int) ($data['customer_id'] ?? 0);
@@ -139,9 +186,10 @@ if ($method === 'POST') {
         try {
             $inboxId = uniqid('out_', true);
             $cleanP = whatsapp_clean_phone($phone, true);
+            $nowTime = date('Y-m-d H:i:s');
             $pdo->prepare("INSERT INTO wa_inbox_messages (id, account_id, direction, sender_phone, recipient_phone, sender_name, message_body, status, is_read, timestamp)
-                           VALUES (?, 'mobile_admin', 'outbound', 'business', ?, 'Admin Mobile', ?, 'sent', 1, NOW())")
-                ->execute([$inboxId, $cleanP, $msg]);
+                           VALUES (?, 'mobile_admin', 'outbound', 'business', ?, 'Admin Mobile', ?, 'sent', 1, ?)")
+                ->execute([$inboxId, $cleanP, $msg, $nowTime]);
         } catch (\Throwable $e) {}
 
         echo json_encode([
@@ -167,12 +215,22 @@ if ($method === 'POST') {
 
         try {
             $cId = 'cnt_' . uniqid('', true);
-            $st = $pdo->prepare(
-                "INSERT INTO wa_contacts (id, name, phone, country_code, business_name, source, consent_status, created_at, updated_at)
-                 VALUES (?, ?, ?, '880', ?, 'mobile_admin', 'opted_in', NOW(), NOW())
-                 ON DUPLICATE KEY UPDATE name = VALUES(name), business_name = VALUES(business_name), updated_at = NOW()"
-            );
-            $st->execute([$cId, $name, $cleanPhone, $business]);
+            $nowTime = date('Y-m-d H:i:s');
+            $driver = (string) $pdo->getAttribute(PDO::ATTR_DRIVER_NAME);
+            if ($driver === 'sqlite') {
+                $st = $pdo->prepare(
+                    "INSERT INTO wa_contacts (id, name, phone, country_code, business_name, source, consent_status, created_at, updated_at)
+                     VALUES (?, ?, ?, '880', ?, 'mobile_admin', 'opted_in', ?, ?)
+                     ON CONFLICT(phone) DO UPDATE SET name = excluded.name, business_name = excluded.business_name, updated_at = excluded.updated_at"
+                );
+            } else {
+                $st = $pdo->prepare(
+                    "INSERT INTO wa_contacts (id, name, phone, country_code, business_name, source, consent_status, created_at, updated_at)
+                     VALUES (?, ?, ?, '880', ?, 'mobile_admin', 'opted_in', ?, ?)
+                     ON DUPLICATE KEY UPDATE name = VALUES(name), business_name = VALUES(business_name), updated_at = VALUES(updated_at)"
+                );
+            }
+            $st->execute([$cId, $name, $cleanPhone, $business, $nowTime, $nowTime]);
             echo json_encode(['ok' => true, 'message' => "কন্টাক্ট '{$name}' সফলভাবে সংরক্ষিত হয়েছে।"], JSON_UNESCAPED_UNICODE);
         } catch (\Throwable $e) {
             echo json_encode(['ok' => false, 'error' => $e->getMessage()]);

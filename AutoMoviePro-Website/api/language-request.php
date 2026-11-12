@@ -60,15 +60,16 @@ if ($ref === '' && $note === '') {
     json_response(['ok' => false, 'error' => 'payment_info_required'], 400);
 }
 
+$nowVal = date('Y-m-d H:i:s');
 $ins = $pdo->prepare(
     'INSERT INTO language_orders (customer_id, lang_code, amount, payment_ref, payment_note, status, created_at)
-     VALUES (?, ?, ?, ?, ?, \'pending_payment\', NOW())'
+     VALUES (?, ?, ?, ?, ?, \'pending_payment\', ?)'
 );
 
 $orderIds = [];
 $items = [];
 foreach ($codes as $lang) {
-    $ins->execute([(int) $customer['id'], $lang, $unit, $ref ?: null, $note ?: null]);
+    $ins->execute([(int) $customer['id'], $lang, $unit, $ref ?: null, $note ?: null, $nowVal]);
     $orderId = (int) $pdo->lastInsertId();
     $orderIds[] = $orderId;
     $items[] = [

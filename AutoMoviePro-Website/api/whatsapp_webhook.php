@@ -100,67 +100,105 @@ foreach ($entries as $entry) {
                     if (str_starts_with($cleanDigits, '01')) $cleanDigits = '880' . substr($cleanDigits, 1);
                     $normPhone = '+' . $cleanDigits;
 
-                    $pdo->prepare("INSERT OR REPLACE INTO inbound_messages (id, account_id, sender_phone, sender_name, message_body, is_read, timestamp) VALUES (?, 'primary_cloud_api', ?, ?, ?, 0, CURRENT_TIMESTAMP)")
+                    $pdo->prepare("REPLACE INTO inbound_messages (id, account_id, sender_phone, sender_name, message_body, is_read, timestamp) VALUES (?, 'primary_cloud_api', ?, ?, ?, 0, CURRENT_TIMESTAMP)")
                         ->execute([$msgId, $normPhone, $contactName, $body]);
 
                     $cId = 'cnt_' . round(microtime(true) * 1000) . '_' . mt_rand(100, 999);
-                    $pdo->prepare("INSERT OR REPLACE INTO contacts (id, name, phone, country_code, source, consent_status, created_at, updated_at) VALUES (?, ?, ?, '880', 'whatsapp_inbound', 'opted_in', CURRENT_TIMESTAMP, CURRENT_TIMESTAMP)")
+                    $pdo->prepare("REPLACE INTO contacts (id, name, phone, country_code, source, consent_status, created_at, updated_at) VALUES (?, ?, ?, '880', 'whatsapp_inbound', 'opted_in', CURRENT_TIMESTAMP, CURRENT_TIMESTAMP)")
                         ->execute([$cId, $contactName, $normPhone]);
                 } catch (\Throwable $e) {}
 
                 // 2. Also register or update in whatsapp_leads
                 whatsapp_save_lead($pdo, $senderPhone, $contactName, 'whatsapp_inbound', 'video_studio', null, $body);
 
-                // 3. Auto-Reply Trigger
+                // 3. Intelligent Unified Auto-Reply & Central AI Agent Brain
                 try {
-                    $rules = $pdo->query("SELECT * FROM wa_auto_reply_rules WHERE is_active = 1 ORDER BY priority ASC")->fetchAll(PDO::FETCH_ASSOC);
+                    // Step A: Check keyword rules from both automation_rules and wa_auto_reply_rules
+                    $rules = [];
+                    try {
+                        $rules = $pdo->query("SELECT id, keyword, match_type, response_text, priority FROM automation_rules WHERE is_active = 1
+                                              UNION ALL
+                                              SELECT id, keyword, match_type, response_text, priority FROM wa_auto_reply_rules WHERE is_active = 1
+                                              ORDER BY priority ASC")->fetchAll(PDO::FETCH_ASSOC);
+                    } catch (\Throwable $eRules) {
+                        try {
+                            $rules = $pdo->query("SELECT id, keyword, match_type, response_text, priority FROM automation_rules WHERE is_active = 1 ORDER BY priority ASC")->fetchAll(PDO::FETCH_ASSOC);
+                        } catch (\Throwable $eR2) {
+                            $rules = $pdo->query("SELECT id, keyword, match_type, response_text, priority FROM wa_auto_reply_rules WHERE is_active = 1 ORDER BY priority ASC")->fetchAll(PDO::FETCH_ASSOC);
+                        }
+                    }
+
                     $matchedReply = null;
-                    $bodyLower = mb_strtolower($body, 'UTF-8');
+                    $matchedKeyword = null;
+                    $bodyLower = mb_strtolower(trim($body), 'UTF-8');
 
                     foreach ($rules as $r) {
-                        $kw = mb_strtolower((string)$r['keyword'], 'UTF-8');
-                        $matchType = (string)$r['match_type'];
+                        $kw = mb_strtolower(trim((string)$r['keyword']), 'UTF-8');
+                        $matchType = (string)($r['match_type'] ?? 'contains');
+                        $kwList = array_filter(array_map('trim', preg_split('/[|,]/u', $kw) ?: []));
+                        if (empty($kwList)) $kwList = [$kw];
                         $isMatch = false;
 
-                        // Check pipe-separated multiple keywords e.g. "price|dam|cost"
-                        $kwList = explode('|', $kw);
                         foreach ($kwList as $kItem) {
-                            $kItem = trim($kItem);
                             if ($kItem === '') continue;
-
                             if ($matchType === 'exact' && $bodyLower === $kItem) {
-                                $isMatch = true;
-                                break;
+                                $isMatch = true; break;
                             } elseif ($matchType === 'contains' && str_contains($bodyLower, $kItem)) {
-                                $isMatch = true;
-                                break;
+                                $isMatch = true; break;
                             } elseif ($matchType === 'startswith' && str_starts_with($bodyLower, $kItem)) {
-                                $isMatch = true;
-                                break;
+                                $isMatch = true; break;
                             } elseif ($matchType === 'endswith' && str_ends_with($bodyLower, $kItem)) {
-                                $isMatch = true;
-                                break;
+                                $isMatch = true; break;
                             }
                         }
 
                         if ($isMatch) {
                             $matchedReply = (string)$r['response_text'];
+                            $matchedKeyword = $r['keyword'];
                             break;
                         }
                     }
 
                     if ($matchedReply !== null) {
-                        // Dispatch automated response
-                        whatsapp_queue($pdo, $config, $senderPhone, $matchedReply, null);
+                        // Dispatch automated rule response via unified anti-ban engine
+                        whatsapp_antiban_dispatch($pdo, $config, $senderPhone, $matchedReply, 'high', 'auto_responder', null, null, $contactName);
 
-                        // Record outbound auto-reply in inbox
+                        $replyId = 'in_' . (round(microtime(true) * 1000) + 100) . '_' . mt_rand(100, 999);
+                        $pdo->prepare("INSERT INTO inbound_messages (id, account_id, sender_phone, sender_name, message_body, is_read, timestamp) VALUES (?, 'primary_cloud_api', ?, 'অটো-রেসপন্ডার বট', ?, 1, CURRENT_TIMESTAMP)")
+                            ->execute([$replyId, '+' . $cleanDigits, $matchedReply]);
+                        
                         $autoReplyId = uniqid('auto_', true);
-                        $pdo->prepare(
-                            "INSERT INTO wa_inbox_messages (id, account_id, direction, sender_phone, recipient_phone, sender_name, message_body, status, is_read, timestamp)
-                             VALUES (?, 'primary_cloud_api', 'outbound', 'business', ?, 'Auto-Reply Bot', ?, 'sent', 1, NOW())"
-                        )->execute([$autoReplyId, $senderPhone, $matchedReply]);
+                        $pdo->prepare("INSERT INTO wa_inbox_messages (id, account_id, direction, sender_phone, recipient_phone, sender_name, message_body, status, is_read, timestamp) VALUES (?, 'primary_cloud_api', 'outbound', 'business', ?, 'Auto-Reply Bot', ?, 'sent', 1, CURRENT_TIMESTAMP)")
+                            ->execute([$autoReplyId, '+' . $cleanDigits, $matchedReply]);
+                    } else {
+                        // Step B: Intelligent Central AI Sales Consultant Fallback (Ayesha / Nirob / Tania)
+                        require_once dirname(__DIR__) . '/includes/marketing_master_agent.php';
+                        $aiRes = MarketingMasterBrain::process($pdo, $config, [
+                            'channel' => 'whatsapp_inbound',
+                            'user_message' => $body,
+                            'lead_name' => $contactName,
+                            'lead_phone' => '+' . $cleanDigits,
+                            'requested_agent' => 'auto'
+                        ]);
+
+                        if (!empty($aiRes['reply'])) {
+                            $aiReply = $aiRes['reply'];
+                            $agentId = $aiRes['meta']['selected_agent'] ?? 'ayesha';
+                            $agentLabel = ($agentId === 'nirob') ? 'নীরব (Tech Specialist)' : (($agentId === 'tania') ? 'তানিয়া (Sales Closer)' : 'আয়েশা (Customer Care)');
+
+                            whatsapp_antiban_dispatch($pdo, $config, $cleanDigits, $aiReply, 'high', 'ai_auto_responder', null, null, $contactName);
+
+                            $aiRepId = 'in_' . (round(microtime(true) * 1000) + 200) . '_' . mt_rand(100, 999);
+                            $pdo->prepare("INSERT INTO inbound_messages (id, account_id, sender_phone, sender_name, message_body, is_read, timestamp) VALUES (?, 'ai_director', ?, ?, ?, 1, CURRENT_TIMESTAMP)")
+                                ->execute([$aiRepId, '+' . $cleanDigits, $agentLabel, $aiReply]);
+
+                            $pdo->prepare("INSERT INTO wa_inbox_messages (id, account_id, direction, sender_phone, recipient_phone, sender_name, message_body, status, is_read, timestamp) VALUES (?, 'ai_director', 'outbound', 'business', ?, ?, ?, 'sent', 1, CURRENT_TIMESTAMP)")
+                                ->execute([$aiRepId, '+' . $cleanDigits, $agentLabel, $aiReply]);
+                        }
                     }
-                } catch (\Throwable $e) {}
+                } catch (\Throwable $eReply) {
+                    error_log('WhatsApp webhook auto-reply error: ' . $eReply->getMessage());
+                }
             }
         }
 

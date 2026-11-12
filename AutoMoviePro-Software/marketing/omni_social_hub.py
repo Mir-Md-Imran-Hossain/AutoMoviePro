@@ -326,7 +326,7 @@ def seed_default_profiles():
         niche="Industrial Video Automation SaaS, Passive Income, YouTube Faceless",
         language="bn",
         posts_per_day=24, # Every 45-65 mins
-        guidelines="Full marketing banners, Omni Video Automation ৳3999, FB Business Manager ৳2999, FB Profile Auto Pilot ৳1999, Addon ৳499, hotline +880 1684-355055, official payment agents (01756160993, 01611-824811, 01717820998). Human pre/post scroll 3-7 mins.",
+        guidelines="Full marketing banners, Omni Video Studio ৳3999 (Reg ৳10000), 3rd free language for 9 platforms, ৳500 token booking, FB Business Manager ৳2999, FB Profile Auto Pilot ৳1999, WhatsApp Suite ৳999, hotline/WhatsApp +8801968111593, official payment agents (bKash 01756160993, Nagad 01611-824811, Personal 01717820998). Human pre/post scroll 3-7 mins.",
         browser_profile_dir=str(BROWSER_PROFILES_DIR / "automovie_pro_page")
     )
 

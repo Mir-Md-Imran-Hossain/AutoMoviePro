@@ -36,12 +36,27 @@ from pipeline.final_video_composer import (
 
 class TestFinalVideoComposer(unittest.TestCase):
     def setUp(self):
+        from app.auth.server_ticket import ServerTicketEngine
+        from app.auth.hardware_id import get_hardware_fingerprint
+        hwid = get_hardware_fingerprint()
+        bundle = ServerTicketEngine.create_authoritative_ticket(
+            customer_id=1,
+            login_id="AMP-TEST-01",
+            tier="video_studio",
+            action="compose_video",
+            video_type="short",
+            hwid=hwid,
+            ttl_seconds=3600,
+        )
+        ServerTicketEngine.set_current_active_ticket(bundle)
         self.tmp_dir = tempfile.TemporaryDirectory()
         self.out_dir = Path(self.tmp_dir.name) / "Output"
         self.temp_dir = Path(self.tmp_dir.name) / "temp"
         self.composer = FinalVideoComposer(output_dir=self.out_dir, temp_dir=self.temp_dir)
 
     def tearDown(self):
+        from app.auth.server_ticket import ServerTicketEngine
+        ServerTicketEngine.set_current_active_ticket(None)
         self.tmp_dir.cleanup()
 
     def test_production_real_video_composition(self):
@@ -163,57 +178,40 @@ class TestFinalVideoComposer(unittest.TestCase):
         self.assertFalse(passed)
         self.assertIn("validity failure", msg.lower())
 
-    def test_short_video_composition_simulated(self):
-        """Composes a short video in simulation mode, validates branding, and ensures temp cleanup."""
+    def test_simulation_mode_is_strictly_rejected(self):
+        """Verifies that attempting simulation mode raises a RuntimeError and is prohibited."""
         config = VideoCompositionConfig(
             title="5 AI Inventions",
             video_format="short",
             language="bn",
             scenes_count=5,
-            intro_video_path="/assets/intro.mp4",
-            logo_watermark_path="/assets/logo.png",
-            enable_bgm_ducking=True,
-            hardware_acceleration="qsv",
             simulate=True,
         )
 
-        res = self.composer.compose_full_video(
-            config=config,
-            scene_visual_paths=["v1.mp4", "v2.mp4", "v3.mp4", "v4.mp4", "v5.mp4"],
-            scene_audio_paths=["a1.mp3", "a2.mp3", "a3.mp3", "a4.mp3", "a5.mp3"],
-            clean_temp_after_success=True,
-        )
+        with self.assertRaises(RuntimeError) as ctx:
+            self.composer.compose_full_video(
+                config=config,
+                scene_visual_paths=["v1.mp4"],
+                scene_audio_paths=["a1.mp3"],
+            )
+        self.assertIn("simulation mode is completely disabled", str(ctx.exception).lower())
 
-        self.assertTrue(res.is_simulated)
-        self.assertTrue(res.passed_final_qa)
-        self.assertEqual(res.resolution, "1080x1920")
-        self.assertTrue(Path(res.final_output_path).exists())
-        self.assertIn("logo watermark verified", res.qa_report.lower())
-        self.assertIn("intro successfully placed", res.qa_report.lower())
-        self.assertEqual(res.temp_files_cleaned, 5)
-
-    def test_long_video_composition_simulated(self):
-        """Composes a 16:9 widescreen long video in simulation mode."""
+    def test_simulated_composer_raises_error(self):
+        """Verifies that calling SimulatedVideoComposer directly raises a RuntimeError."""
+        sim = SimulatedVideoComposer(self.out_dir, self.temp_dir)
         config = VideoCompositionConfig(
-            title="Complete History of Rome",
-            video_format="long",
+            title="Disabled Sim Test",
+            video_format="short",
             language="en",
-            scenes_count=12,
-            logo_watermark_path="/assets/logo.png",
-            simulate=True,
+            scenes_count=1,
         )
-
-        res = self.composer.compose_full_video(
-            config=config,
-            scene_visual_paths=[f"v{i}.mp4" for i in range(12)],
-            scene_audio_paths=[f"a{i}.mp3" for i in range(12)],
-            clean_temp_after_success=True,
-        )
-
-        self.assertTrue(res.is_simulated)
-        self.assertTrue(res.passed_final_qa)
-        self.assertEqual(res.resolution, "1920x1080")
-        self.assertEqual(res.duration_sec, 420.0)
+        with self.assertRaises(RuntimeError) as ctx:
+            sim.compose(
+                config=config,
+                scene_visual_paths=["v1.mp4"],
+                scene_audio_paths=[],
+            )
+        self.assertIn("permanently eradicated", str(ctx.exception).lower())
 
     def test_separation_of_production_and_simulation_renderers(self):
         """Validates that ProductionVideoComposer and SimulatedVideoComposer are cleanly separated."""

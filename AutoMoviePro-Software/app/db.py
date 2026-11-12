@@ -178,6 +178,16 @@ def init_db() -> None:
             conn.execute("ALTER TABLE jobs ADD COLUMN thumbnail_path TEXT")
         if "package_path" not in job_cols:
             conn.execute("ALTER TABLE jobs ADD COLUMN package_path TEXT")
+        if "video_category" not in job_cols:
+            conn.execute("ALTER TABLE jobs ADD COLUMN video_category TEXT DEFAULT 'cinematic'")
+        if "motion_theme" not in job_cols:
+            conn.execute("ALTER TABLE jobs ADD COLUMN motion_theme TEXT DEFAULT 'deep_cyber_mesh'")
+        if "news_category" not in job_cols:
+            conn.execute("ALTER TABLE jobs ADD COLUMN news_category TEXT")
+        if "resolution" not in job_cols:
+            conn.execute("ALTER TABLE jobs ADD COLUMN resolution TEXT")
+        if "aspect_ratio" not in job_cols:
+            conn.execute("ALTER TABLE jobs ADD COLUMN aspect_ratio TEXT")
 
         conn.executescript(
             """
@@ -604,13 +614,15 @@ def add_job(job: Dict[str, Any]) -> int:
     with db() as conn:
         cur = conn.execute(
             """
-            INSERT INTO jobs (channel_id, video_type, title, description, tags, local_path,
-              platform, upload_status, remote_url, error, created_at, uploaded_at, lang_code)
-            VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+            INSERT INTO jobs (channel_id, video_type, video_category, title, description, tags, local_path,
+              platform, upload_status, remote_url, error, created_at, uploaded_at, lang_code,
+              motion_theme, news_category, resolution, aspect_ratio)
+            VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
             """,
             (
                 job.get("channel_id"),
                 job.get("video_type"),
+                str(job.get("video_category") or "cinematic").lower().strip(),
                 job.get("title"),
                 job.get("description"),
                 job.get("tags"),
@@ -622,6 +634,10 @@ def add_job(job: Dict[str, Any]) -> int:
                 datetime.now().isoformat(),
                 job.get("uploaded_at"),
                 job.get("lang_code") or "en",
+                job.get("motion_theme") or "deep_cyber_mesh",
+                job.get("news_category") or "",
+                job.get("resolution") or "",
+                job.get("aspect_ratio") or "",
             ),
         )
         return int(cur.lastrowid)

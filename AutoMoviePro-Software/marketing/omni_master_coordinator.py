@@ -642,6 +642,42 @@ class MasterCoordinator:
         # Autonomous Scheduled Video Reels & Shorts Cycle
         self.check_and_run_reels()
 
+        # Autonomous Comment & Visitor Inquiry Reply Cycle
+        self.check_and_reply_comments()
+
+    def check_and_reply_comments(self):
+        """Intelligent autonomous comment and visitor inquiry responder."""
+        try:
+            entities = self.registry.list_entities()
+            for entity in entities:
+                eid = entity.entity_id
+                cfg = entity.get_config()
+                if not cfg.get("auto_reply", {}).get("enabled", False):
+                    continue
+                inbox = entity.get_comments_inbox()
+                unreplied = [c for c in inbox if not c.get("replied") and not c.get("reply_text")]
+                if unreplied:
+                    for item in unreplied[:3]:
+                        commenter = item.get("commenter", "সম্মানিত ভিজিটর")
+                        comment_text = item.get("comment_text") or item.get("text", "")
+                        post_ctx = item.get("post_context", "") or cfg.get("auto_reply", {}).get("page_context", "")
+                        post_id = str(item.get("post_id", "inquiry"))
+                        reply = OmniCommentReplyAgent.generate_reply(
+                            entity_id=eid,
+                            post_context=post_ctx,
+                            commenter_name=commenter,
+                            user_comment=comment_text
+                        )
+                        if reply:
+                            item["reply_text"] = reply
+                            item["replied"] = True
+                            item["replied_at"] = datetime.now().isoformat()
+                            self.broadcast_status(eid, "মন্তব্য / ইনবক্স উত্তর প্রেরিত", f"গ্রাহক {commenter}-কে সফলভাবে উত্তর দেওয়া হয়েছে।", is_live=False)
+                    from omni_social_hub import atomic_write_json
+                    atomic_write_json(entity.comments_path, inbox)
+        except Exception as e:
+            print(f"[COORDINATOR COMMENT REPLY NOTICE] {e}", flush=True)
+
     def check_and_run_reels(self):
         """Intelligent autonomous Reel & Short schedule coordinator."""
         try:

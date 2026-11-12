@@ -155,8 +155,14 @@ if (!empty($_FILES['payment_screenshot']) && is_uploaded_file($_FILES['payment_s
     }
 }
 
-// If TrxID or screenshot or sender digits provided, mark under_review, otherwise pending_payment
-$initialStatus = ($txnId !== '' || $paymentScreenshotPath !== null || $senderLastDigits !== '') ? 'under_review' : 'pending_payment';
+$serverUpgradeMode = setting($pdo, 'agent_server_upgrade_mode', '0') === '1';
+if ($serverUpgradeMode) {
+    $initialStatus = 'waitlist_priority';
+    $plan .= ' [VIP Priority Waitlist — ১ সপ্তাহ সার্ভার মাইগ্রেশন]';
+} else {
+    // If TrxID or screenshot or sender digits provided, mark under_review, otherwise pending_payment
+    $initialStatus = ($txnId !== '' || $paymentScreenshotPath !== null || $senderLastDigits !== '') ? 'under_review' : 'pending_payment';
+}
 
 if ($name === '' || strlen($whatsapp) < 10) {
     redirect('/?error=1#buy');
@@ -164,6 +170,12 @@ if ($name === '' || strlen($whatsapp) < 10) {
 
 $driver = (string) $pdo->getAttribute(PDO::ATTR_DRIVER_NAME);
 $nowSql = ($driver === 'sqlite') ? "datetime('now')" : "NOW()";
+
+$attributionVisitorId = trim((string)($_POST['attribution_visitor_id'] ?? $_COOKIE['amp_vid'] ?? ''));
+$closingFramework = trim((string)($_POST['closing_framework'] ?? ''));
+$agentId = trim((string)($_POST['agent_id'] ?? ''));
+$orderSource = trim((string)($_POST['order_source'] ?? ($closingFramework !== '' ? 'ai_sales_chat' : 'web_checkout')));
+$orderToken = bin2hex(random_bytes(24));
 
 $pdo->beginTransaction();
 try {
@@ -177,8 +189,9 @@ try {
     $stmt = $pdo->prepare(
         "INSERT INTO orders (
             customer_id, name, whatsapp, email, plan_name, amount, status,
-            languages_json, base_langs, addon_langs, payment_method, sender_last_digits, txn_id, payment_screenshot, created_at
-         ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, {$nowSql})"
+            languages_json, base_langs, addon_langs, payment_method, sender_last_digits, txn_id, payment_screenshot,
+            order_source, agent_id, coupon_used, discount_amount, closing_framework, attribution_visitor_id, order_token, created_at
+         ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, {$nowSql})"
     );
     $stmt->execute([
         $customerId,
@@ -195,8 +208,35 @@ try {
         $senderLastDigits !== '' ? $senderLastDigits : null,
         $txnId !== '' ? $txnId : null,
         $paymentScreenshotPath,
+        $orderSource,
+        $agentId !== '' ? $agentId : null,
+        $couponCode !== '' ? $couponCode : null,
+        $discount,
+        $closingFramework !== '' ? $closingFramework : null,
+        $attributionVisitorId !== '' ? $attributionVisitorId : null,
+        $orderToken,
     ]);
     $orderId = (int) $pdo->lastInsertId();
+
+    // Telemetry and Psychology State Transition
+    try {
+        $stTelem = $pdo->prepare(
+            "INSERT INTO conversion_attribution_telemetry (order_id, visitor_id, phone, agent_id, closing_framework, created_at)
+             VALUES (?, ?, ?, ?, ?, {$nowSql})"
+        );
+        $stTelem->execute([
+            (string) $orderId,
+            $attributionVisitorId !== '' ? $attributionVisitorId : null,
+            $whatsapp,
+            $agentId !== '' ? $agentId : 'tania',
+            $closingFramework !== '' ? $closingFramework : 'direct_checkout'
+        ]);
+
+        if ($attributionVisitorId !== '') {
+            $pUp = $pdo->prepare("UPDATE customer_psychology_profiles SET conversation_stage = 'customer', buying_temperature = 100 WHERE visitor_id = ?");
+            $pUp->execute([$attributionVisitorId]);
+        }
+    } catch (\Throwable $e) {}
 
     if ($productType === 'google_pro') {
         $subStmt = $pdo->prepare(
@@ -223,21 +263,27 @@ try {
         if (setting($pdo, 'wa_auto_order_placed', '1') === '1' && $productType !== 'google_pro') {
             $bkashAgent = setting($pdo, 'bkash_agent_number', '01756160993');
             $nagadAgent = setting($pdo, 'nagad_agent_number', '01611-824811');
-            whatsapp_queue($pdo, $config, $whatsapp, $orderMsg, $customerId);
+            if ($serverUpgradeMode) {
+                $orderMsg = "আসসালামু আলাইকুম {$name}! AutoMovie Pro-এর প্রি-লঞ্চ প্রায়োরিটি ওয়েটিং লিস্টে সফলভাবে নথিভুক্ত হওয়ার জন্য আন্তরিক ধন্যবাদ (#AMP-WL-{$orderId})। আমাদের হাই-স্পিড ক্লাউড ভিডিও রেন্ডারিং সার্ভার মাইগ্রেশনের কাজ সম্পন্ন হওয়া মাত্রই আগামী এক সপ্তাহের মধ্যে আমাদের টিম আপনার সাথে যোগাযোগ করে বিশেষ রি-লঞ্চ অফারে সফটওয়্যারটি বুঝিয়ে দেবে। 🚀";
+            } else {
+                $orderMsg = "অভিনন্দন {$name}! AutoMovie Pro-তে আপনার অর্ডার (#{$orderId}) সফলভাবে তৈরি হয়েছে। প্ল্যান: {$plan} (৳" . (int)$amount . ")। অনুগ্রহ করে বিকাশ এজেন্ট ({$bkashAgent}) অথবা নগদ এজেন্ট ({$nagadAgent})-এ ক্যাশ আউট সম্পন্ন করে TrxID লিখে আমাদের মেসেজ পাঠান।";
+            }
+            $cleanDig = preg_replace('/\D+/', '', $whatsapp);
+            if (str_starts_with($cleanDig, '01')) $cleanDig = '880' . substr($cleanDig, 1);
+            if (function_exists('whatsapp_antiban_dispatch')) {
+                whatsapp_antiban_dispatch($pdo, $config, $cleanDig, $orderMsg, 'high', 'order_placed', (int)$customerId, (string)$orderId, $name);
+            } else {
+                whatsapp_queue($pdo, $config, $whatsapp, $orderMsg, $customerId);
+            }
 
             try {
-                $dispId = 'disp_' . round(microtime(true) * 1000) . '_' . mt_rand(100, 999);
-                $pdo->prepare("INSERT INTO request_dispatches (id, trigger_type, customer_name, phone, order_id, package_name, message_content, status, sent_at, created_at) VALUES (?, 'order_placed', ?, ?, ?, ?, ?, 'sent', CURRENT_TIMESTAMP, CURRENT_TIMESTAMP)")
-                    ->execute([$dispId, $name, $whatsapp, (string)$orderId, $plan, $orderMsg]);
-
-                $cleanDig = preg_replace('/\D+/', '', $whatsapp);
-                if (str_starts_with($cleanDig, '01')) $cleanDig = '880' . substr($cleanDig, 1);
                 $normPhone = '+' . $cleanDig;
                 $cId = 'cnt_' . round(microtime(true) * 1000) . '_' . mt_rand(100, 999);
-                $pdo->prepare("INSERT OR REPLACE INTO contacts (id, name, phone, country_code, source, consent_status, created_at, updated_at) VALUES (?, ?, ?, '880', 'website_order', 'opted_in', CURRENT_TIMESTAMP, CURRENT_TIMESTAMP)")
+                $pdo->prepare("REPLACE INTO contacts (id, name, phone, country_code, source, consent_status, created_at, updated_at) VALUES (?, ?, ?, '880', 'website_order', 'opted_in', CURRENT_TIMESTAMP, CURRENT_TIMESTAMP)")
                     ->execute([$cId, $name, $normPhone]);
-                $pdo->prepare("INSERT OR IGNORE INTO contact_group_members (group_id, contact_id, added_at) VALUES ('pending_leads', ?, CURRENT_TIMESTAMP)")
-                    ->execute([$cId]);
+                $isSqlite = ((string)$pdo->getAttribute(PDO::ATTR_DRIVER_NAME) === 'sqlite');
+                $igSql = $isSqlite ? "INSERT OR IGNORE INTO contact_group_members (group_id, contact_id, added_at) VALUES ('pending_leads', ?, CURRENT_TIMESTAMP)" : "INSERT IGNORE INTO contact_group_members (group_id, contact_id, added_at) VALUES ('pending_leads', ?, CURRENT_TIMESTAMP)";
+                $pdo->prepare($igSql)->execute([$cId]);
             } catch (\Throwable $eReg) {}
         }
     } catch (\Throwable $eLead) {}
@@ -247,7 +293,11 @@ try {
         try {
             // ১. কাস্টমারের হোয়াটসঅ্যাপে জিমেইল চাওয়ার মেসেজ
             $custMsg = "অভিনন্দন {$name}! AutoMovie Pro-এর 'Google AI Pro প্যাকেজ' (#{$orderId})-এর অর্ডার সফলভাবে তৈরি হয়েছে। এটি একটি ডেডিকেটেড প্রিমিয়াম সার্ভিস হওয়ায় আপনার জন্য ১৫০ জিবি ক্লাউড ভল্ট ও এপিআই এক্সেস প্রস্তুত করা হচ্ছে। অনুগ্রহ করে আপনার যে জিমেইল (Gmail) অ্যাকাউন্টে ১৫০ জিবি ক্লাউড স্টোরেজ ও এপিআই এক্সেস নিতে চান, সেই ইমেইল অ্যাড্রেসটি লিখে এখনই আমাদের এই হোয়াটসঅ্যাপে মেসেজ পাঠান।";
-            whatsapp_queue($pdo, $config, $whatsapp, $custMsg, $customerId);
+            if (function_exists('whatsapp_antiban_dispatch')) {
+                whatsapp_antiban_dispatch($pdo, $config, $cleanDig, $custMsg, 'high', 'google_pro_ordered', (int)$customerId, (string)$orderId, $name);
+            } else {
+                whatsapp_queue($pdo, $config, $whatsapp, $custMsg, $customerId);
+            }
 
             // ২. অ্যাডমিনের হোয়াটসঅ্যাপ নম্বরে বিস্তারিত অর্ডার নোটিফিকেশন
             $adminWhatsapp = setting($pdo, 'admin_notify_whatsapp', '8801968111593');
@@ -263,14 +313,14 @@ try {
     try {
         $pdo->beginTransaction();
         $stmt = $pdo->prepare(
-            'INSERT INTO customers (name, whatsapp, email, status, created_at)
-             VALUES (?, ?, ?, ?, NOW())'
+            "INSERT INTO customers (name, whatsapp, email, status, created_at)
+             VALUES (?, ?, ?, ?, {$nowSql})"
         );
         $stmt->execute([$name, $whatsapp, $email !== '' ? $email : null, 'pending']);
         $customerId = (int) $pdo->lastInsertId();
         $stmt = $pdo->prepare(
-            'INSERT INTO orders (customer_id, name, whatsapp, email, plan_name, amount, status, created_at)
-             VALUES (?, ?, ?, ?, ?, ?, ?, NOW())'
+            "INSERT INTO orders (customer_id, name, whatsapp, email, plan_name, amount, status, order_token, created_at)
+             VALUES (?, ?, ?, ?, ?, ?, ?, ?, {$nowSql})"
         );
         $stmt->execute([
             $customerId,
@@ -280,6 +330,7 @@ try {
             $plan . ' [' . $baseLangs . ($addonLangs !== '' ? '+' . $addonLangs : '') . ']',
             $amount,
             'pending_payment',
+            $orderToken,
         ]);
         $orderId = (int) $pdo->lastInsertId();
         $pdo->commit();
@@ -299,4 +350,4 @@ try {
     }
 }
 
-redirect('/pending.php?order=' . $orderId);
+redirect('/pending.php?order=' . $orderId . '&token=' . $orderToken);

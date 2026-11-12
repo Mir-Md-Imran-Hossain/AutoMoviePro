@@ -2,8 +2,69 @@
 declare(strict_types=1);
 
 header('Content-Type: application/json; charset=utf-8');
-require __DIR__ . '/../includes/bootstrap.php';
-require __DIR__ . '/../includes/billing.php';
+require_once __DIR__ . '/../includes/bootstrap.php';
+require_once __DIR__ . '/../includes/billing.php';
+
+// Authentication Guard: require sms_gateway_secret, X-Agent-Key, or admin session
+$configuredSecret = setting($pdo, 'sms_gateway_secret', '');
+if (empty($configuredSecret)) {
+    $configuredSecret = $config['sms_gateway_secret'] ?? getenv('AMP_SMS_GATEWAY_SECRET') ?: '';
+    if (empty($configuredSecret)) {
+        $masterKey = setting($pdo, 'agent_master_secret', '');
+        $configuredSecret = !empty($masterKey) ? $masterKey : 'amp_sms_gateway_live_secret_2026';
+    }
+    set_setting($pdo, 'sms_gateway_secret', $configuredSecret);
+}
+
+$masterSecret = setting($pdo, 'agent_master_secret', '');
+if (empty($masterSecret)) {
+    $masterSecret = $config['agent_master_secret'] ?? getenv('AMP_AGENT_MASTER_SECRET') ?: 'amp_agent_master_live_key_2026';
+}
+
+$raw = file_get_contents('php://input');
+$data = json_decode($raw ?: '', true);
+if (!is_array($data)) {
+    $data = $_POST;
+}
+
+$reqSecret = trim((string) ($_SERVER['HTTP_X_GATEWAY_SECRET'] ?? $_SERVER['HTTP_X_SMS_SECRET'] ?? $_SERVER['HTTP_X_AGENT_KEY'] ?? $_SERVER['HTTP_AUTHORIZATION'] ?? ''));
+if (str_starts_with($reqSecret, 'Bearer ')) {
+    $reqSecret = trim(substr($reqSecret, 7));
+}
+if (empty($reqSecret) && function_exists('getallheaders')) {
+    $allHdrs = getallheaders();
+    foreach ($allHdrs as $k => $v) {
+        if (in_array(strtolower($k), ['x-gateway-secret', 'x-sms-secret', 'x-agent-key'], true)) {
+            $reqSecret = trim((string) $v);
+            break;
+        }
+    }
+}
+if (empty($reqSecret)) {
+    $reqSecret = trim((string) ($_GET['secret'] ?? ($_GET['key'] ?? ($data['secret'] ?? ($data['gateway_secret'] ?? ($data['key'] ?? ''))))));
+}
+
+$isAuthorized = false;
+if (!empty($reqSecret)) {
+    if (!empty($configuredSecret) && hash_equals($configuredSecret, $reqSecret)) {
+        $isAuthorized = true;
+    } elseif (!empty($masterSecret) && hash_equals($masterSecret, $reqSecret)) {
+        $isAuthorized = true;
+    }
+}
+if (!$isAuthorized && !empty($_SESSION['admin_logged_in'])) {
+    $isAuthorized = true;
+}
+
+if (!$isAuthorized) {
+    http_response_code(401);
+    echo json_encode([
+        'ok' => false,
+        'error' => 'unauthorized',
+        'message' => 'Unauthorized access. Valid SMS gateway secret or Agent Key required.'
+    ], JSON_UNESCAPED_UNICODE);
+    exit;
+}
 
 $method = $_SERVER['REQUEST_METHOD'];
 
@@ -23,9 +84,6 @@ if ($method !== 'POST') {
     echo json_encode(['ok' => false, 'error' => 'Method Not Allowed']);
     exit;
 }
-
-$raw = file_get_contents('php://input');
-$data = json_decode($raw, true) ?? $_POST;
 
 $provider = strtolower(trim((string) ($data['provider'] ?? 'bkash')));
 $senderPhone = trim((string) ($data['sender_phone'] ?? ''));
@@ -59,11 +117,12 @@ if ($existing) {
 }
 
 // 2. Insert into agent_sms_inbox
+$nowTime = date('Y-m-d H:i:s');
 $ins = $pdo->prepare('
     INSERT INTO agent_sms_inbox (provider, sender_phone, sender_last_digits, txn_id, amount, raw_message, is_matched, created_at)
-    VALUES (?, ?, ?, ?, ?, ?, 0, NOW())
+    VALUES (?, ?, ?, ?, ?, ?, 0, ?)
 ');
-$ins->execute([$provider, $senderPhone, $senderLastDigits, $txnId, $amount, $rawMessage]);
+$ins->execute([$provider, $senderPhone, $senderLastDigits, $txnId, $amount, $rawMessage, $nowTime]);
 $smsId = (int) $pdo->lastInsertId();
 
 // 3. Automated Reconciliation: Find matching pending_payment orders
@@ -88,8 +147,8 @@ if ($order) {
     $appRes = amp_approve_order($pdo, $matchedOrderId);
     
     // Update order status to active
-    $upOrder = $pdo->prepare("UPDATE orders SET status = 'active', payment_method = ?, txn_id = ?, sender_last_digits = ?, updated_at = NOW() WHERE id = ?");
-    $upOrder->execute([$provider, $txnId, $senderLastDigits, $matchedOrderId]);
+    $upOrder = $pdo->prepare("UPDATE orders SET status = 'active', payment_method = ?, txn_id = ?, sender_last_digits = ?, updated_at = ? WHERE id = ?");
+    $upOrder->execute([$provider, $txnId, $senderLastDigits, $nowTime, $matchedOrderId]);
 
     // Mark SMS as matched
     $upSms = $pdo->prepare('UPDATE agent_sms_inbox SET is_matched = 1, matched_order_id = ? WHERE id = ?');

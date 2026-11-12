@@ -10,9 +10,12 @@ $createdCustomerModal = null;
 $sentCredsModal = null;
 $catalog = amp_lang_catalog();
 
-if ($_SERVER['REQUEST_METHOD'] === 'POST' && csrf_verify($_POST['csrf'] ?? null)) {
-    $id = (int) ($_POST['id'] ?? 0);
-    $action = (string) ($_POST['action'] ?? '');
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+    if (!csrf_verify($_POST['csrf'] ?? null)) {
+        $error = 'সেশনের মেয়াদ শেষ হয়েছে বা ফর্মের টোকেন মেয়াদোত্তীর্ণ। অনুগ্রহ করে পৃষ্ঠাটি রিলোড করে পুনরায় ফর্ম পূরণ করুন।';
+    } else {
+        $id = (int) ($_POST['id'] ?? 0);
+        $action = (string) ($_POST['action'] ?? '');
 
     // 1. Manually Create New Customer
     if ($action === 'create_manual_customer') {
@@ -95,25 +98,44 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && csrf_verify($_POST['csrf'] ?? null)
                     . "সফটওয়্যারটি ডাউনলোড করে ইনস্টল করুন এবং উপরোক্ত Login ID ও Password দিয়ে লগইন করুন। যেকোনো প্রয়োজনে আমাদের সাথে সরাসরি WhatsApp-এ যোগাযোগ করতে পারেন।\n\n"
                     . "ধন্যবাদ,\nAutoMovie Pro টিম";
 
-            // Queue background WhatsApp notification
-            whatsapp_queue($pdo, $config, $whatsapp, $waBody, $newCustId);
+            // Direct Automated Server Dispatch via Unified Anti-Ban Gateway
+            $cleanWa = preg_replace('/\D+/', '', $whatsapp);
+            if (str_starts_with($cleanWa, '01')) $cleanWa = '880' . substr($cleanWa, 1);
+            $dispRes = whatsapp_antiban_dispatch(
+                $pdo,
+                $config,
+                $cleanWa,
+                $waBody,
+                'high',
+                'manual_customer_created',
+                (int)$newCustId,
+                null,
+                $name
+            );
 
-            $waClean = preg_replace('/\D+/', '', $whatsapp);
-            $directWaUrl = 'https://wa.me/' . (str_starts_with($waClean, '88') ? $waClean : ('88' . $waClean)) . '?text=' . rawurlencode($waBody);
+            $isAuto = !empty($dispRes['delivered_auto']);
+            $directWaUrl = $dispRes['direct_wa_url'] ?? ('https://api.whatsapp.com/send?phone=' . $cleanWa . '&text=' . rawurlencode($waBody));
 
             $createdCustomerModal = [
                 'id' => $newCustId,
                 'name' => $name,
                 'whatsapp' => $whatsapp,
+                'clean_wa' => $cleanWa,
                 'login_id' => $loginId,
                 'password' => $plainPass,
                 'token' => $token,
                 'tier' => $tierLabel,
                 'dlUrl' => $dlUrl,
-                'waLink' => $directWaUrl,
                 'waBody' => $waBody,
+                'delivered_auto' => $isAuto,
+                'directWaUrl' => $directWaUrl,
+                'dispAccount' => $dispRes['account_used'] ?? 'অফিসিয়াল WhatsApp গেটওয়ে',
             ];
-            $message = "কাস্টমার {$name} (#{$newCustId}) সফলভাবে যুক্ত করা হয়েছে এবং লগইন আইডি {$loginId} ইস্যু হয়েছে।";
+            if ($isAuto) {
+                $message = "কাস্টমার {$name} (#{$newCustId}) সফলভাবে যুক্ত করা হয়েছে এবং মেটা ক্লাউড এপিআই গেটওয়ে ({$dispRes['account_used']}) থেকে সরাসরি ক্রেতার মোবাইলে লগইন তথ্য পাঠিয়ে দেওয়া হয়েছে।";
+            } else {
+                $message = "কাস্টমার {$name} (#{$newCustId}) সফলভাবে যুক্ত করা হয়েছে। ক্রেতার WhatsApp-এ মেসেজ পাঠাতে নিচের বাটনে ১-ক্লিক করুন।";
+            }
         }
     }
 
@@ -141,41 +163,69 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && csrf_verify($_POST['csrf'] ?? null)
             $siteUrl = rtrim((string) ($config['site_url'] ?? 'https://automoviepro.com'), '/');
             $dlUrl = $siteUrl . '/download.php?token=' . $dlToken;
 
+            $pInfo = amp_get_product_info((string)($cust['tier'] ?? $cust['plan'] ?? 'video_studio'));
+
             $waBody = "Assalamu Alaikum {$cust['name']},\n\n"
-                    . "আপনার AutoMovie Pro অ্যাকাউন্ট লগইন তথ্য ও ডাউনলোড লিংক:\n\n"
+                    . "আপনার {$pInfo['name']} অ্যাকাউন্ট লগইন তথ্য ও ডাউনলোড লিংক:\n\n"
                     . "👤 লগইন ID: {$cust['login_id']}\n"
                     . "🔑 পাসওয়ার্ড: {$newPass}\n"
                     . "🎫 লাইসেন্স টোকেন: {$token}\n\n"
                     . "🔒 সিকিউর ডাউনলোড লিংক (মেয়াদ ৭২ ঘণ্টা):\n"
                     . "📥 {$dlUrl}\n\n"
-                    . "সফটওয়্যার ওপেন করে উপরোক্ত ID ও Password দিয়ে লগইন করুন।\n\n"
-                    . "AutoMovie Pro সাপোর্ট: 01968111593";
+                    . "{$pInfo['instructions']}\n\n"
+                    . "{$pInfo['support_label']}";
 
-            whatsapp_queue($pdo, $config, (string)$cust['whatsapp'], $waBody, $id);
+            // Direct Automated Server Dispatch via Unified Anti-Ban Gateway
+            $cleanWa = preg_replace('/\D+/', '', (string)$cust['whatsapp']);
+            if (str_starts_with($cleanWa, '01')) $cleanWa = '880' . substr($cleanWa, 1);
+            $dispRes = whatsapp_antiban_dispatch(
+                $pdo,
+                $config,
+                $cleanWa,
+                $waBody,
+                'high',
+                'password_reset',
+                (int)$id,
+                null,
+                $cust['name']
+            );
 
-            $waClean = preg_replace('/\D+/', '', (string)$cust['whatsapp']);
-            $directWaUrl = 'https://wa.me/' . (str_starts_with($waClean, '88') ? $waClean : ('88' . $waClean)) . '?text=' . rawurlencode($waBody);
+            // Save to Live CRM thread
+            $inId = 'out_' . round(microtime(true) * 1000) . '_' . mt_rand(100, 999);
+            try {
+                $pdo->prepare("INSERT INTO inbound_messages (id, account_id, sender_phone, sender_name, message_body, is_read, timestamp) VALUES (?, ?, ?, ?, ?, 1, CURRENT_TIMESTAMP)")
+                    ->execute([$inId, $dispRes['account_id'] ?? 'primary_cloud_api', '+' . $cleanWa, 'AutoMovie System (' . $pInfo['short_name'] . ')', $waBody]);
+                whatsapp_save_lead($pdo, $cleanWa, $cust['name'], 'password_reset', $pInfo['id'], null, $waBody);
+            } catch (\Throwable $e) {}
+
+            $isAuto = !empty($dispRes['delivered_auto']);
+            $directWaUrl = $dispRes['direct_wa_url'] ?? ('https://api.whatsapp.com/send?phone=' . $cleanWa . '&text=' . rawurlencode($waBody));
 
             $sentCredsModal = [
                 'id' => $id,
                 'name' => $cust['name'],
                 'whatsapp' => $cust['whatsapp'],
+                'clean_wa' => $cleanWa,
                 'login_id' => $cust['login_id'],
                 'password' => $newPass,
                 'token' => $token,
+                'tier' => $pInfo['name'],
                 'dlUrl' => $dlUrl,
-                'waLink' => $directWaUrl,
                 'waBody' => $waBody,
+                'delivered_auto' => $isAuto,
+                'directWaUrl' => $directWaUrl,
+                'dispAccount' => $dispRes['account_used'] ?? 'সিস্টেম গেটওয়ে',
             ];
-            $message = "কাস্টমার #{$id} ({$cust['name']}) এর নতুন পাসওয়ার্ড সেট ও WhatsApp লগইন তথ্য তৈরি করা হয়েছে।";
+            $message = "কাস্টমার #{$id} ({$cust['name']}) এর নতুন পাসওয়ার্ড সেট করা হয়েছে এবং {$pInfo['short_name']} কাস্টমারের WhatsApp CRM থ্রেডে বার্তাটি যুক্ত হয়েছে।";
         }
     }
 
     // 3. Status Actions
     if ($id > 0) {
         if ($action === 'activate') {
-            $pdo->prepare("UPDATE customers SET status = 'active', activated_at = COALESCE(activated_at, NOW()) WHERE id = ?")
-                ->execute([$id]);
+            $nowVal = date('Y-m-d H:i:s');
+            $pdo->prepare("UPDATE customers SET status = 'active', activated_at = COALESCE(activated_at, ?) WHERE id = ?")
+                ->execute([$nowVal, $id]);
             $message = "কাস্টমার #{$id} সফলভাবে সক্রিয় (Active) করা হয়েছে।";
         } elseif ($action === 'deactivate') {
             $pdo->prepare("UPDATE customers SET status = 'inactive' WHERE id = ?")->execute([$id]);
@@ -186,6 +236,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && csrf_verify($_POST['csrf'] ?? null)
             $pdo->prepare('UPDATE licenses SET revoked = 1 WHERE customer_id = ?')->execute([$id]);
             $message = "কাস্টমার #{$id} সফলভাবে মুছে ফেলা হয়েছে।";
         }
+    }
     }
 }
 
@@ -505,7 +556,7 @@ admin_header('কাস্টমার ও লাইসেন্স ম্যা
       <div style="display:flex; justify-content:flex-end; gap:10px;">
         <button type="button" class="btn-admin btn-admin-ghost" onclick="closeManualCustomerModal()">বাতিল</button>
         <button type="submit" class="btn-admin btn-admin-primary" style="padding:10px 22px; font-size:0.95rem; font-weight:700;">
-          ✓ কাস্টমার তৈরি করুন ও WhatsApp পাঠান
+          ⚡ কাস্টমার তৈরি করুন ও অটো WhatsApp ডেলিভারি
         </button>
       </div>
     </form>
@@ -538,16 +589,98 @@ admin_header('কাস্টমার ও লাইসেন্স ম্যা
           নতুন পাসওয়ার্ড দিন (খালি রাখলে স্বয়ংক্রিয় রেন্ডম পাসওয়ার্ড তৈরি হবে):
         </label>
         <input type="text" name="new_password" placeholder="যেমন: pass9821 বা খালি রাখুন" class="form-input" style="width:100%; padding:0.65rem;">
+        <p style="color:#94a3b8; font-size:0.78rem; margin:6px 0 0 0;">
+          💡 পাসওয়ার্ড রিসেট করামাত্র সার্ভারের কানেক্টেড WhatsApp গেটওয়ে থেকে স্বয়ংক্রিয়ভাবে মেসেজটি সরাসরি গ্রাহকের মোবাইলে চলে যাবে।
+        </p>
       </div>
 
       <div style="display:flex; justify-content:flex-end; gap:10px;">
         <button type="button" class="btn-admin btn-admin-ghost" onclick="closeSendCredsModal()">বাতিল</button>
         <button type="submit" class="btn-admin" style="background:#059669; color:#fff; font-weight:700; padding:10px 20px;">
-          🚀 তথ্য তৈরি ও WhatsApp-এ পাঠান
+          ⚡ পাসওয়ার্ড রিসেট ও অটো WhatsApp ডেলিভারি
         </button>
       </div>
     </form>
   </div>
+</div>
+
+<?php
+$recentOutbox = [];
+try {
+    $recentOutbox = $pdo->query("SELECT o.*, c.name as cust_name FROM whatsapp_outbox o LEFT JOIN customers c ON o.customer_id = c.id ORDER BY o.id DESC LIMIT 15")->fetchAll(PDO::FETCH_ASSOC);
+} catch (\Throwable $e) {}
+?>
+<!-- RECENT WHATSAPP OUTBOX & RESEND -->
+<div class="admin-card" style="margin-top: 2rem; border: 1px solid rgba(37,211,102,0.3);">
+  <div class="card-header" style="display:flex; justify-content:space-between; align-items:center;">
+    <div class="card-title">
+      <span style="font-size:1.3rem;">📨</span>
+      <span style="color:#25D366; font-weight:800;">সাম্প্রতিক WhatsApp আউটবক্স (Recent WhatsApp Outbox & Resend)</span>
+    </div>
+    <span class="wam-pill secure" style="font-size:0.75rem;">
+      সর্বশেষ <?= count($recentOutbox) ?> টি মেসেজ
+    </span>
+  </div>
+  <p style="color:#94a3b8; font-size:0.85rem; margin-top:0;">
+    এখানে সিস্টেম থেকে গ্রাহকদের জন্য প্রস্তুতকৃত সকল লগইন আইডি, পাসওয়ার্ড ও ওয়ান-টাইম ডাউনলোড লিংক সংরক্ষিত আছে। যেসকল মেসেজ ক্লাউড এপিআই ছাড়া প্রস্তুত হয়েছে, সেগুলোতে সরাসরি <strong>'🚀 WhatsApp-এ পাঠান'</strong> বাটনে ক্লিক করে এক ক্লিকেই ক্রেতার মোবাইলে মেসেজটি পৌঁছে দিতে পারেন।
+  </p>
+
+  <?php if (empty($recentOutbox)): ?>
+    <p style="color:#64748b; font-size:0.88rem; margin:0;">আউটবক্সে এখনো কোনো মেসেজ তৈরি হয়নি।</p>
+  <?php else: ?>
+    <div style="overflow-x:auto;">
+      <table class="data" style="font-size:0.85rem;">
+        <thead>
+          <tr>
+            <th style="width:50px;">ID</th>
+            <th>গ্রাহক ও WhatsApp</th>
+            <th>মেসেজ প্রিভিউ (লগইন তথ্য)</th>
+            <th style="width:130px;">স্ট্যাটাস</th>
+            <th style="width:140px;">তারিখ ও সময়</th>
+            <th style="text-align:right; width:180px;">অ্যাকশন</th>
+          </tr>
+        </thead>
+        <tbody>
+          <?php foreach ($recentOutbox as $o): 
+              $cleanNum = preg_replace('/\D+/', '', (string)$o['to_number']);
+              if (str_starts_with($cleanNum, '01')) $cleanNum = '880' . substr($cleanNum, 1);
+              $waSendLink = 'https://api.whatsapp.com/send?phone=' . $cleanNum . '&text=' . rawurlencode((string)$o['message']);
+              $isSent = ($o['status'] === 'sent');
+          ?>
+            <tr>
+              <td>#<?= (int)$o['id'] ?></td>
+              <td>
+                <strong style="color:#f8fafc;"><?= e($o['cust_name'] ?: 'কাস্টমার') ?></strong><br>
+                <span style="color:#34d399; font-family:monospace;">+<?= e($cleanNum) ?></span>
+              </td>
+              <td>
+                <div style="max-width:320px; overflow:hidden; text-overflow:ellipsis; white-space:nowrap; color:#cbd5e1; font-family:monospace; font-size:0.8rem;" title="<?= e($o['message']) ?>">
+                  <?= e(mb_substr($o['message'], 0, 95)) ?>...
+                </div>
+              </td>
+              <td>
+                <?php if ($isSent): ?>
+                  <span class="wam-pill secure" style="font-size:0.72rem;">● প্রেরিত (Sent)</span>
+                <?php else: ?>
+                  <span class="wam-pill" style="font-size:0.72rem; background:rgba(245,158,11,0.2); color:#fbbf24; border:1px solid rgba(245,158,11,0.5);">
+                    ● প্রস্তুত (Ready to Send)
+                  </span>
+                <?php endif; ?>
+              </td>
+              <td style="color:#94a3b8; font-size:0.78rem;">
+                <?= e(date('d M Y, h:i A', strtotime($o['created_at']))) ?>
+              </td>
+              <td style="text-align:right; white-space:nowrap;">
+                <a href="<?= e($waSendLink) ?>" target="_blank" rel="noopener" class="btn-admin" style="background:#25D366; color:#000; font-weight:800; font-size:0.82rem; padding:6px 12px; border-radius:6px; text-decoration:none; display:inline-flex; align-items:center; gap:5px;" title="সরাসরি WhatsApp-এ পাঠান">
+                  <span>🚀</span> <span>WhatsApp-এ পাঠান</span>
+                </a>
+              </td>
+            </tr>
+          <?php endforeach; ?>
+        </tbody>
+      </table>
+    </div>
+  <?php endif; ?>
 </div>
 
 <!-- SUCCESS POPUP: CREATED / SENT CREDENTIALS -->
@@ -555,12 +688,33 @@ admin_header('কাস্টমার ও লাইসেন্স ম্যা
     $modalData = $createdCustomerModal ?: $sentCredsModal;
     ?>
   <div id="successCredentialsModal" style="display:flex; position:fixed; inset:0; background:rgba(0,0,0,0.88); z-index:10000; align-items:center; justify-content:center; padding:1.25rem; backdrop-filter:blur(8px);">
-    <div style="background:#0f172a; border:2px solid #10b981; border-radius:18px; max-width:580px; width:100%; padding:2rem; color:#f8fafc; box-shadow:0 25px 60px rgba(16,185,129,0.3);">
+    <div style="background:#0f172a; border:2px solid #10b981; border-radius:18px; max-width:600px; width:100%; max-height:90vh; overflow-y:auto; padding:2rem; color:#f8fafc; box-shadow:0 25px 60px rgba(16,185,129,0.3);">
       <div style="text-align:center; margin-bottom:1.25rem;">
         <div style="font-size:2.8rem; margin-bottom:6px;">🎉</div>
-        <h3 style="color:#34d399; font-size:1.35rem; margin:0 0 4px 0;">কাস্টমার লগইন তথ্য সফলভাবে তৈরি হয়েছে!</h3>
-        <p style="color:#94a3b8; font-size:0.88rem; margin:0;">অ্যাকাউন্ট অ্যাক্টিভ হয়েছে এবং ব্যাকগ্রাউন্ড WhatsApp কিউতে পাঠানো হয়েছে।</p>
+        <h3 style="color:#34d399; font-size:1.35rem; margin:0 0 4px 0;">কাস্টমার লগইন তথ্য প্রস্তুত!</h3>
+        <p style="color:#94a3b8; font-size:0.88rem; margin:0;">অ্যাকাউন্ট অ্যাক্টিভ হয়েছে এবং ক্রেডেনশিয়াল সফলভাবে তৈরি করা হয়েছে।</p>
       </div>
+
+      <?php if (!empty($modalData['delivered_auto'])): ?>
+        <div style="background:rgba(16,185,129,0.15); border:1px solid #10b981; border-radius:12px; padding:14px; margin-bottom:1.25rem; display:flex; align-items:center; gap:12px;">
+          <div style="font-size:1.8rem;">⚡</div>
+          <div style="text-align:left;">
+            <div style="color:#34d399; font-weight:800; font-size:0.98rem;">সার্ভার থেকে স্বয়ংক্রিয় ক্লাউড ডেলিভারি সম্পন্ন!</div>
+            <div style="color:#94a3b8; font-size:0.83rem; margin-top:2px;">
+              মেটা ক্লাউড এপিআই (<?= e($modalData['dispAccount'] ?? 'অফিসিয়াল গেটওয়ে') ?>) থেকে গ্রাহকের মোবাইলে সরাসরি মেসেজ পৌঁছে গেছে।
+            </div>
+          </div>
+        </div>
+      <?php else: ?>
+        <div style="background:rgba(16,185,129,0.12); border:1px solid #10b981; border-radius:12px; padding:14px; margin-bottom:1.25rem; text-align:left;">
+          <div style="color:#34d399; font-weight:800; font-size:0.98rem; display:flex; align-items:center; gap:8px;">
+            <span>💬</span> <span>WhatsApp মেসেজ প্রস্তুত ও ডেস্ktop ব্রিজে কিউ করা হয়েছে</span>
+          </div>
+          <div style="color:#cbd5e1; font-size:0.83rem; margin:6px 0 12px 0; line-height:1.5;">
+            গ্রাহকের লগইন আইডি ও পাসওয়ার্ড প্রস্তুত রয়েছে। নিচের সবুজ <strong>'📲 ১-ক্লিকে WhatsApp-এ পাঠান'</strong> বাটনে ক্লিক করে সরাসরি গ্রাহকের হোয়াটসঅ্যাপে পাঠিয়ে দিতে পারেন।
+          </div>
+        </div>
+      <?php endif; ?>
 
       <div style="background:#090e17; border:1px solid #1e293b; border-radius:12px; padding:1.25rem; margin-bottom:1.25rem; font-family:monospace; font-size:0.9rem; line-height:1.8;">
         <div>👤 <strong>গ্রাহক:</strong> <?= e($modalData['name']) ?> (<?= e($modalData['whatsapp']) ?>)</div>
@@ -572,19 +726,19 @@ admin_header('কাস্টমার ও লাইসেন্স ম্যা
         </div>
       </div>
 
-      <div style="display:flex; flex-direction:column; gap:10px;">
-        <a href="<?= e($modalData['waLink']) ?>" target="_blank" rel="noopener" class="btn-admin" style="background:#25d366; color:#0f172a; font-weight:800; font-size:1rem; padding:12px; text-align:center; text-decoration:none; border-radius:8px; display:flex; align-items:center; justify-content:center; gap:8px;">
-          <span>💬</span> <span>১-ক্লিকে WhatsApp Web / App-এ পাঠান</span>
+      <div style="display:flex; gap:10px; flex-wrap:wrap;">
+        <a href="https://wa.me/<?= urlencode($modalData['clean_wa']) ?>?text=<?= rawurlencode($modalData['waBody']) ?>" target="_blank" rel="noopener" class="btn-admin" style="background:#25d366; color:#0f172a; font-weight:800; padding:10px 18px; border-radius:8px; text-decoration:none; display:inline-flex; align-items:center; gap:6px;">
+          <span>📲</span> <span>১-ক্লিকে WhatsApp-এ পাঠান</span>
         </a>
-
-        <div style="display:flex; gap:10px;">
-          <button type="button" class="btn-admin btn-admin-ghost" style="flex:1;" onclick="copyCustomerCreds('<?= e(addslashes($modalData['login_id'])) ?>', '<?= e(addslashes($modalData['password'])) ?>', '<?= e(addslashes($modalData['dlUrl'])) ?>')">
-            📋 লগইন তথ্য কপি করুন
-          </button>
-          <button type="button" class="btn-admin" style="background:#334155; color:#fff;" onclick="document.getElementById('successCredentialsModal').style.display='none'">
-            বন্ধ করুন
-          </button>
-        </div>
+        <a href="/admin/whatsapp_marketing.php?tab=crm&phone=<?= urlencode($modalData['clean_wa']) ?>&name=<?= urlencode($modalData['name']) ?>" class="btn-admin" style="background:#10b981; color:#fff; font-weight:800; padding:10px 18px; border-radius:8px; text-decoration:none; display:inline-flex; align-items:center; gap:6px;">
+          <span>💬</span> <span>লাইভ CRM চ্যাটে যান</span>
+        </a>
+        <button type="button" class="btn-admin btn-admin-ghost" style="flex:1;" onclick="copyFullWaBody(<?= json_encode($modalData['waBody']) ?>)">
+          📋 পুরো মেসেজ কপি করুন
+        </button>
+        <button type="button" class="btn-admin" style="background:#334155; color:#fff;" onclick="document.getElementById('successCredentialsModal').style.display='none'">
+          বন্ধ করুন
+        </button>
       </div>
     </div>
   </div>
@@ -624,6 +778,11 @@ function copyCustomerCreds(loginId, pass, dlUrl) {
   const text = `AutoMovie Pro লগইন তথ্য:\nLogin ID: ${loginId}\nPassword: ${pass}\nDownload Link: ${dlUrl}`;
   navigator.clipboard.writeText(text).then(() => {
     alert('লগইন তথ্য সফলভাবে ক্লিপবোর্ডে কপি হয়েছে!');
+  });
+}
+function copyFullWaBody(msg) {
+  navigator.clipboard.writeText(msg).then(() => {
+    alert('সম্পূর্ণ WhatsApp মেসেজ সফলভাবে ক্লিপবোর্ডে কপি হয়েছে!');
   });
 }
 </script>

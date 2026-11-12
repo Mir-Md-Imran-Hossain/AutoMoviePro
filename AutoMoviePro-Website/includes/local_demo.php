@@ -50,7 +50,13 @@ function amp_local_demo_pdo(): PDO
         PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION,
         PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC,
     ]);
+    if (method_exists($pdo, 'sqliteCreateFunction')) {
+        $pdo->sqliteCreateFunction('NOW', fn() => date('Y-m-d H:i:s'));
+        $pdo->sqliteCreateFunction('CURDATE', fn() => date('Y-m-d'));
+    }
     $pdo->exec('PRAGMA foreign_keys = ON');
+    $pdo->exec('PRAGMA journal_mode = WAL');
+    $pdo->exec('PRAGMA busy_timeout = 5000');
     amp_local_demo_schema($pdo);
     amp_local_demo_seed($pdo);
     return $pdo;
@@ -96,6 +102,7 @@ function amp_local_demo_schema(PDO $pdo): void
     try { $pdo->exec("ALTER TABLE customers ADD COLUMN hardware_locked_at TEXT"); } catch (\Throwable $e) {}
     try { $pdo->exec("ALTER TABLE customers ADD COLUMN otp_code TEXT"); } catch (\Throwable $e) {}
     try { $pdo->exec("ALTER TABLE customers ADD COLUMN otp_expires_at TEXT"); } catch (\Throwable $e) {}
+    try { $pdo->exec("ALTER TABLE customers ADD COLUMN otp_failed_attempts INTEGER DEFAULT 0"); } catch (\Throwable $e) {}
     $pdo->exec(
         "CREATE TABLE IF NOT EXISTS orders (
           id INTEGER PRIMARY KEY AUTOINCREMENT,
@@ -113,10 +120,12 @@ function amp_local_demo_schema(PDO $pdo): void
           languages_json TEXT,
           base_langs TEXT,
           addon_langs TEXT,
+          order_token TEXT,
           created_at TEXT,
           approved_at TEXT
         )"
     );
+    try { $pdo->exec("ALTER TABLE orders ADD COLUMN order_token TEXT"); } catch (\Throwable $e) {}
     $pdo->exec(
         "CREATE TABLE IF NOT EXISTS reviews (
           id INTEGER PRIMARY KEY AUTOINCREMENT,
@@ -173,8 +182,34 @@ function amp_local_demo_schema(PDO $pdo): void
           is_used INTEGER NOT NULL DEFAULT 0,
           used_at TEXT,
           download_count INTEGER NOT NULL DEFAULT 0,
-          max_downloads INTEGER NOT NULL DEFAULT 1,
+          max_downloads INTEGER NOT NULL DEFAULT 5,
           created_at TEXT
+        )"
+    );
+    $pdo->exec(
+        "CREATE TABLE IF NOT EXISTS email_logs (
+          id INTEGER PRIMARY KEY AUTOINCREMENT,
+          order_id INTEGER,
+          recipient TEXT NOT NULL,
+          subject TEXT NOT NULL,
+          status TEXT NOT NULL DEFAULT 'sent',
+          created_at TEXT
+        )"
+    );
+    $pdo->exec(
+        "CREATE TABLE IF NOT EXISTS app_releases (
+          id INTEGER PRIMARY KEY AUTOINCREMENT,
+          version TEXT NOT NULL,
+          file_name TEXT NOT NULL,
+          file_path TEXT NOT NULL,
+          sha256 TEXT,
+          file_size INTEGER DEFAULT 0,
+          release_notes TEXT,
+          force_update INTEGER DEFAULT 1,
+          force_hours INTEGER DEFAULT 24,
+          published_at TEXT,
+          published_by TEXT DEFAULT 'admin',
+          is_current INTEGER DEFAULT 1
         )"
     );
     $pdo->exec(
@@ -254,6 +289,17 @@ function amp_local_demo_schema(PDO $pdo): void
           id INTEGER PRIMARY KEY AUTOINCREMENT,
           username TEXT NOT NULL UNIQUE,
           password_hash TEXT NOT NULL,
+          created_at TEXT
+        )"
+    );
+    $pdo->exec(
+        "CREATE TABLE IF NOT EXISTS promo_channels (
+          id INTEGER PRIMARY KEY AUTOINCREMENT,
+          platform TEXT NOT NULL DEFAULT 'youtube',
+          title TEXT NOT NULL,
+          url TEXT NOT NULL,
+          is_active INTEGER NOT NULL DEFAULT 1,
+          sort_order INTEGER NOT NULL DEFAULT 0,
           created_at TEXT
         )"
     );
@@ -340,39 +386,7 @@ function amp_local_demo_seed(PDO $pdo): void
     $cIns->execute(['SUPER1000', 1000.0, 0, 4999.0]);
     $cIns->execute(['PRO200', 200.0, 0, 0.0]);
 
-    // Seed initial demo customers and approved orders if empty
-    $custCount = (int) $pdo->query("SELECT COUNT(*) FROM customers")->fetchColumn();
-    if ($custCount === 0) {
-        $now = date('Y-m-d H:i:s');
-        $passHash = password_hash('CustomerPass123', PASSWORD_DEFAULT);
-        
-        // 1. Zahid Hasan (Base Package 2999)
-        $pdo->prepare("INSERT INTO customers (name, email, whatsapp, login_id, password_hash, status, created_at, activated_at) VALUES (?, ?, ?, ?, ?, 'active', ?, ?)")
-            ->execute(['জাহিদ হাসান (Zahid Pharmacy)', 'zahid@pharmacy.com', '01711223344', 'zahid01', $passHash, $now, $now]);
-        $c1Id = (int) $pdo->lastInsertId();
-        $pdo->prepare("INSERT INTO orders (customer_id, name, whatsapp, email, plan_name, amount, payment_method, txn_id, status, created_at, approved_at) VALUES (?, ?, ?, ?, ?, ?, ?, ?, 'approved', ?, ?)")
-            ->execute([$c1Id, 'জাহিদ হাসান (Zahid Pharmacy)', '01711223344', 'zahid@pharmacy.com', 'Base Package', 2999.0, 'bkash', 'BL82KA9191', $now, $now]);
-        $pdo->prepare("INSERT INTO licenses (customer_id, token, expires_at, revoked, created_at) VALUES (?, ?, datetime('now', '+30 days'), 0, ?)")
-            ->execute([$c1Id, 'amp_tok_' . bin2hex(random_bytes(16)), $now]);
-
-        // 2. Simi Akter (Full Package 4999)
-        $pdo->prepare("INSERT INTO customers (name, email, whatsapp, login_id, password_hash, status, created_at, activated_at) VALUES (?, ?, ?, ?, ?, 'active', ?, ?)")
-            ->execute(['সিমি আক্তার (Simi Drug House)', 'simi@drughouse.com', '01699887766', 'simi02', $passHash, $now, $now]);
-        $c2Id = (int) $pdo->lastInsertId();
-        $pdo->prepare("INSERT INTO orders (customer_id, name, whatsapp, email, plan_name, amount, payment_method, txn_id, status, created_at, approved_at) VALUES (?, ?, ?, ?, ?, ?, ?, ?, 'approved', ?, ?)")
-            ->execute([$c2Id, 'সিমি আক্তার (Simi Drug House)', '01699887766', 'simi@drughouse.com', 'Full Package', 4999.0, 'nagad', '72JH891A', $now, $now]);
-        $pdo->prepare("INSERT INTO licenses (customer_id, token, expires_at, revoked, created_at) VALUES (?, ?, datetime('now', '+30 days'), 0, ?)")
-            ->execute([$c2Id, 'amp_tok_' . bin2hex(random_bytes(16)), $now]);
-
-        // 3. Farhan Tanvir (Base Package 2999)
-        $pdo->prepare("INSERT INTO customers (name, email, whatsapp, login_id, password_hash, status, created_at, activated_at) VALUES (?, ?, ?, ?, ?, 'active', ?, ?)")
-            ->execute(['ফারহান তানভীর', 'farhan@tanvir.media', '01811556677', 'farhan03', $passHash, $now, $now]);
-        $c3Id = (int) $pdo->lastInsertId();
-        $pdo->prepare("INSERT INTO orders (customer_id, name, whatsapp, email, plan_name, amount, payment_method, txn_id, status, created_at, approved_at) VALUES (?, ?, ?, ?, ?, ?, ?, ?, 'approved', ?, ?)")
-            ->execute([$c3Id, 'ফারহান তানভীর', '01811556677', 'farhan@tanvir.media', 'Base Package', 2999.0, 'bkash', 'BL99XZ7711', $now, $now]);
-        $pdo->prepare("INSERT INTO licenses (customer_id, token, expires_at, revoked, created_at) VALUES (?, ?, datetime('now', '+30 days'), 0, ?)")
-            ->execute([$c3Id, 'amp_tok_' . bin2hex(random_bytes(16)), $now]);
-    }
+    // Demo customer auto-seeding removed: only authentic customer registrations are retained
 }
 
 /** SQLite-compatible set_setting override used in local demo. */

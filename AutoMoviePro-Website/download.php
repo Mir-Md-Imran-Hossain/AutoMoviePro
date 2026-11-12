@@ -138,7 +138,7 @@ $waSupport = amp_whatsapp_sales_link('Hi, I need assistance regarding my softwar
           <?php if ($tokenCheck['reason'] === 'expired'): ?>
             ডাউনলোড লিংকের ৭২ ঘণ্টার মেয়াদ শেষ
           <?php elseif ($tokenCheck['reason'] === 'already_used'): ?>
-            ওয়ান-টাইম ডাউনলোড টোকেনটি ইতিমধ্যে ব্যবহৃত হয়েছে
+            ডাউনলোড কোটা ইতিমধ্যে শেষ হয়েছে (সর্বোচ্চ ৫ বার ডাউনলোড সম্পন্ন)
           <?php else: ?>
             অবৈধ ডাউনলোড টোকেন (Invalid Token)
           <?php endif; ?>
@@ -148,7 +148,7 @@ $waSupport = amp_whatsapp_sales_link('Hi, I need assistance regarding my softwar
           <?php if ($tokenCheck['reason'] === 'expired'): ?>
             নিরাপত্তার স্বার্থে ক্রিপ্টোগ্রাফিক ডাউনলোড লিংকের সর্বোচ্চ মেয়াদ ৭২ ঘণ্টা নির্ধারিত। এই লিংকের মেয়াদ উত্তীর্ণ হয়ে গেছে।
           <?php elseif ($tokenCheck['reason'] === 'already_used'): ?>
-            এই সিকিউর লিঙ্কটি ওয়ান-টাইম (একবার ব্যবহারযোগ্য)। এটি থেকে ইতিমধ্যে সফলভাবে সফটওয়্যার ইনস্টলার ডাউনলোড করা হয়েছে।
+            এই সিকিউর লিঙ্কটি থেকে ইতিমধ্যে অনুমোদিত সর্বোচ্চ ৫ বার সফটওয়্যার ইনস্টলার ডাউনলোড করা হয়েছে।
           <?php else: ?>
             প্রদত্ত লিঙ্কটি অসম্পূর্ণ বা ভুল। অনুগ্রহ করে আপনার WhatsApp-এ পাঠানো সঠিক সম্পূর্ণ লিঙ্কটি ব্রাউজারে পেস্ট করুন।
           <?php endif; ?>
@@ -195,11 +195,11 @@ $waSupport = amp_whatsapp_sales_link('Hi, I need assistance regarding my softwar
         </div>
       </div>
 
-      <!-- One-time Warning -->
-      <div style="background: rgba(245, 158, 11, 0.1); border: 1px solid rgba(245, 158, 11, 0.3); border-radius: 10px; padding: 0.9rem 1.1rem; margin-bottom: 1.75rem; font-size: 0.88rem; color: #fde68a; display: flex; align-items: center; gap: 10px;">
-        <span style="font-size: 1.25rem;">⚠️</span>
+      <!-- Resilient Download Limit Notice -->
+      <div style="background: rgba(16, 185, 129, 0.1); border: 1px solid rgba(16, 185, 129, 0.3); border-radius: 10px; padding: 0.9rem 1.1rem; margin-bottom: 1.75rem; font-size: 0.88rem; color: #6ee7b7; display: flex; align-items: center; gap: 10px;">
+        <span style="font-size: 1.25rem;">🛡️</span>
         <div>
-          <strong>একবার ব্যবহারযোগ্য (One-Time Protection):</strong> ডাউনলোড শুরু হওয়ার সাথে সাথেই এই ক্রিপ্টোগ্রাফিক টোকেনটি লক হয়ে যাবে।
+          <strong>রেজিলিয়েন্ট ডাউনলোড সুবিধা:</strong> নেটওয়ার্ক বিঘ্নের হাত থেকে সুরক্ষায় ৭২ ঘণ্টার মধ্যে সর্বোচ্চ ৫ বার ডাউনলোড করা যাবে (ব্যবহৃত: <?= (int)($tokenCheck['record']['download_count'] ?? 0) ?>/<?= (int)($tokenCheck['record']['max_downloads'] ?? 5) ?> বার)।
         </div>
       </div>
 
@@ -207,7 +207,7 @@ $waSupport = amp_whatsapp_sales_link('Hi, I need assistance regarding my softwar
       <div style="text-align: center; margin-bottom: 2rem;">
         <a class="btn" style="background: linear-gradient(135deg, #10b981, #059669); color: #fff; font-size: 1.15rem; font-weight: 700; padding: 1rem 2.2rem; border-radius: 12px; text-decoration: none; display: inline-flex; align-items: center; gap: 10px; box-shadow: 0 8px 25px rgba(16,185,129,0.35);" 
            href="download.php?token=<?= urlencode($token) ?>&download=1" 
-           onclick="return confirm('ডাউনলোড শুরু করবেন? এটি একটি ওয়ান-টাইম সিকিউর লিঙ্ক।');">
+           onclick="return confirm('ইনস্টলার ডাউনলোড শুরু করবেন?');">
           ⬇️ ১-ক্লিকে ইনস্টলার ডাউনলোড শুরু করুন
         </a>
       </div>

@@ -502,19 +502,17 @@ def ensure_all_async(*, force: bool = False) -> None:
 
 
 def maybe_run_on_startup() -> None:
-    """Called from FastAPI startup — sync on first run, else background refresh."""
+    """Called from FastAPI startup — background refresh to ensure instantaneous UI launch."""
     if (os.environ.get("AMP_BOOTSTRAP_SKIP") or "").strip() in ("1", "true", "yes"):
         return
     apply_runtime_env()
-    marker = _load_marker()
-    first = int(marker.get("version") or 0) < BOOTSTRAP_VERSION or not marker.get("ok")
-    sync = first or (os.environ.get("AMP_BOOTSTRAP_SYNC") or "").strip() in (
+    sync = (os.environ.get("AMP_BOOTSTRAP_SYNC") or "").strip() in (
         "1",
         "true",
         "yes",
     )
     if sync:
-        _append_log("startup bootstrap (sync first-run)")
+        _append_log("startup bootstrap (sync requested)")
         ensure_all(force=False)
     else:
         ensure_all_async(force=False)

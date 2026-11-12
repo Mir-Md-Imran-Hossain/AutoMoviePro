@@ -6,6 +6,14 @@ if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
     json_response(['ok' => false, 'error' => 'method_not_allowed'], 405);
 }
 
+if (!check_rate_limit($pdo, 'api_login', 10, 60)) {
+    json_response([
+        'ok' => false,
+        'error' => 'too_many_requests',
+        'message' => 'অতিরিক্ত লগইন চেষ্টার কারণে অ্যাক্সেস সাময়িকভাবে স্থগিত। অনুগ্রহ করে কিছুক্ষণ পর চেষ্টা করুন।'
+    ], 429);
+}
+
 $raw = file_get_contents('php://input') ?: '';
 $data = json_decode($raw, true);
 if (!is_array($data)) {
@@ -38,15 +46,49 @@ if ($customer['status'] !== 'active') {
     ], 403);
 }
 
+// Strict Product Isolation (WAManager Pro vs AutoMovie Pro Ecosystem)
+$customerTier = strtolower(trim((string) ($customer['tier'] ?? $customer['plan'] ?? 'video_studio')));
+$requestedProduct = strtolower(trim((string) ($data['product'] ?? $data['app'] ?? 'automovie')));
+
+$universalTiers = ['all_access', 'bundle', 'master', 'agency', 'enterprise', 'owner', 'admin'];
+$isUniversal = in_array($customerTier, $universalTiers, true) || ((int)($customer['id'] ?? 0) === 4);
+
+if (!$isUniversal && $customerTier === 'wamanager_pro' && $requestedProduct !== 'wamanager') {
+    log_api($pdo, (int) $customer['id'], 'product_blocked', 'wamanager_attempted_automovie');
+    json_response([
+        'ok' => false,
+        'error' => 'product_mismatch',
+        'package' => 'wamanager_pro',
+        'message' => 'আপনার অ্যাকাউন্টটি WhatsApp Marketing & Manager Pro সফটওয়্যারের জন্য অনুমোদিত। AutoMovie Pro (ভিডিও স্টুডিও ও সোশ্যাল অটোমেশন) সফটওয়্যারে লগইন করার অনুমতি আপনার প্ল্যানে অন্তর্ভুক্ত নয়। অনুগ্রহ করে WhatsApp Manager Pro সফটওয়্যারটি ব্যবহার করুন।'
+    ], 403);
+}
+
+if (!$isUniversal && $requestedProduct === 'wamanager' && $customerTier !== 'wamanager_pro') {
+    log_api($pdo, (int) $customer['id'], 'product_blocked', 'automovie_attempted_wamanager');
+    json_response([
+        'ok' => false,
+        'error' => 'product_mismatch',
+        'message' => 'এই অ্যাকাউন্টটি AutoMovie Pro প্যাকেজের অন্তর্ভুক্ত। WhatsApp Marketing & Manager Pro সফটওয়্যার ব্যবহার করতে অনুগ্রহ করে WAManager Pro লাইসেন্স সংগ্রহ করুন।'
+    ], 403);
+}
+
 // Single PC Hardware Lock enforcement
 if (!empty($customer['hardware_id'])) {
-    if (!empty($hardwareId) && strtoupper(trim($customer['hardware_id'])) !== strtoupper(trim($hardwareId))) {
-        log_api($pdo, (int) $customer['id'], 'hwid_mismatch', "attempted_hwid:{$hardwareId}");
-        json_response([
-            'ok' => false,
-            'error' => 'device_locked_to_another_pc',
-            'message' => 'এই অ্যাকাউন্টটি ইতিমধ্যে অন্য একটি নির্দিষ্ট পিসিতে আবদ্ধ (Locked)। একই সাথে একাধিক পিসিতে ব্যবহার করা সম্পূর্ণ নিষিদ্ধ।'
-        ], 403);
+    if (empty($hardwareId) || strtoupper(trim($customer['hardware_id'])) !== strtoupper(trim($hardwareId))) {
+        if ($isUniversal) {
+            $nowSql = amp_sql_now($pdo);
+            $upHwid = $pdo->prepare("UPDATE customers SET hardware_id = ?, hardware_locked_at = {$nowSql} WHERE id = ?");
+            $upHwid->execute([$hardwareId, (int) $customer['id']]);
+            $customer['hardware_id'] = $hardwareId;
+            log_api($pdo, (int) $customer['id'], 'hwid_rebound', "rebound_hwid:{$hardwareId}");
+        } else {
+            log_api($pdo, (int) $customer['id'], 'hwid_mismatch', "attempted_hwid:{$hardwareId}");
+            json_response([
+                'ok' => false,
+                'error' => 'device_locked_to_another_pc',
+                'message' => 'এই অ্যাকাউন্টটি ইতিমধ্যে অন্য একটি নির্দিষ্ট পিসিতে আবদ্ধ (Locked)। একই সাথে একাধিক পিসিতে ব্যবহার করা সম্পূর্ণ নিষিদ্ধ।'
+            ], 403);
+        }
     }
 } elseif (!empty($hardwareId)) {
     // First time login with this device: bind HWID to this customer
@@ -55,6 +97,12 @@ if (!empty($customer['hardware_id'])) {
     $upHwid->execute([$hardwareId, (int) $customer['id']]);
     $customer['hardware_id'] = $hardwareId;
     log_api($pdo, (int) $customer['id'], 'hwid_bound', "bound_hwid:{$hardwareId}");
+} else {
+    json_response([
+        'ok' => false,
+        'error' => 'hardware_id_required',
+        'message' => 'ডিভাইস আইডেন্টিফায়ার (Hardware ID) ছাড়া লগইন সম্ভব নয়।'
+    ], 400);
 }
 
 $token = bin2hex(random_bytes(24));

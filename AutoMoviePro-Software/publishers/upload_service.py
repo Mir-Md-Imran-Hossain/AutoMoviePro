@@ -118,6 +118,7 @@ def upload_job(job_id: int, channel: Dict[str, Any]) -> Dict[str, Any]:
     session = store.get_session()
     if session:
         try:
+            proof = next((r.get("proof_path") for r in results if r.get("proof_path")), None)
             LicenseClient(session["api_base_url"], session["token"]).sync_job(
                 {
                     "channel_name": channel.get("youtube_name") or channel.get("facebook_name") or channel.get("tiktok_name"),
@@ -129,6 +130,10 @@ def upload_job(job_id: int, channel: Dict[str, Any]) -> Dict[str, Any]:
                     "remote_url": remote,
                     "local_path": str(path),
                     "uploaded_at": datetime.now().isoformat(sep=" ", timespec="seconds"),
+                    "meta": {
+                        "proof_path": proof,
+                        "tags": job.get("tags") or "",
+                    },
                 }
             )
         except Exception as exc:
@@ -158,8 +163,14 @@ def _upload_facebook(job: Dict[str, Any], channel: Dict[str, Any], path: Path) -
     try:
         from publishers.facebook_uploader import upload_facebook
 
-        url = upload_facebook(path, job, channel)
-        return {"ok": True, "platform": "facebook", "url": url}
+        res = upload_facebook(path, job, channel)
+        if isinstance(res, dict):
+            url = res.get("url")
+            proof = res.get("proof_path")
+        else:
+            url = str(res)
+            proof = None
+        return {"ok": True, "platform": "facebook", "url": url, "proof_path": proof}
     except Exception as exc:
         logger.exception("facebook upload failed")
         return {"ok": False, "platform": "facebook", "error": str(exc)}

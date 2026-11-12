@@ -44,7 +44,7 @@ function amp_default_payment_instructions_text(): string
 রকেট এজেন্ট: {$rkAgent}
 
 বিদেশ (India/Pakistan/Worldwide):
-Wise / Remitly / Xoom দিয়ে ৳২৯৯৯ বা ৳৯৯৯ + ক্যাশ-আউট/ট্রানজেকশন ফি মিলিয়ে পাঠান।
+Wise / Remitly / Xoom দিয়ে ৳৩৯৯৯ + ক্যাশ-আউট/ট্রানজেকশন ফি মিলিয়ে পাঠান।
 অথবা Binance Pay-তে \$16 USD বা \$26 USD (সব ৬টি ভাষা) পাঠান।
 
 Personal bKash/Nagad: {$personal}

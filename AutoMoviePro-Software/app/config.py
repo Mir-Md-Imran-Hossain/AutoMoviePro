@@ -60,9 +60,9 @@ class Settings(BaseSettings):
     local_host: str = "127.0.0.1"
     local_port: int = 8787
     short_target_seconds: int = 60
-    short_max_seconds: int = 120
-    long_target_seconds: int = 180
-    long_max_seconds: int = 300
+    short_max_seconds: int = 180
+    long_target_seconds: int = 200
+    long_max_seconds: int = 500
     intelligence_research_mode: str = "LIVE"
     intelligence_mode: str = "PRODUCTION"
 

@@ -82,8 +82,8 @@ function require_api_customer(PDO $pdo, ?string $hardwareId = null): array
     if (!empty($customer['token_expires']) && strtotime($customer['token_expires']) < time()) {
         json_response(['ok' => false, 'error' => 'token_expired', 'message' => 'সেশনের মেয়াদ উত্তীর্ণ হয়েছে।'], 401);
     }
-    if ($hardwareId && !empty($customer['hardware_id'])) {
-        if (strtoupper(trim($customer['hardware_id'])) !== strtoupper(trim($hardwareId))) {
+    if (!empty($customer['hardware_id'])) {
+        if (empty($hardwareId) || strtoupper(trim((string)$customer['hardware_id'])) !== strtoupper(trim((string)$hardwareId))) {
             json_response([
                 'ok' => false,
                 'blocked' => true,

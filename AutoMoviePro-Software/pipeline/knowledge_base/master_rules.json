@@ -2,7 +2,7 @@
   "metadata": {
     "version": "1.0.0",
     "system": "AutoMovie Pro Principal Architecture",
-    "updated_at": "2026-11-12T10:53:14.115392",
+    "updated_at": "2026-11-12T14:56:06.340445",
     "status": "active_enforced",
     "source_modules": [
       "pipeline/master_sentinel_agent.py",
@@ -41487,6 +41487,1376 @@
       "resolution": "Clearance certificate CERT-AMPRO-1794459194 issued with score 98.0/100. Status: APPROVED",
       "agent": "FinalCheckerAgent",
       "recorded_at": "2026-11-12T10:53:14.115392",
+      "status": "resolved_and_enforced"
+    },
+    {
+      "issue_id": "MEM-20261112-4132",
+      "category": "script_generator_audit",
+      "issue": "Script generated for topic 'বাংলার মাটির নিচে চাপা পড়া ২৫০০ বছরের গুপ্ত দুর্গনগরী: উয়ারী-বটেশ্বর কীভাবে হারিয়ে গেল?'",
+      "root_cause": "Automated Script Generator Agent production",
+      "resolution": "Strict 7-9s timing enforced across 15 scenes with score 98.0/100",
+      "agent": "ScriptGeneratorAgent",
+      "recorded_at": "2026-11-12T11:43:40.375750",
+      "status": "resolved_and_enforced"
+    },
+    {
+      "issue_id": "MEM-20261112-4133",
+      "category": "localization_tts_synthesis",
+      "issue": "Synthesized 15 scene voiceovers with word timestamps",
+      "root_cause": "Automated Localization TTS Agent processing",
+      "resolution": "Natural 1.0x cadence verified, end RMS <= 0.018 gate passed, score 97.5/100",
+      "agent": "LocalizationTTSAgent",
+      "recorded_at": "2026-11-12T11:49:50.653584",
+      "status": "resolved_and_enforced"
+    },
+    {
+      "issue_id": "MEM-20261112-4134",
+      "category": "visual_planner_architecture",
+      "issue": "Visual blueprint completed for 15 scenes (Category A)",
+      "root_cause": "Automated Visual Planner Agent generation",
+      "resolution": "Synchronized with audio timestamps, faceless & anti-static card rules passed with score 96.0/100",
+      "agent": "VisualPlannerAgent",
+      "recorded_at": "2026-11-12T11:51:15.101582",
+      "status": "resolved_and_enforced"
+    },
+    {
+      "issue_id": "MEM-20261112-4135",
+      "category": "PROMPT_EVOLUTION_REFLEXION",
+      "issue": "Initial prompt scored 30.0/100: Visual is low-resolution, out-of-focus or lacking sharp edge definition.",
+      "root_cause": "Semantic entity mismatch between dialogue and diffusion prompt",
+      "resolution": "Saved evolutionary memory rule EVO-MEM-1632 for automatic first-pass synthesis",
+      "agent": "PromptEvolutionEngine",
+      "recorded_at": "2026-11-12T11:52:28.787929",
+      "status": "resolved_and_enforced"
+    },
+    {
+      "issue_id": "MEM-20261112-4136",
+      "category": "PROMPT_EVOLUTION_REFLEXION",
+      "issue": "Initial prompt scored 45.0/100: The visual depicts a medieval or later-period Islamic/Rajput-style fort or palac",
+      "root_cause": "Semantic entity mismatch between dialogue and diffusion prompt",
+      "resolution": "Saved evolutionary memory rule EVO-MEM-1633 for automatic first-pass synthesis",
+      "agent": "PromptEvolutionEngine",
+      "recorded_at": "2026-11-12T11:52:44.436972",
+      "status": "resolved_and_enforced"
+    },
+    {
+      "issue_id": "MEM-20261112-4137",
+      "category": "PROMPT_EVOLUTION_REFLEXION",
+      "issue": "Initial prompt scored 45.0/100: The visual displays modern metallic bolts, nuts, and industrial machinery parts ",
+      "root_cause": "Semantic entity mismatch between dialogue and diffusion prompt",
+      "resolution": "Saved evolutionary memory rule EVO-MEM-1634 for automatic first-pass synthesis",
+      "agent": "PromptEvolutionEngine",
+      "recorded_at": "2026-11-12T11:57:37.908219",
+      "status": "resolved_and_enforced"
+    },
+    {
+      "issue_id": "MEM-20261112-4138",
+      "category": "PROMPT_EVOLUTION_REFLEXION",
+      "issue": "Initial prompt scored 50.0/100: The visual shows a close-up of modern-looking or generic brickwork with golden h",
+      "root_cause": "Semantic entity mismatch between dialogue and diffusion prompt",
+      "resolution": "Saved evolutionary memory rule EVO-MEM-1635 for automatic first-pass synthesis",
+      "agent": "PromptEvolutionEngine",
+      "recorded_at": "2026-11-12T11:57:52.255655",
+      "status": "resolved_and_enforced"
+    },
+    {
+      "issue_id": "MEM-20261112-4139",
+      "category": "PROMPT_EVOLUTION_REFLEXION",
+      "issue": "Initial prompt scored 50.0/100: The visual displays a close-up of brickwork with golden hour lighting, but it fa",
+      "root_cause": "Semantic entity mismatch between dialogue and diffusion prompt",
+      "resolution": "Saved evolutionary memory rule EVO-MEM-1636 for automatic first-pass synthesis",
+      "agent": "PromptEvolutionEngine",
+      "recorded_at": "2026-11-12T11:58:07.495692",
+      "status": "resolved_and_enforced"
+    },
+    {
+      "issue_id": "MEM-20261112-4140",
+      "category": "PROMPT_EVOLUTION_REFLEXION",
+      "issue": "Initial prompt scored 55.0/100: The visual displays a close-up of weathered wooden planks with metal fixtures/bo",
+      "root_cause": "Semantic entity mismatch between dialogue and diffusion prompt",
+      "resolution": "Saved evolutionary memory rule EVO-MEM-1637 for automatic first-pass synthesis",
+      "agent": "PromptEvolutionEngine",
+      "recorded_at": "2026-11-12T11:58:46.888454",
+      "status": "resolved_and_enforced"
+    },
+    {
+      "issue_id": "MEM-20261112-4141",
+      "category": "PROMPT_EVOLUTION_REFLEXION",
+      "issue": "Initial prompt scored 50.0/100: The visual violates the strict negative constraint 'zero people' by explicitly s",
+      "root_cause": "Semantic entity mismatch between dialogue and diffusion prompt",
+      "resolution": "Saved evolutionary memory rule EVO-MEM-1638 for automatic first-pass synthesis",
+      "agent": "PromptEvolutionEngine",
+      "recorded_at": "2026-11-12T12:03:24.354862",
+      "status": "resolved_and_enforced"
+    },
+    {
+      "issue_id": "MEM-20261112-4142",
+      "category": "PROMPT_EVOLUTION_REFLEXION",
+      "issue": "Initial prompt scored 45.0/100: The visual still violates the strict negative constraint 'zero people' by displa",
+      "root_cause": "Semantic entity mismatch between dialogue and diffusion prompt",
+      "resolution": "Saved evolutionary memory rule EVO-MEM-1639 for automatic first-pass synthesis",
+      "agent": "PromptEvolutionEngine",
+      "recorded_at": "2026-11-12T12:03:33.125463",
+      "status": "resolved_and_enforced"
+    },
+    {
+      "issue_id": "MEM-20261112-4143",
+      "category": "PROMPT_EVOLUTION_REFLEXION",
+      "issue": "Initial prompt scored 50.0/100: দৃশ্যটিতে উয়ারী-বটেশ্বর দুর্গনগরীর স্থাপত্য বা প্রাচীন ধ্বংসাবশেষ দেখা গেলেও স্ক",
+      "root_cause": "Semantic entity mismatch between dialogue and diffusion prompt",
+      "resolution": "Saved evolutionary memory rule EVO-MEM-1640 for automatic first-pass synthesis",
+      "agent": "PromptEvolutionEngine",
+      "recorded_at": "2026-11-12T12:06:30.813089",
+      "status": "resolved_and_enforced"
+    },
+    {
+      "issue_id": "MEM-20261112-4144",
+      "category": "PROMPT_EVOLUTION_REFLEXION",
+      "issue": "Initial prompt scored 50.0/100: The visual shows a close-up of stone spheres and architecture under golden hour ",
+      "root_cause": "Semantic entity mismatch between dialogue and diffusion prompt",
+      "resolution": "Saved evolutionary memory rule EVO-MEM-1641 for automatic first-pass synthesis",
+      "agent": "PromptEvolutionEngine",
+      "recorded_at": "2026-11-12T12:07:10.676025",
+      "status": "resolved_and_enforced"
+    },
+    {
+      "issue_id": "MEM-20261112-4145",
+      "category": "PROMPT_EVOLUTION_REFLEXION",
+      "issue": "Initial prompt scored 50.0/100: The visual shows a fortress wall under golden hour light with lens flare, but it",
+      "root_cause": "Semantic entity mismatch between dialogue and diffusion prompt",
+      "resolution": "Saved evolutionary memory rule EVO-MEM-1642 for automatic first-pass synthesis",
+      "agent": "PromptEvolutionEngine",
+      "recorded_at": "2026-11-12T12:07:23.306447",
+      "status": "resolved_and_enforced"
+    },
+    {
+      "issue_id": "MEM-20261112-4146",
+      "category": "PROMPT_EVOLUTION_REFLEXION",
+      "issue": "Initial prompt scored 45.0/100: প্রদত্ত ভিজ্যুয়ালটি উয়ারী-বটেশ্বরের প্রাচীন দুর্গনগরীর কেন্দ্রীয় অংশ বা সঠিক স্",
+      "root_cause": "Semantic entity mismatch between dialogue and diffusion prompt",
+      "resolution": "Saved evolutionary memory rule EVO-MEM-1643 for automatic first-pass synthesis",
+      "agent": "PromptEvolutionEngine",
+      "recorded_at": "2026-11-12T12:09:33.977510",
+      "status": "resolved_and_enforced"
+    },
+    {
+      "issue_id": "MEM-20261112-4147",
+      "category": "PROMPT_EVOLUTION_REFLEXION",
+      "issue": "Initial prompt scored 42.5/100: প্রদত্ত ভিজ্যুয়ালটিতে উয়ারী-বটেশ্বরের প্রাচীন দুর্গনগরীর কেন্দ্রীয় অংশ, সঠিক স্",
+      "root_cause": "Semantic entity mismatch between dialogue and diffusion prompt",
+      "resolution": "Saved evolutionary memory rule EVO-MEM-1644 for automatic first-pass synthesis",
+      "agent": "PromptEvolutionEngine",
+      "recorded_at": "2026-11-12T12:09:44.677794",
+      "status": "resolved_and_enforced"
+    },
+    {
+      "issue_id": "MEM-20261112-4148",
+      "category": "PROMPT_EVOLUTION_REFLEXION",
+      "issue": "Initial prompt scored 50.0/100: প্রদত্ত ভিজ্যুয়ালটিতে উয়ারী-বটেশ্বরের প্রাচীন দুর্গনগরীর কেন্দ্রীয় অংশ, সঠিক স্",
+      "root_cause": "Semantic entity mismatch between dialogue and diffusion prompt",
+      "resolution": "Saved evolutionary memory rule EVO-MEM-1645 for automatic first-pass synthesis",
+      "agent": "PromptEvolutionEngine",
+      "recorded_at": "2026-11-12T12:09:59.435194",
+      "status": "resolved_and_enforced"
+    },
+    {
+      "issue_id": "MEM-20261112-4149",
+      "category": "PROMPT_EVOLUTION_REFLEXION",
+      "issue": "Initial prompt scored 50.0/100: The visual depicts a modern or medieval brick structure with a flat concrete roo",
+      "root_cause": "Semantic entity mismatch between dialogue and diffusion prompt",
+      "resolution": "Saved evolutionary memory rule EVO-MEM-1646 for automatic first-pass synthesis",
+      "agent": "PromptEvolutionEngine",
+      "recorded_at": "2026-11-12T12:12:30.115707",
+      "status": "resolved_and_enforced"
+    },
+    {
+      "issue_id": "MEM-20261112-4150",
+      "category": "PROMPT_EVOLUTION_REFLEXION",
+      "issue": "Initial prompt scored 50.0/100: The visual contains modern human figures walking on the structures (e.g., people",
+      "root_cause": "Semantic entity mismatch between dialogue and diffusion prompt",
+      "resolution": "Saved evolutionary memory rule EVO-MEM-1647 for automatic first-pass synthesis",
+      "agent": "PromptEvolutionEngine",
+      "recorded_at": "2026-11-12T12:17:28.537617",
+      "status": "resolved_and_enforced"
+    },
+    {
+      "issue_id": "MEM-20261112-4151",
+      "category": "PROMPT_EVOLUTION_REFLEXION",
+      "issue": "Initial prompt scored 50.0/100: The visual still fails to meet the strict constraints. While the fortress archit",
+      "root_cause": "Semantic entity mismatch between dialogue and diffusion prompt",
+      "resolution": "Saved evolutionary memory rule EVO-MEM-1648 for automatic first-pass synthesis",
+      "agent": "PromptEvolutionEngine",
+      "recorded_at": "2026-11-12T12:17:42.599890",
+      "status": "resolved_and_enforced"
+    },
+    {
+      "issue_id": "MEM-20261112-4152",
+      "category": "PROMPT_EVOLUTION_REFLEXION",
+      "issue": "Initial prompt scored 50.0/100: The visual shows a fort-like structure (resembling Mehrangarh Fort in India or s",
+      "root_cause": "Semantic entity mismatch between dialogue and diffusion prompt",
+      "resolution": "Saved evolutionary memory rule EVO-MEM-1649 for automatic first-pass synthesis",
+      "agent": "PromptEvolutionEngine",
+      "recorded_at": "2026-11-12T12:18:28.321801",
+      "status": "resolved_and_enforced"
+    },
+    {
+      "issue_id": "MEM-20261112-4153",
+      "category": "PROMPT_EVOLUTION_REFLEXION",
+      "issue": "Initial prompt scored 50.0/100: The visual depicts medieval stone fort architecture with pillared corridors and ",
+      "root_cause": "Semantic entity mismatch between dialogue and diffusion prompt",
+      "resolution": "Saved evolutionary memory rule EVO-MEM-1650 for automatic first-pass synthesis",
+      "agent": "PromptEvolutionEngine",
+      "recorded_at": "2026-11-12T12:18:44.082963",
+      "status": "resolved_and_enforced"
+    },
+    {
+      "issue_id": "MEM-20261112-4154",
+      "category": "PROMPT_EVOLUTION_REFLEXION",
+      "issue": "Initial prompt scored 50.0/100: The visual depicts standard stone fort architecture (resembling medieval or colo",
+      "root_cause": "Semantic entity mismatch between dialogue and diffusion prompt",
+      "resolution": "Saved evolutionary memory rule EVO-MEM-1651 for automatic first-pass synthesis",
+      "agent": "PromptEvolutionEngine",
+      "recorded_at": "2026-11-12T12:19:09.315000",
+      "status": "resolved_and_enforced"
+    },
+    {
+      "issue_id": "MEM-20261112-4155",
+      "category": "visual_asset_production",
+      "issue": "Rendered 15 video clips (Category A)",
+      "root_cause": "Automated Visual Generator Agent production",
+      "resolution": "1080x1920 resolution verified, faceless & keyframe vision audit passed with score 96.5/100",
+      "agent": "VisualGeneratorAgent",
+      "recorded_at": "2026-11-12T12:19:36.327713",
+      "status": "resolved_and_enforced"
+    },
+    {
+      "issue_id": "MEM-20261112-4156",
+      "category": "sound_engineering_master",
+      "issue": "Sound mix and ducking profile configured for 15 scenes (Category A)",
+      "root_cause": "Automated Sound Engineer Agent mixing",
+      "resolution": "-49 dB BGM bed enforced, 48 SFX events mapped, voice masking passed with score 80.0/100",
+      "agent": "SoundEngineerAgent",
+      "recorded_at": "2026-11-12T12:19:36.396368",
+      "status": "resolved_and_enforced"
+    },
+    {
+      "issue_id": "MEM-20261112-4157",
+      "category": "FFMPEG_MONITOR_AGENT_BROADCAST_RENDER",
+      "issue": "Broadcast-grade 1080x1920 video composition with kinetic subtitles and multi-track audio",
+      "root_cause": "Rendered 15 scenes, mixed 16 audio streams, AV desync 0.0267s, trailing RMS 0.04886",
+      "resolution": "Master video master_category_a_short.mp4 created successfully (173.1 MB, 86.0/100)",
+      "agent": "FFmpegMonitorAgent",
+      "recorded_at": "2026-11-12T12:26:23.960869",
+      "status": "resolved_and_enforced"
+    },
+    {
+      "issue_id": "MEM-20261112-4158",
+      "category": "FINAL_CHECKER_GATEKEEPER_AUDIT",
+      "issue": "Broadcast clearance audit for master_category_a_short.mp4 (Gate 5)",
+      "root_cause": "Audited 5 keyframes, semantic match 0.69, AV desync 0.0267s, trailing RMS 0.04886",
+      "resolution": "Clearance certificate CERT-AMPRO-1794464823 issued with score 58.0/100. Status: REJECTED",
+      "agent": "FinalCheckerAgent",
+      "recorded_at": "2026-11-12T12:27:03.154158",
+      "status": "resolved_and_enforced"
+    },
+    {
+      "issue_id": "MEM-20261112-4159",
+      "category": "script_generator_audit",
+      "issue": "Script generated for topic 'মহাকাশের গভীর থেকে আসা রহস্যময় রেডিও সংকেত: 'ওয়াও সিগন্যাল' কি এলিয়েনদের বার্তা ছিল?'",
+      "root_cause": "Automated Script Generator Agent production",
+      "resolution": "Strict 7-9s timing enforced across 30 scenes with score 98.0/100",
+      "agent": "ScriptGeneratorAgent",
+      "recorded_at": "2026-11-12T12:29:07.219848",
+      "status": "resolved_and_enforced"
+    },
+    {
+      "issue_id": "MEM-20261112-4160",
+      "category": "localization_tts_synthesis",
+      "issue": "Synthesized 30 scene voiceovers with word timestamps",
+      "root_cause": "Automated Localization TTS Agent processing",
+      "resolution": "Natural 1.0x cadence verified, end RMS <= 0.018 gate passed, score 97.5/100",
+      "agent": "LocalizationTTSAgent",
+      "recorded_at": "2026-11-12T12:37:45.020817",
+      "status": "resolved_and_enforced"
+    },
+    {
+      "issue_id": "MEM-20261112-4161",
+      "category": "visual_planner_architecture",
+      "issue": "Visual blueprint completed for 30 scenes (Category A)",
+      "root_cause": "Automated Visual Planner Agent generation",
+      "resolution": "Synchronized with audio timestamps, faceless & anti-static card rules passed with score 96.0/100",
+      "agent": "VisualPlannerAgent",
+      "recorded_at": "2026-11-12T12:39:32.631937",
+      "status": "resolved_and_enforced"
+    },
+    {
+      "issue_id": "MEM-20261112-4162",
+      "category": "PROMPT_EVOLUTION_REFLEXION",
+      "issue": "Initial prompt scored 30.0/100: Visual is low-resolution, out-of-focus or lacking sharp edge definition.",
+      "root_cause": "Semantic entity mismatch between dialogue and diffusion prompt",
+      "resolution": "Saved evolutionary memory rule EVO-MEM-1652 for automatic first-pass synthesis",
+      "agent": "PromptEvolutionEngine",
+      "recorded_at": "2026-11-12T12:40:43.413889",
+      "status": "resolved_and_enforced"
+    },
+    {
+      "issue_id": "MEM-20261112-4163",
+      "category": "PROMPT_EVOLUTION_REFLEXION",
+      "issue": "Initial prompt scored 30.0/100: Visual is low-resolution, out-of-focus or lacking sharp edge definition.",
+      "root_cause": "Semantic entity mismatch between dialogue and diffusion prompt",
+      "resolution": "Saved evolutionary memory rule EVO-MEM-1653 for automatic first-pass synthesis",
+      "agent": "PromptEvolutionEngine",
+      "recorded_at": "2026-11-12T12:40:49.439979",
+      "status": "resolved_and_enforced"
+    },
+    {
+      "issue_id": "MEM-20261112-4164",
+      "category": "PROMPT_EVOLUTION_REFLEXION",
+      "issue": "Initial prompt scored 30.0/100: Visual is low-resolution, out-of-focus or lacking sharp edge definition.",
+      "root_cause": "Semantic entity mismatch between dialogue and diffusion prompt",
+      "resolution": "Saved evolutionary memory rule EVO-MEM-1654 for automatic first-pass synthesis",
+      "agent": "PromptEvolutionEngine",
+      "recorded_at": "2026-11-12T12:40:55.306751",
+      "status": "resolved_and_enforced"
+    },
+    {
+      "issue_id": "MEM-20261112-4165",
+      "category": "PROMPT_EVOLUTION_REFLEXION",
+      "issue": "Initial prompt scored 15.0/100: ভিস্যুয়ালটি সম্পূর্ণ অপ্রাসঙ্গিক। ডায়ালগ ও স্ক্রিপ্ট অনুযায়ী 'ওয়াও সিগন্যাল'",
+      "root_cause": "Semantic entity mismatch between dialogue and diffusion prompt",
+      "resolution": "Saved evolutionary memory rule EVO-MEM-1655 for automatic first-pass synthesis",
+      "agent": "PromptEvolutionEngine",
+      "recorded_at": "2026-11-12T12:44:27.016901",
+      "status": "resolved_and_enforced"
+    },
+    {
+      "issue_id": "MEM-20261112-4166",
+      "category": "PROMPT_EVOLUTION_REFLEXION",
+      "issue": "Initial prompt scored 10.0/100: The visual depicts a close-up of rusty metal bolts on a wooden beam or deck with",
+      "root_cause": "Semantic entity mismatch between dialogue and diffusion prompt",
+      "resolution": "Saved evolutionary memory rule EVO-MEM-1656 for automatic first-pass synthesis",
+      "agent": "PromptEvolutionEngine",
+      "recorded_at": "2026-11-12T12:45:08.115524",
+      "status": "resolved_and_enforced"
+    },
+    {
+      "issue_id": "MEM-20261112-4167",
+      "category": "PROMPT_EVOLUTION_REFLEXION",
+      "issue": "Initial prompt scored 50.0/100: The visual displays a futuristic vehicle or rover on a sandy surface rather than",
+      "root_cause": "Semantic entity mismatch between dialogue and diffusion prompt",
+      "resolution": "Saved evolutionary memory rule EVO-MEM-1657 for automatic first-pass synthesis",
+      "agent": "PromptEvolutionEngine",
+      "recorded_at": "2026-11-12T12:47:30.617154",
+      "status": "resolved_and_enforced"
+    },
+    {
+      "issue_id": "MEM-20261112-4168",
+      "category": "PROMPT_EVOLUTION_REFLEXION",
+      "issue": "Initial prompt scored 45.0/100: The visual depicts a futuristic rover or vehicle parked on a sandy surface, whic",
+      "root_cause": "Semantic entity mismatch between dialogue and diffusion prompt",
+      "resolution": "Saved evolutionary memory rule EVO-MEM-1658 for automatic first-pass synthesis",
+      "agent": "PromptEvolutionEngine",
+      "recorded_at": "2026-11-12T12:47:55.815952",
+      "status": "resolved_and_enforced"
+    },
+    {
+      "issue_id": "MEM-20261112-4169",
+      "category": "PROMPT_EVOLUTION_REFLEXION",
+      "issue": "Initial prompt scored 48.0/100: The visual continues to depict a futuristic rover or heavy machinery vehicle par",
+      "root_cause": "Semantic entity mismatch between dialogue and diffusion prompt",
+      "resolution": "Saved evolutionary memory rule EVO-MEM-1659 for automatic first-pass synthesis",
+      "agent": "PromptEvolutionEngine",
+      "recorded_at": "2026-11-12T12:48:11.329154",
+      "status": "resolved_and_enforced"
+    },
+    {
+      "issue_id": "MEM-20261112-4170",
+      "category": "PROMPT_EVOLUTION_REFLEXION",
+      "issue": "Initial prompt scored 50.0/100: The visual shows an overhead orthographic view of agricultural fields and rural ",
+      "root_cause": "Semantic entity mismatch between dialogue and diffusion prompt",
+      "resolution": "Saved evolutionary memory rule EVO-MEM-1660 for automatic first-pass synthesis",
+      "agent": "PromptEvolutionEngine",
+      "recorded_at": "2026-11-12T12:48:52.907683",
+      "status": "resolved_and_enforced"
+    },
+    {
+      "issue_id": "MEM-20261112-4171",
+      "category": "PROMPT_EVOLUTION_REFLEXION",
+      "issue": "Initial prompt scored 45.0/100: The visual displays an overhead orthographic view of agricultural fields and rur",
+      "root_cause": "Semantic entity mismatch between dialogue and diffusion prompt",
+      "resolution": "Saved evolutionary memory rule EVO-MEM-1661 for automatic first-pass synthesis",
+      "agent": "PromptEvolutionEngine",
+      "recorded_at": "2026-11-12T12:49:07.510507",
+      "status": "resolved_and_enforced"
+    },
+    {
+      "issue_id": "MEM-20261112-4172",
+      "category": "PROMPT_EVOLUTION_REFLEXION",
+      "issue": "Initial prompt scored 30.0/100: Visual is low-resolution, out-of-focus or lacking sharp edge definition.",
+      "root_cause": "Semantic entity mismatch between dialogue and diffusion prompt",
+      "resolution": "Saved evolutionary memory rule EVO-MEM-1662 for automatic first-pass synthesis",
+      "agent": "PromptEvolutionEngine",
+      "recorded_at": "2026-11-12T12:50:42.609713",
+      "status": "resolved_and_enforced"
+    },
+    {
+      "issue_id": "MEM-20261112-4173",
+      "category": "PROMPT_EVOLUTION_REFLEXION",
+      "issue": "Initial prompt scored 30.0/100: Visual is low-resolution, out-of-focus or lacking sharp edge definition.",
+      "root_cause": "Semantic entity mismatch between dialogue and diffusion prompt",
+      "resolution": "Saved evolutionary memory rule EVO-MEM-1663 for automatic first-pass synthesis",
+      "agent": "PromptEvolutionEngine",
+      "recorded_at": "2026-11-12T12:50:47.019262",
+      "status": "resolved_and_enforced"
+    },
+    {
+      "issue_id": "MEM-20261112-4174",
+      "category": "PROMPT_EVOLUTION_REFLEXION",
+      "issue": "Initial prompt scored 30.0/100: Visual is low-resolution, out-of-focus or lacking sharp edge definition.",
+      "root_cause": "Semantic entity mismatch between dialogue and diffusion prompt",
+      "resolution": "Saved evolutionary memory rule EVO-MEM-1664 for automatic first-pass synthesis",
+      "agent": "PromptEvolutionEngine",
+      "recorded_at": "2026-11-12T12:51:11.503755",
+      "status": "resolved_and_enforced"
+    },
+    {
+      "issue_id": "MEM-20261112-4175",
+      "category": "PROMPT_EVOLUTION_REFLEXION",
+      "issue": "Initial prompt scored 30.0/100: Visual is low-resolution, out-of-focus or lacking sharp edge definition.",
+      "root_cause": "Semantic entity mismatch between dialogue and diffusion prompt",
+      "resolution": "Saved evolutionary memory rule EVO-MEM-1665 for automatic first-pass synthesis",
+      "agent": "PromptEvolutionEngine",
+      "recorded_at": "2026-11-12T12:51:15.221301",
+      "status": "resolved_and_enforced"
+    },
+    {
+      "issue_id": "MEM-20261112-4176",
+      "category": "PROMPT_EVOLUTION_REFLEXION",
+      "issue": "Initial prompt scored 30.0/100: Visual is low-resolution, out-of-focus or lacking sharp edge definition.",
+      "root_cause": "Semantic entity mismatch between dialogue and diffusion prompt",
+      "resolution": "Saved evolutionary memory rule EVO-MEM-1666 for automatic first-pass synthesis",
+      "agent": "PromptEvolutionEngine",
+      "recorded_at": "2026-11-12T12:51:18.612157",
+      "status": "resolved_and_enforced"
+    },
+    {
+      "issue_id": "MEM-20261112-4177",
+      "category": "PROMPT_EVOLUTION_REFLEXION",
+      "issue": "Initial prompt scored 50.0/100: ভিজুয়ালটিতে মহাকাশের গভীর থেকে আসা রহস্যময় রেডিও সংকেত বা 'ওয়াও সিগন্যাল' সম্পর্",
+      "root_cause": "Semantic entity mismatch between dialogue and diffusion prompt",
+      "resolution": "Saved evolutionary memory rule EVO-MEM-1667 for automatic first-pass synthesis",
+      "agent": "PromptEvolutionEngine",
+      "recorded_at": "2026-11-12T12:56:59.383679",
+      "status": "resolved_and_enforced"
+    },
+    {
+      "issue_id": "MEM-20261112-4178",
+      "category": "PROMPT_EVOLUTION_REFLEXION",
+      "issue": "Initial prompt scored 45.0/100: দৃশ্যটিতে রেডিও টেলিস্কোপ বা সেটলাইট ডিশ দেখানো হয়েছে যা 'ওয়াও সিগন্যাল' বা রেড",
+      "root_cause": "Semantic entity mismatch between dialogue and diffusion prompt",
+      "resolution": "Saved evolutionary memory rule EVO-MEM-1668 for automatic first-pass synthesis",
+      "agent": "PromptEvolutionEngine",
+      "recorded_at": "2026-11-12T12:57:09.971334",
+      "status": "resolved_and_enforced"
+    },
+    {
+      "issue_id": "MEM-20261112-4179",
+      "category": "PROMPT_EVOLUTION_REFLEXION",
+      "issue": "Initial prompt scored 50.0/100: The visual depicts a standard terrestrial telecommunication cell tower with an i",
+      "root_cause": "Semantic entity mismatch between dialogue and diffusion prompt",
+      "resolution": "Saved evolutionary memory rule EVO-MEM-1669 for automatic first-pass synthesis",
+      "agent": "PromptEvolutionEngine",
+      "recorded_at": "2026-11-12T12:59:07.700079",
+      "status": "resolved_and_enforced"
+    },
+    {
+      "issue_id": "MEM-20261112-4180",
+      "category": "PROMPT_EVOLUTION_REFLEXION",
+      "issue": "Initial prompt scored 30.0/100: Visual is low-resolution, out-of-focus or lacking sharp edge definition.",
+      "root_cause": "Semantic entity mismatch between dialogue and diffusion prompt",
+      "resolution": "Saved evolutionary memory rule EVO-MEM-1670 for automatic first-pass synthesis",
+      "agent": "PromptEvolutionEngine",
+      "recorded_at": "2026-11-12T13:05:32.633836",
+      "status": "resolved_and_enforced"
+    },
+    {
+      "issue_id": "MEM-20261112-4181",
+      "category": "PROMPT_EVOLUTION_REFLEXION",
+      "issue": "Initial prompt scored 30.0/100: Visual is low-resolution, out-of-focus or lacking sharp edge definition.",
+      "root_cause": "Semantic entity mismatch between dialogue and diffusion prompt",
+      "resolution": "Saved evolutionary memory rule EVO-MEM-1671 for automatic first-pass synthesis",
+      "agent": "PromptEvolutionEngine",
+      "recorded_at": "2026-11-12T13:05:43.746010",
+      "status": "resolved_and_enforced"
+    },
+    {
+      "issue_id": "MEM-20261112-4182",
+      "category": "PROMPT_EVOLUTION_REFLEXION",
+      "issue": "Initial prompt scored 30.0/100: Visual is low-resolution, out-of-focus or lacking sharp edge definition.",
+      "root_cause": "Semantic entity mismatch between dialogue and diffusion prompt",
+      "resolution": "Saved evolutionary memory rule EVO-MEM-1672 for automatic first-pass synthesis",
+      "agent": "PromptEvolutionEngine",
+      "recorded_at": "2026-11-12T13:05:56.301535",
+      "status": "resolved_and_enforced"
+    },
+    {
+      "issue_id": "MEM-20261112-4183",
+      "category": "PROMPT_EVOLUTION_REFLEXION",
+      "issue": "Initial prompt scored 30.0/100: Visual is low-resolution, out-of-focus or lacking sharp edge definition.",
+      "root_cause": "Semantic entity mismatch between dialogue and diffusion prompt",
+      "resolution": "Saved evolutionary memory rule EVO-MEM-1673 for automatic first-pass synthesis",
+      "agent": "PromptEvolutionEngine",
+      "recorded_at": "2026-11-12T13:06:26.643717",
+      "status": "resolved_and_enforced"
+    },
+    {
+      "issue_id": "MEM-20261112-4184",
+      "category": "PROMPT_EVOLUTION_REFLEXION",
+      "issue": "Initial prompt scored 30.0/100: Visual is low-resolution, out-of-focus or lacking sharp edge definition.",
+      "root_cause": "Semantic entity mismatch between dialogue and diffusion prompt",
+      "resolution": "Saved evolutionary memory rule EVO-MEM-1674 for automatic first-pass synthesis",
+      "agent": "PromptEvolutionEngine",
+      "recorded_at": "2026-11-12T13:06:37.300148",
+      "status": "resolved_and_enforced"
+    },
+    {
+      "issue_id": "MEM-20261112-4185",
+      "category": "PROMPT_EVOLUTION_REFLEXION",
+      "issue": "Initial prompt scored 30.0/100: Visual is low-resolution, out-of-focus or lacking sharp edge definition.",
+      "root_cause": "Semantic entity mismatch between dialogue and diffusion prompt",
+      "resolution": "Saved evolutionary memory rule EVO-MEM-1675 for automatic first-pass synthesis",
+      "agent": "PromptEvolutionEngine",
+      "recorded_at": "2026-11-12T13:06:48.915831",
+      "status": "resolved_and_enforced"
+    },
+    {
+      "issue_id": "MEM-20261112-4186",
+      "category": "PROMPT_EVOLUTION_REFLEXION",
+      "issue": "Initial prompt scored 45.0/100: The visual displays an old internal tape drive (Iomega Ditto Max 10GB) with a gr",
+      "root_cause": "Semantic entity mismatch between dialogue and diffusion prompt",
+      "resolution": "Saved evolutionary memory rule EVO-MEM-1676 for automatic first-pass synthesis",
+      "agent": "PromptEvolutionEngine",
+      "recorded_at": "2026-11-12T13:08:18.767167",
+      "status": "resolved_and_enforced"
+    },
+    {
+      "issue_id": "MEM-20261112-4187",
+      "category": "PROMPT_EVOLUTION_REFLEXION",
+      "issue": "Initial prompt scored 30.0/100: Visual is low-resolution, out-of-focus or lacking sharp edge definition.",
+      "root_cause": "Semantic entity mismatch between dialogue and diffusion prompt",
+      "resolution": "Saved evolutionary memory rule EVO-MEM-1677 for automatic first-pass synthesis",
+      "agent": "PromptEvolutionEngine",
+      "recorded_at": "2026-11-12T13:08:24.482705",
+      "status": "resolved_and_enforced"
+    },
+    {
+      "issue_id": "MEM-20261112-4188",
+      "category": "PROMPT_EVOLUTION_REFLEXION",
+      "issue": "Initial prompt scored 30.0/100: Visual is low-resolution, out-of-focus or lacking sharp edge definition.",
+      "root_cause": "Semantic entity mismatch between dialogue and diffusion prompt",
+      "resolution": "Saved evolutionary memory rule EVO-MEM-1678 for automatic first-pass synthesis",
+      "agent": "PromptEvolutionEngine",
+      "recorded_at": "2026-11-12T13:08:32.835949",
+      "status": "resolved_and_enforced"
+    },
+    {
+      "issue_id": "MEM-20261112-4189",
+      "category": "PROMPT_EVOLUTION_REFLEXION",
+      "issue": "Initial prompt scored 25.0/100: প্রদত্ত ভিজ্যুয়ালটিতে একটি পুরনো Iomega Zip ড্রাইভ দেখানো হয়েছে, যার সাথে মহাক",
+      "root_cause": "Semantic entity mismatch between dialogue and diffusion prompt",
+      "resolution": "Saved evolutionary memory rule EVO-MEM-1679 for automatic first-pass synthesis",
+      "agent": "PromptEvolutionEngine",
+      "recorded_at": "2026-11-12T13:09:23.865483",
+      "status": "resolved_and_enforced"
+    },
+    {
+      "issue_id": "MEM-20261112-4190",
+      "category": "PROMPT_EVOLUTION_REFLEXION",
+      "issue": "Initial prompt scored 30.0/100: Visual is low-resolution, out-of-focus or lacking sharp edge definition.",
+      "root_cause": "Semantic entity mismatch between dialogue and diffusion prompt",
+      "resolution": "Saved evolutionary memory rule EVO-MEM-1680 for automatic first-pass synthesis",
+      "agent": "PromptEvolutionEngine",
+      "recorded_at": "2026-11-12T13:09:32.563863",
+      "status": "resolved_and_enforced"
+    },
+    {
+      "issue_id": "MEM-20261112-4191",
+      "category": "PROMPT_EVOLUTION_REFLEXION",
+      "issue": "Initial prompt scored 30.0/100: Visual is low-resolution, out-of-focus or lacking sharp edge definition.",
+      "root_cause": "Semantic entity mismatch between dialogue and diffusion prompt",
+      "resolution": "Saved evolutionary memory rule EVO-MEM-1681 for automatic first-pass synthesis",
+      "agent": "PromptEvolutionEngine",
+      "recorded_at": "2026-11-12T13:09:41.644056",
+      "status": "resolved_and_enforced"
+    },
+    {
+      "issue_id": "MEM-20261112-4192",
+      "category": "PROMPT_EVOLUTION_REFLEXION",
+      "issue": "Initial prompt scored 50.0/100: The visual depicts a generic foggy landscape with rolling hills and trees, but c",
+      "root_cause": "Semantic entity mismatch between dialogue and diffusion prompt",
+      "resolution": "Saved evolutionary memory rule EVO-MEM-1682 for automatic first-pass synthesis",
+      "agent": "PromptEvolutionEngine",
+      "recorded_at": "2026-11-12T13:11:05.820618",
+      "status": "resolved_and_enforced"
+    },
+    {
+      "issue_id": "MEM-20261112-4193",
+      "category": "PROMPT_EVOLUTION_REFLEXION",
+      "issue": "Initial prompt scored 30.0/100: Visual is low-resolution, out-of-focus or lacking sharp edge definition.",
+      "root_cause": "Semantic entity mismatch between dialogue and diffusion prompt",
+      "resolution": "Saved evolutionary memory rule EVO-MEM-1683 for automatic first-pass synthesis",
+      "agent": "PromptEvolutionEngine",
+      "recorded_at": "2026-11-12T13:11:12.866923",
+      "status": "resolved_and_enforced"
+    },
+    {
+      "issue_id": "MEM-20261112-4194",
+      "category": "PROMPT_EVOLUTION_REFLEXION",
+      "issue": "Initial prompt scored 30.0/100: Visual is low-resolution, out-of-focus or lacking sharp edge definition.",
+      "root_cause": "Semantic entity mismatch between dialogue and diffusion prompt",
+      "resolution": "Saved evolutionary memory rule EVO-MEM-1684 for automatic first-pass synthesis",
+      "agent": "PromptEvolutionEngine",
+      "recorded_at": "2026-11-12T13:11:23.375733",
+      "status": "resolved_and_enforced"
+    },
+    {
+      "issue_id": "MEM-20261112-4195",
+      "category": "PROMPT_EVOLUTION_REFLEXION",
+      "issue": "Initial prompt scored 45.0/100: The visual depicts a scenic morning landscape with mist over hills, which satisf",
+      "root_cause": "Semantic entity mismatch between dialogue and diffusion prompt",
+      "resolution": "Saved evolutionary memory rule EVO-MEM-1685 for automatic first-pass synthesis",
+      "agent": "PromptEvolutionEngine",
+      "recorded_at": "2026-11-12T13:12:17.700604",
+      "status": "resolved_and_enforced"
+    },
+    {
+      "issue_id": "MEM-20261112-4196",
+      "category": "PROMPT_EVOLUTION_REFLEXION",
+      "issue": "Initial prompt scored 30.0/100: Visual is low-resolution, out-of-focus or lacking sharp edge definition.",
+      "root_cause": "Semantic entity mismatch between dialogue and diffusion prompt",
+      "resolution": "Saved evolutionary memory rule EVO-MEM-1686 for automatic first-pass synthesis",
+      "agent": "PromptEvolutionEngine",
+      "recorded_at": "2026-11-12T13:12:26.547229",
+      "status": "resolved_and_enforced"
+    },
+    {
+      "issue_id": "MEM-20261112-4197",
+      "category": "PROMPT_EVOLUTION_REFLEXION",
+      "issue": "Initial prompt scored 30.0/100: Visual is low-resolution, out-of-focus or lacking sharp edge definition.",
+      "root_cause": "Semantic entity mismatch between dialogue and diffusion prompt",
+      "resolution": "Saved evolutionary memory rule EVO-MEM-1687 for automatic first-pass synthesis",
+      "agent": "PromptEvolutionEngine",
+      "recorded_at": "2026-11-12T13:12:35.435651",
+      "status": "resolved_and_enforced"
+    },
+    {
+      "issue_id": "MEM-20261112-4198",
+      "category": "PROMPT_EVOLUTION_REFLEXION",
+      "issue": "Initial prompt scored 30.0/100: Visual is low-resolution, out-of-focus or lacking sharp edge definition.",
+      "root_cause": "Semantic entity mismatch between dialogue and diffusion prompt",
+      "resolution": "Saved evolutionary memory rule EVO-MEM-1688 for automatic first-pass synthesis",
+      "agent": "PromptEvolutionEngine",
+      "recorded_at": "2026-11-12T13:13:14.943386",
+      "status": "resolved_and_enforced"
+    },
+    {
+      "issue_id": "MEM-20261112-4199",
+      "category": "PROMPT_EVOLUTION_REFLEXION",
+      "issue": "Initial prompt scored 30.0/100: Visual is low-resolution, out-of-focus or lacking sharp edge definition.",
+      "root_cause": "Semantic entity mismatch between dialogue and diffusion prompt",
+      "resolution": "Saved evolutionary memory rule EVO-MEM-1689 for automatic first-pass synthesis",
+      "agent": "PromptEvolutionEngine",
+      "recorded_at": "2026-11-12T13:13:25.015210",
+      "status": "resolved_and_enforced"
+    },
+    {
+      "issue_id": "MEM-20261112-4200",
+      "category": "PROMPT_EVOLUTION_REFLEXION",
+      "issue": "Initial prompt scored 30.0/100: Visual is low-resolution, out-of-focus or lacking sharp edge definition.",
+      "root_cause": "Semantic entity mismatch between dialogue and diffusion prompt",
+      "resolution": "Saved evolutionary memory rule EVO-MEM-1690 for automatic first-pass synthesis",
+      "agent": "PromptEvolutionEngine",
+      "recorded_at": "2026-11-12T13:13:35.839019",
+      "status": "resolved_and_enforced"
+    },
+    {
+      "issue_id": "MEM-20261112-4201",
+      "category": "PROMPT_EVOLUTION_REFLEXION",
+      "issue": "Initial prompt scored 30.0/100: Visual is low-resolution, out-of-focus or lacking sharp edge definition.",
+      "root_cause": "Semantic entity mismatch between dialogue and diffusion prompt",
+      "resolution": "Saved evolutionary memory rule EVO-MEM-1691 for automatic first-pass synthesis",
+      "agent": "PromptEvolutionEngine",
+      "recorded_at": "2026-11-12T13:14:03.482324",
+      "status": "resolved_and_enforced"
+    },
+    {
+      "issue_id": "MEM-20261112-4202",
+      "category": "PROMPT_EVOLUTION_REFLEXION",
+      "issue": "Initial prompt scored 30.0/100: Visual is low-resolution, out-of-focus or lacking sharp edge definition.",
+      "root_cause": "Semantic entity mismatch between dialogue and diffusion prompt",
+      "resolution": "Saved evolutionary memory rule EVO-MEM-1692 for automatic first-pass synthesis",
+      "agent": "PromptEvolutionEngine",
+      "recorded_at": "2026-11-12T13:14:11.084927",
+      "status": "resolved_and_enforced"
+    },
+    {
+      "issue_id": "MEM-20261112-4203",
+      "category": "PROMPT_EVOLUTION_REFLEXION",
+      "issue": "Initial prompt scored 30.0/100: Visual is low-resolution, out-of-focus or lacking sharp edge definition.",
+      "root_cause": "Semantic entity mismatch between dialogue and diffusion prompt",
+      "resolution": "Saved evolutionary memory rule EVO-MEM-1693 for automatic first-pass synthesis",
+      "agent": "PromptEvolutionEngine",
+      "recorded_at": "2026-11-12T13:14:23.347574",
+      "status": "resolved_and_enforced"
+    },
+    {
+      "issue_id": "MEM-20261112-4204",
+      "category": "PROMPT_EVOLUTION_REFLEXION",
+      "issue": "Initial prompt scored 10.0/100: The attached visual depicts a close-up product shot of a DSLR camera and manual ",
+      "root_cause": "Semantic entity mismatch between dialogue and diffusion prompt",
+      "resolution": "Saved evolutionary memory rule EVO-MEM-1694 for automatic first-pass synthesis",
+      "agent": "PromptEvolutionEngine",
+      "recorded_at": "2026-11-12T13:15:47.119741",
+      "status": "resolved_and_enforced"
+    },
+    {
+      "issue_id": "MEM-20261112-4205",
+      "category": "PROMPT_EVOLUTION_REFLEXION",
+      "issue": "Initial prompt scored 30.0/100: Visual is low-resolution, out-of-focus or lacking sharp edge definition.",
+      "root_cause": "Semantic entity mismatch between dialogue and diffusion prompt",
+      "resolution": "Saved evolutionary memory rule EVO-MEM-1695 for automatic first-pass synthesis",
+      "agent": "PromptEvolutionEngine",
+      "recorded_at": "2026-11-12T13:15:53.463335",
+      "status": "resolved_and_enforced"
+    },
+    {
+      "issue_id": "MEM-20261112-4206",
+      "category": "PROMPT_EVOLUTION_REFLEXION",
+      "issue": "Initial prompt scored 30.0/100: Visual is low-resolution, out-of-focus or lacking sharp edge definition.",
+      "root_cause": "Semantic entity mismatch between dialogue and diffusion prompt",
+      "resolution": "Saved evolutionary memory rule EVO-MEM-1696 for automatic first-pass synthesis",
+      "agent": "PromptEvolutionEngine",
+      "recorded_at": "2026-11-12T13:16:02.731856",
+      "status": "resolved_and_enforced"
+    },
+    {
+      "issue_id": "MEM-20261112-4207",
+      "category": "PROMPT_EVOLUTION_REFLEXION",
+      "issue": "Initial prompt scored 25.0/100: The visual displays a standard Canon RF 35mm camera lens on a plain brown backgr",
+      "root_cause": "Semantic entity mismatch between dialogue and diffusion prompt",
+      "resolution": "Saved evolutionary memory rule EVO-MEM-1697 for automatic first-pass synthesis",
+      "agent": "PromptEvolutionEngine",
+      "recorded_at": "2026-11-12T13:16:45.789046",
+      "status": "resolved_and_enforced"
+    },
+    {
+      "issue_id": "MEM-20261112-4208",
+      "category": "PROMPT_EVOLUTION_REFLEXION",
+      "issue": "Initial prompt scored 30.0/100: Visual is low-resolution, out-of-focus or lacking sharp edge definition.",
+      "root_cause": "Semantic entity mismatch between dialogue and diffusion prompt",
+      "resolution": "Saved evolutionary memory rule EVO-MEM-1698 for automatic first-pass synthesis",
+      "agent": "PromptEvolutionEngine",
+      "recorded_at": "2026-11-12T13:16:55.216857",
+      "status": "resolved_and_enforced"
+    },
+    {
+      "issue_id": "MEM-20261112-4209",
+      "category": "PROMPT_EVOLUTION_REFLEXION",
+      "issue": "Initial prompt scored 30.0/100: Visual is low-resolution, out-of-focus or lacking sharp edge definition.",
+      "root_cause": "Semantic entity mismatch between dialogue and diffusion prompt",
+      "resolution": "Saved evolutionary memory rule EVO-MEM-1699 for automatic first-pass synthesis",
+      "agent": "PromptEvolutionEngine",
+      "recorded_at": "2026-11-12T13:17:03.415623",
+      "status": "resolved_and_enforced"
+    },
+    {
+      "issue_id": "MEM-20261112-4210",
+      "category": "PROMPT_EVOLUTION_REFLEXION",
+      "issue": "Initial prompt scored 30.0/100: Visual is low-resolution, out-of-focus or lacking sharp edge definition.",
+      "root_cause": "Semantic entity mismatch between dialogue and diffusion prompt",
+      "resolution": "Saved evolutionary memory rule EVO-MEM-1700 for automatic first-pass synthesis",
+      "agent": "PromptEvolutionEngine",
+      "recorded_at": "2026-11-12T13:17:41.873602",
+      "status": "resolved_and_enforced"
+    },
+    {
+      "issue_id": "MEM-20261112-4211",
+      "category": "PROMPT_EVOLUTION_REFLEXION",
+      "issue": "Initial prompt scored 30.0/100: Visual is low-resolution, out-of-focus or lacking sharp edge definition.",
+      "root_cause": "Semantic entity mismatch between dialogue and diffusion prompt",
+      "resolution": "Saved evolutionary memory rule EVO-MEM-1701 for automatic first-pass synthesis",
+      "agent": "PromptEvolutionEngine",
+      "recorded_at": "2026-11-12T13:17:57.458426",
+      "status": "resolved_and_enforced"
+    },
+    {
+      "issue_id": "MEM-20261112-4212",
+      "category": "PROMPT_EVOLUTION_REFLEXION",
+      "issue": "Initial prompt scored 30.0/100: Visual is low-resolution, out-of-focus or lacking sharp edge definition.",
+      "root_cause": "Semantic entity mismatch between dialogue and diffusion prompt",
+      "resolution": "Saved evolutionary memory rule EVO-MEM-1702 for automatic first-pass synthesis",
+      "agent": "PromptEvolutionEngine",
+      "recorded_at": "2026-11-12T13:18:09.214682",
+      "status": "resolved_and_enforced"
+    },
+    {
+      "issue_id": "MEM-20261112-4213",
+      "category": "PROMPT_EVOLUTION_REFLEXION",
+      "issue": "Initial prompt scored 30.0/100: Visual is low-resolution, out-of-focus or lacking sharp edge definition.",
+      "root_cause": "Semantic entity mismatch between dialogue and diffusion prompt",
+      "resolution": "Saved evolutionary memory rule EVO-MEM-1703 for automatic first-pass synthesis",
+      "agent": "PromptEvolutionEngine",
+      "recorded_at": "2026-11-12T13:18:33.727074",
+      "status": "resolved_and_enforced"
+    },
+    {
+      "issue_id": "MEM-20261112-4214",
+      "category": "PROMPT_EVOLUTION_REFLEXION",
+      "issue": "Initial prompt scored 30.0/100: Visual is low-resolution, out-of-focus or lacking sharp edge definition.",
+      "root_cause": "Semantic entity mismatch between dialogue and diffusion prompt",
+      "resolution": "Saved evolutionary memory rule EVO-MEM-1704 for automatic first-pass synthesis",
+      "agent": "PromptEvolutionEngine",
+      "recorded_at": "2026-11-12T13:18:43.142135",
+      "status": "resolved_and_enforced"
+    },
+    {
+      "issue_id": "MEM-20261112-4215",
+      "category": "PROMPT_EVOLUTION_REFLEXION",
+      "issue": "Initial prompt scored 30.0/100: Visual is low-resolution, out-of-focus or lacking sharp edge definition.",
+      "root_cause": "Semantic entity mismatch between dialogue and diffusion prompt",
+      "resolution": "Saved evolutionary memory rule EVO-MEM-1705 for automatic first-pass synthesis",
+      "agent": "PromptEvolutionEngine",
+      "recorded_at": "2026-11-12T13:18:52.393299",
+      "status": "resolved_and_enforced"
+    },
+    {
+      "issue_id": "MEM-20261112-4216",
+      "category": "PROMPT_EVOLUTION_REFLEXION",
+      "issue": "Initial prompt scored 30.0/100: Visual is low-resolution, out-of-focus or lacking sharp edge definition.",
+      "root_cause": "Semantic entity mismatch between dialogue and diffusion prompt",
+      "resolution": "Saved evolutionary memory rule EVO-MEM-1706 for automatic first-pass synthesis",
+      "agent": "PromptEvolutionEngine",
+      "recorded_at": "2026-11-12T13:21:16.819700",
+      "status": "resolved_and_enforced"
+    },
+    {
+      "issue_id": "MEM-20261112-4217",
+      "category": "PROMPT_EVOLUTION_REFLEXION",
+      "issue": "Initial prompt scored 30.0/100: Visual is low-resolution, out-of-focus or lacking sharp edge definition.",
+      "root_cause": "Semantic entity mismatch between dialogue and diffusion prompt",
+      "resolution": "Saved evolutionary memory rule EVO-MEM-1707 for automatic first-pass synthesis",
+      "agent": "PromptEvolutionEngine",
+      "recorded_at": "2026-11-12T13:21:28.145015",
+      "status": "resolved_and_enforced"
+    },
+    {
+      "issue_id": "MEM-20261112-4218",
+      "category": "PROMPT_EVOLUTION_REFLEXION",
+      "issue": "Initial prompt scored 30.0/100: Visual is low-resolution, out-of-focus or lacking sharp edge definition.",
+      "root_cause": "Semantic entity mismatch between dialogue and diffusion prompt",
+      "resolution": "Saved evolutionary memory rule EVO-MEM-1708 for automatic first-pass synthesis",
+      "agent": "PromptEvolutionEngine",
+      "recorded_at": "2026-11-12T13:21:38.847263",
+      "status": "resolved_and_enforced"
+    },
+    {
+      "issue_id": "MEM-20261112-4219",
+      "category": "PROMPT_EVOLUTION_REFLEXION",
+      "issue": "Initial prompt scored 30.0/100: Visual is low-resolution, out-of-focus or lacking sharp edge definition.",
+      "root_cause": "Semantic entity mismatch between dialogue and diffusion prompt",
+      "resolution": "Saved evolutionary memory rule EVO-MEM-1709 for automatic first-pass synthesis",
+      "agent": "PromptEvolutionEngine",
+      "recorded_at": "2026-11-12T13:22:06.174254",
+      "status": "resolved_and_enforced"
+    },
+    {
+      "issue_id": "MEM-20261112-4220",
+      "category": "PROMPT_EVOLUTION_REFLEXION",
+      "issue": "Initial prompt scored 30.0/100: Visual is low-resolution, out-of-focus or lacking sharp edge definition.",
+      "root_cause": "Semantic entity mismatch between dialogue and diffusion prompt",
+      "resolution": "Saved evolutionary memory rule EVO-MEM-1710 for automatic first-pass synthesis",
+      "agent": "PromptEvolutionEngine",
+      "recorded_at": "2026-11-12T13:22:15.530593",
+      "status": "resolved_and_enforced"
+    },
+    {
+      "issue_id": "MEM-20261112-4221",
+      "category": "PROMPT_EVOLUTION_REFLEXION",
+      "issue": "Initial prompt scored 30.0/100: Visual is low-resolution, out-of-focus or lacking sharp edge definition.",
+      "root_cause": "Semantic entity mismatch between dialogue and diffusion prompt",
+      "resolution": "Saved evolutionary memory rule EVO-MEM-1711 for automatic first-pass synthesis",
+      "agent": "PromptEvolutionEngine",
+      "recorded_at": "2026-11-12T13:22:26.493836",
+      "status": "resolved_and_enforced"
+    },
+    {
+      "issue_id": "MEM-20261112-4222",
+      "category": "PROMPT_EVOLUTION_REFLEXION",
+      "issue": "Initial prompt scored 10.0/100: Visual depicts a person (cameraman) holding a modern cinema camera inside a room",
+      "root_cause": "Semantic entity mismatch between dialogue and diffusion prompt",
+      "resolution": "Saved evolutionary memory rule EVO-MEM-1712 for automatic first-pass synthesis",
+      "agent": "PromptEvolutionEngine",
+      "recorded_at": "2026-11-12T13:23:46.373450",
+      "status": "resolved_and_enforced"
+    },
+    {
+      "issue_id": "MEM-20261112-4223",
+      "category": "PROMPT_EVOLUTION_REFLEXION",
+      "issue": "Initial prompt scored 30.0/100: Visual is low-resolution, out-of-focus or lacking sharp edge definition.",
+      "root_cause": "Semantic entity mismatch between dialogue and diffusion prompt",
+      "resolution": "Saved evolutionary memory rule EVO-MEM-1713 for automatic first-pass synthesis",
+      "agent": "PromptEvolutionEngine",
+      "recorded_at": "2026-11-12T13:23:52.120311",
+      "status": "resolved_and_enforced"
+    },
+    {
+      "issue_id": "MEM-20261112-4224",
+      "category": "PROMPT_EVOLUTION_REFLEXION",
+      "issue": "Initial prompt scored 30.0/100: Visual is low-resolution, out-of-focus or lacking sharp edge definition.",
+      "root_cause": "Semantic entity mismatch between dialogue and diffusion prompt",
+      "resolution": "Saved evolutionary memory rule EVO-MEM-1714 for automatic first-pass synthesis",
+      "agent": "PromptEvolutionEngine",
+      "recorded_at": "2026-11-12T13:24:02.244510",
+      "status": "resolved_and_enforced"
+    },
+    {
+      "issue_id": "MEM-20261112-4225",
+      "category": "PROMPT_EVOLUTION_REFLEXION",
+      "issue": "Initial prompt scored 10.0/100: The attached visual completely violates the visual contract. Instead of displayi",
+      "root_cause": "Semantic entity mismatch between dialogue and diffusion prompt",
+      "resolution": "Saved evolutionary memory rule EVO-MEM-1715 for automatic first-pass synthesis",
+      "agent": "PromptEvolutionEngine",
+      "recorded_at": "2026-11-12T13:24:50.052233",
+      "status": "resolved_and_enforced"
+    },
+    {
+      "issue_id": "MEM-20261112-4226",
+      "category": "PROMPT_EVOLUTION_REFLEXION",
+      "issue": "Initial prompt scored 10.0/100: The visual depicts a person studying inside a modern library at night, which com",
+      "root_cause": "Semantic entity mismatch between dialogue and diffusion prompt",
+      "resolution": "Saved evolutionary memory rule EVO-MEM-1716 for automatic first-pass synthesis",
+      "agent": "PromptEvolutionEngine",
+      "recorded_at": "2026-11-12T13:25:47.712566",
+      "status": "resolved_and_enforced"
+    },
+    {
+      "issue_id": "MEM-20261112-4227",
+      "category": "PROMPT_EVOLUTION_REFLEXION",
+      "issue": "Initial prompt scored 30.0/100: Visual is low-resolution, out-of-focus or lacking sharp edge definition.",
+      "root_cause": "Semantic entity mismatch between dialogue and diffusion prompt",
+      "resolution": "Saved evolutionary memory rule EVO-MEM-1717 for automatic first-pass synthesis",
+      "agent": "PromptEvolutionEngine",
+      "recorded_at": "2026-11-12T13:25:55.458840",
+      "status": "resolved_and_enforced"
+    },
+    {
+      "issue_id": "MEM-20261112-4228",
+      "category": "PROMPT_EVOLUTION_REFLEXION",
+      "issue": "Initial prompt scored 30.0/100: Visual is low-resolution, out-of-focus or lacking sharp edge definition.",
+      "root_cause": "Semantic entity mismatch between dialogue and diffusion prompt",
+      "resolution": "Saved evolutionary memory rule EVO-MEM-1718 for automatic first-pass synthesis",
+      "agent": "PromptEvolutionEngine",
+      "recorded_at": "2026-11-12T13:26:06.176907",
+      "status": "resolved_and_enforced"
+    },
+    {
+      "issue_id": "MEM-20261112-4229",
+      "category": "PROMPT_EVOLUTION_REFLEXION",
+      "issue": "Initial prompt scored 15.0/100: The visual depicts a mundane desk study setup with a notebook, pen, calculator, ",
+      "root_cause": "Semantic entity mismatch between dialogue and diffusion prompt",
+      "resolution": "Saved evolutionary memory rule EVO-MEM-1719 for automatic first-pass synthesis",
+      "agent": "PromptEvolutionEngine",
+      "recorded_at": "2026-11-12T13:26:47.128219",
+      "status": "resolved_and_enforced"
+    },
+    {
+      "issue_id": "MEM-20261112-4230",
+      "category": "PROMPT_EVOLUTION_REFLEXION",
+      "issue": "Initial prompt scored 30.0/100: Visual is low-resolution, out-of-focus or lacking sharp edge definition.",
+      "root_cause": "Semantic entity mismatch between dialogue and diffusion prompt",
+      "resolution": "Saved evolutionary memory rule EVO-MEM-1720 for automatic first-pass synthesis",
+      "agent": "PromptEvolutionEngine",
+      "recorded_at": "2026-11-12T13:26:53.272707",
+      "status": "resolved_and_enforced"
+    },
+    {
+      "issue_id": "MEM-20261112-4231",
+      "category": "PROMPT_EVOLUTION_REFLEXION",
+      "issue": "Initial prompt scored 30.0/100: Visual is low-resolution, out-of-focus or lacking sharp edge definition.",
+      "root_cause": "Semantic entity mismatch between dialogue and diffusion prompt",
+      "resolution": "Saved evolutionary memory rule EVO-MEM-1721 for automatic first-pass synthesis",
+      "agent": "PromptEvolutionEngine",
+      "recorded_at": "2026-11-12T13:27:01.030003",
+      "status": "resolved_and_enforced"
+    },
+    {
+      "issue_id": "MEM-20261112-4232",
+      "category": "PROMPT_EVOLUTION_REFLEXION",
+      "issue": "Initial prompt scored 20.0/100: ভিজুয়ালে একটি সাধারণ জলাশয়ে গাছের প্রতিফলন দেখা যাচ্ছে, যা ডায়ালগের 'মহাকাশের",
+      "root_cause": "Semantic entity mismatch between dialogue and diffusion prompt",
+      "resolution": "Saved evolutionary memory rule EVO-MEM-1722 for automatic first-pass synthesis",
+      "agent": "PromptEvolutionEngine",
+      "recorded_at": "2026-11-12T13:29:59.061468",
+      "status": "resolved_and_enforced"
+    },
+    {
+      "issue_id": "MEM-20261112-4233",
+      "category": "PROMPT_EVOLUTION_REFLEXION",
+      "issue": "Initial prompt scored 30.0/100: Visual is low-resolution, out-of-focus or lacking sharp edge definition.",
+      "root_cause": "Semantic entity mismatch between dialogue and diffusion prompt",
+      "resolution": "Saved evolutionary memory rule EVO-MEM-1723 for automatic first-pass synthesis",
+      "agent": "PromptEvolutionEngine",
+      "recorded_at": "2026-11-12T13:30:07.200360",
+      "status": "resolved_and_enforced"
+    },
+    {
+      "issue_id": "MEM-20261112-4234",
+      "category": "PROMPT_EVOLUTION_REFLEXION",
+      "issue": "Initial prompt scored 30.0/100: Visual is low-resolution, out-of-focus or lacking sharp edge definition.",
+      "root_cause": "Semantic entity mismatch between dialogue and diffusion prompt",
+      "resolution": "Saved evolutionary memory rule EVO-MEM-1724 for automatic first-pass synthesis",
+      "agent": "PromptEvolutionEngine",
+      "recorded_at": "2026-11-12T13:30:17.016804",
+      "status": "resolved_and_enforced"
+    },
+    {
+      "issue_id": "MEM-20261112-4235",
+      "category": "PROMPT_EVOLUTION_REFLEXION",
+      "issue": "Initial prompt scored 10.0/100: প্রদত্ত ভিজ্যুয়ালটিতে 'মহাকাশের গভীর থেকে আসা রহস্যময় রেডিও সংকেত' বা 'ওয়াও স",
+      "root_cause": "Semantic entity mismatch between dialogue and diffusion prompt",
+      "resolution": "Saved evolutionary memory rule EVO-MEM-1725 for automatic first-pass synthesis",
+      "agent": "PromptEvolutionEngine",
+      "recorded_at": "2026-11-12T13:32:47.051229",
+      "status": "resolved_and_enforced"
+    },
+    {
+      "issue_id": "MEM-20261112-4236",
+      "category": "PROMPT_EVOLUTION_REFLEXION",
+      "issue": "Initial prompt scored 30.0/100: Visual is low-resolution, out-of-focus or lacking sharp edge definition.",
+      "root_cause": "Semantic entity mismatch between dialogue and diffusion prompt",
+      "resolution": "Saved evolutionary memory rule EVO-MEM-1726 for automatic first-pass synthesis",
+      "agent": "PromptEvolutionEngine",
+      "recorded_at": "2026-11-12T13:32:54.585085",
+      "status": "resolved_and_enforced"
+    },
+    {
+      "issue_id": "MEM-20261112-4237",
+      "category": "PROMPT_EVOLUTION_REFLEXION",
+      "issue": "Initial prompt scored 30.0/100: Visual is low-resolution, out-of-focus or lacking sharp edge definition.",
+      "root_cause": "Semantic entity mismatch between dialogue and diffusion prompt",
+      "resolution": "Saved evolutionary memory rule EVO-MEM-1727 for automatic first-pass synthesis",
+      "agent": "PromptEvolutionEngine",
+      "recorded_at": "2026-11-12T13:33:05.867307",
+      "status": "resolved_and_enforced"
+    },
+    {
+      "issue_id": "MEM-20261112-4238",
+      "category": "PROMPT_EVOLUTION_REFLEXION",
+      "issue": "Initial prompt scored 0.0/100: প্রদত্ত ভিজ্যুয়ালটিতে একটি সামুদ্রিক পাখি (গাঙচিল) বা স্যাল এবং একটি সাধারণ রাস",
+      "root_cause": "Semantic entity mismatch between dialogue and diffusion prompt",
+      "resolution": "Saved evolutionary memory rule EVO-MEM-1728 for automatic first-pass synthesis",
+      "agent": "PromptEvolutionEngine",
+      "recorded_at": "2026-11-12T13:33:50.994753",
+      "status": "resolved_and_enforced"
+    },
+    {
+      "issue_id": "MEM-20261112-4239",
+      "category": "PROMPT_EVOLUTION_REFLEXION",
+      "issue": "Initial prompt scored 30.0/100: Visual is low-resolution, out-of-focus or lacking sharp edge definition.",
+      "root_cause": "Semantic entity mismatch between dialogue and diffusion prompt",
+      "resolution": "Saved evolutionary memory rule EVO-MEM-1729 for automatic first-pass synthesis",
+      "agent": "PromptEvolutionEngine",
+      "recorded_at": "2026-11-12T13:33:58.925503",
+      "status": "resolved_and_enforced"
+    },
+    {
+      "issue_id": "MEM-20261112-4240",
+      "category": "PROMPT_EVOLUTION_REFLEXION",
+      "issue": "Initial prompt scored 30.0/100: Visual is low-resolution, out-of-focus or lacking sharp edge definition.",
+      "root_cause": "Semantic entity mismatch between dialogue and diffusion prompt",
+      "resolution": "Saved evolutionary memory rule EVO-MEM-1730 for automatic first-pass synthesis",
+      "agent": "PromptEvolutionEngine",
+      "recorded_at": "2026-11-12T13:34:09.190881",
+      "status": "resolved_and_enforced"
+    },
+    {
+      "issue_id": "MEM-20261112-4241",
+      "category": "PROMPT_EVOLUTION_REFLEXION",
+      "issue": "Initial prompt scored 50.0/100: The visual displays an anomalous spacecraft structure on a desolate terrain unde",
+      "root_cause": "Semantic entity mismatch between dialogue and diffusion prompt",
+      "resolution": "Saved evolutionary memory rule EVO-MEM-1731 for automatic first-pass synthesis",
+      "agent": "PromptEvolutionEngine",
+      "recorded_at": "2026-11-12T13:36:35.552531",
+      "status": "resolved_and_enforced"
+    },
+    {
+      "issue_id": "MEM-20261112-4242",
+      "category": "PROMPT_EVOLUTION_REFLEXION",
+      "issue": "Initial prompt scored 50.0/100: The visual still fails to meet the strict camera angle requirement of an 'Overhe",
+      "root_cause": "Semantic entity mismatch between dialogue and diffusion prompt",
+      "resolution": "Saved evolutionary memory rule EVO-MEM-1732 for automatic first-pass synthesis",
+      "agent": "PromptEvolutionEngine",
+      "recorded_at": "2026-11-12T13:36:50.269125",
+      "status": "resolved_and_enforced"
+    },
+    {
+      "issue_id": "MEM-20261112-4243",
+      "category": "PROMPT_EVOLUTION_REFLEXION",
+      "issue": "Initial prompt scored 50.0/100: The visual continues to fail the strict camera angle requirement of an 'Overhead",
+      "root_cause": "Semantic entity mismatch between dialogue and diffusion prompt",
+      "resolution": "Saved evolutionary memory rule EVO-MEM-1733 for automatic first-pass synthesis",
+      "agent": "PromptEvolutionEngine",
+      "recorded_at": "2026-11-12T13:37:08.102006",
+      "status": "resolved_and_enforced"
+    },
+    {
+      "issue_id": "MEM-20261112-4244",
+      "category": "PROMPT_EVOLUTION_REFLEXION",
+      "issue": "Initial prompt scored 50.0/100: The visual displays an anomalous spacecraft or structure on a terrain under a st",
+      "root_cause": "Semantic entity mismatch between dialogue and diffusion prompt",
+      "resolution": "Saved evolutionary memory rule EVO-MEM-1734 for automatic first-pass synthesis",
+      "agent": "PromptEvolutionEngine",
+      "recorded_at": "2026-11-12T13:37:40.021456",
+      "status": "resolved_and_enforced"
+    },
+    {
+      "issue_id": "MEM-20261112-4245",
+      "category": "PROMPT_EVOLUTION_REFLEXION",
+      "issue": "Initial prompt scored 50.0/100: The visual displays an alien landscape with a structure under a starry sky, but ",
+      "root_cause": "Semantic entity mismatch between dialogue and diffusion prompt",
+      "resolution": "Saved evolutionary memory rule EVO-MEM-1735 for automatic first-pass synthesis",
+      "agent": "PromptEvolutionEngine",
+      "recorded_at": "2026-11-12T13:37:46.508688",
+      "status": "resolved_and_enforced"
+    },
+    {
+      "issue_id": "MEM-20261112-4246",
+      "category": "PROMPT_EVOLUTION_REFLEXION",
+      "issue": "Initial prompt scored 50.0/100: The visual displays an alien structure under a starry sky, but it completely fai",
+      "root_cause": "Semantic entity mismatch between dialogue and diffusion prompt",
+      "resolution": "Saved evolutionary memory rule EVO-MEM-1736 for automatic first-pass synthesis",
+      "agent": "PromptEvolutionEngine",
+      "recorded_at": "2026-11-12T13:38:08.161235",
+      "status": "resolved_and_enforced"
+    },
+    {
+      "issue_id": "MEM-20261112-4247",
+      "category": "PROMPT_EVOLUTION_REFLEXION",
+      "issue": "Initial prompt scored 10.0/100: The provided visual depicts 'De Majestic' building in Bandung (an architectural/",
+      "root_cause": "Semantic entity mismatch between dialogue and diffusion prompt",
+      "resolution": "Saved evolutionary memory rule EVO-MEM-1737 for automatic first-pass synthesis",
+      "agent": "PromptEvolutionEngine",
+      "recorded_at": "2026-11-12T13:40:49.163952",
+      "status": "resolved_and_enforced"
+    },
+    {
+      "issue_id": "MEM-20261112-4248",
+      "category": "PROMPT_EVOLUTION_REFLEXION",
+      "issue": "Initial prompt scored 30.0/100: Visual is low-resolution, out-of-focus or lacking sharp edge definition.",
+      "root_cause": "Semantic entity mismatch between dialogue and diffusion prompt",
+      "resolution": "Saved evolutionary memory rule EVO-MEM-1738 for automatic first-pass synthesis",
+      "agent": "PromptEvolutionEngine",
+      "recorded_at": "2026-11-12T13:40:56.006525",
+      "status": "resolved_and_enforced"
+    },
+    {
+      "issue_id": "MEM-20261112-4249",
+      "category": "PROMPT_EVOLUTION_REFLEXION",
+      "issue": "Initial prompt scored 30.0/100: Visual is low-resolution, out-of-focus or lacking sharp edge definition.",
+      "root_cause": "Semantic entity mismatch between dialogue and diffusion prompt",
+      "resolution": "Saved evolutionary memory rule EVO-MEM-1739 for automatic first-pass synthesis",
+      "agent": "PromptEvolutionEngine",
+      "recorded_at": "2026-11-12T13:41:04.974897",
+      "status": "resolved_and_enforced"
+    },
+    {
+      "issue_id": "MEM-20261112-4250",
+      "category": "PROMPT_EVOLUTION_REFLEXION",
+      "issue": "Initial prompt scored 30.0/100: Visual is low-resolution, out-of-focus or lacking sharp edge definition.",
+      "root_cause": "Semantic entity mismatch between dialogue and diffusion prompt",
+      "resolution": "Saved evolutionary memory rule EVO-MEM-1740 for automatic first-pass synthesis",
+      "agent": "PromptEvolutionEngine",
+      "recorded_at": "2026-11-12T13:41:41.577464",
+      "status": "resolved_and_enforced"
+    },
+    {
+      "issue_id": "MEM-20261112-4251",
+      "category": "PROMPT_EVOLUTION_REFLEXION",
+      "issue": "Initial prompt scored 30.0/100: Visual is low-resolution, out-of-focus or lacking sharp edge definition.",
+      "root_cause": "Semantic entity mismatch between dialogue and diffusion prompt",
+      "resolution": "Saved evolutionary memory rule EVO-MEM-1741 for automatic first-pass synthesis",
+      "agent": "PromptEvolutionEngine",
+      "recorded_at": "2026-11-12T13:41:51.925962",
+      "status": "resolved_and_enforced"
+    },
+    {
+      "issue_id": "MEM-20261112-4252",
+      "category": "PROMPT_EVOLUTION_REFLEXION",
+      "issue": "Initial prompt scored 30.0/100: Visual is low-resolution, out-of-focus or lacking sharp edge definition.",
+      "root_cause": "Semantic entity mismatch between dialogue and diffusion prompt",
+      "resolution": "Saved evolutionary memory rule EVO-MEM-1742 for automatic first-pass synthesis",
+      "agent": "PromptEvolutionEngine",
+      "recorded_at": "2026-11-12T13:42:02.840001",
+      "status": "resolved_and_enforced"
+    },
+    {
+      "issue_id": "MEM-20261112-4253",
+      "category": "visual_asset_production",
+      "issue": "Rendered 30 video clips (Category A)",
+      "root_cause": "Automated Visual Generator Agent production",
+      "resolution": "1080x1920 resolution verified, faceless & keyframe vision audit passed with score 96.5/100",
+      "agent": "VisualGeneratorAgent",
+      "recorded_at": "2026-11-12T13:42:36.351020",
+      "status": "resolved_and_enforced"
+    },
+    {
+      "issue_id": "MEM-20261112-4254",
+      "category": "sound_engineering_master",
+      "issue": "Sound mix and ducking profile configured for 30 scenes (Category A)",
+      "root_cause": "Automated Sound Engineer Agent mixing",
+      "resolution": "-49 dB BGM bed enforced, 93 SFX events mapped, voice masking passed with score 80.0/100",
+      "agent": "SoundEngineerAgent",
+      "recorded_at": "2026-11-12T13:42:36.437835",
+      "status": "resolved_and_enforced"
+    },
+    {
+      "issue_id": "MEM-20261112-4255",
+      "category": "FFMPEG_MONITOR_AGENT_BROADCAST_RENDER",
+      "issue": "Broadcast-grade 1080x1920 video composition with kinetic subtitles and multi-track audio",
+      "root_cause": "Rendered 30 scenes, mixed 16 audio streams, AV desync 0.0133s, trailing RMS 0.05361",
+      "resolution": "Master video master_category_a_long.mp4 created successfully (287.24 MB, 88.0/100)",
+      "agent": "FFmpegMonitorAgent",
+      "recorded_at": "2026-11-12T13:55:54.387086",
+      "status": "resolved_and_enforced"
+    },
+    {
+      "issue_id": "MEM-20261112-4256",
+      "category": "FINAL_CHECKER_GATEKEEPER_AUDIT",
+      "issue": "Broadcast clearance audit for master_category_a_long.mp4 (Gate 5)",
+      "root_cause": "Audited 5 keyframes, semantic match 0.54, AV desync 0.0133s, trailing RMS 0.05361",
+      "resolution": "Clearance certificate CERT-AMPRO-1794470179 issued with score 73.0/100. Status: REJECTED",
+      "agent": "FinalCheckerAgent",
+      "recorded_at": "2026-11-12T13:56:19.901434",
+      "status": "resolved_and_enforced"
+    },
+    {
+      "issue_id": "MEM-20261112-4257",
+      "category": "script_generator_audit",
+      "issue": "Script generated for topic 'আটলান্টিকের নিচে জমে থাকা টাইম বোমা: মহাসাগরের যে গোপন স্রোত পুরো ইউরোপকে জমাট করে দিতে পারে!'",
+      "root_cause": "Automated Script Generator Agent production",
+      "resolution": "Strict 7-9s timing enforced across 15 scenes with score 98.0/100",
+      "agent": "ScriptGeneratorAgent",
+      "recorded_at": "2026-11-12T13:56:46.002921",
+      "status": "resolved_and_enforced"
+    },
+    {
+      "issue_id": "MEM-20261112-4258",
+      "category": "localization_tts_synthesis",
+      "issue": "Synthesized 15 scene voiceovers with word timestamps",
+      "root_cause": "Automated Localization TTS Agent processing",
+      "resolution": "Natural 1.0x cadence verified, end RMS <= 0.018 gate passed, score 97.5/100",
+      "agent": "LocalizationTTSAgent",
+      "recorded_at": "2026-11-12T14:00:18.534485",
+      "status": "resolved_and_enforced"
+    },
+    {
+      "issue_id": "MEM-20261112-4259",
+      "category": "visual_planner_architecture",
+      "issue": "Visual blueprint completed for 15 scenes (Category B)",
+      "root_cause": "Automated Visual Planner Agent generation",
+      "resolution": "Synchronized with audio timestamps, faceless & anti-static card rules passed with score 97.0/100",
+      "agent": "VisualPlannerAgent",
+      "recorded_at": "2026-11-12T14:02:22.826728",
+      "status": "resolved_and_enforced"
+    },
+    {
+      "issue_id": "MEM-20261112-4260",
+      "category": "sound_engineering_master",
+      "issue": "Sound mix and ducking profile configured for 15 scenes (Category B)",
+      "root_cause": "Automated Sound Engineer Agent mixing",
+      "resolution": "-49 dB BGM bed enforced, 48 SFX events mapped, voice masking passed with score 80.0/100",
+      "agent": "SoundEngineerAgent",
+      "recorded_at": "2026-11-12T14:14:11.100486",
+      "status": "resolved_and_enforced"
+    },
+    {
+      "issue_id": "MEM-20261112-4261",
+      "category": "FFMPEG_MONITOR_AGENT_BROADCAST_RENDER",
+      "issue": "Broadcast-grade 1080x1920 video composition with kinetic subtitles and multi-track audio",
+      "root_cause": "Rendered 15 scenes, mixed 16 audio streams, AV desync 0.01s, trailing RMS 0.06505",
+      "resolution": "Master video master_category_b_short.mp4 created successfully (174.92 MB, 88.0/100)",
+      "agent": "FFmpegMonitorAgent",
+      "recorded_at": "2026-11-12T14:21:56.470766",
+      "status": "resolved_and_enforced"
+    },
+    {
+      "issue_id": "MEM-20261112-4262",
+      "category": "FINAL_CHECKER_GATEKEEPER_AUDIT",
+      "issue": "Broadcast clearance audit for master_category_b_short.mp4 (Gate 5)",
+      "root_cause": "Audited 5 keyframes, semantic match 0.42, AV desync 0.01s, trailing RMS 0.06505",
+      "resolution": "Clearance certificate CERT-AMPRO-1794471833 issued with score 58.0/100. Status: REJECTED",
+      "agent": "FinalCheckerAgent",
+      "recorded_at": "2026-11-12T14:23:53.455377",
+      "status": "resolved_and_enforced"
+    },
+    {
+      "issue_id": "MEM-20261112-4263",
+      "category": "script_generator_audit",
+      "issue": "Script generated for topic 'পৃথিবীতে কৃত্রিম সূর্য তৈরির চরম লড়াই: ১০০ মিলিয়ন ডিগ্রি তাপমাত্রায় টোকামাক কীভাবে কাজ করে?'",
+      "root_cause": "Automated Script Generator Agent production",
+      "resolution": "Strict 7-9s timing enforced across 30 scenes with score 98.0/100",
+      "agent": "ScriptGeneratorAgent",
+      "recorded_at": "2026-11-12T14:24:21.143159",
+      "status": "resolved_and_enforced"
+    },
+    {
+      "issue_id": "MEM-20261112-4264",
+      "category": "localization_tts_synthesis",
+      "issue": "Synthesized 30 scene voiceovers with word timestamps",
+      "root_cause": "Automated Localization TTS Agent processing",
+      "resolution": "Natural 1.0x cadence verified, end RMS <= 0.018 gate passed, score 97.5/100",
+      "agent": "LocalizationTTSAgent",
+      "recorded_at": "2026-11-12T14:32:21.973866",
+      "status": "resolved_and_enforced"
+    },
+    {
+      "issue_id": "MEM-20261112-4265",
+      "category": "visual_planner_architecture",
+      "issue": "Visual blueprint completed for 30 scenes (Category B)",
+      "root_cause": "Automated Visual Planner Agent generation",
+      "resolution": "Synchronized with audio timestamps, faceless & anti-static card rules passed with score 97.0/100",
+      "agent": "VisualPlannerAgent",
+      "recorded_at": "2026-11-12T14:34:00.234306",
+      "status": "resolved_and_enforced"
+    },
+    {
+      "issue_id": "MEM-20261112-4266",
+      "category": "sound_engineering_master",
+      "issue": "Sound mix and ducking profile configured for 30 scenes (Category B)",
+      "root_cause": "Automated Sound Engineer Agent mixing",
+      "resolution": "-49 dB BGM bed enforced, 93 SFX events mapped, voice masking passed with score 80.0/100",
+      "agent": "SoundEngineerAgent",
+      "recorded_at": "2026-11-12T14:45:59.583010",
+      "status": "resolved_and_enforced"
+    },
+    {
+      "issue_id": "MEM-20261112-4267",
+      "category": "FFMPEG_MONITOR_AGENT_BROADCAST_RENDER",
+      "issue": "Broadcast-grade 1080x1920 video composition with kinetic subtitles and multi-track audio",
+      "root_cause": "Rendered 30 scenes, mixed 16 audio streams, AV desync 0.0133s, trailing RMS 0.05422",
+      "resolution": "Master video master_category_b_long.mp4 created successfully (206.14 MB, 88.0/100)",
+      "agent": "FFmpegMonitorAgent",
+      "recorded_at": "2026-11-12T14:55:27.504406",
+      "status": "resolved_and_enforced"
+    },
+    {
+      "issue_id": "MEM-20261112-4268",
+      "category": "FINAL_CHECKER_GATEKEEPER_AUDIT",
+      "issue": "Broadcast clearance audit for master_category_b_long.mp4 (Gate 5)",
+      "root_cause": "Audited 5 keyframes, semantic match 0.31, AV desync 0.0133s, trailing RMS 0.05422",
+      "resolution": "Clearance certificate CERT-AMPRO-1794473766 issued with score 38.0/100. Status: REJECTED",
+      "agent": "FinalCheckerAgent",
+      "recorded_at": "2026-11-12T14:56:06.340445",
       "status": "resolved_and_enforced"
     }
   ]

@@ -32,3 +32,8 @@ Thumbs.db
 .vscode/
 .idea/
 AutoMoviePro-WebmasterAgent/
+
+node_modules/
+*.sqlite
+AutoMoviePro-Website/database.sqlite
+

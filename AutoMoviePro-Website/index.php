@@ -9,7 +9,7 @@ if (!in_array($uiLang, amp_cms_langs(), true)) {
 }
 
 $brand = setting_i18n($pdo, 'hero_brand', $uiLang, setting($pdo, 'hero_brand', 'AutoMovie Pro')) ?? 'AutoMovie Pro';
-$price = (float) setting($pdo, 'price_amount', '2998');
+$price = (float) setting($pdo, 'price_amount', '3999');
 $addonPrice = (float) setting($pdo, 'language_addon_price', '499');
 $how = setting_i18n($pdo, 'how_it_works', $uiLang, '') ?? '';
 $faq = setting_i18n($pdo, 'faq_text', $uiLang, '') ?? '';
@@ -18,7 +18,7 @@ $metaDesc = setting_i18n(
     $pdo,
     'meta_description',
     $uiLang,
-    'AutoMovie Pro: Industrial AI Video Studio. Automatically create and schedule videos to 6 YouTube + 6 Facebook + 6 TikTok destinations in 6 languages. Lifetime License from ৳2998.'
+    'AutoMovie Pro: Industrial AI Video Studio. Automatically create and schedule videos to 6 YouTube + 6 Facebook + 6 TikTok destinations in 6 languages. Lifetime License from ৳3999.'
 ) ?? '';
 $siteUrl = rtrim((string) ($config['site_url'] ?? ''), '/');
 $waLink = amp_whatsapp_sales_link(
@@ -1519,7 +1519,7 @@ $broadcastLinkText = setting($pdo, 'broadcast_link_text', '');
         </div>
       </header>
 
-      <!-- Connecting Overlay (Fake Loading Simulation) -->
+      <!-- Live Agent Connecting Overlay -->
       <div class="amp-connecting-overlay" id="ampConnectingOverlay" style="display: none;">
         <div class="connecting-spinner-wrap">
           <div class="connecting-pulse-ring"></div>

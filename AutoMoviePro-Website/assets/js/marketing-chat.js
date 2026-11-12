@@ -366,6 +366,24 @@
         textSpan.textContent = item.content || item.text || "";
         div.appendChild(textSpan);
 
+        if (item.orderReceipt) {
+          const orderWrap = document.createElement("div");
+          orderWrap.className = "amp-chat-order-card";
+          orderWrap.style.cssText = "margin-top:10px; padding:12px; border-radius:10px; background:rgba(16,185,129,0.12); border:1px solid rgba(16,185,129,0.4); box-shadow:0 4px 14px rgba(0,0,0,0.3); font-size:0.85rem;";
+          orderWrap.innerHTML = `
+            <div style="display:flex; align-items:center; justify-content:space-between; margin-bottom:8px;">
+              <span style="font-weight:700; color:#34d399; font-size:0.95rem;">🎉 অর্ডার নিশ্চিত হয়েছে!</span>
+              <span style="background:#10b981; color:#0f172a; font-weight:800; font-size:0.75rem; padding:2px 8px; border-radius:12px;">#AMP-${item.orderReceipt.order_id}</span>
+            </div>
+            <div style="color:#f8fafc; font-weight:600; margin-bottom:4px;">${item.orderReceipt.plan_name}</div>
+            <div style="color:#94a3b8; font-size:0.8rem; margin-bottom:6px;">পরিশোধিত মূল্য: <strong style="color:#38bdf8;">৳${Number(item.orderReceipt.amount).toLocaleString()}</strong> | TrxID: <code style="color:#fbbf24; background:rgba(0,0,0,0.3); padding:1px 4px; border-radius:4px;">${item.orderReceipt.txn_id}</code></div>
+            <div style="font-size:0.78rem; color:#6ee7b7; display:flex; align-items:center; gap:6px;">
+              <span>⚡ ${item.orderReceipt.activation_time || '৩-৫ মিনিটের মধ্যে লাইসেন্স সক্রিয় হবে।'}</span>
+            </div>
+          `;
+          div.appendChild(orderWrap);
+        }
+
         if (item.checkoutUrl) {
           const ctaWrap = document.createElement("div");
           ctaWrap.style.cssText = "margin-top:10px; padding-top:8px; border-top:1px dashed rgba(255,255,255,0.2);";
@@ -373,7 +391,7 @@
           ctaBtn.href = item.checkoutUrl;
           ctaBtn.className = "amp-chat-cta-btn";
           ctaBtn.style.cssText = "display:inline-flex; align-items:center; gap:6px; background:linear-gradient(135deg, #10b981, #059669); color:#ffffff; font-weight:700; font-size:0.85rem; padding:8px 14px; border-radius:6px; text-decoration:none; box-shadow:0 2px 8px rgba(16,185,129,0.3);";
-          ctaBtn.innerHTML = "🎟️ ৳৫০০ নগদ ছাড়ে এখনই অর্ডার করুন →";
+          ctaBtn.innerHTML = "🎟️ বিশেষ ছাড়ে এখনই অর্ডার করুন →";
           ctaWrap.appendChild(ctaBtn);
           div.appendChild(ctaWrap);
         }
@@ -652,7 +670,7 @@
     });
   };
 
-  function appendChat(role, text, onComplete, checkoutUrl) {
+  function appendChat(role, text, onComplete, checkoutUrl, orderReceipt) {
     const log = document.getElementById("ampChatLog");
     if (!log) return;
     const div = document.createElement("div");
@@ -680,7 +698,7 @@
       return;
     }
 
-    // Realistic human letter-by-letter live simulation (Letter by letter forming words live as user reads)
+    // Realistic human letter-by-letter live simulation
     AmpChatAudio.playReceived();
     const textSpan = document.createElement("span");
     textSpan.className = "bot-msg-text";
@@ -701,6 +719,25 @@
       if (cursor && cursor.parentNode) cursor.remove();
       log.scrollTop = log.scrollHeight;
 
+      if (orderReceipt) {
+        const orderWrap = document.createElement("div");
+        orderWrap.className = "amp-chat-order-card";
+        orderWrap.style.cssText = "margin-top:10px; padding:12px; border-radius:10px; background:rgba(16,185,129,0.12); border:1px solid rgba(16,185,129,0.4); box-shadow:0 4px 14px rgba(0,0,0,0.3); font-size:0.85rem;";
+        orderWrap.innerHTML = `
+          <div style="display:flex; align-items:center; justify-content:space-between; margin-bottom:8px;">
+            <span style="font-weight:700; color:#34d399; font-size:0.95rem;">🎉 অর্ডার নিশ্চিত হয়েছে!</span>
+            <span style="background:#10b981; color:#0f172a; font-weight:800; font-size:0.75rem; padding:2px 8px; border-radius:12px;">#AMP-${orderReceipt.order_id}</span>
+          </div>
+          <div style="color:#f8fafc; font-weight:600; margin-bottom:4px;">${orderReceipt.plan_name}</div>
+          <div style="color:#94a3b8; font-size:0.8rem; margin-bottom:6px;">পরিশোধিত মূল্য: <strong style="color:#38bdf8;">৳${Number(orderReceipt.amount).toLocaleString()}</strong> | TrxID: <code style="color:#fbbf24; background:rgba(0,0,0,0.3); padding:1px 4px; border-radius:4px;">${orderReceipt.txn_id}</code></div>
+          <div style="font-size:0.78rem; color:#6ee7b7; display:flex; align-items:center; gap:6px;">
+            <span>⚡ ${orderReceipt.activation_time || '৩-৫ মিনিটের মধ্যে লাইসেন্স সক্রিয় হবে।'}</span>
+          </div>
+        `;
+        div.appendChild(orderWrap);
+        log.scrollTop = log.scrollHeight;
+      }
+
       if (checkoutUrl) {
         const ctaWrap = document.createElement("div");
         ctaWrap.style.cssText = "margin-top:10px; padding-top:8px; border-top:1px dashed rgba(255,255,255,0.2);";
@@ -708,7 +745,7 @@
         ctaBtn.href = checkoutUrl;
         ctaBtn.className = "amp-chat-cta-btn";
         ctaBtn.style.cssText = "display:inline-flex; align-items:center; gap:6px; background:linear-gradient(135deg, #10b981, #059669); color:#ffffff; font-weight:700; font-size:0.85rem; padding:8px 14px; border-radius:6px; text-decoration:none; box-shadow:0 2px 8px rgba(16,185,129,0.3);";
-        ctaBtn.innerHTML = "🎟️ ৳৫০০ নগদ ছাড়ে এখনই অর্ডার করুন →";
+        ctaBtn.innerHTML = "🎟️ বিশেষ ছাড়ে এখনই অর্ডার করুন →";
         ctaWrap.appendChild(ctaBtn);
         div.appendChild(ctaWrap);
         log.scrollTop = log.scrollHeight;
@@ -874,10 +911,10 @@
                 t("agent_suggestion_3"),
               ]);
             }
-          }, data.checkout_url);
+          }, data.checkout_url, data.order_receipt || null);
           history.push({ role: "assistant", content: reply });
           const replyTime = new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
-          appendToSavedHistory({ role: "bot", content: reply, time: replyTime, checkoutUrl: data.checkout_url || null });
+          appendToSavedHistory({ role: "bot", content: reply, time: replyTime, checkoutUrl: data.checkout_url || null, orderReceipt: data.order_receipt || null });
         }, 1100);
       } else {
         const elapsed = Date.now() - sendTime;
@@ -898,10 +935,10 @@
                   t("agent_suggestion_3"),
                 ]);
               }
-            }, data.checkout_url);
+            }, data.checkout_url, data.order_receipt || null);
             history.push({ role: "assistant", content: reply });
             const replyTime = new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
-            appendToSavedHistory({ role: "bot", content: reply, time: replyTime, checkoutUrl: data.checkout_url || null });
+            appendToSavedHistory({ role: "bot", content: reply, time: replyTime, checkoutUrl: data.checkout_url || null, orderReceipt: data.order_receipt || null });
           }, 1100);
         }, delayBeforeIndicator);
       }

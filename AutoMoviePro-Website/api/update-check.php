@@ -23,9 +23,9 @@ if ($token !== '') {
     try {
         $stmt = $pdo->prepare(
             'SELECT customer_id FROM licenses WHERE token = ? AND revoked = 0
-             AND (expires_at IS NULL OR expires_at > NOW()) LIMIT 1'
+             AND (expires_at IS NULL OR expires_at > ?) LIMIT 1'
         );
-        $stmt->execute([$token]);
+        $stmt->execute([$token, date('Y-m-d H:i:s')]);
         $row = $stmt->fetch();
         if ($row) {
             $cid = (int) $row['customer_id'];

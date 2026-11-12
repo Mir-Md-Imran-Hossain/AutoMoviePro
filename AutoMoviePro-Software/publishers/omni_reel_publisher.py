@@ -183,9 +183,12 @@ class OmniReelPublisher:
         niche = cfg.get("niche") or "AI Video Automation"
         return (
             f"🎬 {topic}\n\n"
-            f"অটোমুভি প্রো এর সম্পূর্ণ স্বয়ংক্রিয় এআই ভিডিও পাওয়ারহাউজ দিয়ে তৈরি করুন লাভজনক সোশ্যাল মিডিয়া কনটেন্ট।\n\n"
-            f"🌐 বিস্তারিত জানতে ও লাইফটাইম ডিল পেতে ভিজিট করুন: https://automoviepro.com\n"
-            f"📞 হোয়াটসঅ্যাপ হেল্পলাইন: +880 1684-355055\n\n"
+            f"ক্যামেরা ফেস না করে ও ভয়েস রেকর্ড না করেও ঘরে থাকা সাধারণ কম্পিউটার দিয়েই গড়ে তুলুন লাভজনক ফেসলেস ভিডিও চ্যানেল।\n\n"
+            f"💎 ২য় স্পেশাল অফার: ফুল ভিডিও স্টুডিও মাত্র ৳৩,৯৯৯ (রেগুলার ৳১০,০০০, আর ৮-১০ দিন কার্যকর)!\n"
+            f"🎁 আজকের বোনাস: ৩য় আন্তর্জাতিক ভাষা সম্পূর্ণ ফ্রি (৯টি প্ল্যাটফর্মে একসাথে ভিডিও পোস্ট করে ট্রিপল প্যাসিভ ইনকাম)!\n"
+            f"🔐 মাত্র ৫০০ টাকা টোকেন বুকিং ফি দিয়ে আজই অফারটি লক করার বিশেষ সুযোগ।\n\n"
+            f"🌐 বিস্তারিত ও অর্ডার: https://automoviepro.com\n"
+            f"📞 হোয়াটসঅ্যাপ হেল্পলাইন: +8801968111593\n\n"
             f"#AutoMoviePro #{niche.replace(' ', '')} #AIVideo #PassiveIncome #YouTubeShorts #FacebookReels"
         )
 
@@ -225,16 +228,64 @@ class OmniReelPublisher:
         caption = self.generate_caption(matched_topic or chosen_topic)
         proof_file = PROOF_DIR / f"reel_{self.channel_id}_{datetime.now().strftime('%Y%m%d_%H%M%S')}.png"
 
-        # Delegate to upload_service or record publication
         try:
-            from publishers.upload_service import upload_job
-            # Record entry
-            self.record_reel_published(str(video_path), caption, str(proof_file), slot=slot or "Manual", topic=matched_topic)
+            from publishers.facebook_uploader import resolve_custom_thumbnail, upload_facebook
+            from app.api_client import LicenseClient
+
+            thumbnail = resolve_custom_thumbnail(video_path, {"thumbnail_path": ""})
+            job_payload = {
+                "id": f"reel_{int(time.time())}",
+                "channel_id": self.channel_id,
+                "video_type": "short",
+                "title": matched_topic or chosen_topic,
+                "description": caption,
+                "thumbnail_path": str(thumbnail) if thumbnail else "",
+                "tags": f"AutoMoviePro, {cfg.get('niche', 'AIVideo')}, Reels, PassiveIncome",
+                "local_path": str(video_path),
+            }
+
+            # Upload to Facebook Page
+            live_url = upload_facebook(video_path, job_payload, self.channel)
+
+            # Record entry in reels history
+            self.record_reel_published(
+                str(video_path),
+                caption,
+                str(proof_file),
+                slot=slot or "Manual",
+                topic=matched_topic or chosen_topic
+            )
+
+            # Sync to Website Dashboard
+            session = store.get_session()
+            if session:
+                try:
+                    LicenseClient(session["api_base_url"], session["token"]).sync_job({
+                        "channel_name": cfg.get("facebook_name") or "AutoMovie Pro Official",
+                        "video_type": "short",
+                        "title": matched_topic or chosen_topic,
+                        "description": caption,
+                        "platform": "facebook_page",
+                        "upload_status": "uploaded",
+                        "remote_url": live_url,
+                        "local_path": str(video_path),
+                        "uploaded_at": datetime.now().isoformat(sep=" ", timespec="seconds"),
+                        "meta": {
+                            "proof_path": str(proof_file),
+                            "thumbnail": str(thumbnail) if thumbnail else "",
+                            "tags": job_payload["tags"],
+                        }
+                    })
+                except Exception as sync_err:
+                    print(f"[REEL PUBLISHER] Website sync notice: {sync_err}", flush=True)
+
             return {
                 "success": True,
                 "video": str(video_path),
                 "slot": slot or "Manual",
-                "topic": matched_topic,
+                "topic": matched_topic or chosen_topic,
+                "live_url": live_url,
+                "proof": str(proof_file),
                 "caption": caption[:100]
             }
         except Exception as e:

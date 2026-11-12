@@ -24,19 +24,56 @@ $settingDefinitions = [
     // Support Contacts
     'whatsapp_number' => ['label' => 'সেলস ও কাস্টমার সাপোর্ট WhatsApp নম্বর', 'default' => '8801968111593', 'category' => 'support', 'hint' => 'কান্ট্রি কোড সহ (যেমন: 8801968111593)। ওয়েবসাইটে wa.me লিংকে ব্যবহৃত হয়।'],
     'support_email' => ['label' => 'অফিশিয়াল সাপোর্ট ইমেইল', 'default' => 'support@automoviepro.com', 'category' => 'support', 'hint' => 'কাস্টমার ইনভয়েস ও যোগাযোগের জন্য ইমেইল।'],
+
+    // WhatsApp Automated Gateway (Meta Cloud API / HTTP Gateway)
+    'whatsapp_token' => ['label' => 'Meta WhatsApp Cloud API Access Token (Bearer)', 'default' => '', 'category' => 'whatsapp_api', 'hint' => 'মেটা ডেভেলপার ড্যাশবোর্ড থেকে সিস্টেম ইউজার পার্মানেন্ট এক্সেস টোকেন (EAAG...)। খালি থাকলে কিউআর/ম্যানুয়াল মোড চলবে।'],
+    'whatsapp_phone_id' => ['label' => 'Meta WhatsApp Phone Number ID', 'default' => '', 'category' => 'whatsapp_api', 'hint' => 'মেটা ক্লাউড এপিআই এর Phone Number ID (যেমন: 104829102938471)'],
+    'whatsapp_business_account_id' => ['label' => 'WhatsApp Business Account ID (WABA ID)', 'default' => '', 'category' => 'whatsapp_api', 'hint' => 'আপনার মেটা বিজনেস একাউন্ট আইডি (ঐচ্ছিক)'],
+    'whatsapp_gateway_url' => ['label' => 'কাস্টম WhatsApp HTTP Gateway URL (ঐচ্ছিক)', 'default' => '', 'category' => 'whatsapp_api', 'hint' => 'UltraMsg / GreenAPI / Wasender / Baileys এপিআই এন্ডপয়েন্ট (যেমন: https://api.ultramsg.com/instance/messages/chat)'],
 ];
 
-if ($_SERVER['REQUEST_METHOD'] === 'POST' && csrf_verify($_POST['csrf'] ?? null)) {
-    foreach ($settingDefinitions as $key => $meta) {
-        if (isset($_POST[$key])) {
-            $val = trim((string) $_POST[$key]);
-            if ($key === 'whatsapp_number') {
-                $val = preg_replace('/\D+/', '', $val) ?: '8801968111593';
+$testWaResult = null;
+$csrfError = null;
+
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+    if (!csrf_verify($_POST['csrf'] ?? null)) {
+        $csrfError = 'সেশনের মেয়াদ শেষ হয়েছে বা ফর্মের সিকিউরিটি টোকেন মেয়াদোত্তীর্ণ। অনুগ্রহ করে পৃষ্ঠাটি রিলোড করে পুনরায় ফর্ম পূরণ করুন।';
+    } else {
+        $action = $_POST['action'] ?? 'save_settings';
+
+        if ($action === 'test_whatsapp') {
+        $testPhone = trim((string) ($_POST['test_wa_phone'] ?? ''));
+        if ($testPhone === '') {
+            $testWaResult = ['success' => false, 'msg' => 'টেস্ট করার জন্য একটি সঠিক মোবাইল নম্বর লিখুন।'];
+        } else {
+            $testMsg = "AutoMovie Pro: এটি সার্ভার থেকে একটি টেস্ট WhatsApp মেসেজ। আপনার WhatsApp গেটওয়ে সঠিকভাবে সংযুক্ত রয়েছে! সময়: " . date('Y-m-d H:i:s');
+            $testOk = whatsapp_queue($pdo, $config, $testPhone, $testMsg, null);
+            if ($testOk) {
+                $testWaResult = ['success' => true, 'msg' => "সাফল্য! মেটা ক্লাউড এপিআই / গেটওয়ে থেকে সরাসরি +{$testPhone} নম্বরে টেস্ট মেসেজ সফলভাবে পৌঁছে গেছে!"];
+            } else {
+                $lastErr = 'সার্ভারে Meta Access Token বা Phone Number ID প্রদান করা হয়নি।';
+                try {
+                    $errStmt = $pdo->query("SELECT response FROM whatsapp_outbox ORDER BY id DESC LIMIT 1");
+                    if ($errStmt && ($errRow = $errStmt->fetchColumn())) {
+                        if (!empty($errRow)) $lastErr = (string)$errRow;
+                    }
+                } catch (\Throwable) {}
+                $testWaResult = ['success' => false, 'msg' => "মেসেজ পাঠানো যায়নি। কারণ: {$lastErr}"];
             }
-            set_setting($pdo, $key, $val);
         }
+    } else {
+        foreach ($settingDefinitions as $key => $meta) {
+            if (isset($_POST[$key])) {
+                $val = trim((string) $_POST[$key]);
+                if ($key === 'whatsapp_number') {
+                    $val = preg_replace('/\D+/', '', $val) ?: '8801968111593';
+                }
+                set_setting($pdo, $key, $val);
+            }
+        }
+        $message = 'পেমেন্ট নম্বর, মূল্য ও WhatsApp গেটওয়ে সংক্রান্ত সকল সেটিংস সফলভাবে আপডেট হয়েছে!';
     }
-    $message = 'পেমেন্ট নম্বর ও মূল্য সংক্রান্ত সকল সেটিংস সফলভাবে আপডেট হয়েছে!';
+}
 }
 
 // Load current values
@@ -47,6 +84,12 @@ foreach ($settingDefinitions as $key => $meta) {
 
 admin_header('মূল্য ও পেমেন্ট নম্বর সেটিংস', 'settings');
 ?>
+
+<?php if (!empty($csrfError)): ?>
+  <div style="background:rgba(239,68,68,0.15); border:1px solid rgba(239,68,68,0.4); border-radius:10px; padding:12px 18px; margin-bottom:1.5rem; color:#fca5a5; font-size:0.95rem; font-weight:600;">
+    ⚠️ <?= e($csrfError) ?>
+  </div>
+<?php endif; ?>
 
 <?php if ($message): ?>
   <div style="background:rgba(16,185,129,0.15); border:1px solid rgba(16,185,129,0.4); border-radius:10px; padding:12px 18px; margin-bottom:1.5rem; color:#6ee7b7; font-size:0.95rem;">
@@ -131,6 +174,35 @@ admin_header('মূল্য ও পেমেন্ট নম্বর সে�
       </div>
     </div>
 
+    <!-- SECTION 4: WhatsApp Automated Gateway (Meta Cloud API / Gateway) -->
+    <div class="admin-card" style="grid-column: 1 / -1; border: 1px solid #10b981;">
+      <div class="card-header" style="border-bottom: 1px solid rgba(16,185,129,0.3); padding-bottom: 0.75rem; margin-bottom: 1rem;">
+        <div class="card-title">
+          <span style="font-size:1.3rem;">🤖</span>
+          <span style="color:#34d399; font-weight:800;">অটোমেটিক WhatsApp ক্লাউড গেটওয়ে (Meta Cloud API / Gateway)</span>
+        </div>
+        <span class="wam-pill secure" style="font-size:0.78rem;">
+          <?= (!empty($currentValues['whatsapp_token']) && !empty($currentValues['whatsapp_phone_id'])) || !empty($currentValues['whatsapp_gateway_url']) ? '● এপিআই কানেক্টেড' : '● কিউআর / ম্যানুয়াল মোড' ?>
+        </span>
+      </div>
+
+      <p style="color:#94a3b8; font-size:0.85rem; line-height:1.6; margin-top:0;">
+        সার্ভার ব্যাকগ্রাউন্ড থেকে ক্রেতাদের মোবাইলে সম্পূর্ণ স্বয়ংক্রিয়ভাবে WhatsApp মেসেজ পাঠাতে মেটা ক্লাউড এপিআই টোকেন প্রদান করুন। যদি টোকেন না থাকে, তবে সিস্টেম স্বয়ংক্রিয়ভাবে <strong>১-ক্লিক কিউআর / ম্যানুয়াল মোডে</strong> কাজ করবে এবং অ্যাডমিন প্যানেল থেকে ১-ক্লিকেই মেসেজ পাঠানো যাবে।
+      </p>
+
+      <div style="display:grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap:1rem;">
+        <?php foreach ($settingDefinitions as $key => $meta): 
+            if ($meta['category'] !== 'whatsapp_api') continue;
+            ?>
+          <div class="form-group">
+            <label class="form-label" style="color:#cbd5e1;"><?= e($meta['label']) ?></label>
+            <input type="text" name="<?= e($key) ?>" class="form-input" value="<?= e($currentValues[$key]) ?>" placeholder="<?= str_contains($key, 'token') ? 'EAAG...' : (str_contains($key, 'url') ? 'https://...' : '') ?>" style="font-size:0.88rem; font-family:monospace;">
+            <small style="color:#64748b; font-size:0.75rem;"><?= e($meta['hint']) ?></small>
+          </div>
+        <?php endforeach; ?>
+      </div>
+    </div>
+
   </div>
 
   <div style="margin-top:2rem; background:rgba(2,6,23,0.7); padding:1.25rem; border-radius:12px; border:1px solid rgba(56,189,248,0.2); display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap; gap:12px;">
@@ -142,5 +214,35 @@ admin_header('মূল্য ও পেমেন্ট নম্বর সে�
     </button>
   </div>
 </form>
+
+<!-- TEST WHATSAPP DISPATCH CARD -->
+<div class="admin-card" style="margin-top:2rem; border:1px solid #38bdf8;">
+  <div class="card-header">
+    <div class="card-title">
+      <span>⚡</span>
+      <span style="color:#38bdf8; font-weight:700;">টেস্ট WhatsApp মেসেজ ভেরিফিকেশন (Live Test Dispatch)</span>
+    </div>
+  </div>
+  <p style="color:#94a3b8; font-size:0.85rem; margin-top:0;">
+    আপনার কনফিগার করা WhatsApp গেটওয়ে থেকে সরাসরি আপনার মোবাইলে একটি টেস্ট মেসেজ পাঠিয়ে যাচাই করুন।
+  </p>
+
+  <?php if ($testWaResult): ?>
+    <div style="padding:12px 16px; border-radius:8px; margin-bottom:1rem; font-size:0.9rem; <?= $testWaResult['success'] ? 'background:rgba(16,185,129,0.2); color:#6ee7b7; border:1px solid #10b981;' : 'background:rgba(239,68,68,0.2); color:#fca5a5; border:1px solid #ef4444;' ?>">
+      <?= $testWaResult['success'] ? '✓' : '✗' ?> <?= e($testWaResult['msg']) ?>
+    </div>
+  <?php endif; ?>
+
+  <form method="post" style="display:flex; gap:12px; align-items:center; flex-wrap:wrap;">
+    <input type="hidden" name="csrf" value="<?= e(csrf_token()) ?>">
+    <input type="hidden" name="action" value="test_whatsapp">
+    <div style="flex:1; min-width:240px;">
+      <input type="text" name="test_wa_phone" class="form-input" placeholder="মোবাইল নম্বর (যেমন: 01717820998)" value="<?= e($currentValues['whatsapp_number'] ?: '01717820998') ?>" required style="font-size:0.95rem;">
+    </div>
+    <button type="submit" class="btn-admin" style="background:#0284c7; color:#fff; font-weight:700; padding:10px 22px;">
+      ⚡ টেস্ট মেসেজ পাঠান
+    </button>
+  </form>
+</div>
 
 <?php admin_footer(); ?>

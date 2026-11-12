@@ -6,6 +6,14 @@ if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
     json_response(['ok' => false, 'error' => 'method_not_allowed'], 405);
 }
 
+if (!check_rate_limit($pdo, 'reset_password', 5, 60)) {
+    json_response([
+        'ok' => false,
+        'error' => 'too_many_requests',
+        'message' => 'অতিরিক্ত অনুরোধের কারণে সাময়িকভাবে স্থগিত। অনুগ্রহ করে কিছুক্ষণ পর চেষ্টা করুন।'
+    ], 429);
+}
+
 $raw = file_get_contents('php://input') ?: '';
 $data = json_decode($raw, true);
 if (!is_array($data)) {
@@ -14,24 +22,30 @@ if (!is_array($data)) {
 
 $loginId = trim((string) ($data['login_id'] ?? ''));
 $email = trim((string) ($data['email'] ?? ''));
+$whatsapp = trim((string) ($data['whatsapp'] ?? ($data['phone'] ?? '')));
 $otp = trim((string) ($data['otp'] ?? ''));
 $newPassword = (string) ($data['new_password'] ?? '');
 
-if (($loginId === '' && $email === '') || $otp === '' || $newPassword === '') {
-    json_response(['ok' => false, 'error' => 'missing_parameters', 'message' => 'ইউজার আইডি, ওটিপি এবং নতুন পাসওয়ার্ড আবশ্যক।'], 400);
+$target = $whatsapp !== '' ? $whatsapp : ($loginId !== '' ? $loginId : $email);
+
+if ($target === '' || $otp === '' || $newPassword === '') {
+    json_response(['ok' => false, 'error' => 'missing_parameters', 'message' => 'ইউজার আইডি, WhatsApp বা ইমেইল, ওটিপি এবং নতুন পাসওয়ার্ড আবশ্যক।'], 400);
 }
 
 if (strlen($newPassword) < 6) {
     json_response(['ok' => false, 'error' => 'password_too_short', 'message' => 'পাসওয়ার্ড কমপক্ষে ৬ অক্ষরের হতে হবে।'], 400);
 }
 
-if ($loginId !== '') {
-    $stmt = $pdo->prepare('SELECT * FROM customers WHERE login_id = ? LIMIT 1');
-    $stmt->execute([$loginId]);
-} else {
-    $stmt = $pdo->prepare('SELECT * FROM customers WHERE email = ? LIMIT 1');
-    $stmt->execute([$email]);
-}
+// Clean phone digits if applicable (consistent with request_otp.php)
+$digits = preg_replace('/\D+/', '', $target);
+$digitsQuery = strlen($digits) >= 10 ? "%{$digits}%" : $target;
+
+$stmt = $pdo->prepare(
+    'SELECT * FROM customers 
+     WHERE login_id = ? OR email = ? OR whatsapp = ? OR whatsapp LIKE ? 
+     LIMIT 1'
+);
+$stmt->execute([$target, $target, $target, $digitsQuery]);
 
 $customer = $stmt->fetch();
 if (!$customer) {
@@ -52,13 +66,32 @@ if (strtotime((string) $customer['otp_expires_at']) < time()) {
 }
 
 if (trim((string) $customer['otp_code']) !== $otp) {
-    log_api($pdo, (int) $customer['id'], 'otp_verify_failed', "entered_otp:{$otp}");
-    json_response(['ok' => false, 'error' => 'invalid_otp', 'message' => 'ভুল ওটিপি কোড প্রদান করেছেন। পুনরায় চেষ্টা করুন।'], 400);
+    $failedAttempts = ((int) ($customer['otp_failed_attempts'] ?? 0)) + 1;
+    log_api($pdo, (int) $customer['id'], 'otp_verify_failed', "entered_otp:{$otp}, attempt:{$failedAttempts}");
+
+    if ($failedAttempts >= 3) {
+        $pdo->prepare('UPDATE customers SET otp_code = NULL, otp_expires_at = NULL, otp_failed_attempts = 0 WHERE id = ?')
+            ->execute([(int) $customer['id']]);
+        json_response([
+            'ok' => false,
+            'error' => 'otp_invalidated',
+            'message' => '৩ বার ভুল ওটিপি দেওয়ার কারণে ওটিপি কোডটি বাতিল করা হয়েছে। দয়া করে নতুন ওটিপি কোডের জন্য অনুরোধ করুন।'
+        ], 400);
+    } else {
+        $pdo->prepare('UPDATE customers SET otp_failed_attempts = ? WHERE id = ?')
+            ->execute([$failedAttempts, (int) $customer['id']]);
+        $remaining = 3 - $failedAttempts;
+        json_response([
+            'ok' => false,
+            'error' => 'invalid_otp',
+            'message' => "ভুল ওটিপি কোড প্রদান করেছেন। আর {$remaining} বার চেষ্টা করতে পারবেন।"
+        ], 400);
+    }
 }
 
 // Update password hash and clear OTP
 $newHash = password_hash($newPassword, PASSWORD_DEFAULT);
-$upStmt = $pdo->prepare('UPDATE customers SET password_hash = ?, otp_code = NULL, otp_expires_at = NULL WHERE id = ?');
+$upStmt = $pdo->prepare('UPDATE customers SET password_hash = ?, otp_code = NULL, otp_expires_at = NULL, otp_failed_attempts = 0 WHERE id = ?');
 $upStmt->execute([$newHash, (int) $customer['id']]);
 
 // Revoke older active licenses so user logs in afresh on approved device

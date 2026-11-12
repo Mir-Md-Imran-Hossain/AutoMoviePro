@@ -80,10 +80,21 @@ class LicenseClient:
             raise RuntimeError("token_missing")
         return data
 
-    def me(self) -> Dict[str, Any]:
-        data = self._get("/api/me.php")
+    def me(self, hwid: Optional[str] = None) -> Dict[str, Any]:
+        if not hwid:
+            try:
+                from app.auth.hardware_id import get_hardware_fingerprint
+                hwid = get_hardware_fingerprint()
+            except Exception:
+                hwid = ""
+        params = {}
+        if hwid:
+            params["hardware_id"] = hwid
+        data = self._get("/api/me.php", params=params)
         if not data.get("ok"):
-            raise RuntimeError(data.get("error") or "me_failed")
+            err = data.get("error") or "me_failed"
+            msg = data.get("message") or err
+            raise RuntimeError(f"ACCOUNT_RESTRICTED:{err}:{msg}")
         return data
 
     def heartbeat(self, hwid: Optional[str] = None) -> Dict[str, Any]:
@@ -99,10 +110,10 @@ class LicenseClient:
         if hwid:
             payload["hardware_id"] = hwid
         data = self._post("/api/heartbeat.php", payload)
-        if data.get("blocked"):
+        if not data.get("ok") or data.get("blocked"):
             err = data.get("error") or "account_blocked"
-            msg = data.get("message") or "অ্যাকাউন্ট ব্লক করা হয়েছে।"
-            raise RuntimeError(f"ACCOUNT_BLOCKED:{err}:{msg}")
+            msg = data.get("message") or "অ্যাকাউন্ট ব্লক বা স্থগিত করা হয়েছে।"
+            raise RuntimeError(f"ACCOUNT_RESTRICTED:{err}:{msg}")
         return data
 
     def request_password_otp(self, login_id_or_email: str) -> Dict[str, Any]:
@@ -148,10 +159,48 @@ class LicenseClient:
             return {"ok": True, "offline": True, "synced": 0}
         return self._post("/api/engage-log-sync.php", payload)
 
+    def request_generation_ticket(self, action: str = "generate_short", video_type: str = "short") -> Dict[str, Any]:
+        """Requests single-use cryptographic generation ticket from server ticket gate."""
+        from app.auth.hardware_id import get_hardware_fingerprint
+        hwid = get_hardware_fingerprint()
+        payload = {
+            "hardware_id": hwid,
+            "action": action,
+            "video_type": video_type
+        }
+        data = self._post("/api/ticket.php", payload, timeout=15.0)
+        if not data.get("ok"):
+            err = data.get("error") or "ticket_failed"
+            msg = data.get("message") or "সার্ভার থেকে ভিডিও তৈরির টিকিট পাওয়া যায়নি।"
+            raise RuntimeError(f"TICKET_DENIED:{err}:{msg}")
+        return data
+
+
     def sync_job(self, payload: Dict[str, Any]) -> Dict[str, Any]:
         if self._offline():
             return {"ok": True, "offline": True}
         return self._post("/api/jobs-sync.php", payload)
+
+    def request_generation_ticket(self, action: str = "generate_short", video_type: str = "short") -> Dict[str, Any]:
+        """Server-authoritative cryptographic generation ticket gate."""
+        if self._offline():
+            return {"ok": True, "offline": True, "ticket_id": "offline_ticket", "tier": "video_studio"}
+        try:
+            from app.auth.hardware_id import get_hardware_fingerprint
+            hwid = get_hardware_fingerprint()
+        except Exception:
+            hwid = ""
+        payload = {
+            "hardware_id": hwid,
+            "action": action,
+            "video_type": video_type,
+        }
+        data = self._post("/api/ticket.php", payload)
+        if not data.get("ok"):
+            err = data.get("error") or "ticket_rejected"
+            msg = data.get("message") or err
+            raise RuntimeError(f"TICKET_DENIED:{err}:{msg}")
+        return data
 
     def language_status(self) -> Dict[str, Any]:
         if self._offline():

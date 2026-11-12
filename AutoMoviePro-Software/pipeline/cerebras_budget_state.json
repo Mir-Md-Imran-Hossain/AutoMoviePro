@@ -1,9 +1,13 @@
 {
   "calls": [],
-  "circuit_open": false,
-  "circuit_reason": "",
-  "circuit_until": 0.0,
+  "circuit_open": true,
+  "circuit_reason": "{\"message\":\"Payment required to access this resource. Visit your billing tab.\",\"type\":\"payment_required_error\",\"param\":\"",
+  "circuit_until": 1794473341.1631732,
   "strikes": [
-    1794265762.40986
+    1794472421.8701403,
+    1794472426.4511917,
+    1794472430.3941846,
+    1794472433.9400425,
+    1794472441.1624615
   ]
 }

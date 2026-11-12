@@ -8,38 +8,43 @@ $msg = '';
 $err = '';
 
 // Handle actions
-if ($_SERVER['REQUEST_METHOD'] === 'POST' && csrf_verify($_POST['csrf'] ?? null)) {
-    $action = $_POST['action'] ?? '';
-    $id = (int) ($_POST['id'] ?? 0);
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+    if (!csrf_verify($_POST['csrf'] ?? null)) {
+        $err = 'সেশনের মেয়াদ শেষ হয়েছে বা ফর্মের সিকিউরিটি টোকেন মেয়াদোত্তীর্ণ। অনুগ্রহ করে পৃষ্ঠাটি রিলোড করে পুনরায় চেষ্টা করুন।';
+    } else {
+        $action = $_POST['action'] ?? '';
+        $id = (int) ($_POST['id'] ?? 0);
+        $nowVal = date('Y-m-d H:i:s');
 
-    if ($action === 'add') {
-        $name = trim((string) ($_POST['name'] ?? ''));
-        $rating = max(1, min(5, (int) ($_POST['rating'] ?? 5)));
-        $text = trim((string) ($_POST['review_text'] ?? ''));
-        $platform = trim((string) ($_POST['platform'] ?? 'General'));
+        if ($action === 'add') {
+            $name = trim((string) ($_POST['name'] ?? ''));
+            $rating = max(1, min(5, (int) ($_POST['rating'] ?? 5)));
+            $text = trim((string) ($_POST['review_text'] ?? ''));
+            $platform = trim((string) ($_POST['platform'] ?? 'General'));
 
-        if (!empty($name) && !empty($text)) {
-            $stmt = $pdo->prepare("INSERT INTO reviews (name, rating, review_text, platform, is_approved, created_at) VALUES (?, ?, ?, ?, 1, NOW())");
-            $stmt->execute([$name, $rating, $text, $platform]);
-            $msg = 'নতুন রিভিউ সফলভাবে যুক্ত করা হয়েছে!';
-        } else {
-            $err = 'নাম এবং রিভিউ টেক্সট প্রদান করুন।';
+            if (!empty($name) && !empty($text)) {
+                $stmt = $pdo->prepare("INSERT INTO reviews (name, rating, review_text, platform, is_approved, created_at) VALUES (?, ?, ?, ?, 1, ?)");
+                $stmt->execute([$name, $rating, $text, $platform, $nowVal]);
+                $msg = 'নতুন রিভিউ সফলভাবে যুক্ত করা হয়েছে!';
+            } else {
+                $err = 'নাম এবং রিভিউ টেক্সট প্রদান করুন।';
+            }
+        } elseif ($action === 'toggle' && $id > 0) {
+            $pdo->prepare("UPDATE reviews SET is_approved = (CASE WHEN is_approved=1 THEN 0 ELSE 1 END) WHERE id = ?")->execute([$id]);
+            $msg = "রিভিউ #{$id} এর স্ট্যাটাস পরিবর্তন করা হয়েছে।";
+        } elseif ($action === 'delete' && $id > 0) {
+            $pdo->prepare("DELETE FROM reviews WHERE id = ?")->execute([$id]);
+            $msg = "রিভিউ #{$id} মুছে ফেলা হয়েছে।";
+        } elseif ($action === 'reseed') {
+            require_once dirname(__DIR__) . '/includes/reviews_data.php';
+            $reviews = function_exists('amp_get_default_50_reviews') ? amp_get_default_50_reviews() : [];
+            $pdo->exec("DELETE FROM reviews");
+            $ins = $pdo->prepare("INSERT INTO reviews (name, rating, review_text, platform, is_approved, created_at) VALUES (?, ?, ?, ?, 1, ?)");
+            foreach ($reviews as $r) {
+                $ins->execute([$r['name'], (int)$r['rating'], $r['review_text'], $r['platform'], $nowVal]);
+            }
+            $msg = 'সকল ৫৫টি প্রিমিয়াম ভেরিফাইড রিভিউ সফলভাবে রিসেট ও ডাটাবেজে রিস্টোর করা হয়েছে!';
         }
-    } elseif ($action === 'toggle' && $id > 0) {
-        $pdo->prepare("UPDATE reviews SET is_approved = IF(is_approved=1, 0, 1) WHERE id = ?")->execute([$id]);
-        $msg = "রিভিউ #{$id} এর স্ট্যাটাস পরিবর্তন করা হয়েছে।";
-    } elseif ($action === 'delete' && $id > 0) {
-        $pdo->prepare("DELETE FROM reviews WHERE id = ?")->execute([$id]);
-        $msg = "রিভিউ #{$id} মুছে ফেলা হয়েছে।";
-    } elseif ($action === 'reseed') {
-        require_once dirname(__DIR__) . '/includes/reviews_data.php';
-        $reviews = function_exists('amp_get_default_50_reviews') ? amp_get_default_50_reviews() : [];
-        $pdo->exec("DELETE FROM reviews");
-        $ins = $pdo->prepare("INSERT INTO reviews (name, rating, review_text, platform, is_approved, created_at) VALUES (?, ?, ?, ?, 1, NOW())");
-        foreach ($reviews as $r) {
-            $ins->execute([$r['name'], (int)$r['rating'], $r['review_text'], $r['platform']]);
-        }
-        $msg = 'সকল ৫৫টি প্রিমিয়াম ভেরিফাইড রিভিউ সফলভাবে রিসেট ও ডাটাবেজে রিস্টোর করা হয়েছে!';
     }
 }
 

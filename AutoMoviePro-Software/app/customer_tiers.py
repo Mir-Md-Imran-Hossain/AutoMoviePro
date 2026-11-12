@@ -26,10 +26,11 @@ from __future__ import annotations
 from dataclasses import dataclass, field
 from typing import Any, Dict, List, Optional, Set
 
-# Canonical Product Tier Identifiers (৳3,999 / ৳2,999 / ৳1,999)
+# Canonical Product Tier Identifiers (৳3,999 / ৳2,999 / ৳1,999 / ৳2,499)
 TIER_VIDEO_STUDIO = "video_studio"
 TIER_FB_BUSINESS = "fb_business"
 TIER_PROFILE_PAGE = "profile_page"
+TIER_WAMANAGER = "wamanager_pro"
 TIER_DEV = "dev"
 TIER_ENTERPRISE = "enterprise"
 
@@ -63,6 +64,10 @@ TIER_UPGRADE_MESSAGE_VIDEO_STUDIO = (
 TIER_UPGRADE_MESSAGE_FB_BUSINESS = (
     "আপনার বর্তমান প্ল্যানে ফেসবুক বিজনেস ম্যানেজার ও অ্যাড ক্যাম্পেইন অন্তর্ভুক্ত নয়। "
     "অ্যাড ক্যাম্পেইন চালাতে ৳২,৯৯৯ ফেসবুক বিজনেস ম্যানেজার প্যাকেজে আপগ্রেড করুন।"
+)
+TIER_UPGRADE_MESSAGE_WAMANAGER = (
+    "আপনার অ্যাকাউন্টটি WhatsApp Marketing & Manager Pro সফটওয়্যারের জন্য অনুমোদিত। "
+    "AutoMovie Pro (ভিডিও স্টুডিও ও সোশ্যাল অটোমেশন) সফটওয়্যার ব্যবহার করার অনুমতি আপনার প্ল্যানে অন্তর্ভুক্ত নয়।"
 )
 
 
@@ -192,6 +197,18 @@ SPEC_ENTERPRISE = TierSpecification(
     support_level="priority_vip",
 )
 
+SPEC_WAMANAGER = TierSpecification(
+    tier_id=TIER_WAMANAGER,
+    display_name_en="WhatsApp Marketing & Manager Pro",
+    display_name_bn="হোয়াটসঅ্যাপ মার্কেটিং ও ম্যানেজার প্রো",
+    price_bdt=2499,
+    regular_price_bdt=7500,
+    allowed_features=set(),
+    max_channels=0,
+    max_daily_jobs=0,
+    support_level="wamanager_only",
+)
+
 OFFICIAL_TIERS: Dict[str, TierSpecification] = {
     TIER_VIDEO_STUDIO: SPEC_VIDEO_STUDIO,
     "omni_video_studio": SPEC_VIDEO_STUDIO,
@@ -199,6 +216,9 @@ OFFICIAL_TIERS: Dict[str, TierSpecification] = {
     "fb_business_ad": SPEC_FB_BUSINESS,
     TIER_PROFILE_PAGE: SPEC_PROFILE_PAGE,
     "fb_profile_autopilot": SPEC_PROFILE_PAGE,
+    TIER_WAMANAGER: SPEC_WAMANAGER,
+    "wamanager": SPEC_WAMANAGER,
+    "wamanager_pro": SPEC_WAMANAGER,
     TIER_DEV: SPEC_DEV,
     TIER_ENTERPRISE: SPEC_ENTERPRISE,
 }
@@ -209,6 +229,9 @@ def normalize_tier_id(raw_tier: Optional[str]) -> str:
     if not raw_tier:
         return TIER_DEV  # default offline fallback
     low = str(raw_tier).strip().lower()
+    # ৳2,499 - WhatsApp Manager Pro (Strict External Product)
+    if low in ("wamanager_pro", "wamanager", "whatsapp_manager", "whatsapp_marketing", "2499"):
+        return TIER_WAMANAGER
     # ৳3,999 - Video Studio
     if low in ("video_studio", "omni_video_studio", "video_automation", "studio", "3999", "omni_social"):
         return TIER_VIDEO_STUDIO

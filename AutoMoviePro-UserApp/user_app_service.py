@@ -15,7 +15,7 @@ class UserAppService:
     Connects with PC software API to stream telemetry and solve challenges.
     """
 
-    def __init__(self, pc_endpoint: str = "http://127.0.0.1:8000"):
+    def __init__(self, pc_endpoint: str = "http://127.0.0.1:8787"):
         self.pc_endpoint = pc_endpoint.rstrip("/")
 
     def get_software_status(self) -> Dict[str, Any]:

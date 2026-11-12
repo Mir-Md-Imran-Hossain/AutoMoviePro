@@ -126,9 +126,17 @@
       }
     }
 
+    function getApiKey() {
+      return localStorage.getItem('amp_agent_key') || 'amp_agent_master_live_key_2026';
+    }
+
     async function syncLedger() {
       try {
-        const res = await fetch(`${API_BASE}/api/payment_ledger.php`);
+        const res = await fetch(`${API_BASE}/api/payment_ledger.php`, {
+          headers: {
+            'X-Agent-Key': getApiKey()
+          }
+        });
         const data = await res.json();
         if (data.ok) {
           document.getElementById('netBalance').innerText = '৳ ' + Number(data.ledger.current_balance).toLocaleString('en-IN');
@@ -180,7 +188,10 @@
       try {
         const res = await fetch(`${API_BASE}/api/payment_ledger.php`, {
           method: 'POST',
-          headers: {'Content-Type': 'application/json'},
+          headers: {
+            'Content-Type': 'application/json',
+            'X-Agent-Key': getApiKey()
+          },
           body: JSON.stringify({ amount: Number(amt), notes: notes })
         });
         const d = await res.json();
@@ -227,7 +238,11 @@
       try {
         const res = await fetch(`${API_BASE}/api/sms_gateway.php`, {
           method: 'POST',
-          headers: {'Content-Type': 'application/json'},
+          headers: {
+            'Content-Type': 'application/json',
+            'X-Gateway-Secret': getApiKey(),
+            'X-Agent-Key': getApiKey()
+          },
           body: JSON.stringify({
             provider: provider,
             sender_phone: senderPhone,

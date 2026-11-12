@@ -53,6 +53,16 @@ if (!$order) {
     exit;
 }
 
+$token = trim((string) ($data['token'] ?? $_GET['token'] ?? ''));
+if (!amp_verify_order_token($pdo, $order, $token)) {
+    http_response_code(403);
+    echo json_encode([
+        'ok' => false,
+        'error' => 'নিরাপত্তাজনিত কারণে অর্ডার টোকেন যাচাই ব্যর্থ হয়েছে (Invalid or missing order token).'
+    ], JSON_UNESCAPED_UNICODE);
+    exit;
+}
+
 require_once __DIR__ . '/../includes/billing.php';
 
 // Check if already approved/active
