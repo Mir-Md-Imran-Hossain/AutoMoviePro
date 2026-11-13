@@ -389,15 +389,37 @@ function renderReadiness(foundation, activity, access) {
 
 function renderJobCard(j, { selected } = {}) {
   const planes = j.result_planes || {};
+  const isDone = String(j.state || "").toUpperCase() === "COMPLETED" || planes.final_video;
+  const isRunning = String(j.state || "").toUpperCase() === "IN_PROGRESS" || String(j.state || "").toUpperCase() === "RUNNING";
+  const isFailed = String(j.state || "").toUpperCase() === "FAILED" || String(j.state || "").toUpperCase() === "ERROR";
+
+  let statusBadge = `<span style="background:#1e293b; color:#94a3b8; font-weight:700; font-size:0.75rem; padding:3px 8px; border-radius:4px;">${escapeHtml(j.state || "স্ট্যান্ডবাই")}</span>`;
+  if (isDone) {
+    statusBadge = `<span style="background:rgba(16,185,129,0.2); color:#34d399; border:1px solid #10b981; font-weight:700; font-size:0.75rem; padding:3px 8px; border-radius:4px;">সফলভাবে তৈরি ✓</span>`;
+  } else if (isRunning) {
+    statusBadge = `<span style="background:rgba(2,132,199,0.2); color:#38bdf8; border:1px solid #0284c7; font-weight:700; font-size:0.75rem; padding:3px 8px; border-radius:4px;">রেন্ডারিং চলছে ⏳</span>`;
+  } else if (isFailed) {
+    statusBadge = `<span style="background:rgba(239,68,68,0.2); color:#f87171; border:1px solid #ef4444; font-weight:700; font-size:0.75rem; padding:3px 8px; border-radius:4px;">ব্যর্থ ❌</span>`;
+  }
+
+  const reqType = (j.request_type || "video").toLowerCase().includes("short") ? "⚡ শর্টস (9:16)" : "🎥 লং ভিডিও (16:9)";
   const err = j.error_summary
-    ? `<br><span class="muted">Error (${escapeHtml(j.error_class || "unknown")}): ${escapeHtml(j.error_summary)}</span>`
+    ? `<div style="margin-top:6px; font-size:0.8rem; color:#fca5a5; background:rgba(239,68,68,0.1); padding:4px 8px; border-radius:4px;">ত্রুটি: ${escapeHtml(j.error_summary)}</div>`
     : "";
+
   return `
-    <div class="card ${selected ? "job-card-selected" : ""}" data-job-id="${j.job_id}" role="button">
-      <strong>#${j.job_id}</strong> ${escapeHtml(j.title || "")} · ${escapeHtml(j.request_type || "")}<br>
-      <span><b>${escapeHtml(j.state)}</b> — ${escapeHtml(j.production_stage || j.stage_label || j.stage || "")}</span><br>
-      <span class="muted">${escapeHtml(j.created_at || "")} · rev ${escapeHtml((j.revision || "").slice(0, 24))}</span>
-      ${planes.ready_for_review ? "<br><span>READY_FOR_REVIEW</span>" : ""}
+    <div class="card ${selected ? "job-card-selected" : ""}" data-job-id="${j.job_id}" role="button" style="background:#0f172a; border:1px solid #1e293b; border-radius:10px; padding:1rem; cursor:pointer; transition:all 0.2s;">
+      <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:6px; flex-wrap:wrap; gap:6px;">
+        <div style="display:flex; align-items:center; gap:8px;">
+          <strong style="color:#38bdf8; font-size:0.95rem;">#${j.job_id}</strong>
+          <span style="font-weight:700; color:#f8fafc; font-size:0.95rem;">${escapeHtml(j.title || "স্বয়ংক্রিয় ভিডিও")}</span>
+        </div>
+        ${statusBadge}
+      </div>
+      <div style="display:flex; justify-content:space-between; align-items:center; font-size:0.82rem; color:#94a3b8; flex-wrap:wrap; gap:6px; margin-top:4px;">
+        <span>${reqType} · ${escapeHtml(j.production_stage || j.stage_label || j.stage || "প্রসেসিং")}</span>
+        <span>🕒 ${escapeHtml(j.created_at || "")}</span>
+      </div>
       ${err}
     </div>`;
 }
@@ -1668,9 +1690,19 @@ async function refresh() {
   const active = list.filter(j => !TERMINAL_STATES.has(String(j.state || "")));
   const recent = list.filter(j => TERMINAL_STATES.has(String(j.state || "")));
   renderJobLists(active, recent);
-  document.getElementById("jobsList").innerHTML = list.map(j => renderJobCard(j, {
-    selected: j.job_id === _selectedJobId,
-  })).join("") || "<p class='muted'>জব নেই</p>";
+  const jobsHost = document.getElementById("jobsList");
+  const emptyCard = document.getElementById("jobsEmptyCard");
+  if (jobsHost) {
+    if (list.length > 0) {
+      jobsHost.innerHTML = list.map(j => renderJobCard(j, {
+        selected: j.job_id === _selectedJobId,
+      })).join("");
+      if (emptyCard) emptyCard.style.display = "none";
+    } else {
+      jobsHost.innerHTML = "";
+      if (emptyCard) emptyCard.style.display = "block";
+    }
+  }
   document.querySelectorAll("#jobsList [data-job-id]").forEach(card => {
     card.onclick = () => {
       _selectedJobId = Number(card.dataset.jobId);
