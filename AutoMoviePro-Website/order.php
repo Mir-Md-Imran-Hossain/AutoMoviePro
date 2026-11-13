@@ -13,6 +13,13 @@ $addonPrice = (float) setting($pdo, 'language_addon_price', '499');
 $priceLabel = setting_i18n($pdo, 'price_label', $uiLang, '') ?? '';
 $useCmsPriceLabel = trim($priceLabel) !== '';
 $langCatalog = amp_lang_catalog();
+$bkashAgent = setting($pdo, 'bkash_agent_number', '01756160993');
+$nagadAgent = setting($pdo, 'nagad_agent_number', '01611-824811');
+$rocketAgent = setting($pdo, 'rocket_agent_number', '01756160993-5');
+$binancePayId = setting($pdo, 'binance_pay_id', 'ChatEarly Ai');
+$bkashAgentClean = preg_replace('/\D+/', '', $bkashAgent);
+$nagadAgentClean = preg_replace('/\D+/', '', $nagadAgent);
+$rocketAgentClean = preg_replace('/\D+/', '', $rocketAgent);
 $siteUrl = rtrim((string) ($config['site_url'] ?? 'https://automoviepro.com'), '/');
 $waLink = amp_whatsapp_sales_link('Hi! I want to order AutoMovie Pro.');
 $error = !empty($_GET['error']);
@@ -432,10 +439,10 @@ $error = !empty($_GET['error']);
                   <span style="background: #e11d48; color: #fff; font-size: 0.72rem; padding: 2px 7px; border-radius: 4px; font-weight: 700;">ক্যাশ আউট</span>
                 </div>
                 <div style="font-family: monospace; font-size: 1.2rem; color: #fff; font-weight: 800; letter-spacing: 0.5px; margin: 4px 0 2px;">
-                  01756160993
+                  <?= e($bkashAgent) ?>
                 </div>
                 <small style="color: #94a3b8; font-size: 0.75rem; display: block; margin-bottom: 8px;">(Zahid Pharmacy)</small>
-                <button type="button" class="btn btn-sm copy-btn" onclick="navigator.clipboard.writeText('01756160993'); this.innerText='কপি হয়েছে ✓'; setTimeout(()=>this.innerText='নম্বর কপি করুন', 2000);" style="width: 100%; padding: 6px 8px; font-size: 0.82rem; background: #e11d48; color: #fff; border: none; border-radius: 6px; cursor: pointer; font-weight:600;">
+                <button type="button" class="btn btn-sm copy-btn" onclick="navigator.clipboard.writeText('<?= e($bkashAgentClean) ?>'); this.innerText='কপি হয়েছে ✓'; setTimeout(()=>this.innerText='নম্বর কপি করুন', 2000);" style="width: 100%; padding: 6px 8px; font-size: 0.82rem; background: #e11d48; color: #fff; border: none; border-radius: 6px; cursor: pointer; font-weight:600;">
                   নম্বর কপি করুন
                 </button>
               </div>
@@ -447,10 +454,10 @@ $error = !empty($_GET['error']);
                   <span style="background: #ea580c; color: #fff; font-size: 0.72rem; padding: 2px 7px; border-radius: 4px; font-weight: 700;">ক্যাশ আউট</span>
                 </div>
                 <div style="font-family: monospace; font-size: 1.2rem; color: #fff; font-weight: 800; letter-spacing: 0.5px; margin: 4px 0 2px;">
-                  01611-824811
+                  <?= e($nagadAgent) ?>
                 </div>
                 <small style="color: #94a3b8; font-size: 0.75rem; display: block; margin-bottom: 8px;">(Simi Drug House)</small>
-                <button type="button" class="btn btn-sm copy-btn" onclick="navigator.clipboard.writeText('01611824811'); this.innerText='কপি হয়েছে ✓'; setTimeout(()=>this.innerText='নম্বর কপি করুন', 2000);" style="width: 100%; padding: 6px 8px; font-size: 0.82rem; background: #ea580c; color: #fff; border: none; border-radius: 6px; cursor: pointer; font-weight:600;">
+                <button type="button" class="btn btn-sm copy-btn" onclick="navigator.clipboard.writeText('<?= e($nagadAgentClean) ?>'); this.innerText='কপি হয়েছে ✓'; setTimeout(()=>this.innerText='নম্বর কপি করুন', 2000);" style="width: 100%; padding: 6px 8px; font-size: 0.82rem; background: #ea580c; color: #fff; border: none; border-radius: 6px; cursor: pointer; font-weight:600;">
                   নম্বর কপি করুন
                 </button>
               </div>
@@ -462,10 +469,10 @@ $error = !empty($_GET['error']);
                   <span style="background: #8b5cf6; color: #fff; font-size: 0.72rem; padding: 2px 7px; border-radius: 4px; font-weight: 700;">ক্যাশ আউট</span>
                 </div>
                 <div style="font-family: monospace; font-size: 1.2rem; color: #fff; font-weight: 800; letter-spacing: 0.5px; margin: 4px 0 2px;">
-                  017561609935
+                  <?= e($rocketAgent) ?>
                 </div>
                 <small style="color: #94a3b8; font-size: 0.75rem; display: block; margin-bottom: 8px;">(এজেন্ট ক্যাশ আউট)</small>
-                <button type="button" class="btn btn-sm copy-btn" onclick="navigator.clipboard.writeText('017561609935'); this.innerText='কপি হয়েছে ✓'; setTimeout(()=>this.innerText='নম্বর কপি করুন', 2000);" style="width: 100%; padding: 6px 8px; font-size: 0.82rem; background: #8b5cf6; color: #fff; border: none; border-radius: 6px; cursor: pointer; font-weight:600;">
+                <button type="button" class="btn btn-sm copy-btn" onclick="navigator.clipboard.writeText('<?= e($rocketAgentClean) ?>'); this.innerText='কপি হয়েছে ✓'; setTimeout(()=>this.innerText='নম্বর কপি করুন', 2000);" style="width: 100%; padding: 6px 8px; font-size: 0.82rem; background: #8b5cf6; color: #fff; border: none; border-radius: 6px; cursor: pointer; font-weight:600;">
                   নম্বর কপি করুন
                 </button>
               </div>
@@ -477,10 +484,10 @@ $error = !empty($_GET['error']);
                   <span style="background: #f59e0b; color: #000; font-size: 0.72rem; padding: 2px 7px; border-radius: 4px; font-weight: 700;">USDT</span>
                 </div>
                 <div style="font-family: monospace; font-size: 1.1rem; color: #fff; font-weight: 800; letter-spacing: 0.5px; margin: 4px 0 2px;">
-                  ChatEarly Ai
+                  <?= e($binancePayId) ?>
                 </div>
                 <small style="color: #94a3b8; font-size: 0.75rem; display: block; margin-bottom: 8px;">(Binance Pay ID / QR)</small>
-                <button type="button" class="btn btn-sm copy-btn" onclick="navigator.clipboard.writeText('ChatEarly Ai'); this.innerText='কপি হয়েছে ✓'; setTimeout(()=>this.innerText='আইডি কপি করুন', 2000);" style="width: 100%; padding: 6px 8px; font-size: 0.82rem; background: #f59e0b; color: #000; font-weight:700; border: none; border-radius: 6px; cursor: pointer;">
+                <button type="button" class="btn btn-sm copy-btn" onclick="navigator.clipboard.writeText('<?= e($binancePayId) ?>'); this.innerText='কপি হয়েছে ✓'; setTimeout(()=>this.innerText='আইডি কপি করুন', 2000);" style="width: 100%; padding: 6px 8px; font-size: 0.82rem; background: #f59e0b; color: #000; font-weight:700; border: none; border-radius: 6px; cursor: pointer;">
                   আইডি কপি করুন
                 </button>
               </div>

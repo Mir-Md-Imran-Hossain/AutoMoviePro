@@ -10,9 +10,9 @@ $error = '';
 $settingDefinitions = [
     // Payment Numbers
     'bkash_personal_number' => ['label' => 'বিকাশ পার্সোনাল নম্বর (bKash Personal)', 'default' => '01968111593', 'category' => 'payment', 'hint' => 'কাস্টমার সেন্ড মানি বা ক্যাশ-ইন করার জন্য দেখতে পাবে।'],
-    'bkash_agent_number' => ['label' => 'বিকাশ এজেন্ট নম্বর (bKash Agent)', 'default' => '01968111593', 'category' => 'payment', 'hint' => 'ক্যাশ-আউটের জন্য নম্বর।'],
-    'nagad_agent_number' => ['label' => 'নগদ এজেন্ট নম্বর (Nagad Agent)', 'default' => '01968111593', 'category' => 'payment', 'hint' => 'নগদ পেমেন্ট ক্যাশ-আউটের নম্বর।'],
-    'rocket_agent_number' => ['label' => 'রকেট এজেন্ট নম্বর (Rocket Agent)', 'default' => '01968111593', 'category' => 'payment', 'hint' => 'রকেট পেমেন্ট ক্যাশ-আউটের নম্বর।'],
+    'bkash_agent_number' => ['label' => 'বিকাশ এজেন্ট নম্বর (bKash Agent)', 'default' => '01756160993', 'category' => 'payment', 'hint' => 'ক্যাশ-আউটের জন্য নম্বর (Zahid Pharmacy)।'],
+    'nagad_agent_number' => ['label' => 'নগদ এজেন্ট নম্বর (Nagad Agent)', 'default' => '01611-824811', 'category' => 'payment', 'hint' => 'নগদ পেমেন্ট ক্যাশ-আউটের নম্বর (Simi Drug House)।'],
+    'rocket_agent_number' => ['label' => 'রকেট এজেন্ট নম্বর (Rocket Agent)', 'default' => '01756160993-5', 'category' => 'payment', 'hint' => 'রকেট পেমেন্ট ক্যাশ-আউটের নম্বর।'],
     'binance_pay_id' => ['label' => 'Binance Payee Name / Pay ID', 'default' => 'ChatEarly Ai', 'category' => 'payment', 'hint' => 'আন্তর্জাতিক বা ক্রিপ্টো পেমেন্টের অ্যাকাউন্ট নেম।'],
 
     // Pricing

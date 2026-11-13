@@ -336,7 +336,8 @@ admin_header('পেমেন্ট কিউ ও প্যাকেজ রে�
 
 <h3>পেন্ডিং ও আন্ডার-রিভিউ সফটওয়্যার অর্ডার</h3>
 <p style="color:#64748b; font-size:0.9rem; margin-bottom:1rem;">গ্রাহকদের পাঠানো বিকাশ, নগদ ও বাইন্যান্স পেমেন্ট যাচাই করে অনুমোদন করুন। অনুমোদনের সাথে সাথে আমাদের WhatsApp মার্কেটিং সিস্টেমের মাধ্যমে গ্রাহকের WhatsApp-এ স্বয়ংক্রিয়ভাবে লগইন আইডি, পাসওয়ার্ড ও ওয়ান-টাইম ডাউনলোড লিংক চলে যাবে।</p>
-<table class="data" style="margin-bottom:2.5rem;">
+<div class="table-responsive-wrapper">
+<table class="data" style="margin-bottom:0;">
   <thead>
     <tr>
       <th>ID</th>
@@ -415,10 +416,12 @@ admin_header('পেমেন্ট কিউ ও প্যাকেজ রে�
   <?php if (!$pending): ?><tr><td colspan="7" style="text-align:center; padding:1.5rem; color:#64748b;">কোনো পেন্ডিং বা আন্ডার-রিভিউ অর্ডার নেই</td></tr><?php endif; ?>
   </tbody>
 </table>
+</div>
 
 <h3>🚀 Google AI Pro প্যাকেজ ডেলিভারি ম্যানেজমেন্ট</h3>
 <p style="color:#64748b; font-size:0.9rem; margin-bottom:1rem;">গ্রাহকের দেওয়া Gmail অ্যাড্রেস স্টোর করুন এবং Google Pro API Key ইনপুট দিয়ে 'Active & Delivered' বাটনে ক্লিক করুন। গ্রাহকের WhatsApp-এ স্বয়ংক্রিয়ভাবে নোটিফিকেশন পাঠানো হবে।</p>
-<table class="data" style="margin-bottom:2.5rem;">
+<div class="table-responsive-wrapper">
+<table class="data" style="margin-bottom:0;">
   <thead>
     <tr>
       <th>Sub ID</th>
@@ -462,8 +465,10 @@ admin_header('পেমেন্ট কিউ ও প্যাকেজ রে�
   <?php if (!$googleSubs): ?><tr><td colspan="9">কোনো Google Pro সাবস্ক্রিপশন অর্ডার নেই</td></tr><?php endif; ?>
   </tbody>
 </table>
+</div>
 
 <h3>সাম্প্রতিক সম্পূর্ণ অর্ডার তালিকা</h3>
+<div class="table-responsive-wrapper">
 <table class="data">
   <thead><tr><th>ID</th><th>নাম</th><th>WhatsApp</th><th>প্ল্যান</th><th>পেমেন্ট তথ্য</th><th>স্ট্যাটাস</th><th>অ্যাপ্রুভ সময়</th></tr></thead>
   <tbody>
@@ -490,5 +495,6 @@ admin_header('পেমেন্ট কিউ ও প্যাকেজ রে�
   <?php endforeach; ?>
   </tbody>
 </table>
+</div>
 <?php admin_footer(); ?>
 

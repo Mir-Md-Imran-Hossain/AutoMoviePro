@@ -680,3 +680,35 @@ table.admin-table tbody tr:hover, table.data tbody tr:hover {
   color: #ffffff;
   margin-top: 4px;
 }
+
+/* Mobile & Tablet Responsive Optimizations */
+.table-responsive-wrapper {
+  width: 100%;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  border-radius: var(--admin-radius-sm);
+  margin-bottom: 1.5rem;
+}
+
+@media (max-width: 900px) {
+  .admin-topbar {
+    padding: 0.75rem 1rem;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+  }
+  .topbar-right {
+    gap: 0.5rem;
+    flex-wrap: wrap;
+  }
+  .topbar-pill {
+    font-size: 0.78rem;
+    padding: 4px 8px;
+  }
+  .admin-workspace {
+    padding: 1rem 0.75rem;
+  }
+  table.data th, table.data td {
+    padding: 0.75rem 0.65rem;
+    font-size: 0.85rem;
+  }
+}
