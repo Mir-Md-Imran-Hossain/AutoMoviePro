@@ -20,7 +20,8 @@ from pathlib import Path
 from typing import Dict, Any, List, Optional, Tuple
 from datetime import datetime
 
-ROOT_DIR = Path(r"E:\AI Assistant\Social Media Hub")
+_hub_candidate = Path(r"E:\AI Assistant\Social Media Hub")
+ROOT_DIR = _hub_candidate if _hub_candidate.exists() else (Path(__file__).resolve().parent.parent / "data" / "social_hub")
 PROFILES_DIR = ROOT_DIR / "Profiles"
 
 # System Prompt Templates for Deep Contextual Replies
