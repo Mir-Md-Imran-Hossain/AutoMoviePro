@@ -56,8 +56,9 @@ class Part09And10CommunityAndUIAuditTest(unittest.TestCase):
 
     def test_03_anti_duplicate_comment_reply_gate(self):
         """Verify duplicate replies are prevented using the post/comment key record."""
-        test_post_id = 999998
-        test_comment_key = "yt_comment_unique_idx_12345"
+        import uuid
+        test_post_id = int(uuid.uuid4().int % 100000000)
+        test_comment_key = f"yt_comment_unique_idx_{uuid.uuid4().hex}"
 
         # Initially should not be replied
         self.assertFalse(_already_replied(test_post_id, test_comment_key))
