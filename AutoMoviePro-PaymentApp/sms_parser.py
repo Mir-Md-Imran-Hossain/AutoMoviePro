@@ -44,7 +44,7 @@ class PaymentSMSParser:
         if "NAGAD" in sender_upper or "Nagad" in message or "TxnID" in message:
             trx_match = re.search(r'TxnID:\s*([A-Z0-9]+)', msg, re.IGNORECASE)
             amt_match = re.search(r'Amount:\s*Tk\s*([\d,]+\.?\d*)', msg, re.IGNORECASE)
-            from_match = re.search(r'Sender:\s*(01\d{9})', msg, re.IGNORECASE)
+            from_match = re.search(r'(?:Sender|from):\s*(01\d{9})', msg, re.IGNORECASE) or re.search(r'from\s+(01\d{9})', msg, re.IGNORECASE)
 
             if trx_match and amt_match:
                 amount_str = amt_match.group(1).replace(',', '')
@@ -61,7 +61,7 @@ class PaymentSMSParser:
         # 3. Rocket Detection
         if "ROCKET" in sender_upper or "16216" in sender:
             trx_match = re.search(r'TxnId:\s*([A-Z0-9]+)', msg, re.IGNORECASE)
-            amt_match = re.search(r'Tk\s*([\d,]+\.?\d*)', msg, re.IGNORECASE)
+            amt_match = re.search(r'Tk\.?\s*([\d,]+\.?\d*)', msg, re.IGNORECASE)
             from_match = re.search(r'From\s*(01\d{9})', msg, re.IGNORECASE)
 
             if trx_match and amt_match:
