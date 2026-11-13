@@ -253,9 +253,14 @@ $waProofLink = 'https://wa.me/8801968111593?text=' . rawurlencode($waPrefill);
             <?php endif; ?>
           </div>
 
-          <div style="display: flex; justify-content: center; align-items: center; gap: 8px; margin-bottom: 1.5rem; color: #93c5fd; font-size: 0.88rem;">
-            <span class="online-dot"></span>
-            <span>লাইভ ভেরিফিকেশন সক্রিয় • প্রতি কয়েক সেকেন্ড পর পর স্বয়ংক্রিয়ভাবে চেক হচ্ছে…</span>
+          <div style="display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 6px; margin-bottom: 1.5rem; color: #93c5fd; font-size: 0.9rem; background: rgba(2, 132, 199, 0.12); border: 1px solid rgba(56, 189, 248, 0.3); padding: 10px 18px; border-radius: 12px; max-width: 550px; margin-left: auto; margin-right: auto;">
+            <div style="display:flex; align-items:center; gap:8px;">
+              <span class="online-dot"></span>
+              <strong style="color:#38bdf8;">লাইভ ভেরিফিকেশন সক্রিয়</strong> • প্রতি কয়েক সেকেন্ড পর পর স্বয়ংক্রিয়ভাবে চেক হচ্ছে…
+            </div>
+            <div style="font-size: 0.82rem; color: #cbd5e1;">
+              ⏱️ <em>সাধারণত ২ থেকে ১০ মিনিটের মধ্যে পেমেন্ট অনুমোদিত হয়ে যাবে এবং স্বয়ংক্রিয়ভাবে ডাউনলোড বাটন চালু হবে।</em>
+            </div>
           </div>
 
           <div style="display: flex; gap: 10px; justify-content: center; flex-wrap: wrap;">

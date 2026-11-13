@@ -2479,7 +2479,7 @@ async function refreshChannelAndLanguageSection(channels) {
                   ${proConfigured ? '● Google Pro Active (Nano Banana + VEO-3)' : '○ Free Quota (Standard)'}
                 </span>
               </div>
-              <a href="http://localhost:8000/order.php?product=google_pro" target="_blank" class="btn ghost btn-sm" style="border-color:#818cf8; color:#c7d2fe; text-decoration:none; padding:3px 10px; font-size:0.8rem;">
+              <a href="https://automoviepro.com/order.php?product=google_pro" target="_blank" class="btn ghost btn-sm" style="border-color:#818cf8; color:#c7d2fe; text-decoration:none; padding:3px 10px; font-size:0.8rem;">
                 [Google AI Pro এপিআই নেওয়ার জন্য এখানে ক্লিক করুন]
               </a>
             </div>

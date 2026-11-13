@@ -19,18 +19,16 @@ class PaymentSMSParser:
         sender_upper = sender.upper()
         msg = message.strip()
 
-        # 1. bKash Cash In / Cash Out Detection
-        # Sample: "Cash In Tk 2,999.00 from 01711223344 successful. Fee Tk 0.00. Balance Tk ... TrxID BL82KA9191 at 21/09/2026 14:30"
-        # Or: "You have received Tk 2,999.00 from 01711223344. Ref ... TrxID 9A82J811..."
-        if "BKASH" in sender_upper or "bKash" in message or "TrxID" in message:
-            trx_match = re.search(r'TrxID\s+([A-Z0-9]+)', msg, re.IGNORECASE)
-            amt_match = re.search(r'Tk\s+([\d,]+\.?\d*)', msg, re.IGNORECASE)
-            from_match = re.search(r'from\s+(01\d{9})', msg, re.IGNORECASE)
+        # 1. Rocket Detection (16216 / ROCKET / Dutch-Bangla)
+        if "ROCKET" in sender_upper or "16216" in sender or "rocket" in message.lower():
+            trx_match = re.search(r'Txn\s*Id\s*:?\s*([A-Z0-9]+)', msg, re.IGNORECASE)
+            amt_match = re.search(r'Tk\.?\s*([\d,]+\.?\d*)', msg, re.IGNORECASE)
+            from_match = re.search(r'From\s*:?\s*(01\d{9,10})', msg, re.IGNORECASE) or re.search(r'(?:Sender|from):\s*(01\d{9,10})', msg, re.IGNORECASE)
 
             if trx_match and amt_match:
                 amount_str = amt_match.group(1).replace(',', '')
                 return {
-                    "provider": "bkash",
+                    "provider": "rocket",
                     "txn_id": trx_match.group(1).upper(),
                     "amount": float(amount_str),
                     "sender_phone": from_match.group(1) if from_match else None,
@@ -39,11 +37,10 @@ class PaymentSMSParser:
                     "timestamp": time.time()
                 }
 
-        # 2. Nagad Cash In / Cash Out Detection
-        # Sample: "Cash In Received. Amount: Tk 2,999.00. Sender: 01611223344. TxnID: 72JH891A..."
-        if "NAGAD" in sender_upper or "Nagad" in message or "TxnID" in message:
-            trx_match = re.search(r'TxnID:\s*([A-Z0-9]+)', msg, re.IGNORECASE)
-            amt_match = re.search(r'Amount:\s*Tk\s*([\d,]+\.?\d*)', msg, re.IGNORECASE)
+        # 2. Nagad Cash In / Cash Out Detection (16167 / NAGAD / TxnID)
+        if "NAGAD" in sender_upper or "16167" in sender or "nagad" in message.lower() or "txnid" in message.lower():
+            trx_match = re.search(r'TxnID\s*:?\s*([A-Z0-9]+)', msg, re.IGNORECASE)
+            amt_match = re.search(r'Amount:\s*Tk\.?\s*([\d,]+\.?\d*)', msg, re.IGNORECASE) or re.search(r'Tk\.?\s*([\d,]+\.?\d*)', msg, re.IGNORECASE)
             from_match = re.search(r'(?:Sender|from):\s*(01\d{9})', msg, re.IGNORECASE) or re.search(r'from\s+(01\d{9})', msg, re.IGNORECASE)
 
             if trx_match and amt_match:
@@ -58,16 +55,16 @@ class PaymentSMSParser:
                     "timestamp": time.time()
                 }
 
-        # 3. Rocket Detection
-        if "ROCKET" in sender_upper or "16216" in sender:
-            trx_match = re.search(r'TxnId:\s*([A-Z0-9]+)', msg, re.IGNORECASE)
+        # 3. bKash Cash In / Cash Out Detection (bKash / TrxID)
+        if "BKASH" in sender_upper or "bkash" in message.lower() or "trxid" in message.lower():
+            trx_match = re.search(r'TrxID\s*:?\s*([A-Z0-9]+)', msg, re.IGNORECASE)
             amt_match = re.search(r'Tk\.?\s*([\d,]+\.?\d*)', msg, re.IGNORECASE)
-            from_match = re.search(r'From\s*(01\d{9})', msg, re.IGNORECASE)
+            from_match = re.search(r'from\s+(01\d{9})', msg, re.IGNORECASE) or re.search(r'Sender:\s*(01\d{9})', msg, re.IGNORECASE)
 
             if trx_match and amt_match:
                 amount_str = amt_match.group(1).replace(',', '')
                 return {
-                    "provider": "rocket",
+                    "provider": "bkash",
                     "txn_id": trx_match.group(1).upper(),
                     "amount": float(amount_str),
                     "sender_phone": from_match.group(1) if from_match else None,
