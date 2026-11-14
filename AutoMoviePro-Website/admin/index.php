@@ -160,7 +160,7 @@ admin_header('মাস্টার ড্যাশবোর্ড', 'dashboard'
               <td><strong style="color:#34d399; font-size:1.05rem;">৳<?= number_format((float) ($ord['amount'] ?? 0)) ?></strong></td>
               <td>
                 <span class="badge-status pending"><?= e($ord['payment_method'] ?? 'bKash/Nagad') ?></span>
-                <span style="font-family:monospace; margin-left:6px; color:#cbd5e1;"><?= e($ord['transaction_id'] ?? '—') ?></span>
+                <span style="font-family:monospace; margin-left:6px; color:#cbd5e1;"><?= e($ord['txn_id'] ?? $ord['transaction_id'] ?? '—') ?></span>
               </td>
               <td style="font-size:0.8rem; color:var(--admin-text-muted);"><?= date('d M, h:i A', strtotime($ord['created_at'])) ?></td>
               <td>
