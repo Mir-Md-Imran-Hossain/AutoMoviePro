@@ -457,6 +457,9 @@ def authenticate(login_id: str, password: str, api_base: str) -> Dict[str, Any]:
         except Exception as exc:
             last_exc = exc
             logger.info("license login candidate failed for ep=%s login_id=%s: %s", ep, login_id, sanitize_auth_error(str(exc)))
+            err_msg = str(exc)
+            if any(k in err_msg for k in ("device_locked", "account_blocked", "account_disabled", "product_mismatch")):
+                break
 
     if not data:
         raw_err = str(last_exc) if last_exc else "login_failed"
@@ -469,6 +472,9 @@ def authenticate(login_id: str, password: str, api_base: str) -> Dict[str, Any]:
         elif "account_blocked" in raw_err or "account_disabled" in raw_err:
             err_code = "account_disabled"
             custom_msg = "আপনার অ্যাকাউন্টটি অ্যাডমিন প্যানেল থেকে ডিঅ্যাক্টিভেট বা ব্লক করা হয়েছে।"
+        elif "too_many_requests" in raw_err:
+            err_code = "too_many_requests"
+            custom_msg = "অতিরিক্ত লগইন চেষ্টার কারণে অ্যাক্সেস সাময়িকভাবে স্থগিত। অনুগ্রহ করে কিছুক্ষণ পর চেষ্টা করুন।"
         elif "product_mismatch" in raw_err:
             err_code = "product_mismatch"
             if ":" in raw_err:
