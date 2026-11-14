@@ -124,6 +124,24 @@ $unlockedLangs = amp_customer_unlocked_langs($pdo, $id);
 $waClean = preg_replace('/\D+/', '', (string) $c['whatsapp']);
 if (str_starts_with($waClean, '01')) $waClean = '880' . substr($waClean, 1);
 
+// Customer 360 CRM: Fetch incoming & outgoing WhatsApp communications
+$waHistoryStmt = $pdo->prepare("SELECT * FROM inbound_messages WHERE sender_phone LIKE ? ORDER BY timestamp DESC LIMIT 30");
+$waHistoryStmt->execute(['%' . substr($waClean, -8) . '%']);
+$waHistory = $waHistoryStmt->fetchAll(PDO::FETCH_ASSOC);
+
+// Customer 360 CRM: Fetch customer psychology & buying stage profile
+$psychProfile = null;
+try {
+    $psychStmt = $pdo->prepare("SELECT * FROM customer_psychology_profiles WHERE customer_id = ? OR customer_phone LIKE ? LIMIT 1");
+    $psychStmt->execute([$id, '%' . substr($waClean, -8) . '%']);
+    $psychProfile = $psychStmt->fetch(PDO::FETCH_ASSOC);
+} catch (\Throwable $ePsych) {}
+
+// Customer 360 CRM: Fetch customer orders
+$ordersStmt = $pdo->prepare("SELECT * FROM orders WHERE customer_id = ? OR whatsapp LIKE ? ORDER BY id DESC LIMIT 20");
+$ordersStmt->execute([$id, '%' . substr($waClean, -8) . '%']);
+$customerOrders = $ordersStmt->fetchAll(PDO::FETCH_ASSOC);
+
 admin_header('কাস্টমার ডিটেইল #' . $id, 'customers');
 ?>
 
@@ -300,6 +318,87 @@ admin_header('কাস্টমার ডিটেইল #' . $id, 'customers')
     </div>
   </div>
 
+</div>
+
+<!-- Customer 360 CRM: Omnichannel Communication Timeline & Psychological Profile -->
+<div class="admin-card" style="margin-bottom:2rem; border-color: rgba(56, 189, 248, 0.35); box-shadow: 0 4px 20px rgba(2, 132, 199, 0.08);">
+  <div class="card-header" style="display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:10px;">
+    <div class="card-title">
+      <span>🌐</span>
+      <span>কাস্টমার ৩৬০ ডিগ্রি লাইভ হিস্ট্রি (WhatsApp ও অর্ডার প্রোফাইল)</span>
+    </div>
+    <?php if ($psychProfile): ?>
+      <div style="display:flex; gap:8px; align-items:center;">
+        <span class="admin-badge badge-info" style="font-size:0.8rem;">
+          মনস্তত্ত্ব: <?= e(ucwords(str_replace('_', ' ', (string)($psychProfile['psychological_archetype'] ?? 'General')))) ?>
+        </span>
+        <span class="admin-badge badge-success" style="font-size:0.8rem;">
+          ক্রয় আগ্রহ: <?= (int)($psychProfile['buying_temperature'] ?? 85) ?>%
+        </span>
+      </div>
+    <?php endif; ?>
+  </div>
+
+  <div style="display:grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap:1.5rem; padding:0.5rem 0;">
+    <!-- Column 1: Order History -->
+    <div>
+      <h4 style="color:#38bdf8; font-size:0.95rem; margin:0 0 10px 0; display:flex; align-items:center; gap:6px;">
+        <span>💳</span> <span>অর্ডার ও ট্রানজেকশন তালিকা (<?= count($customerOrders) ?>)</span>
+      </h4>
+      <?php if (!empty($customerOrders)): ?>
+        <div style="display:flex; flex-direction:column; gap:8px; max-height:280px; overflow-y:auto; padding-right:4px;">
+          <?php foreach ($customerOrders as $ord): ?>
+            <div style="background:#090e17; border:1px solid #1e293b; border-radius:8px; padding:10px 12px; font-size:0.85rem;">
+              <div style="display:flex; justify-content:space-between; margin-bottom:4px;">
+                <strong style="color:#f8fafc;">#<?= (int)$ord['id'] ?> — <?= e($ord['plan_name'] ?: 'AutoMovie Pro') ?></strong>
+                <span class="admin-badge <?= $ord['status'] === 'approved' ? 'badge-success' : 'badge-warning' ?>" style="font-size:0.72rem;">
+                  <?= e($ord['status']) ?>
+                </span>
+              </div>
+              <div style="color:#94a3b8; font-size:0.78rem;">
+                পরিমাণ: <strong style="color:#34d399;">৳<?= (int)$ord['amount'] ?></strong> | মেথড: <?= e($ord['payment_method']) ?> (Trx: <?= e($ord['txn_id']) ?>)
+              </div>
+              <div style="color:#64748b; font-size:0.72rem; margin-top:2px;">
+                তারিখ: <?= date('d M Y, h:i A', strtotime($ord['created_at'])) ?>
+              </div>
+            </div>
+          <?php endforeach; ?>
+        </div>
+      <?php else: ?>
+        <div style="background:#090e17; border:1px dashed #334155; border-radius:8px; padding:1.5rem; text-align:center; color:#64748b; font-size:0.85rem;">
+          কোনো পূর্ববর্তী অর্ডার পাওয়া যায়নি।
+        </div>
+      <?php endif; ?>
+    </div>
+
+    <!-- Column 2: WhatsApp Chat Timeline -->
+    <div>
+      <h4 style="color:#34d399; font-size:0.95rem; margin:0 0 10px 0; display:flex; align-items:center; gap:6px;">
+        <span>📱</span> <span>সাম্প্রতিক WhatsApp কথোপকথন ও নোটিফিকেশন</span>
+      </h4>
+      <?php if (!empty($waHistory)): ?>
+        <div style="display:flex; flex-direction:column; gap:8px; max-height:280px; overflow-y:auto; padding-right:4px;">
+          <?php foreach ($waHistory as $msg): 
+              $isOutbound = str_starts_with((string)$msg['id'], 'out_') || str_contains((string)$msg['sender_name'], 'AutoMovie');
+              ?>
+            <div style="background:<?= $isOutbound ? 'rgba(2, 132, 199, 0.08)' : 'rgba(16, 185, 129, 0.08)' ?>; border:1px solid <?= $isOutbound ? '#0369a1' : '#047857' ?>; border-radius:8px; padding:10px 12px; font-size:0.84rem;">
+              <div style="display:flex; justify-content:space-between; margin-bottom:4px; font-size:0.75rem;">
+                <strong style="color:<?= $isOutbound ? '#38bdf8' : '#34d399' ?>;">
+                  <?= $isOutbound ? '📤 সিস্টেম / এজেন্ট ডেলিভারি' : '📥 কাস্টমারের মেসেজ' ?>
+                </strong>
+                <span style="color:#64748b;"><?= date('d M, h:i A', strtotime($msg['timestamp'])) ?></span>
+              </div>
+              <div style="color:#e2e8f0; font-size:0.8rem; line-height:1.4; white-space:pre-wrap;"><?= e(mb_strimwidth((string)$msg['message_body'], 0, 160, '…')) ?></div>
+            </div>
+          <?php endforeach; ?>
+        </div>
+      <?php else: ?>
+        <div style="background:#090e17; border:1px dashed #334155; border-radius:8px; padding:1.5rem; text-align:center; color:#64748b; font-size:0.85rem;">
+          কোনো সরাসরি WhatsApp মেসেজ লগ পাওয়া যায়নি।
+        </div>
+      <?php endif; ?>
+    </div>
+  </div>
 </div>
 
 <!-- Video Jobs Card -->

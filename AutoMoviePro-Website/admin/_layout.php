@@ -30,6 +30,14 @@ function admin_header(string $title, string $active = ''): void
             'broadcast' => ['/admin/broadcast.php', '📢', 'লাইভ এলার্ট ও নোটিশ', null],
             'cms' => ['/admin/cms.php', '📝', 'ওয়েবসাইট CMS কন্টেন্ট', null],
         ],
+        'গ্রাহক সেবা ও ভাষা' => [
+            'tickets' => ['/admin/tickets.php', '🎫', 'সাপোর্ট টিকিট ও রিপ্লাই', null],
+            'languages' => ['/admin/languages.php', '🌐', 'ভাষা আনলক আবেদন', null],
+        ],
+        'সফটওয়্যার ও পাইপলাইন' => [
+            'releases' => ['/admin/releases.php', '🚀', 'সফটওয়্যার রিলিজ ও আপডেট', null],
+            'pipeline_learning' => ['/admin/pipeline_learning.php', '🧠', 'এআই পাইপলাইন লার্নিং', null],
+        ],
         'সিস্টেম ও কনফিগারেশন' => [
             'settings' => ['/admin/settings.php', '⚙️', 'মূল্য ও পেমেন্ট নম্বর', null],
             'api_keys' => ['/admin/api_keys.php', '🔑', 'এআই এপিআই কি সেটিংস', null],
