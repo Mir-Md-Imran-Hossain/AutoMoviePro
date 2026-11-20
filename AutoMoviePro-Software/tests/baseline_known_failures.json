@@ -1,0 +1,262 @@
+{
+  "version": "1.0.0",
+  "phase": "Phase 1A Baseline Freeze",
+  "total_collected": 480,
+  "summary": {
+    "passed": 455,
+    "failed": 24,
+    "error": 1
+  },
+  "reconciliation_note": "Phase 0 report stated 456 passed due to a clerical typo. Exact collection is 480 items: 455 passed + 24 failed + 1 error = 480.",
+  "known_failures": [
+    {
+      "node_id": "tests/test_all_problem_groups.py::TestProblemGroup7::test_subtitle_mobile_font_size_punchy",
+      "class": "PRODUCT BUG",
+      "evidence": "AssertionError: 45 not greater than or equal to 54. Dynamic font size ratio returns 45pt while test asserts punchy size >= 54pt.",
+      "owner_phase": "Phase 3"
+    },
+    {
+      "node_id": "tests/test_audio_visual_hardening.py::TestAudioVisualHardening::test_bengali_kalpurush_font_resolution",
+      "class": "PRODUCT BUG",
+      "evidence": "AssertionError: 'Anek Bangla' != 'Kalpurush'. Font resolution in subtitle_burn.py prioritizes AnekBangla-Bold.ttf before Kalpurush.ttf.",
+      "owner_phase": "Phase 3"
+    },
+    {
+      "node_id": "tests/test_audio_visual_hardening.py::TestAudioVisualHardening::test_bgm_niche_mood_resolution",
+      "class": "PRODUCT BUG",
+      "evidence": "AssertionError: 'electronic_future' != 'noir_tension'. Niche 'Geopolitical Explainer' is not in _niche_to_mood mapping and falls back to default.",
+      "owner_phase": "Phase 3"
+    },
+    {
+      "node_id": "tests/test_cinematic_logo_branding.py::TestCinematicLogoBranding::test_graceful_fallback_missing_logo",
+      "class": "TEST BUG",
+      "evidence": "ServerTicketError: RENDER_LOCKED. Test invokes video composition make_color_clip without mocking cryptographic generation ticket.",
+      "owner_phase": "Phase 4"
+    },
+    {
+      "node_id": "tests/test_cinematic_logo_branding.py::TestCinematicLogoBranding::test_overlay_logo_horizontal_landscape",
+      "class": "TEST BUG",
+      "evidence": "ServerTicketError: RENDER_LOCKED. Test invokes video composition make_color_clip without mocking cryptographic generation ticket.",
+      "owner_phase": "Phase 4"
+    },
+    {
+      "node_id": "tests/test_cinematic_logo_branding.py::TestCinematicLogoBranding::test_overlay_logo_vertical_shorts_safe_zone",
+      "class": "TEST BUG",
+      "evidence": "ServerTicketError: RENDER_LOCKED. Test invokes video composition make_color_clip without mocking cryptographic generation ticket.",
+      "owner_phase": "Phase 4"
+    },
+    {
+      "node_id": "tests/test_live_news_pipeline.py::TestLiveNewsPipeline::test_03_generate_image_fallback_chain",
+      "class": "PRODUCT BUG",
+      "evidence": "AssertionError: Tuples differ: (736, 1312) != (720, 1280). Generated image is not automatically resized to standard target resolution.",
+      "owner_phase": "Phase 3"
+    },
+    {
+      "node_id": "tests/test_low_spec_and_resume_guard.py::TestLowSpecAndResumeGuard::test_cross_topic_hijacking_prevented",
+      "class": "PRODUCT BUG",
+      "evidence": "AssertionError: unexpectedly None. Topic resume manager failed to match resumed normalized topic string.",
+      "owner_phase": "Phase 3"
+    },
+    {
+      "node_id": "tests/test_pipeline_sync_audit.py::TestPipelineSyncAudit::test_canvas_typography_and_safe_zone",
+      "class": "PRODUCT BUG",
+      "evidence": "AssertionError: 45 not greater than or equal to 50. Canvas typography font size returns 45pt on portrait instead of expected >= 50pt.",
+      "owner_phase": "Phase 3"
+    },
+    {
+      "node_id": "tests/test_pipeline_sync_audit.py::TestPipelineSyncAudit::test_preferred_font_localization",
+      "class": "PRODUCT BUG",
+      "evidence": "AssertionError: 'Anek Bangla' not found in ['Kalpurush', 'Nirmala UI']. preferred_font('bn') returns 'Anek Bangla'.",
+      "owner_phase": "Phase 3"
+    },
+    {
+      "node_id": "tests/test_script_engine.py::TestScriptEngine::test_social_cta_scene",
+      "class": "PRODUCT BUG",
+      "evidence": "AssertionError: 2 != 1. Script generator outputs 2 CTA scenes instead of constraining to exactly 1.",
+      "owner_phase": "Phase 3"
+    },
+    {
+      "node_id": "tests/test_script_engine.py::TestScriptEngine::test_surgical_single_scene_regeneration",
+      "class": "PRODUCT BUG",
+      "evidence": "AssertionError: 'Revised with high engagement' not found in narration. Single scene regeneration does not update scene narration in place.",
+      "owner_phase": "Phase 3"
+    },
+    {
+      "node_id": "tests/test_step2_languages.py::TestStep2Languages::test_01_pricing_constants_and_base_entitlement",
+      "class": "PRODUCT BUG",
+      "evidence": "ValueError: secondary_lang_required. Multi-language localization is dormant (AMP_ENABLE_LOCALIZATION=0), making TARGET_LANG_CODES=('bn',) so secondary lang 'bn' equals source lang.",
+      "owner_phase": "Phase 3"
+    },
+    {
+      "node_id": "tests/test_step2_languages.py::TestStep2Languages::test_02_can_request_and_unlock_rules",
+      "class": "PRODUCT BUG",
+      "evidence": "AssertionError: False is not true. can_request('hi') returns False because multi-language localization is dormant by default.",
+      "owner_phase": "Phase 3"
+    },
+    {
+      "node_id": "tests/test_step6_7_audio_coherence.py::TestStep6And7AudioCoherence::test_niche_to_mood_mapping",
+      "class": "PRODUCT BUG",
+      "evidence": "AssertionError: 'electronic_future' != 'tech_ambient'. Niche 'Space Science' maps to default mood instead of tech_ambient.",
+      "owner_phase": "Phase 3"
+    },
+    {
+      "node_id": "tests/test_step6_7_audio_coherence.py::TestStep6And7AudioCoherence::test_synthesize_bgm_and_apply_ducking",
+      "class": "TEST BUG",
+      "evidence": "ServerTicketError: RENDER_LOCKED. Video composition called without mocking server generation ticket.",
+      "owner_phase": "Phase 4"
+    },
+    {
+      "node_id": "tests/test_step9_subtitles.py::TestStep9Subtitles::test_canvas_typography_and_safe_margins",
+      "class": "PRODUCT BUG",
+      "evidence": "AssertionError: 45 not greater than or equal to 48. Dynamic subtitle calculation returns 45pt instead of expected >= 48pt.",
+      "owner_phase": "Phase 3"
+    },
+    {
+      "node_id": "tests/test_tier_enforcement_leak_prevention.py::TestCustomerAuthTierEnforcement::test_can_customer_produce_blocks_lower_tiers",
+      "class": "TEST BUG",
+      "evidence": "Passes standalone; fails during full suite execution due to shared DB/auth mock state leakage across test modules.",
+      "owner_phase": "Phase 4"
+    },
+    {
+      "node_id": "tests/test_turnkey_and_cors.py::TurnkeyAndCorsTests::test_launcher_scripts_structure_and_zero_crash_guard",
+      "class": "MISSING ASSET",
+      "evidence": "AssertionError: Start_AutoMovie_Pro.vbs must exist. Root launcher script is missing or named start_app.bat.",
+      "owner_phase": "Phase 1B"
+    },
+    {
+      "node_id": "tests/test_ui_voice_legal_orchestrator_integration.py::TestUIVoiceLegalOrchestrator::test_voice_commentary_four_rendering_stages_and_mute_volume",
+      "class": "PRODUCT BUG",
+      "evidence": "AssertionError: False is not true. Voice commentary live screen text does not start with '[JARVIS]:' prefix.",
+      "owner_phase": "Phase 3"
+    },
+    {
+      "node_id": "tests/test_video_quality_and_cloud_sync.py::TestBgmFrequencyDucking::test_frequency_balanced_ducking_filter",
+      "class": "PRODUCT BUG",
+      "evidence": "AssertionError: 'weights=1.0 0.7' not found. Product FFmpeg amix filter was tuned to weights=1.0 0.6 while test asserts 1.0 0.7.",
+      "owner_phase": "Phase 3"
+    },
+    {
+      "node_id": "tests/test_video_quality_and_cloud_sync.py::TestWebsiteWhatsAppAlerts::test_pending_php_has_prominent_green_whatsapp_button",
+      "class": "TEST BUG",
+      "evidence": "AssertionError: 'wa.me/8801968111593' not found in pending.php. Test does raw static regex search on PHP source, whereas product dynamically renders whatsapp link from setting($pdo, 'whatsapp_number').",
+      "owner_phase": "Phase 4"
+    },
+    {
+      "node_id": "tests/test_voice_commentary.py::TestVoiceCommentary::test_all_15_requirements_cues_and_audio_files",
+      "class": "MISSING ASSET",
+      "evidence": "AssertionError: Audio file for topic_research must exist on disk. Pre-rendered voice commentary cue audio files are not committed to disk.",
+      "owner_phase": "Phase 3"
+    },
+    {
+      "node_id": "tests/test_voice_commentary.py::TestVoiceCommentary::test_onboarding_and_pipeline_commentary",
+      "class": "TEST BUG",
+      "evidence": "AssertionError: 'Grok' not found in commentary text. Text contains 'Groq' (Groq LPU); test assertion has typo expecting 'Grok'.",
+      "owner_phase": "Phase 4"
+    },
+    {
+      "node_id": "tests/test_google_pro_pipeline.py::test_google_drive_vault_sync_bundling",
+      "class": "PRODUCT BUG",
+      "evidence": "PermissionError: [WinError 32] at teardown. SQLite database connection remains open when temp directory is deleted on Windows.",
+      "owner_phase": "Phase 3"
+    }
+  ],
+  "scripts_amp004_analysis": {
+    "total_failures": 63,
+    "shared_root_cause": "ServerTicketError: RENDER_LOCKED",
+    "fail_closed_verification": "VERIFIED. Quality gates (evaluate_publishability, run_publishability_gate, H4PublishabilityInvariantTests) do NOT fail open; all 63 failures stem from assert_generation_ticket_valid() blocking compose.py.",
+    "classification": "TEST BUG / MISSING FIXTURE TICKET",
+    "owner_phase": "Phase 4",
+    "sample_failures": [
+      {
+        "node_id": "scripts/test_amp004_h4_real_workflow.py::H4SingleSceneE2ETests::test_20_valid_workflow_publishable",
+        "root_cause": "ServerTicketError: RENDER_LOCKED",
+        "detail": "Fails in materialize_e2e_fixture() during make_color_clip() because render ticket validation is locked without signed server token. The downstream quality gate evaluate_publishability is never reached, confirming fail-closed behavior."
+      },
+      {
+        "node_id": "scripts/test_amp004_h4_real_workflow.py::H4SingleSceneE2ETests::test_21_missing_visual_no_upload",
+        "root_cause": "ServerTicketError: RENDER_LOCKED",
+        "detail": "Fails at video clip generation in fixture setup before publishability checks can assert that missing visuals block upload."
+      },
+      {
+        "node_id": "scripts/test_amp004_phase09_e2e_industrial_qa.py::TestE2EIndustrialQA::test_01_full_pipeline_single_scene_render",
+        "root_cause": "ServerTicketError: RENDER_LOCKED",
+        "detail": "E2E single scene render composition invokes make_color_clip without mock generation ticket, correctly raising ServerTicketError: RENDER_LOCKED."
+      },
+      {
+        "node_id": "scripts/test_amp004_phase10_final_certification.py::TestFinalCertification::test_01_clean_boot_render_e2e",
+        "root_cause": "ServerTicketError: RENDER_LOCKED",
+        "detail": "Final certification render fails closed on assert_generation_ticket_valid() when running in offline standalone environment."
+      },
+      {
+        "node_id": "scripts/test_amp004_h4_real_workflow.py::H4LocalizationPackagingTests::test_12_packages_incomplete_fails",
+        "root_cause": "ServerTicketError: RENDER_LOCKED",
+        "detail": "Packaging fixture generation calls video composition without server ticket fixture, triggering RENDER_LOCKED lock."
+      }
+    ],
+    "all_failed_nodes": [
+      "scripts/test_amp004_h2_security_config.py::H2PathAndEnvTests::test_40_no_hardcoded_all_project_path",
+      "scripts/test_amp004_h2_security_config.py::H2ProductionRuntimeTests::test_50_default_settings_class_is_production",
+      "scripts/test_amp004_h3_performance_cost.py::H3LocalizationTests::test_20_dedupe_languages",
+      "scripts/test_amp004_h3_performance_cost.py::H3LocalizationTests::test_21_translate_cache_reuse",
+      "scripts/test_amp004_h4_real_workflow.py::H4LocalizationPackagingTests::test_12_packages_incomplete_fails",
+      "scripts/test_amp004_h4_real_workflow.py::H4LocalizationPackagingTests::test_13_missing_target_fails",
+      "scripts/test_amp004_h4_real_workflow.py::H4SingleSceneE2ETests::test_20_valid_workflow_publishable",
+      "scripts/test_amp004_h4_real_workflow.py::H4SingleSceneE2ETests::test_21_missing_visual_no_upload",
+      "scripts/test_amp004_h4_real_workflow.py::H4SingleSceneE2ETests::test_22_publishability_fail_no_upload",
+      "scripts/test_amp004_h4_real_workflow.py::H4SingleSceneE2ETests::test_23_unknown_multimodal_no_upload",
+      "scripts/test_amp004_h4_real_workflow.py::H4MultiSceneE2ETests::test_30_continuity_inject_fail_closed",
+      "scripts/test_amp004_h4_real_workflow.py::H4MultiSceneE2ETests::test_31_wrong_project_no_upload",
+      "scripts/test_amp004_h4_real_workflow.py::H4MultiSceneE2ETests::test_32_fixture_has_multiple_scenes",
+      "scripts/test_amp004_h4_real_workflow.py::H4SoftHandoffTests::test_41_soft_handoff_never_skips_publishability",
+      "scripts/test_amp004_h4_real_workflow.py::H4BatchIsolationTests::test_80_two_work_dirs_isolated",
+      "scripts/test_amp004_h4_real_workflow.py::H4ObservabilityTests::test_90_evidence_has_ids",
+      "scripts/test_amp004_h5_release.py::H5DependencyDocsTests::test_60_requirements_pinned",
+      "scripts/test_amp004_h5_release.py::H5DependencyDocsTests::test_61_spec_includes_ffmpeg",
+      "scripts/test_amp004_h5_release.py::H5LavfiSmokeTests::test_80_local_color_clip_when_ffmpeg",
+      "scripts/test_amp004_phase03_continuity.py::Phase03ContinuityTests::test_13_unexplained_state_transition_blocked",
+      "scripts/test_amp004_phase06_localization_subtitle_text.py::Phase06LocalizationTests::test_26_rtl_direction",
+      "scripts/test_amp004_phase06_localization_subtitle_text.py::Phase06LocalizationTests::test_42_unknown_not_pass",
+      "scripts/test_amp004_phase06_localization_subtitle_text.py::Phase06LocalizationTests::test_text_plan_exists",
+      "scripts/test_amp004_phase07_creative_production.py::Phase07CreativeProductionTests::test_01_script_structure",
+      "scripts/test_amp004_phase07_creative_production.py::Phase07CreativeProductionTests::test_31_retention_structure",
+      "scripts/test_amp004_phase09_e2e_industrial_qa.py::Phase09E2EIndustrialQATests::test_12_fixture_materialize",
+      "scripts/test_amp004_phase09_e2e_industrial_qa.py::Phase09E2EIndustrialQATests::test_16_identity_trace_pass",
+      "scripts/test_amp004_phase09_e2e_industrial_qa.py::Phase09E2EIndustrialQATests::test_17_identity_job_mismatch_blocks",
+      "scripts/test_amp004_phase09_e2e_industrial_qa.py::Phase09E2EIndustrialQATests::test_19_e2e_happy_path_executes_stages",
+      "scripts/test_amp004_phase09_e2e_industrial_qa.py::Phase09E2EIndustrialQATests::test_20_e2e_no_paid_api_flag",
+      "scripts/test_amp004_phase09_e2e_industrial_qa.py::Phase09E2EIndustrialQATests::test_21_e2e_records_environment",
+      "scripts/test_amp004_phase09_e2e_industrial_qa.py::Phase09E2EIndustrialQATests::test_22_e2e_performance_sanity_fields",
+      "scripts/test_amp004_phase09_e2e_industrial_qa.py::Phase09E2EIndustrialQATests::test_23_invalid_script_detected",
+      "scripts/test_amp004_phase09_e2e_industrial_qa.py::Phase09E2EIndustrialQATests::test_24_missing_visual_detected",
+      "scripts/test_amp004_phase09_e2e_industrial_qa.py::Phase09E2EIndustrialQATests::test_25_ffmpeg_fail_detected",
+      "scripts/test_amp004_phase09_e2e_industrial_qa.py::Phase09E2EIndustrialQATests::test_26_partial_output_rejected",
+      "scripts/test_amp004_phase09_e2e_industrial_qa.py::Phase09E2EIndustrialQATests::test_27_stale_tmp_rejected",
+      "scripts/test_amp004_phase09_e2e_industrial_qa.py::Phase09E2EIndustrialQATests::test_28_invalid_timeline_blocked",
+      "scripts/test_amp004_phase09_e2e_industrial_qa.py::Phase09E2EIndustrialQATests::test_29_wrong_project_detected",
+      "scripts/test_amp004_phase09_e2e_industrial_qa.py::Phase09E2EIndustrialQATests::test_30_invalid_audio_detected",
+      "scripts/test_amp004_phase09_e2e_industrial_qa.py::Phase09E2EIndustrialQATests::test_31_multimodal_blocked_not_publishable",
+      "scripts/test_amp004_phase09_e2e_industrial_qa.py::Phase09E2EIndustrialQATests::test_32_mandatory_unknown_blocks",
+      "scripts/test_amp004_phase09_e2e_industrial_qa.py::Phase09E2EIndustrialQATests::test_33_cross_modal_phone_size_block",
+      "scripts/test_amp004_phase09_e2e_industrial_qa.py::Phase09E2EIndustrialQATests::test_34_publishability_fail_injection",
+      "scripts/test_amp004_phase09_e2e_industrial_qa.py::Phase09E2EIndustrialQATests::test_35_no_ready_to_upload_on_failure",
+      "scripts/test_amp004_phase09_e2e_industrial_qa.py::Phase09E2EIndustrialQATests::test_36_recoverable_render",
+      "scripts/test_amp004_phase09_e2e_industrial_qa.py::Phase09E2EIndustrialQATests::test_46_door_vs_table_expected_block_meta",
+      "scripts/test_amp004_phase09_e2e_industrial_qa.py::Phase09E2EIndustrialQATests::test_48_observe_marks_env_limitation",
+      "scripts/test_amp004_phase09_e2e_industrial_qa.py::Phase09E2EIndustrialQATests::test_60_planned_duration_preflight_without_ffprobe",
+      "scripts/test_amp004_phase09_e2e_industrial_qa.py::Phase09E2EIndustrialQATests::test_63_render_id_in_evidence",
+      "scripts/test_amp004_phase09_e2e_industrial_qa.py::Phase09E2EIndustrialQATests::test_64_failure_records_classification",
+      "scripts/test_amp004_phase10_final_certification.py::Phase10FinalCertificationTests::test_05_discovery_not_machine_hardcoded",
+      "scripts/test_amp004_phase10_final_certification.py::Phase10FinalCertificationTests::test_10_real_clip_generation",
+      "scripts/test_amp004_phase10_final_certification.py::Phase10FinalCertificationTests::test_11_real_compose_and_observe",
+      "scripts/test_amp004_phase10_final_certification.py::Phase10FinalCertificationTests::test_12_rendering_integrity_gate_pass",
+      "scripts/test_amp004_phase10_final_certification.py::Phase10FinalCertificationTests::test_13_artifact_verification_pass",
+      "scripts/test_amp004_phase10_final_certification.py::Phase10FinalCertificationTests::test_16_real_media_end_to_end_publishable",
+      "scripts/test_amp004_phase10_final_certification.py::Phase10FinalCertificationTests::test_17_fail_closed_missing_visual",
+      "scripts/test_amp004_phase10_final_certification.py::Phase10FinalCertificationTests::test_18_fail_closed_ffmpeg_fail",
+      "scripts/test_amp004_phase10_final_certification.py::Phase10FinalCertificationTests::test_19_fail_closed_partial_output",
+      "scripts/test_amp004_phase10_final_certification.py::Phase10FinalCertificationTests::test_20_fail_closed_multimodal_block",
+      "scripts/test_amp004_phase10_final_certification.py::Phase10FinalCertificationTests::test_21_fail_closed_mandatory_unknown",
+      "scripts/test_amp004_phase10_final_certification.py::Phase10FinalCertificationTests::test_22_invalid_final_artifact_blocks"
+    ]
+  }
+}

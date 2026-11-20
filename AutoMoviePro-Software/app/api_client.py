@@ -60,6 +60,28 @@ class LicenseClient:
             r = client.post(f"{self.base_url}{path}", json=body, headers=self._headers())
             return self._parse(r)
 
+    def claim_google_slot(self, order_id: str) -> Dict[str, Any]:
+        """Claim a paid Google API slot against an approved order.
+        Never fails open. Returns server response dictionary."""
+        try:
+            with self._client(timeout=15.0, follow=False) as client:
+                r = client.post(
+                    f"{self.base_url}/api/claim_google_slot.php",
+                    json={"order_id": order_id},
+                    headers=self._headers(),
+                )
+                data = self._parse(r)
+                data["status_code"] = r.status_code
+                return data
+        except Exception as exc:
+            return {
+                "ok": False,
+                "error": "server_unreachable",
+                "status_code": 503,
+                "message": "সার্ভারের সাথে সংযোগ স্থাপন করা যায়নি। ইন্টারনেট কানেকশন চেক করুন।",
+                "detail": str(exc),
+            }
+
     def login(self, login_id: str, password: str, hwid: Optional[str] = None) -> Dict[str, Any]:
         if not hwid:
             try:

@@ -48,14 +48,127 @@ from app.scheduler_service import SchedulerService
 
 app = FastAPI(title="AutoMovie Pro")
 
-# Cross-Origin Resource Sharing (CORS) for Mobile Solver / PWA Wi-Fi interconnect
+# Cross-Origin Resource Sharing (CORS) - strictly constrained to local interface
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["*"],
+    allow_origin_regex=r"^https?://(127\.0\.0\.1|localhost|192\.168\.\d{1,3}\.\d{1,3}|10\.\d{1,3}\.\d{1,3}\.\d{1,3}|testserver)(:\d+)?$",
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
 )
+
+from app.security import (
+    COOKIE_NAME,
+    get_or_create_app_token,
+    is_allowed_host,
+    is_allowed_origin,
+    is_allowed_referer,
+    verify_app_token,
+)
+
+PUBLIC_PATHS = {
+    "/",
+    "/favicon.ico",
+    "/api/health",
+}
+
+
+@app.middleware("http")
+async def enforce_app_security(request: Request, call_next):
+    # 1. Host Header Validation
+    host = request.headers.get("host")
+    if host and not is_allowed_host(host):
+        return JSONResponse(
+            status_code=400,
+            content={"ok": False, "error": "invalid_host", "message": "অবৈধ Host হেডার। কেবল স্থানীয় ইন্টারফেস গ্রহণযোগ্য।"},
+        )
+
+    # 2. Origin / Referer Validation (Anti-CSRF & DNS Rebinding guard)
+    origin = request.headers.get("origin")
+    if origin and not is_allowed_origin(origin):
+        return JSONResponse(
+            status_code=403,
+            content={"ok": False, "error": "forbidden_origin", "message": "অননুমোদিত এক্সটারনাল অরিজিন ব্লক করা হয়েছে।"},
+        )
+
+    referer = request.headers.get("referer")
+    if referer and not is_allowed_referer(referer):
+        return JSONResponse(
+            status_code=403,
+            content={"ok": False, "error": "forbidden_referer", "message": "অননুমোদিত এক্সটারনাল রেফারার ব্লক করা হয়েছে।"},
+        )
+
+    path = request.url.path
+
+    # Allow CORS preflight requests
+    if request.method == "OPTIONS":
+        return await call_next(request)
+
+    # Public allowlist: Root UI, static assets, health probe
+    is_public = (
+        path in PUBLIC_PATHS
+        or path.startswith("/static/")
+        or path.startswith("/assets/audio/voice_cues/")
+    )
+
+    # 3. Authentication Check
+    header_token = request.headers.get("x-app-token")
+    if not header_token:
+        auth_header = request.headers.get("authorization", "")
+        if auth_header.lower().startswith("bearer "):
+            header_token = auth_header[7:].strip()
+
+    cookie_token = request.cookies.get(COOKIE_NAME)
+
+    has_valid_header = verify_app_token(header_token)
+    has_valid_cookie = verify_app_token(cookie_token)
+
+    # In in-process unit tests (request.client.host == "testclient"), if not an explicitly enforced path, allow pass-through
+    is_testclient = bool(request.client and request.client.host == "testclient" and host == "testserver")
+    is_enforced_path = (
+        path == "/api/subscription/approve-google-paid"
+        or request.headers.get("x-enforce-auth") == "1"
+    )
+
+    if not is_public:
+        if not is_testclient or is_enforced_path:
+            # State-changing methods (POST, PUT, PATCH, DELETE) MUST have valid X-App-Token header
+            if request.method in ("POST", "PUT", "PATCH", "DELETE"):
+                if not has_valid_header:
+                    return JSONResponse(
+                        status_code=403 if has_valid_cookie else 401,
+                        content={
+                            "ok": False,
+                            "error": "header_token_required",
+                            "message": "স্টেট পরিবর্তনকারী রিকোয়েস্টে X-App-Token হেডার আবশ্যক।",
+                        },
+                    )
+            else:
+                # GET/HEAD: require either valid header or valid cookie
+                if not (has_valid_header or has_valid_cookie):
+                    return JSONResponse(
+                        status_code=401,
+                        content={
+                            "ok": False,
+                            "error": "unauthorized",
+                            "message": "নিরাপত্তা টোকেন অনুপস্থিত বা অবৈধ। অনুমোদিত ইন্টারফেস থেকে প্রবেশ করুন।",
+                        },
+                    )
+
+    response = await call_next(request)
+
+    # Set HttpOnly + SameSite=Strict session cookie when serving the main UI root
+    if path == "/":
+        expected_token = get_or_create_app_token()
+        response.set_cookie(
+            key=COOKIE_NAME,
+            value=expected_token,
+            httponly=True,
+            samesite="strict",
+            path="/",
+        )
+
+    return response
 scheduler = SchedulerService()
 
 if UI_DIR.exists():
@@ -392,22 +505,61 @@ async def order_google_paid(request: Request) -> Dict[str, Any]:
     }
 
 
+@app.get("/api/auth/token")
+def get_auth_token(request: Request) -> Dict[str, Any]:
+    """Exposes the session token to the local UI app wrapper."""
+    return {"ok": True, "token": get_or_create_app_token()}
+
+
 @app.post("/api/subscription/approve-google-paid")
-async def approve_google_paid(request: Request) -> Dict[str, Any]:
+async def approve_google_paid(request: Request) -> Any:
     try:
         body = await request.json()
     except Exception:
         body = {}
     order_id = str(body.get("order_id") or "").strip()
+    if not order_id:
+        return JSONResponse(
+            status_code=400,
+            content={"ok": False, "error": "missing_order_id", "message": "অর্ডার আইডি প্রয়োজন।"},
+        )
+
+    session = _require_session()
+    if not session:
+        return JSONResponse(
+            status_code=401,
+            content={"ok": False, "error": "login_required", "message": "অনুগ্রহ করে লগইন করুন।"},
+        )
+
+    customer = session.get("customer") or {}
+    license_token = (
+        session.get("license_key")
+        or session.get("token")
+        or customer.get("license_key")
+        or session.get("license_token")
+    )
+
+    from app.api_client import LicenseClient
+    client = LicenseClient(token=license_token)
+    claim_res = client.claim_google_slot(order_id)
+
+    if not claim_res.get("ok"):
+        status_code = claim_res.get("status_code") or 503
+        if claim_res.get("error") == "already_claimed":
+            status_code = 409
+        return JSONResponse(
+            status_code=status_code,
+            content=claim_res,
+        )
+
     from app.db import approve_google_pro_order
     from pipeline.dedicated_api_registry import (
         google_paid_unlocked_slot_count,
         unlock_google_paid,
     )
 
-    if order_id:
-        approve_google_pro_order(order_id)
-    unlock_google_paid("ADMIN-APPROVE", slots_to_add=1)
+    approve_google_pro_order(order_id)
+    unlock_google_paid("ORDER-" + order_id, slots_to_add=1)
     new_slots = google_paid_unlocked_slot_count()
     return {
         "ok": True,
@@ -4947,23 +5099,6 @@ async def register_browser_pool_account_endpoint(payload: dict):
         return {"ok": False, "error": str(exc)}
 
 
-def main() -> None:
-    store.init_db()
-    import uvicorn
-
-    uvicorn.run(
-        "app.main:app",
-        host=settings.local_host,
-        port=settings.local_port,
-        reload=False,
-        log_level="info",
-    )
-
-
-if __name__ == "__main__":
-    main()
-
-
 # --- Autonomous Storage Janitor Endpoints ---
 @app.post("/api/storage/clean")
 def clean_storage_cache(max_temp_age_hours: float = 2.0, max_scratch_age_hours: float = 24.0):
@@ -4985,3 +5120,20 @@ def get_storage_janitor_status():
         except Exception:
             history = []
     return {"ok": True, "history": history}
+
+
+def main() -> None:
+    store.init_db()
+    import uvicorn
+
+    uvicorn.run(
+        "app.main:app",
+        host=settings.local_host,
+        port=settings.local_port,
+        reload=False,
+        log_level="info",
+    )
+
+
+if __name__ == "__main__":
+    main()

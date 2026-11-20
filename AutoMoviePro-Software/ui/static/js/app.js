@@ -1,7 +1,32 @@
+let _appSecurityToken = null;
+
+async function _ensureSecurityToken() {
+  if (_appSecurityToken) return _appSecurityToken;
+  try {
+    const res = await fetch("/api/auth/token", { credentials: "same-origin" });
+    if (res.ok) {
+      const data = await res.json();
+      if (data && data.token) {
+        _appSecurityToken = data.token;
+      }
+    }
+  } catch (err) {
+    console.warn("Could not retrieve session security token:", err);
+  }
+  return _appSecurityToken;
+}
+
 async function api(path, opts = {}) {
+  await _ensureSecurityToken();
+  const headers = {
+    ...(opts.body instanceof FormData ? {} : { "Content-Type": "application/json" }),
+    ...(_appSecurityToken ? { "X-App-Token": _appSecurityToken } : {}),
+    ...(opts.headers || {}),
+  };
   const res = await fetch(path, {
-    headers: opts.body instanceof FormData ? undefined : { "Content-Type": "application/json" },
+    credentials: "same-origin",
     ...opts,
+    headers,
   });
   return res.json();
 }

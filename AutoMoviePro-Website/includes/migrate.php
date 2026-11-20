@@ -81,6 +81,12 @@ function ensure_amp_migrations(PDO $pdo): void
         $pdo->exec("ALTER TABLE orders ADD COLUMN order_token VARCHAR(64) NULL");
     } catch (\Throwable $e) {}
     try {
+        $pdo->exec("ALTER TABLE orders ADD COLUMN google_slot_claimed INTEGER NOT NULL DEFAULT 0");
+    } catch (\Throwable $e) {}
+    try {
+        $pdo->exec("ALTER TABLE orders ADD COLUMN google_slot_claimed_at DATETIME NULL");
+    } catch (\Throwable $e) {}
+    try {
         $driver = (string) $pdo->getAttribute(PDO::ATTR_DRIVER_NAME);
         if ($driver === 'sqlite') {
             $pdo->exec(
