@@ -12,35 +12,43 @@ if (str_starts_with($agentKeyHeader, 'Bearer ')) {
 if (empty($agentKeyHeader) && function_exists('getallheaders')) {
     $allHdrs = getallheaders();
     foreach ($allHdrs as $k => $v) {
-        if (strcasecmp($k, 'X-Agent-Key') === 0) {
+        if (strcasecmp((string)$k, 'X-Agent-Key') === 0) {
             $agentKeyHeader = trim((string) $v);
             break;
         }
     }
 }
 
-$configuredKey = setting($pdo, 'agent_master_secret', '');
+$configuredKey = $config['agent_master_secret'] ?? getenv('AMP_AGENT_MASTER_SECRET') ?: '';
 if (empty($configuredKey)) {
-    $configuredKey = setting($pdo, 'agent_internal_secret_key', '');
-}
-if (empty($configuredKey)) {
-    $configuredKey = $config['agent_master_secret'] ?? getenv('AMP_AGENT_MASTER_SECRET') ?: 'amp_agent_master_live_key_2026';
-    set_setting($pdo, 'agent_master_secret', $configuredKey);
+    $configuredKey = (string) setting($pdo, 'agent_master_secret', '');
 }
 
 $rawInput = file_get_contents('php://input');
 $bodyData = json_decode($rawInput ?: '', true);
 
-$providedKey = trim((string) ($agentKeyHeader ?: ($_GET['key'] ?? ($bodyData['key'] ?? ($_POST['key'] ?? '')))));
+// W-04: No query parameter key ($_GET['key']) allowed. Headers or POST body only.
+$providedKey = trim((string) ($agentKeyHeader ?: (is_array($bodyData) ? ($bodyData['key'] ?? '') : ($_POST['key'] ?? ''))));
 $isAuthorized = false;
 
-if (!empty($providedKey) && hash_equals($configuredKey, $providedKey)) {
+if (!empty($configuredKey) && !amp_is_compromised_secret($configuredKey) && !empty($providedKey) && hash_equals($configuredKey, $providedKey)) {
     $isAuthorized = true;
-} elseif (!empty($_SESSION['admin_logged_in'])) {
+}
+// W-03: Use centralized admin_logged_in() helper
+if (!$isAuthorized && admin_logged_in()) {
     $isAuthorized = true;
 }
 
 if (!$isAuthorized) {
+    if (amp_is_compromised_secret($configuredKey) && !admin_logged_in()) {
+        http_response_code(503);
+        echo json_encode([
+            'ok' => false,
+            'error' => 'secret_unconfigured',
+            'message' => 'মাস্টার এজেন্ট কি (Master Agent Key) কনফিগার করা হয়নি অথবা ডিফল্ট সিক্রেট সনাক্ত হয়েছে।'
+        ], JSON_UNESCAPED_UNICODE);
+        exit;
+    }
     http_response_code(401);
     echo json_encode([
         'ok' => false,

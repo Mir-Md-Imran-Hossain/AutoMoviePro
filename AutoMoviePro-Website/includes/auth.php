@@ -3,7 +3,31 @@ declare(strict_types=1);
 
 function admin_logged_in(): bool
 {
-    return !empty($_SESSION['admin_id']);
+    if (empty($_SESSION['admin_id'])) {
+        return false;
+    }
+    $now = time();
+    $idleTimeout = 3600; // 1 hour idle timeout
+    $maxLifetime = 43200; // 12 hours absolute session lifetime
+
+    if (!empty($_SESSION['admin_last_activity']) && ($now - (int) $_SESSION['admin_last_activity']) > $idleTimeout) {
+        $_SESSION = [];
+        if (session_status() === PHP_SESSION_ACTIVE) {
+            session_destroy();
+        }
+        return false;
+    }
+
+    if (!empty($_SESSION['admin_login_time']) && ($now - (int) $_SESSION['admin_login_time']) > $maxLifetime) {
+        $_SESSION = [];
+        if (session_status() === PHP_SESSION_ACTIVE) {
+            session_destroy();
+        }
+        return false;
+    }
+
+    $_SESSION['admin_last_activity'] = $now;
+    return true;
 }
 
 function require_admin(): void
@@ -21,8 +45,15 @@ function attempt_admin_login(PDO $pdo, string $username, string $password): bool
     if (!$row || !password_verify($password, $row['password_hash'])) {
         return false;
     }
+    if (session_status() === PHP_SESSION_ACTIVE) {
+        session_regenerate_id(true);
+    }
+    $now = time();
     $_SESSION['admin_id'] = (int) $row['id'];
     $_SESSION['admin_user'] = $username;
+    $_SESSION['admin_logged_in'] = true;
+    $_SESSION['admin_login_time'] = $now;
+    $_SESSION['admin_last_activity'] = $now;
     return true;
 }
 
@@ -32,7 +63,8 @@ function api_bearer_token(): ?string
     if (preg_match('/Bearer\s+(\S+)/i', $header, $m)) {
         return $m[1];
     }
-    return $_POST['token'] ?? $_GET['token'] ?? null;
+    // W-04: Reject tokens in query strings ($_GET['token']). Only POST body allowed if header is absent.
+    return $_POST['token'] ?? null;
 }
 
 function api_customer_from_token(PDO $pdo, ?string $token): ?array

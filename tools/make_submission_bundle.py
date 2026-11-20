@@ -188,30 +188,41 @@ def main():
     test_results_dst = temp_dir / "test_results"
     test_results_dst.mkdir(parents=True, exist_ok=True)
 
-    # Run quick pytest and php test summary
+    # Run test suites and record outputs
     try:
+        env = os.environ.copy()
+        env["PYTHONPATH"] = str(ROOT_DIR / "AutoMoviePro-Software")
         py_res = subprocess.run(
-            [sys.executable, "-m", "pytest", "AutoMoviePro-Software/tests/test_s03_security_and_auth.py", "-q"],
+            [sys.executable, "-m", "pytest", "AutoMoviePro-Software/tests/test_s03_security_and_auth.py", "AutoMoviePro-Software/tests/test_api_client_auth.py", "-q"],
             cwd=str(ROOT_DIR),
             capture_output=True,
             text=True,
+            env=env,
         )
-        (test_results_dst / "pytest_s03_security.txt").write_text(py_res.stdout + "\n" + py_res.stderr, encoding="utf-8")
+        (test_results_dst / "pytest_security_results.txt").write_text(py_res.stdout + "\n" + py_res.stderr, encoding="utf-8")
     except Exception as e:
-        (test_results_dst / "pytest_s03_security.txt").write_text(f"Error running pytest: {e}", encoding="utf-8")
+        (test_results_dst / "pytest_security_results.txt").write_text(f"Error running pytest: {e}", encoding="utf-8")
 
     try:
         php_exe = r"C:\wamp64\bin\php\php8.2.29\php.exe"
         if os.path.exists(php_exe):
             php_res = subprocess.run(
+                [php_exe, "AutoMoviePro-Website/tests/test_phase1b_security.php"],
+                cwd=str(ROOT_DIR),
+                capture_output=True,
+                text=True,
+            )
+            (test_results_dst / "php_phase1b_security.txt").write_text(php_res.stdout + "\n" + php_res.stderr, encoding="utf-8")
+
+            php_res2 = subprocess.run(
                 [php_exe, "AutoMoviePro-Website/tests/test_claim_google_slot.php"],
                 cwd=str(ROOT_DIR),
                 capture_output=True,
                 text=True,
             )
-            (test_results_dst / "php_claim_google_slot.txt").write_text(php_res.stdout + "\n" + php_res.stderr, encoding="utf-8")
+            (test_results_dst / "php_claim_google_slot.txt").write_text(php_res2.stdout + "\n" + php_res2.stderr, encoding="utf-8")
     except Exception as e:
-        (test_results_dst / "php_claim_google_slot.txt").write_text(f"Error running php test: {e}", encoding="utf-8")
+        (test_results_dst / "php_tests_error.txt").write_text(f"Error running php test: {e}", encoding="utf-8")
 
     # Baseline comparison summary
     baseline_summary = {

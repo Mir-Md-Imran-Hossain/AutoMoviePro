@@ -1,6 +1,12 @@
 <?php
 declare(strict_types=1);
 
+if (PHP_SAPI !== 'cli') {
+    http_response_code(404);
+    exit('Not Found');
+}
+
+
 /**
  * Unit & Integration Test Suite for Server-Proof Google AI Pro Slot Claim API
  * Path: AutoMoviePro-Website/api/claim_google_slot.php

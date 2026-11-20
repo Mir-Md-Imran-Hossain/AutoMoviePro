@@ -26,7 +26,7 @@ class AdminAppService:
     def __init__(self, site_endpoint: str = "http://127.0.0.1:8080"):
         self.site_endpoint = site_endpoint.rstrip("/")
         self.base_dir = Path(__file__).resolve().parent.parent
-        self.agent_key = os.getenv("AMP_AGENT_MASTER_SECRET", "amp_agent_master_live_key_2026")
+        self.agent_key = os.getenv("AMP_AGENT_MASTER_SECRET", "")
 
     def _get_db_path(self) -> Path:
         custom = os.getenv("AMP_DATABASE_PATH")

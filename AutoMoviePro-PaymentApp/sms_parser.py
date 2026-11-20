@@ -76,18 +76,24 @@ class PaymentSMSParser:
         return None
 
     @staticmethod
-    def push_to_gateway(gateway_url: str, parsed_data: Dict[str, Any], timeout_sec: int = 10) -> Dict[str, Any]:
+    def push_to_gateway(gateway_url: str, parsed_data: Dict[str, Any], timeout_sec: int = 10, gateway_secret: Optional[str] = None) -> Dict[str, Any]:
         """
         Dispatches parsed SMS directly to central AutoMovie Pro website gateway.
         """
+        import os
         import urllib.request
         import json
 
+        secret = gateway_secret if gateway_secret is not None else os.getenv("AMP_SMS_GATEWAY_SECRET", "")
         req_data = json.dumps(parsed_data).encode("utf-8")
+        headers = {"Content-Type": "application/json; charset=utf-8"}
+        if secret:
+            headers["X-Gateway-Secret"] = secret
+
         req = urllib.request.Request(
             gateway_url,
             data=req_data,
-            headers={"Content-Type": "application/json; charset=utf-8"},
+            headers=headers,
             method="POST"
         )
         try:

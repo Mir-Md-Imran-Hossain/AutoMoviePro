@@ -4,7 +4,10 @@ require dirname(__DIR__) . '/includes/bootstrap.php';
 
 $error = '';
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    if (!check_rate_limit($pdo, 'admin_login', 5, 60)) {
+    if (!csrf_verify($_POST['csrf'] ?? null)) {
+        http_response_code(403);
+        $error = 'নিরাপত্তা টোকেন (CSRF) মেলেনি বা মেয়াদ শেষ হয়েছে। অনুগ্রহ করে পেজটি রিফ্রেশ করে আবার চেষ্টা করুন।';
+    } elseif (!check_rate_limit($pdo, 'admin_login', 5, 60)) {
         http_response_code(429);
         $error = 'অত্যধিক বার ভুল চেষ্টার কারণে আপনার অ্যাক্সেস সাময়িকভাবে স্থগিত করা হয়েছে। অনুগ্রহ করে কিছুক্ষণ পর আবার চেষ্টা করুন।';
     } else {
@@ -282,6 +285,7 @@ if (admin_logged_in()) {
       <?php endif; ?>
 
       <form method="post" autocomplete="on">
+        <?= csrf_field() ?>
         <div class="form-group">
           <label for="usernameInput">অ্যাডমিন ইউজারনেম (Username)</label>
           <div class="input-wrapper">

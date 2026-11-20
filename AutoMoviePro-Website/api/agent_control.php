@@ -17,17 +17,35 @@ require_once dirname(__DIR__) . '/includes/bootstrap.php';
 // -----------------------------------------------------------------------------
 // 1. Authentication & Security Layer
 // -----------------------------------------------------------------------------
-$agentKeyHeader = $_SERVER['HTTP_X_AGENT_KEY'] ?? $_SERVER['HTTP_AUTHORIZATION'] ?? '';
+$agentKeyHeader = trim((string) ($_SERVER['HTTP_X_AGENT_KEY'] ?? $_SERVER['HTTP_AUTHORIZATION'] ?? ''));
 if (str_starts_with($agentKeyHeader, 'Bearer ')) {
-    $agentKeyHeader = substr($agentKeyHeader, 7);
+    $agentKeyHeader = trim(substr($agentKeyHeader, 7));
+}
+if (empty($agentKeyHeader) && function_exists('getallheaders')) {
+    $allHdrs = getallheaders();
+    foreach ($allHdrs as $k => $v) {
+        if (strcasecmp((string)$k, 'X-Agent-Key') === 0) {
+            $agentKeyHeader = trim((string) $v);
+            break;
+        }
+    }
 }
 
-// Master agent key can be set in site_settings, config.php, or environment variable.
-// Default fallback secret for initial setup:
-$configuredKey = setting($pdo, 'agent_master_secret', '');
+// Master agent key must come from config.php, environment, or DB setting.
+// Never fall back to a hardcoded string.
+$configuredKey = $config['agent_master_secret'] ?? getenv('AMP_AGENT_MASTER_SECRET') ?: '';
 if (empty($configuredKey)) {
-    $configuredKey = $config['agent_master_secret'] ?? getenv('AMP_AGENT_MASTER_SECRET') ?: 'amp_agent_master_live_key_2026';
-    set_setting($pdo, 'agent_master_secret', $configuredKey);
+    $configuredKey = (string) setting($pdo, 'agent_master_secret', '');
+}
+
+if (amp_is_compromised_secret($configuredKey)) {
+    http_response_code(503);
+    echo json_encode([
+        'ok' => false,
+        'error' => 'secret_unconfigured',
+        'message' => 'মাস্টার এজেন্ট কি (Master Agent Key) কনফিগার করা হয়নি অথবা ডিফল্ট বা অনিরাপদ কি সনাক্ত হয়েছে। অনুগ্রহ করে config.php বা এনভায়রনমেন্ট ভেরিয়েবল AMP_AGENT_MASTER_SECRET সেট করুন / Master Agent Key is unconfigured or using a compromised default value.'
+    ], JSON_UNESCAPED_UNICODE);
+    exit;
 }
 
 // Ensure database table for chat logs exists so Agent can supervise all conversations
@@ -63,13 +81,13 @@ try {
     }
 } catch (\Throwable $e) {}
 
-// Verify Key
-if ($agentKeyHeader !== $configuredKey && ($_GET['key'] ?? '') !== $configuredKey) {
+// Verify Key using hash_equals (W-04: no query string key allowed)
+if (empty($agentKeyHeader) || !hash_equals($configuredKey, $agentKeyHeader)) {
     http_response_code(401);
     echo json_encode([
         'ok' => false,
         'error' => 'unauthorized',
-        'message' => 'Invalid or missing Agent Master Key. Provide via X-Agent-Key header or key parameter.'
+        'message' => 'Invalid or missing Agent Master Key. Provide via X-Agent-Key header or Authorization: Bearer header.'
     ], JSON_UNESCAPED_UNICODE);
     exit;
 }

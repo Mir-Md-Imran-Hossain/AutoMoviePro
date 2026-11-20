@@ -10,9 +10,11 @@ RewriteCond %{HTTP:X-Forwarded-Proto} !https
 RewriteCond %{HTTP_HOST} ^(www\.)?automoviepro\.com$ [NC]
 RewriteRule ^ https://automoviepro.com%{REQUEST_URI} [L,R=301]
 
-# Protect config and includes
-RewriteRule ^config\.php$ - [F,L]
-RewriteRule ^includes/ - [F,L]
+# Protect config, sensitive directories, and private file types (W-06)
+RewriteRule ^config(\..*)?\.php$ - [F,L]
+RewriteRule ^(includes|tests|scripts|storage|rules|submissions)/ - [F,L]
+RewriteRule ^install\.lock$ - [F,L]
+RewriteRule \.(sqlite[0-9]*|db|local-demo|user\.ini|md|sql|log)$ - [F,L]
 
 # Pretty API routes optional – files work as /api/login.php
 Options -Indexes

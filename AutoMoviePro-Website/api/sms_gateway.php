@@ -5,20 +5,28 @@ header('Content-Type: application/json; charset=utf-8');
 require_once __DIR__ . '/../includes/bootstrap.php';
 require_once __DIR__ . '/../includes/billing.php';
 
-// Authentication Guard: require sms_gateway_secret, X-Agent-Key, or admin session
-$configuredSecret = setting($pdo, 'sms_gateway_secret', '');
+// Authentication Guard: require sms_gateway_secret, X-Agent-Key, or valid admin session
+$configuredSecret = $config['sms_gateway_secret'] ?? getenv('AMP_SMS_GATEWAY_SECRET') ?: '';
 if (empty($configuredSecret)) {
-    $configuredSecret = $config['sms_gateway_secret'] ?? getenv('AMP_SMS_GATEWAY_SECRET') ?: '';
-    if (empty($configuredSecret)) {
-        $masterKey = setting($pdo, 'agent_master_secret', '');
-        $configuredSecret = !empty($masterKey) ? $masterKey : 'amp_sms_gateway_live_secret_2026';
-    }
-    set_setting($pdo, 'sms_gateway_secret', $configuredSecret);
+    $configuredSecret = (string) setting($pdo, 'sms_gateway_secret', '');
 }
 
-$masterSecret = setting($pdo, 'agent_master_secret', '');
+$masterSecret = $config['agent_master_secret'] ?? getenv('AMP_AGENT_MASTER_SECRET') ?: '';
 if (empty($masterSecret)) {
-    $masterSecret = $config['agent_master_secret'] ?? getenv('AMP_AGENT_MASTER_SECRET') ?: 'amp_agent_master_live_key_2026';
+    $masterSecret = (string) setting($pdo, 'agent_master_secret', '');
+}
+
+$secretValid = (!empty($configuredSecret) && !amp_is_compromised_secret($configuredSecret));
+$masterValid = (!empty($masterSecret) && !amp_is_compromised_secret($masterSecret));
+
+if (!$secretValid && !$masterValid && !admin_logged_in()) {
+    http_response_code(503);
+    echo json_encode([
+        'ok' => false,
+        'error' => 'secret_unconfigured',
+        'message' => 'SMS Gateway Secret কনফিগার করা হয়নি অথবা ডিফল্ট বা অনিরাপদ সিক্রেট সনাক্ত হয়েছে। অনুগ্রহ করে config.php বা এনভায়রনমেন্ট ভেরিয়েবল AMP_SMS_GATEWAY_SECRET সেট করুন / SMS Gateway secret is unconfigured or using a compromised default value.'
+    ], JSON_UNESCAPED_UNICODE);
+    exit;
 }
 
 $raw = file_get_contents('php://input');
@@ -34,25 +42,27 @@ if (str_starts_with($reqSecret, 'Bearer ')) {
 if (empty($reqSecret) && function_exists('getallheaders')) {
     $allHdrs = getallheaders();
     foreach ($allHdrs as $k => $v) {
-        if (in_array(strtolower($k), ['x-gateway-secret', 'x-sms-secret', 'x-agent-key'], true)) {
+        if (in_array(strtolower((string)$k), ['x-gateway-secret', 'x-sms-secret', 'x-agent-key'], true)) {
             $reqSecret = trim((string) $v);
             break;
         }
     }
 }
-if (empty($reqSecret)) {
-    $reqSecret = trim((string) ($_GET['secret'] ?? ($_GET['key'] ?? ($data['secret'] ?? ($data['gateway_secret'] ?? ($data['key'] ?? ''))))));
+// W-04: Only headers or POST payload allowed; query params ($_GET['key']/$_GET['secret']) strictly rejected
+if (empty($reqSecret) && !empty($data['gateway_secret'])) {
+    $reqSecret = trim((string) $data['gateway_secret']);
 }
 
 $isAuthorized = false;
 if (!empty($reqSecret)) {
-    if (!empty($configuredSecret) && hash_equals($configuredSecret, $reqSecret)) {
+    if ($secretValid && hash_equals($configuredSecret, $reqSecret)) {
         $isAuthorized = true;
-    } elseif (!empty($masterSecret) && hash_equals($masterSecret, $reqSecret)) {
+    } elseif ($masterValid && hash_equals($masterSecret, $reqSecret)) {
         $isAuthorized = true;
     }
 }
-if (!$isAuthorized && !empty($_SESSION['admin_logged_in'])) {
+// W-03: Use centralized admin_logged_in() helper with idle timeout and session regeneration
+if (!$isAuthorized && admin_logged_in()) {
     $isAuthorized = true;
 }
 
@@ -61,7 +71,7 @@ if (!$isAuthorized) {
     echo json_encode([
         'ok' => false,
         'error' => 'unauthorized',
-        'message' => 'Unauthorized access. Valid SMS gateway secret or Agent Key required.'
+        'message' => 'Unauthorized access. Valid SMS gateway secret or Agent Key required via headers.'
     ], JSON_UNESCAPED_UNICODE);
     exit;
 }

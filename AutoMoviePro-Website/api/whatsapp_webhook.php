@@ -16,12 +16,22 @@ ensure_amp_migrations($pdo);
 // -------------------------------------------------------------
 if ($_SERVER['REQUEST_METHOD'] === 'GET') {
     $mode = $_GET['hub_mode'] ?? $_GET['hub.mode'] ?? '';
-    $token = $_GET['hub_verify_token'] ?? $_GET['hub.verify_token'] ?? '';
-    $challenge = $_GET['hub_challenge'] ?? $_GET['hub.challenge'] ?? '';
+    $token = (string) ($_GET['hub_verify_token'] ?? $_GET['hub.verify_token'] ?? '');
+    $challenge = (string) ($_GET['hub_challenge'] ?? $_GET['hub.challenge'] ?? '');
 
-    // Verify token check
-    $savedToken = get_setting($pdo, 'whatsapp_webhook_verify_token', 'automoviepro_wa_webhook_secure_key_2026');
-    if ($mode === 'subscribe' && ($token === $savedToken || $token === 'automoviepro_wa_webhook_secure_key_2026')) {
+    $savedToken = $config['whatsapp_webhook_verify_token'] ?? getenv('AMP_WA_VERIFY_TOKEN') ?: '';
+    if (empty($savedToken)) {
+        $savedToken = (string) get_setting($pdo, 'whatsapp_webhook_verify_token', '');
+    }
+
+    if (amp_is_compromised_secret($savedToken)) {
+        http_response_code(503);
+        header('Content-Type: text/plain; charset=utf-8');
+        echo "Service Unavailable: WhatsApp Webhook verify token is unconfigured or compromised.";
+        exit;
+    }
+
+    if ($mode === 'subscribe' && !empty($token) && hash_equals($savedToken, $token)) {
         http_response_code(200);
         header('Content-Type: text/plain; charset=utf-8');
         echo $challenge;
@@ -37,7 +47,51 @@ if ($_SERVER['REQUEST_METHOD'] === 'GET') {
 // 2. POST Request: Live Message / Status Event Processing
 // -------------------------------------------------------------
 $rawInput = file_get_contents('php://input');
-$data = json_decode($rawInput, true);
+
+// W-05: Verify X-Hub-Signature-256 (HMAC-SHA256 with app secret, hash_equals)
+$appSecret = $config['whatsapp_app_secret'] ?? getenv('AMP_WA_APP_SECRET') ?: '';
+if (empty($appSecret)) {
+    $appSecret = (string) get_setting($pdo, 'whatsapp_app_secret', '');
+}
+if (empty($appSecret)) {
+    // If dedicated app secret not set, check whatsapp_token from config
+    $appSecret = (string) ($config['whatsapp_token'] ?? '');
+}
+
+if (amp_is_compromised_secret($appSecret)) {
+    http_response_code(503);
+    header('Content-Type: application/json; charset=utf-8');
+    echo json_encode(['ok' => false, 'error' => 'secret_unconfigured', 'message' => 'WhatsApp app secret is unconfigured.']);
+    exit;
+}
+
+$sigHeader = trim((string) ($_SERVER['HTTP_X_HUB_SIGNATURE_256'] ?? ''));
+if (empty($sigHeader) && function_exists('getallheaders')) {
+    $allHdrs = getallheaders();
+    foreach ($allHdrs as $k => $v) {
+        if (strcasecmp((string)$k, 'X-Hub-Signature-256') === 0) {
+            $sigHeader = trim((string) $v);
+            break;
+        }
+    }
+}
+
+if (empty($sigHeader) || !str_starts_with($sigHeader, 'sha256=')) {
+    http_response_code(403);
+    header('Content-Type: application/json; charset=utf-8');
+    echo json_encode(['ok' => false, 'error' => 'missing_signature', 'message' => 'Missing or invalid X-Hub-Signature-256 header.']);
+    exit;
+}
+
+$expectedSig = 'sha256=' . hash_hmac('sha256', (string) $rawInput, $appSecret);
+if (!hash_equals($expectedSig, $sigHeader)) {
+    http_response_code(403);
+    header('Content-Type: application/json; charset=utf-8');
+    echo json_encode(['ok' => false, 'error' => 'invalid_signature', 'message' => 'X-Hub-Signature-256 verification failed.']);
+    exit;
+}
+
+$data = json_decode($rawInput ?: '', true);
 
 if (!is_array($data)) {
     http_response_code(400);

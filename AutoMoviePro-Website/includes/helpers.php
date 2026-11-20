@@ -87,12 +87,54 @@ function generate_login_id(): string
     return 'AMP' . strtoupper(bin2hex(random_bytes(3)));
 }
 
+function amp_is_compromised_secret(?string $val): bool
+{
+    if ($val === null || trim($val) === '') {
+        return true;
+    }
+    $compromised = [
+        'amp_agent_master_live_key_2026',
+        'amp_sms_gateway_live_secret_2026',
+        'automoviepro_wa_webhook_secure_key_2026',
+        'secret',
+        'password',
+        '123456',
+        'default',
+    ];
+    return in_array(trim($val), $compromised, true);
+}
+
+function amp_get_signing_secret(PDO $pdo): string
+{
+    global $config;
+    $secret = $config['order_signing_secret'] ?? getenv('AMP_ORDER_SIGNING_SECRET') ?: '';
+    if (empty($secret)) {
+        $secret = setting($pdo, 'order_signing_secret', '');
+    }
+    if (empty($secret)) {
+        // Read or generate per-install secret in storage/.signing_secret
+        $secretFile = dirname(__DIR__) . '/storage/.signing_secret';
+        if (is_file($secretFile)) {
+            $secret = trim((string) file_get_contents($secretFile));
+        } else {
+            $secret = bin2hex(random_bytes(32));
+            @mkdir(dirname(__DIR__) . '/storage', 0755, true);
+            @file_put_contents($secretFile, $secret);
+            set_setting($pdo, 'order_signing_secret', $secret);
+        }
+    }
+    if (amp_is_compromised_secret($secret)) {
+        throw new RuntimeException('Order signing secret is unconfigured or using a compromised default value.');
+    }
+    return $secret;
+}
+
 function amp_get_order_token(PDO $pdo, array $order): string
 {
     if (!empty($order['order_token'])) {
         return (string) $order['order_token'];
     }
-    $secret = setting($pdo, 'agent_master_secret', 'amp_agent_master_live_key_2026');
+    $secret = amp_get_signing_secret($pdo);
     return hash_hmac('sha256', (string) ($order['id'] ?? 0), $secret);
 }
 
@@ -106,33 +148,50 @@ function amp_verify_order_token(PDO $pdo, array $order, ?string $token): bool
         return true;
     }
     // 2. Cryptographic HMAC matching hash_hmac('sha256', (string)$order['id'], $secret)
-    $secret = setting($pdo, 'agent_master_secret', 'amp_agent_master_live_key_2026');
+    try {
+        $secret = amp_get_signing_secret($pdo);
+    } catch (\Throwable $e) {
+        return false;
+    }
     $expectedHmac = hash_hmac('sha256', (string) ($order['id'] ?? 0), $secret);
     return hash_equals($expectedHmac, $token);
 }
 
+function amp_trusted_proxies(): array
+{
+    global $config;
+    $custom = $config['trusted_proxies'] ?? getenv('AMP_TRUSTED_PROXIES') ?: '127.0.0.1,::1';
+    $list = is_array($custom) ? $custom : explode(',', (string) $custom);
+    return array_filter(array_map('trim', $list));
+}
+
 function client_ip(): string
 {
-    $headers = [
-        'HTTP_CF_CONNECTING_IP',
-        'HTTP_X_REAL_IP',
-        'HTTP_X_FORWARDED_FOR',
-        'REMOTE_ADDR'
-    ];
-    foreach ($headers as $h) {
-        if (!empty($_SERVER[$h])) {
-            $raw = (string) $_SERVER[$h];
-            if (str_contains($raw, ',')) {
-                $parts = explode(',', $raw);
-                $raw = trim($parts[0]);
-            }
-            $clean = trim($raw);
-            if (filter_var($clean, FILTER_VALIDATE_IP)) {
-                return $clean;
+    $remoteAddr = trim((string) ($_SERVER['REMOTE_ADDR'] ?? (PHP_SAPI === 'cli' ? '127.0.0.1' : '0.0.0.0')));
+    $trusted = amp_trusted_proxies();
+    $isTrustedProxy = in_array($remoteAddr, $trusted, true);
+
+    if ($isTrustedProxy) {
+        $headers = [
+            'HTTP_CF_CONNECTING_IP',
+            'HTTP_X_REAL_IP',
+            'HTTP_X_FORWARDED_FOR',
+        ];
+        foreach ($headers as $h) {
+            if (!empty($_SERVER[$h])) {
+                $raw = (string) $_SERVER[$h];
+                if (str_contains($raw, ',')) {
+                    $parts = explode(',', $raw);
+                    $raw = trim($parts[0]);
+                }
+                $clean = trim($raw);
+                if (filter_var($clean, FILTER_VALIDATE_IP)) {
+                    return $clean;
+                }
             }
         }
     }
-    return $_SERVER['REMOTE_ADDR'] ?? '0.0.0.0';
+    return $remoteAddr !== '' ? $remoteAddr : '0.0.0.0';
 }
 
 function check_rate_limit(PDO $pdo, string $actionKey, int $maxHits = 15, int $windowSeconds = 60): bool
@@ -183,7 +242,11 @@ function check_rate_limit(PDO $pdo, string $actionKey, int $maxHits = 15, int $w
             }
             $pdo->prepare("INSERT INTO rate_limit_tracker (ip, action_key, timestamp) VALUES (?, ?, ?)")
                 ->execute([$ip, $actionKey, $now]);
-        } catch (\Throwable $e2) {}
-        return true;
+            return true;
+        } catch (\Throwable $e2) {
+            // Fail closed on critical endpoints (login, otp, payment, api)
+            error_log("Rate limiter failed closed for {$actionKey}: " . $e2->getMessage());
+            return false;
+        }
     }
 }

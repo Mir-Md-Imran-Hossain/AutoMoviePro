@@ -1,6 +1,12 @@
 <?php
 declare(strict_types=1);
 
+if (PHP_SAPI !== 'cli') {
+    http_response_code(404);
+    exit('Not Found');
+}
+
+
 $root = dirname(__DIR__);
 require_once $root . '/includes/bootstrap.php';
 

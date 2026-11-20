@@ -1,6 +1,12 @@
 <?php
 declare(strict_types=1);
 
+if (PHP_SAPI !== 'cli') {
+    http_response_code(404);
+    exit('Not Found');
+}
+
+
 /**
  * License / subscription / app-gateway contract tests (SQLite, no Hostinger).
  * Run: C:\wamp64\bin\php\php8.3.28\php.exe scripts/test_license_gateway.php

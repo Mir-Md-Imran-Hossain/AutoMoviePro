@@ -45,11 +45,9 @@ class LicenseClient:
         return httpx.Client(timeout=timeout, follow_redirects=follow)
 
     def _get(self, path: str, timeout: float = 20.0) -> Dict[str, Any]:
-        params: Dict[str, str] = {}
-        if self.token:
-            params["token"] = self.token
+        # W-04: Tokens must NOT be passed in query strings. Authorization header is sent via self._headers()
         with self._client(timeout, follow=True) as client:
-            r = client.get(f"{self.base_url}{path}", headers=self._headers(), params=params)
+            r = client.get(f"{self.base_url}{path}", headers=self._headers())
             return self._parse(r)
 
     def _post(self, path: str, payload: Optional[Dict[str, Any]] = None, timeout: float = 30.0) -> Dict[str, Any]:

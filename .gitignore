@@ -36,5 +36,8 @@ AutoMoviePro-WebmasterAgent/
 node_modules/
 *.sqlite
 AutoMoviePro-Website/database.sqlite
+AutoMoviePro-Website/storage/
+*.signing_secret
+install.lock
 submissions/
 
